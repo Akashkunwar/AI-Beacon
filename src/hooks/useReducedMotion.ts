@@ -1,6 +1,6 @@
 // src/hooks/useReducedMotion.ts
 // Returns true when the user's OS has "Reduce Motion" enabled.
-// Used throughout DEPTH to disable/shorten Framer Motion animations.
+// Used throughout AI Beacon to disable/shorten Framer Motion animations.
 
 import { useEffect, useState } from 'react';
 

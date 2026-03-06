@@ -16,10 +16,10 @@ interface ISEOProps {
 export function SEO({
     title,
     description,
-    canonical = 'https://depth-llm.vercel.app/',
+    canonical = 'https://ai-beacon.vercel.app/',
     ogTitle,
     ogDescription,
-    ogImage = 'https://depth-llm.vercel.app/og-image.png',
+    ogImage = 'https://ai-beacon.vercel.app/og-image.png',
     twitterTitle,
     twitterDescription,
     twitterImage,

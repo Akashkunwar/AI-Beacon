@@ -1,5 +1,5 @@
 // src/lib/store/types.ts
-// Core TypeScript interfaces for the DEPTH simulator.
+// Core TypeScript interfaces for the AI Beacon simulator.
 
 import type { Tensor } from '@/lib/mathEngine';
 

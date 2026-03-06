@@ -31,7 +31,7 @@ const SIZE_CLASSES: Record<BadgeSize, string> = {
 // ─── Badge ────────────────────────────────────────────────────────────────────
 
 /**
- * Status and label badge component for DEPTH.
+ * Status and label badge component for AI Beacon.
  * Renders with the bioluminescent deep-sea color palette.
  *
  * Variants: primary (cyan), secondary (teal), accent (purple),

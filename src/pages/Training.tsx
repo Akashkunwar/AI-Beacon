@@ -497,7 +497,7 @@ export function Training() {
             '@type': 'HowToStep',
             'position': i + 1,
             'name': s.label,
-            'url': `https://depth-llm.vercel.app/transformer-training-simulator#step-${s.num}`,
+            'url': `https://ai-beacon.vercel.app/transformer-training-simulator#step-${s.num}`,
         })),
     };
 

@@ -1,5 +1,5 @@
 // src/lib/tokenizer/vocab.ts
-// Demo vocabulary (~500 tokens) for the DEPTH LLM Visualizer
+// Demo vocabulary (~500 tokens) for the AI Beacon LLM Visualizer
 // Token IDs are 1-indexed (0 is reserved for <UNK>)
 
 export const VOCAB_SIZE = 512;
