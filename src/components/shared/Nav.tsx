@@ -1,8 +1,6 @@
-// src/components/shared/Nav.tsx
-// Shared sticky navigation header — used by Home, Training, and future pages.
-// Monochrome only. No colour.
-
+import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const NAV_LINKS = [
     { label: 'AI Timeline', to: '/timeline', live: true },
@@ -20,6 +18,19 @@ interface NavProps {
 export function Nav({ activeRoute }: NavProps) {
     const location = useLocation();
     const currentPath = activeRoute ?? location.pathname;
+    const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+    // Lock scroll when mobile menu is open
+    useEffect(() => {
+        if (isMobileMenuOpen) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = '';
+        }
+        return () => {
+            document.body.style.overflow = '';
+        };
+    }, [isMobileMenuOpen]);
 
     return (
         <nav
@@ -36,7 +47,7 @@ export function Nav({ activeRoute }: NavProps) {
                 alignItems: 'center',
             }}
         >
-            <div className="depth-container" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+            <div className="depth-container" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', width: '100%' }}>
                 {/* Logo */}
                 <Link to="/" style={{ display: 'flex', alignItems: 'center', gap: 'var(--s2)', textDecoration: 'none' }}>
                     <span style={{
@@ -60,8 +71,8 @@ export function Nav({ activeRoute }: NavProps) {
                     </span>
                 </Link>
 
-                {/* Nav Links */}
-                <div className="nav-links" style={{ display: 'flex', alignItems: 'center', gap: 'var(--s1)' }}>
+                {/* Desktop Nav Links */}
+                <div className="nav-links-desktop" style={{ display: 'flex', alignItems: 'center', gap: 'var(--s1)' }}>
                     {NAV_LINKS.map((link) => {
                         const isActive = link.live && link.to === currentPath;
 
@@ -130,10 +141,117 @@ export function Nav({ activeRoute }: NavProps) {
                         );
                     })}
                 </div>
+
+                {/* Mobile Toggle Button */}
+                <button
+                    className="mobile-toggle"
+                    onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                    aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
+                    style={{
+                        display: 'none',
+                        background: 'none',
+                        border: 'none',
+                        padding: 'var(--s2)',
+                        cursor: 'pointer',
+                        color: 'var(--ink)',
+                    }}
+                >
+                    {isMobileMenuOpen ? (
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                            <line x1="18" y1="6" x2="6" y2="18"></line>
+                            <line x1="6" y1="6" x2="18" y2="18"></line>
+                        </svg>
+                    ) : (
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                            <line x1="3" y1="12" x2="21" y2="12"></line>
+                            <line x1="3" y1="6" x2="21" y2="6"></line>
+                            <line x1="3" y1="18" x2="21" y2="18"></line>
+                        </svg>
+                    )}
+                </button>
             </div>
+
+            {/* Mobile Menu Overlay */}
+            <AnimatePresence>
+                {isMobileMenuOpen && (
+                    <motion.div
+                        initial={{ opacity: 0, y: -10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -10 }}
+                        transition={{ duration: 0.2, ease: "easeOut" }}
+                        style={{
+                            position: 'absolute',
+                            top: '52px',
+                            left: 0,
+                            right: 0,
+                            background: 'var(--bg)',
+                            borderBottom: '1px solid var(--stroke)',
+                            padding: 'var(--s4) var(--s6)',
+                            display: 'flex',
+                            flexDirection: 'column',
+                            gap: 'var(--s4)',
+                            zIndex: 'var(--z-nav)',
+                            boxShadow: 'var(--shadow-lg)',
+                        }}
+                    >
+                        {NAV_LINKS.map((link) => {
+                            const isActive = link.live && link.to === currentPath;
+
+                            if (link.live && link.to) {
+                                return (
+                                    <Link
+                                        key={link.label}
+                                        to={link.to}
+                                        onClick={() => setIsMobileMenuOpen(false)}
+                                        style={{
+                                            fontFamily: 'var(--font-sans)',
+                                            fontSize: 'var(--text-md)',
+                                            fontWeight: isActive ? 'var(--weight-medium)' : 'var(--weight-regular)',
+                                            color: isActive ? 'var(--ink)' : 'var(--secondary)',
+                                            textDecoration: 'none',
+                                            padding: 'var(--s2) 0',
+                                        }}
+                                    >
+                                        {link.label}
+                                    </Link>
+                                );
+                            }
+
+                            return (
+                                <div
+                                    key={link.label}
+                                    style={{
+                                        fontFamily: 'var(--font-sans)',
+                                        fontSize: 'var(--text-md)',
+                                        fontWeight: 'var(--weight-regular)',
+                                        color: 'var(--muted)',
+                                        display: 'flex',
+                                        alignItems: 'center',
+                                        justifyContent: 'space-between',
+                                        padding: 'var(--s2) 0',
+                                    }}
+                                >
+                                    {link.label}
+                                    <span style={{
+                                        fontFamily: 'var(--font-mono)',
+                                        fontSize: 'var(--text-2xs)',
+                                        background: 'var(--bg-raised)',
+                                        borderRadius: 'var(--r-pill)',
+                                        padding: '2px 8px',
+                                    }}>
+                                        soon
+                                    </span>
+                                </div>
+                            );
+                        })}
+                    </motion.div>
+                )}
+            </AnimatePresence>
+
             <style>{`
                 @media (max-width: 760px) {
-                    .nav-links { display: none !important; }
+                    .nav-links-desktop { display: none !important; }
+                    .mobile-toggle { display: block !important; }
                 }
             `}</style>
         </nav>
