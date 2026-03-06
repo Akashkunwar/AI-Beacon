@@ -1,0 +1,886 @@
+{
+    "metadata": {
+        "title": "AI Coding Tools Timeline",
+        "description": "A curated timeline of the most influential AI tools, IDEs, and agents that revolutionized software development.",
+        "last_updated": "2026-03-06",
+        "total_tools": 54,
+        "fields": [
+            "id",
+            "name",
+            "company",
+            "release_date",
+            "open_source",
+            "license",
+            "category",
+            "description",
+            "key_features",
+            "url"
+        ]
+    },
+    "tools": [
+        {
+            "id": 1,
+            "name": "Tabnine",
+            "company": "Tabnine",
+            "release_date": "2018-01-01",
+            "open_source": false,
+            "license": "Proprietary",
+            "category": "AI Code Assistant",
+            "description": "One of the earliest AI-powered code completion tools that emphasizes privacy by allowing local model execution and training on private codebases.",
+            "key_features": [
+                "Local model execution",
+                "Whole-line completions",
+                "Enterprise privacy controls"
+            ],
+            "url": "https://tabnine.com"
+        },
+        {
+            "id": 2,
+            "name": "Comet ML",
+            "company": "Comet",
+            "release_date": "2018-04-05",
+            "open_source": false,
+            "license": "Proprietary",
+            "category": "MLOps Platform",
+            "description": "A popular MLOps platform used by data scientists to track, compare, explain, and optimize machine learning models and experiments from training to production.",
+            "key_features": [
+                "Experiment tracking",
+                "Model performance comparison",
+                "Opik LLM evaluation"
+            ],
+            "url": "https://www.comet.com/"
+        },
+        {
+            "id": 3,
+            "name": "Pinecone",
+            "company": "Pinecone Systems",
+            "release_date": "2021-01-01",
+            "open_source": false,
+            "license": "Proprietary",
+            "category": "Vector Database",
+            "description": "A fully managed, serverless vector database designed for high-performance AI applications, handling billions of embeddings with low-latency similarity search.",
+            "key_features": [
+                "Serverless scaling",
+                "Metadata filtering",
+                "Live similarity indices"
+            ],
+            "url": "https://pinecone.io"
+        },
+        {
+            "id": 4,
+            "name": "GitHub Copilot",
+            "company": "GitHub / OpenAI",
+            "release_date": "2021-06-29",
+            "open_source": false,
+            "license": "Proprietary",
+            "category": "AI Code Assistant",
+            "description": "The first major AI pair programmer that provided real-time code suggestions directly in the editor, powered by OpenAI's Codex model. It fundamentally changed how developers write boilerplate code.",
+            "key_features": [
+                "Real-time code completion",
+                "Natural language to code",
+                "IDE integration"
+            ],
+            "url": "https://github.com/features/copilot"
+        },
+        {
+            "id": 5,
+            "name": "Nomic Atlas",
+            "company": "Nomic AI",
+            "release_date": "2022-03-01",
+            "open_source": false,
+            "license": "Proprietary",
+            "category": "AI Data Engine",
+            "description": "An AI-powered data engine that allows developers to visually explore, curate, search, and map massive unstructured datasets in their browser to understand model training data better.",
+            "key_features": [
+                "Visual data mapping",
+                "Unstructured data search",
+                "Browser-based curation"
+            ],
+            "url": "https://nomic.ai/"
+        },
+        {
+            "id": 6,
+            "name": "HeyGen",
+            "company": "HeyGen",
+            "release_date": "2022-07-01",
+            "open_source": false,
+            "license": "Proprietary",
+            "category": "AI Video Platform",
+            "description": "An AI-powered video platform that creates realistic AI avatars that lip-sync to scripts, widely used for marketing, tutorials, and corporate training.",
+            "key_features": [
+                "Realistic AI avatars",
+                "Video translation & lip-sync",
+                "Instant voice cloning"
+            ],
+            "url": "https://heygen.com"
+        },
+        {
+            "id": 7,
+            "name": "Phind",
+            "company": "DGB Solutions",
+            "release_date": "2022-07-01",
+            "open_source": false,
+            "license": "Proprietary",
+            "category": "AI Answer Engine for Developers",
+            "description": "A specialized search engine for developers that provides direct answers to coding questions with integrated code snippets and citations, prioritizing technical accuracy.",
+            "key_features": [
+                "Real-time technical search",
+                "Integrated IDE extensions",
+                "High-context code answers"
+            ],
+            "url": "https://phind.com"
+        },
+        {
+            "id": 8,
+            "name": "Midjourney",
+            "company": "Midjourney, Inc.",
+            "release_date": "2022-07-12",
+            "open_source": false,
+            "license": "Proprietary",
+            "category": "AI Image Generator",
+            "description": "The industry standard for high-quality artistic image generation, known for its superior aesthetics, fine-tuned styles, and creative control via Discord.",
+            "key_features": [
+                "High-fidelity image generation",
+                "Stylize and variation tools",
+                "Inpainting and outpainting"
+            ],
+            "url": "https://midjourney.com"
+        },
+        {
+            "id": 9,
+            "name": "LangChain",
+            "company": "Harrison Chase / LangChain",
+            "release_date": "2022-10-01",
+            "open_source": true,
+            "license": "MIT",
+            "category": "AI Framework",
+            "description": "A quintessential open-source framework designed to simplify the creation of applications powered by large language models, providing tools for document retrieval, agents, and chaining.",
+            "key_features": [
+                "LLM application framework",
+                "RAG tooling",
+                "Agent abstraction"
+            ],
+            "url": "https://www.langchain.com/"
+        },
+        {
+            "id": 10,
+            "name": "LlamaIndex",
+            "company": "LlamaIndex, Inc.",
+            "release_date": "2022-11-01",
+            "open_source": true,
+            "license": "MIT",
+            "category": "AI Framework",
+            "description": "An open-source data orchestration framework designed to connect AI models to private data (PDFs, SQL databases, APIs) to build search and answer engines.",
+            "key_features": [
+                "Data connectors",
+                "RAG orchestration",
+                "Advanced indexing"
+            ],
+            "url": "https://llamaindex.ai"
+        },
+        {
+            "id": 11,
+            "name": "ChatGPT",
+            "company": "OpenAI",
+            "release_date": "2022-11-30",
+            "open_source": false,
+            "license": "Proprietary",
+            "category": "AI Chatbot / Answer Engine",
+            "description": "The conversational AI that triggered the global generative AI boom. Built on the GPT architecture, it handles everything from creative writing to complex coding debugging.",
+            "key_features": [
+                "Human-like dialogue",
+                "Multi-modal capabilities",
+                "Extensive knowledge base"
+            ],
+            "url": "https://chat.openai.com"
+        },
+        {
+            "name": "Leonardo.ai",
+            "company": "Canva / Leonardo.ai",
+            "release_date": "2022-12-01",
+            "open_source": false,
+            "license": "Proprietary",
+            "category": "AI Image Generator",
+            "description": "A high-performance creative platform for image generation and video editing, offering granular control over fine-tuned models.",
+            "key_features": [
+                "Canvas editor",
+                "Custom model training",
+                "Real-time generation"
+            ],
+            "url": "https://leonardo.ai",
+            "id": 12
+        },
+        {
+            "id": 13,
+            "name": "Perplexity",
+            "company": "Perplexity AI",
+            "release_date": "2022-12-07",
+            "open_source": false,
+            "license": "Proprietary",
+            "category": "AI Answer Engine",
+            "description": "A conversational search engine that uses AI to provide direct, cited answers to queries rather than a list of links, revolutionizing how users retrieve information on the web.",
+            "key_features": [
+                "Real-time web search",
+                "Inline citations",
+                "Follow-up questions"
+            ],
+            "url": "https://www.perplexity.ai/"
+        },
+        {
+            "id": 14,
+            "name": "Poe",
+            "company": "Quora",
+            "release_date": "2022-12-21",
+            "open_source": false,
+            "license": "Proprietary",
+            "category": "AI Bot Platform",
+            "description": "A unified platform to access multiple AI models and create custom bots, facilitating seamless switching between models like Claude, GPT-4, and Llama.",
+            "key_features": [
+                "Multi-model access",
+                "Custom bot creation",
+                "Prompt engineering tools"
+            ],
+            "url": "https://poe.com"
+        },
+        {
+            "id": 15,
+            "name": "Cursor",
+            "company": "Anysphere",
+            "release_date": "2023-01-01",
+            "open_source": false,
+            "license": "Proprietary",
+            "category": "AI Code Editor",
+            "description": "An AI-first code editor built as a fork of VS Code. It revolutionized the developer experience with features like inline natural language edits, codebase-wide chat, and 'Composer' functionality.",
+            "key_features": [
+                "Composer multi-file edits",
+                "Codebase indexing",
+                "Inline generation (Cmd+K)"
+            ],
+            "url": "https://cursor.com/"
+        },
+        {
+            "id": 16,
+            "name": "ElevenLabs",
+            "company": "ElevenLabs",
+            "release_date": "2023-01-21",
+            "open_source": false,
+            "license": "Proprietary",
+            "category": "AI Audio Generator",
+            "description": "The market leader for AI voice generation, creating hyper-realistic text-to-speech and voice cloning for software apps and promotional content.",
+            "key_features": [
+                "Voice cloning",
+                "Multilingual text-to-speech",
+                "Emotionally expressive audio"
+            ],
+            "url": "https://elevenlabs.io"
+        },
+        {
+            "id": 17,
+            "name": "Runway Gen-2",
+            "company": "Runway AI, Inc.",
+            "release_date": "2023-03-20",
+            "open_source": false,
+            "license": "Proprietary",
+            "category": "AI Video Generator",
+            "description": "A multimodal generative AI system that generates novel videos using text, images, or video clips, enabling cinematic content creation from prompts.",
+            "key_features": [
+                "Text-to-video",
+                "Image-to-video",
+                "High-fidelity generation"
+            ],
+            "url": "https://runwayml.com"
+        },
+        {
+            "id": 18,
+            "name": "AutoGPT",
+            "company": "Significant Gravitas Ltd",
+            "release_date": "2023-03-30",
+            "open_source": true,
+            "license": "MIT",
+            "category": "Autonomous AI Agent",
+            "description": "One of the earliest and most viral open-source applications demonstrating the autonomous capabilities of GPT-4 by giving the AI internet access, memory, and task execution logic.",
+            "key_features": [
+                "Autonomous goal execution",
+                "Internet browsing",
+                "Memory management"
+            ],
+            "url": "https://github.com/Significant-Gravitas/AutoGPT"
+        },
+        {
+            "id": 19,
+            "name": "Supabase Vector",
+            "company": "Supabase / Celonis",
+            "release_date": "2023-05-01",
+            "open_source": true,
+            "license": "Apache 2.0",
+            "category": "Vector Database",
+            "description": "An open-source vector toolkit for PostgreSQL (pgvector) that allows developers to store, index, and query embeddings at scale alongside transactional data.",
+            "key_features": [
+                "Unified SQL & Vector data",
+                "Semantic search toolkit",
+                "RAG integration"
+            ],
+            "url": "https://supabase.com"
+        },
+        {
+            "id": 20,
+            "name": "NotebookLM",
+            "company": "Google",
+            "release_date": "2023-05-10",
+            "open_source": false,
+            "license": "Proprietary",
+            "category": "AI Research Assistant",
+            "description": "An AI-powered notebook that allows users to upload their own documents (PDFs, Docs) and interact with them using a grounded AI thinking partner.",
+            "key_features": [
+                "Source-grounded answers",
+                "Audio overviews / Podcasts",
+                "Document summarization"
+            ],
+            "url": "https://notebooklm.google"
+        },
+        {
+            "id": 21,
+            "name": "Aider",
+            "company": "Paul Gauthier",
+            "release_date": "2023-05-11",
+            "open_source": true,
+            "license": "Apache 2.0",
+            "category": "AI CLI Coding Assistant",
+            "description": "A highly capable open-source command line tool that pairs with LLMs to edit code directly in your local git repository. Introduced novel repo-mapping techniques for providing context to LLMs.",
+            "key_features": [
+                "Git integration",
+                "Self-healing syntax/lint errors",
+                "Repo map generation"
+            ],
+            "url": "https://aider.chat/"
+        },
+        {
+            "id": 22,
+            "name": "Sourcegraph Cody",
+            "company": "Sourcegraph",
+            "release_date": "2023-06-01",
+            "open_source": true,
+            "license": "Apache 2.0",
+            "category": "AI Code Assistant",
+            "description": "An AI coding assistant that uses a code graph to understand entire codebases, providing context-aware answers, walkthroughs, and code generation across massive repositories.",
+            "key_features": [
+                "Global codebase context",
+                "Natural language code search",
+                "Multi-model support"
+            ],
+            "url": "https://about.sourcegraph.com/cody"
+        },
+        {
+            "name": "vLLM",
+            "company": "vLLM Project",
+            "release_date": "2023-06-01",
+            "open_source": true,
+            "license": "Apache 2.0",
+            "category": "LLM Inference Engine",
+            "description": "A high-throughput, memory-efficient serving engine for LLMs, utilizing PagedAttention to optimize GPU memory.",
+            "key_features": [
+                "PagedAttention",
+                "Continuous batching",
+                "High-throughput serving"
+            ],
+            "url": "https://vllm.ai",
+            "id": 23
+        },
+        {
+            "id": 24,
+            "name": "Greptile",
+            "company": "Tabnam Inc.",
+            "release_date": "2023-07-01",
+            "open_source": false,
+            "license": "Proprietary",
+            "category": "AI Code Intelligence",
+            "description": "An 'AI staff engineer' that builds a knowledge graph of entire codebases to provide deep insights, automated PR reviews, and architectural documentation.",
+            "key_features": [
+                "Codebase knowledge graph",
+                "Agentic PR reviews",
+                "Documentation automation"
+            ],
+            "url": "https://greptile.com"
+        },
+        {
+            "id": 25,
+            "name": "Ollama",
+            "company": "Ollama",
+            "release_date": "2023-07-08",
+            "open_source": true,
+            "license": "MIT",
+            "category": "Local AI Runner",
+            "description": "An open-source tool that allows users to easily set up and run large language models locally on their machines without needing complex environments or cloud services.",
+            "key_features": [
+                "Local LLM execution",
+                "Model library",
+                "Cross-platform compatibility"
+            ],
+            "url": "https://ollama.com/"
+        },
+        {
+            "id": 26,
+            "name": "CodeRabbit",
+            "company": "CodeRabbit",
+            "release_date": "2023-08-01",
+            "open_source": false,
+            "license": "Proprietary",
+            "category": "AI Code Reviewer",
+            "description": "An AI peer reviewer that integrates into GitHub/GitLab to provide contextual feedback, catch bugs, and suggest improvements automatically on pull requests.",
+            "key_features": [
+                "Automated PR summaries",
+                "Line-by-line code review",
+                "Chat on PRs"
+            ],
+            "url": "https://coderabbit.ai/"
+        },
+        {
+            "id": 27,
+            "name": "v0",
+            "company": "Vercel",
+            "release_date": "2023-10-11",
+            "open_source": false,
+            "license": "Proprietary",
+            "category": "AI UI Generator",
+            "description": "A generative user interface system by Vercel that allows developers to create React/Tailwind UI components using natural language prompts, accelerating frontend development.",
+            "key_features": [
+                "Generative UI",
+                "React & Tailwind CSS output",
+                "Iterative design via chat"
+            ],
+            "url": "https://v0.dev/"
+        },
+        {
+            "name": "Pika",
+            "company": "Pika Labs",
+            "release_date": "2023-11-28",
+            "open_source": false,
+            "license": "Proprietary",
+            "category": "AI Video Generator",
+            "description": "A leading platform for generating and editing videos from text and images, known for its creative control and animation quality.",
+            "key_features": [
+                "Text-to-Video",
+                "Sound effects generation",
+                "Video inpainting"
+            ],
+            "url": "https://pika.art",
+            "id": 28
+        },
+        {
+            "id": 29,
+            "name": "LM Studio",
+            "company": "Element Labs",
+            "release_date": "2023-11-29",
+            "open_source": false,
+            "license": "Proprietary",
+            "category": "Local AI Runner",
+            "description": "A desktop application for downloading and running open-source models (like Llama 3 or Mistral) entirely offline. Provides a clean chat UI and a local server drop-in replacement for OpenAI API.",
+            "key_features": [
+                "Local LLM execution",
+                "OpenAI-compatible server",
+                "Offline privacy"
+            ],
+            "url": "https://lmstudio.ai"
+        },
+        {
+            "id": 30,
+            "name": "Zapier Central",
+            "company": "Zapier",
+            "release_date": "2024-03-06",
+            "open_source": false,
+            "license": "Proprietary",
+            "category": "AI Automation Platform",
+            "description": "An AI workspace for creating, training, and collaborating with agents that perform tasks across 6,000+ integrated applications using live data.",
+            "key_features": [
+                "No-code agent builder",
+                "Live app integrations",
+                "Conversational AI workforce"
+            ],
+            "url": "https://zapier.com/central"
+        },
+        {
+            "id": 31,
+            "name": "Devin",
+            "company": "Cognition Labs",
+            "release_date": "2024-03-12",
+            "open_source": false,
+            "license": "Proprietary",
+            "category": "Autonomous AI Software Engineer",
+            "description": "Introduced as the world's first fully autonomous AI software engineer, capable of planning, coding, debugging, and deploying entire projects within its own secure sandboxed environment.",
+            "key_features": [
+                "Autonomous task execution",
+                "Integrated terminal, browser, and editor",
+                "SWE-bench state-of-the-art"
+            ],
+            "url": "https://www.cognition.ai/"
+        },
+        {
+            "id": 32,
+            "name": "OpenHands",
+            "company": "OpenHands (formerly OpenDevin)",
+            "release_date": "2024-03-12",
+            "open_source": true,
+            "license": "Apache 2.0",
+            "category": "Autonomous AI Software Engineer",
+            "description": "An open-source alternative to proprietary autonomous AI engineers, providing a sandbox environment for an AI agent to read code, write software, and run tests independently.",
+            "key_features": [
+                "Open-source SWE agent",
+                "Sandboxed execution",
+                "Extensible tool system"
+            ],
+            "url": "https://openhands.dev/"
+        },
+        {
+            "id": 33,
+            "name": "Suno AI",
+            "company": "Suno AI",
+            "release_date": "2024-03-21",
+            "open_source": false,
+            "license": "Proprietary",
+            "category": "AI Audio / Music Generator",
+            "description": "A pioneering AI music generation platform that creates full, radio-quality songs with vocals and instrumentation from simple text prompts. Version 3 marked a massive leap in quality.",
+            "key_features": [
+                "Full song generation",
+                "High-fidelity vocals",
+                "Multi-genre support"
+            ],
+            "url": "https://suno.com"
+        },
+        {
+            "id": 34,
+            "name": "Udio",
+            "company": "Udio Music",
+            "release_date": "2024-04-10",
+            "open_source": false,
+            "license": "Proprietary",
+            "category": "AI Audio / Music Generator",
+            "description": "An AI music creation tool developed by former Google DeepMind researchers, known for its extreme musicality and ability to generate high-coherence, emotionally resonant tracks.",
+            "key_features": [
+                "Advanced musical coherence",
+                "Inpainting / Extending tracks",
+                "Creator community integration"
+            ],
+            "url": "https://udio.com"
+        },
+        {
+            "id": 35,
+            "name": "Luma Dream Machine",
+            "company": "Luma AI",
+            "release_date": "2024-06-12",
+            "open_source": false,
+            "license": "Proprietary",
+            "category": "AI Video Generator",
+            "description": "A high-quality AI video generator capable of creating realistic 1080p videos with smooth motion, depth, and consistent character physics.",
+            "key_features": [
+                "Realistic motion & physics",
+                "Cinematic camera control",
+                "Consistent character generation"
+            ],
+            "url": "https://lumalabs.ai"
+        },
+        {
+            "id": 36,
+            "name": "Figma AI",
+            "company": "Figma",
+            "release_date": "2024-06-26",
+            "open_source": false,
+            "license": "Proprietary",
+            "category": "AI Design Tool",
+            "description": "Integrated AI features for Figma that automate UI/UX design tasks, including layout generation, content refinement, and prototype automation.",
+            "key_features": [
+                "AI Design generation (First Draft)",
+                "Automated prototyping",
+                "Intelligent asset search"
+            ],
+            "url": "https://figma.com"
+        },
+        {
+            "id": 37,
+            "name": "FLUX.1",
+            "company": "Black Forest Labs",
+            "release_date": "2024-08-01",
+            "open_source": true,
+            "license": "Apache 2.0",
+            "category": "AI Image Generator",
+            "description": "A state-of-the-art text-to-image model suite that set new benchmarks for prompt adherence, detail, and text rendering, becoming a popular open-weight alternative to proprietary systems.",
+            "key_features": [
+                "Superior prompt adherence",
+                "Consistent text rendering",
+                "Open-weights availability"
+            ],
+            "url": "https://blackforestlabs.ai"
+        },
+        {
+            "name": "Flux.1 (Schnell)",
+            "company": "Black Forest Labs",
+            "release_date": "2024-08-01",
+            "open_source": true,
+            "license": "Apache 2.0",
+            "category": "AI Image Generator",
+            "description": "A state-of-the-art open-weights image generation model that rivals proprietary systems in prompt adherence and text rendering.",
+            "key_features": [
+                "Superior prompt adherence",
+                "Photorealistic detail",
+                "Open weights"
+            ],
+            "url": "https://blackforestlabs.ai",
+            "id": 38
+        },
+        {
+            "id": 39,
+            "name": "Replit Agent",
+            "company": "Replit",
+            "release_date": "2024-09-05",
+            "open_source": false,
+            "license": "Proprietary",
+            "category": "Autonomous AI Software Engineer",
+            "description": "An AI agent integrated into Replit that can build, test, and deploy web applications from scratch based on natural language descriptions.",
+            "key_features": [
+                "Prompt-to-deployed-app",
+                "Autoregressive debugging",
+                "Integrated cloud environment"
+            ],
+            "url": "https://replit.com"
+        },
+        {
+            "id": 40,
+            "name": "Bolt.new",
+            "company": "StackBlitz",
+            "release_date": "2024-10-03",
+            "open_source": true,
+            "license": "MIT",
+            "category": "AI Web Agent",
+            "description": "An AI-powered web development agent running entirely in the browser using Webcontainers, allowing full-stack app iteration, execution, and deployment without a local environment setup.",
+            "key_features": [
+                "In-browser container execution",
+                "Full-stack preview",
+                "One-click deploy"
+            ],
+            "url": "https://bolt.new/"
+        },
+        {
+            "id": 41,
+            "name": "Webflow AI",
+            "company": "Webflow",
+            "release_date": "2024-10-15",
+            "open_source": false,
+            "license": "Proprietary",
+            "category": "AI App/Site Builder",
+            "description": "A suite of AI features integrated into Webflow, including the AI Assistant and AI Site Builder, enabling prompt-to-production solutions for web design and full-stack application generation.",
+            "key_features": [
+                "AI Site Builder",
+                "App Gen",
+                "Prompt-to-production design"
+            ],
+            "url": "https://webflow.com/"
+        },
+        {
+            "id": 42,
+            "name": "Windsurf",
+            "company": "Codeium",
+            "release_date": "2024-11-14",
+            "open_source": false,
+            "license": "Proprietary",
+            "category": "AI Code Editor",
+            "description": "Codeium's AI IDE featuring agentic workflows called 'Flow' state, where the AI acts both as a co-pilot and an autonomous agent aware of the entire codebase, tightly integrated with the editor.",
+            "key_features": [
+                "Flow state agentic UI",
+                "Deep codebase awareness",
+                "Predictive code generation"
+            ],
+            "url": "https://windsurf.ai/"
+        },
+        {
+            "id": 43,
+            "name": "Lovable",
+            "company": "Lovable",
+            "release_date": "2024-11-18",
+            "open_source": false,
+            "license": "Proprietary",
+            "category": "AI Software Engineer / App Builder",
+            "description": "An AI platform enabling users to build full web applications rapidly by describing them in natural language, handling both frontend design and backend integration logic.",
+            "key_features": [
+                "Full-stack generation",
+                "Visual editing",
+                "GitHub and Supabase integration"
+            ],
+            "url": "https://lovable.dev/"
+        },
+        {
+            "id": 44,
+            "name": "Model Context Protocol (MCP)",
+            "company": "Anthropic",
+            "release_date": "2024-11-25",
+            "open_source": true,
+            "license": "MIT",
+            "category": "AI Protocol",
+            "description": "An open standard framework designed to standardize how AI systems and large language models integrate and securely share context with external tools, systems, and data sources.",
+            "key_features": [
+                "Standardized AI integration",
+                "Secure data sharing",
+                "Open-source protocol"
+            ],
+            "url": "https://modelcontextprotocol.io/"
+        },
+        {
+            "id": 45,
+            "name": "Sora",
+            "company": "OpenAI",
+            "release_date": "2024-12-09",
+            "open_source": false,
+            "license": "Proprietary",
+            "category": "AI Video Generator",
+            "description": "OpenAI's groundbreaking text-to-video model that generates highly realistic and imaginative scenes up to 60 seconds long from natural language descriptions.",
+            "key_features": [
+                "Complex scene simulation",
+                "Temporal consistency",
+                "Multi-shot generation"
+            ],
+            "url": "https://sora.com"
+        },
+        {
+            "id": 46,
+            "name": "Roo Code (Roo Cline)",
+            "company": "Community / Open Source",
+            "release_date": "2025-01-28",
+            "open_source": true,
+            "license": "MIT",
+            "category": "AI Code Extension",
+            "description": "An open-source, highly capable AI coding assistant integrated tightly into VS Code. It automates complex programming tasks, refactors, and evolves systems using agentic workflows.",
+            "key_features": [
+                "Agentic task execution",
+                "Open-source",
+                "Native IDE integration"
+            ],
+            "url": "https://roocode.com/"
+        },
+        {
+            "id": 47,
+            "name": "Make.com",
+            "company": "Celonis",
+            "release_date": "2025-04-01",
+            "open_source": false,
+            "license": "Proprietary",
+            "category": "AI Automation Platform",
+            "description": "A visual-first, no-code automation platform that integrates AI agents into business workflows, allowing for dynamic decision-making and cross-app orchestration.",
+            "key_features": [
+                "AI-powered scenarios",
+                "Autonomous AI agents",
+                "Visual workflow building"
+            ],
+            "url": "https://make.com"
+        },
+        {
+            "id": 48,
+            "name": "Codex (Agent)",
+            "company": "OpenAI",
+            "release_date": "2025-05-16",
+            "open_source": false,
+            "license": "Proprietary",
+            "category": "AI Coding Agent",
+            "description": "The evolved version of OpenAI's Codex, functioning as a software agent capable of reading, writing, and executing code autonomously within sandboxed environments.",
+            "key_features": [
+                "Multi-agent workflows",
+                "Autonomous task resolution",
+                "Sandboxed execution"
+            ],
+            "url": "https://openai.com"
+        },
+        {
+            "id": 49,
+            "name": "Claude Code",
+            "company": "Anthropic",
+            "release_date": "2025-05-25",
+            "open_source": false,
+            "license": "Proprietary",
+            "category": "AI CLI Coding Assistant",
+            "description": "Anthropic's agentic command-line tool that allows developers to delegate complex coding tasks directly to Claude 3.7 from their terminal, giving it the ability to read files, run commands, and write code.",
+            "key_features": [
+                "Agentic CLI execution",
+                "Deep codebase context",
+                "Terminal integration"
+            ],
+            "url": "https://docs.anthropic.com/en/docs/agents-and-tools/claude-code/overview"
+        },
+        {
+            "id": 50,
+            "name": "Warp CLI / ADE",
+            "company": "Warp",
+            "release_date": "2025-06-16",
+            "open_source": false,
+            "license": "Proprietary",
+            "category": "AI Powered Terminal",
+            "description": "A modern terminal reimagined as an 'Agentic Development Environment' that suggests fixes, automates CLI workflows, and provides an AI chatbot for terminal tasks.",
+            "key_features": [
+                "Active AI error fixing",
+                "Agent mode CLI",
+                "Warp Drive workflows"
+            ],
+            "url": "https://warp.dev"
+        },
+        {
+            "id": 51,
+            "name": "Ralph Loop",
+            "company": "Community / Jeffrey Huntley",
+            "release_date": "2025-07-01",
+            "open_source": true,
+            "license": "Open Methodology",
+            "category": "AI Methodology",
+            "description": "An iterative AI development methodology (also known as the 'Ralph Wiggum' technique) where prompts are continuously fed to an AI agent in a loop until a task is successfully completed.",
+            "key_features": [
+                "Persistent iteration",
+                "Failure-driven learning",
+                "Context decay management"
+            ],
+            "url": "https://awesomeclaude.ai/"
+        },
+        {
+            "id": 52,
+            "name": "Comet Browser",
+            "company": "Perplexity AI",
+            "release_date": "2025-10-02",
+            "open_source": false,
+            "license": "Proprietary",
+            "category": "AI Web Browser",
+            "description": "An AI-first web browser built by Perplexity AI, integrating conversational search natively into the browsing experience for seamless information discovery.",
+            "key_features": [
+                "Native AI search integration",
+                "AI-assisted browsing",
+                "Cross-platform"
+            ],
+            "url": "https://www.perplexity.ai/"
+        },
+        {
+            "id": 53,
+            "name": "OpenClaw",
+            "company": "Peter Steinberger",
+            "release_date": "2025-11-01",
+            "open_source": true,
+            "license": "MIT",
+            "category": "Autonomous AI Agent",
+            "description": "A free, open-source personal AI assistant designed to run locally, functioning independently by executing tasks across messaging platforms, browsing the web, and manipulating files.",
+            "key_features": [
+                "Local autonomy",
+                "WhatsApp/Discord integration",
+                "Shell and file access"
+            ],
+            "url": "https://github.com/petersteinberger/openclaw"
+        },
+        {
+            "id": 54,
+            "name": "Antigravity",
+            "company": "Google DeepMind",
+            "release_date": "2025-11-18",
+            "open_source": false,
+            "license": "Proprietary",
+            "category": "Agentic Development Environment",
+            "description": "An agent-first development platform where AI agents autonomously plan, build, test, and iterate on complex software tasks in a dedicated workspace.",
+            "key_features": [
+                "Agent-first architecture",
+                "Integrated browser & terminal",
+                "Verifiable artifact generation"
+            ],
+            "url": "https://antigravity.google"
+        }
+    ]
+}

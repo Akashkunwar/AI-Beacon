@@ -1,0 +1,371 @@
+/* ─── AiViz Global Styles ──────────────────────────────────────────────────── */
+/* Minimal Monochrome Light — tokens imported first, then global reset          */
+
+@import './tokens.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── Global Reset ────────────────────────────────────────────────────────── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  height: 100%;
+}
+
+body {
+  height: 100%;
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--primary);
+  font-family: var(--font-sans);
+  font-weight: var(--weight-regular);
+  font-size: var(--text-base);
+  line-height: var(--lead-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  letter-spacing: var(--tracking-normal);
+}
+
+#root {
+  height: 100%;
+  min-height: 100vh;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+/* ─── Selection ──────────────────────────────────────────────────────────── */
+::selection {
+  background-color: var(--bg-raised);
+  color: var(--ink);
+}
+
+/* ─── Scrollbar ──────────────────────────────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-panel);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--stroke-dark);
+  border-radius: var(--r-pill);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--muted);
+}
+
+/* ─── Focus Styles ───────────────────────────────────────────────────────── */
+:focus-visible {
+  outline: 2px solid var(--stroke-dark);
+  outline-offset: 2px;
+  border-radius: var(--r-sm);
+}
+
+/* ─── Typography ──────────────────────────────────────────────────────────── */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: var(--weight-semibold);
+  line-height: var(--lead-snug);
+  color: var(--ink);
+  letter-spacing: var(--tracking-snug);
+}
+
+code,
+pre,
+.font-mono {
+  font-family: var(--font-mono);
+}
+
+/* ─── Panel Card (replaces GlassCard) ────────────────────────────────────── */
+.panel-card {
+  background: var(--bg-panel);
+  border: 1px solid var(--stroke);
+  border-radius: var(--r-lg);
+  box-shadow: var(--shadow-soft);
+  transition:
+    border-color var(--dur-base) var(--ease-out),
+    box-shadow var(--dur-base) var(--ease-out),
+    transform var(--dur-base) var(--ease-out);
+}
+
+.panel-card:hover {
+  border-color: var(--stroke-dark);
+}
+
+.panel-card.panel-card--lift:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lift);
+}
+
+/* ─── Backward-compat alias: glass-card → panel-card ─────────────────────── */
+.glass-card {
+  background: var(--bg-panel);
+  border: 1px solid var(--stroke);
+  border-radius: var(--r-lg);
+  box-shadow: var(--shadow-soft);
+  transition:
+    border-color var(--dur-base) var(--ease-out),
+    box-shadow var(--dur-base) var(--ease-out);
+}
+
+.glass-card:hover {
+  border-color: var(--stroke-dark);
+  box-shadow: var(--shadow-lift);
+}
+
+.glass-card.glow-active {
+  border-color: var(--stroke-dark);
+  box-shadow: var(--shadow-lift);
+}
+
+/* ─── Step Card Active ────────────────────────────────────────────────────── */
+.step-card.active {
+  border-color: var(--stroke-dark);
+  box-shadow: var(--shadow-lift);
+}
+
+/* ─── Token Badge (monochrome chip) ──────────────────────────────────────── */
+.token-badge {
+  background: var(--bg-inverse);
+  border: 1px solid var(--bg-inverse);
+  border-radius: var(--r-sm);
+  padding: var(--s1) var(--s3);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--text-inverse);
+  font-weight: var(--weight-medium);
+  transition: all var(--dur-fast) var(--ease-out);
+}
+
+.token-badge:hover {
+  background: var(--ink);
+}
+
+/* ─── Badge Variants (monochrome) ────────────────────────────────────────── */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s1);
+  border-radius: var(--r-pill);
+  font-size: var(--text-2xs);
+  font-weight: var(--weight-medium);
+  letter-spacing: var(--tracking-wider);
+  text-transform: uppercase;
+  padding: 2px 8px;
+  border: 1px solid;
+  font-family: var(--font-mono);
+}
+
+.badge-primary {
+  background: var(--bg-raised);
+  border-color: var(--stroke-dark);
+  color: var(--ink);
+}
+
+.badge-secondary {
+  background: var(--bg-panel);
+  border-color: var(--stroke);
+  color: var(--secondary);
+}
+
+.badge-accent {
+  background: var(--bg-raised);
+  border-color: var(--stroke-dark);
+  color: var(--primary);
+}
+
+.badge-warm {
+  background: var(--bg-raised);
+  border-color: var(--stroke-dark);
+  color: var(--ink);
+}
+
+.badge-success {
+  background: var(--bg-raised);
+  border-color: var(--stroke-dark);
+  color: var(--primary);
+}
+
+.badge-muted {
+  background: var(--bg-panel);
+  border-color: var(--stroke);
+  color: var(--muted);
+}
+
+/* ─── Button Base ─────────────────────────────────────────────────────────── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--s2);
+  padding: var(--s2) var(--s4);
+  border-radius: var(--r-md);
+  font-family: var(--font-sans);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-medium);
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: all var(--dur-fast) var(--ease-out);
+  min-height: 44px;
+  white-space: nowrap;
+}
+
+.btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.btn:focus-visible {
+  outline: 2px solid var(--stroke-dark);
+  outline-offset: 2px;
+}
+
+.btn-primary {
+  background: var(--bg-inverse);
+  border-color: var(--bg-inverse);
+  color: var(--text-inverse);
+}
+
+.btn-primary:hover:not(:disabled) {
+  background: #333333;
+  border-color: #333333;
+}
+
+.btn-secondary {
+  background: transparent;
+  border-color: var(--stroke-dark);
+  color: var(--secondary);
+}
+
+.btn-secondary:hover:not(:disabled) {
+  background: var(--bg-panel);
+  border-color: var(--primary);
+  color: var(--ink);
+}
+
+.btn-ghost {
+  background: transparent;
+  border-color: transparent;
+  color: var(--secondary);
+}
+
+.btn-ghost:hover:not(:disabled) {
+  background: var(--bg-raised);
+  color: var(--ink);
+}
+
+/* ─── Error Boundary ──────────────────────────────────────────────────────── */
+.error-boundary {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--s7);
+  text-align: center;
+  gap: var(--s4);
+}
+
+.error-boundary-title {
+  font-size: var(--text-md);
+  font-weight: var(--weight-semibold);
+  color: var(--ink);
+}
+
+.error-boundary-message {
+  font-size: var(--text-sm);
+  color: var(--secondary);
+  font-family: var(--font-mono);
+  background: var(--bg-panel);
+  border: 1px solid var(--stroke-dark);
+  border-radius: var(--r-sm);
+  padding: var(--s3) var(--s4);
+  max-width: 400px;
+}
+
+/* ─── Animation Keyframes ────────────────────────────────────────────────── */
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ─── Reduced Motion ─────────────────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ─── Layout Utilities ───────────────────────────────────────────────────── */
+.depth-container {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 var(--s5);
+}
+
+@media (min-width: 768px) {
+  .depth-container {
+    padding: 0 var(--s6);
+  }
+}
+
+/* ─── Divider ─────────────────────────────────────────────────────────────── */
+.divider {
+  height: 1px;
+  background: var(--stroke);
+}
+
+/* ─── Mono label utility ─────────────────────────────────────────────────── */
+.mono-label {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wider);
+}

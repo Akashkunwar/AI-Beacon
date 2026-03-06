@@ -1,0 +1,893 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Inference — How LLMs Work</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ============================================================
+       DESIGN TOKENS — single source of truth
+       ============================================================ */
+    :root {
+      /* Palette — pure greyscale, nothing warm, nothing cold */
+      --bg:           #f9f9f9;
+      --bg-panel:     #f2f2f2;
+      --bg-raised:    #ebebeb;
+      --stroke:       #e0e0e0;
+      --stroke-dark:  #c8c8c8;
+      --muted:        #999999;
+      --secondary:    #666666;
+      --primary:      #1a1a1a;
+      --ink:          #0d0d0d;
+      --accent:       #1a1a1a;   /* single accent — just darker black */
+      --highlight:    #e8e8e8;   /* hover / active state */
+
+      /* Semantic token for interactive states */
+      --token-bg:     #1a1a1a;
+      --token-text:   #f9f9f9;
+      --token-active: #0d0d0d;
+
+      /* Typography */
+      --font-sans:  'Geist', system-ui, sans-serif;
+      --font-mono:  'Geist Mono', 'Courier New', monospace;
+
+      /* Scale */
+      --text-2xs:  0.65rem;
+      --text-xs:   0.75rem;
+      --text-sm:   0.875rem;
+      --text-base: 1rem;
+      --text-md:   1.125rem;
+      --text-lg:   1.375rem;
+      --text-xl:   1.75rem;
+      --text-2xl:  2.25rem;
+      --text-3xl:  3.25rem;
+      --text-hero: 4.5rem;
+
+      /* Leading */
+      --lead-tight: 1.1;
+      --lead-snug:  1.4;
+      --lead-body:  1.65;
+
+      /* Spacing */
+      --s1: 0.25rem;
+      --s2: 0.5rem;
+      --s3: 0.75rem;
+      --s4: 1rem;
+      --s5: 1.5rem;
+      --s6: 2.5rem;
+      --s7: 4rem;
+      --s8: 6rem;
+
+      /* Shape */
+      --r-sm: 4px;
+      --r-md: 8px;
+      --r-lg: 12px;
+
+      /* Motion */
+      --ease: cubic-bezier(0.2, 0, 0, 1);
+      --dur:  220ms;
+    }
+
+    /* ============================================================
+       RESET + BASE
+       ============================================================ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-size: 16px; scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--primary);
+      font-family: var(--font-sans);
+      font-weight: 400;
+      font-size: var(--text-base);
+      line-height: var(--lead-body);
+      -webkit-font-smoothing: antialiased;
+      letter-spacing: -0.01em;
+    }
+    a { color: inherit; text-decoration: none; }
+    button { font-family: inherit; cursor: pointer; border: none; background: none; }
+
+    /* ============================================================
+       LAYOUT
+       ============================================================ */
+    .wrap {
+      max-width: 900px;
+      margin-inline: auto;
+      padding-inline: var(--s7);
+    }
+    .wrap--full {
+      max-width: 1100px;
+      margin-inline: auto;
+      padding-inline: var(--s7);
+    }
+
+    /* ============================================================
+       NAV
+       ============================================================ */
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(249,249,249,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--stroke);
+    }
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 52px;
+    }
+    .nav-logo {
+      font-family: var(--font-mono);
+      font-size: var(--text-sm);
+      font-weight: 500;
+      color: var(--ink);
+      letter-spacing: 0.02em;
+    }
+    .nav-logo span { color: var(--muted); }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: var(--s2);
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: var(--text-sm);
+      font-weight: 400;
+      color: var(--secondary);
+      padding: var(--s2) var(--s3);
+      border-radius: var(--r-sm);
+      transition: all var(--dur) var(--ease);
+    }
+    .nav-links a:hover { background: var(--bg-panel); color: var(--ink); }
+    .nav-links a.active { color: var(--ink); font-weight: 500; }
+    .nav-pill {
+      font-family: var(--font-mono);
+      font-size: var(--text-2xs);
+      background: var(--bg-raised);
+      color: var(--muted);
+      padding: 2px 7px;
+      border-radius: 99px;
+      margin-left: 4px;
+      vertical-align: middle;
+    }
+
+    /* ============================================================
+       HERO
+       ============================================================ */
+    .hero {
+      padding-block: var(--s8) var(--s7);
+      border-bottom: 1px solid var(--stroke);
+    }
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--s2);
+      font-family: var(--font-mono);
+      font-size: var(--text-xs);
+      color: var(--muted);
+      margin-bottom: var(--s5);
+    }
+    .hero-tag::before {
+      content: '';
+      display: block;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--primary);
+    }
+    .hero h1 {
+      font-size: var(--text-hero);
+      font-weight: 600;
+      line-height: var(--lead-tight);
+      letter-spacing: -0.035em;
+      color: var(--ink);
+      margin-bottom: var(--s5);
+      max-width: 14ch;
+    }
+    .hero-sub {
+      font-size: var(--text-md);
+      font-weight: 300;
+      color: var(--secondary);
+      max-width: 52ch;
+      line-height: var(--lead-body);
+      margin-bottom: var(--s7);
+    }
+    .hero-cta {
+      display: flex;
+      gap: var(--s3);
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--s2);
+      padding: 0.55rem 1.1rem;
+      font-size: var(--text-sm);
+      font-weight: 500;
+      border-radius: var(--r-md);
+      transition: all var(--dur) var(--ease);
+      letter-spacing: -0.01em;
+    }
+    .btn--solid {
+      background: var(--ink);
+      color: var(--bg);
+    }
+    .btn--solid:hover { background: #333; }
+    .btn--outline {
+      background: transparent;
+      color: var(--secondary);
+      border: 1px solid var(--stroke-dark);
+    }
+    .btn--outline:hover { background: var(--bg-panel); color: var(--ink); border-color: var(--primary); }
+
+    /* ============================================================
+       SECTION SHELL
+       ============================================================ */
+    .section {
+      padding-block: var(--s8);
+      border-bottom: 1px solid var(--stroke);
+    }
+    .section-header {
+      margin-bottom: var(--s7);
+    }
+    .section-label {
+      font-family: var(--font-mono);
+      font-size: var(--text-xs);
+      color: var(--muted);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: var(--s3);
+    }
+    .section-title {
+      font-size: var(--text-2xl);
+      font-weight: 600;
+      letter-spacing: -0.03em;
+      line-height: var(--lead-tight);
+      color: var(--ink);
+      margin-bottom: var(--s4);
+    }
+    .section-desc {
+      font-size: var(--text-sm);
+      font-weight: 300;
+      color: var(--secondary);
+      max-width: 56ch;
+      line-height: var(--lead-body);
+    }
+
+    /* ============================================================
+       INTERACTIVE TOKENIZER
+       ============================================================ */
+    .tokenizer-wrap {
+      background: var(--bg-panel);
+      border: 1px solid var(--stroke);
+      border-radius: var(--r-lg);
+      overflow: hidden;
+    }
+    .tokenizer-topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: var(--s3) var(--s5);
+      border-bottom: 1px solid var(--stroke);
+      background: var(--bg-raised);
+    }
+    .topbar-label {
+      font-family: var(--font-mono);
+      font-size: var(--text-xs);
+      color: var(--muted);
+    }
+    .topbar-stats {
+      display: flex;
+      gap: var(--s5);
+    }
+    .stat-chip {
+      font-family: var(--font-mono);
+      font-size: var(--text-xs);
+      color: var(--secondary);
+    }
+    .stat-chip strong {
+      color: var(--ink);
+      font-weight: 500;
+    }
+    .tokenizer-body {
+      padding: var(--s5);
+    }
+    .token-input {
+      width: 100%;
+      background: var(--bg);
+      border: 1px solid var(--stroke);
+      border-radius: var(--r-md);
+      padding: var(--s4) var(--s5);
+      font-family: var(--font-mono);
+      font-size: var(--text-sm);
+      color: var(--ink);
+      resize: none;
+      outline: none;
+      line-height: var(--lead-body);
+      transition: border-color var(--dur) var(--ease);
+      min-height: 90px;
+    }
+    .token-input:focus { border-color: var(--stroke-dark); }
+    .token-input::placeholder { color: var(--muted); }
+    .token-output {
+      margin-top: var(--s4);
+      padding: var(--s4) var(--s5);
+      background: var(--bg);
+      border: 1px solid var(--stroke);
+      border-radius: var(--r-md);
+      min-height: 60px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      align-items: flex-start;
+    }
+    .token {
+      display: inline-block;
+      font-family: var(--font-mono);
+      font-size: var(--text-xs);
+      padding: 3px 8px;
+      border-radius: var(--r-sm);
+      background: var(--token-bg);
+      color: var(--token-text);
+      cursor: default;
+      transition: all var(--dur) var(--ease);
+      border: 1px solid transparent;
+    }
+    .token:hover {
+      background: var(--bg-raised);
+      color: var(--ink);
+      border-color: var(--stroke-dark);
+    }
+    .token-empty {
+      font-family: var(--font-mono);
+      font-size: var(--text-xs);
+      color: var(--muted);
+      padding: 3px 0;
+    }
+    .token-legend {
+      display: flex;
+      gap: var(--s5);
+      margin-top: var(--s4);
+      padding-top: var(--s4);
+      border-top: 1px solid var(--stroke);
+    }
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: var(--s2);
+      font-size: var(--text-xs);
+      color: var(--muted);
+    }
+    .legend-dot {
+      width: 8px; height: 8px;
+      border-radius: 2px;
+      background: var(--token-bg);
+    }
+    .legend-dot--space { background: var(--bg-raised); border: 1px solid var(--stroke-dark); }
+
+    /* ============================================================
+       PIPELINE STEPS
+       ============================================================ */
+    .pipeline {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+    .pipe-step {
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: var(--s6);
+      padding-block: var(--s6);
+      border-bottom: 1px solid var(--stroke);
+      align-items: start;
+      cursor: pointer;
+      transition: background var(--dur) var(--ease);
+      border-radius: var(--r-md);
+      padding-inline: var(--s4);
+      margin-inline: calc(-1 * var(--s4));
+    }
+    .pipe-step:last-child { border-bottom: none; }
+    .pipe-step:hover { background: var(--bg-panel); }
+    .pipe-step.open { background: var(--bg-panel); }
+    .pipe-left {
+      display: flex;
+      flex-direction: column;
+      gap: var(--s2);
+      padding-top: 2px;
+    }
+    .pipe-index {
+      font-family: var(--font-mono);
+      font-size: var(--text-2xs);
+      color: var(--muted);
+      letter-spacing: 0.06em;
+    }
+    .pipe-name {
+      font-size: var(--text-base);
+      font-weight: 600;
+      color: var(--ink);
+      letter-spacing: -0.02em;
+    }
+    .pipe-tag {
+      display: inline-block;
+      font-family: var(--font-mono);
+      font-size: var(--text-2xs);
+      padding: 2px 6px;
+      border-radius: 99px;
+      background: var(--bg-raised);
+      color: var(--muted);
+      width: fit-content;
+    }
+    .pipe-right {}
+    .pipe-summary {
+      font-size: var(--text-sm);
+      color: var(--secondary);
+      line-height: var(--lead-body);
+      font-weight: 300;
+    }
+    .pipe-detail {
+      display: none;
+      margin-top: var(--s4);
+      padding: var(--s4);
+      background: var(--bg);
+      border: 1px solid var(--stroke);
+      border-radius: var(--r-md);
+    }
+    .pipe-step.open .pipe-detail { display: block; }
+    .pipe-detail p {
+      font-size: var(--text-sm);
+      font-weight: 300;
+      color: var(--secondary);
+      line-height: var(--lead-body);
+      margin-bottom: var(--s3);
+    }
+    .pipe-detail p:last-child { margin-bottom: 0; }
+    .pipe-detail code {
+      font-family: var(--font-mono);
+      font-size: var(--text-xs);
+      background: var(--bg-raised);
+      padding: 2px 6px;
+      border-radius: var(--r-sm);
+      color: var(--ink);
+    }
+    .pipe-arrow {
+      font-size: var(--text-sm);
+      color: var(--muted);
+      transition: transform var(--dur) var(--ease);
+      margin-left: auto;
+      align-self: flex-start;
+      padding-top: 2px;
+    }
+    .pipe-step.open .pipe-arrow { transform: rotate(90deg); }
+    .pipe-right-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: var(--s4);
+    }
+
+    /* ============================================================
+       UPCOMING SECTIONS PREVIEW
+       ============================================================ */
+    .coming {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: var(--s3);
+    }
+    .coming-card {
+      background: var(--bg-panel);
+      border: 1px solid var(--stroke);
+      border-radius: var(--r-lg);
+      padding: var(--s6) var(--s5);
+      position: relative;
+      overflow: hidden;
+    }
+    .coming-card::after {
+      content: 'coming soon';
+      position: absolute;
+      top: var(--s3);
+      right: var(--s3);
+      font-family: var(--font-mono);
+      font-size: var(--text-2xs);
+      color: var(--muted);
+      background: var(--bg-raised);
+      padding: 2px 8px;
+      border-radius: 99px;
+    }
+    .coming-icon {
+      font-family: var(--font-mono);
+      font-size: var(--text-2xl);
+      color: var(--bg-raised);
+      margin-bottom: var(--s4);
+      line-height: 1;
+      /* Large faint background glyph */
+      position: relative;
+    }
+    .coming-card h3 {
+      font-size: var(--text-base);
+      font-weight: 600;
+      color: var(--ink);
+      letter-spacing: -0.02em;
+      margin-bottom: var(--s2);
+    }
+    .coming-card p {
+      font-size: var(--text-sm);
+      font-weight: 300;
+      color: var(--secondary);
+      line-height: var(--lead-body);
+    }
+
+    /* ============================================================
+       FOOTER
+       ============================================================ */
+    footer {
+      padding-block: var(--s6);
+    }
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .footer-logo {
+      font-family: var(--font-mono);
+      font-size: var(--text-xs);
+      color: var(--muted);
+    }
+    .footer-links {
+      display: flex;
+      gap: var(--s5);
+      list-style: none;
+    }
+    .footer-links a {
+      font-size: var(--text-xs);
+      color: var(--muted);
+      transition: color var(--dur) var(--ease);
+    }
+    .footer-links a:hover { color: var(--ink); }
+
+    /* ============================================================
+       ANIMATIONS
+       ============================================================ */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(14px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .hero-tag     { animation: fadeIn 0.5s var(--ease) 0.05s both; }
+    .hero h1      { animation: fadeIn 0.6s var(--ease) 0.1s both; }
+    .hero-sub     { animation: fadeIn 0.6s var(--ease) 0.18s both; }
+    .hero-cta     { animation: fadeIn 0.6s var(--ease) 0.26s both; }
+
+    /* ============================================================
+       RESPONSIVE
+       ============================================================ */
+    @media (max-width: 720px) {
+      :root { --text-hero: 2.8rem; --text-2xl: 1.75rem; --s8: 4rem; --s7: 3rem; }
+      .wrap, .wrap--full { padding-inline: var(--s5); }
+      .coming { grid-template-columns: 1fr; }
+      .pipe-step { grid-template-columns: 1fr; gap: var(--s3); }
+      .pipe-left { flex-direction: row; align-items: center; }
+      .nav-links li:not(:first-child):not(:last-child) { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <div class="wrap--full nav-inner">
+      <a href="#" class="nav-logo">inference<span>.so</span></a>
+      <ul class="nav-links">
+        <li><a href="#" class="active">How LLMs Work</a></li>
+        <li><a href="#">Training <span class="nav-pill">soon</span></a></li>
+        <li><a href="#">Benchmarks <span class="nav-pill">soon</span></a></li>
+        <li><a href="#">Timeline <span class="nav-pill">soon</span></a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap">
+      <p class="hero-tag">interactive explainer · v0.1</p>
+      <h1>How large language models actually work.</h1>
+      <p class="hero-sub">Step through every layer of an LLM — from raw text to a response. No handwaving. Type anything and watch what happens.</p>
+      <div class="hero-cta">
+        <a href="#tokenizer" class="btn btn--solid">Start with Tokenization →</a>
+        <a href="#pipeline" class="btn btn--outline">See the full pipeline</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- INTERACTIVE TOKENIZER -->
+  <section class="section" id="tokenizer">
+    <div class="wrap">
+      <div class="section-header">
+        <p class="section-label">Step 01 — Tokenization</p>
+        <h2 class="section-title">Text doesn't enter a model.<br>Tokens do.</h2>
+        <p class="section-desc">LLMs don't read words. They read chunks — called tokens. Type below and watch your sentence split into the exact pieces the model sees.</p>
+      </div>
+
+      <div class="tokenizer-wrap">
+        <div class="tokenizer-topbar">
+          <span class="topbar-label">tokenizer.interactive</span>
+          <div class="topbar-stats">
+            <span class="stat-chip">tokens: <strong id="tokenCount">0</strong></span>
+            <span class="stat-chip">chars: <strong id="charCount">0</strong></span>
+            <span class="stat-chip">ratio: <strong id="tokenRatio">—</strong></span>
+          </div>
+        </div>
+        <div class="tokenizer-body">
+          <textarea
+            class="token-input"
+            id="tokenInput"
+            placeholder="Type anything — e.g. 'The quick brown fox'"
+            rows="3"
+          ></textarea>
+          <div class="token-output" id="tokenOutput">
+            <span class="token-empty">tokens will appear here as you type…</span>
+          </div>
+          <div class="token-legend">
+            <div class="legend-item">
+              <div class="legend-dot"></div>
+              word / subword token
+            </div>
+            <div class="legend-item">
+              <div class="legend-dot legend-dot--space"></div>
+              punctuation / space token
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PIPELINE EXPLAINER -->
+  <section class="section" id="pipeline">
+    <div class="wrap">
+      <div class="section-header">
+        <p class="section-label">Step 02 – 07 — The Full Pipeline</p>
+        <h2 class="section-title">From token to response,<br>step by step.</h2>
+        <p class="section-desc">Click any step to expand it. Each one is a real part of how every major LLM processes your input.</p>
+      </div>
+
+      <div class="pipeline" id="pipeline-list">
+
+        <div class="pipe-step" data-step="1">
+          <div class="pipe-left">
+            <span class="pipe-index">02</span>
+            <span class="pipe-name">Embedding</span>
+            <span class="pipe-tag">vectors</span>
+          </div>
+          <div class="pipe-right">
+            <div class="pipe-right-inner">
+              <p class="pipe-summary">Each token is mapped to a high-dimensional vector — a list of numbers that encodes meaning based on how the token appeared during training.</p>
+              <span class="pipe-arrow">›</span>
+            </div>
+            <div class="pipe-detail">
+              <p>An embedding turns a token ID like <code>1432</code> into a vector like <code>[0.21, -0.84, 0.03, ...]</code> of length 768 to 12,288 depending on model size. Words with similar meanings end up close together in this space.</p>
+              <p>This is the model's internal dictionary. Before any attention happens, every token becomes a position in a geometric space — and that geometry captures relationships like "king – man + woman ≈ queen".</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="pipe-step" data-step="2">
+          <div class="pipe-left">
+            <span class="pipe-index">03</span>
+            <span class="pipe-name">Positional Encoding</span>
+            <span class="pipe-tag">order</span>
+          </div>
+          <div class="pipe-right">
+            <div class="pipe-right-inner">
+              <p class="pipe-summary">Transformers have no built-in sense of order. Positional encodings inject the position of each token into its embedding so the model knows what came first.</p>
+              <span class="pipe-arrow">›</span>
+            </div>
+            <div class="pipe-detail">
+              <p>Without this, "dog bites man" and "man bites dog" would look identical. The model adds a unique positional signal to each embedding before any processing begins.</p>
+              <p>Modern models like LLaMA use <code>RoPE</code> (Rotary Position Embedding), which encodes relative distances between tokens rather than absolute positions — making them better at generalizing to long contexts.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="pipe-step" data-step="3">
+          <div class="pipe-left">
+            <span class="pipe-index">04</span>
+            <span class="pipe-name">Self-Attention</span>
+            <span class="pipe-tag">the core</span>
+          </div>
+          <div class="pipe-right">
+            <div class="pipe-right-inner">
+              <p class="pipe-summary">Every token looks at every other token and decides how much to "attend" to it. This is how the model understands context, reference, and meaning.</p>
+              <span class="pipe-arrow">›</span>
+            </div>
+            <div class="pipe-detail">
+              <p>For each token, the model computes three vectors: a <code>Query</code> (what am I looking for?), a <code>Key</code> (what do I contain?), and a <code>Value</code> (what should I pass forward?).</p>
+              <p>Attention scores are calculated as the dot product of Q and K, scaled and softmaxed into a probability distribution. The output is a weighted sum of all Values — letting "it" in "the trophy didn't fit in the suitcase because it was too big" correctly point to "trophy".</p>
+              <p>This happens in parallel across many <code>heads</code> — each learning different relationships (syntax, coreference, semantics).</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="pipe-step" data-step="4">
+          <div class="pipe-left">
+            <span class="pipe-index">05</span>
+            <span class="pipe-name">Feed-Forward Layer</span>
+            <span class="pipe-tag">per-token</span>
+          </div>
+          <div class="pipe-right">
+            <div class="pipe-right-inner">
+              <p class="pipe-summary">After attention mixes token information across the sequence, a feed-forward network processes each token independently — acting as the model's "memory" for facts.</p>
+              <span class="pipe-arrow">›</span>
+            </div>
+            <div class="pipe-detail">
+              <p>Each transformer block has a two-layer MLP applied identically to every token position. Research suggests these layers store factual associations — like "Paris is the capital of France".</p>
+              <p>They use non-linear activations (<code>GeLU</code>, <code>SwiGLU</code>) to create complex, high-dimensional representations that the next attention layer can then re-mix.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="pipe-step" data-step="5">
+          <div class="pipe-left">
+            <span class="pipe-index">06</span>
+            <span class="pipe-name">Stacking Layers</span>
+            <span class="pipe-tag">depth</span>
+          </div>
+          <div class="pipe-right">
+            <div class="pipe-right-inner">
+              <p class="pipe-summary">One attention + feed-forward block isn't enough. Models stack 12 to 96+ of these layers, each refining the representation until the final layer is ready to predict.</p>
+              <span class="pipe-arrow">›</span>
+            </div>
+            <div class="pipe-detail">
+              <p>Early layers learn syntax and surface patterns. Middle layers capture semantics and relationships. Later layers handle task-specific reasoning. GPT-4 is estimated to have ~96 layers.</p>
+              <p>Between layers, <code>residual connections</code> and <code>layer normalization</code> keep gradients stable during training and prevent representations from collapsing.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="pipe-step" data-step="6">
+          <div class="pipe-left">
+            <span class="pipe-index">07</span>
+            <span class="pipe-name">Sampling & Output</span>
+            <span class="pipe-tag">generation</span>
+          </div>
+          <div class="pipe-right">
+            <div class="pipe-right-inner">
+              <p class="pipe-summary">The final layer outputs a probability distribution over the entire vocabulary. One token is chosen, appended to the input, and the whole process repeats.</p>
+              <span class="pipe-arrow">›</span>
+            </div>
+            <div class="pipe-detail">
+              <p>The logits (raw scores) are passed through a softmax to get probabilities. Then a sampling strategy picks the next token: <code>greedy</code> (always highest), <code>top-k</code>, <code>top-p</code> (nucleus), or <code>temperature</code> scaling.</p>
+              <p>This is why LLMs are autoregressive — they generate one token at a time, each output becoming part of the next input, until an <code>[EOS]</code> token is produced or a length limit is reached.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- COMING SOON -->
+  <section class="section">
+    <div class="wrap--full">
+      <div class="section-header" style="padding-inline: 0;">
+        <p class="section-label" style="padding-inline: var(--s7);">What's coming</p>
+        <h2 class="section-title" style="padding-inline: var(--s7);">The full picture of modern AI.</h2>
+      </div>
+
+      <div style="padding-inline: var(--s7);">
+        <div class="coming">
+          <div class="coming-card">
+            <div class="coming-icon">⟳</div>
+            <h3>Training, step by step</h3>
+            <p>Pre-training, supervised fine-tuning, RLHF, DPO — how a model goes from random weights to something useful. Interactive, visual.</p>
+          </div>
+          <div class="coming-card">
+            <div class="coming-icon">≡</div>
+            <h3>Benchmarks & Leaderboard</h3>
+            <p>Every major LLM ranked across MMLU, HumanEval, MATH, and more. Updated as new models are released. No hype, just numbers.</p>
+          </div>
+          <div class="coming-card">
+            <div class="coming-icon">→</div>
+            <h3>AI Progress Timeline</h3>
+            <p>From GPT-1 to now — every milestone, every model, every breakthrough, plotted on a single interactive timeline.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="wrap--full footer-inner">
+      <span class="footer-logo">inference.so</span>
+      <ul class="footer-links">
+        <li><a href="#">About</a></li>
+        <li><a href="#">GitHub</a></li>
+        <li><a href="#">Twitter</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <!-- ============================================================
+       JS — tokenizer + accordion
+       ============================================================ -->
+  <script>
+    // ── Tokenizer ──────────────────────────────────────────────
+    const input  = document.getElementById('tokenInput');
+    const output = document.getElementById('tokenOutput');
+    const countEl = document.getElementById('tokenCount');
+    const charEl  = document.getElementById('charCount');
+    const ratioEl = document.getElementById('tokenRatio');
+
+    // Simple but realistic BPE-like tokenizer approximation
+    function tokenize(text) {
+      if (!text.trim()) return [];
+      // Split on whitespace and punctuation boundaries, keep spaces attached
+      const raw = text.match(/\s*[^\s]+/g) || [];
+      const tokens = [];
+      for (const chunk of raw) {
+        const word = chunk.trimStart();
+        const space = chunk.length - word.length > 0;
+        // Subword split: long words get broken
+        if (word.length > 8) {
+          const half = Math.ceil(word.length / 2);
+          if (space) tokens.push('▁' + word.slice(0, half));
+          else tokens.push(word.slice(0, half));
+          tokens.push(word.slice(half));
+        } else {
+          // Attach leading space as BPE does
+          tokens.push((space ? '▁' : '') + word);
+        }
+        // Common punctuation gets its own token
+        const punct = word.match(/[.,!?;:'"()\[\]{}\-–—]/g);
+        if (punct && word.length > 1) {
+          // Already included in split, just visual
+        }
+      }
+      return tokens;
+    }
+
+    const COLORS = [
+      '#1a1a1a','#3a3a3a','#2d2d2d','#111','#444','#222','#555','#333'
+    ];
+
+    function render(text) {
+      const tokens = tokenize(text);
+      charEl.textContent  = text.length;
+      countEl.textContent = tokens.length;
+      ratioEl.textContent = tokens.length
+        ? (text.length / tokens.length).toFixed(1) + ' ch/tok'
+        : '—';
+
+      if (!tokens.length) {
+        output.innerHTML = '<span class="token-empty">tokens will appear here as you type…</span>';
+        return;
+      }
+
+      output.innerHTML = tokens.map((t, i) => {
+        const isPunct = /^[.,!?;:'"()\[\]{}\-–—▁]+$/.test(t.replace(/[a-z0-9]/gi, ''));
+        return `<span class="token" title="token #${i+1}: '${t}'">${t.replace(/▁/g,'·')}</span>`;
+      }).join('');
+    }
+
+    input.addEventListener('input', () => render(input.value));
+
+    // ── Accordion Pipeline ─────────────────────────────────────
+    document.querySelectorAll('.pipe-step').forEach(step => {
+      step.addEventListener('click', () => {
+        const isOpen = step.classList.contains('open');
+        document.querySelectorAll('.pipe-step').forEach(s => s.classList.remove('open'));
+        if (!isOpen) step.classList.add('open');
+      });
+    });
+
+    // Open first step by default
+    document.querySelector('.pipe-step').classList.add('open');
+  </script>
+
+</body>
+</html>

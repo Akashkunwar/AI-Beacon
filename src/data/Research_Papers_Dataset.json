@@ -1,0 +1,1284 @@
+{
+    "metadata": {
+        "title": "Foundational AI Research Papers Timeline",
+        "description": "A curated list of the most influential AI research papers that drove the technological revolution.",
+        "last_updated": "2026-03-06",
+        "total_papers": 47,
+        "fields": [
+            "id",
+            "title",
+            "authors",
+            "institution",
+            "publication_date",
+            "published_in",
+            "topic",
+            "description",
+            "key_contributions",
+            "paper_url",
+            "code_url",
+            "citations"
+        ]
+    },
+    "papers": [
+        {
+            "id": 1,
+            "title": "ImageNet Classification with Deep Convolutional Neural Networks",
+            "authors": [
+                "Alex Krizhevsky",
+                "Ilya Sutskever",
+                "Geoffrey E. Hinton"
+            ],
+            "institution": "University of Toronto",
+            "publication_date": "2012-12-03",
+            "published_in": "NeurIPS",
+            "topic": "Computer Vision",
+            "description": "The seminal AlexNet paper that brought deep learning back into prominence by winning the ILSVRC-2012 competition with a large convolutional neural network trained on GPUs.",
+            "key_contributions": [
+                "ReLU non-linearity",
+                "Dropout for regularization",
+                "Overlapping pooling",
+                "GPU acceleration for deep learning"
+            ],
+            "paper_url": "https://proceedings.neurips.cc/paper/2012/file/c399862d3b9d6b76c8436e924a68c45b-Paper.pdf",
+            "code_url": null,
+            "citations": 160000
+        },
+        {
+            "id": 2,
+            "title": "Efficient Estimation of Word Representations in Vector Space",
+            "authors": [
+                "Tomas Mikolov",
+                "Kai Chen",
+                "Greg Corrado",
+                "Jeffrey Dean"
+            ],
+            "institution": "Google",
+            "publication_date": "2013-01-16",
+            "published_in": "arXiv",
+            "topic": "Natural Language Processing",
+            "description": "Introduced the Word2Vec algorithm, fundamentally changing NLP by demonstrating that word embeddings capture syntactic and semantic regularities.",
+            "key_contributions": [
+                "Continuous Bag-of-Words (CBOW) model",
+                "Skip-gram model",
+                "Vector math operations on words"
+            ],
+            "paper_url": "https://arxiv.org/abs/1301.3781",
+            "code_url": "https://code.google.com/archive/p/word2vec/",
+            "citations": 50000
+        },
+        {
+            "id": 3,
+            "title": "Playing Atari with Deep Reinforcement Learning",
+            "authors": [
+                "Volodymyr Mnih",
+                "Koray Kavukcuoglu",
+                "David Silver",
+                "Alex Graves",
+                "Ioannis Antonoglou",
+                "Daan Wierstra",
+                "Martin Riedmiller"
+            ],
+            "institution": "DeepMind",
+            "publication_date": "2013-12-19",
+            "published_in": "arXiv / NIPSW 2013",
+            "topic": "Reinforcement Learning",
+            "description": "The first paper to successfully apply deep learning to reinforcement learning, showing a single agent learning multiple Atari games directly from pixels.",
+            "key_contributions": [
+                "Deep Q-Network (DQN) architecture",
+                "Experience Replay buffer",
+                "End-to-end learning from high-dimensional pixels"
+            ],
+            "paper_url": "https://arxiv.org/abs/1312.5602",
+            "code_url": null,
+            "citations": 25000
+        },
+        {
+            "id": 4,
+            "title": "Generative Adversarial Nets",
+            "authors": [
+                "Ian J. Goodfellow",
+                "Jean Pouget-Abadie",
+                "Mehdi Mirza",
+                "Bing Xu",
+                "David Warde-Farley",
+                "Sherjil Ozair",
+                "Aaron Courville",
+                "Yoshua Bengio"
+            ],
+            "institution": "Universit\u00e9 de Montr\u00e9al",
+            "publication_date": "2014-06-10",
+            "published_in": "NeurIPS",
+            "topic": "Generative AI",
+            "description": "Introduced the GAN framework, pitting a generative model against a discriminative model, revolutionizing the generation of highly realistic synthetic images.",
+            "key_contributions": [
+                "Adversarial training framework",
+                "Generator and Discriminator architecture",
+                "Minimax two-player game formulation"
+            ],
+            "paper_url": "https://arxiv.org/abs/1406.2661",
+            "code_url": "https://github.com/goodfeli/adversarial",
+            "citations": 75000
+        },
+        {
+            "id": 5,
+            "title": "Dropout: A Simple Way to Prevent Neural Networks from Overfitting",
+            "authors": [
+                "Nitish Srivastava",
+                "Geoffrey Hinton",
+                "Alex Krizhevsky",
+                "Ilya Sutskever",
+                "Ruslan Salakhutdinov"
+            ],
+            "institution": "University of Toronto",
+            "publication_date": "2014-06-14",
+            "published_in": "JMLR",
+            "topic": "Deep Learning / Regularization",
+            "description": "Introduced Dropout, a highly effective technique to prevent overfitting in deep neural networks by randomly omitting units during training.",
+            "key_contributions": [
+                "Dropout technique",
+                "Significant reduction in overfitting",
+                "Improved generalization across architectures"
+            ],
+            "paper_url": "https://jmlr.org/papers/volume15/srivastava14a/srivastava14a.pdf",
+            "code_url": null,
+            "citations": 65000
+        },
+        {
+            "id": 6,
+            "title": "Neural Machine Translation by Jointly Learning to Align and Translate",
+            "authors": [
+                "Dzmitry Bahdanau",
+                "Kyunghyun Cho",
+                "Yoshua Bengio"
+            ],
+            "institution": "Jacobs University / Universit\u00e9 de Montr\u00e9al",
+            "publication_date": "2014-09-01",
+            "published_in": "ICLR",
+            "topic": "Natural Language Processing",
+            "description": "Introduced the attention mechanism for neural machine translation, allowing the model to focus on relevant parts of the source sentence during translation.",
+            "key_contributions": [
+                "First introduction of Attention mechanism",
+                "Joint learning of alignment and translation",
+                "Significant improvements in seq2seq models"
+            ],
+            "paper_url": "https://arxiv.org/abs/1409.0473",
+            "code_url": null,
+            "citations": 45000
+        },
+        {
+            "id": 7,
+            "title": "Very Deep Convolutional Networks for Large-Scale Image Recognition",
+            "authors": [
+                "Karen Simonyan",
+                "Andrew Zisserman"
+            ],
+            "institution": "University of Oxford",
+            "publication_date": "2014-09-04",
+            "published_in": "ICLR 2015",
+            "topic": "Computer Vision",
+            "description": "Introduced VGGNet, proving that increasing the depth of convolutional networks using very small convolution filters (3x3) leads to significant improvements in recognition.",
+            "key_contributions": [
+                "Very small (3x3) convolution filters",
+                "Increased depth (up to 19 layers)",
+                "Standardized vision backbone for years"
+            ],
+            "paper_url": "https://arxiv.org/abs/1409.1556",
+            "code_url": "http://www.robots.ox.ac.uk/~vgg/research/very_deep/",
+            "citations": 110000
+        },
+        {
+            "id": 8,
+            "title": "Sequence to Sequence Learning with Neural Networks",
+            "authors": [
+                "Ilya Sutskever",
+                "Oriol Vinyals",
+                "Quoc V. Le"
+            ],
+            "institution": "Google",
+            "publication_date": "2014-09-10",
+            "published_in": "NeurIPS",
+            "topic": "Natural Language Processing",
+            "description": "Introduced the encoder-decoder architecture using multi-layered LSTMs, fundamental for all subsequent seq2seq applications.",
+            "key_contributions": [
+                "Encoder-Decoder architecture",
+                "Use of multi-layered LSTMs",
+                "Reversing source sentences to improve optimization"
+            ],
+            "paper_url": "https://arxiv.org/abs/1409.3215",
+            "code_url": null,
+            "citations": 35000
+        },
+        {
+            "id": 9,
+            "title": "Going Deeper with Convolutions",
+            "authors": [
+                "Christian Szegedy",
+                "Wei Liu",
+                "Yangqing Jia",
+                "Pierre Sermanet",
+                "Scott Reed",
+                "Dragomir Anguelov",
+                "Dumitru Erhan",
+                "Vincent Vanhoucke",
+                "Andrew Rabinovich"
+            ],
+            "institution": "Google",
+            "publication_date": "2014-09-17",
+            "published_in": "CVPR 2015",
+            "topic": "Computer Vision",
+            "description": "Introduced Inception (GoogLeNet), a deep convolutional architecture that uses 'Inception' modules to perform multi-scale processing while remaining computationally efficient.",
+            "key_contributions": [
+                "Inception modules",
+                "1x1 convolutions for dimensionality reduction",
+                "Won ILSVRC 2014 classification challenge"
+            ],
+            "paper_url": "https://arxiv.org/abs/1409.4842",
+            "code_url": null,
+            "citations": 55000
+        },
+        {
+            "id": 10,
+            "title": "Adam: A Method for Stochastic Optimization",
+            "authors": [
+                "Diederik P. Kingma",
+                "Jimmy Ba"
+            ],
+            "institution": "University of Amsterdam / University of Toronto",
+            "publication_date": "2014-12-22",
+            "published_in": "ICLR",
+            "topic": "Optimization",
+            "description": "Introduced Adam, an algorithm for first-order gradient-based optimization of stochastic objective functions. It has become the default optimizer for training deep neural networks.",
+            "key_contributions": [
+                "Adaptive moment estimation",
+                "Computationally efficient optimization",
+                "Invariant to diagonal rescaling of the gradients"
+            ],
+            "paper_url": "https://arxiv.org/abs/1412.6980",
+            "code_url": null,
+            "citations": 270000
+        },
+        {
+            "id": 11,
+            "title": "Batch Normalization: Accelerating Deep Network Training by Reducing Internal Covariate Shift",
+            "authors": [
+                "Sergey Ioffe",
+                "Christian Szegedy"
+            ],
+            "institution": "Google",
+            "publication_date": "2015-02-11",
+            "published_in": "ICML",
+            "topic": "Deep Learning / Architecture",
+            "description": "Introduced Batch Normalization, allowing for much higher learning rates and less careful initialization by normalizing layer inputs.",
+            "key_contributions": [
+                "Batch Normalization layer",
+                "Reduction of internal covariate shift",
+                "Faster and more stable training of deep networks"
+            ],
+            "paper_url": "https://arxiv.org/abs/1502.03167",
+            "code_url": null,
+            "citations": 65000
+        },
+        {
+            "id": 12,
+            "title": "U-Net: Convolutional Networks for Biomedical Image Segmentation",
+            "authors": [
+                "Olaf Ronneberger",
+                "Philipp Fischer",
+                "Thomas Brox"
+            ],
+            "institution": "University of Freiburg",
+            "publication_date": "2015-05-18",
+            "published_in": "MICCAI 2015",
+            "topic": "Computer Vision / Biomedical",
+            "description": "Introduced the U-Net architecture, consisting of a contracting path to capture context and a symmetric expanding path that enables precise localization. It became the gold standard for medical image segmentation.",
+            "key_contributions": [
+                "Symmetric encoder-decoder architecture",
+                "Skip connections for precise localization",
+                "Data augmentation for small medical datasets"
+            ],
+            "paper_url": "https://arxiv.org/abs/1505.04597",
+            "code_url": null,
+            "citations": 70000
+        },
+        {
+            "id": 13,
+            "title": "You Only Look Once: Unified, Real-Time Object Detection",
+            "authors": [
+                "Joseph Redmon",
+                "Santosh Divvala",
+                "Ross Girshick",
+                "Ali Farhadi"
+            ],
+            "institution": "University of Washington",
+            "publication_date": "2015-06-08",
+            "published_in": "CVPR 2016",
+            "topic": "Computer Vision",
+            "description": "Introduced YOLO, the first real-time object detection system that treats detection as a single regression problem, directly from image pixels to bounding box coordinates and class probabilities.",
+            "key_contributions": [
+                "Single-pass object detection",
+                "Real-time processing speed",
+                "Global reasoning on images avoiding false positives in backgrounds"
+            ],
+            "paper_url": "https://arxiv.org/abs/1506.02640",
+            "code_url": null,
+            "citations": 45000
+        },
+        {
+            "id": 14,
+            "title": "Deep Residual Learning for Image Recognition",
+            "authors": [
+                "Kaiming He",
+                "Xiangyu Zhang",
+                "Shaoqing Ren",
+                "Jian Sun"
+            ],
+            "institution": "Microsoft Research",
+            "publication_date": "2015-12-10",
+            "published_in": "CVPR",
+            "topic": "Computer Vision",
+            "description": "Introduced ResNet, which solved the vanishing gradient problem in extremely deep networks using skip connections, becoming the default architecture for many vision tasks.",
+            "key_contributions": [
+                "Residual blocks",
+                "Skip/Shortcut connections",
+                "Enabled training of 100+ layer networks",
+                "Won ILSVRC & COCO 2015 competitions"
+            ],
+            "paper_url": "https://arxiv.org/abs/1512.03385",
+            "code_url": "https://github.com/KaimingHe/deep-residual-networks",
+            "citations": 250000
+        },
+        {
+            "id": 15,
+            "title": "Mastering the game of Go with deep neural networks and tree search",
+            "authors": [
+                "David Silver",
+                "Aja Huang",
+                "Christopher J. Maddison",
+                "Arthur Guez",
+                "Laurent Sifre",
+                "George van den Driessche",
+                "Julian Schrittwieser",
+                "Ioannis Antonoglou",
+                "Veda Panneershelvam",
+                "Marc Lanctot",
+                "Sander Dieleman",
+                "Dominik Grewe",
+                "John Nham",
+                "Nal Kalchbrenner",
+                "Ilya Sutskever",
+                "Timothy Lillicrap",
+                "Madeleine Leach",
+                "Koray Kavukcuoglu",
+                "Thore Graepel",
+                "Demis Hassabis"
+            ],
+            "institution": "Google DeepMind",
+            "publication_date": "2016-01-28",
+            "published_in": "Nature",
+            "topic": "Reinforcement Learning",
+            "description": "The landmark paper demonstrating the first computer program capable of defeating a world champion Go player by combining deep neural networks with advanced tree search.",
+            "key_contributions": [
+                "Hybrid AI system combining deep neural networks with Monte Carlo Tree Search",
+                "Introduction of policy and value networks for move selection and evaluation",
+                "Combination of supervised learning and reinforcement learning (self-play)",
+                "Proof of viability for combining deep learning with advanced search at scale"
+            ],
+            "paper_url": "https://www.nature.com/articles/nature16961",
+            "code_url": null,
+            "citations": 25000
+        },
+        {
+            "id": 16,
+            "title": "Outrageously Large Neural Networks: The Sparsely-Gated Mixture-of-Experts Layer",
+            "authors": [
+                "Noam Shazeer",
+                "Azalia Mirhoseini",
+                "Krzysztof Maziarz",
+                "Andy Davis",
+                "Quoc Le",
+                "Geoffrey Hinton",
+                "Jeff Dean"
+            ],
+            "institution": "Google Brain",
+            "publication_date": "2017-01-23",
+            "published_in": "ICLR",
+            "topic": "Architecture / Efficiency",
+            "description": "Introduced a Sparsely-Gated Mixture-of-Experts layer, paving the way for massive scale networks with sublinear compute requirements.",
+            "key_contributions": [
+                "Sparsely-Gated Mixture-of-Experts",
+                "Conditional computation with neural networks",
+                "Massive capacity increase without proportional compute increase"
+            ],
+            "paper_url": "https://arxiv.org/abs/1701.06538",
+            "code_url": null,
+            "citations": 5000
+        },
+        {
+            "id": 17,
+            "title": "Attention Is All You Need",
+            "authors": [
+                "Ashish Vaswani",
+                "Noam Shazeer",
+                "Niki Parmar",
+                "Jakob Uszkoreit",
+                "Llion Jones",
+                "Aidan N. Gomez",
+                "Lukasz Kaiser",
+                "Illia Polosukhin"
+            ],
+            "institution": "Google Brain / Google Research",
+            "publication_date": "2017-06-12",
+            "published_in": "NeurIPS",
+            "topic": "Transformers",
+            "description": "The foundational paper for modern LLMs. It introduced the Transformer architecture, dispensing with recurrence entirely in favor of self-attention mechanisms.",
+            "key_contributions": [
+                "Transformer architecture",
+                "Scaled Dot-Product Attention",
+                "Multi-Head Attention",
+                "Highly parallelizable training"
+            ],
+            "paper_url": "https://arxiv.org/abs/1706.03762",
+            "code_url": "https://github.com/tensorflow/tensor2tensor",
+            "citations": 140000
+        },
+        {
+            "id": 18,
+            "title": "Proximal Policy Optimization Algorithms",
+            "authors": [
+                "John Schulman",
+                "Filip Wolski",
+                "Prafulla Dhariwal",
+                "Alec Radford",
+                "Oleg Klimov"
+            ],
+            "institution": "OpenAI",
+            "publication_date": "2017-07-20",
+            "published_in": "arXiv",
+            "topic": "Reinforcement Learning",
+            "description": "Introduced PPO, an RL method that strikes a balance between ease of tuning, sample complexity, and performance. It became the default RL algorithm used in RLHF for large language models.",
+            "key_contributions": [
+                "Proximal Policy Optimization (PPO)",
+                "Clipped surrogate objective",
+                "Stable and efficient reinforcement learning"
+            ],
+            "paper_url": "https://arxiv.org/abs/1707.06347",
+            "code_url": "https://github.com/openai/baselines",
+            "citations": 22000
+        },
+        {
+            "id": 19,
+            "title": "BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding",
+            "authors": [
+                "Jacob Devlin",
+                "Ming-Wei Chang",
+                "Kenton Lee",
+                "Kristina Toutanova"
+            ],
+            "institution": "Google AI Language",
+            "publication_date": "2018-10-11",
+            "published_in": "NAACL",
+            "topic": "Language Models",
+            "description": "Introduced a novel way to pre-train deep bidirectional representations, breaking records across numerous NLP tasks and forming the backbone of Google Search.",
+            "key_contributions": [
+                "Deep bidirectional pre-training",
+                "Masked Language Modeling (MLM)",
+                "Next Sentence Prediction (NSP)"
+            ],
+            "paper_url": "https://arxiv.org/abs/1810.04805",
+            "code_url": "https://github.com/google-research/bert",
+            "citations": 110000
+        },
+        {
+            "id": 20,
+            "title": "Language Models are Unsupervised Multitask Learners",
+            "authors": [
+                "Alec Radford",
+                "Jeffrey Wu",
+                "Rewon Child",
+                "David Luan",
+                "Dario Amodei",
+                "Ilya Sutskever"
+            ],
+            "institution": "OpenAI",
+            "publication_date": "2019-02-14",
+            "published_in": "OpenAI Blog",
+            "topic": "Language Models",
+            "description": "Introduced GPT-2, demonstrating that language models could perform surprisingly well in zero-shot settings across a variety of domains simply by scaling up parameters and data.",
+            "key_contributions": [
+                "Zero-shot task transfer",
+                "WebText dataset creation",
+                "1.5B parameter scale demonstration"
+            ],
+            "paper_url": "https://d4mucfpksywv.cloudfront.net/better-language-models/language-models.pdf",
+            "code_url": "https://github.com/openai/gpt-2",
+            "citations": 15000
+        },
+        {
+            "id": 21,
+            "title": "Scaling Laws for Neural Language Models",
+            "authors": [
+                "Jared Kaplan",
+                "Sam McCandlish",
+                "Tom Henighan",
+                "Tom B. Brown",
+                "Benjamin Chess",
+                "Rewon Child",
+                "Scott Gray",
+                "Alec Radford",
+                "Jeffrey Wu",
+                "Dario Amodei"
+            ],
+            "institution": "OpenAI",
+            "publication_date": "2020-01-23",
+            "published_in": "arXiv",
+            "topic": "Scaling Laws",
+            "description": "Provided empirical evidence that language model performance scales predictably with compute, dataset size, and parameter count, laying the foundation for modern LLM scaling strategies.",
+            "key_contributions": [
+                "Empirical power-law scaling relationships",
+                "Compute vs. Data vs. Parameter tradeoffs",
+                "Predicting loss from scale"
+            ],
+            "paper_url": "https://arxiv.org/abs/2001.08361",
+            "code_url": null,
+            "citations": 6000
+        },
+        {
+            "id": 22,
+            "title": "Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks",
+            "authors": [
+                "Patrick Lewis",
+                "Ethan Perez",
+                "Aleksandra Piktus",
+                "Fabio Petroni",
+                "Vladimir Karpukhin",
+                "Naman Goyal",
+                "Heinrich K\u00fcttler",
+                "Mike Lewis",
+                "Wen-tau Yih",
+                "Tim Rockt\u00e4schel",
+                "Sebastian Riedel",
+                "Douwe Kiela"
+            ],
+            "institution": "Meta AI",
+            "publication_date": "2020-05-22",
+            "published_in": "NeurIPS",
+            "topic": "Natural Language Processing",
+            "description": "Introduced RAG, a hybrid architecture combining a pre-trained sequence-to-sequence model with a dense vector index of Wikipedia for enhanced factual accuracy.",
+            "key_contributions": [
+                "Retrieval-Augmented Generation (RAG) framework",
+                "Integration of parametric and non-parametric memory",
+                "End-to-end training of retriever and generator",
+                "Significant reduction in model hallucinations"
+            ],
+            "paper_url": "https://arxiv.org/abs/2005.11401",
+            "code_url": "https://github.com/huggingface/transformers/blob/master/examples/rag/",
+            "citations": 15000
+        },
+        {
+            "id": 23,
+            "title": "Language Models are Few-Shot Learners",
+            "authors": [
+                "Tom B. Brown",
+                "Benjamin Mann",
+                "Nick Ryder",
+                "Melanie Subbiah",
+                "Jared Kaplan",
+                "Prafulla Dhariwal",
+                "Arvind Neelakantan",
+                "Pranav Shyam",
+                "Giridhar Sastry",
+                "Amanda Askell",
+                "Sandhini Agarwal",
+                "Ariel Herbert-Voss",
+                "Gretchen Krueger",
+                "Tom Henighan",
+                "Rewon Child",
+                "Aditya Ramesh",
+                "Daniel M. Ziegler",
+                "Jeffrey Wu",
+                "Clemens Winter",
+                "Christopher Hesse",
+                "Mark Chen",
+                "Eric Sigler",
+                "Mateusz Litwin",
+                "Scott Gray",
+                "Benjamin Chess",
+                "Jack Clark",
+                "Christopher Berner",
+                "Sam McCandlish",
+                "Alec Radford",
+                "Ilya Sutskever",
+                "Dario Amodei"
+            ],
+            "institution": "OpenAI",
+            "publication_date": "2020-05-28",
+            "published_in": "NeurIPS",
+            "topic": "Language Models",
+            "description": "Introduced GPT-3 (175B parameters), showing that massive scaling leads to emergent few-shot learning capabilities without requiring gradient updates or fine-tuning.",
+            "key_contributions": [
+                "Massive scaling (175B parameters)",
+                "In-context learning / Few-shot prompting",
+                "Emergent abilities from scale"
+            ],
+            "paper_url": "https://arxiv.org/abs/2005.14165",
+            "code_url": "https://github.com/openai/gpt-3",
+            "citations": 35000
+        },
+        {
+            "id": 24,
+            "title": "Denoising Diffusion Probabilistic Models",
+            "authors": [
+                "Jonathan Ho",
+                "Ajay Jain",
+                "Pieter Abbeel"
+            ],
+            "institution": "UC Berkeley",
+            "publication_date": "2020-06-19",
+            "published_in": "NeurIPS",
+            "topic": "Generative AI",
+            "description": "Popularized high-quality image synthesis using diffusion models, connecting diffusion probabalistic models to denoising score matching. This started the diffusion generative revolution.",
+            "key_contributions": [
+                "Denoising Diffusion Probabilistic Models (DDPM)",
+                "Equivalence between diffusion and score-matching",
+                "High-fidelity image generation surpassing GANs in diversity"
+            ],
+            "paper_url": "https://arxiv.org/abs/2006.11239",
+            "code_url": "https://github.com/hojonathanho/diffusion",
+            "citations": 15000
+        },
+        {
+            "id": 25,
+            "title": "Learning Transferable Visual Models From Natural Language Supervision",
+            "authors": [
+                "Alec Radford",
+                "Jong Wook Kim",
+                "Chris Hallacy",
+                "Aditya Ramesh",
+                "Gabriel Goh",
+                "Sandhini Agarwal",
+                "Girish Sastry",
+                "Amanda Askell",
+                "Pamela Mishkin",
+                "Jack Clark",
+                "Gretchen Krueger",
+                "Ilya Sutskever"
+            ],
+            "institution": "OpenAI",
+            "publication_date": "2021-02-26",
+            "published_in": "ICML",
+            "topic": "Multimodal Models",
+            "description": "Introduced CLIP, an extremely effective method for contrastive text-image pretraining that enables zero-shot image classification and robust vision-language integration.",
+            "key_contributions": [
+                "Contrastive Language-Image Pre-training (CLIP)",
+                "Zero-shot transfer to many image classification tasks",
+                "Bridging visual and textual modalities effectively"
+            ],
+            "paper_url": "https://arxiv.org/abs/2103.00020",
+            "code_url": "https://github.com/OpenAI/CLIP",
+            "citations": 25000
+        },
+        {
+            "id": 26,
+            "title": "LoRA: Low-Rank Adaptation of Large Language Models",
+            "authors": [
+                "Edward J. Hu",
+                "Yelong Shen",
+                "Phillip Wallis",
+                "Zeyuan Allen-Zhu",
+                "Yuanzhi Li",
+                "Shean Wang",
+                "Lu Wang",
+                "Weizhu Chen"
+            ],
+            "institution": "Microsoft",
+            "publication_date": "2021-06-17",
+            "published_in": "ICLR",
+            "topic": "Efficient Fine-Tuning",
+            "description": "Introduced LoRA, freezing the pretrained model weights and injecting trainable rank decomposition matrices into the architecture, greatly reducing the number of trainable parameters.",
+            "key_contributions": [
+                "Low-Rank Adaptation (LoRA) technique",
+                "Massive reduction in VRAM required for fine-tuning",
+                "Same or better performance compared to full fine-tuning"
+            ],
+            "paper_url": "https://arxiv.org/abs/2106.09685",
+            "code_url": "https://github.com/microsoft/LoRA",
+            "citations": 10000
+        },
+        {
+            "title": "LoRA: Low-Rank Adaptation of Large Language Models",
+            "authors": [
+                "Edward J. Hu",
+                "Yelong Shen",
+                "Phillip Wallis",
+                "Zeyuan Allen-Zhu",
+                "Yuanzhi Li",
+                "Lu Wang",
+                "Haizhou Li",
+                "Weizhu Chen"
+            ],
+            "institution": "Microsoft",
+            "publication_date": "2021-06-17",
+            "published_in": "arXiv / ICLR",
+            "topic": "Fine-tuning",
+            "description": "Introduced the Low-Rank Adaptation (LoRA) technique, which dramatically reduces the number of trainable parameters for fine-tuning large models.",
+            "key_contributions": [
+                "Low-rank matrix decomposition",
+                "Parameter-efficient fine-tuning",
+                "No additional inference latency"
+            ],
+            "paper_url": "https://arxiv.org/abs/2106.09685",
+            "code_url": "https://github.com/microsoft/LoRA",
+            "citations": 6000,
+            "id": 27
+        },
+        {
+            "id": 28,
+            "title": "Highly accurate protein structure prediction with AlphaFold",
+            "authors": [
+                "John Jumper",
+                "Richard Evans",
+                "Alexander Pritzel",
+                "Tim Green",
+                "Michael Figurnov",
+                "Olaf Ronneberger",
+                "Kathryn Tunyasuvunakool",
+                "Russ Bates",
+                "Augustin \u017d\u00eddek",
+                "Anna Potapenko",
+                "Alex Bridgland",
+                "Clemens Meyer",
+                "Simon A A Kohl",
+                "Andrew J Ballard",
+                "Andrew Cowie",
+                "Bernardino Romera-Paredes",
+                "Stanislav Nikolov",
+                "Rishub Jain",
+                "Jonas Adler",
+                "Trevor Back",
+                "Stig Petersen",
+                "David Reiman",
+                "Ellen Clancy",
+                "Michal Zielinski",
+                "Martin Steinegger",
+                "Michalina Pacholska",
+                "Tamam Berghammer",
+                "Sebastian Bodenstein",
+                "David Silver",
+                "Oriol Vinyals",
+                "Andrew W Senior",
+                "Kavita Kavukcuoglu",
+                "Pushmeet Kohli",
+                "Demis Hassabis"
+            ],
+            "institution": "DeepMind",
+            "publication_date": "2021-07-15",
+            "published_in": "Nature",
+            "topic": "AI for Science",
+            "description": "Detailed AlphaFold 2, a revolutionary AI system fundamentally solving the 50-year-old grand challenge of predicting a protein's 3D structure from its amino acid sequence.",
+            "key_contributions": [
+                "Evoformer architecture combining evolutionary and spatial information",
+                "End-to-end atomic coordinate prediction",
+                "Accuracy competitive with experimental structures"
+            ],
+            "paper_url": "https://www.nature.com/articles/s41586-021-03819-2",
+            "code_url": "https://github.com/google-deepmind/alphafold",
+            "citations": 45000
+        },
+        {
+            "id": 29,
+            "title": "High-Resolution Image Synthesis with Latent Diffusion Models",
+            "authors": [
+                "Robin Rombach",
+                "Andreas Blattmann",
+                "Dominik Lorenz",
+                "Patrick Esser",
+                "Bj\u00f6rn Ommer"
+            ],
+            "institution": "CompVis Group / LMU Munich",
+            "publication_date": "2021-12-20",
+            "published_in": "CVPR 2022",
+            "topic": "Generative AI",
+            "description": "Introduced Latent Diffusion Models (LDM), which perform the diffusion process in a compressed latent space rather than pixel space, enabling high-quality image synthesis like Stable Diffusion with far less compute.",
+            "key_contributions": [
+                "Compression into latent space via VQ-GAN",
+                "Cross-attention for conditional generation",
+                "Foundation for Stable Diffusion"
+            ],
+            "paper_url": "https://arxiv.org/abs/2112.10752",
+            "code_url": "https://github.com/CompVis/latent-diffusion",
+            "citations": 15000
+        },
+        {
+            "id": 30,
+            "title": "Chain-of-Thought Prompting Elicits Reasoning in Large Language Models",
+            "authors": [
+                "Jason Wei",
+                "Xuezhi Wang",
+                "Dale Schuurmans",
+                "Maarten Bosma",
+                "Brian Ichter",
+                "Fei Xia",
+                "Ed Chi",
+                "Quoc Le",
+                "Denny Zhou"
+            ],
+            "institution": "Google Brain",
+            "publication_date": "2022-01-28",
+            "published_in": "NeurIPS",
+            "topic": "Reasoning",
+            "description": "Demonstrated that prompting LLMs to generate a series of intermediate reasoning steps significantly improves performance on complex reasoning tasks.",
+            "key_contributions": [
+                "Chain-of-Thought (CoT) prompting technique",
+                "Emergent reasoning abilities in large-scale models",
+                "Improved interpretability of model outputs"
+            ],
+            "paper_url": "https://arxiv.org/abs/2201.11903",
+            "code_url": null,
+            "citations": 20000
+        },
+        {
+            "id": 31,
+            "title": "Training language models to follow instructions with human feedback",
+            "authors": [
+                "Long Ouyang",
+                "Jeff Wu",
+                "Xu Jiang",
+                "Diogo Almeida",
+                "Carroll L. Wainwright",
+                "Pamela Mishkin",
+                "Chong Zhang",
+                "Sandhini Agarwal",
+                "Katarina Slama",
+                "Alex Ray",
+                "John Schulman",
+                "Jacob Hilton",
+                "Fraser Kelton",
+                "Luke Miller",
+                "Maddie Simens",
+                "Amanda Askell",
+                "Peter Welinder",
+                "Paul Christiano",
+                "Jan Leike",
+                "Ryan Lowe"
+            ],
+            "institution": "OpenAI",
+            "publication_date": "2022-03-04",
+            "published_in": "NeurIPS",
+            "topic": "Alignment",
+            "description": "Introduced InstructGPT, applying Reinforcement Learning from Human Feedback (RLHF) to align language models with user intent. This paper forms the basis for ChatGPT.",
+            "key_contributions": [
+                "Reinforcement Learning from Human Feedback (RLHF)",
+                "Reward modeling",
+                "Supervised fine-tuning for instructions"
+            ],
+            "paper_url": "https://arxiv.org/abs/2203.02155",
+            "code_url": null,
+            "citations": 10000
+        },
+        {
+            "id": 32,
+            "title": "Training Compute-Optimal Large Language Models",
+            "authors": [
+                "Jordan Hoffmann",
+                "Sebastian Borgeaud",
+                "Arthur Mensch",
+                "Elena Buchatskaya",
+                "Trevor Cai",
+                "Eliza Rutherford",
+                "Diego de Las Casas",
+                "Lisa Anne Hendricks",
+                "Johannes Welbl",
+                "Aidan Clark",
+                "Tom Hennigan",
+                "Eric Nalisnick",
+                "Will Gao",
+                "Francesca Bell",
+                "Ken Chen",
+                "Karina C",
+                "Ian Osband",
+                "Yujia Li",
+                "Vinyals Oriol",
+                "Jack Rae"
+            ],
+            "institution": "DeepMind",
+            "publication_date": "2022-03-29",
+            "published_in": "NeurIPS",
+            "topic": "Scaling Laws",
+            "description": "Introduced the 'Chinchilla' scaling laws, proving that previous LLMs were significantly undertrained. It showed that model scale and training tokens must scale equally.",
+            "key_contributions": [
+                "Chinchilla scaling laws",
+                "Compute-optimal model sizing",
+                "70B model outperforming 280B model through more data"
+            ],
+            "paper_url": "https://arxiv.org/abs/2203.15556",
+            "code_url": null,
+            "citations": 5000
+        },
+        {
+            "id": 33,
+            "title": "FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness",
+            "authors": [
+                "Tri Dao",
+                "Daniel Y. Fu",
+                "Stefano Ermon",
+                "Atri Rudra",
+                "Christopher R\u00e9"
+            ],
+            "institution": "Stanford University",
+            "publication_date": "2022-05-27",
+            "published_in": "NeurIPS",
+            "topic": "Attention Mechanism / Efficiency",
+            "description": "Introduced an IO-aware exact attention algorithm that uses tiling to significantly reduce memory reads/writes between GPU HBM and SRAM, accelerating Transformers immensely.",
+            "key_contributions": [
+                "FlashAttention algorithm",
+                "IO-awareness and tiling",
+                "Sub-quadratic memory complexity for attention"
+            ],
+            "paper_url": "https://arxiv.org/abs/2205.14135",
+            "code_url": "https://github.com/Dao-AILab/flash-attention",
+            "citations": 6000
+        },
+        {
+            "title": "FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness",
+            "authors": [
+                "Tri Dao",
+                "Daniel Y. Fu",
+                "Stefano Ermon",
+                "Atri Rudra",
+                "Christopher Re"
+            ],
+            "institution": "Stanford University",
+            "publication_date": "2022-05-27",
+            "published_in": "arXiv / NeurIPS",
+            "topic": "Architecture",
+            "description": "A critical breakthrough in attention mechanisms that uses tiling and recomputation to speed up Transformers and handle longer sequences.",
+            "key_contributions": [
+                "IO-aware attention",
+                "Linear memory scaling",
+                "3x training speedup"
+            ],
+            "paper_url": "https://arxiv.org/abs/2205.14135",
+            "code_url": "https://github.com/Dao-AILab/flash-attention",
+            "citations": 3700,
+            "id": 34
+        },
+        {
+            "id": 35,
+            "title": "Constitutional AI: Harmlessness from AI Feedback",
+            "authors": [
+                "Yuntao Bai",
+                "Saurav Kadavath",
+                "Sandi Ngo",
+                "Cora Corsetto",
+                "Amanda Askell",
+                "Jackson Kernion",
+                "Chenglei Si",
+                "Laura Bauman",
+                "Sam Bowman",
+                "Ndapa Nakano",
+                "Dan Mossing",
+                "Nova DasSarma",
+                "Tim Maxwell",
+                "Nicholas Schiefer",
+                "Deep Ganguli",
+                "Jared Kaplan"
+            ],
+            "institution": "Anthropic",
+            "publication_date": "2022-12-15",
+            "published_in": "arXiv",
+            "topic": "Alignment",
+            "description": "Introduced Constitutional AI, enabling the training of non-evasive and harmless assistants using AI-generated feedback based on a precise set of principles (a 'constitution').",
+            "key_contributions": [
+                "Constitutional AI approach",
+                "Reinforcement Learning from AI Feedback (RLAIF)",
+                "Scalable oversight without human intervention"
+            ],
+            "paper_url": "https://arxiv.org/abs/2212.08073",
+            "code_url": null,
+            "citations": 3000
+        },
+        {
+            "id": 36,
+            "title": "LLaMA: Open and Efficient Foundation Language Models",
+            "authors": [
+                "Hugo Touvron",
+                "Thibaut Lavril",
+                "Gautier Izacard",
+                "Xavier Martinet",
+                "Marie-Anne Lachaux",
+                "Timoth\u00e9e Lacroix",
+                "Baptiste Rozi\u00e8re",
+                "Naman Goyal",
+                "Eric Hambro",
+                "Faisal Azhar",
+                "Aurelien Rodriguez",
+                "Armand Joulin",
+                "Edouard Grave",
+                "Guillaume Lample"
+            ],
+            "institution": "Meta AI",
+            "publication_date": "2023-02-27",
+            "published_in": "arXiv",
+            "topic": "Open Source LLMs",
+            "description": "Released a family of highly capable, open-weight foundation models ranging from 7B to 65B parameters. This paper ignited the massive open-source LLM revolution.",
+            "key_contributions": [
+                "High-performance open weights",
+                "SwiGLU activation",
+                "Rotary Positional Embeddings (RoPE)"
+            ],
+            "paper_url": "https://arxiv.org/abs/2302.13971",
+            "code_url": "https://github.com/facebookresearch/llama",
+            "citations": 10000
+        },
+        {
+            "id": 37,
+            "title": "GPT-4 Technical Report",
+            "authors": [
+                "OpenAI"
+            ],
+            "institution": "OpenAI",
+            "publication_date": "2023-03-15",
+            "published_in": "arXiv",
+            "topic": "Multimodal Models",
+            "description": "Detailed the capabilities and safety properties of GPT-4, a large multimodal model reaching human-level performance on many professional and academic benchmarks.",
+            "key_contributions": [
+                "First production-ready multimodal large language model",
+                "Human-level performance on benchmarks",
+                "Advanced safety and alignment techniques"
+            ],
+            "paper_url": "https://arxiv.org/abs/2303.08774",
+            "code_url": null,
+            "citations": 15000
+        },
+        {
+            "id": 38,
+            "title": "Direct Preference Optimization: Your Language Model is Secretly a Reward Model",
+            "authors": [
+                "Rafael Rafailov",
+                "Archit Sharma",
+                "Eric Mitchell",
+                "Stefano Ermon",
+                "Christopher D. Manning",
+                "Chelsea Finn"
+            ],
+            "institution": "Stanford University",
+            "publication_date": "2023-05-29",
+            "published_in": "NeurIPS",
+            "topic": "Alignment",
+            "description": "Introduced DPO, an algorithm that optimizes language models to adhere to human preferences without requiring a complex, separate reward model or RL framework.",
+            "key_contributions": [
+                "Direct Preference Optimization (DPO)",
+                "Mathematical equivalence of reward models and policies",
+                "Simplified alignment training"
+            ],
+            "paper_url": "https://arxiv.org/abs/2305.18290",
+            "code_url": "https://github.com/eric-mitchell/direct-preference-optimization",
+            "citations": 5000
+        },
+        {
+            "title": "Direct Preference Optimization: Your Language Model is Secretly a Reward Model",
+            "authors": [
+                "Rafael Rafailov",
+                "Archit Sharma",
+                "Eric Mitchell",
+                "Stefano Ermon",
+                "Christopher D. Manning",
+                "Jure Leskovec"
+            ],
+            "institution": "Stanford University",
+            "publication_date": "2023-05-29",
+            "published_in": "arXiv / NeurIPS",
+            "topic": "Alignment",
+            "description": "Introduced DPO, a simpler and more stable alternative to RLHF for aligning LLMs with human preferences without an explicit reward model.",
+            "key_contributions": [
+                "Simplification of RLHF",
+                "Direct preference optimization",
+                "Improved training stability"
+            ],
+            "paper_url": "https://arxiv.org/abs/2305.18290",
+            "code_url": "https://github.com/eric-mitchell/direct-preference-optimization",
+            "citations": 2500,
+            "id": 39
+        },
+        {
+            "id": 40,
+            "title": "Llama 2: Open Foundation and Fine-Tuned Chat Models",
+            "authors": [
+                "Hugo Touvron",
+                "Louis Martin",
+                "Kevin Stone",
+                "Peter Albert",
+                "Amjad Almahairi",
+                "Yasmine Babaei"
+            ],
+            "institution": "Meta AI",
+            "publication_date": "2023-07-18",
+            "published_in": "arXiv",
+            "topic": "Open Source LLMs",
+            "description": "Released Llama 2, including versions up to 70B parameters, which were optimized for dialogue and released with a permissive license, significantly impacting the commercial use of open models.",
+            "key_contributions": [
+                "Iterative RLHF alignment",
+                "Grouped-Query Attention (GQA)",
+                "Permissive community license"
+            ],
+            "paper_url": "https://arxiv.org/abs/2307.09288",
+            "code_url": "https://github.com/facebookresearch/llama",
+            "citations": 8000
+        },
+        {
+            "id": 41,
+            "title": "BitNet: Scaling 1-bit Transformers for Large Language Models",
+            "authors": [
+                "Hongyu Wang",
+                "Shuming Ma",
+                "Li Dong",
+                "Shaohan Huang",
+                "Huaijie Wang",
+                "Lingxiao Ma",
+                "Fan Yang",
+                "Ruiping Wang",
+                "Yi Wu",
+                "Furu Wei"
+            ],
+            "institution": "Microsoft Research",
+            "publication_date": "2023-10-17",
+            "published_in": "arXiv",
+            "topic": "Efficient LLMs",
+            "description": "Introduced a highly memory and compute-efficient architecture utilizing 1-bit quantization for linear projections, paving the way for running massive LLMs on edge devices.",
+            "key_contributions": [
+                "1-bit Transformer architecture",
+                "BitLinear layer replacing nn.Linear",
+                "Drastic reduction in memory footprint"
+            ],
+            "paper_url": "https://arxiv.org/abs/2310.11453",
+            "code_url": "https://github.com/microsoft/unilm/tree/master/bitnet",
+            "citations": 1000
+        },
+        {
+            "title": "Mamba: Linear-Time Sequence Modeling with Selective State Spaces",
+            "authors": [
+                "Albert Gu",
+                "Tri Dao"
+            ],
+            "institution": "CMU / Princeton",
+            "publication_date": "2023-12-01",
+            "published_in": "arXiv",
+            "topic": "Architecture",
+            "description": "Proposed a new architecture based on Selective State Space Models that achieves linear scaling and rivals Transformers in efficiency.",
+            "key_contributions": [
+                "Selective State Spaces",
+                "Linear-time inference",
+                "Efficient long-context handling"
+            ],
+            "paper_url": "https://arxiv.org/abs/2312.00752",
+            "code_url": "https://github.com/state-spaces/mamba",
+            "citations": 1200,
+            "id": 42
+        },
+        {
+            "id": 43,
+            "title": "Gemini: A Family of Highly Capable Multimodal Models",
+            "authors": [
+                "Gemini Team",
+                "Google"
+            ],
+            "institution": "Google DeepMind",
+            "publication_date": "2023-12-06",
+            "published_in": "arXiv",
+            "topic": "Multimodal Models",
+            "description": "Introduced the Gemini family of models, designed from the ground up to be natively multimodal, reasoning across text, images, video, and audio simultaneously.",
+            "key_contributions": [
+                "Native multimodality (Text, Vision, Audio)",
+                "Ultra, Pro, and Nano model tiers",
+                "Next-generation long-context capabilities"
+            ],
+            "paper_url": "https://arxiv.org/abs/2312.11805",
+            "code_url": null,
+            "citations": 3000
+        },
+        {
+            "id": 44,
+            "title": "The Llama 3 Herd of Models",
+            "authors": [
+                "Llama Team",
+                "Meta"
+            ],
+            "institution": "Meta AI",
+            "publication_date": "2024-04-18",
+            "published_in": "arXiv",
+            "topic": "Open Source LLMs",
+            "description": "Released Llama 3, pushing the boundaries of open-weight models with a massive 405B parameter version that rivals the best proprietary models in reasoning and knowledge.",
+            "key_contributions": [
+                "First 405B open-weight frontier model",
+                "Efficient 8B and 70B dense models",
+                "Trained on 15T+ tokens"
+            ],
+            "paper_url": "https://arxiv.org/abs/2407.21783",
+            "code_url": "https://github.com/meta-llama/llama3",
+            "citations": 2000
+        },
+        {
+            "id": 45,
+            "title": "Accurate structure prediction of biomolecular interactions with AlphaFold 3",
+            "authors": [
+                "Josh Abramson",
+                "John Jumper",
+                "Pushmeet Kohli",
+                "Demis Hassabis"
+            ],
+            "institution": "Google DeepMind",
+            "publication_date": "2024-05-08",
+            "published_in": "Nature",
+            "topic": "AI for Science",
+            "description": "Introduced AlphaFold 3, capable of predicting the structure and interactions of all life's molecules, including proteins, DNA, RNA, and ligands, with unprecedented accuracy.",
+            "key_contributions": [
+                "Joint structure prediction of complexes",
+                "Diffusion-based atomic coordinate prediction",
+                "Significantly improved accuracy over AlphaFold 2"
+            ],
+            "paper_url": "https://www.nature.com/articles/s41586-024-07487-w",
+            "code_url": "https://alphafoldserver.com/",
+            "citations": 1500
+        },
+        {
+            "id": 46,
+            "title": "OpenAI o1 System Card",
+            "authors": [
+                "OpenAI"
+            ],
+            "institution": "OpenAI",
+            "publication_date": "2024-09-12",
+            "published_in": "OpenAI Blog",
+            "topic": "Reasoning Models",
+            "description": "Introduced a new class of models trained with reinforcement learning to perform complex reasoning via chain-of-thought before responding.",
+            "key_contributions": [
+                "Test-time compute scaling",
+                "Reinforcement Learning for reasoning",
+                "SOTA on STEM tasks"
+            ],
+            "paper_url": "https://openai.com/index/learning-to-reason-with-llms/",
+            "code_url": null,
+            "citations": 1000
+        },
+        {
+            "id": 47,
+            "title": "DeepSeek-R1: Incentivizing Reasoning Capability in LLMs via Reinforcement Learning",
+            "authors": [
+                "DeepSeek-AI"
+            ],
+            "institution": "DeepSeek",
+            "publication_date": "2025-01-20",
+            "published_in": "arXiv",
+            "topic": "Reasoning Models / Open Source",
+            "description": "Demonstrated that high-level reasoning capabilities can be achieved in open-weights models through pure Reinforcement Learning (RL) without massive supervised fine-tuning.",
+            "key_contributions": [
+                "Open-weight reasoning model matching o1 performance",
+                "Multi-stage RL training process",
+                "Verification-based reward signals"
+            ],
+            "paper_url": "https://arxiv.org/abs/2501.12948",
+            "code_url": "https://github.com/deepseek-ai/DeepSeek-R1",
+            "citations": 500
+        }
+    ]
+}
