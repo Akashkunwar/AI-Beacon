@@ -132,7 +132,7 @@ function Hero() {
                         style={{ display: 'flex', gap: 'var(--s3)', flexWrap: 'wrap', alignItems: 'center', marginTop: 'var(--s6)' }}
                     >
                         <Link
-                            to="/transformer-simulator"
+                            to="/timeline"
                             id="hero-cta-primary"
                             style={{
                                 display: 'inline-flex',
