@@ -3,7 +3,7 @@
         "title": "Foundational AI Research Papers Timeline",
         "description": "A curated list of the most influential AI research papers that drove the technological revolution.",
         "last_updated": "2026-03-07",
-        "total_papers": 50,
+        "total_papers": 47,
         "fields": [
             "id",
             "title",
@@ -705,34 +705,7 @@
             "citations": 10000
         },
         {
-            "title": "LoRA: Low-Rank Adaptation of Large Language Models",
-            "authors": [
-                "Edward J. Hu",
-                "Yelong Shen",
-                "Phillip Wallis",
-                "Zeyuan Allen-Zhu",
-                "Yuanzhi Li",
-                "Lu Wang",
-                "Haizhou Li",
-                "Weizhu Chen"
-            ],
-            "institution": "Microsoft",
-            "publication_date": "2021-06-17",
-            "published_in": "arXiv / ICLR",
-            "topic": "Fine-tuning",
-            "description": "Introduced the Low-Rank Adaptation (LoRA) technique, which dramatically reduces the number of trainable parameters for fine-tuning large models.",
-            "key_contributions": [
-                "Low-rank matrix decomposition",
-                "Parameter-efficient fine-tuning",
-                "No additional inference latency"
-            ],
-            "paper_url": "https://arxiv.org/abs/2106.09685",
-            "code_url": "https://github.com/microsoft/LoRA",
-            "citations": 6000,
-            "id": 27
-        },
-        {
-            "id": 28,
+            "id": 27,
             "title": "Highly accurate protein structure prediction with AlphaFold",
             "authors": [
                 "John Jumper",
@@ -785,7 +758,7 @@
             "citations": 45000
         },
         {
-            "id": 29,
+            "id": 28,
             "title": "High-Resolution Image Synthesis with Latent Diffusion Models",
             "authors": [
                 "Robin Rombach",
@@ -809,7 +782,7 @@
             "citations": 15000
         },
         {
-            "id": 30,
+            "id": 29,
             "title": "Chain-of-Thought Prompting Elicits Reasoning in Large Language Models",
             "authors": [
                 "Jason Wei",
@@ -837,7 +810,7 @@
             "citations": 20000
         },
         {
-            "id": 31,
+            "id": 30,
             "title": "Training language models to follow instructions with human feedback",
             "authors": [
                 "Long Ouyang",
@@ -876,7 +849,7 @@
             "citations": 10000
         },
         {
-            "id": 32,
+            "id": 31,
             "title": "Training Compute-Optimal Large Language Models",
             "authors": [
                 "Jordan Hoffmann",
@@ -915,7 +888,7 @@
             "citations": 5000
         },
         {
-            "id": 33,
+            "id": 32,
             "title": "FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness",
             "authors": [
                 "Tri Dao",
@@ -939,31 +912,7 @@
             "citations": 6000
         },
         {
-            "title": "FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness",
-            "authors": [
-                "Tri Dao",
-                "Daniel Y. Fu",
-                "Stefano Ermon",
-                "Atri Rudra",
-                "Christopher Re"
-            ],
-            "institution": "Stanford University",
-            "publication_date": "2022-05-27",
-            "published_in": "arXiv / NeurIPS",
-            "topic": "Architecture",
-            "description": "A critical breakthrough in attention mechanisms that uses tiling and recomputation to speed up Transformers and handle longer sequences.",
-            "key_contributions": [
-                "IO-aware attention",
-                "Linear memory scaling",
-                "3x training speedup"
-            ],
-            "paper_url": "https://arxiv.org/abs/2205.14135",
-            "code_url": "https://github.com/Dao-AILab/flash-attention",
-            "citations": 3700,
-            "id": 34
-        },
-        {
-            "id": 35,
+            "id": 33,
             "title": "Constitutional AI: Harmlessness from AI Feedback",
             "authors": [
                 "Yuntao Bai",
@@ -998,7 +947,7 @@
             "citations": 3000
         },
         {
-            "id": 36,
+            "id": 34,
             "title": "LLaMA: Open and Efficient Foundation Language Models",
             "authors": [
                 "Hugo Touvron",
@@ -1031,7 +980,7 @@
             "citations": 10000
         },
         {
-            "id": 37,
+            "id": 35,
             "title": "GPT-4 Technical Report",
             "authors": [
                 "OpenAI"
@@ -1051,7 +1000,7 @@
             "citations": 15000
         },
         {
-            "id": 38,
+            "id": 36,
             "title": "Direct Preference Optimization: Your Language Model is Secretly a Reward Model",
             "authors": [
                 "Rafael Rafailov",
@@ -1076,32 +1025,7 @@
             "citations": 5000
         },
         {
-            "title": "Direct Preference Optimization: Your Language Model is Secretly a Reward Model",
-            "authors": [
-                "Rafael Rafailov",
-                "Archit Sharma",
-                "Eric Mitchell",
-                "Stefano Ermon",
-                "Christopher D. Manning",
-                "Jure Leskovec"
-            ],
-            "institution": "Stanford University",
-            "publication_date": "2023-05-29",
-            "published_in": "arXiv / NeurIPS",
-            "topic": "Alignment",
-            "description": "Introduced DPO, a simpler and more stable alternative to RLHF for aligning LLMs with human preferences without an explicit reward model.",
-            "key_contributions": [
-                "Simplification of RLHF",
-                "Direct preference optimization",
-                "Improved training stability"
-            ],
-            "paper_url": "https://arxiv.org/abs/2305.18290",
-            "code_url": "https://github.com/eric-mitchell/direct-preference-optimization",
-            "citations": 2500,
-            "id": 39
-        },
-        {
-            "id": 40,
+            "id": 37,
             "title": "Llama 2: Open Foundation and Fine-Tuned Chat Models",
             "authors": [
                 "Hugo Touvron",
@@ -1126,7 +1050,7 @@
             "citations": 8000
         },
         {
-            "id": 41,
+            "id": 38,
             "title": "BitNet: Scaling 1-bit Transformers for Large Language Models",
             "authors": [
                 "Hongyu Wang",
@@ -1173,10 +1097,10 @@
             "paper_url": "https://arxiv.org/abs/2312.00752",
             "code_url": "https://github.com/state-spaces/mamba",
             "citations": 1200,
-            "id": 42
+            "id": 39
         },
         {
-            "id": 43,
+            "id": 40,
             "title": "Gemini: A Family of Highly Capable Multimodal Models",
             "authors": [
                 "Gemini Team",
@@ -1197,7 +1121,7 @@
             "citations": 3000
         },
         {
-            "id": 44,
+            "id": 41,
             "title": "The Llama 3 Herd of Models",
             "authors": [
                 "Llama Team",
@@ -1218,7 +1142,7 @@
             "citations": 2000
         },
         {
-            "id": 45,
+            "id": 42,
             "title": "Accurate structure prediction of biomolecular interactions with AlphaFold 3",
             "authors": [
                 "Josh Abramson",
@@ -1241,7 +1165,7 @@
             "citations": 1500
         },
         {
-            "id": 46,
+            "id": 43,
             "title": "OpenAI o1 System Card",
             "authors": [
                 "OpenAI"
@@ -1261,7 +1185,7 @@
             "citations": 1000
         },
         {
-            "id": 47,
+            "id": 44,
             "title": "DeepSeek-R1: Incentivizing Reasoning Capability in LLMs via Reinforcement Learning",
             "authors": [
                 "DeepSeek-AI"
@@ -1281,7 +1205,27 @@
             "citations": 500
         },
         {
-            "id": 48,
+            "id": 45,
+            "title": "NVIDIA DiffusionRenderer: Unifying Inverse and Forward Rendering",
+            "authors": [
+                "NVIDIA Research"
+            ],
+            "institution": "NVIDIA",
+            "publication_date": "2025-06-11",
+            "published_in": "CVPR 2025",
+            "topic": "Neural Rendering / Diffusion Models",
+            "description": "Introduced a neural rendering technique that unifies rendering passes, enabling AI-powered lighting control and photorealistic scene transformation.",
+            "key_contributions": [
+                "Unified rendering framework",
+                "AI-powered lighting control",
+                "SOTA in synthetic data generation"
+            ],
+            "paper_url": "https://blogs.nvidia.com/blog/cvpr-2025-research-diffusion-renderer-lightning/",
+            "code_url": null,
+            "citations": 250
+        },
+        {
+            "id": 46,
             "title": "ArithMotion: Intent-Aware Lifelike VR Avatars on Mobile",
             "authors": [
                 "Jaewoong Jang",
@@ -1303,27 +1247,7 @@
             "citations": 50
         },
         {
-            "id": 49,
-            "title": "NVIDIA DiffusionRenderer: Unifying Inverse and Forward Rendering",
-            "authors": [
-                "NVIDIA Research"
-            ],
-            "institution": "NVIDIA",
-            "publication_date": "2025-06-11",
-            "published_in": "CVPR 2025",
-            "topic": "Neural Rendering / Diffusion Models",
-            "description": "Introduced a neural rendering technique that unifies rendering passes, enabling AI-powered lighting control and photorealistic scene transformation.",
-            "key_contributions": [
-                "Unified rendering framework",
-                "AI-powered lighting control",
-                "SOTA in synthetic data generation"
-            ],
-            "paper_url": "https://blogs.nvidia.com/blog/cvpr-2025-research-diffusion-renderer-lightning/",
-            "code_url": null,
-            "citations": 250
-        },
-        {
-            "id": 50,
+            "id": 47,
             "title": "Perceptually Guided 3DGS Streaming and Rendering for Virtual Reality",
             "authors": [
                 "Yunxiang Zhang",

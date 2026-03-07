@@ -3,7 +3,7 @@
         "title": "AI & LLM Models Timeline",
         "description": "Comprehensive list of AI and LLM models from 2017 to 2026, including text, vision, audio, multimodal and image generation models.",
         "last_updated": "2026-03-07",
-        "total_models": 174,
+        "total_models": 161,
         "audit_status": "Verified Deep Audit Complete (Chronological + Attribution)",
         "logo_source": "Clearbit Logo API (https://logo.clearbit.com/{domain})",
         "fields": [
@@ -1488,50 +1488,51 @@
         },
         {
             "id": 32,
-            "company": "Anthropic",
-            "company_website": "https://anthropic.com",
-            "company_logo_url": "https://logo.clearbit.com/anthropic.com",
-            "model_family": "Claude",
-            "model_name": "Claude 1",
+            "company": "Tsinghua University / Zhipu AI",
+            "company_website": "https://zhipuai.cn",
+            "company_logo_url": "https://logo.clearbit.com/zhipuai.cn",
+            "model_family": "GLM",
+            "model_name": "ChatGLM",
             "model_version": "1.0",
-            "model_type": "LLM",
-            "architecture": "Transformer (Decoder-only) + Constitutional AI",
+            "model_type": "LLM (Bilingual Chat)",
+            "architecture": "General Language Model (GLM) + RLHF",
             "modalities": [
                 "text"
             ],
-            "parameters": null,
-            "parameter_unit": null,
-            "training_tokens": null,
-            "open_source": false,
-            "license": "Proprietary",
+            "parameters": 6,
+            "parameter_unit": "billion",
+            "training_tokens": 1000,
+            "open_source": true,
+            "license": "Apache 2.0",
             "api_available": true,
-            "context_window_tokens": 100000,
-            "training_data_cutoff": "2022-12",
+            "context_window_tokens": 2048,
+            "training_data_cutoff": "2023-01",
             "release_date": "2023-03-14",
-            "country": "USA",
-            "description": "Anthropic's first Claude model built using Constitutional AI (CAI) principles. Focused on being helpful, harmless, and honest. Offered a large 100K context window compared to contemporaries.",
+            "country": "China",
+            "description": "ChatGLM-6B is an open-source, Chinese-English bilingual dialogue model optimized for consumer-grade GPUs (as low as 6GB VRAM). Became one of the most popular open Chinese LLMs on HuggingFace. Later succeeded by ChatGLM2 and ChatGLM3.",
             "use_cases": [
-                "chatbot",
-                "document analysis",
-                "coding",
-                "writing"
+                "bilingual chatbot",
+                "Chinese NLP",
+                "consumer-grade deployment",
+                "research",
+                "local inference"
             ],
             "notable_features": [
-                "Constitutional AI",
-                "100K context window",
-                "safety-focused training",
-                "HHH principles"
+                "runs on 6GB GPU",
+                "open-source bilingual chat",
+                "HuggingFace top downloads",
+                "RLHF aligned"
             ],
             "benchmark_scores": {},
             "pricing_per_1m_tokens": {
                 "input": null,
                 "output": null
             },
-            "official_model_link": "https://www.anthropic.com/news/introducing-claude",
-            "huggingface_url": null,
-            "paper_url": "https://arxiv.org/abs/2212.08073",
-            "predecessor": null,
-            "successor": "Claude 2"
+            "official_model_link": "https://github.com/THUDM/ChatGLM-6B",
+            "huggingface_url": "https://huggingface.co/THUDM/chatglm-6b",
+            "paper_url": "https://arxiv.org/abs/2103.10360",
+            "predecessor": "GLM-130B",
+            "successor": "ChatGLM2, ChatGLM3, GLM-4"
         },
         {
             "id": 33,
@@ -1588,51 +1589,50 @@
         },
         {
             "id": 34,
-            "company": "Tsinghua University / Zhipu AI",
-            "company_website": "https://zhipuai.cn",
-            "company_logo_url": "https://logo.clearbit.com/zhipuai.cn",
-            "model_family": "GLM",
-            "model_name": "ChatGLM",
+            "company": "Anthropic",
+            "company_website": "https://anthropic.com",
+            "company_logo_url": "https://logo.clearbit.com/anthropic.com",
+            "model_family": "Claude",
+            "model_name": "Claude 1",
             "model_version": "1.0",
-            "model_type": "LLM (Bilingual Chat)",
-            "architecture": "General Language Model (GLM) + RLHF",
+            "model_type": "LLM",
+            "architecture": "Transformer (Decoder-only) + Constitutional AI",
             "modalities": [
                 "text"
             ],
-            "parameters": 6,
-            "parameter_unit": "billion",
-            "training_tokens": 1000,
-            "open_source": true,
-            "license": "Apache 2.0",
+            "parameters": null,
+            "parameter_unit": null,
+            "training_tokens": null,
+            "open_source": false,
+            "license": "Proprietary",
             "api_available": true,
-            "context_window_tokens": 2048,
-            "training_data_cutoff": "2023-01",
+            "context_window_tokens": 100000,
+            "training_data_cutoff": "2022-12",
             "release_date": "2023-03-14",
-            "country": "China",
-            "description": "ChatGLM-6B is an open-source, Chinese-English bilingual dialogue model optimized for consumer-grade GPUs (as low as 6GB VRAM). Became one of the most popular open Chinese LLMs on HuggingFace. Later succeeded by ChatGLM2 and ChatGLM3.",
+            "country": "USA",
+            "description": "Anthropic's first Claude model built using Constitutional AI (CAI) principles. Focused on being helpful, harmless, and honest. Offered a large 100K context window compared to contemporaries.",
             "use_cases": [
-                "bilingual chatbot",
-                "Chinese NLP",
-                "consumer-grade deployment",
-                "research",
-                "local inference"
+                "chatbot",
+                "document analysis",
+                "coding",
+                "writing"
             ],
             "notable_features": [
-                "runs on 6GB GPU",
-                "open-source bilingual chat",
-                "HuggingFace top downloads",
-                "RLHF aligned"
+                "Constitutional AI",
+                "100K context window",
+                "safety-focused training",
+                "HHH principles"
             ],
             "benchmark_scores": {},
             "pricing_per_1m_tokens": {
                 "input": null,
                 "output": null
             },
-            "official_model_link": "https://github.com/THUDM/ChatGLM-6B",
-            "huggingface_url": "https://huggingface.co/THUDM/chatglm-6b",
-            "paper_url": "https://arxiv.org/abs/2103.10360",
-            "predecessor": "GLM-130B",
-            "successor": "ChatGLM2, ChatGLM3, GLM-4"
+            "official_model_link": "https://www.anthropic.com/news/introducing-claude",
+            "huggingface_url": null,
+            "paper_url": "https://arxiv.org/abs/2212.08073",
+            "predecessor": null,
+            "successor": "Claude 2"
         },
         {
             "id": 35,
@@ -2211,6 +2211,57 @@
         },
         {
             "id": 47,
+            "company": "Baichuan AI",
+            "company_website": "https://baichuan-ai.com",
+            "company_logo_url": "https://logo.clearbit.com/baichuan-ai.com",
+            "model_family": "Baichuan",
+            "model_name": "Baichuan-13B",
+            "model_version": "13B",
+            "model_type": "LLM (Bilingual)",
+            "architecture": "Transformer (Decoder-only, ALiBi positional encoding)",
+            "modalities": [
+                "text"
+            ],
+            "parameters": 13,
+            "parameter_unit": "billion",
+            "training_tokens": 1400,
+            "open_source": true,
+            "license": "Baichuan Community License",
+            "api_available": true,
+            "context_window_tokens": 4096,
+            "training_data_cutoff": "2023-06",
+            "release_date": "2023-07-11",
+            "country": "China",
+            "description": "Baichuan-13B is an open-source bilingual (Chinese-English) LLM from former Sogou CEO Wang Xiaochuan's startup. Trained on 1.4T tokens, it topped Chinese NLP leaderboards and came in base and chat variants.",
+            "use_cases": [
+                "Chinese NLP",
+                "bilingual chat",
+                "fine-tuning",
+                "text generation",
+                "research"
+            ],
+            "notable_features": [
+                "ALiBi positional encoding",
+                "topped Chinese leaderboards",
+                "base and chat variants",
+                "fully open weights"
+            ],
+            "benchmark_scores": {
+                "MMLU": 59.5,
+                "C-Eval": 63.9
+            },
+            "pricing_per_1m_tokens": {
+                "input": null,
+                "output": null
+            },
+            "official_model_link": "https://github.com/baichuan-inc/Baichuan-13B",
+            "huggingface_url": "https://huggingface.co/baichuan-inc/Baichuan-13B-Chat",
+            "paper_url": "https://arxiv.org/abs/2309.10305",
+            "predecessor": "Baichuan-7B",
+            "successor": "Baichuan2"
+        },
+        {
+            "id": 48,
             "company": "Anthropic",
             "company_website": "https://anthropic.com",
             "company_logo_url": "https://logo.clearbit.com/anthropic.com",
@@ -2260,57 +2311,6 @@
             "paper_url": null,
             "predecessor": "Claude 1",
             "successor": "Claude 3"
-        },
-        {
-            "id": 48,
-            "company": "Baichuan AI",
-            "company_website": "https://baichuan-ai.com",
-            "company_logo_url": "https://logo.clearbit.com/baichuan-ai.com",
-            "model_family": "Baichuan",
-            "model_name": "Baichuan-13B",
-            "model_version": "13B",
-            "model_type": "LLM (Bilingual)",
-            "architecture": "Transformer (Decoder-only, ALiBi positional encoding)",
-            "modalities": [
-                "text"
-            ],
-            "parameters": 13,
-            "parameter_unit": "billion",
-            "training_tokens": 1400,
-            "open_source": true,
-            "license": "Baichuan Community License",
-            "api_available": true,
-            "context_window_tokens": 4096,
-            "training_data_cutoff": "2023-06",
-            "release_date": "2023-07-11",
-            "country": "China",
-            "description": "Baichuan-13B is an open-source bilingual (Chinese-English) LLM from former Sogou CEO Wang Xiaochuan's startup. Trained on 1.4T tokens, it topped Chinese NLP leaderboards and came in base and chat variants.",
-            "use_cases": [
-                "Chinese NLP",
-                "bilingual chat",
-                "fine-tuning",
-                "text generation",
-                "research"
-            ],
-            "notable_features": [
-                "ALiBi positional encoding",
-                "topped Chinese leaderboards",
-                "base and chat variants",
-                "fully open weights"
-            ],
-            "benchmark_scores": {
-                "MMLU": 59.5,
-                "C-Eval": 63.9
-            },
-            "pricing_per_1m_tokens": {
-                "input": null,
-                "output": null
-            },
-            "official_model_link": "https://github.com/baichuan-inc/Baichuan-13B",
-            "huggingface_url": "https://huggingface.co/baichuan-inc/Baichuan-13B-Chat",
-            "paper_url": "https://arxiv.org/abs/2309.10305",
-            "predecessor": "Baichuan-7B",
-            "successor": "Baichuan2"
         },
         {
             "id": 49,
@@ -3652,56 +3652,6 @@
         },
         {
             "id": 77,
-            "company": "Cohere",
-            "company_website": "https://cohere.com",
-            "company_logo_url": "https://logo.clearbit.com/cohere.com",
-            "model_family": "Command",
-            "model_name": "Command R+",
-            "model_version": "R+",
-            "model_type": "LLM (RAG-optimized)",
-            "architecture": "Transformer (Decoder-only)",
-            "modalities": [
-                "text"
-            ],
-            "parameters": 104,
-            "parameter_unit": "billion",
-            "training_tokens": null,
-            "open_source": false,
-            "license": "Proprietary",
-            "api_available": true,
-            "context_window_tokens": 128000,
-            "training_data_cutoff": "2024-01",
-            "release_date": "2024-04-04",
-            "country": "Canada",
-            "description": "Command R+ (104B) is optimized for enterprise RAG workflows, multi-step tool use, and multilingual tasks. Provides source citations, critical for enterprise trust. Available on Azure, AWS, and Oracle Cloud.",
-            "use_cases": [
-                "RAG",
-                "enterprise chatbots",
-                "tool use",
-                "multilingual",
-                "citations"
-            ],
-            "notable_features": [
-                "RAG-optimized",
-                "source citations",
-                "enterprise cloud partnerships",
-                "10 language support"
-            ],
-            "benchmark_scores": {
-                "MMLU": 75.7
-            },
-            "pricing_per_1m_tokens": {
-                "input": 2.5,
-                "output": 10.0
-            },
-            "official_model_link": "https://cohere.com/command",
-            "huggingface_url": "https://huggingface.co/CohereForAI/c4ai-command-r-plus",
-            "paper_url": "https://arxiv.org/abs/2406.00154",
-            "predecessor": "Command R",
-            "successor": null
-        },
-        {
-            "id": 78,
             "company": "Mistral AI",
             "company_website": "https://mistral.ai",
             "company_logo_url": "https://logo.clearbit.com/mistral.ai",
@@ -3792,7 +3742,7 @@
             "paper_url": null,
             "predecessor": null,
             "successor": "Udio v1.5",
-            "id": 79
+            "id": 78
         },
         {
             "company": "xAI",
@@ -3838,7 +3788,7 @@
             "paper_url": null,
             "predecessor": "Grok-1.5",
             "successor": "Grok-2",
-            "id": 80
+            "id": 79
         },
         {
             "company": "MiniMax",
@@ -3885,10 +3835,10 @@
             "paper_url": null,
             "predecessor": "abab 6",
             "successor": "abab 7",
-            "id": 81
+            "id": 80
         },
         {
-            "id": 82,
+            "id": 81,
             "company": "Meta",
             "company_website": "https://meta.com",
             "company_logo_url": "https://logo.clearbit.com/meta.com",
@@ -3941,7 +3891,7 @@
             "successor": "LLaMA 3.1"
         },
         {
-            "id": 83,
+            "id": 82,
             "company": "Microsoft",
             "company_website": "https://microsoft.com",
             "company_logo_url": "https://logo.clearbit.com/microsoft.com",
@@ -4034,7 +3984,7 @@
             "paper_url": null,
             "predecessor": null,
             "successor": null,
-            "id": 84
+            "id": 83
         },
         {
             "company": "SML / 3AI Holding",
@@ -4062,10 +4012,10 @@
             "notable_features": [
                 "98 global languages support"
             ],
-            "id": 85
+            "id": 84
         },
         {
-            "id": 86,
+            "id": 85,
             "company": "DeepSeek",
             "company_website": "https://deepseek.com",
             "company_logo_url": "https://logo.clearbit.com/deepseek.com",
@@ -4157,10 +4107,10 @@
             "paper_url": "https://www.nature.com/articles/s41586-024-07487-w",
             "predecessor": "AlphaFold 2",
             "successor": null,
-            "id": 87
+            "id": 86
         },
         {
-            "id": 88,
+            "id": 87,
             "company": "OpenAI",
             "company_website": "https://openai.com",
             "company_logo_url": "https://logo.clearbit.com/openai.com",
@@ -4214,7 +4164,7 @@
             "successor": "GPT-4o mini"
         },
         {
-            "id": 89,
+            "id": 88,
             "company": "Google DeepMind",
             "company_website": "https://deepmind.google",
             "company_logo_url": "https://logo.clearbit.com/deepmind.com",
@@ -4308,10 +4258,10 @@
             "paper_url": "https://arxiv.org/abs/2405.08748",
             "predecessor": null,
             "successor": null,
-            "id": 90
+            "id": 89
         },
         {
-            "id": 91,
+            "id": 90,
             "company": "Cohere",
             "company_website": "https://cohere.com",
             "company_logo_url": "https://logo.clearbit.com/cohere.com",
@@ -4403,7 +4353,7 @@
             "paper_url": null,
             "predecessor": "Mistral 7B",
             "successor": null,
-            "id": 92
+            "id": 91
         },
         {
             "company": "Kuaishou",
@@ -4450,10 +4400,10 @@
             "paper_url": null,
             "predecessor": null,
             "successor": "Kling 2.0",
-            "id": 93
+            "id": 92
         },
         {
-            "id": 94,
+            "id": 93,
             "company": "Alibaba",
             "company_website": "https://alibaba.com",
             "company_logo_url": "https://logo.clearbit.com/alibaba.com",
@@ -4547,10 +4497,10 @@
             "paper_url": null,
             "predecessor": null,
             "successor": null,
-            "id": 95
+            "id": 94
         },
         {
-            "id": 96,
+            "id": 95,
             "company": "Stability AI",
             "company_website": "https://stability.ai",
             "company_logo_url": "https://logo.clearbit.com/stability.ai",
@@ -4641,7 +4591,7 @@
             "paper_url": null,
             "predecessor": null,
             "successor": "Dream Machine 2",
-            "id": 97
+            "id": 96
         },
         {
             "company": "Microsoft",
@@ -4686,10 +4636,10 @@
             "paper_url": "https://arxiv.org/abs/2311.06242",
             "predecessor": "Florence",
             "successor": null,
-            "id": 98
+            "id": 97
         },
         {
-            "id": 99,
+            "id": 98,
             "company": "Anthropic",
             "company_website": "https://anthropic.com",
             "company_logo_url": "https://logo.clearbit.com/anthropic.com",
@@ -4743,7 +4693,7 @@
             "successor": "Claude 3.7 Sonnet"
         },
         {
-            "id": 100,
+            "id": 99,
             "company": "Google",
             "company_website": "https://google.com",
             "company_logo_url": "https://logo.clearbit.com/google.com",
@@ -4794,7 +4744,7 @@
             "successor": "Gemma 3"
         },
         {
-            "id": 101,
+            "id": 100,
             "company": "OpenAI",
             "company_website": "https://openai.com",
             "company_logo_url": "https://logo.clearbit.com/openai.com",
@@ -4846,7 +4796,7 @@
             "successor": null
         },
         {
-            "id": 102,
+            "id": 101,
             "company": "Meta",
             "company_website": "https://meta.com",
             "company_logo_url": "https://logo.clearbit.com/meta.com",
@@ -4899,7 +4849,7 @@
             "successor": "LLaMA 3.2"
         },
         {
-            "id": 103,
+            "id": 102,
             "company": "Mistral AI",
             "company_website": "https://mistral.ai",
             "company_logo_url": "https://logo.clearbit.com/mistral.ai",
@@ -4951,35 +4901,6 @@
             "successor": "Mistral Large 3"
         },
         {
-            "company": "Mistral AI",
-            "model_family": "Mistral",
-            "model_name": "Mistral Large 2",
-            "model_version": "2.0",
-            "model_type": "Dense Transformer",
-            "architecture": "Standard Decoder",
-            "modalities": [
-                "text"
-            ],
-            "parameters": 123,
-            "parameter_unit": "B",
-            "context_window_tokens": 128000,
-            "open_source": true,
-            "license": "Mistral Research License",
-            "api_available": true,
-            "release_date": "2024-07-24",
-            "country": "France",
-            "description": "Mistral's flagship dense model designed for competitive performance on reasoning, coding, and multilingual tasks.",
-            "use_cases": [
-                "Advanced reasoning",
-                "Multi-step agentic tasks"
-            ],
-            "notable_features": [
-                "128K context",
-                "Native multilingual support"
-            ],
-            "id": 104
-        },
-        {
             "company": "Meta",
             "company_website": "https://ai.meta.com",
             "company_logo_url": "https://logo.clearbit.com/meta.com",
@@ -5023,7 +4944,7 @@
             "paper_url": "https://arxiv.org/abs/2408.00714",
             "predecessor": "SAM",
             "successor": null,
-            "id": 105
+            "id": 103
         },
         {
             "company": "Black Forest Labs",
@@ -5069,7 +4990,52 @@
             "paper_url": null,
             "predecessor": "Stable Diffusion XL",
             "successor": "FLUX 1.1 [pro]",
-            "id": 106
+            "id": 104
+        },
+        {
+            "company": "Sarvam AI",
+            "company_website": "https://sarvam.ai",
+            "company_logo_url": "https://logo.clearbit.com/sarvam.ai",
+            "model_family": "Sarvam",
+            "model_name": "Sarvam-2B",
+            "model_version": "2.0",
+            "model_type": "LLM",
+            "architecture": "Transformer",
+            "modalities": [
+                "text"
+            ],
+            "parameters": 2,
+            "parameter_unit": "billion",
+            "training_tokens": 4000,
+            "open_source": true,
+            "license": "CC BY 4.0",
+            "api_available": true,
+            "context_window_tokens": 8192,
+            "training_data_cutoff": "2024-06",
+            "release_date": "2024-08-13",
+            "country": "India",
+            "description": "Highly efficient small language model optimized for 10 major Indian languages. Breakthrough in compute-per-token efficiency for Indic NLP.",
+            "use_cases": [
+                "on-device Indic NLP",
+                "translation",
+                "cultural apps"
+            ],
+            "notable_features": [
+                "Indic SOTA",
+                "Massive training (4T tokens)",
+                "Open source"
+            ],
+            "benchmark_scores": {},
+            "pricing_per_1m_tokens": {
+                "input": null,
+                "output": null
+            },
+            "official_model_link": "https://www.sarvam.ai/blog/sarvam-2b",
+            "huggingface_url": "https://huggingface.co/sarvamai/sarvam-2b",
+            "paper_url": null,
+            "predecessor": "OpenHathi",
+            "successor": "Sarvam-1",
+            "id": 105
         },
         {
             "company": "xAI",
@@ -5116,52 +5082,7 @@
             "paper_url": null,
             "predecessor": "Grok-1.5",
             "successor": "Grok-3",
-            "id": 107
-        },
-        {
-            "company": "Sarvam AI",
-            "company_website": "https://sarvam.ai",
-            "company_logo_url": "https://logo.clearbit.com/sarvam.ai",
-            "model_family": "Sarvam",
-            "model_name": "Sarvam-2B",
-            "model_version": "2.0",
-            "model_type": "LLM",
-            "architecture": "Transformer",
-            "modalities": [
-                "text"
-            ],
-            "parameters": 2,
-            "parameter_unit": "billion",
-            "training_tokens": 4000,
-            "open_source": true,
-            "license": "CC BY 4.0",
-            "api_available": true,
-            "context_window_tokens": 8192,
-            "training_data_cutoff": "2024-06",
-            "release_date": "2024-08-13",
-            "country": "India",
-            "description": "Highly efficient small language model optimized for 10 major Indian languages. Breakthrough in compute-per-token efficiency for Indic NLP.",
-            "use_cases": [
-                "on-device Indic NLP",
-                "translation",
-                "cultural apps"
-            ],
-            "notable_features": [
-                "Indic SOTA",
-                "Massive training (4T tokens)",
-                "Open source"
-            ],
-            "benchmark_scores": {},
-            "pricing_per_1m_tokens": {
-                "input": null,
-                "output": null
-            },
-            "official_model_link": "https://www.sarvam.ai/blog/sarvam-2b",
-            "huggingface_url": "https://huggingface.co/sarvamai/sarvam-2b",
-            "paper_url": null,
-            "predecessor": "OpenHathi",
-            "successor": "Sarvam-1",
-            "id": 108
+            "id": 106
         },
         {
             "company": "AI21 Labs",
@@ -5206,7 +5127,7 @@
             "paper_url": null,
             "predecessor": "Jamba",
             "successor": null,
-            "id": 109
+            "id": 107
         },
         {
             "company": "Aleph Alpha",
@@ -5250,7 +5171,7 @@
             "paper_url": null,
             "predecessor": "Luminous-base",
             "successor": null,
-            "id": 110
+            "id": 108
         },
         {
             "company": "Mistral AI",
@@ -5297,10 +5218,10 @@
             "paper_url": null,
             "predecessor": "Mistral Nemo",
             "successor": null,
-            "id": 111
+            "id": 109
         },
         {
-            "id": 112,
+            "id": 110,
             "company": "OpenAI",
             "company_website": "https://openai.com",
             "company_logo_url": "https://logo.clearbit.com/openai.com",
@@ -5348,7 +5269,7 @@
             "successor": "o1-mini"
         },
         {
-            "id": 113,
+            "id": 111,
             "company": "OpenAI",
             "company_website": "https://openai.com",
             "company_logo_url": "https://logo.clearbit.com/openai.com",
@@ -5399,7 +5320,7 @@
             "successor": "o3-mini"
         },
         {
-            "id": 114,
+            "id": 112,
             "company": "Alibaba",
             "company_website": "https://alibaba.com",
             "company_logo_url": "https://logo.clearbit.com/alibaba.com",
@@ -5451,36 +5372,7 @@
             "successor": "Qwen3"
         },
         {
-            "company": "Alibaba",
-            "model_family": "Qwen",
-            "model_name": "Qwen 2.5",
-            "model_version": "2.5",
-            "model_type": "Dense/MoE",
-            "architecture": "Decoder-only",
-            "modalities": [
-                "text",
-                "code"
-            ],
-            "parameters": 72,
-            "parameter_unit": "B",
-            "context_window_tokens": 128000,
-            "open_source": true,
-            "license": "Apache 2.0 / Qwen Research",
-            "api_available": true,
-            "release_date": "2024-09-19",
-            "country": "China",
-            "description": "A highly versatile and powerful model series from Alibaba, excelling in coding and multilingual understanding.",
-            "use_cases": [
-                "Multilingual assistants",
-                "Complex coding"
-            ],
-            "notable_features": [
-                "Exceptional coding performance"
-            ],
-            "id": 115
-        },
-        {
-            "id": 116,
+            "id": 113,
             "company": "Meta",
             "company_website": "https://meta.com",
             "company_logo_url": "https://logo.clearbit.com/meta.com",
@@ -5575,10 +5467,53 @@
             "paper_url": null,
             "predecessor": "Stable Diffusion 3",
             "successor": null,
-            "id": 117
+            "id": 114
         },
         {
-            "id": 118,
+            "company": "Sapienza NLP",
+            "company_website": "https://sapienza-nlp.it",
+            "company_logo_url": "https://logo.clearbit.com/sapienza.it",
+            "model_family": "Minerva",
+            "model_name": "Minerva 7B",
+            "model_version": "1.0",
+            "model_type": "LLM",
+            "architecture": "Transformer",
+            "modalities": [
+                "text"
+            ],
+            "parameters": 7,
+            "parameter_unit": "billion",
+            "training_tokens": 2500,
+            "open_source": true,
+            "license": "Apache 2.0",
+            "api_available": false,
+            "context_window_tokens": 4096,
+            "training_data_cutoff": "2024-09",
+            "release_date": "2024-11-04",
+            "country": "Italy",
+            "description": "State-of-the-art Italian LLM trained from scratch on a massive Italian-centric corpus.",
+            "use_cases": [
+                "Italian NLP",
+                "research"
+            ],
+            "notable_features": [
+                "Trained from scratch",
+                "Italian optimization"
+            ],
+            "benchmark_scores": {},
+            "pricing_per_1m_tokens": {
+                "input": null,
+                "output": null
+            },
+            "official_model_link": "https://minerva-ai.org",
+            "huggingface_url": "https://huggingface.co/sapienza-nlp/Minerva-7B-base-v1.0",
+            "paper_url": null,
+            "predecessor": null,
+            "successor": null,
+            "id": 115
+        },
+        {
+            "id": 116,
             "company": "Anthropic",
             "company_website": "https://anthropic.com",
             "company_logo_url": "https://logo.clearbit.com/anthropic.com",
@@ -5626,50 +5561,7 @@
             "successor": "Claude 4 Haiku"
         },
         {
-            "company": "Sapienza NLP",
-            "company_website": "https://sapienza-nlp.it",
-            "company_logo_url": "https://logo.clearbit.com/sapienza.it",
-            "model_family": "Minerva",
-            "model_name": "Minerva 7B",
-            "model_version": "1.0",
-            "model_type": "LLM",
-            "architecture": "Transformer",
-            "modalities": [
-                "text"
-            ],
-            "parameters": 7,
-            "parameter_unit": "billion",
-            "training_tokens": 2500,
-            "open_source": true,
-            "license": "Apache 2.0",
-            "api_available": false,
-            "context_window_tokens": 4096,
-            "training_data_cutoff": "2024-09",
-            "release_date": "2024-11-04",
-            "country": "Italy",
-            "description": "State-of-the-art Italian LLM trained from scratch on a massive Italian-centric corpus.",
-            "use_cases": [
-                "Italian NLP",
-                "research"
-            ],
-            "notable_features": [
-                "Trained from scratch",
-                "Italian optimization"
-            ],
-            "benchmark_scores": {},
-            "pricing_per_1m_tokens": {
-                "input": null,
-                "output": null
-            },
-            "official_model_link": "https://minerva-ai.org",
-            "huggingface_url": "https://huggingface.co/sapienza-nlp/Minerva-7B-base-v1.0",
-            "paper_url": null,
-            "predecessor": null,
-            "successor": null,
-            "id": 119
-        },
-        {
-            "id": 120,
+            "id": 117,
             "company": "OpenAI",
             "company_website": "https://openai.com",
             "company_logo_url": "https://logo.clearbit.com/openai.com",
@@ -5723,7 +5615,7 @@
             "successor": "o3"
         },
         {
-            "id": 121,
+            "id": 118,
             "company": "OpenAI",
             "company_website": "https://openai.com",
             "company_logo_url": "https://logo.clearbit.com/openai.com",
@@ -5772,60 +5664,7 @@
             "successor": null
         },
         {
-            "id": 122,
-            "company": "Google DeepMind",
-            "company_website": "https://deepmind.google",
-            "company_logo_url": "https://logo.clearbit.com/deepmind.com",
-            "model_family": "Gemini",
-            "model_name": "Gemini 2.0 Flash",
-            "model_version": "2.0-flash",
-            "model_type": "Multimodal LLM",
-            "architecture": "Transformer MoE (natively multimodal)",
-            "modalities": [
-                "text",
-                "vision",
-                "audio",
-                "video"
-            ],
-            "parameters": null,
-            "parameter_unit": null,
-            "training_tokens": null,
-            "open_source": false,
-            "license": "Proprietary",
-            "api_available": true,
-            "context_window_tokens": 1000000,
-            "training_data_cutoff": "2024-06",
-            "release_date": "2024-12-11",
-            "country": "USA",
-            "description": "Gemini 2.0 Flash introduced native tool use, multimodal output including image generation, and real-time audio/video streaming. Google's 'agentic era' model. Matches Gemini 1.5 Pro quality at double the speed.",
-            "use_cases": [
-                "agentic tasks",
-                "real-time voice/video",
-                "tool use",
-                "multimodal generation"
-            ],
-            "notable_features": [
-                "native image output",
-                "real-time streaming",
-                "native tool use",
-                "2x faster than 1.5 Pro"
-            ],
-            "benchmark_scores": {
-                "MMLU": 76.4,
-                "HumanEval": 82.6
-            },
-            "pricing_per_1m_tokens": {
-                "input": 0.1,
-                "output": 0.4
-            },
-            "official_model_link": "https://deepmind.google/technologies/gemini/flash/",
-            "huggingface_url": null,
-            "paper_url": null,
-            "predecessor": "Gemini 1.5 Flash",
-            "successor": "Gemini 2.5 Flash"
-        },
-        {
-            "id": 123,
+            "id": 119,
             "company": "Microsoft",
             "company_website": "https://microsoft.com",
             "company_logo_url": "https://logo.clearbit.com/microsoft.com",
@@ -5876,7 +5715,7 @@
             "successor": "Phi-4-mini"
         },
         {
-            "id": 124,
+            "id": 120,
             "company": "Google DeepMind",
             "company_website": "https://deepmind.google",
             "company_logo_url": "https://logo.clearbit.com/deepmind.com",
@@ -5925,7 +5764,7 @@
             "successor": null
         },
         {
-            "id": 125,
+            "id": 121,
             "company": "DeepSeek",
             "company_website": "https://deepseek.com",
             "company_logo_url": "https://logo.clearbit.com/deepseek.com",
@@ -5978,36 +5817,6 @@
             "successor": "DeepSeek V3.2"
         },
         {
-            "company": "DeepSeek",
-            "model_family": "DeepSeek-V3",
-            "model_name": "DeepSeek-V3",
-            "model_version": "3.0",
-            "model_type": "MoE",
-            "architecture": "DeepSeekMoE (MLA/FP8)",
-            "modalities": [
-                "text"
-            ],
-            "parameters": 671,
-            "parameter_unit": "B",
-            "context_window_tokens": 131000,
-            "open_source": true,
-            "license": "MIT",
-            "api_available": true,
-            "release_date": "2024-12-26",
-            "country": "China",
-            "description": "A massive Mixture-of-Experts model that sets a new high bar for efficiency and performance in open weights.",
-            "use_cases": [
-                "General chat",
-                "Coding",
-                "Mathematics"
-            ],
-            "notable_features": [
-                "671B parameters",
-                "Multi-Head Latent Attention"
-            ],
-            "id": 126
-        },
-        {
             "company": "Ola Krutrim",
             "model_family": "Krutrim",
             "model_name": "Krutrim-2",
@@ -6033,10 +5842,10 @@
             "notable_features": [
                 "Indian language native support"
             ],
-            "id": 127
+            "id": 122
         },
         {
-            "id": 128,
+            "id": 123,
             "company": "DeepSeek",
             "company_website": "https://deepseek.com",
             "company_logo_url": "https://logo.clearbit.com/deepseek.com",
@@ -6136,10 +5945,10 @@
             "paper_url": "https://arxiv.org/abs/2501.12948",
             "predecessor": "DeepSeek V3",
             "successor": "DeepSeek R1-0528",
-            "id": 129
+            "id": 124
         },
         {
-            "id": 130,
+            "id": 125,
             "company": "OpenAI",
             "company_website": "https://openai.com",
             "company_logo_url": "https://logo.clearbit.com/openai.com",
@@ -6239,10 +6048,28 @@
             "paper_url": null,
             "predecessor": "Gemini 1.5 Flash",
             "successor": "Gemini 2.1 Flash",
-            "id": 131
+            "id": 126
         },
         {
-            "id": 132,
+            "company": "Microsoft",
+            "model_name": "Phi-4 Mini",
+            "model_type": "Small Language Model",
+            "architecture": "Transformer",
+            "modalities": [
+                "text"
+            ],
+            "parameters": 3.8,
+            "parameter_unit": "B",
+            "open_source": true,
+            "license": "MIT",
+            "context_window_tokens": 128000,
+            "release_date": "2025-02-05",
+            "description": "State-of-the-art small language model optimized for reasoning-dense tasks on edge devices.",
+            "official_model_link": "https://azure.microsoft.com/en-us/blog/introducing-phi-4-mini/",
+            "id": 127
+        },
+        {
+            "id": 128,
             "company": "xAI",
             "company_website": "https://x.ai",
             "company_logo_url": "https://logo.clearbit.com/x.ai",
@@ -6295,60 +6122,6 @@
             "successor": "Grok 4"
         },
         {
-            "id": 133,
-            "company": "Anthropic",
-            "company_website": "https://anthropic.com",
-            "company_logo_url": "https://logo.clearbit.com/anthropic.com",
-            "model_family": "Claude",
-            "model_name": "Claude 3.7 Sonnet",
-            "model_version": "3.7-sonnet",
-            "model_type": "LLM (Reasoning + Multimodal)",
-            "architecture": "Transformer + Extended Thinking (hybrid)",
-            "modalities": [
-                "text",
-                "vision"
-            ],
-            "parameters": null,
-            "parameter_unit": null,
-            "training_tokens": null,
-            "open_source": false,
-            "license": "Proprietary",
-            "api_available": true,
-            "context_window_tokens": 200000,
-            "training_data_cutoff": "2024-10",
-            "release_date": "2025-02-24",
-            "country": "USA",
-            "description": "Claude 3.7 Sonnet introduced hybrid 'extended thinking' \u2014 the first model to combine instant responses with deep chain-of-thought in a single interface. Set new SOTA on SWE-bench coding (70.3%).",
-            "use_cases": [
-                "coding",
-                "agents",
-                "complex reasoning",
-                "computer use",
-                "research"
-            ],
-            "notable_features": [
-                "hybrid extended thinking",
-                "70.3% SWE-bench",
-                "computer use SOTA",
-                "adjustable thinking depth"
-            ],
-            "benchmark_scores": {
-                "MMLU": 90.1,
-                "HumanEval": 93.7,
-                "SWE-bench": 70.3,
-                "AIME_2024": 80.0
-            },
-            "pricing_per_1m_tokens": {
-                "input": 3.0,
-                "output": 15.0
-            },
-            "official_model_link": "https://www.anthropic.com/news/claude-3-7-sonnet",
-            "huggingface_url": null,
-            "paper_url": null,
-            "predecessor": "Claude 3.5 Sonnet",
-            "successor": "Claude 4 Sonnet"
-        },
-        {
             "company": "Anthropic",
             "company_website": "https://anthropic.com",
             "company_logo_url": "https://logo.clearbit.com/anthropic.com",
@@ -6395,10 +6168,10 @@
             "paper_url": null,
             "predecessor": "Claude 3.5 Sonnet",
             "successor": "Claude 4 Sonnet",
-            "id": 134
+            "id": 129
         },
         {
-            "id": 135,
+            "id": 130,
             "company": "OpenAI",
             "company_website": "https://openai.com",
             "company_logo_url": "https://logo.clearbit.com/openai.com",
@@ -6446,7 +6219,7 @@
             "successor": "GPT-5"
         },
         {
-            "id": 136,
+            "id": 131,
             "company": "Google",
             "company_website": "https://google.com",
             "company_logo_url": "https://logo.clearbit.com/google.com",
@@ -6498,7 +6271,7 @@
             "successor": null
         },
         {
-            "id": 137,
+            "id": 132,
             "company": "Google DeepMind",
             "company_website": "https://deepmind.google",
             "company_logo_url": "https://logo.clearbit.com/deepmind.com",
@@ -6555,7 +6328,7 @@
             "successor": "Gemini 3"
         },
         {
-            "id": 138,
+            "id": 133,
             "company": "IBM",
             "company_website": "https://ibm.com",
             "company_logo_url": "https://logo.clearbit.com/ibm.com",
@@ -6604,7 +6377,7 @@
             "successor": null
         },
         {
-            "id": 139,
+            "id": 134,
             "company": "Meta",
             "company_website": "https://meta.com",
             "company_logo_url": "https://logo.clearbit.com/meta.com",
@@ -6655,7 +6428,7 @@
             "successor": null
         },
         {
-            "id": 140,
+            "id": 135,
             "company": "Meta",
             "company_website": "https://meta.com",
             "company_logo_url": "https://logo.clearbit.com/meta.com",
@@ -6707,7 +6480,7 @@
             "successor": null
         },
         {
-            "id": 141,
+            "id": 136,
             "company": "Meta",
             "company_website": "https://meta.com",
             "company_logo_url": "https://logo.clearbit.com/meta.com",
@@ -6756,7 +6529,7 @@
             "successor": null
         },
         {
-            "id": 142,
+            "id": 137,
             "company": "OpenAI",
             "company_website": "https://openai.com",
             "company_logo_url": "https://logo.clearbit.com/openai.com",
@@ -6810,7 +6583,7 @@
             "successor": "o3-pro"
         },
         {
-            "id": 143,
+            "id": 138,
             "company": "Alibaba",
             "company_website": "https://alibaba.com",
             "company_logo_url": "https://logo.clearbit.com/alibaba.com",
@@ -6863,7 +6636,7 @@
             "successor": null
         },
         {
-            "id": 144,
+            "id": 139,
             "company": "Anthropic",
             "company_website": "https://anthropic.com",
             "company_logo_url": "https://logo.clearbit.com/anthropic.com",
@@ -6916,7 +6689,7 @@
             "successor": "Claude 4.5 Sonnet"
         },
         {
-            "id": 145,
+            "id": 140,
             "company": "Anthropic",
             "company_website": "https://anthropic.com",
             "company_logo_url": "https://logo.clearbit.com/anthropic.com",
@@ -6967,7 +6740,7 @@
             "successor": "Claude 4.5 Opus"
         },
         {
-            "id": 146,
+            "id": 141,
             "company": "DeepSeek",
             "company_website": "https://deepseek.com",
             "company_logo_url": "https://logo.clearbit.com/deepseek.com",
@@ -7016,7 +6789,7 @@
             "successor": "DeepSeek R2"
         },
         {
-            "id": 147,
+            "id": 142,
             "company": "xAI",
             "company_website": "https://x.ai",
             "company_logo_url": "https://logo.clearbit.com/x.ai",
@@ -7112,10 +6885,10 @@
             "paper_url": null,
             "predecessor": "Qwen2.5 Coder",
             "successor": "Qwen3.5 Coder",
-            "id": 148
+            "id": 143
         },
         {
-            "id": 149,
+            "id": 144,
             "company": "OpenAI",
             "company_website": "https://openai.com",
             "company_logo_url": "https://logo.clearbit.com/openai.com",
@@ -7171,7 +6944,7 @@
             "successor": "GPT-5.1"
         },
         {
-            "id": 150,
+            "id": 145,
             "company": "OpenAI",
             "company_website": "https://openai.com",
             "company_logo_url": "https://logo.clearbit.com/openai.com",
@@ -7223,7 +6996,7 @@
             "successor": "GPT-5.2"
         },
         {
-            "id": 151,
+            "id": 146,
             "company": "Anthropic",
             "company_website": "https://anthropic.com",
             "company_logo_url": "https://logo.clearbit.com/anthropic.com",
@@ -7274,7 +7047,7 @@
             "successor": "Claude 4.6 Sonnet"
         },
         {
-            "id": 152,
+            "id": 147,
             "company": "Mistral AI",
             "company_website": "https://mistral.ai",
             "company_logo_url": "https://logo.clearbit.com/mistral.ai",
@@ -7325,7 +7098,7 @@
             "successor": null
         },
         {
-            "id": 153,
+            "id": 148,
             "company": "Google DeepMind",
             "company_website": "https://deepmind.google",
             "company_logo_url": "https://logo.clearbit.com/deepmind.com",
@@ -7381,7 +7154,27 @@
             "successor": null
         },
         {
-            "id": 154,
+            "company": "Google",
+            "model_name": "Gemini 3 Deep Think",
+            "model_type": "Reasoning Model",
+            "architecture": "Advanced Parallel Reasoning",
+            "modalities": [
+                "text",
+                "vision",
+                "math"
+            ],
+            "parameters": null,
+            "parameter_unit": null,
+            "open_source": false,
+            "license": "Proprietary",
+            "context_window_tokens": 2000000,
+            "release_date": "2025-11-18",
+            "description": "Specialized model for breakthrough scientific research and complex logical deduction via parallel hypothesis exploration.",
+            "official_model_link": "https://deepmind.google/gemini",
+            "id": 149
+        },
+        {
+            "id": 150,
             "company": "Anthropic",
             "company_website": "https://anthropic.com",
             "company_logo_url": "https://logo.clearbit.com/anthropic.com",
@@ -7428,7 +7221,7 @@
             "successor": "Claude 4.6 Opus"
         },
         {
-            "id": 155,
+            "id": 151,
             "company": "DeepSeek",
             "company_website": "https://deepseek.com",
             "company_logo_url": "https://logo.clearbit.com/deepseek.com",
@@ -7518,10 +7311,10 @@
             "paper_url": null,
             "predecessor": "HyperCLOVA X",
             "successor": null,
-            "id": 156
+            "id": 152
         },
         {
-            "id": 157,
+            "id": 153,
             "company": "OpenAI",
             "company_website": "https://openai.com",
             "company_logo_url": "https://logo.clearbit.com/openai.com",
@@ -7621,7 +7414,7 @@
             "paper_url": null,
             "predecessor": "Claude 4 Opus (2025)",
             "successor": null,
-            "id": 158
+            "id": 154
         },
         {
             "company": "Kuaishou",
@@ -7668,7 +7461,7 @@
             "paper_url": null,
             "predecessor": "Kling 2.1",
             "successor": null,
-            "id": 159
+            "id": 155
         },
         {
             "company": "Zhipu AI",
@@ -7718,7 +7511,7 @@
             "paper_url": null,
             "predecessor": "GLM-4.7",
             "successor": null,
-            "id": 160
+            "id": 156
         },
         {
             "company": "Alibaba",
@@ -7769,7 +7562,7 @@
             "paper_url": null,
             "predecessor": "Qwen3",
             "successor": null,
-            "id": 161
+            "id": 157
         },
         {
             "company": "Anthropic",
@@ -7817,52 +7610,7 @@
             "paper_url": null,
             "predecessor": "Claude 4 Sonnet",
             "successor": null,
-            "id": 162
-        },
-        {
-            "company": "Sarvam AI",
-            "company_website": "https://sarvam.ai",
-            "company_logo_url": "https://logo.clearbit.com/sarvam.ai",
-            "model_family": "Sarvam",
-            "model_name": "Sarvam-105B",
-            "model_version": "105B",
-            "model_type": "LLM (MoE)",
-            "architecture": "MoE (105B total, 9B active)",
-            "modalities": [
-                "text"
-            ],
-            "parameters": 105,
-            "parameter_unit": "billion",
-            "training_tokens": null,
-            "open_source": true,
-            "license": "Sarvam License",
-            "api_available": true,
-            "context_window_tokens": 128000,
-            "training_data_cutoff": "2025-12",
-            "release_date": "2026-02-18",
-            "country": "India",
-            "description": "India's landmark 105B parameter model. Designed for complex reasoning and enterprise applications across 10+ Indic languages.",
-            "use_cases": [
-                "enterprise reasoning",
-                "Indic SOTA",
-                "complex automation"
-            ],
-            "notable_features": [
-                "105B parameters",
-                "Indic-focused MoE",
-                "9B active parameters"
-            ],
-            "benchmark_scores": {},
-            "pricing_per_1m_tokens": {
-                "input": null,
-                "output": null
-            },
-            "official_model_link": "https://sarvam.ai",
-            "huggingface_url": "https://huggingface.co/sarvamai/sarvam-105b-instruct",
-            "paper_url": null,
-            "predecessor": "Sarvam-30B",
-            "successor": null,
-            "id": 163
+            "id": 158
         },
         {
             "company": "Sarvam AI",
@@ -7907,7 +7655,52 @@
             "paper_url": null,
             "predecessor": "Sarvam-1",
             "successor": "Sarvam-105B",
-            "id": 164
+            "id": 159
+        },
+        {
+            "company": "Sarvam AI",
+            "company_website": "https://sarvam.ai",
+            "company_logo_url": "https://logo.clearbit.com/sarvam.ai",
+            "model_family": "Sarvam",
+            "model_name": "Sarvam-105B",
+            "model_version": "105B",
+            "model_type": "LLM (MoE)",
+            "architecture": "MoE (105B total, 9B active)",
+            "modalities": [
+                "text"
+            ],
+            "parameters": 105,
+            "parameter_unit": "billion",
+            "training_tokens": null,
+            "open_source": true,
+            "license": "Sarvam License",
+            "api_available": true,
+            "context_window_tokens": 128000,
+            "training_data_cutoff": "2025-12",
+            "release_date": "2026-02-18",
+            "country": "India",
+            "description": "India's landmark 105B parameter model. Designed for complex reasoning and enterprise applications across 10+ Indic languages.",
+            "use_cases": [
+                "enterprise reasoning",
+                "Indic SOTA",
+                "complex automation"
+            ],
+            "notable_features": [
+                "105B parameters",
+                "Indic-focused MoE",
+                "9B active parameters"
+            ],
+            "benchmark_scores": {},
+            "pricing_per_1m_tokens": {
+                "input": null,
+                "output": null
+            },
+            "official_model_link": "https://sarvam.ai",
+            "huggingface_url": "https://huggingface.co/sarvamai/sarvam-105b-instruct",
+            "paper_url": null,
+            "predecessor": "Sarvam-30B",
+            "successor": null,
+            "id": 160
         },
         {
             "company": "Google",
@@ -7958,184 +7751,7 @@
             "paper_url": null,
             "predecessor": "Gemini 3.0",
             "successor": null,
-            "id": 165
-        },
-        {
-            "company": "DeepSeek",
-            "model_name": "DeepSeek-V3",
-            "model_type": "Multimodal LLM",
-            "architecture": "DeepSeekMoE (Multi-head Latent Attention)",
-            "modalities": [
-                "text",
-                "code"
-            ],
-            "parameters": 671,
-            "parameter_unit": "B",
-            "open_source": true,
-            "license": "MIT",
-            "context_window_tokens": 128000,
-            "release_date": "2024-12-26",
-            "description": "A massive 671B parameter Mixture-of-Experts model that achieved GPT-4 level performance with extreme training efficiency.",
-            "official_model_link": "https://github.com/deepseek-ai/DeepSeek-V3",
-            "id": 166
-        },
-        {
-            "company": "DeepSeek",
-            "model_name": "DeepSeek-R1",
-            "model_type": "Reasoning Model",
-            "architecture": "GRPO (Reinforcement Learning)",
-            "modalities": [
-                "text",
-                "code"
-            ],
-            "parameters": 671,
-            "parameter_unit": "B",
-            "open_source": true,
-            "license": "MIT",
-            "context_window_tokens": 128000,
-            "release_date": "2025-01-20",
-            "description": "A specialized reasoning model trained via large-scale RL, demonstrating emergent CoT abilities matching OpenAI o1.",
-            "official_model_link": "https://github.com/deepseek-ai/DeepSeek-R1",
-            "id": 167
-        },
-        {
-            "company": "Microsoft",
-            "model_name": "Phi-4 Mini",
-            "model_type": "Small Language Model",
-            "architecture": "Transformer",
-            "modalities": [
-                "text"
-            ],
-            "parameters": 3.8,
-            "parameter_unit": "B",
-            "open_source": true,
-            "license": "MIT",
-            "context_window_tokens": 128000,
-            "release_date": "2025-02-05",
-            "description": "State-of-the-art small language model optimized for reasoning-dense tasks on edge devices.",
-            "official_model_link": "https://azure.microsoft.com/en-us/blog/introducing-phi-4-mini/",
-            "id": 168
-        },
-        {
-            "company": "Anthropic",
-            "model_name": "Claude 3.7 Sonnet",
-            "model_type": "Multimodal LLM / Reasoning",
-            "architecture": "Transformer",
-            "modalities": [
-                "text",
-                "vision",
-                "code"
-            ],
-            "parameters": null,
-            "parameter_unit": null,
-            "open_source": false,
-            "license": "Proprietary",
-            "context_window_tokens": 200000,
-            "release_date": "2025-02-24",
-            "description": "First hybrid reasoning model allowing users to switch between instant answers and deep, extended thinking.",
-            "official_model_link": "https://anthropic.com/claude-3-7-sonnet",
-            "id": 169
-        },
-        {
-            "company": "Google",
-            "model_name": "Gemma 3",
-            "model_type": "Multimodal Open Model",
-            "architecture": "Transformer",
-            "modalities": [
-                "text",
-                "vision"
-            ],
-            "parameters": 27,
-            "parameter_unit": "B",
-            "open_source": true,
-            "license": "Gemma Terms",
-            "context_window_tokens": 128000,
-            "release_date": "2025-03-12",
-            "description": "Google's next-gen open-weights model family with native multimodality and significantly improved reasoning.",
-            "official_model_link": "https://blog.google/technology/developers/gemma-3-open-models/",
-            "id": 170
-        },
-        {
-            "company": "Meta",
-            "model_name": "Llama 4 Maverick",
-            "model_type": "Multimodal LLM",
-            "architecture": "Mixture-of-Experts",
-            "modalities": [
-                "text",
-                "vision",
-                "video"
-            ],
-            "parameters": 400,
-            "parameter_unit": "B",
-            "open_source": true,
-            "license": "Llama 4 Community",
-            "context_window_tokens": 1000000,
-            "release_date": "2025-04-05",
-            "description": "Meta's flagship MoE model with native 1M context and advanced multimodal understanding.",
-            "official_model_link": "https://llama.com",
-            "id": 171
-        },
-        {
-            "company": "OpenAI",
-            "model_name": "GPT-5",
-            "model_type": "Multimodal LLM / Agentic",
-            "architecture": "Unified Architecture",
-            "modalities": [
-                "text",
-                "vision",
-                "audio",
-                "video"
-            ],
-            "parameters": null,
-            "parameter_unit": "T",
-            "open_source": false,
-            "license": "Proprietary",
-            "context_window_tokens": 400000,
-            "release_date": "2025-08-07",
-            "description": "A massive leap in reasoning and agentic autonomous task execution, unifying all OpenAI modalities.",
-            "official_model_link": "https://openai.com",
-            "id": 172
-        },
-        {
-            "company": "Google",
-            "model_name": "Gemini 3 Deep Think",
-            "model_type": "Reasoning Model",
-            "architecture": "Advanced Parallel Reasoning",
-            "modalities": [
-                "text",
-                "vision",
-                "math"
-            ],
-            "parameters": null,
-            "parameter_unit": null,
-            "open_source": false,
-            "license": "Proprietary",
-            "context_window_tokens": 2000000,
-            "release_date": "2025-11-18",
-            "description": "Specialized model for breakthrough scientific research and complex logical deduction via parallel hypothesis exploration.",
-            "official_model_link": "https://deepmind.google/gemini",
-            "id": 173
-        },
-        {
-            "company": "OpenAI",
-            "model_name": "GPT-5.2",
-            "model_type": "Multimodal Frontier Model",
-            "architecture": "Adaptive Reasoning",
-            "modalities": [
-                "text",
-                "vision",
-                "audio",
-                "video"
-            ],
-            "parameters": null,
-            "parameter_unit": "T",
-            "open_source": false,
-            "license": "Proprietary",
-            "context_window_tokens": 400000,
-            "release_date": "2025-12-11",
-            "description": "Optimized version of GPT-5 with specialized 'Thinking' mode for advanced professional knowledge work and agentic workflows.",
-            "official_model_link": "https://openai.com",
-            "id": 174
+            "id": 161
         }
     ]
 }

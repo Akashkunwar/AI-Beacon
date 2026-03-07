@@ -3,7 +3,7 @@
         "title": "AI Coding Tools Timeline",
         "description": "A curated timeline of the most influential AI tools, IDEs, and agents that revolutionized software development.",
         "last_updated": "2026-03-07",
-        "total_tools": 60,
+        "total_tools": 58,
         "fields": [
             "id",
             "name",
@@ -740,214 +740,6 @@
         },
         {
             "id": 46,
-            "name": "Roo Code (Roo Cline)",
-            "company": "Community / Open Source",
-            "release_date": "2025-01-28",
-            "open_source": true,
-            "license": "MIT",
-            "category": "AI Code Extension",
-            "description": "An open-source, highly capable AI coding assistant integrated tightly into VS Code. It automates complex programming tasks, refactors, and evolves systems using agentic workflows.",
-            "key_features": [
-                "Agentic task execution",
-                "Open-source",
-                "Native IDE integration"
-            ],
-            "url": "https://roocode.com/"
-        },
-        {
-            "id": 47,
-            "name": "Make.com",
-            "company": "Celonis",
-            "release_date": "2025-04-01",
-            "open_source": false,
-            "license": "Proprietary",
-            "category": "AI Automation Platform",
-            "description": "A visual-first, no-code automation platform that integrates AI agents into business workflows, allowing for dynamic decision-making and cross-app orchestration.",
-            "key_features": [
-                "AI-powered scenarios",
-                "Autonomous AI agents",
-                "Visual workflow building"
-            ],
-            "url": "https://make.com"
-        },
-        {
-            "id": 48,
-            "name": "Codex (Agent)",
-            "company": "OpenAI",
-            "release_date": "2025-05-16",
-            "open_source": false,
-            "license": "Proprietary",
-            "category": "AI Coding Agent",
-            "description": "The evolved version of OpenAI's Codex, functioning as a software agent capable of reading, writing, and executing code autonomously within sandboxed environments.",
-            "key_features": [
-                "Multi-agent workflows",
-                "Autonomous task resolution",
-                "Sandboxed execution"
-            ],
-            "url": "https://openai.com"
-        },
-        {
-            "id": 49,
-            "name": "Claude Code",
-            "company": "Anthropic",
-            "release_date": "2025-05-25",
-            "open_source": false,
-            "license": "Proprietary",
-            "category": "AI CLI Coding Assistant",
-            "description": "Anthropic's agentic command-line tool that allows developers to delegate complex coding tasks directly to Claude 3.7 from their terminal, giving it the ability to read files, run commands, and write code.",
-            "key_features": [
-                "Agentic CLI execution",
-                "Deep codebase context",
-                "Terminal integration"
-            ],
-            "url": "https://docs.anthropic.com/en/docs/agents-and-tools/claude-code/overview"
-        },
-        {
-            "id": 50,
-            "name": "Warp CLI / ADE",
-            "company": "Warp",
-            "release_date": "2025-06-16",
-            "open_source": false,
-            "license": "Proprietary",
-            "category": "AI Powered Terminal",
-            "description": "A modern terminal reimagined as an 'Agentic Development Environment' that suggests fixes, automates CLI workflows, and provides an AI chatbot for terminal tasks.",
-            "key_features": [
-                "Active AI error fixing",
-                "Agent mode CLI",
-                "Warp Drive workflows"
-            ],
-            "url": "https://warp.dev"
-        },
-        {
-            "id": 51,
-            "name": "Ralph Loop",
-            "company": "Community / Jeffrey Huntley",
-            "release_date": "2025-07-01",
-            "open_source": true,
-            "license": "Open Methodology",
-            "category": "AI Methodology",
-            "description": "An iterative AI development methodology (also known as the 'Ralph Wiggum' technique) where prompts are continuously fed to an AI agent in a loop until a task is successfully completed.",
-            "key_features": [
-                "Persistent iteration",
-                "Failure-driven learning",
-                "Context decay management"
-            ],
-            "url": "https://awesomeclaude.ai/"
-        },
-        {
-            "id": 52,
-            "name": "Comet Browser",
-            "company": "Perplexity AI",
-            "release_date": "2025-10-02",
-            "open_source": false,
-            "license": "Proprietary",
-            "category": "AI Web Browser",
-            "description": "An AI-first web browser built by Perplexity AI, integrating conversational search natively into the browsing experience for seamless information discovery.",
-            "key_features": [
-                "Native AI search integration",
-                "AI-assisted browsing",
-                "Cross-platform"
-            ],
-            "url": "https://www.perplexity.ai/"
-        },
-        {
-            "id": 53,
-            "name": "OpenClaw",
-            "company": "Peter Steinberger",
-            "release_date": "2025-11-01",
-            "open_source": true,
-            "license": "MIT",
-            "category": "Autonomous AI Agent",
-            "description": "A free, open-source personal AI assistant designed to run locally, functioning independently by executing tasks across messaging platforms, browsing the web, and manipulating files.",
-            "key_features": [
-                "Local autonomy",
-                "WhatsApp/Discord integration",
-                "Shell and file access"
-            ],
-            "url": "https://github.com/petersteinberger/openclaw"
-        },
-        {
-            "id": 54,
-            "name": "Antigravity",
-            "company": "Google DeepMind",
-            "release_date": "2025-11-18",
-            "open_source": false,
-            "license": "Proprietary",
-            "category": "Agentic Development Environment",
-            "description": "An agent-first development platform where AI agents autonomously plan, build, test, and iterate on complex software tasks in a dedicated workspace.",
-            "key_features": [
-                "Agent-first architecture",
-                "Integrated browser & terminal",
-                "Verifiable artifact generation"
-            ],
-            "url": "https://antigravity.google"
-        },
-        {
-            "id": 55,
-            "name": "OpenAI Operator",
-            "company": "OpenAI",
-            "release_date": "2025-01-23",
-            "open_source": false,
-            "license": "Proprietary",
-            "category": "Autonomous AI Agent",
-            "description": "A computer-using agent (CUA) powered by GPT-4o that autonomously navigates the web to perform complex tasks like booking travel and comparing products.",
-            "key_features": [
-                "Computer-using capability",
-                "Natural language task execution",
-                "Secure autonomous browsing"
-            ],
-            "url": "https://openai.com/index/introducing-operator/"
-        },
-        {
-            "id": 56,
-            "name": "Claude Code",
-            "company": "Anthropic",
-            "release_date": "2025-02-24",
-            "open_source": false,
-            "license": "Proprietary",
-            "category": "Agentic Coding CLI",
-            "description": "A terminal-based agentic coding tool that can autonomously plan, execute, and verify complex software engineering tasks across a codebase.",
-            "key_features": [
-                "Autonomous file editing",
-                "Integrated shell and tool use",
-                "Advanced codebase understanding"
-            ],
-            "url": "https://anthropic.com/claude-code"
-        },
-        {
-            "id": 57,
-            "name": "Zapier Central",
-            "company": "Zapier",
-            "release_date": "2024-03-06",
-            "open_source": false,
-            "license": "Proprietary",
-            "category": "AI Automation Platform",
-            "description": "An AI-first workspace that allows users to create, train, and deploy AI bots that connect with over 6,000 apps for seamless cross-platform automation.",
-            "key_features": [
-                "Connects to 6000+ apps",
-                "No-code agent training",
-                "Real-time data interaction"
-            ],
-            "url": "https://zapier.com/central"
-        },
-        {
-            "id": 58,
-            "name": "Microsoft Copilot Studio",
-            "company": "Microsoft",
-            "release_date": "2025-11-15",
-            "open_source": false,
-            "license": "Proprietary",
-            "category": "Enterprise AI Agent Platform",
-            "description": "A comprehensive platform for building and managing autonomous enterprise agents with deep integration into Microsoft 365 and external systems via MCP.",
-            "key_features": [
-                "Autonomous agent publishing",
-                "MCP standard integration",
-                "GPT-5 powered reasoning"
-            ],
-            "url": "https://www.microsoft.com/en-us/microsoft-copilot/copilot-studio"
-        },
-        {
-            "id": 59,
             "name": "n8n AI Agents",
             "company": "n8n",
             "release_date": "2025-01-15",
@@ -963,7 +755,183 @@
             "url": "https://n8n.io/ai/"
         },
         {
-            "id": 60,
+            "id": 47,
+            "name": "OpenAI Operator",
+            "company": "OpenAI",
+            "release_date": "2025-01-23",
+            "open_source": false,
+            "license": "Proprietary",
+            "category": "Autonomous AI Agent",
+            "description": "A computer-using agent (CUA) powered by GPT-4o that autonomously navigates the web to perform complex tasks like booking travel and comparing products.",
+            "key_features": [
+                "Computer-using capability",
+                "Natural language task execution",
+                "Secure autonomous browsing"
+            ],
+            "url": "https://openai.com/index/introducing-operator/"
+        },
+        {
+            "id": 48,
+            "name": "Roo Code (Roo Cline)",
+            "company": "Community / Open Source",
+            "release_date": "2025-01-28",
+            "open_source": true,
+            "license": "MIT",
+            "category": "AI Code Extension",
+            "description": "An open-source, highly capable AI coding assistant integrated tightly into VS Code. It automates complex programming tasks, refactors, and evolves systems using agentic workflows.",
+            "key_features": [
+                "Agentic task execution",
+                "Open-source",
+                "Native IDE integration"
+            ],
+            "url": "https://roocode.com/"
+        },
+        {
+            "id": 49,
+            "name": "Make.com",
+            "company": "Celonis",
+            "release_date": "2025-04-01",
+            "open_source": false,
+            "license": "Proprietary",
+            "category": "AI Automation Platform",
+            "description": "A visual-first, no-code automation platform that integrates AI agents into business workflows, allowing for dynamic decision-making and cross-app orchestration.",
+            "key_features": [
+                "AI-powered scenarios",
+                "Autonomous AI agents",
+                "Visual workflow building"
+            ],
+            "url": "https://make.com"
+        },
+        {
+            "id": 50,
+            "name": "Codex (Agent)",
+            "company": "OpenAI",
+            "release_date": "2025-05-16",
+            "open_source": false,
+            "license": "Proprietary",
+            "category": "AI Coding Agent",
+            "description": "The evolved version of OpenAI's Codex, functioning as a software agent capable of reading, writing, and executing code autonomously within sandboxed environments.",
+            "key_features": [
+                "Multi-agent workflows",
+                "Autonomous task resolution",
+                "Sandboxed execution"
+            ],
+            "url": "https://openai.com"
+        },
+        {
+            "id": 51,
+            "name": "Claude Code",
+            "company": "Anthropic",
+            "release_date": "2025-05-25",
+            "open_source": false,
+            "license": "Proprietary",
+            "category": "AI CLI Coding Assistant",
+            "description": "Anthropic's agentic command-line tool that allows developers to delegate complex coding tasks directly to Claude 3.7 from their terminal, giving it the ability to read files, run commands, and write code.",
+            "key_features": [
+                "Agentic CLI execution",
+                "Deep codebase context",
+                "Terminal integration"
+            ],
+            "url": "https://docs.anthropic.com/en/docs/agents-and-tools/claude-code/overview"
+        },
+        {
+            "id": 52,
+            "name": "Warp CLI / ADE",
+            "company": "Warp",
+            "release_date": "2025-06-16",
+            "open_source": false,
+            "license": "Proprietary",
+            "category": "AI Powered Terminal",
+            "description": "A modern terminal reimagined as an 'Agentic Development Environment' that suggests fixes, automates CLI workflows, and provides an AI chatbot for terminal tasks.",
+            "key_features": [
+                "Active AI error fixing",
+                "Agent mode CLI",
+                "Warp Drive workflows"
+            ],
+            "url": "https://warp.dev"
+        },
+        {
+            "id": 53,
+            "name": "Ralph Loop",
+            "company": "Community / Jeffrey Huntley",
+            "release_date": "2025-07-01",
+            "open_source": true,
+            "license": "Open Methodology",
+            "category": "AI Methodology",
+            "description": "An iterative AI development methodology (also known as the 'Ralph Wiggum' technique) where prompts are continuously fed to an AI agent in a loop until a task is successfully completed.",
+            "key_features": [
+                "Persistent iteration",
+                "Failure-driven learning",
+                "Context decay management"
+            ],
+            "url": "https://awesomeclaude.ai/"
+        },
+        {
+            "id": 54,
+            "name": "Comet Browser",
+            "company": "Perplexity AI",
+            "release_date": "2025-10-02",
+            "open_source": false,
+            "license": "Proprietary",
+            "category": "AI Web Browser",
+            "description": "An AI-first web browser built by Perplexity AI, integrating conversational search natively into the browsing experience for seamless information discovery.",
+            "key_features": [
+                "Native AI search integration",
+                "AI-assisted browsing",
+                "Cross-platform"
+            ],
+            "url": "https://www.perplexity.ai/"
+        },
+        {
+            "id": 55,
+            "name": "OpenClaw",
+            "company": "Peter Steinberger",
+            "release_date": "2025-11-01",
+            "open_source": true,
+            "license": "MIT",
+            "category": "Autonomous AI Agent",
+            "description": "A free, open-source personal AI assistant designed to run locally, functioning independently by executing tasks across messaging platforms, browsing the web, and manipulating files.",
+            "key_features": [
+                "Local autonomy",
+                "WhatsApp/Discord integration",
+                "Shell and file access"
+            ],
+            "url": "https://github.com/petersteinberger/openclaw"
+        },
+        {
+            "id": 56,
+            "name": "Microsoft Copilot Studio",
+            "company": "Microsoft",
+            "release_date": "2025-11-15",
+            "open_source": false,
+            "license": "Proprietary",
+            "category": "Enterprise AI Agent Platform",
+            "description": "A comprehensive platform for building and managing autonomous enterprise agents with deep integration into Microsoft 365 and external systems via MCP.",
+            "key_features": [
+                "Autonomous agent publishing",
+                "MCP standard integration",
+                "GPT-5 powered reasoning"
+            ],
+            "url": "https://www.microsoft.com/en-us/microsoft-copilot/copilot-studio"
+        },
+        {
+            "id": 57,
+            "name": "Antigravity",
+            "company": "Google DeepMind",
+            "release_date": "2025-11-18",
+            "open_source": false,
+            "license": "Proprietary",
+            "category": "Agentic Development Environment",
+            "description": "An agent-first development platform where AI agents autonomously plan, build, test, and iterate on complex software tasks in a dedicated workspace.",
+            "key_features": [
+                "Agent-first architecture",
+                "Integrated browser & terminal",
+                "Verifiable artifact generation"
+            ],
+            "url": "https://antigravity.google"
+        },
+        {
+            "id": 58,
             "name": "FlowHunt",
             "company": "QualityUnit",
             "release_date": "2026-02-28",
