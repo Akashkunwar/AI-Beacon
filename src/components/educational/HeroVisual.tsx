@@ -20,6 +20,18 @@ export function HeroVisual() {
             }}
             aria-hidden="true"
         >
+            <style>{`
+                @keyframes hero-spin {
+                    from { transform: rotate(0deg); }
+                    to { transform: rotate(360deg); }
+                }
+                .hero-animate-spin {
+                    animation: hero-spin 20s linear infinite;
+                }
+                .hero-animate-spin-slow {
+                    animation: hero-spin 10s linear infinite;
+                }
+            `}</style>
             <motion.svg
                 viewBox="0 110 500 280"
                 fill="none"
@@ -107,12 +119,9 @@ export function HeroVisual() {
                     />
                     <text x="250" y="205" textAnchor="middle" fill="var(--ink)" fontSize="10" fontWeight="500" fontFamily="var(--font-mono)" opacity="0.9">TRANSFORMER</text>
                     
-                    {/* Orbiting Ring & Dot Group - Robust translate+rotate pattern */}
+                    {/* Orbiting Ring & Dot Group - CSS Animation for Production Robustness */}
                     <g transform="translate(250, 250)">
-                        <motion.g
-                            animate={{ rotate: 360 }}
-                            transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-                        >
+                        <g className="hero-animate-spin">
                             <circle
                                 cx="0" cy="0" r="30"
                                 stroke="var(--stroke-dark)"
@@ -123,7 +132,7 @@ export function HeroVisual() {
                                 cx="30" cy="0" r="3"
                                 fill="var(--ink)"
                             />
-                        </motion.g>
+                        </g>
                     </g>
                 </motion.g>
 
@@ -204,19 +213,17 @@ export function HeroVisual() {
                     transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
                 />
                 
-                {/* Floating Rect - Robust rotation around center */}
+                {/* Floating Rect - CSS Animation for Production Robustness */}
                 <g transform="translate(354, 154)">
-                    <motion.rect
-                        x="-4" y="-4" width="8" height="8"
-                        fill="var(--bg)"
-                        stroke="var(--stroke-dark)"
-                        strokeWidth="1"
-                        animate={{
-                            rotate: [0, 90, 180, 270, 360],
-                            opacity: [0.3, 0.6, 0.3]
-                        }}
-                        transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
-                    />
+                    <g className="hero-animate-spin-slow">
+                        <rect
+                            x="-4" y="-4" width="8" height="8"
+                            fill="var(--bg)"
+                            stroke="var(--stroke-dark)"
+                            strokeWidth="1"
+                            opacity="0.5"
+                        />
+                    </g>
                 </g>
             </motion.svg>
 
