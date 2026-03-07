@@ -2,8 +2,8 @@
     "metadata": {
         "title": "AI Coding Tools Timeline",
         "description": "A curated timeline of the most influential AI tools, IDEs, and agents that revolutionized software development.",
-        "last_updated": "2026-03-06",
-        "total_tools": 54,
+        "last_updated": "2026-03-07",
+        "total_tools": 60,
         "fields": [
             "id",
             "name",
@@ -881,6 +881,102 @@
                 "Verifiable artifact generation"
             ],
             "url": "https://antigravity.google"
+        },
+        {
+            "id": 55,
+            "name": "OpenAI Operator",
+            "company": "OpenAI",
+            "release_date": "2025-01-23",
+            "open_source": false,
+            "license": "Proprietary",
+            "category": "Autonomous AI Agent",
+            "description": "A computer-using agent (CUA) powered by GPT-4o that autonomously navigates the web to perform complex tasks like booking travel and comparing products.",
+            "key_features": [
+                "Computer-using capability",
+                "Natural language task execution",
+                "Secure autonomous browsing"
+            ],
+            "url": "https://openai.com/index/introducing-operator/"
+        },
+        {
+            "id": 56,
+            "name": "Claude Code",
+            "company": "Anthropic",
+            "release_date": "2025-02-24",
+            "open_source": false,
+            "license": "Proprietary",
+            "category": "Agentic Coding CLI",
+            "description": "A terminal-based agentic coding tool that can autonomously plan, execute, and verify complex software engineering tasks across a codebase.",
+            "key_features": [
+                "Autonomous file editing",
+                "Integrated shell and tool use",
+                "Advanced codebase understanding"
+            ],
+            "url": "https://anthropic.com/claude-code"
+        },
+        {
+            "id": 57,
+            "name": "Zapier Central",
+            "company": "Zapier",
+            "release_date": "2024-03-06",
+            "open_source": false,
+            "license": "Proprietary",
+            "category": "AI Automation Platform",
+            "description": "An AI-first workspace that allows users to create, train, and deploy AI bots that connect with over 6,000 apps for seamless cross-platform automation.",
+            "key_features": [
+                "Connects to 6000+ apps",
+                "No-code agent training",
+                "Real-time data interaction"
+            ],
+            "url": "https://zapier.com/central"
+        },
+        {
+            "id": 58,
+            "name": "Microsoft Copilot Studio",
+            "company": "Microsoft",
+            "release_date": "2025-11-15",
+            "open_source": false,
+            "license": "Proprietary",
+            "category": "Enterprise AI Agent Platform",
+            "description": "A comprehensive platform for building and managing autonomous enterprise agents with deep integration into Microsoft 365 and external systems via MCP.",
+            "key_features": [
+                "Autonomous agent publishing",
+                "MCP standard integration",
+                "GPT-5 powered reasoning"
+            ],
+            "url": "https://www.microsoft.com/en-us/microsoft-copilot/copilot-studio"
+        },
+        {
+            "id": 59,
+            "name": "n8n AI Agents",
+            "company": "n8n",
+            "release_date": "2025-01-15",
+            "open_source": true,
+            "license": "Fair-code (n8n)",
+            "category": "Workflow Automation",
+            "description": "An open-source automation platform updated for the agentic era, allowing developers to build autonomous agents using 70+ specialized AI nodes.",
+            "key_features": [
+                "70+ specialized AI nodes",
+                "Self-hosted agent execution",
+                "Human-in-the-loop controls"
+            ],
+            "url": "https://n8n.io/ai/"
+        },
+        {
+            "id": 60,
+            "name": "FlowHunt",
+            "company": "QualityUnit",
+            "release_date": "2026-02-28",
+            "open_source": false,
+            "license": "Proprietary",
+            "category": "No-code AI Agent Builder",
+            "description": "A no-code enterprise agent platform for designing complex AI workflows, supporting multi-agent collaboration and extensive knowledge base integration.",
+            "key_features": [
+                "Multi-agent collaboration",
+                "No-code visual builder",
+                "FlowHunt 2.0 AI-first engine"
+            ],
+            "url": "https://www.flowhunt.io/"
         }
     ]
 }

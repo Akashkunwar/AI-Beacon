@@ -3,7 +3,7 @@
         "title": "AI & LLM Models Timeline",
         "description": "Comprehensive list of AI and LLM models from 2017 to 2026, including text, vision, audio, multimodal and image generation models.",
         "last_updated": "2026-03-07",
-        "total_models": 165,
+        "total_models": 174,
         "audit_status": "Verified Deep Audit Complete (Chronological + Attribution)",
         "logo_source": "Clearbit Logo API (https://logo.clearbit.com/{domain})",
         "fields": [
@@ -7959,6 +7959,183 @@
             "predecessor": "Gemini 3.0",
             "successor": null,
             "id": 165
+        },
+        {
+            "company": "DeepSeek",
+            "model_name": "DeepSeek-V3",
+            "model_type": "Multimodal LLM",
+            "architecture": "DeepSeekMoE (Multi-head Latent Attention)",
+            "modalities": [
+                "text",
+                "code"
+            ],
+            "parameters": 671,
+            "parameter_unit": "B",
+            "open_source": true,
+            "license": "MIT",
+            "context_window_tokens": 128000,
+            "release_date": "2024-12-26",
+            "description": "A massive 671B parameter Mixture-of-Experts model that achieved GPT-4 level performance with extreme training efficiency.",
+            "official_model_link": "https://github.com/deepseek-ai/DeepSeek-V3",
+            "id": 166
+        },
+        {
+            "company": "DeepSeek",
+            "model_name": "DeepSeek-R1",
+            "model_type": "Reasoning Model",
+            "architecture": "GRPO (Reinforcement Learning)",
+            "modalities": [
+                "text",
+                "code"
+            ],
+            "parameters": 671,
+            "parameter_unit": "B",
+            "open_source": true,
+            "license": "MIT",
+            "context_window_tokens": 128000,
+            "release_date": "2025-01-20",
+            "description": "A specialized reasoning model trained via large-scale RL, demonstrating emergent CoT abilities matching OpenAI o1.",
+            "official_model_link": "https://github.com/deepseek-ai/DeepSeek-R1",
+            "id": 167
+        },
+        {
+            "company": "Microsoft",
+            "model_name": "Phi-4 Mini",
+            "model_type": "Small Language Model",
+            "architecture": "Transformer",
+            "modalities": [
+                "text"
+            ],
+            "parameters": 3.8,
+            "parameter_unit": "B",
+            "open_source": true,
+            "license": "MIT",
+            "context_window_tokens": 128000,
+            "release_date": "2025-02-05",
+            "description": "State-of-the-art small language model optimized for reasoning-dense tasks on edge devices.",
+            "official_model_link": "https://azure.microsoft.com/en-us/blog/introducing-phi-4-mini/",
+            "id": 168
+        },
+        {
+            "company": "Anthropic",
+            "model_name": "Claude 3.7 Sonnet",
+            "model_type": "Multimodal LLM / Reasoning",
+            "architecture": "Transformer",
+            "modalities": [
+                "text",
+                "vision",
+                "code"
+            ],
+            "parameters": null,
+            "parameter_unit": null,
+            "open_source": false,
+            "license": "Proprietary",
+            "context_window_tokens": 200000,
+            "release_date": "2025-02-24",
+            "description": "First hybrid reasoning model allowing users to switch between instant answers and deep, extended thinking.",
+            "official_model_link": "https://anthropic.com/claude-3-7-sonnet",
+            "id": 169
+        },
+        {
+            "company": "Google",
+            "model_name": "Gemma 3",
+            "model_type": "Multimodal Open Model",
+            "architecture": "Transformer",
+            "modalities": [
+                "text",
+                "vision"
+            ],
+            "parameters": 27,
+            "parameter_unit": "B",
+            "open_source": true,
+            "license": "Gemma Terms",
+            "context_window_tokens": 128000,
+            "release_date": "2025-03-12",
+            "description": "Google's next-gen open-weights model family with native multimodality and significantly improved reasoning.",
+            "official_model_link": "https://blog.google/technology/developers/gemma-3-open-models/",
+            "id": 170
+        },
+        {
+            "company": "Meta",
+            "model_name": "Llama 4 Maverick",
+            "model_type": "Multimodal LLM",
+            "architecture": "Mixture-of-Experts",
+            "modalities": [
+                "text",
+                "vision",
+                "video"
+            ],
+            "parameters": 400,
+            "parameter_unit": "B",
+            "open_source": true,
+            "license": "Llama 4 Community",
+            "context_window_tokens": 1000000,
+            "release_date": "2025-04-05",
+            "description": "Meta's flagship MoE model with native 1M context and advanced multimodal understanding.",
+            "official_model_link": "https://llama.com",
+            "id": 171
+        },
+        {
+            "company": "OpenAI",
+            "model_name": "GPT-5",
+            "model_type": "Multimodal LLM / Agentic",
+            "architecture": "Unified Architecture",
+            "modalities": [
+                "text",
+                "vision",
+                "audio",
+                "video"
+            ],
+            "parameters": null,
+            "parameter_unit": "T",
+            "open_source": false,
+            "license": "Proprietary",
+            "context_window_tokens": 400000,
+            "release_date": "2025-08-07",
+            "description": "A massive leap in reasoning and agentic autonomous task execution, unifying all OpenAI modalities.",
+            "official_model_link": "https://openai.com",
+            "id": 172
+        },
+        {
+            "company": "Google",
+            "model_name": "Gemini 3 Deep Think",
+            "model_type": "Reasoning Model",
+            "architecture": "Advanced Parallel Reasoning",
+            "modalities": [
+                "text",
+                "vision",
+                "math"
+            ],
+            "parameters": null,
+            "parameter_unit": null,
+            "open_source": false,
+            "license": "Proprietary",
+            "context_window_tokens": 2000000,
+            "release_date": "2025-11-18",
+            "description": "Specialized model for breakthrough scientific research and complex logical deduction via parallel hypothesis exploration.",
+            "official_model_link": "https://deepmind.google/gemini",
+            "id": 173
+        },
+        {
+            "company": "OpenAI",
+            "model_name": "GPT-5.2",
+            "model_type": "Multimodal Frontier Model",
+            "architecture": "Adaptive Reasoning",
+            "modalities": [
+                "text",
+                "vision",
+                "audio",
+                "video"
+            ],
+            "parameters": null,
+            "parameter_unit": "T",
+            "open_source": false,
+            "license": "Proprietary",
+            "context_window_tokens": 400000,
+            "release_date": "2025-12-11",
+            "description": "Optimized version of GPT-5 with specialized 'Thinking' mode for advanced professional knowledge work and agentic workflows.",
+            "official_model_link": "https://openai.com",
+            "id": 174
         }
     ]
 }

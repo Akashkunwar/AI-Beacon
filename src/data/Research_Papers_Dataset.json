@@ -2,8 +2,8 @@
     "metadata": {
         "title": "Foundational AI Research Papers Timeline",
         "description": "A curated list of the most influential AI research papers that drove the technological revolution.",
-        "last_updated": "2026-03-06",
-        "total_papers": 47,
+        "last_updated": "2026-03-07",
+        "total_papers": 50,
         "fields": [
             "id",
             "title",
@@ -1279,6 +1279,70 @@
             "paper_url": "https://arxiv.org/abs/2501.12948",
             "code_url": "https://github.com/deepseek-ai/DeepSeek-R1",
             "citations": 500
+        },
+        {
+            "id": 48,
+            "title": "ArithMotion: Intent-Aware Lifelike VR Avatars on Mobile",
+            "authors": [
+                "Jaewoong Jang",
+                "Inseok Hwang",
+                "et al."
+            ],
+            "institution": "POSTECH",
+            "publication_date": "2025-11-15",
+            "published_in": "VRST 2025",
+            "topic": "VR / Human-Computer Interaction",
+            "description": "Developed a mobile-ready system that allows VR avatars to express socially-aligned motions by understanding user intent, enabling lifelike nonverbal communication.",
+            "key_contributions": [
+                "Intent-aware motion synthesis",
+                "Mobile VR optimization",
+                "Socially-aligned avatar behavior"
+            ],
+            "paper_url": "https://eurekalert.org/pub_releases/2026-03/p-mas030626.php",
+            "code_url": null,
+            "citations": 50
+        },
+        {
+            "id": 49,
+            "title": "NVIDIA DiffusionRenderer: Unifying Inverse and Forward Rendering",
+            "authors": [
+                "NVIDIA Research"
+            ],
+            "institution": "NVIDIA",
+            "publication_date": "2025-06-11",
+            "published_in": "CVPR 2025",
+            "topic": "Neural Rendering / Diffusion Models",
+            "description": "Introduced a neural rendering technique that unifies rendering passes, enabling AI-powered lighting control and photorealistic scene transformation.",
+            "key_contributions": [
+                "Unified rendering framework",
+                "AI-powered lighting control",
+                "SOTA in synthetic data generation"
+            ],
+            "paper_url": "https://blogs.nvidia.com/blog/cvpr-2025-research-diffusion-renderer-lightning/",
+            "code_url": null,
+            "citations": 250
+        },
+        {
+            "id": 50,
+            "title": "Perceptually Guided 3DGS Streaming and Rendering for Virtual Reality",
+            "authors": [
+                "Yunxiang Zhang",
+                "Qi Sun",
+                "et al."
+            ],
+            "institution": "NYU / Immersive Computing Lab",
+            "publication_date": "2026-01-10",
+            "published_in": "WACV 2026",
+            "topic": "Neural Rendering / VR",
+            "description": "Optimized 3D Gaussian Splatting (3DGS) for VR streaming, focusing on perceptual quality and real-time performance in immersive environments.",
+            "key_contributions": [
+                "Perceptual 3DGS optimization",
+                "Real-time VR streaming for neural volumes",
+                "Low-latency rendering for immersive 3D"
+            ],
+            "paper_url": "https://immersivecomputinglab.org/research/3dgs-vr/",
+            "code_url": null,
+            "citations": 30
         }
     ]
 }
