@@ -105,24 +105,25 @@ export function HeroVisual() {
                             ease: "easeInOut"
                         }}
                     />
-                    <text x="250" y="212" textAnchor="middle" fill="var(--ink)" fontSize="10" fontWeight="500" fontFamily="var(--font-mono)" opacity="0.9">TRANSFORMER</text>
+                    <text x="250" y="205" textAnchor="middle" fill="var(--ink)" fontSize="10" fontWeight="500" fontFamily="var(--font-mono)" opacity="0.9">TRANSFORMER</text>
                     
-                    {/* Orbiting Ring */}
-                    <motion.circle
-                        cx="250" cy="250" r="30"
-                        stroke="var(--stroke-dark)"
-                        strokeWidth="0.5"
-                        strokeDasharray="2 2"
+                    {/* Orbiting Ring & Dot Group */}
+                    <motion.g
                         animate={{ rotate: 360 }}
+                        style={{ transformOrigin: "250px 250px" }}
                         transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-                    />
-                    <motion.circle
-                        cx="280" cy="250" r="3"
-                        fill="var(--ink)"
-                        animate={{ rotate: 360 }}
-                        style={{ originX: '250px', originY: '250px' }}
-                        transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-                    />
+                    >
+                        <circle
+                            cx="250" cy="250" r="30"
+                            stroke="var(--stroke-dark)"
+                            strokeWidth="0.5"
+                            strokeDasharray="2 2"
+                        />
+                        <circle
+                            cx="280" cy="250" r="3"
+                            fill="var(--ink)"
+                        />
+                    </motion.g>
                 </motion.g>
 
                 {/* Milestone Nodes */}
