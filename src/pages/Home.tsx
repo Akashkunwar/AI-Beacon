@@ -8,6 +8,8 @@ import { Link } from 'react-router-dom';
 import { motion, useInView } from 'framer-motion';
 import { Nav } from '@/components/shared/Nav';
 import { SEO } from '@/components/common/SEO';
+import { HeroVisual } from '@/components/educational/HeroVisual';
+import { ScaleVisual } from '@/components/educational/ScaleVisual';
 
 // ─── Animation helpers ─────────────────────────────────────────────────────
 
@@ -54,143 +56,198 @@ function Hero() {
             }}
         >
             <div className="depth-container">
-                <div style={{ maxWidth: '900px' }}>
-                    {/* Eyebrow */}
-                    <motion.p
-                        custom={0.05}
-                        initial="hidden"
-                        animate="visible"
-                        variants={fadeUp}
-                        style={{
-                            fontFamily: 'var(--font-mono)',
-                            fontSize: 'var(--text-xs)',
-                            color: 'var(--muted)',
-                            textTransform: 'uppercase',
-                            letterSpacing: 'var(--tracking-wider)',
-                            display: 'flex',
-                            alignItems: 'center',
-                            gap: 'var(--s2)',
-                            marginBottom: 'var(--s4)',
-                        }}
-                    >
-                        <span style={{
-                            display: 'inline-block',
-                            width: '6px',
-                            height: '6px',
-                            borderRadius: '50%',
-                            background: 'var(--ink)',
-                            flexShrink: 0,
-                        }} />
-                        interactive explainer · open source
-                    </motion.p>
+                <div style={{
+                    display: 'grid',
+                    gridTemplateColumns: '1fr 1fr',
+                    columnGap: 'var(--s8)',
+                    rowGap: 'var(--s4)',
+                    alignItems: 'center',
+                }} className="hero-grid">
+                    <div className="hero-text-content" style={{ display: 'contents' }}>
+                        <div className="hero-copy-group">
+                            {/* Eyebrow */}
+                            <motion.p
+                                custom={0.05}
+                                initial="hidden"
+                                animate="visible"
+                                variants={fadeUp}
+                                style={{
+                                    fontFamily: 'var(--font-mono)',
+                                    fontSize: 'var(--text-xs)',
+                                    color: 'var(--muted)',
+                                    textTransform: 'uppercase',
+                                    letterSpacing: 'var(--tracking-wider)',
+                                    display: 'flex',
+                                    alignItems: 'center',
+                                    gap: 'var(--s2)',
+                                    marginBottom: 'var(--s4)',
+                                }}
+                            >
+                                <span style={{
+                                    display: 'inline-block',
+                                    width: '6px',
+                                    height: '6px',
+                                    borderRadius: '50%',
+                                    background: 'var(--ink)',
+                                    flexShrink: 0,
+                                }} />
+                                interactive explainer · open source
+                            </motion.p>
 
-                    {/* Headline */}
-                    <motion.h1
-                        id="hero-heading"
-                        custom={0.1}
-                        initial="hidden"
-                        animate="visible"
-                        variants={fadeUp}
-                        style={{
-                            fontSize: 'clamp(2.6rem, 6vw, var(--text-hero))',
-                            fontWeight: 'var(--weight-semibold)',
-                            color: 'var(--ink)',
-                            lineHeight: 'var(--lead-tight)',
-                            letterSpacing: 'var(--tracking-tight)',
-                            maxWidth: '18ch',
-                        }}
-                    >
-                        The internet's most honest guide to how&nbsp;AI works.
-                    </motion.h1>
+                            {/* Headline */}
+                            <motion.h1
+                                id="hero-heading"
+                                custom={0.1}
+                                initial="hidden"
+                                animate="visible"
+                                variants={fadeUp}
+                                style={{
+                                    fontSize: 'clamp(2.6rem, 6vw, var(--text-hero))',
+                                    fontWeight: 'var(--weight-semibold)',
+                                    color: 'var(--ink)',
+                                    lineHeight: 'var(--lead-tight)',
+                                    letterSpacing: 'var(--tracking-tight)',
+                                    maxWidth: '18ch',
+                                }}
+                            >
+                                The open-source guide to the entire AI universe.
+                            </motion.h1>
 
-                    {/* Subheading */}
-                    <motion.p
-                        custom={0.18}
-                        initial="hidden"
-                        animate="visible"
-                        variants={fadeUp}
-                        style={{
-                            fontSize: 'var(--text-md)',
-                            fontWeight: 'var(--weight-light)',
-                            color: 'var(--secondary)',
-                            maxWidth: '54ch',
-                            lineHeight: 'var(--lead-body)',
-                            marginTop: 'var(--s4)',
-                        }}
-                    >
-                        Interactive, step-by-step, and open source. No courses,
-                        no paywalls, no handwaving. Just the actual mechanics —
-                        from tokenization to training to what comes next.
-                    </motion.p>
+                            {/* Subheading */}
+                            <motion.p
+                                custom={0.18}
+                                initial="hidden"
+                                animate="visible"
+                                variants={fadeUp}
+                                style={{
+                                    fontSize: 'var(--text-md)',
+                                    fontWeight: 'var(--weight-light)',
+                                    color: 'var(--secondary)',
+                                    maxWidth: '54ch',
+                                    lineHeight: 'var(--lead-body)',
+                                    marginTop: 'var(--s4)',
+                                }}
+                            >
+                                From landmark research and tool timelines to live LLM
+                                mechanics and training. No courses, no paywalls —
+                                just the actual science, interactive and open source.
+                            </motion.p>
+                        </div>
 
-                    {/* CTA row */}
-                    <motion.div
-                        custom={0.26}
-                        initial="hidden"
-                        animate="visible"
-                        variants={fadeUp}
-                        style={{ display: 'flex', gap: 'var(--s3)', flexWrap: 'wrap', alignItems: 'center', marginTop: 'var(--s6)' }}
-                    >
-                        <Link
-                            to="/timeline"
-                            id="hero-cta-primary"
-                            style={{
-                                display: 'inline-flex',
-                                alignItems: 'center',
-                                gap: 'var(--s2)',
-                                padding: '0.6rem 1.25rem',
-                                background: 'var(--bg-inverse)',
-                                border: '1px solid var(--bg-inverse)',
-                                borderRadius: 'var(--r-md)',
-                                fontFamily: 'var(--font-sans)',
-                                fontSize: 'var(--text-sm)',
-                                fontWeight: 'var(--weight-medium)',
-                                color: 'var(--text-inverse)',
-                                textDecoration: 'none',
-                                transition: `background var(--dur-fast) var(--ease-out)`,
+                        {/* Visual Element - Positioned via grid order on mobile */}
+                        <div className="hero-visual-wrapper" style={{ 
+                            display: 'flex', 
+                            justifyContent: 'center',
+                            width: '100%',
+                            gridColumn: '2 / 3',
+                            gridRow: '1 / 3'
+                        }}>
+                            <HeroVisual />
+                        </div>
+
+                        {/* CTA row */}
+                        <motion.div
+                            custom={0.26}
+                            initial="hidden"
+                            animate="visible"
+                            variants={fadeUp}
+                            style={{ 
+                                display: 'flex', 
+                                gap: 'var(--s3)', 
+                                flexWrap: 'wrap', 
+                                alignItems: 'center', 
+                                marginTop: 'var(--s2)',
+                                gridColumn: '1 / 2'
                             }}
-                            onMouseEnter={(e) => { (e.currentTarget as HTMLAnchorElement).style.background = '#333333'; }}
-                            onMouseLeave={(e) => { (e.currentTarget as HTMLAnchorElement).style.background = 'var(--bg-inverse)'; }}
+                            className="hero-cta-group"
                         >
-                            Explore the AI Timeline →
-                        </Link>
-                        <a
-                            href="#module-grid"
-                            id="hero-cta-secondary"
-                            onClick={handleScrollToModules}
-                            style={{
-                                display: 'inline-flex',
-                                alignItems: 'center',
-                                gap: 'var(--s2)',
-                                padding: '0.6rem 1.25rem',
-                                background: 'transparent',
-                                border: '1px solid var(--stroke-dark)',
-                                borderRadius: 'var(--r-md)',
-                                fontFamily: 'var(--font-sans)',
-                                fontSize: 'var(--text-sm)',
-                                fontWeight: 'var(--weight-medium)',
-                                color: 'var(--secondary)',
-                                textDecoration: 'none',
-                                transition: `all var(--dur-fast) var(--ease-out)`,
-                            }}
-                            onMouseEnter={(e) => {
-                                const el = e.currentTarget as HTMLAnchorElement;
-                                el.style.background = 'var(--bg-panel)';
-                                el.style.color = 'var(--ink)';
-                                el.style.borderColor = 'var(--primary)';
-                            }}
-                            onMouseLeave={(e) => {
-                                const el = e.currentTarget as HTMLAnchorElement;
-                                el.style.background = 'transparent';
-                                el.style.color = 'var(--secondary)';
-                                el.style.borderColor = 'var(--stroke-dark)';
-                            }}
-                        >
-                            See what's coming
-                        </a>
-                    </motion.div>
+                            <Link
+                                to="/timeline"
+                                id="hero-cta-primary"
+                                style={{
+                                    display: 'inline-flex',
+                                    alignItems: 'center',
+                                    gap: 'var(--s2)',
+                                    padding: '0.6rem 1.25rem',
+                                    background: 'var(--bg-inverse)',
+                                    border: '1px solid var(--bg-inverse)',
+                                    borderRadius: 'var(--r-md)',
+                                    fontFamily: 'var(--font-sans)',
+                                    fontSize: 'var(--text-sm)',
+                                    fontWeight: 'var(--weight-medium)',
+                                    color: 'var(--text-inverse)',
+                                    textDecoration: 'none',
+                                    transition: `background var(--dur-fast) var(--ease-out)`,
+                                }}
+                                onMouseEnter={(e) => { (e.currentTarget as HTMLAnchorElement).style.background = '#333333'; }}
+                                onMouseLeave={(e) => { (e.currentTarget as HTMLAnchorElement).style.background = 'var(--bg-inverse)'; }}
+                            >
+                                Explore the AI Timeline →
+                            </Link>
+                            <a
+                                href="#module-grid"
+                                id="hero-cta-secondary"
+                                onClick={handleScrollToModules}
+                                style={{
+                                    display: 'inline-flex',
+                                    alignItems: 'center',
+                                    gap: 'var(--s2)',
+                                    padding: '0.6rem 1.25rem',
+                                    background: 'transparent',
+                                    border: '1px solid var(--stroke-dark)',
+                                    borderRadius: 'var(--r-md)',
+                                    fontFamily: 'var(--font-sans)',
+                                    fontSize: 'var(--text-sm)',
+                                    fontWeight: 'var(--weight-medium)',
+                                    color: 'var(--secondary)',
+                                    textDecoration: 'none',
+                                    transition: `all var(--dur-fast) var(--ease-out)`,
+                                }}
+                                onMouseEnter={(e) => {
+                                    const el = e.currentTarget as HTMLAnchorElement;
+                                    el.style.background = 'var(--bg-panel)';
+                                    el.style.color = 'var(--ink)';
+                                    el.style.borderColor = 'var(--primary)';
+                                }}
+                                onMouseLeave={(e) => {
+                                    const el = e.currentTarget as HTMLAnchorElement;
+                                    el.style.background = 'transparent';
+                                    el.style.color = 'var(--secondary)';
+                                    el.style.borderColor = 'var(--stroke-dark)';
+                                }}
+                            >
+                                See what's coming
+                            </a>
+                        </motion.div>
+                    </div>
                 </div>
             </div>
+            <style>{`
+                @media (max-width: 1024px) {
+                    section[aria-labelledby="hero-heading"] {
+                        padding-top: var(--s8) !important;
+                    }
+                    .hero-grid {
+                        grid-template-columns: 1fr !important;
+                        gap: var(--s6) !important;
+                    }
+                    .hero-visual-wrapper {
+                        grid-column: 1 !important;
+                        grid-row: 2 !important;
+                        margin-top: calc(-1 * var(--s4));
+                        margin-bottom: calc(-1 * var(--s4));
+                        transform: scale(1.1);
+                        width: 100% !important;
+                    }
+                    .hero-copy-group {
+                        grid-row: 1 !important;
+                    }
+                    .hero-cta-group {
+                        grid-row: 3 !important;
+                        margin-top: var(--s4) !important;
+                    }
+                }
+            `}</style>
         </section>
     );
 }
@@ -245,6 +302,7 @@ function ModuleGrid() {
             style={{
                 paddingBlock: 'var(--s8)',
                 borderBottom: '1px solid var(--stroke)',
+                background: 'var(--bg)',
             }}
         >
             <div className="depth-container" style={{ maxWidth: '1100px', margin: '0 auto' }}>
@@ -440,6 +498,7 @@ function TransformerSection() {
             style={{
                 paddingBlock: 'var(--s8)',
                 borderBottom: '1px solid var(--stroke)',
+                background: 'var(--bg)',
             }}
         >
             <div className="depth-container" style={{ maxWidth: '900px', margin: '0 auto' }}>
@@ -785,7 +844,7 @@ function TimelineSection() {
             style={{
                 paddingBlock: 'var(--s8)',
                 borderBottom: '1px solid var(--stroke)',
-                background: 'var(--bg)',
+                background: 'var(--bg-panel)',
             }}
         >
             <div className="depth-container" style={{ maxWidth: '900px', margin: '0 auto' }}>
@@ -918,6 +977,7 @@ function AutomationClockTeaser() {
             style={{
                 paddingBlock: 'var(--s8)',
                 borderBottom: '1px solid var(--stroke)',
+                background: 'var(--bg-panel)',
             }}
         >
             <div className="depth-container" style={{ maxWidth: '900px', margin: '0 auto' }}>
@@ -1108,22 +1168,365 @@ function AutomationClockTeaser() {
     );
 }
 
+// ─── Benchmark Module Teaser ────────────────────────────────────────────────
+
+const BENCHMARK_STATS = [
+    { label: 'MMLU (General)', value: '88.7%' },
+    { label: 'HumanEval (Code)', value: '84.1%' },
+    { label: 'MATH (Reasoning)', value: '54.2%' },
+];
+
+function BenchmarkTeaser() {
+    return (
+        <section
+            aria-labelledby="benchmark-heading"
+            style={{
+                paddingBlock: 'var(--s8)',
+                borderBottom: '1px solid var(--stroke)',
+                background: 'var(--bg)',
+            }}
+        >
+            <div className="depth-container" style={{ maxWidth: '900px', margin: '0 auto' }}>
+                <div className="benchmark-layout" style={{
+                    display: 'grid',
+                    gridTemplateColumns: '1fr auto',
+                    gap: 'var(--s7)',
+                    alignItems: 'center',
+                }}>
+                    {/* Left — text */}
+                    <div>
+                        <Reveal>
+                            <p style={{
+                                fontFamily: 'var(--font-mono)',
+                                fontSize: 'var(--text-xs)',
+                                color: 'var(--muted)',
+                                textTransform: 'uppercase',
+                                letterSpacing: 'var(--tracking-wider)',
+                            }}>
+                                MODULE 04 — BENCHMARKS & LEADERBOARD
+                            </p>
+                        </Reveal>
+
+                        <Reveal delay={0.05}>
+                            <h2 id="benchmark-heading" style={{
+                                fontSize: 'var(--text-2xl)',
+                                fontWeight: 'var(--weight-semibold)',
+                                letterSpacing: 'var(--tracking-snug)',
+                                color: 'var(--ink)',
+                                marginTop: 'var(--s3)',
+                            }}>
+                                Performance, verified.
+                            </h2>
+                        </Reveal>
+
+                        <Reveal delay={0.1}>
+                            <p style={{
+                                fontSize: 'var(--text-sm)',
+                                fontWeight: 'var(--weight-light)',
+                                color: 'var(--secondary)',
+                                lineHeight: 'var(--lead-body)',
+                                marginTop: 'var(--s4)',
+                                maxWidth: '44ch',
+                            }}>
+                                Every major model compared across the benchmarks that actually matter.
+                                No cherry-picked results. No technical marketing. Just the cold, hard numbers
+                                on reasoning, coding, and knowledge.
+                            </p>
+                        </Reveal>
+
+                        {/* Stats */}
+                        <Reveal delay={0.15}>
+                            <div style={{ marginTop: 'var(--s5)' }}>
+                                {BENCHMARK_STATS.map((stat, i) => (
+                                    <div
+                                        key={stat.label}
+                                        style={{
+                                            display: 'flex',
+                                            justifyContent: 'space-between',
+                                            alignItems: 'center',
+                                            padding: 'var(--s3) 0',
+                                            borderBottom: i < BENCHMARK_STATS.length - 1 ? '1px solid var(--stroke)' : 'none',
+                                            borderTop: i === 0 ? '1px solid var(--stroke)' : 'none',
+                                        }}
+                                    >
+                                        <span style={{ fontFamily: 'var(--font-mono)', fontSize: 'var(--text-xs)', color: 'var(--muted)' }}>
+                                            {stat.label}
+                                        </span>
+                                        <span style={{ fontFamily: 'var(--font-mono)', fontSize: 'var(--text-xs)', color: 'var(--ink)', fontWeight: 'var(--weight-medium)' }}>
+                                            {stat.value}
+                                        </span>
+                                    </div>
+                                ))}
+                            </div>
+                        </Reveal>
+
+                        <Reveal delay={0.2}>
+                            <p style={{
+                                fontFamily: 'var(--font-mono)',
+                                fontSize: 'var(--text-xs)',
+                                color: 'var(--muted)',
+                                marginTop: 'var(--s4)',
+                            }}>
+                                Live leaderboard with week-over-week tracking — coming soon.
+                            </p>
+                        </Reveal>
+                    </div>
+
+                    {/* Right — visual */}
+                    <Reveal delay={0.1}>
+                        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 'var(--s3)' }}>
+                            <svg
+                                width="240"
+                                height="240"
+                                viewBox="0 0 240 240"
+                                aria-label="Benchmark performance visualization"
+                            >
+                                {/* Base circles */}
+                                <circle cx="120" cy="120" r="100" fill="none" stroke="var(--stroke)" strokeWidth="0.5" strokeDasharray="4 4" />
+                                <circle cx="120" cy="120" r="70" fill="none" stroke="var(--stroke)" strokeWidth="0.5" strokeDasharray="4 4" />
+                                <circle cx="120" cy="120" r="40" fill="none" stroke="var(--stroke)" strokeWidth="0.5" strokeDasharray="4 4" />
+
+                                {/* Pulse Radar Visual */}
+                                <motion.circle
+                                    cx="120"
+                                    cy="120"
+                                    r="100"
+                                    fill="none"
+                                    stroke="var(--ink)"
+                                    strokeWidth="1"
+                                    initial={{ scale: 0, opacity: 0.5 }}
+                                    animate={{ scale: 1, opacity: 0 }}
+                                    transition={{ duration: 2, repeat: Infinity, ease: "easeOut" }}
+                                />
+                                <motion.circle
+                                    cx="120"
+                                    cy="120"
+                                    r="100"
+                                    fill="none"
+                                    stroke="var(--ink)"
+                                    strokeWidth="1"
+                                    initial={{ scale: 0, opacity: 0.5 }}
+                                    animate={{ scale: 1, opacity: 0 }}
+                                    transition={{ duration: 2, delay: 1, repeat: Infinity, ease: "easeOut" }}
+                                />
+
+                                {/* Metric Bars (Horizontal) */}
+                                {[40, 70, 100].map((r) => (
+                                    <motion.line
+                                        key={r}
+                                        x1="120"
+                                        y1={120 - r}
+                                        x2="120"
+                                        y2={120 + r}
+                                        stroke="var(--stroke-dark)"
+                                        strokeWidth="1"
+                                        initial={{ opacity: 0 }}
+                                        animate={{ opacity: 0.3 }}
+                                    />
+                                ))}
+
+                                {/* The "Data" pulse dots */}
+                                <motion.circle
+                                    cx="120"
+                                    cy="60"
+                                    r="4"
+                                    fill="var(--ink)"
+                                    animate={{ y: [0, -4, 0] }}
+                                    transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+                                />
+                                <motion.circle
+                                    cx="180"
+                                    cy="120"
+                                    r="3"
+                                    fill="var(--muted)"
+                                    animate={{ x: [0, 4, 0] }}
+                                    transition={{ duration: 2, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
+                                />
+                                <motion.circle
+                                    cx="60"
+                                    cy="120"
+                                    r="3"
+                                    fill="var(--muted)"
+                                    animate={{ x: [0, -4, 0] }}
+                                    transition={{ duration: 2, repeat: Infinity, ease: "easeInOut", delay: 0.2 }}
+                                />
+
+                                {/* Center Label */}
+                                <text
+                                    x="120"
+                                    y="125"
+                                    textAnchor="middle"
+                                    fontSize="10"
+                                    fontFamily="var(--font-mono)"
+                                    fill="var(--ink)"
+                                    letterSpacing="1"
+                                >
+                                    VERIFIED
+                                </text>
+                            </svg>
+
+                            <p style={{
+                                fontFamily: 'var(--font-mono)',
+                                fontSize: 'var(--text-xs)',
+                                color: 'var(--secondary)',
+                                textAlign: 'center',
+                                maxWidth: '240px',
+                            }}>
+                                Benchmark validity check: Passed
+                            </p>
+                        </div>
+                    </Reveal>
+                </div>
+            </div>
+            <style>{`
+                @media (max-width: 720px) {
+                    .benchmark-layout { grid-template-columns: 1fr !important; }
+                }
+            `}</style>
+        </section>
+    );
+}
+
 // ─── Pipeline Steps Preview ────────────────────────────────────────────────
 
-const PREVIEW_CHIPS = [
+const SCALE_CHIPS = [
     { value: '3,200+', label: 'days of progress' },
     { value: '42', label: 'landmark papers' },
     { value: '1', label: 'zoomable timeline' },
     { value: '∞', label: 'potential to learn' },
 ];
 
-function PipelinePreview() {
+function ScaleOfAISection() {
     return (
         <section
             aria-label="The Scale of AI"
             style={{
+                paddingBlock: 'var(--s8)',
+                borderBottom: '1px solid var(--stroke)',
+                background: 'var(--bg)',
+            }}
+        >
+            <div className="depth-container" style={{ maxWidth: '1100px', margin: '0 auto' }}>
+                <div style={{
+                    display: 'grid',
+                    gridTemplateColumns: '1.2fr 1fr',
+                    gap: 'var(--s8)',
+                    alignItems: 'center',
+                }} className="scale-grid">
+                    <div>
+                        <Reveal>
+                            <p style={{
+                                fontFamily: 'var(--font-mono)',
+                                fontSize: 'var(--text-xs)',
+                                color: 'var(--muted)',
+                                textTransform: 'uppercase',
+                                letterSpacing: 'var(--tracking-wider)',
+                            }}>
+                                THE SCALE OF AI
+                            </p>
+
+                            <h2 style={{
+                                fontSize: 'var(--text-3xl)',
+                                fontWeight: 'var(--weight-semibold)',
+                                letterSpacing: 'var(--tracking-tight)',
+                                color: 'var(--ink)',
+                                marginTop: 'var(--s3)',
+                                lineHeight: 'var(--lead-tight)',
+                            }}>
+                                History in high definition.
+                            </h2>
+                        </Reveal>
+
+                        <Reveal delay={0.1}>
+                            <p style={{
+                                fontSize: 'var(--text-md)',
+                                fontWeight: 'var(--weight-light)',
+                                color: 'var(--secondary)',
+                                maxWidth: '50ch',
+                                lineHeight: 'var(--lead-body)',
+                                marginTop: 'var(--s5)',
+                            }}>
+                                From the first perceptron to the multi-trillion parameter giants of today, the scale of AI shift is measured not just in compute, but in the exponential growth of human-readable knowledge.
+                            </p>
+                        </Reveal>
+
+                        <Reveal delay={0.15}>
+                            <div style={{
+                                display: 'grid',
+                                gridTemplateColumns: 'repeat(2, 1fr)',
+                                gap: 'var(--s3)',
+                                marginTop: 'var(--s6)',
+                            }}>
+                                {SCALE_CHIPS.map((chip) => (
+                                    <div
+                                        key={chip.label}
+                                        style={{
+                                            display: 'flex',
+                                            flexDirection: 'column',
+                                            padding: 'var(--s4)',
+                                            background: 'var(--bg-panel)',
+                                            border: '1px solid var(--stroke)',
+                                            borderRadius: 'var(--r-md)',
+                                        }}
+                                    >
+                                        <span style={{
+                                            fontFamily: 'var(--font-mono)',
+                                            fontSize: 'var(--text-xl)',
+                                            fontWeight: 'var(--weight-medium)',
+                                            color: 'var(--ink)',
+                                        }}>
+                                            {chip.value}
+                                        </span>
+                                        <span style={{
+                                            fontFamily: 'var(--font-mono)',
+                                            fontSize: 'var(--text-xs)',
+                                            color: 'var(--muted)',
+                                            marginTop: 'var(--s1)',
+                                        }}>
+                                            {chip.label}
+                                        </span>
+                                    </div>
+                                ))}
+                            </div>
+                        </Reveal>
+
+                        <Reveal delay={0.2}>
+                            <p style={{
+                                fontFamily: 'var(--font-mono)',
+                                fontSize: 'var(--text-xs)',
+                                color: 'var(--muted)',
+                                marginTop: 'var(--s6)',
+                            }}>
+                                An interactive guide to the technological revolution, updated weekly.
+                            </p>
+                        </Reveal>
+                    </div>
+
+                    <div style={{ display: 'flex', justifyContent: 'center' }}>
+                        <ScaleVisual />
+                    </div>
+                </div>
+            </div>
+            <style>{`
+                @media (max-width: 1024px) {
+                    .scale-grid {
+                        grid-template-columns: 1fr !important;
+                        gap: var(--s6) !important;
+                    }
+                }
+            `}</style>
+        </section>
+    );
+}
+
+function PipelinePreview() {
+    return (
+        <section
+            aria-label="Community & Contributing"
+            style={{
                 paddingBlock: 'var(--s7)',
                 borderBottom: '1px solid var(--stroke)',
+                background: 'var(--bg-panel)',
             }}
         >
             <div className="depth-container" style={{ maxWidth: '900px', margin: '0 auto' }}>
@@ -1135,7 +1538,7 @@ function PipelinePreview() {
                         textTransform: 'uppercase',
                         letterSpacing: 'var(--tracking-wider)',
                     }}>
-                        THE SCALE OF AI
+                        OPEN SOURCE
                     </p>
 
                     <h2 style={{
@@ -1145,62 +1548,20 @@ function PipelinePreview() {
                         color: 'var(--ink)',
                         marginTop: 'var(--s3)',
                     }}>
-                        History in high definition.
+                        Build with us.
                     </h2>
                 </Reveal>
 
-                <Reveal delay={0.08}>
-                    <div style={{
-                        display: 'flex',
-                        gap: 'var(--s3)',
-                        flexWrap: 'wrap',
-                        marginTop: 'var(--s5)',
-                    }}>
-                        {PREVIEW_CHIPS.map((chip) => (
-                            <div
-                                key={chip.label}
-                                style={{
-                                    display: 'flex',
-                                    flexDirection: 'column',
-                                    alignItems: 'center',
-                                    justifyContent: 'center',
-                                    background: 'var(--bg-panel)',
-                                    border: '1px solid var(--stroke)',
-                                    borderRadius: 'var(--r-pill)',
-                                    padding: 'var(--s2) var(--s5)',
-                                    minWidth: '130px',
-                                    textAlign: 'center',
-                                }}
-                            >
-                                <span style={{
-                                    fontFamily: 'var(--font-mono)',
-                                    fontSize: 'var(--text-xl)',
-                                    fontWeight: 'var(--weight-medium)',
-                                    color: 'var(--ink)',
-                                    lineHeight: 1.2,
-                                }}>
-                                    {chip.value}
-                                </span>
-                                <span style={{
-                                    fontFamily: 'var(--font-mono)',
-                                    fontSize: 'var(--text-xs)',
-                                    color: 'var(--secondary)',
-                                }}>
-                                    {chip.label}
-                                </span>
-                            </div>
-                        ))}
-                    </div>
-                </Reveal>
-
-                <Reveal delay={0.12}>
+                <Reveal delay={0.1}>
                     <p style={{
-                        fontFamily: 'var(--font-mono)',
-                        fontSize: 'var(--text-xs)',
-                        color: 'var(--muted)',
+                        fontSize: 'var(--text-sm)',
+                        fontWeight: 'var(--weight-light)',
+                        color: 'var(--secondary)',
+                        maxWidth: '54ch',
+                        lineHeight: 'var(--lead-body)',
                         marginTop: 'var(--s4)',
                     }}>
-                        An interactive guide to the technological revolution, updated weekly.
+                        This project is 100% open source and community-driven. From datasets to interactive visualizers, everything is legible by design.
                     </p>
                 </Reveal>
             </div>
@@ -1327,7 +1688,9 @@ export function Home() {
                 <TimelineSection />
                 <TransformerSection />
                 <TrainingSection />
+                <BenchmarkTeaser />
                 <AutomationClockTeaser />
+                <ScaleOfAISection />
                 <PipelinePreview />
             </main>
             <Footer />

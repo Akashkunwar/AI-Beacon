@@ -78,7 +78,10 @@ export function TimelineNode({ activeTab, model, isActive, isFilteredOut, onClic
                     boxShadow: 'var(--shadow-lift)',
                     textAlign: 'center'
                 }}>
-                    <div style={{ fontWeight: 'var(--weight-semibold)' }}>
+                    <div style={{ fontWeight: 'var(--weight-bold)', fontSize: 'var(--text-xs)', marginBottom: '2px' }}>
+                        {model.model_name}
+                    </div>
+                    <div style={{ fontWeight: 'var(--weight-semibold)', opacity: 0.9 }}>
                         {formatDate(model.release_date, 'long')}
                     </div>
 
