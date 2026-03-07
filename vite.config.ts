@@ -4,6 +4,10 @@ import tailwindcss from '@tailwindcss/vite';
 
 export default defineConfig({
   plugins: [react(), tailwindcss()],
+  define: {
+    __COMMIT_HASH__: JSON.stringify(process.env.CF_PAGES_COMMIT_SHA || 'dev'),
+    __BUILD_TIME__: JSON.stringify(new Date().toISOString()),
+  },
   resolve: {
     alias: { '@': new URL('./src', import.meta.url).pathname },
   },

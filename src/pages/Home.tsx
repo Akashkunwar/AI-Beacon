@@ -897,7 +897,7 @@ function TimelineSection() {
                                     flexDirection: 'column',
                                     gap: 'var(--s2)',
                                     padding: 'var(--s4)',
-                                    background: 'var(--bg-panel)',
+                                    background: 'var(--bg)',
                                     border: '1px solid var(--stroke)',
                                     borderRadius: 'var(--r-md)',
                                 }}
@@ -1615,7 +1615,7 @@ function Footer() {
                             GitHub
                         </a>
                         <Link
-                            to="/transformer-simulator"
+                            to="/about"
                             style={{
                                 fontFamily: 'var(--font-sans)',
                                 fontSize: 'var(--text-xs)',
@@ -1626,8 +1626,19 @@ function Footer() {
                             onMouseEnter={(e) => { (e.currentTarget as HTMLAnchorElement).style.color = 'var(--ink)'; }}
                             onMouseLeave={(e) => { (e.currentTarget as HTMLAnchorElement).style.color = 'var(--secondary)'; }}
                         >
-                            Visualizer
+                            About
                         </Link>
+                        <div style={{
+                            fontFamily: 'var(--font-mono)',
+                            fontSize: '10px',
+                            color: 'var(--muted)',
+                            background: 'var(--bg-panel)',
+                            padding: '2px 6px',
+                            borderRadius: '4px',
+                            border: '1px solid var(--stroke)',
+                        }}>
+                            v{__COMMIT_HASH__.substring(0, 7)}
+                        </div>
                     </div>
 
                     <span style={{
