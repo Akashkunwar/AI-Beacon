@@ -107,23 +107,24 @@ export function HeroVisual() {
                     />
                     <text x="250" y="205" textAnchor="middle" fill="var(--ink)" fontSize="10" fontWeight="500" fontFamily="var(--font-mono)" opacity="0.9">TRANSFORMER</text>
                     
-                    {/* Orbiting Ring & Dot Group */}
-                    <motion.g
-                        animate={{ rotate: 360 }}
-                        style={{ transformOrigin: "250px 250px" }}
-                        transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-                    >
-                        <circle
-                            cx="250" cy="250" r="30"
-                            stroke="var(--stroke-dark)"
-                            strokeWidth="0.5"
-                            strokeDasharray="2 2"
-                        />
-                        <circle
-                            cx="280" cy="250" r="3"
-                            fill="var(--ink)"
-                        />
-                    </motion.g>
+                    {/* Orbiting Ring & Dot Group - Robust translate+rotate pattern */}
+                    <g transform="translate(250, 250)">
+                        <motion.g
+                            animate={{ rotate: 360 }}
+                            transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+                        >
+                            <circle
+                                cx="0" cy="0" r="30"
+                                stroke="var(--stroke-dark)"
+                                strokeWidth="0.5"
+                                strokeDasharray="2 2"
+                            />
+                            <circle
+                                cx="30" cy="0" r="3"
+                                fill="var(--ink)"
+                            />
+                        </motion.g>
+                    </g>
                 </motion.g>
 
                 {/* Milestone Nodes */}
@@ -202,17 +203,21 @@ export function HeroVisual() {
                     }}
                     transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
                 />
-                <motion.rect
-                    x="350" y="150" width="8" height="8"
-                    fill="var(--bg)"
-                    stroke="var(--stroke-dark)"
-                    strokeWidth="1"
-                    animate={{
-                        rotate: [0, 90, 180, 270, 360],
-                        opacity: [0.3, 0.6, 0.3]
-                    }}
-                    transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
-                />
+                
+                {/* Floating Rect - Robust rotation around center */}
+                <g transform="translate(354, 154)">
+                    <motion.rect
+                        x="-4" y="-4" width="8" height="8"
+                        fill="var(--bg)"
+                        stroke="var(--stroke-dark)"
+                        strokeWidth="1"
+                        animate={{
+                            rotate: [0, 90, 180, 270, 360],
+                            opacity: [0.3, 0.6, 0.3]
+                        }}
+                        transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
+                    />
+                </g>
             </motion.svg>
 
             {/* Subtle Gradient Overlay */}

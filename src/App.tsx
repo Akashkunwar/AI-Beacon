@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { lazy, Suspense } from 'react';
 import { HelmetProvider } from 'react-helmet-async';
 import '@/index.css';
+import { ScrollToTop } from '@/components/common/ScrollToTop';
 
 // Lazy-load pages as per SKILL.md performance guidelines
 const Home = lazy(() =>
@@ -47,6 +48,7 @@ export function App() {
     return (
         <HelmetProvider>
             <BrowserRouter>
+                <ScrollToTop />
                 <Suspense fallback={<LoadingFallback />}>
                     <Routes>
                         <Route path="/" element={<Home />} />
