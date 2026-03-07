@@ -3,7 +3,7 @@
         "title": "AI & LLM Models Timeline",
         "description": "Comprehensive list of AI and LLM models from 2017 to 2026, including text, vision, audio, multimodal and image generation models.",
         "last_updated": "2026-03-07",
-        "total_models": 155,
+        "total_models": 165,
         "audit_status": "Verified Deep Audit Complete (Chronological + Attribution)",
         "logo_source": "Clearbit Logo API (https://logo.clearbit.com/{domain})",
         "fields": [
@@ -3062,6 +3062,55 @@
             "id": 64
         },
         {
+            "company": "Zhipu AI",
+            "company_website": "https://zhipuai.cn",
+            "company_logo_url": "https://logo.clearbit.com/zhipuai.cn",
+            "model_family": "GLM",
+            "model_name": "GLM-4",
+            "model_version": "4.0",
+            "model_type": "LLM",
+            "architecture": "Transformer",
+            "modalities": [
+                "text",
+                "vision"
+            ],
+            "parameters": null,
+            "parameter_unit": "billion",
+            "training_tokens": 10000,
+            "open_source": false,
+            "license": "Proprietary",
+            "api_available": true,
+            "context_window_tokens": 128000,
+            "training_data_cutoff": "2023-10",
+            "release_date": "2024-01-16",
+            "country": "China",
+            "description": "Zhipu AI's fourth-generation flagship model, rivaling GPT-4 at release. Introduced advanced retrieval and tool calling ('All Tools').",
+            "use_cases": [
+                "agents",
+                "Chinese enterprise",
+                "multilingual research"
+            ],
+            "notable_features": [
+                "All Tools capability",
+                "GPT-4 level reasoning",
+                "Bilingual optimizations"
+            ],
+            "benchmark_scores": {
+                "MMLU": 81.5,
+                "HumanEval": 84.5
+            },
+            "pricing_per_1m_tokens": {
+                "input": 1.4,
+                "output": 1.4
+            },
+            "official_model_link": "https://open.bigmodel.cn",
+            "huggingface_url": null,
+            "paper_url": "https://arxiv.org/abs/2406.12793",
+            "predecessor": "ChatGLM3",
+            "successor": "GLM-4.5",
+            "id": 65
+        },
+        {
             "company": "Alibaba",
             "company_website": "https://alibaba.com",
             "company_logo_url": "https://logo.clearbit.com/alibaba.com",
@@ -3105,10 +3154,10 @@
             "paper_url": null,
             "predecessor": "Qwen",
             "successor": "Qwen 2",
-            "id": 65
+            "id": 66
         },
         {
-            "id": 66,
+            "id": 67,
             "company": "Google DeepMind",
             "company_website": "https://deepmind.google",
             "company_logo_url": "https://logo.clearbit.com/deepmind.com",
@@ -3162,7 +3211,7 @@
             "successor": "Gemini 2.0"
         },
         {
-            "id": 67,
+            "id": 68,
             "company": "Google",
             "company_website": "https://google.com",
             "company_logo_url": "https://logo.clearbit.com/google.com",
@@ -3213,7 +3262,7 @@
             "successor": "Gemma 2"
         },
         {
-            "id": 68,
+            "id": 69,
             "company": "Anthropic",
             "company_website": "https://anthropic.com",
             "company_logo_url": "https://logo.clearbit.com/anthropic.com",
@@ -3264,7 +3313,7 @@
             "successor": "Claude 3.5 Sonnet"
         },
         {
-            "id": 69,
+            "id": 70,
             "company": "Anthropic",
             "company_website": "https://anthropic.com",
             "company_logo_url": "https://logo.clearbit.com/anthropic.com",
@@ -3318,7 +3367,54 @@
             "successor": "Claude 3.5 Sonnet"
         },
         {
-            "id": 70,
+            "company": "Inflection AI",
+            "company_website": "https://inflection.ai",
+            "company_logo_url": "https://logo.clearbit.com/inflection.ai",
+            "model_family": "Pi",
+            "model_name": "Pi-2",
+            "model_version": "2.0",
+            "model_type": "LLM (Emotional Intelligence)",
+            "architecture": "Transformer",
+            "modalities": [
+                "text"
+            ],
+            "parameters": null,
+            "parameter_unit": "billion",
+            "training_tokens": null,
+            "open_source": false,
+            "license": "Proprietary",
+            "api_available": true,
+            "context_window_tokens": 32000,
+            "training_data_cutoff": "2023-12",
+            "release_date": "2024-03-07",
+            "country": "USA",
+            "description": "Pi-2 is Inflection's second-generation model, optimized for high emotional intelligence and supportive conversation. Achieved performance parity with GPT-4 while using much less compute.",
+            "use_cases": [
+                "personal assistant",
+                "EQ coaching",
+                "general reasoning"
+            ],
+            "notable_features": [
+                "High EQ",
+                "Compute efficient",
+                "Supportive personality"
+            ],
+            "benchmark_scores": {
+                "MMLU": 81.2
+            },
+            "pricing_per_1m_tokens": {
+                "input": null,
+                "output": null
+            },
+            "official_model_link": "https://inflection.ai/pi2",
+            "huggingface_url": null,
+            "paper_url": null,
+            "predecessor": "Pi-1",
+            "successor": null,
+            "id": 71
+        },
+        {
+            "id": 72,
             "company": "Cohere",
             "company_website": "https://cohere.com",
             "company_logo_url": "https://logo.clearbit.com/cohere.com",
@@ -3368,7 +3464,7 @@
             "successor": "Command R+"
         },
         {
-            "id": 71,
+            "id": 73,
             "company": "Anthropic",
             "company_website": "https://anthropic.com",
             "company_logo_url": "https://logo.clearbit.com/anthropic.com",
@@ -3459,7 +3555,7 @@
             "paper_url": null,
             "predecessor": "Suno v2",
             "successor": "Suno v3.5",
-            "id": 72
+            "id": 74
         },
         {
             "company": "Databricks",
@@ -3505,7 +3601,7 @@
             "paper_url": null,
             "predecessor": "MPT",
             "successor": null,
-            "id": 73
+            "id": 75
         },
         {
             "company": "xAI",
@@ -3552,10 +3648,10 @@
             "paper_url": null,
             "predecessor": "Grok-1",
             "successor": "Grok-2",
-            "id": 74
+            "id": 76
         },
         {
-            "id": 75,
+            "id": 77,
             "company": "Cohere",
             "company_website": "https://cohere.com",
             "company_logo_url": "https://logo.clearbit.com/cohere.com",
@@ -3605,7 +3701,7 @@
             "successor": null
         },
         {
-            "id": 76,
+            "id": 78,
             "company": "Mistral AI",
             "company_website": "https://mistral.ai",
             "company_logo_url": "https://logo.clearbit.com/mistral.ai",
@@ -3696,7 +3792,7 @@
             "paper_url": null,
             "predecessor": null,
             "successor": "Udio v1.5",
-            "id": 77
+            "id": 79
         },
         {
             "company": "xAI",
@@ -3742,10 +3838,57 @@
             "paper_url": null,
             "predecessor": "Grok-1.5",
             "successor": "Grok-2",
-            "id": 78
+            "id": 80
         },
         {
-            "id": 79,
+            "company": "MiniMax",
+            "company_website": "https://minimaxi.com",
+            "company_logo_url": "https://logo.clearbit.com/minimaxi.com",
+            "model_family": "abab",
+            "model_name": "abab 6.5",
+            "model_version": "6.5",
+            "model_type": "LLM (MoE)",
+            "architecture": "Trillion-parameter MoE",
+            "modalities": [
+                "text"
+            ],
+            "parameters": 1000,
+            "parameter_unit": "billion",
+            "training_tokens": null,
+            "open_source": false,
+            "license": "Proprietary",
+            "api_available": true,
+            "context_window_tokens": 200000,
+            "training_data_cutoff": "2024-01",
+            "release_date": "2024-04-17",
+            "country": "China",
+            "description": "China's first trillion-parameter MoE model. abab 6.5 matches GPT-4 performance levels and features a massive 200K context window.",
+            "use_cases": [
+                "enterprise",
+                "long-document analysis",
+                "Chinese language SOTA"
+            ],
+            "notable_features": [
+                "Trillion parameters",
+                "MoE architecture",
+                "200K context"
+            ],
+            "benchmark_scores": {
+                "MMLU": 85.0
+            },
+            "pricing_per_1m_tokens": {
+                "input": null,
+                "output": null
+            },
+            "official_model_link": "https://minimaxi.com",
+            "huggingface_url": null,
+            "paper_url": null,
+            "predecessor": "abab 6",
+            "successor": "abab 7",
+            "id": 81
+        },
+        {
+            "id": 82,
             "company": "Meta",
             "company_website": "https://meta.com",
             "company_logo_url": "https://logo.clearbit.com/meta.com",
@@ -3798,7 +3941,7 @@
             "successor": "LLaMA 3.1"
         },
         {
-            "id": 80,
+            "id": 83,
             "company": "Microsoft",
             "company_website": "https://microsoft.com",
             "company_logo_url": "https://logo.clearbit.com/microsoft.com",
@@ -3891,7 +4034,7 @@
             "paper_url": null,
             "predecessor": null,
             "successor": null,
-            "id": 81
+            "id": 84
         },
         {
             "company": "SML / 3AI Holding",
@@ -3919,10 +4062,10 @@
             "notable_features": [
                 "98 global languages support"
             ],
-            "id": 82
+            "id": 85
         },
         {
-            "id": 83,
+            "id": 86,
             "company": "DeepSeek",
             "company_website": "https://deepseek.com",
             "company_logo_url": "https://logo.clearbit.com/deepseek.com",
@@ -4014,10 +4157,10 @@
             "paper_url": "https://www.nature.com/articles/s41586-024-07487-w",
             "predecessor": "AlphaFold 2",
             "successor": null,
-            "id": 84
+            "id": 87
         },
         {
-            "id": 85,
+            "id": 88,
             "company": "OpenAI",
             "company_website": "https://openai.com",
             "company_logo_url": "https://logo.clearbit.com/openai.com",
@@ -4071,7 +4214,7 @@
             "successor": "GPT-4o mini"
         },
         {
-            "id": 86,
+            "id": 89,
             "company": "Google DeepMind",
             "company_website": "https://deepmind.google",
             "company_logo_url": "https://logo.clearbit.com/deepmind.com",
@@ -4123,7 +4266,52 @@
             "successor": "Gemini 2.0 Flash"
         },
         {
-            "id": 87,
+            "company": "Tencent",
+            "company_website": "https://tencent.com",
+            "company_logo_url": "https://logo.clearbit.com/tencent.com",
+            "model_family": "Hunyuan",
+            "model_name": "Hunyuan-DiT",
+            "model_version": "1.0",
+            "model_type": "Image Generation",
+            "architecture": "Diffusion Transformer (DiT)",
+            "modalities": [
+                "text",
+                "vision"
+            ],
+            "parameters": 1.5,
+            "parameter_unit": "billion",
+            "training_tokens": null,
+            "open_source": true,
+            "license": "Apache 2.0",
+            "api_available": true,
+            "context_window_tokens": null,
+            "training_data_cutoff": "2024-03",
+            "release_date": "2024-05-14",
+            "country": "China",
+            "description": "State-of-the-art Chinese-English bilingual text-to-image model. Specifically optimized for Chinese cultural elements and characters.",
+            "use_cases": [
+                "design",
+                "cultural content creation"
+            ],
+            "notable_features": [
+                "Bilingual understanding",
+                "Chinese character rendering",
+                "DiT architecture"
+            ],
+            "benchmark_scores": {},
+            "pricing_per_1m_tokens": {
+                "input": null,
+                "output": null
+            },
+            "official_model_link": "https://github.com/Tencent/HunyuanDiT",
+            "huggingface_url": "https://huggingface.co/Tencent-Hunyuan/HunyuanDiT",
+            "paper_url": "https://arxiv.org/abs/2405.08748",
+            "predecessor": null,
+            "successor": null,
+            "id": 90
+        },
+        {
+            "id": 91,
             "company": "Cohere",
             "company_website": "https://cohere.com",
             "company_logo_url": "https://logo.clearbit.com/cohere.com",
@@ -4215,7 +4403,7 @@
             "paper_url": null,
             "predecessor": "Mistral 7B",
             "successor": null,
-            "id": 88
+            "id": 92
         },
         {
             "company": "Kuaishou",
@@ -4262,10 +4450,10 @@
             "paper_url": null,
             "predecessor": null,
             "successor": "Kling 2.0",
-            "id": 89
+            "id": 93
         },
         {
-            "id": 90,
+            "id": 94,
             "company": "Alibaba",
             "company_website": "https://alibaba.com",
             "company_logo_url": "https://logo.clearbit.com/alibaba.com",
@@ -4359,10 +4547,10 @@
             "paper_url": null,
             "predecessor": null,
             "successor": null,
-            "id": 91
+            "id": 95
         },
         {
-            "id": 92,
+            "id": 96,
             "company": "Stability AI",
             "company_website": "https://stability.ai",
             "company_logo_url": "https://logo.clearbit.com/stability.ai",
@@ -4453,7 +4641,7 @@
             "paper_url": null,
             "predecessor": null,
             "successor": "Dream Machine 2",
-            "id": 93
+            "id": 97
         },
         {
             "company": "Microsoft",
@@ -4498,10 +4686,10 @@
             "paper_url": "https://arxiv.org/abs/2311.06242",
             "predecessor": "Florence",
             "successor": null,
-            "id": 94
+            "id": 98
         },
         {
-            "id": 95,
+            "id": 99,
             "company": "Anthropic",
             "company_website": "https://anthropic.com",
             "company_logo_url": "https://logo.clearbit.com/anthropic.com",
@@ -4555,7 +4743,7 @@
             "successor": "Claude 3.7 Sonnet"
         },
         {
-            "id": 96,
+            "id": 100,
             "company": "Google",
             "company_website": "https://google.com",
             "company_logo_url": "https://logo.clearbit.com/google.com",
@@ -4606,7 +4794,7 @@
             "successor": "Gemma 3"
         },
         {
-            "id": 97,
+            "id": 101,
             "company": "OpenAI",
             "company_website": "https://openai.com",
             "company_logo_url": "https://logo.clearbit.com/openai.com",
@@ -4658,7 +4846,7 @@
             "successor": null
         },
         {
-            "id": 98,
+            "id": 102,
             "company": "Meta",
             "company_website": "https://meta.com",
             "company_logo_url": "https://logo.clearbit.com/meta.com",
@@ -4711,7 +4899,7 @@
             "successor": "LLaMA 3.2"
         },
         {
-            "id": 99,
+            "id": 103,
             "company": "Mistral AI",
             "company_website": "https://mistral.ai",
             "company_logo_url": "https://logo.clearbit.com/mistral.ai",
@@ -4789,7 +4977,53 @@
                 "128K context",
                 "Native multilingual support"
             ],
-            "id": 100
+            "id": 104
+        },
+        {
+            "company": "Meta",
+            "company_website": "https://ai.meta.com",
+            "company_logo_url": "https://logo.clearbit.com/meta.com",
+            "model_family": "SAM",
+            "model_name": "SAM 2",
+            "model_version": "2.0",
+            "model_type": "Vision Foundation Model",
+            "architecture": "Unified Video/Image Transformer",
+            "modalities": [
+                "vision",
+                "video"
+            ],
+            "parameters": 224,
+            "parameter_unit": "million",
+            "training_tokens": null,
+            "open_source": true,
+            "license": "Apache 2.0",
+            "api_available": true,
+            "context_window_tokens": null,
+            "training_data_cutoff": "2024-06",
+            "release_date": "2024-07-29",
+            "country": "USA",
+            "description": "Segment Anything Model 2 (SAM 2) unifies real-time object segmentation in both images and videos. Capable of zero-shot transfer to any object category.",
+            "use_cases": [
+                "video editing",
+                "scientific imaging",
+                "autonomous systems"
+            ],
+            "notable_features": [
+                "Real-time video segmentation",
+                "Zero-shot transfer",
+                "Unified architecture"
+            ],
+            "benchmark_scores": {},
+            "pricing_per_1m_tokens": {
+                "input": null,
+                "output": null
+            },
+            "official_model_link": "https://sam2.metademolab.com",
+            "huggingface_url": "https://huggingface.co/facebook/sam2-hiera-large",
+            "paper_url": "https://arxiv.org/abs/2408.00714",
+            "predecessor": "SAM",
+            "successor": null,
+            "id": 105
         },
         {
             "company": "Black Forest Labs",
@@ -4835,7 +5069,7 @@
             "paper_url": null,
             "predecessor": "Stable Diffusion XL",
             "successor": "FLUX 1.1 [pro]",
-            "id": 101
+            "id": 106
         },
         {
             "company": "xAI",
@@ -4882,7 +5116,52 @@
             "paper_url": null,
             "predecessor": "Grok-1.5",
             "successor": "Grok-3",
-            "id": 102
+            "id": 107
+        },
+        {
+            "company": "Sarvam AI",
+            "company_website": "https://sarvam.ai",
+            "company_logo_url": "https://logo.clearbit.com/sarvam.ai",
+            "model_family": "Sarvam",
+            "model_name": "Sarvam-2B",
+            "model_version": "2.0",
+            "model_type": "LLM",
+            "architecture": "Transformer",
+            "modalities": [
+                "text"
+            ],
+            "parameters": 2,
+            "parameter_unit": "billion",
+            "training_tokens": 4000,
+            "open_source": true,
+            "license": "CC BY 4.0",
+            "api_available": true,
+            "context_window_tokens": 8192,
+            "training_data_cutoff": "2024-06",
+            "release_date": "2024-08-13",
+            "country": "India",
+            "description": "Highly efficient small language model optimized for 10 major Indian languages. Breakthrough in compute-per-token efficiency for Indic NLP.",
+            "use_cases": [
+                "on-device Indic NLP",
+                "translation",
+                "cultural apps"
+            ],
+            "notable_features": [
+                "Indic SOTA",
+                "Massive training (4T tokens)",
+                "Open source"
+            ],
+            "benchmark_scores": {},
+            "pricing_per_1m_tokens": {
+                "input": null,
+                "output": null
+            },
+            "official_model_link": "https://www.sarvam.ai/blog/sarvam-2b",
+            "huggingface_url": "https://huggingface.co/sarvamai/sarvam-2b",
+            "paper_url": null,
+            "predecessor": "OpenHathi",
+            "successor": "Sarvam-1",
+            "id": 108
         },
         {
             "company": "AI21 Labs",
@@ -4927,7 +5206,7 @@
             "paper_url": null,
             "predecessor": "Jamba",
             "successor": null,
-            "id": 103
+            "id": 109
         },
         {
             "company": "Aleph Alpha",
@@ -4971,7 +5250,7 @@
             "paper_url": null,
             "predecessor": "Luminous-base",
             "successor": null,
-            "id": 104
+            "id": 110
         },
         {
             "company": "Mistral AI",
@@ -5018,10 +5297,10 @@
             "paper_url": null,
             "predecessor": "Mistral Nemo",
             "successor": null,
-            "id": 105
+            "id": 111
         },
         {
-            "id": 106,
+            "id": 112,
             "company": "OpenAI",
             "company_website": "https://openai.com",
             "company_logo_url": "https://logo.clearbit.com/openai.com",
@@ -5069,7 +5348,7 @@
             "successor": "o1-mini"
         },
         {
-            "id": 107,
+            "id": 113,
             "company": "OpenAI",
             "company_website": "https://openai.com",
             "company_logo_url": "https://logo.clearbit.com/openai.com",
@@ -5120,7 +5399,7 @@
             "successor": "o3-mini"
         },
         {
-            "id": 108,
+            "id": 114,
             "company": "Alibaba",
             "company_website": "https://alibaba.com",
             "company_logo_url": "https://logo.clearbit.com/alibaba.com",
@@ -5198,10 +5477,10 @@
             "notable_features": [
                 "Exceptional coding performance"
             ],
-            "id": 109
+            "id": 115
         },
         {
-            "id": 110,
+            "id": 116,
             "company": "Meta",
             "company_website": "https://meta.com",
             "company_logo_url": "https://logo.clearbit.com/meta.com",
@@ -5253,7 +5532,53 @@
             "successor": "LLaMA 3.3"
         },
         {
-            "id": 111,
+            "company": "Stability AI",
+            "company_website": "https://stability.ai",
+            "company_logo_url": "https://logo.clearbit.com/stability.ai",
+            "model_family": "Stable Diffusion",
+            "model_name": "Stable Diffusion 3.5 Large",
+            "model_version": "3.5",
+            "model_type": "Image Generation",
+            "architecture": "MMDiT-X (Flow Matching)",
+            "modalities": [
+                "text",
+                "vision"
+            ],
+            "parameters": 8.1,
+            "parameter_unit": "billion",
+            "training_tokens": null,
+            "open_source": true,
+            "license": "Stability Community License",
+            "api_available": true,
+            "context_window_tokens": null,
+            "training_data_cutoff": "2024-09",
+            "release_date": "2024-10-22",
+            "country": "UK",
+            "description": "Stability AI's most powerful and customizable image model. Features a massive jump in prompt adherence and image quality over SD3.",
+            "use_cases": [
+                "professional design",
+                "art",
+                "marketing"
+            ],
+            "notable_features": [
+                "MMDiT-X architecture",
+                "Best-in-class prompt adherence",
+                "8.1B parameters"
+            ],
+            "benchmark_scores": {},
+            "pricing_per_1m_tokens": {
+                "input": null,
+                "output": null
+            },
+            "official_model_link": "https://stability.ai/news/stable-diffusion-3-5",
+            "huggingface_url": "https://huggingface.co/stabilityai/stable-diffusion-3.5-large",
+            "paper_url": null,
+            "predecessor": "Stable Diffusion 3",
+            "successor": null,
+            "id": 117
+        },
+        {
+            "id": 118,
             "company": "Anthropic",
             "company_website": "https://anthropic.com",
             "company_logo_url": "https://logo.clearbit.com/anthropic.com",
@@ -5341,10 +5666,10 @@
             "paper_url": null,
             "predecessor": null,
             "successor": null,
-            "id": 112
+            "id": 119
         },
         {
-            "id": 113,
+            "id": 120,
             "company": "OpenAI",
             "company_website": "https://openai.com",
             "company_logo_url": "https://logo.clearbit.com/openai.com",
@@ -5398,7 +5723,7 @@
             "successor": "o3"
         },
         {
-            "id": 114,
+            "id": 121,
             "company": "OpenAI",
             "company_website": "https://openai.com",
             "company_logo_url": "https://logo.clearbit.com/openai.com",
@@ -5447,7 +5772,7 @@
             "successor": null
         },
         {
-            "id": 115,
+            "id": 122,
             "company": "Google DeepMind",
             "company_website": "https://deepmind.google",
             "company_logo_url": "https://logo.clearbit.com/deepmind.com",
@@ -5500,7 +5825,7 @@
             "successor": "Gemini 2.5 Flash"
         },
         {
-            "id": 116,
+            "id": 123,
             "company": "Microsoft",
             "company_website": "https://microsoft.com",
             "company_logo_url": "https://logo.clearbit.com/microsoft.com",
@@ -5551,7 +5876,7 @@
             "successor": "Phi-4-mini"
         },
         {
-            "id": 117,
+            "id": 124,
             "company": "Google DeepMind",
             "company_website": "https://deepmind.google",
             "company_logo_url": "https://logo.clearbit.com/deepmind.com",
@@ -5600,7 +5925,7 @@
             "successor": null
         },
         {
-            "id": 118,
+            "id": 125,
             "company": "DeepSeek",
             "company_website": "https://deepseek.com",
             "company_logo_url": "https://logo.clearbit.com/deepseek.com",
@@ -5680,7 +6005,7 @@
                 "671B parameters",
                 "Multi-Head Latent Attention"
             ],
-            "id": 119
+            "id": 126
         },
         {
             "company": "Ola Krutrim",
@@ -5708,10 +6033,10 @@
             "notable_features": [
                 "Indian language native support"
             ],
-            "id": 120
+            "id": 127
         },
         {
-            "id": 121,
+            "id": 128,
             "company": "DeepSeek",
             "company_website": "https://deepseek.com",
             "company_logo_url": "https://logo.clearbit.com/deepseek.com",
@@ -5811,10 +6136,10 @@
             "paper_url": "https://arxiv.org/abs/2501.12948",
             "predecessor": "DeepSeek V3",
             "successor": "DeepSeek R1-0528",
-            "id": 122
+            "id": 129
         },
         {
-            "id": 123,
+            "id": 130,
             "company": "OpenAI",
             "company_website": "https://openai.com",
             "company_logo_url": "https://logo.clearbit.com/openai.com",
@@ -5914,10 +6239,10 @@
             "paper_url": null,
             "predecessor": "Gemini 1.5 Flash",
             "successor": "Gemini 2.1 Flash",
-            "id": 124
+            "id": 131
         },
         {
-            "id": 125,
+            "id": 132,
             "company": "xAI",
             "company_website": "https://x.ai",
             "company_logo_url": "https://logo.clearbit.com/x.ai",
@@ -5970,7 +6295,7 @@
             "successor": "Grok 4"
         },
         {
-            "id": 126,
+            "id": 133,
             "company": "Anthropic",
             "company_website": "https://anthropic.com",
             "company_logo_url": "https://logo.clearbit.com/anthropic.com",
@@ -6070,10 +6395,10 @@
             "paper_url": null,
             "predecessor": "Claude 3.5 Sonnet",
             "successor": "Claude 4 Sonnet",
-            "id": 127
+            "id": 134
         },
         {
-            "id": 128,
+            "id": 135,
             "company": "OpenAI",
             "company_website": "https://openai.com",
             "company_logo_url": "https://logo.clearbit.com/openai.com",
@@ -6121,7 +6446,7 @@
             "successor": "GPT-5"
         },
         {
-            "id": 129,
+            "id": 136,
             "company": "Google",
             "company_website": "https://google.com",
             "company_logo_url": "https://logo.clearbit.com/google.com",
@@ -6173,7 +6498,7 @@
             "successor": null
         },
         {
-            "id": 130,
+            "id": 137,
             "company": "Google DeepMind",
             "company_website": "https://deepmind.google",
             "company_logo_url": "https://logo.clearbit.com/deepmind.com",
@@ -6230,7 +6555,7 @@
             "successor": "Gemini 3"
         },
         {
-            "id": 131,
+            "id": 138,
             "company": "IBM",
             "company_website": "https://ibm.com",
             "company_logo_url": "https://logo.clearbit.com/ibm.com",
@@ -6279,7 +6604,7 @@
             "successor": null
         },
         {
-            "id": 132,
+            "id": 139,
             "company": "Meta",
             "company_website": "https://meta.com",
             "company_logo_url": "https://logo.clearbit.com/meta.com",
@@ -6330,7 +6655,7 @@
             "successor": null
         },
         {
-            "id": 133,
+            "id": 140,
             "company": "Meta",
             "company_website": "https://meta.com",
             "company_logo_url": "https://logo.clearbit.com/meta.com",
@@ -6382,7 +6707,7 @@
             "successor": null
         },
         {
-            "id": 134,
+            "id": 141,
             "company": "Meta",
             "company_website": "https://meta.com",
             "company_logo_url": "https://logo.clearbit.com/meta.com",
@@ -6431,7 +6756,7 @@
             "successor": null
         },
         {
-            "id": 135,
+            "id": 142,
             "company": "OpenAI",
             "company_website": "https://openai.com",
             "company_logo_url": "https://logo.clearbit.com/openai.com",
@@ -6485,7 +6810,7 @@
             "successor": "o3-pro"
         },
         {
-            "id": 136,
+            "id": 143,
             "company": "Alibaba",
             "company_website": "https://alibaba.com",
             "company_logo_url": "https://logo.clearbit.com/alibaba.com",
@@ -6538,7 +6863,7 @@
             "successor": null
         },
         {
-            "id": 137,
+            "id": 144,
             "company": "Anthropic",
             "company_website": "https://anthropic.com",
             "company_logo_url": "https://logo.clearbit.com/anthropic.com",
@@ -6591,7 +6916,7 @@
             "successor": "Claude 4.5 Sonnet"
         },
         {
-            "id": 138,
+            "id": 145,
             "company": "Anthropic",
             "company_website": "https://anthropic.com",
             "company_logo_url": "https://logo.clearbit.com/anthropic.com",
@@ -6642,7 +6967,7 @@
             "successor": "Claude 4.5 Opus"
         },
         {
-            "id": 139,
+            "id": 146,
             "company": "DeepSeek",
             "company_website": "https://deepseek.com",
             "company_logo_url": "https://logo.clearbit.com/deepseek.com",
@@ -6691,7 +7016,7 @@
             "successor": "DeepSeek R2"
         },
         {
-            "id": 140,
+            "id": 147,
             "company": "xAI",
             "company_website": "https://x.ai",
             "company_logo_url": "https://logo.clearbit.com/x.ai",
@@ -6787,10 +7112,10 @@
             "paper_url": null,
             "predecessor": "Qwen2.5 Coder",
             "successor": "Qwen3.5 Coder",
-            "id": 141
+            "id": 148
         },
         {
-            "id": 142,
+            "id": 149,
             "company": "OpenAI",
             "company_website": "https://openai.com",
             "company_logo_url": "https://logo.clearbit.com/openai.com",
@@ -6846,7 +7171,7 @@
             "successor": "GPT-5.1"
         },
         {
-            "id": 143,
+            "id": 150,
             "company": "OpenAI",
             "company_website": "https://openai.com",
             "company_logo_url": "https://logo.clearbit.com/openai.com",
@@ -6898,7 +7223,7 @@
             "successor": "GPT-5.2"
         },
         {
-            "id": 144,
+            "id": 151,
             "company": "Anthropic",
             "company_website": "https://anthropic.com",
             "company_logo_url": "https://logo.clearbit.com/anthropic.com",
@@ -6949,7 +7274,7 @@
             "successor": "Claude 4.6 Sonnet"
         },
         {
-            "id": 145,
+            "id": 152,
             "company": "Mistral AI",
             "company_website": "https://mistral.ai",
             "company_logo_url": "https://logo.clearbit.com/mistral.ai",
@@ -7000,7 +7325,7 @@
             "successor": null
         },
         {
-            "id": 146,
+            "id": 153,
             "company": "Google DeepMind",
             "company_website": "https://deepmind.google",
             "company_logo_url": "https://logo.clearbit.com/deepmind.com",
@@ -7056,7 +7381,7 @@
             "successor": null
         },
         {
-            "id": 147,
+            "id": 154,
             "company": "Anthropic",
             "company_website": "https://anthropic.com",
             "company_logo_url": "https://logo.clearbit.com/anthropic.com",
@@ -7103,7 +7428,7 @@
             "successor": "Claude 4.6 Opus"
         },
         {
-            "id": 148,
+            "id": 155,
             "company": "DeepSeek",
             "company_website": "https://deepseek.com",
             "company_logo_url": "https://logo.clearbit.com/deepseek.com",
@@ -7193,10 +7518,10 @@
             "paper_url": null,
             "predecessor": "HyperCLOVA X",
             "successor": null,
-            "id": 149
+            "id": 156
         },
         {
-            "id": 150,
+            "id": 157,
             "company": "OpenAI",
             "company_website": "https://openai.com",
             "company_logo_url": "https://logo.clearbit.com/openai.com",
@@ -7296,7 +7621,7 @@
             "paper_url": null,
             "predecessor": "Claude 4 Opus (2025)",
             "successor": null,
-            "id": 151
+            "id": 158
         },
         {
             "company": "Kuaishou",
@@ -7343,7 +7668,57 @@
             "paper_url": null,
             "predecessor": "Kling 2.1",
             "successor": null,
-            "id": 152
+            "id": 159
+        },
+        {
+            "company": "Zhipu AI",
+            "company_website": "https://zhipuai.cn",
+            "company_logo_url": "https://logo.clearbit.com/zhipuai.cn",
+            "model_family": "GLM",
+            "model_name": "GLM-5",
+            "model_version": "5.0",
+            "model_type": "LLM (MoE)",
+            "architecture": "MoE (744B total, 40B active)",
+            "modalities": [
+                "text",
+                "vision",
+                "audio"
+            ],
+            "parameters": 744,
+            "parameter_unit": "billion",
+            "training_tokens": 28500,
+            "open_source": false,
+            "license": "Proprietary",
+            "api_available": true,
+            "context_window_tokens": 200000,
+            "training_data_cutoff": "2025-12",
+            "release_date": "2026-02-12",
+            "country": "China",
+            "description": "Zhipu AI's flagship MoE model for early 2026. Features DeepSeek Sparse Attention and tops benchmarks in complex systems engineering.",
+            "use_cases": [
+                "systems engineering",
+                "complex agents",
+                "enterprise reasoning"
+            ],
+            "notable_features": [
+                "744B parameters",
+                "DeepSeek Sparse Attention",
+                "SOTA reasoning"
+            ],
+            "benchmark_scores": {
+                "MMLU": 93.8,
+                "SWE-bench": 77.8
+            },
+            "pricing_per_1m_tokens": {
+                "input": 2.5,
+                "output": 5.0
+            },
+            "official_model_link": "https://open.bigmodel.cn",
+            "huggingface_url": null,
+            "paper_url": null,
+            "predecessor": "GLM-4.7",
+            "successor": null,
+            "id": 160
         },
         {
             "company": "Alibaba",
@@ -7394,7 +7769,7 @@
             "paper_url": null,
             "predecessor": "Qwen3",
             "successor": null,
-            "id": 153
+            "id": 161
         },
         {
             "company": "Anthropic",
@@ -7442,7 +7817,97 @@
             "paper_url": null,
             "predecessor": "Claude 4 Sonnet",
             "successor": null,
-            "id": 154
+            "id": 162
+        },
+        {
+            "company": "Sarvam AI",
+            "company_website": "https://sarvam.ai",
+            "company_logo_url": "https://logo.clearbit.com/sarvam.ai",
+            "model_family": "Sarvam",
+            "model_name": "Sarvam-105B",
+            "model_version": "105B",
+            "model_type": "LLM (MoE)",
+            "architecture": "MoE (105B total, 9B active)",
+            "modalities": [
+                "text"
+            ],
+            "parameters": 105,
+            "parameter_unit": "billion",
+            "training_tokens": null,
+            "open_source": true,
+            "license": "Sarvam License",
+            "api_available": true,
+            "context_window_tokens": 128000,
+            "training_data_cutoff": "2025-12",
+            "release_date": "2026-02-18",
+            "country": "India",
+            "description": "India's landmark 105B parameter model. Designed for complex reasoning and enterprise applications across 10+ Indic languages.",
+            "use_cases": [
+                "enterprise reasoning",
+                "Indic SOTA",
+                "complex automation"
+            ],
+            "notable_features": [
+                "105B parameters",
+                "Indic-focused MoE",
+                "9B active parameters"
+            ],
+            "benchmark_scores": {},
+            "pricing_per_1m_tokens": {
+                "input": null,
+                "output": null
+            },
+            "official_model_link": "https://sarvam.ai",
+            "huggingface_url": "https://huggingface.co/sarvamai/sarvam-105b-instruct",
+            "paper_url": null,
+            "predecessor": "Sarvam-30B",
+            "successor": null,
+            "id": 163
+        },
+        {
+            "company": "Sarvam AI",
+            "company_website": "https://sarvam.ai",
+            "company_logo_url": "https://logo.clearbit.com/sarvam.ai",
+            "model_family": "Sarvam",
+            "model_name": "Sarvam-30B",
+            "model_version": "30B",
+            "model_type": "LLM (MoE)",
+            "architecture": "MoE (30B total, 1B active)",
+            "modalities": [
+                "text"
+            ],
+            "parameters": 30,
+            "parameter_unit": "billion",
+            "training_tokens": null,
+            "open_source": true,
+            "license": "Sarvam License",
+            "api_available": true,
+            "context_window_tokens": 64000,
+            "training_data_cutoff": "2025-12",
+            "release_date": "2026-02-18",
+            "country": "India",
+            "description": "Mid-sized Indic model optimized for performance-per-token, activating only 1B parameters during inference.",
+            "use_cases": [
+                "efficient Indic NLP",
+                "chatbots",
+                "summarization"
+            ],
+            "notable_features": [
+                "Only 1B active parameters",
+                "High efficiency",
+                "Indic MoE"
+            ],
+            "benchmark_scores": {},
+            "pricing_per_1m_tokens": {
+                "input": null,
+                "output": null
+            },
+            "official_model_link": "https://sarvam.ai",
+            "huggingface_url": "https://huggingface.co/sarvamai/sarvam-30b-instruct",
+            "paper_url": null,
+            "predecessor": "Sarvam-1",
+            "successor": "Sarvam-105B",
+            "id": 164
         },
         {
             "company": "Google",
@@ -7493,7 +7958,7 @@
             "paper_url": null,
             "predecessor": "Gemini 3.0",
             "successor": null,
-            "id": 155
+            "id": 165
         }
     ]
 }
