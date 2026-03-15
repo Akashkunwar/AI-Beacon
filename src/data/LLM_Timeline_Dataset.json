@@ -2,8 +2,8 @@
     "metadata": {
         "title": "AI & LLM Models Timeline",
         "description": "Comprehensive list of AI and LLM models from 2017 to 2026, including text, vision, audio, multimodal and image generation models.",
-        "last_updated": "2026-03-07",
-        "total_models": 161,
+        "last_updated": "2026-03-16",
+        "total_models": 176,
         "audit_status": "Verified Deep Audit Complete (Chronological + Attribution)",
         "logo_source": "Clearbit Logo API (https://logo.clearbit.com/{domain})",
         "fields": [
@@ -568,7 +568,7 @@
             "training_data_cutoff": "2021-01",
             "release_date": "2021-08-11",
             "country": "Israel",
-            "description": "Jurassic-1 from Israel's AI21 Labs was one of the first GPT-3 competitors, at 178B parameters. Available via API with Jumbo (178B) and Large (7.5B) variants. Used a 250,000-token vocabulary \u2014 the largest at the time.",
+            "description": "Jurassic-1 from Israel's AI21 Labs was one of the first GPT-3 competitors, at 178B parameters. Available via API with Jumbo (178B) and Large (7.5B) variants. Used a 250,000-token vocabulary — the largest at the time.",
             "use_cases": [
                 "text generation",
                 "summarization",
@@ -1262,7 +1262,7 @@
             "training_data_cutoff": "2021-09",
             "release_date": "2022-11-30",
             "country": "USA",
-            "description": "ChatGPT reached 100 million users in 2 months \u2014 the fastest consumer product adoption in history. Fine-tuned from GPT-3.5 using RLHF, it sparked the modern AI chatbot era and changed public perception of AI.",
+            "description": "ChatGPT reached 100 million users in 2 months — the fastest consumer product adoption in history. Fine-tuned from GPT-3.5 using RLHF, it sparked the modern AI chatbot era and changed public perception of AI.",
             "use_cases": [
                 "chatbot",
                 "coding",
@@ -1313,7 +1313,7 @@
             "training_data_cutoff": "2022-01",
             "release_date": "2023-02-24",
             "country": "USA",
-            "description": "Meta's first LLaMA came in 7B\u201365B sizes. The 65B model was competitive with GPT-3 175B. Its weights were leaked, spawning a massive open-source ecosystem including Alpaca, Vicuna, and dozens of derivatives.",
+            "description": "Meta's first LLaMA came in 7B–65B sizes. The 65B model was competitive with GPT-3 175B. Its weights were leaked, spawning a massive open-source ecosystem including Alpaca, Vicuna, and dozens of derivatives.",
             "use_cases": [
                 "research",
                 "fine-tuning",
@@ -1412,7 +1412,7 @@
             "training_data_cutoff": "2023-01",
             "release_date": "2023-03-06",
             "country": "USA",
-            "description": "PaLM-E is the largest vision-language model at 562B parameters. Designed for embodied AI \u2014 controlling robots using natural language grounded in visual perception. Demonstrated robot planning from free-form language instructions without task-specific fine-tuning.",
+            "description": "PaLM-E is the largest vision-language model at 562B parameters. Designed for embodied AI — controlling robots using natural language grounded in visual perception. Demonstrated robot planning from free-form language instructions without task-specific fine-tuning.",
             "use_cases": [
                 "robotics control",
                 "embodied AI",
@@ -1658,7 +1658,7 @@
             "training_data_cutoff": "2023-01",
             "release_date": "2023-03-16",
             "country": "China",
-            "description": "ERNIE Bot (Wenxin Yiyan) is Baidu's ChatGPT competitor powered by ERNIE 3.5. Launched publicly on March 16, 2023 \u2014 one day after GPT-4. Reached 100M+ users rapidly. Supports Chinese multimodal tasks and integrates with Baidu Search.",
+            "description": "ERNIE Bot (Wenxin Yiyan) is Baidu's ChatGPT competitor powered by ERNIE 3.5. Launched publicly on March 16, 2023 — one day after GPT-4. Reached 100M+ users rapidly. Supports Chinese multimodal tasks and integrates with Baidu Search.",
             "use_cases": [
                 "chatbot",
                 "Chinese NLP",
@@ -1973,7 +1973,7 @@
             "model_name": "RWKV",
             "model_version": "4.0",
             "model_type": "LLM (RNN-Transformer Hybrid)",
-            "architecture": "RWKV (Receptance Weighted Key Value \u2014 linear RNN)",
+            "architecture": "RWKV (Receptance Weighted Key Value — linear RNN)",
             "modalities": [
                 "text"
             ],
@@ -2185,7 +2185,7 @@
             "training_data_cutoff": "2023-04",
             "release_date": "2023-06-26",
             "country": "USA",
-            "description": "Kosmos-2 added spatial grounding \u2014 the ability to link phrases to bounding boxes in images. This allows referring expression comprehension and phrase grounding, key steps toward spatially-aware AI assistants.",
+            "description": "Kosmos-2 added spatial grounding — the ability to link phrases to bounding boxes in images. This allows referring expression comprehension and phrase grounding, key steps toward spatially-aware AI assistants.",
             "use_cases": [
                 "visual grounding",
                 "referring expression comprehension",
@@ -2642,7 +2642,7 @@
             "training_data_cutoff": "2023-01",
             "release_date": "2023-09-27",
             "country": "France",
-            "description": "Mistral 7B outperformed LLaMA 2 13B on all benchmarks despite being much smaller. Used Grouped-Query Attention and Sliding Window Attention. Released as a torrent with no press release \u2014 causing a sensation in the AI community.",
+            "description": "Mistral 7B outperformed LLaMA 2 13B on all benchmarks despite being much smaller. Used Grouped-Query Attention and Sliding Window Attention. Released as a torrent with no press release — causing a sensation in the AI community.",
             "use_cases": [
                 "text generation",
                 "coding",
@@ -3860,7 +3860,7 @@
             "training_data_cutoff": "2023-12",
             "release_date": "2024-04-18",
             "country": "USA",
-            "description": "LLaMA 3 launched in 8B and 70B sizes, with 405B following in July 2024. Trained on 15T tokens \u2014 7x more than LLaMA 2. Significantly improved reasoning, coding, and instruction following.",
+            "description": "LLaMA 3 launched in 8B and 70B sizes, with 405B following in July 2024. Trained on 15T tokens — 7x more than LLaMA 2. Significantly improved reasoning, coding, and instruction following.",
             "use_cases": [
                 "chatbot",
                 "coding",
@@ -5561,6 +5561,158 @@
             "successor": "Claude 4 Haiku"
         },
         {
+            "id": 162,
+            "company": "Mistral AI",
+            "company_website": "https://mistral.ai",
+            "company_logo_url": "https://logo.clearbit.com/mistral.ai",
+            "model_family": "Pixtral",
+            "model_name": "Pixtral Large",
+            "model_version": "Large-24.11",
+            "model_type": "Multimodal LLM",
+            "architecture": "Multimodal Transformer (Dense)",
+            "modalities": [
+                "text",
+                "vision"
+            ],
+            "parameters": 124,
+            "parameter_unit": "billion",
+            "training_tokens": null,
+            "open_source": true,
+            "license": "Mistral Research License",
+            "api_available": true,
+            "context_window_tokens": 128000,
+            "training_data_cutoff": "2024-10",
+            "release_date": "2024-11-18",
+            "country": "France",
+            "description": "Mistral's 124B multimodal flagship built on Mistral Large 2, outperforming GPT-4o and Gemini-1.5 Pro on document understanding benchmarks like ChartQA and DocVQA.",
+            "use_cases": [
+                "document QA",
+                "chart understanding",
+                "visual reasoning",
+                "multilingual"
+            ],
+            "notable_features": [
+                "124B dense multimodal",
+                "native resolution image processing",
+                "128K context",
+                "strong document understanding"
+            ],
+            "benchmark_scores": {
+                "MathVista": 69.4,
+                "ChartQA": 87.2,
+                "DocVQA": 93.3
+            },
+            "pricing_per_1m_tokens": {
+                "input": 2.0,
+                "output": 6.0
+            },
+            "official_model_link": "https://mistral.ai/news/pixtral-large",
+            "huggingface_url": "https://huggingface.co/mistralai/Pixtral-Large-Instruct-2411",
+            "paper_url": null,
+            "predecessor": "Pixtral 12B",
+            "successor": null
+        },
+        {
+            "id": 163,
+            "company": "Alibaba",
+            "company_website": "https://qwenlm.github.io",
+            "company_logo_url": "https://logo.clearbit.com/alibaba.com",
+            "model_family": "QwQ",
+            "model_name": "QwQ-32B-Preview",
+            "model_version": "Preview",
+            "model_type": "Reasoning LLM",
+            "architecture": "Transformer (Decoder-only, CoT-optimized)",
+            "modalities": [
+                "text"
+            ],
+            "parameters": 32,
+            "parameter_unit": "billion",
+            "training_tokens": null,
+            "open_source": true,
+            "license": "Apache 2.0",
+            "api_available": true,
+            "context_window_tokens": 32768,
+            "training_data_cutoff": "2024-09",
+            "release_date": "2024-11-28",
+            "country": "China",
+            "description": "First major open-weight reasoning model from the Qwen team, focused on advancing AI reasoning through deep reflection and step-by-step thinking. Built on Qwen2.5-32B-Instruct.",
+            "use_cases": [
+                "mathematics",
+                "coding",
+                "logical reasoning",
+                "scientific analysis"
+            ],
+            "notable_features": [
+                "open-weight reasoning model",
+                "deep reflection capability",
+                "strong math performance",
+                "Apache 2.0 license"
+            ],
+            "benchmark_scores": {
+                "AIME": 50.0,
+                "MATH-500": 90.6,
+                "LiveCodeBench": 50.0
+            },
+            "pricing_per_1m_tokens": {
+                "input": null,
+                "output": null
+            },
+            "official_model_link": "https://qwenlm.github.io/blog/qwq-32b-preview/",
+            "huggingface_url": "https://huggingface.co/Qwen/QwQ-32B-Preview",
+            "paper_url": null,
+            "predecessor": "Qwen2.5",
+            "successor": "QwQ-32B"
+        },
+        {
+            "id": 164,
+            "company": "Amazon",
+            "company_website": "https://aws.amazon.com",
+            "company_logo_url": "https://logo.clearbit.com/aws.amazon.com",
+            "model_family": "Nova",
+            "model_name": "Amazon Nova Pro",
+            "model_version": "1.0",
+            "model_type": "Multimodal LLM",
+            "architecture": "Transformer (Multimodal)",
+            "modalities": [
+                "text",
+                "vision",
+                "video"
+            ],
+            "parameters": null,
+            "parameter_unit": null,
+            "training_tokens": null,
+            "open_source": false,
+            "license": "Proprietary",
+            "api_available": true,
+            "context_window_tokens": 300000,
+            "training_data_cutoff": "2024-10",
+            "release_date": "2024-12-03",
+            "country": "USA",
+            "description": "Amazon's first major foundation model family, announced at AWS re:Invent 2024. Nova Pro is the most capable tier, balancing accuracy, speed, and cost. The family also includes Nova Lite (fast multimodal), Nova Micro (text-only low-latency), Nova Canvas (image gen), and Nova Reel (video gen).",
+            "use_cases": [
+                "enterprise AI",
+                "document analysis",
+                "video understanding",
+                "RAG applications"
+            ],
+            "notable_features": [
+                "multimodal (text, image, video)",
+                "available via Amazon Bedrock",
+                "fine-tuning support",
+                "built-in safety controls"
+            ],
+            "benchmark_scores": {},
+            "pricing_per_1m_tokens": {
+                "input": 0.8,
+                "output": 3.2
+            },
+            "official_model_link": "https://aws.amazon.com/nova/",
+            "huggingface_url": null,
+            "paper_url": null,
+            "predecessor": null,
+            "successor": "Amazon Nova Premier"
+        },
+        {
             "id": 117,
             "company": "OpenAI",
             "company_website": "https://openai.com",
@@ -5817,6 +5969,54 @@
             "successor": "DeepSeek V3.2"
         },
         {
+            "id": 165,
+            "company": "Mistral AI",
+            "company_website": "https://mistral.ai",
+            "company_logo_url": "https://logo.clearbit.com/mistral.ai",
+            "model_family": "Codestral",
+            "model_name": "Codestral 25.01",
+            "model_version": "25.01",
+            "model_type": "Code Generation LLM",
+            "architecture": "Transformer (Decoder-only)",
+            "modalities": [
+                "text",
+                "code"
+            ],
+            "parameters": null,
+            "parameter_unit": null,
+            "training_tokens": null,
+            "open_source": false,
+            "license": "Mistral AI Non-Production License",
+            "api_available": true,
+            "context_window_tokens": 256000,
+            "training_data_cutoff": "2024-12",
+            "release_date": "2025-01-14",
+            "country": "France",
+            "description": "Mistral's updated code generation model, 2.5x faster than the original Codestral with improved architecture. Specializes in low-latency fill-in-the-middle, code completion, and test generation across 80+ languages.",
+            "use_cases": [
+                "code completion",
+                "fill-in-the-middle",
+                "test generation",
+                "IDE integration"
+            ],
+            "notable_features": [
+                "2.5x faster than predecessor",
+                "80+ programming languages",
+                "256K context",
+                "low-latency optimized"
+            ],
+            "benchmark_scores": {},
+            "pricing_per_1m_tokens": {
+                "input": 0.3,
+                "output": 0.9
+            },
+            "official_model_link": "https://mistral.ai/news/codestral-25-01",
+            "huggingface_url": null,
+            "paper_url": null,
+            "predecessor": "Codestral",
+            "successor": "Devstral"
+        },
+        {
             "company": "Ola Krutrim",
             "model_family": "Krutrim",
             "model_name": "Krutrim-2",
@@ -5867,7 +6067,7 @@
             "training_data_cutoff": "2024-07",
             "release_date": "2025-01-20",
             "country": "China",
-            "description": "DeepSeek R1 matched OpenAI o1 on reasoning benchmarks while being fully open-source. Its release caused a stock market reaction \u2014 Nvidia lost ~$600B market cap in one day. Includes distilled 1.5B\u201370B variants.",
+            "description": "DeepSeek R1 matched OpenAI o1 on reasoning benchmarks while being fully open-source. Its release caused a stock market reaction — Nvidia lost ~$600B market cap in one day. Includes distilled 1.5B–70B variants.",
             "use_cases": [
                 "math",
                 "coding",
@@ -6092,7 +6292,7 @@
             "training_data_cutoff": "2025-01",
             "release_date": "2025-02-17",
             "country": "USA",
-            "description": "Grok 3 topped multiple reasoning benchmarks at launch. Features 'Think' mode for extended reasoning. Trained on xAI's Colossus cluster \u2014 claimed to be the world's largest GPU training cluster at launch.",
+            "description": "Grok 3 topped multiple reasoning benchmarks at launch. Features 'Think' mode for extended reasoning. Trained on xAI's Colossus cluster — claimed to be the world's largest GPU training cluster at launch.",
             "use_cases": [
                 "reasoning",
                 "coding",
@@ -6119,6 +6319,58 @@
             "huggingface_url": null,
             "paper_url": null,
             "predecessor": "Grok 2",
+            "successor": "Grok 4"
+        },
+        {
+            "id": 166,
+            "company": "xAI",
+            "company_website": "https://x.ai",
+            "company_logo_url": "https://logo.clearbit.com/x.ai",
+            "model_family": "Grok",
+            "model_name": "Grok 3 Mini",
+            "model_version": "3-mini",
+            "model_type": "Reasoning LLM",
+            "architecture": "Transformer (RL-optimized reasoning)",
+            "modalities": [
+                "text"
+            ],
+            "parameters": null,
+            "parameter_unit": null,
+            "training_tokens": null,
+            "open_source": false,
+            "license": "Proprietary",
+            "api_available": true,
+            "context_window_tokens": 131072,
+            "training_data_cutoff": "2025-01",
+            "release_date": "2025-02-17",
+            "country": "USA",
+            "description": "Lightweight reasoning model from xAI trained on the Colossus supercluster. Features adjustable thinking effort via a reasoning_effort parameter, allowing users to balance speed vs depth. Achieves 95.8% on AIME 2024.",
+            "use_cases": [
+                "math",
+                "coding",
+                "logic puzzles",
+                "cost-efficient reasoning"
+            ],
+            "notable_features": [
+                "adjustable reasoning effort",
+                "exposed reasoning tokens",
+                "large-scale RL training",
+                "Colossus supercluster"
+            ],
+            "benchmark_scores": {
+                "AIME_2024": 95.8,
+                "AIME_2025": 93.3,
+                "LiveCodeBench": 80.4,
+                "GPQA": 80.3
+            },
+            "pricing_per_1m_tokens": {
+                "input": null,
+                "output": null
+            },
+            "official_model_link": "https://x.ai/news/grok-3",
+            "huggingface_url": null,
+            "paper_url": null,
+            "predecessor": "Grok 3",
             "successor": "Grok 4"
         },
         {
@@ -6217,6 +6469,57 @@
             "paper_url": null,
             "predecessor": "GPT-4o",
             "successor": "GPT-5"
+        },
+        {
+            "id": 167,
+            "company": "Alibaba",
+            "company_website": "https://qwenlm.github.io",
+            "company_logo_url": "https://logo.clearbit.com/alibaba.com",
+            "model_family": "QwQ",
+            "model_name": "QwQ-32B",
+            "model_version": "1.0",
+            "model_type": "Reasoning LLM",
+            "architecture": "Transformer (Decoder-only, 64 layers)",
+            "modalities": [
+                "text"
+            ],
+            "parameters": 32,
+            "parameter_unit": "billion",
+            "training_tokens": null,
+            "open_source": true,
+            "license": "Apache 2.0",
+            "api_available": true,
+            "context_window_tokens": 131072,
+            "training_data_cutoff": "2025-01",
+            "release_date": "2025-03-05",
+            "country": "China",
+            "description": "Full release of Qwen's reasoning model with 31B non-embedding parameters. Competes with o1-mini on reasoning tasks while being fully open-weight. Features function calling and structured output capabilities.",
+            "use_cases": [
+                "advanced reasoning",
+                "mathematics",
+                "coding",
+                "function calling"
+            ],
+            "notable_features": [
+                "131K context",
+                "function calling",
+                "structured output",
+                "Apache 2.0 open weights"
+            ],
+            "benchmark_scores": {
+                "AIME_2024": 79.5,
+                "LiveCodeBench": 63.4,
+                "GPQA": 65.2
+            },
+            "pricing_per_1m_tokens": {
+                "input": 0.15,
+                "output": 0.6
+            },
+            "official_model_link": "https://qwenlm.github.io/blog/qwq-32b/",
+            "huggingface_url": "https://huggingface.co/Qwen/QwQ-32B",
+            "paper_url": null,
+            "predecessor": "QwQ-32B-Preview",
+            "successor": null
         },
         {
             "id": 131,
@@ -6529,6 +6832,153 @@
             "successor": null
         },
         {
+            "id": 168,
+            "company": "OpenAI",
+            "company_website": "https://openai.com",
+            "company_logo_url": "https://logo.clearbit.com/openai.com",
+            "model_family": "GPT-4.1",
+            "model_name": "GPT-4.1",
+            "model_version": "4.1",
+            "model_type": "LLM (Multimodal)",
+            "architecture": "Transformer (Omni)",
+            "modalities": [
+                "text",
+                "vision"
+            ],
+            "parameters": null,
+            "parameter_unit": null,
+            "training_tokens": null,
+            "open_source": false,
+            "license": "Proprietary",
+            "api_available": true,
+            "context_window_tokens": 1047576,
+            "training_data_cutoff": "2024-06",
+            "release_date": "2025-04-14",
+            "country": "USA",
+            "description": "Major API release with 21% improvement over GPT-4o on SWE-bench Verified (54.6%) and 10.5% on instruction following. Supports 1M token context. Designed for agents with superior instruction following and long-context comprehension.",
+            "use_cases": [
+                "coding agents",
+                "long-context analysis",
+                "instruction following",
+                "vision tasks"
+            ],
+            "notable_features": [
+                "1M token context",
+                "54.6% SWE-bench Verified",
+                "superior instruction following",
+                "agent-optimized"
+            ],
+            "benchmark_scores": {
+                "SWE_bench_Verified": 54.6,
+                "MultiChallenge": 38.3,
+                "Video_MME": 72.0
+            },
+            "pricing_per_1m_tokens": {
+                "input": 2.0,
+                "output": 8.0
+            },
+            "official_model_link": "https://openai.com/index/gpt-4-1",
+            "huggingface_url": null,
+            "paper_url": null,
+            "predecessor": "GPT-4o",
+            "successor": "GPT-5"
+        },
+        {
+            "id": 169,
+            "company": "OpenAI",
+            "company_website": "https://openai.com",
+            "company_logo_url": "https://logo.clearbit.com/openai.com",
+            "model_family": "GPT-4.1",
+            "model_name": "GPT-4.1 mini",
+            "model_version": "4.1-mini",
+            "model_type": "LLM (Multimodal)",
+            "architecture": "Transformer (Omni, compact)",
+            "modalities": [
+                "text",
+                "vision"
+            ],
+            "parameters": null,
+            "parameter_unit": null,
+            "training_tokens": null,
+            "open_source": false,
+            "license": "Proprietary",
+            "api_available": true,
+            "context_window_tokens": 1047576,
+            "training_data_cutoff": "2024-06",
+            "release_date": "2025-04-14",
+            "country": "USA",
+            "description": "Cost-efficient variant of GPT-4.1 that reduces latency by nearly half and cost by 83% compared to GPT-4o while matching or exceeding its intelligence. Supports 1M token context.",
+            "use_cases": [
+                "high-volume APIs",
+                "cost-sensitive chatbots",
+                "coding",
+                "vision tasks"
+            ],
+            "notable_features": [
+                "83% cost reduction vs GPT-4o",
+                "near-half latency",
+                "1M context",
+                "matches GPT-4o intelligence"
+            ],
+            "benchmark_scores": {},
+            "pricing_per_1m_tokens": {
+                "input": 0.4,
+                "output": 1.6
+            },
+            "official_model_link": "https://openai.com/index/gpt-4-1",
+            "huggingface_url": null,
+            "paper_url": null,
+            "predecessor": "GPT-4o mini",
+            "successor": null
+        },
+        {
+            "id": 170,
+            "company": "OpenAI",
+            "company_website": "https://openai.com",
+            "company_logo_url": "https://logo.clearbit.com/openai.com",
+            "model_family": "GPT-4.1",
+            "model_name": "GPT-4.1 nano",
+            "model_version": "4.1-nano",
+            "model_type": "LLM",
+            "architecture": "Transformer (Omni, ultra-compact)",
+            "modalities": [
+                "text"
+            ],
+            "parameters": null,
+            "parameter_unit": null,
+            "training_tokens": null,
+            "open_source": false,
+            "license": "Proprietary",
+            "api_available": true,
+            "context_window_tokens": 1047576,
+            "training_data_cutoff": "2024-06",
+            "release_date": "2025-04-14",
+            "country": "USA",
+            "description": "OpenAI's first nano-tier model, the fastest and cheapest in the GPT-4.1 family. Optimized for classification, autocompletion, and high-throughput tasks where speed matters most.",
+            "use_cases": [
+                "classification",
+                "autocompletion",
+                "real-time applications",
+                "high-throughput pipelines"
+            ],
+            "notable_features": [
+                "fastest GPT model",
+                "lowest cost tier",
+                "1M context",
+                "OpenAI's first nano model"
+            ],
+            "benchmark_scores": {},
+            "pricing_per_1m_tokens": {
+                "input": 0.1,
+                "output": 0.4
+            },
+            "official_model_link": "https://openai.com/index/gpt-4-1",
+            "huggingface_url": null,
+            "paper_url": null,
+            "predecessor": null,
+            "successor": null
+        },
+        {
             "id": 137,
             "company": "OpenAI",
             "company_website": "https://openai.com",
@@ -6552,7 +7002,7 @@
             "training_data_cutoff": "2024-06",
             "release_date": "2025-04-16",
             "country": "USA",
-            "description": "OpenAI o3 achieved 87.5% on ARC-AGI at high compute \u2014 a benchmark considered a near-proxy for general intelligence. Major leap in reasoning over o1. Best in class across math, coding, and science at release.",
+            "description": "OpenAI o3 achieved 87.5% on ARC-AGI at high compute — a benchmark considered a near-proxy for general intelligence. Major leap in reasoning over o1. Best in class across math, coding, and science at release.",
             "use_cases": [
                 "advanced math",
                 "scientific reasoning",
@@ -6634,6 +7084,106 @@
             "paper_url": "https://arxiv.org/abs/2505.09388",
             "predecessor": "Qwen2.5",
             "successor": null
+        },
+        {
+            "id": 171,
+            "company": "Google DeepMind",
+            "company_website": "https://deepmind.google",
+            "company_logo_url": "https://logo.clearbit.com/deepmind.google",
+            "model_family": "Gemini",
+            "model_name": "Gemini 2.5 Flash",
+            "model_version": "2.5-flash",
+            "model_type": "Multimodal LLM (Hybrid Reasoning)",
+            "architecture": "Sparse Mixture-of-Experts (MoE) Transformer",
+            "modalities": [
+                "text",
+                "vision",
+                "audio",
+                "video"
+            ],
+            "parameters": null,
+            "parameter_unit": null,
+            "training_tokens": null,
+            "open_source": false,
+            "license": "Proprietary",
+            "api_available": true,
+            "context_window_tokens": 1048576,
+            "training_data_cutoff": "2025-03",
+            "release_date": "2025-05-20",
+            "country": "USA",
+            "description": "Google's first fully hybrid reasoning model with configurable thinking budgets up to 32K tokens. Developers can toggle reasoning on/off. 25% faster and up to 85% cheaper per query than Gemini 1.5 Pro.",
+            "use_cases": [
+                "agentic workflows",
+                "multimodal reasoning",
+                "cost-efficient inference",
+                "enterprise applications"
+            ],
+            "notable_features": [
+                "hybrid reasoning (thinking on/off)",
+                "configurable thinking budget",
+                "1M context",
+                "MoE architecture"
+            ],
+            "benchmark_scores": {},
+            "pricing_per_1m_tokens": {
+                "input": 0.15,
+                "output": 0.6
+            },
+            "official_model_link": "https://blog.google/technology/google-deepmind/google-gemini-updates-io-2025/",
+            "huggingface_url": null,
+            "paper_url": null,
+            "predecessor": "Gemini 1.5 Flash",
+            "successor": "Gemini 3 Flash"
+        },
+        {
+            "id": 172,
+            "company": "Mistral AI",
+            "company_website": "https://mistral.ai",
+            "company_logo_url": "https://logo.clearbit.com/mistral.ai",
+            "model_family": "Devstral",
+            "model_name": "Devstral Small",
+            "model_version": "1.0",
+            "model_type": "Code Generation LLM",
+            "architecture": "Transformer (Decoder-only)",
+            "modalities": [
+                "text",
+                "code"
+            ],
+            "parameters": 24,
+            "parameter_unit": "billion",
+            "training_tokens": null,
+            "open_source": true,
+            "license": "Apache 2.0",
+            "api_available": true,
+            "context_window_tokens": 128000,
+            "training_data_cutoff": "2025-04",
+            "release_date": "2025-05-21",
+            "country": "France",
+            "description": "Mistral's first dedicated open-source coding agent model. Designed for agentic coding workflows including multi-file editing, codebase exploration, and autonomous software engineering tasks.",
+            "use_cases": [
+                "agentic coding",
+                "multi-file editing",
+                "codebase exploration",
+                "software engineering agents"
+            ],
+            "notable_features": [
+                "open-source (Apache 2.0)",
+                "agentic coding optimized",
+                "128K context",
+                "runs on consumer hardware"
+            ],
+            "benchmark_scores": {
+                "SWE_bench_Verified": 46.8
+            },
+            "pricing_per_1m_tokens": {
+                "input": 0.2,
+                "output": 0.6
+            },
+            "official_model_link": "https://mistral.ai/news/devstral",
+            "huggingface_url": "https://huggingface.co/mistralai/Devstral-Small-2505",
+            "paper_url": null,
+            "predecessor": "Codestral 25.01",
+            "successor": "Devstral 2"
         },
         {
             "id": 139,
@@ -7069,7 +7619,7 @@
             "training_data_cutoff": "2025-03",
             "release_date": "2025-10-01",
             "country": "France",
-            "description": "Mistral Large 3 (675B MoE) delivers ~92% of GPT-5.2 performance at ~15% of the cost. Open reasoning models in 3B\u201314B for edge deployment. Mistral's largest and most capable model to date.",
+            "description": "Mistral Large 3 (675B MoE) delivers ~92% of GPT-5.2 performance at ~15% of the cost. Open reasoning models in 3B–14B for edge deployment. Mistral's largest and most capable model to date.",
             "use_cases": [
                 "coding",
                 "reasoning",
@@ -7265,6 +7815,57 @@
             "huggingface_url": null,
             "paper_url": null,
             "predecessor": "DeepSeek V3",
+            "successor": null
+        },
+        {
+            "id": 173,
+            "company": "Mistral AI",
+            "company_website": "https://mistral.ai",
+            "company_logo_url": "https://logo.clearbit.com/mistral.ai",
+            "model_family": "Devstral",
+            "model_name": "Devstral 2",
+            "model_version": "2.0",
+            "model_type": "Code Generation LLM",
+            "architecture": "Transformer (Dense)",
+            "modalities": [
+                "text",
+                "code",
+                "vision"
+            ],
+            "parameters": 123,
+            "parameter_unit": "billion",
+            "training_tokens": null,
+            "open_source": true,
+            "license": "Modified MIT",
+            "api_available": true,
+            "context_window_tokens": 256000,
+            "training_data_cutoff": "2025-10",
+            "release_date": "2025-12-01",
+            "country": "France",
+            "description": "Mistral's frontier open-source coding model achieving 72.2% on SWE-bench Verified, the highest among open models. 123B dense transformer with 256K context, supporting function calling, tool use, and vision inputs.",
+            "use_cases": [
+                "autonomous coding agents",
+                "software engineering",
+                "code review",
+                "multi-file refactoring"
+            ],
+            "notable_features": [
+                "72.2% SWE-bench Verified",
+                "256K context",
+                "function calling & tool use",
+                "vision support"
+            ],
+            "benchmark_scores": {
+                "SWE_bench_Verified": 72.2
+            },
+            "pricing_per_1m_tokens": {
+                "input": 0.4,
+                "output": 2.0
+            },
+            "official_model_link": "https://mistral.ai/news/devstral-2-vibe-cli",
+            "huggingface_url": "https://huggingface.co/mistralai/Devstral-2-2512",
+            "paper_url": null,
+            "predecessor": "Devstral Small",
             "successor": null
         },
         {
@@ -7752,6 +8353,153 @@
             "predecessor": "Gemini 3.0",
             "successor": null,
             "id": 161
+        },
+        {
+            "id": 174,
+            "company": "Inception AI",
+            "company_website": "https://www.inceptionlabs.ai",
+            "company_logo_url": "https://logo.clearbit.com/inceptionlabs.ai",
+            "model_family": "Mercury",
+            "model_name": "Mercury 2",
+            "model_version": "2.0",
+            "model_type": "Diffusion-based Reasoning LLM",
+            "architecture": "Diffusion Language Model (dLLM)",
+            "modalities": [
+                "text"
+            ],
+            "parameters": null,
+            "parameter_unit": null,
+            "training_tokens": null,
+            "open_source": false,
+            "license": "Proprietary",
+            "api_available": true,
+            "context_window_tokens": 128000,
+            "training_data_cutoff": "2026-01",
+            "release_date": "2026-02-24",
+            "country": "USA",
+            "description": "First production diffusion-based reasoning LLM, generating tokens via parallel refinement rather than sequential autoregressive decoding. Achieves 1,000+ tokens/second on NVIDIA Blackwell GPUs, 5x faster than leading speed-optimized models.",
+            "use_cases": [
+                "real-time voice AI",
+                "coding agents",
+                "search pipelines",
+                "latency-sensitive applications"
+            ],
+            "notable_features": [
+                "1000+ tok/s throughput",
+                "diffusion-based architecture",
+                "5x faster than competitors",
+                "tunable reasoning depth"
+            ],
+            "benchmark_scores": {},
+            "pricing_per_1m_tokens": {
+                "input": 0.25,
+                "output": 0.75
+            },
+            "official_model_link": "https://www.inceptionlabs.ai/blog/introducing-mercury-2",
+            "huggingface_url": null,
+            "paper_url": null,
+            "predecessor": "Mercury 1",
+            "successor": null
+        },
+        {
+            "id": 175,
+            "company": "Microsoft",
+            "company_website": "https://microsoft.com",
+            "company_logo_url": "https://logo.clearbit.com/microsoft.com",
+            "model_family": "Phi",
+            "model_name": "Phi-4-reasoning-vision",
+            "model_version": "4-reasoning-vision",
+            "model_type": "Multimodal Reasoning LLM",
+            "architecture": "Transformer (Hybrid reasoning, multimodal)",
+            "modalities": [
+                "text",
+                "vision"
+            ],
+            "parameters": 15,
+            "parameter_unit": "billion",
+            "training_tokens": null,
+            "open_source": true,
+            "license": "MIT",
+            "api_available": true,
+            "context_window_tokens": 131072,
+            "training_data_cutoff": "2026-01",
+            "release_date": "2026-03-06",
+            "country": "USA",
+            "description": "15B open-weight multimodal reasoning model featuring hybrid THINK/NOTHINK modes for adaptive compute. Excels at math, science, GUI understanding, and vision-language tasks while requiring 10x less compute than comparable models.",
+            "use_cases": [
+                "math reasoning",
+                "science QA",
+                "GUI understanding",
+                "computer-use agents"
+            ],
+            "notable_features": [
+                "hybrid THINK/NOTHINK modes",
+                "15B compact multimodal",
+                "strong GUI understanding",
+                "trained on 240 B200 GPUs in 4 days"
+            ],
+            "benchmark_scores": {
+                "MathVista_MINI": 75.2,
+                "AI2D_TEST": 84.8,
+                "MMMU_VAL": 54.3,
+                "ScreenSpot_v2": 88.8
+            },
+            "pricing_per_1m_tokens": {
+                "input": null,
+                "output": null
+            },
+            "official_model_link": "https://www.microsoft.com/en-us/research/blog/phi-4-reasoning-vision-and-the-lessons-of-training-a-multimodal-reasoning-model/",
+            "huggingface_url": "https://huggingface.co/microsoft/Phi-4-reasoning-vision-15B",
+            "paper_url": "https://arxiv.org/abs/2603.03975",
+            "predecessor": "Phi-4",
+            "successor": null
+        },
+        {
+            "id": 176,
+            "company": "NVIDIA",
+            "company_website": "https://nvidia.com",
+            "company_logo_url": "https://logo.clearbit.com/nvidia.com",
+            "model_family": "Nemotron",
+            "model_name": "Nemotron 3 Super",
+            "model_version": "3-super-120b-a12b",
+            "model_type": "Hybrid Mamba-Transformer MoE",
+            "architecture": "Hybrid Mamba-Transformer MoE (LatentMoE + Mamba-2)",
+            "modalities": [
+                "text"
+            ],
+            "parameters": 120,
+            "parameter_unit": "billion",
+            "training_tokens": 10000,
+            "open_source": true,
+            "license": "NVIDIA Nemotron Open Model License",
+            "api_available": true,
+            "context_window_tokens": 1048576,
+            "training_data_cutoff": "2025-06",
+            "release_date": "2026-03-11",
+            "country": "USA",
+            "description": "120B hybrid Mamba-Transformer MoE with only 12B active parameters per token. Features LatentMoE for 4x expert specialization, Mamba-2 layers for linear-time sequences, and native NVFP4 pretraining for 4x faster inference on Blackwell. 1M native context window.",
+            "use_cases": [
+                "agentic AI systems",
+                "multi-agent workflows",
+                "long-context reasoning",
+                "enterprise deployment"
+            ],
+            "notable_features": [
+                "12B active of 120B total",
+                "1M native context",
+                "5x throughput vs predecessor",
+                "NVFP4 Blackwell-optimized"
+            ],
+            "benchmark_scores": {},
+            "pricing_per_1m_tokens": {
+                "input": null,
+                "output": null
+            },
+            "official_model_link": "https://developer.nvidia.com/blog/introducing-nemotron-3-super-an-open-hybrid-mamba-transformer-moe-for-agentic-reasoning/",
+            "huggingface_url": null,
+            "paper_url": null,
+            "predecessor": "Nemotron Super",
+            "successor": "Nemotron 3 Ultra"
         }
     ]
 }

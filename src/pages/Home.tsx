@@ -10,6 +10,8 @@ import { Nav } from '@/components/shared/Nav';
 import { SEO } from '@/components/common/SEO';
 import { HeroVisual } from '@/components/educational/HeroVisual';
 import { ScaleVisual } from '@/components/educational/ScaleVisual';
+import { OpenSourceVisual } from '@/components/educational/OpenSourceVisual';
+import { AUTOMATION_DATA } from '@/data/automationData';
 
 // ─── Animation helpers ─────────────────────────────────────────────────────
 
@@ -285,10 +287,10 @@ const MODULES = [
     },
     {
         num: '05',
-        title: 'The Automation Clock',
-        desc: "A data-driven instrument tracking AI\u2019s displacement trajectory across every job category. How far are we, really?",
-        status: 'building' as const,
-        to: null,
+        title: 'The AI Impact Index',
+        desc: 'Track jobs at risk, automation across 18 sectors, and expert projections from 2022 to 2030. Cited sources.',
+        status: 'live' as const,
+        to: '/automation-clock',
     },
 ];
 
@@ -958,18 +960,48 @@ function TimelineSection() {
 
 // ─── Automation Clock Teaser ────────────────────────────────────────────────
 
-const CLOCK_STATS = [
-    { label: 'Professions tracked', value: '47' },
-    { label: 'Tasks analyzed', value: '800M+' },
-    { label: 'Data last updated', value: 'Q1 2026' },
+const SECTOR_VIZ_COLORS = [
+    'var(--viz-1)', 'var(--viz-2)', 'var(--viz-3)',
+    'var(--viz-4)', 'var(--viz-5)', 'var(--viz-accent)',
 ];
 
-const CIRCUMFERENCE = 2 * Math.PI * 88; // r=88
-const FILLED_RATIO = 0.34;
-
 function AutomationClockTeaser() {
-    const dashFilled = CIRCUMFERENCE * FILLED_RATIO;
-    const dashGap = CIRCUMFERENCE - dashFilled;
+    const yearData = AUTOMATION_DATA[2026];
+    const topSectors = Object.entries(yearData.sectors)
+        .sort(([, a], [, b]) => b.automationPct - a.automationPct)
+        .slice(0, 6);
+
+    const R = 88;
+    const CIRC = 2 * Math.PI * R;
+    const GAP = 4;
+    const totalGap = topSectors.length * GAP;
+    const available = CIRC - totalGap;
+    const totalPct = topSectors.reduce((s, [, d]) => s + d.automationPct, 0);
+
+    let cumOffset = 0;
+    const segments = topSectors.map(([, sector], i) => {
+        const arcLen = (sector.automationPct / totalPct) * available;
+        const offset = cumOffset;
+        cumOffset += arcLen + GAP;
+        return {
+            label: sector.label,
+            pct: sector.automationPct,
+            arcLen,
+            dashOffset: -offset,
+            color: SECTOR_VIZ_COLORS[i],
+        };
+    });
+
+    const clockStats = [
+        {
+            label: 'Jobs at risk',
+            value: yearData.globalJobsAtRisk >= 1_000_000
+                ? `${(yearData.globalJobsAtRisk / 1_000_000).toFixed(0)}M`
+                : `${(yearData.globalJobsAtRisk / 1_000).toFixed(0)}K`,
+        },
+        { label: 'Tasks automatable', value: `${yearData.tasksAutomatable}%` },
+        { label: 'Sources cited', value: '9+' },
+    ];
 
     return (
         <section
@@ -997,7 +1029,7 @@ function AutomationClockTeaser() {
                                 textTransform: 'uppercase',
                                 letterSpacing: 'var(--tracking-wider)',
                             }}>
-                                MODULE 05 — THE AUTOMATION CLOCK
+                                MODULE 05 — THE AI IMPACT INDEX
                             </p>
                         </Reveal>
 
@@ -1009,7 +1041,7 @@ function AutomationClockTeaser() {
                                 color: 'var(--ink)',
                                 marginTop: 'var(--s3)',
                             }}>
-                                How far are we, really?
+                                Jobs, sectors, and projections.
                             </h2>
                         </Reveal>
 
@@ -1022,16 +1054,16 @@ function AutomationClockTeaser() {
                                 marginTop: 'var(--s4)',
                                 maxWidth: '44ch',
                             }}>
-                                A precise, source-cited instrument tracking how far AI
-                                has progressed in automating every major job category.
-                                Not fear. Not hype. Just the trajectory, clearly shown.
+                                Track jobs at risk, automation by sector, and expert
+                                projections from 2022—when AI arrived—through 2030.
+                                McKinsey, Goldman Sachs, WEF, IMF, and more.
                             </p>
                         </Reveal>
 
                         {/* Stats */}
                         <Reveal delay={0.15}>
                             <div style={{ marginTop: 'var(--s5)' }}>
-                                {CLOCK_STATS.map((stat, i) => (
+                                {clockStats.map((stat, i) => (
                                     <div
                                         key={stat.label}
                                         style={{
@@ -1039,7 +1071,7 @@ function AutomationClockTeaser() {
                                             justifyContent: 'space-between',
                                             alignItems: 'center',
                                             padding: 'var(--s3) 0',
-                                            borderBottom: i < CLOCK_STATS.length - 1 ? '1px solid var(--stroke)' : 'none',
+                                            borderBottom: i < clockStats.length - 1 ? '1px solid var(--stroke)' : 'none',
                                             borderTop: i === 0 ? '1px solid var(--stroke)' : 'none',
                                         }}
                                     >
@@ -1055,25 +1087,52 @@ function AutomationClockTeaser() {
                         </Reveal>
 
                         <Reveal delay={0.2}>
-                            <p style={{
-                                fontFamily: 'var(--font-mono)',
-                                fontSize: 'var(--text-xs)',
-                                color: 'var(--muted)',
-                                marginTop: 'var(--s4)',
-                            }}>
-                                Full interactive breakdown by profession — coming soon.
-                            </p>
+                            <div style={{ marginTop: 'var(--s6)' }}>
+                                <Link
+                                    to="/automation-clock"
+                                    id="clock-cta"
+                                    style={{
+                                        display: 'inline-flex',
+                                        alignItems: 'center',
+                                        gap: 'var(--s2)',
+                                        padding: '0.6rem 1.25rem',
+                                        background: 'transparent',
+                                        border: '1px solid var(--stroke-dark)',
+                                        borderRadius: 'var(--r-md)',
+                                        fontFamily: 'var(--font-sans)',
+                                        fontSize: 'var(--text-sm)',
+                                        fontWeight: 'var(--weight-medium)',
+                                        color: 'var(--secondary)',
+                                        textDecoration: 'none',
+                                        transition: `all var(--dur-fast) var(--ease-out)`,
+                                    }}
+                                    onMouseEnter={(e) => {
+                                        const el = e.currentTarget;
+                                        el.style.background = 'var(--bg-raised)';
+                                        el.style.color = 'var(--ink)';
+                                        el.style.borderColor = 'var(--primary)';
+                                    }}
+                                    onMouseLeave={(e) => {
+                                        const el = e.currentTarget;
+                                        el.style.background = 'transparent';
+                                        el.style.color = 'var(--secondary)';
+                                        el.style.borderColor = 'var(--stroke-dark)';
+                                    }}
+                                >
+                                    Open Dashboard →
+                                </Link>
+                            </div>
                         </Reveal>
                     </div>
 
-                    {/* Right — clock visual */}
+                    {/* Right — data-driven sector visualization */}
                     <Reveal delay={0.1}>
                         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 'var(--s3)' }}>
                             <svg
                                 width="240"
                                 height="240"
                                 viewBox="0 0 240 240"
-                                aria-label="Automation progress clock showing 34% of tasks automatable today"
+                                aria-label={`AI Impact Index: ${yearData.tasksAutomatable}% tasks automatable across 18 sectors`}
                             >
                                 {/* Outer ring */}
                                 <circle
@@ -1082,79 +1141,101 @@ function AutomationClockTeaser() {
                                     r="108"
                                     fill="var(--bg-panel)"
                                     stroke="var(--stroke-dark)"
-                                    strokeWidth="2"
+                                    strokeWidth="1"
                                 />
 
-                                {/* Background arc (unfilled) */}
+                                {/* Background track */}
                                 <circle
                                     cx="120"
                                     cy="120"
-                                    r="88"
+                                    r={R}
                                     fill="none"
                                     stroke="var(--stroke)"
-                                    strokeWidth="12"
+                                    strokeWidth="14"
                                     transform="rotate(-90 120 120)"
                                 />
 
-                                {/* Progress arc (filled 34%) */}
-                                <motion.circle
-                                    cx="120"
-                                    cy="120"
-                                    r="88"
-                                    fill="none"
-                                    stroke="var(--viz-accent)"
-                                    strokeWidth="12"
-                                    strokeLinecap="round"
-                                    strokeDasharray={`${dashFilled} ${dashGap}`}
-                                    transform="rotate(-90 120 120)"
-                                    initial={{ strokeDasharray: `0 ${CIRCUMFERENCE}` }}
-                                    animate={{ strokeDasharray: `${dashFilled} ${dashGap}` }}
-                                    transition={{ duration: 1.4, delay: 0.3, ease: [0.2, 0, 0, 1] }}
-                                />
+                                {/* Sector arc segments */}
+                                {segments.map((seg, i) => (
+                                    <motion.circle
+                                        key={i}
+                                        cx="120"
+                                        cy="120"
+                                        r={R}
+                                        fill="none"
+                                        stroke={seg.color}
+                                        strokeWidth="14"
+                                        strokeLinecap="butt"
+                                        strokeDasharray={`${seg.arcLen} ${CIRC - seg.arcLen}`}
+                                        strokeDashoffset={seg.dashOffset}
+                                        transform="rotate(-90 120 120)"
+                                        initial={{ strokeDasharray: `0 ${CIRC}` }}
+                                        animate={{ strokeDasharray: `${seg.arcLen} ${CIRC - seg.arcLen}` }}
+                                        transition={{ duration: 0.8, delay: 0.3 + i * 0.08, ease: [0.2, 0, 0, 1] }}
+                                    />
+                                ))}
 
                                 {/* Center text */}
                                 <text
                                     x="120"
-                                    y="113"
+                                    y="112"
                                     textAnchor="middle"
-                                    fontSize="32"
+                                    fontSize="28"
                                     fontWeight="600"
                                     fontFamily="var(--font-sans)"
                                     fill="var(--ink)"
                                 >
-                                    34%
+                                    {yearData.tasksAutomatable}%
                                 </text>
                                 <text
                                     x="120"
-                                    y="133"
+                                    y="130"
                                     textAnchor="middle"
-                                    fontSize="10"
+                                    fontSize="9"
                                     fontFamily="var(--font-mono)"
                                     fill="var(--muted)"
                                 >
-                                    of tasks
+                                    tasks automatable
                                 </text>
                                 <text
                                     x="120"
-                                    y="148"
+                                    y="144"
                                     textAnchor="middle"
-                                    fontSize="10"
+                                    fontSize="9"
                                     fontFamily="var(--font-mono)"
                                     fill="var(--muted)"
                                 >
-                                    automatable today
+                                    across 18 sectors
                                 </text>
                             </svg>
 
-                            <p style={{
-                                fontFamily: 'var(--font-mono)',
-                                fontSize: 'var(--text-xs)',
-                                color: 'var(--secondary)',
-                                textAlign: 'center',
-                                maxWidth: '240px',
+                            {/* Mini sector legend */}
+                            <div style={{
+                                display: 'grid',
+                                gridTemplateColumns: '1fr 1fr',
+                                gap: '2px 12px',
+                                maxWidth: '260px',
                             }}>
-                                Projected general displacement: 2031–2038
-                            </p>
+                                {segments.map((seg, i) => (
+                                    <div key={i} style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
+                                        <span style={{
+                                            width: '6px',
+                                            height: '6px',
+                                            borderRadius: '50%',
+                                            background: seg.color,
+                                            flexShrink: 0,
+                                        }} />
+                                        <span style={{
+                                            fontFamily: 'var(--font-mono)',
+                                            fontSize: '9px',
+                                            color: 'var(--muted)',
+                                            whiteSpace: 'nowrap',
+                                        }}>
+                                            {seg.label.split('/')[0].trim()} {seg.pct}%
+                                        </span>
+                                    </div>
+                                ))}
+                            </div>
                         </div>
                     </Reveal>
                 </div>
@@ -1261,14 +1342,20 @@ function BenchmarkTeaser() {
                         </Reveal>
 
                         <Reveal delay={0.2}>
-                            <p style={{
-                                fontFamily: 'var(--font-mono)',
-                                fontSize: 'var(--text-xs)',
-                                color: 'var(--muted)',
-                                marginTop: 'var(--s4)',
-                            }}>
-                                Live leaderboard with week-over-week tracking — coming soon.
-                            </p>
+                            <Link
+                                to="/benchmarks"
+                                style={{
+                                    fontFamily: 'var(--font-mono)',
+                                    fontSize: 'var(--text-xs)',
+                                    color: 'var(--ink)',
+                                    marginTop: 'var(--s4)',
+                                    display: 'inline-block',
+                                    textDecoration: 'none',
+                                    borderBottom: '1px solid var(--ink)',
+                                }}
+                            >
+                                View the full leaderboard →
+                            </Link>
                         </Reveal>
                     </div>
 
@@ -1529,42 +1616,108 @@ function PipelinePreview() {
                 background: 'var(--bg-panel)',
             }}
         >
-            <div className="depth-container" style={{ maxWidth: '900px', margin: '0 auto' }}>
-                <Reveal>
-                    <p style={{
-                        fontFamily: 'var(--font-mono)',
-                        fontSize: 'var(--text-xs)',
-                        color: 'var(--muted)',
-                        textTransform: 'uppercase',
-                        letterSpacing: 'var(--tracking-wider)',
-                    }}>
-                        OPEN SOURCE
-                    </p>
+            <div className="depth-container" style={{ maxWidth: '1100px', margin: '0 auto' }}>
+                <div style={{
+                    display: 'grid',
+                    gridTemplateColumns: 'minmax(0, 1fr) minmax(300px, 400px)',
+                    gap: 'var(--s8)',
+                    alignItems: 'center',
+                }} className="community-grid">
+                    <div className="community-text-content">
+                        <Reveal>
+                            <p style={{
+                                fontFamily: 'var(--font-mono)',
+                                fontSize: 'var(--text-xs)',
+                                color: 'var(--muted)',
+                                textTransform: 'uppercase',
+                                letterSpacing: 'var(--tracking-wider)',
+                            }}>
+                                OPEN SOURCE
+                            </p>
 
-                    <h2 style={{
-                        fontSize: 'var(--text-xl)',
-                        fontWeight: 'var(--weight-semibold)',
-                        letterSpacing: 'var(--tracking-snug)',
-                        color: 'var(--ink)',
-                        marginTop: 'var(--s3)',
-                    }}>
-                        Build with us.
-                    </h2>
-                </Reveal>
+                            <h2 style={{
+                                fontSize: 'var(--text-xl)',
+                                fontWeight: 'var(--weight-semibold)',
+                                letterSpacing: 'var(--tracking-snug)',
+                                color: 'var(--ink)',
+                                marginTop: 'var(--s3)',
+                            }}>
+                                Build with us.
+                            </h2>
+                        </Reveal>
 
-                <Reveal delay={0.1}>
-                    <p style={{
-                        fontSize: 'var(--text-sm)',
-                        fontWeight: 'var(--weight-light)',
-                        color: 'var(--secondary)',
-                        maxWidth: '54ch',
-                        lineHeight: 'var(--lead-body)',
-                        marginTop: 'var(--s4)',
-                    }}>
-                        This project is 100% open source and community-driven. From datasets to interactive visualizers, everything is legible by design.
-                    </p>
-                </Reveal>
+                        <Reveal delay={0.1}>
+                            <p style={{
+                                fontSize: 'var(--text-sm)',
+                                fontWeight: 'var(--weight-light)',
+                                color: 'var(--secondary)',
+                                maxWidth: '54ch',
+                                lineHeight: 'var(--lead-body)',
+                                marginTop: 'var(--s4)',
+                            }}>
+                                This project is 100% open source and community-driven. From datasets to interactive visualizers, everything is legible by design. Contribute to the collection or fork the engine.
+                            </p>
+                        </Reveal>
+
+                        <Reveal delay={0.2}>
+                            <div style={{ marginTop: 'var(--s6)' }}>
+                                <a
+                                    href="https://github.com"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    style={{
+                                        display: 'inline-flex',
+                                        alignItems: 'center',
+                                        gap: 'var(--s2)',
+                                        padding: '0.6rem 1.25rem',
+                                        background: 'transparent',
+                                        border: '1px solid var(--stroke-dark)',
+                                        borderRadius: 'var(--r-md)',
+                                        fontFamily: 'var(--font-sans)',
+                                        fontSize: 'var(--text-sm)',
+                                        fontWeight: 'var(--weight-medium)',
+                                        color: 'var(--secondary)',
+                                        textDecoration: 'none',
+                                        transition: `all var(--dur-fast) var(--ease-out)`,
+                                    }}
+                                    onMouseEnter={(e) => {
+                                        const el = e.currentTarget as HTMLAnchorElement;
+                                        el.style.background = 'var(--bg-raised)';
+                                        el.style.color = 'var(--ink)';
+                                        el.style.borderColor = 'var(--ink)';
+                                    }}
+                                    onMouseLeave={(e) => {
+                                        const el = e.currentTarget as HTMLAnchorElement;
+                                        el.style.background = 'transparent';
+                                        el.style.color = 'var(--secondary)';
+                                        el.style.borderColor = 'var(--stroke-dark)';
+                                    }}
+                                >
+                                    Join us on GitHub
+                                </a>
+                            </div>
+                        </Reveal>
+                    </div>
+
+                    <Reveal delay={0.25}>
+                        <div className="community-visual-wrapper">
+                            <OpenSourceVisual />
+                        </div>
+                    </Reveal>
+                </div>
             </div>
+            <style>{`
+                @media (max-width: 900px) {
+                    .community-grid {
+                        grid-template-columns: 1fr !important;
+                        gap: var(--s6) !important;
+                    }
+                    .community-visual-wrapper {
+                        order: -1;
+                        margin-bottom: var(--s4);
+                    }
+                }
+            `}</style>
         </section>
     );
 }

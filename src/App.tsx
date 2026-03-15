@@ -20,6 +20,12 @@ const Timeline = lazy(() =>
 const About = lazy(() =>
     import('@/pages/About').then((m) => ({ default: m.About }))
 );
+const AutomationClockPage = lazy(() =>
+    import('@/pages/AutomationClockPage').then((m) => ({ default: m.AutomationClockPage }))
+);
+const BenchmarksPage = lazy(() =>
+    import('@/pages/BenchmarksPage').then((m) => ({ default: m.BenchmarksPage }))
+);
 
 // Minimal loading fallback — light background while pages load
 function LoadingFallback() {
@@ -59,6 +65,8 @@ export function App() {
                         <Route path="/transformer-training-simulator" element={<Training />} />
                         <Route path="/timeline" element={<Timeline />} />
                         <Route path="/about" element={<About />} />
+                        <Route path="/automation-clock" element={<AutomationClockPage />} />
+                        <Route path="/benchmarks" element={<BenchmarksPage />} />
                         {/* Catch-all → redirect to home */}
                         <Route path="*" element={<Home />} />
                     </Routes>

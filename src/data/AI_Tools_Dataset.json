@@ -2,8 +2,8 @@
     "metadata": {
         "title": "AI Coding Tools Timeline",
         "description": "A curated timeline of the most influential AI tools, IDEs, and agents that revolutionized software development.",
-        "last_updated": "2026-03-07",
-        "total_tools": 58,
+        "last_updated": "2026-03-16",
+        "total_tools": 64,
         "fields": [
             "id",
             "name",
@@ -755,6 +755,22 @@
             "url": "https://n8n.io/ai/"
         },
         {
+            "id": 59,
+            "name": "Trae",
+            "company": "ByteDance",
+            "release_date": "2025-01-20",
+            "open_source": false,
+            "license": "Proprietary",
+            "category": "AI Code Editor",
+            "description": "A free AI-powered code editor from ByteDance built on VSCode, offering unlimited access to GPT-4o and Claude 3.7 Sonnet. Features a SOLO mode for autonomous end-to-end development and a modernized UI inspired by JetBrains Fleet.",
+            "key_features": [
+                "Free unlimited AI model access",
+                "SOLO autonomous development mode",
+                "VSCode plugin compatibility"
+            ],
+            "url": "https://www.trae.ai/"
+        },
+        {
             "id": 47,
             "name": "OpenAI Operator",
             "company": "OpenAI",
@@ -787,6 +803,38 @@
             "url": "https://roocode.com/"
         },
         {
+            "id": 60,
+            "name": "Deep Research",
+            "company": "OpenAI",
+            "release_date": "2025-02-02",
+            "open_source": false,
+            "license": "Proprietary",
+            "category": "AI Research Agent",
+            "description": "An AI research agent within ChatGPT powered by a specialized o3 model. Autonomously searches, analyzes, and synthesizes hundreds of online sources into comprehensive, fully-cited reports at research analyst level.",
+            "key_features": [
+                "Multi-step autonomous research",
+                "Fully cited report generation",
+                "Synthesizes hundreds of sources"
+            ],
+            "url": "https://openai.com/index/introducing-deep-research"
+        },
+        {
+            "id": 61,
+            "name": "Manus AI",
+            "company": "Butterfly Effect",
+            "release_date": "2025-03-06",
+            "open_source": false,
+            "license": "Proprietary",
+            "category": "Autonomous AI Agent",
+            "description": "The world's first general-purpose autonomous AI agent, capable of independently executing complex tasks including data analysis, code development, and web research. Operates via a multi-agent architecture with planning, execution, and verification agents.",
+            "key_features": [
+                "Multi-agent autonomous architecture",
+                "Asynchronous task execution",
+                "Web browsing and file manipulation"
+            ],
+            "url": "https://manus.im/"
+        },
+        {
             "id": 49,
             "name": "Make.com",
             "company": "Celonis",
@@ -801,6 +849,22 @@
                 "Visual workflow building"
             ],
             "url": "https://make.com"
+        },
+        {
+            "id": 62,
+            "name": "Genspark",
+            "company": "Genspark",
+            "release_date": "2025-04-15",
+            "open_source": false,
+            "license": "Proprietary",
+            "category": "AI Agent Platform",
+            "description": "A no-code autonomous AI agent platform that reached $36M ARR within 45 days of launch. Uses nine specialized LLMs and 80+ integrated tools to automate tasks from phone calls to video generation.",
+            "key_features": [
+                "No-code agent creation",
+                "80+ integrated tools",
+                "Automated phone calls and workflows"
+            ],
+            "url": "https://www.genspark.ai/"
         },
         {
             "id": 50,
@@ -865,6 +929,22 @@
                 "Context decay management"
             ],
             "url": "https://awesomeclaude.ai/"
+        },
+        {
+            "id": 63,
+            "name": "CrewAI",
+            "company": "CrewAI Inc.",
+            "release_date": "2025-10-01",
+            "open_source": true,
+            "license": "MIT",
+            "category": "Multi-Agent AI Framework",
+            "description": "The dominant open-source multi-agent orchestration framework with 40K+ GitHub stars and 1.8M+ monthly downloads. Enables developers to build collaborative AI agent systems with planning, memory, and tool use capabilities. Used by 60%+ of Fortune 500 companies.",
+            "key_features": [
+                "Multi-agent orchestration",
+                "100+ open-source tools",
+                "Agentic RAG and memory management"
+            ],
+            "url": "https://crewai.com/"
         },
         {
             "id": 54,
@@ -945,6 +1025,22 @@
                 "FlowHunt 2.0 AI-first engine"
             ],
             "url": "https://www.flowhunt.io/"
+        },
+        {
+            "id": 64,
+            "name": "Databricks Genie Code",
+            "company": "Databricks",
+            "release_date": "2026-03-11",
+            "open_source": false,
+            "license": "Proprietary",
+            "category": "AI Data Engineering Agent",
+            "description": "An autonomous AI agent for data work that doubled success rates on data science tasks compared to leading coding agents. Automates data pipeline building, debugging, and production system maintenance with enterprise governance built in.",
+            "key_features": [
+                "Autonomous data engineering",
+                "2x success rate vs leading agents",
+                "Enterprise governance integration"
+            ],
+            "url": "https://www.databricks.com/product/genie"
         }
     ]
 }

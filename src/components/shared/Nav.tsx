@@ -6,8 +6,8 @@ const NAV_LINKS = [
     { label: 'AI Timeline', to: '/timeline', live: true },
     { label: 'How LLMs Work', to: '/transformer-simulator', live: true },
     { label: 'How AI is Trained', to: '/transformer-training-simulator', live: true },
-    { label: 'Benchmarks', to: null, live: false },
-    { label: 'Automation Clock', to: null, live: false },
+    { label: 'Benchmarks', to: '/benchmarks', live: true },
+    { label: 'Automation Clock', to: '/automation-clock', live: true },
 ];
 
 interface NavProps {

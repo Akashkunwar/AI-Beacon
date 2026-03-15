@@ -2,8 +2,8 @@
     "metadata": {
         "title": "Foundational AI Research Papers Timeline",
         "description": "A curated list of the most influential AI research papers that drove the technological revolution.",
-        "last_updated": "2026-03-07",
-        "total_papers": 47,
+        "last_updated": "2026-03-16",
+        "total_papers": 53,
         "fields": [
             "id",
             "title",
@@ -105,7 +105,7 @@
                 "Aaron Courville",
                 "Yoshua Bengio"
             ],
-            "institution": "Universit\u00e9 de Montr\u00e9al",
+            "institution": "Université de Montréal",
             "publication_date": "2014-06-10",
             "published_in": "NeurIPS",
             "topic": "Generative AI",
@@ -151,7 +151,7 @@
                 "Kyunghyun Cho",
                 "Yoshua Bengio"
             ],
-            "institution": "Jacobs University / Universit\u00e9 de Montr\u00e9al",
+            "institution": "Jacobs University / Université de Montréal",
             "publication_date": "2014-09-01",
             "published_in": "ICLR",
             "topic": "Natural Language Processing",
@@ -552,10 +552,10 @@
                 "Fabio Petroni",
                 "Vladimir Karpukhin",
                 "Naman Goyal",
-                "Heinrich K\u00fcttler",
+                "Heinrich Küttler",
                 "Mike Lewis",
                 "Wen-tau Yih",
-                "Tim Rockt\u00e4schel",
+                "Tim Rocktäschel",
                 "Sebastian Riedel",
                 "Douwe Kiela"
             ],
@@ -716,7 +716,7 @@
                 "Olaf Ronneberger",
                 "Kathryn Tunyasuvunakool",
                 "Russ Bates",
-                "Augustin \u017d\u00eddek",
+                "Augustin Žídek",
                 "Anna Potapenko",
                 "Alex Bridgland",
                 "Clemens Meyer",
@@ -765,7 +765,7 @@
                 "Andreas Blattmann",
                 "Dominik Lorenz",
                 "Patrick Esser",
-                "Bj\u00f6rn Ommer"
+                "Björn Ommer"
             ],
             "institution": "CompVis Group / LMU Munich",
             "publication_date": "2021-12-20",
@@ -895,7 +895,7 @@
                 "Daniel Y. Fu",
                 "Stefano Ermon",
                 "Atri Rudra",
-                "Christopher R\u00e9"
+                "Christopher Ré"
             ],
             "institution": "Stanford University",
             "publication_date": "2022-05-27",
@@ -955,8 +955,8 @@
                 "Gautier Izacard",
                 "Xavier Martinet",
                 "Marie-Anne Lachaux",
-                "Timoth\u00e9e Lacroix",
-                "Baptiste Rozi\u00e8re",
+                "Timothée Lacroix",
+                "Baptiste Rozière",
                 "Naman Goyal",
                 "Eric Hambro",
                 "Faisal Azhar",
@@ -1000,6 +1000,30 @@
             "citations": 15000
         },
         {
+            "id": 48,
+            "title": "QLoRA: Efficient Finetuning of Quantized LLMs",
+            "authors": [
+                "Tim Dettmers",
+                "Artidoro Pagnoni",
+                "Ari Holtzman",
+                "Luke Zettlemoyer"
+            ],
+            "institution": "University of Washington",
+            "publication_date": "2023-05-23",
+            "published_in": "NeurIPS (Oral)",
+            "topic": "Efficient Fine-Tuning",
+            "description": "Introduced QLoRA, enabling the finetuning of a 65B parameter model on a single 48GB GPU while preserving full 16-bit finetuning performance. Democratized LLM fine-tuning by making it accessible without expensive multi-GPU setups.",
+            "key_contributions": [
+                "4-bit NormalFloat (NF4) data type",
+                "Double Quantization for memory savings",
+                "Paged Optimizers for memory spike management",
+                "65B model finetuning on single 48GB GPU"
+            ],
+            "paper_url": "https://arxiv.org/abs/2305.14314",
+            "code_url": "https://github.com/artidoro/qlora",
+            "citations": 20000
+        },
+        {
             "id": 36,
             "title": "Direct Preference Optimization: Your Language Model is Secretly a Reward Model",
             "authors": [
@@ -1022,6 +1046,44 @@
             ],
             "paper_url": "https://arxiv.org/abs/2305.18290",
             "code_url": "https://github.com/eric-mitchell/direct-preference-optimization",
+            "citations": 5000
+        },
+        {
+            "id": 49,
+            "title": "Textbooks Are All You Need",
+            "authors": [
+                "Surya Gunasekar",
+                "Yi Zhang",
+                "Jyoti Aneja",
+                "Caio César Teodoro Mendes",
+                "Allie Del Giorno",
+                "Srinivasan Gopi",
+                "Mojan Javaheripi",
+                "Gustavo de Rosa",
+                "Piero Kauffmann",
+                "Olli Saarikivia",
+                "Adil Salim",
+                "Shital Shah",
+                "Harkirat Singh Behl",
+                "Xin Wang",
+                "Sébastien Bubeck",
+                "Ronen Eldan",
+                "Adam Tauman Kalai",
+                "Yin Tat Lee"
+            ],
+            "institution": "Microsoft Research",
+            "publication_date": "2023-06-20",
+            "published_in": "arXiv",
+            "topic": "Training Methodology",
+            "description": "Demonstrated that training data quality matters far more than quantity. A 1.3B parameter model (Phi-1) trained on 'textbook quality' synthetic data achieved GPT-3.5 level coding performance, fundamentally shifting how the field thinks about training data curation.",
+            "key_contributions": [
+                "Data quality over quantity paradigm",
+                "Textbook-quality synthetic data generation",
+                "1.3B model rivaling GPT-3.5 on coding",
+                "Foundation for the Phi model family"
+            ],
+            "paper_url": "https://arxiv.org/abs/2306.11644",
+            "code_url": null,
             "citations": 5000
         },
         {
@@ -1121,6 +1183,52 @@
             "citations": 3000
         },
         {
+            "id": 50,
+            "title": "Mixtral of Experts",
+            "authors": [
+                "Albert Q. Jiang",
+                "Alexandre Sablayrolles",
+                "Antoine Roux",
+                "Arthur Mensch",
+                "Blanche Savary",
+                "Chris Bamford",
+                "Devendra Singh Chaplot",
+                "Diego de las Casas",
+                "Emma Bou Hanna",
+                "Florian Bressand",
+                "Gianna Lengyel",
+                "Guillaume Bour",
+                "Guillaume Lample",
+                "Lélio Renard Lavaud",
+                "Lucile Saulnier",
+                "Marie-Anne Lachaux",
+                "Pierre Stock",
+                "Sandeep Subramanian",
+                "Sophia Yang",
+                "Szymon Antoniak",
+                "Teven Le Scao",
+                "Théophile Gervet",
+                "Thibaut Lavril",
+                "Thomas Wang",
+                "Timothée Lacroix",
+                "William El Sayed"
+            ],
+            "institution": "Mistral AI",
+            "publication_date": "2024-01-08",
+            "published_in": "arXiv",
+            "topic": "Mixture of Experts",
+            "description": "Introduced Mixtral 8x7B, a Sparse Mixture of Experts model that outperforms LLaMA 2 70B on most benchmarks while using only 13B active parameters per token. Pioneered efficient open-weight MoE models.",
+            "key_contributions": [
+                "Sparse Mixture of Experts with 8 expert groups",
+                "13B active parameters from 46.7B total",
+                "Outperforms LLaMA 2 70B with 6x faster inference",
+                "Open-weight MoE architecture"
+            ],
+            "paper_url": "https://arxiv.org/abs/2401.04088",
+            "code_url": "https://github.com/mistralai/mistral-inference",
+            "citations": 3000
+        },
+        {
             "id": 41,
             "title": "The Llama 3 Herd of Models",
             "authors": [
@@ -1140,6 +1248,34 @@
             "paper_url": "https://arxiv.org/abs/2407.21783",
             "code_url": "https://github.com/meta-llama/llama3",
             "citations": 2000
+        },
+        {
+            "id": 51,
+            "title": "KAN: Kolmogorov-Arnold Networks",
+            "authors": [
+                "Ziming Liu",
+                "Yixuan Wang",
+                "Sachin Vaidya",
+                "Fabian Ruehle",
+                "James Halverson",
+                "Marin Soljačić",
+                "Thomas Y. Hou",
+                "Max Tegmark"
+            ],
+            "institution": "MIT / Caltech",
+            "publication_date": "2024-04-30",
+            "published_in": "arXiv",
+            "topic": "Architecture",
+            "description": "Proposed Kolmogorov-Arnold Networks as a promising alternative to Multi-Layer Perceptrons (MLPs). KANs place learnable activation functions on edges instead of nodes, offering better accuracy and interpretability for scientific tasks.",
+            "key_contributions": [
+                "Learnable activation functions on network edges",
+                "Based on the Kolmogorov-Arnold representation theorem",
+                "Superior accuracy and interpretability for scientific tasks",
+                "Novel alternative to MLPs in neural architectures"
+            ],
+            "paper_url": "https://arxiv.org/abs/2404.19756",
+            "code_url": "https://github.com/KindXiaoming/pykan",
+            "citations": 3000
         },
         {
             "id": 42,
@@ -1165,6 +1301,30 @@
             "citations": 1500
         },
         {
+            "id": 52,
+            "title": "Scaling LLM Test-Time Compute Optimally can be More Effective than Scaling Model Parameters",
+            "authors": [
+                "Charlie Snell",
+                "Jaehoon Lee",
+                "Kelvin Xu",
+                "Aviral Kumar"
+            ],
+            "institution": "UC Berkeley / Google DeepMind",
+            "publication_date": "2024-08-06",
+            "published_in": "arXiv",
+            "topic": "Reasoning / Scaling Laws",
+            "description": "Foundational paper for the reasoning model paradigm (o1, R1). Proved that optimally scaling test-time compute can be more effective than scaling model parameters, providing the theoretical basis for 'thinking' models that spend more compute at inference time.",
+            "key_contributions": [
+                "Test-time compute scaling laws",
+                "Compute-optimal strategies for inference-time reasoning",
+                "Smaller models with more thinking can outperform larger models",
+                "Theoretical foundation for o1/R1-style reasoning models"
+            ],
+            "paper_url": "https://arxiv.org/abs/2408.03314",
+            "code_url": null,
+            "citations": 1500
+        },
+        {
             "id": 43,
             "title": "OpenAI o1 System Card",
             "authors": [
@@ -1183,6 +1343,27 @@
             "paper_url": "https://openai.com/index/learning-to-reason-with-llms/",
             "code_url": null,
             "citations": 1000
+        },
+        {
+            "id": 53,
+            "title": "DeepSeek-V3 Technical Report",
+            "authors": [
+                "DeepSeek-AI"
+            ],
+            "institution": "DeepSeek",
+            "publication_date": "2024-12-26",
+            "published_in": "arXiv",
+            "topic": "Efficient LLMs / Open Source",
+            "description": "Detailed a 671B Mixture-of-Experts model (37B active parameters) trained for approximately $5.5M on 2,048 H800 GPUs, challenging the assumption that frontier models require billions in compute. Outperformed many proprietary models at a fraction of the cost.",
+            "key_contributions": [
+                "671B MoE trained for ~$5.5M",
+                "Multi-Token Prediction (MTP) training objective",
+                "Auxiliary-loss-free load balancing",
+                "FP8 mixed precision training"
+            ],
+            "paper_url": "https://arxiv.org/abs/2412.19437",
+            "code_url": "https://github.com/deepseek-ai/DeepSeek-V3",
+            "citations": 800
         },
         {
             "id": 44,

@@ -88,12 +88,19 @@ export function TimelineHeader({
             </div>
 
             {/* TABS */}
-            <div style={{
-                display: 'flex',
-                gap: 'var(--s6)',
-                marginBottom: 'var(--s6)',
-                borderBottom: '1px solid var(--stroke)',
-            }}>
+            <div
+                role="tablist"
+                aria-label="Dataset selection"
+                style={{
+                    display: 'inline-flex',
+                    gap: '4px',
+                    marginBottom: 'var(--s6)',
+                    background: 'var(--bg-panel)',
+                    border: '1px solid var(--stroke)',
+                    borderRadius: 'var(--r-pill)',
+                    padding: '4px',
+                }}
+            >
                 <TabButton active={activeTab === 'models'} onClick={() => onTabChange('models')}>AI Models</TabButton>
                 <TabButton active={activeTab === 'papers'} onClick={() => onTabChange('papers')}>Research Papers</TabButton>
                 <TabButton active={activeTab === 'tools'} onClick={() => onTabChange('tools')}>AI Tools</TabButton>
@@ -262,19 +269,33 @@ function StatChip({ text }: { text: string }) {
 function TabButton({ active, onClick, children }: { active: boolean, onClick: () => void, children: React.ReactNode }) {
     return (
         <button
+            role="tab"
+            aria-selected={active}
             onClick={onClick}
             style={{
                 fontFamily: 'var(--font-sans)',
                 fontSize: 'var(--text-sm)',
                 fontWeight: active ? 'var(--weight-medium)' : 'var(--weight-regular)',
-                color: active ? 'var(--ink)' : 'var(--muted)',
-                background: 'none',
+                color: active ? 'var(--text-inverse)' : 'var(--secondary)',
+                background: active ? 'var(--bg-inverse)' : 'transparent',
                 border: 'none',
-                borderBottom: active ? '2px solid var(--ink)' : '2px solid transparent',
-                padding: 'var(--s2) 0',
+                borderRadius: 'var(--r-pill)',
+                padding: 'var(--s2) var(--s5)',
                 cursor: 'pointer',
-                marginBottom: '-1px', // overlap the container's 1px border
-                transition: 'color var(--dur-fast) var(--ease-out), border-color var(--dur-fast) var(--ease-out)',
+                transition: 'all var(--dur-fast) var(--ease-out)',
+                whiteSpace: 'nowrap',
+            }}
+            onMouseEnter={(e) => {
+                if (!active) {
+                    e.currentTarget.style.background = 'var(--bg-raised)';
+                    e.currentTarget.style.color = 'var(--ink)';
+                }
+            }}
+            onMouseLeave={(e) => {
+                if (!active) {
+                    e.currentTarget.style.background = 'transparent';
+                    e.currentTarget.style.color = 'var(--secondary)';
+                }
             }}
         >
             {children}
