@@ -28,3 +28,9 @@ dist-ssr
 
 # Vercel
 .vercel
+
+.agents
+.github
+.env
+LLM Visualizer PRD.md
+technical_specs.md
