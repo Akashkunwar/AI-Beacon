@@ -189,3 +189,10 @@
     --popup-bg: var(--bg);
     --popup-border: var(--stroke-dark);
 }
+
+/* ─── Responsive overrides (< 480px) ───────────────────────────────────────── */
+@media (max-width: 479px) {
+    :root {
+        --text-hero: 2.6rem;
+    }
+}

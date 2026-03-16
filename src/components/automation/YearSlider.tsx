@@ -141,6 +141,7 @@ export function YearSlider({
         <div
           role="list"
           aria-label="Timeline: key AI milestones by year"
+          className="automation-year-ticks"
           style={{
             display: 'grid',
             gridTemplateColumns: `repeat(${TIMELINE_TICKS.length}, 1fr)`,
@@ -154,6 +155,7 @@ export function YearSlider({
             <div
               key={year}
               role="listitem"
+              className="automation-year-tick"
               style={{
                 textAlign: 'center',
                 minWidth: 0,
@@ -185,6 +187,17 @@ export function YearSlider({
       </div>
 
       <style>{`
+        @media (max-width: 719px) {
+          .automation-year-ticks {
+            display: flex !important;
+            flex-wrap: nowrap;
+            overflow-x: auto;
+            overflow-y: hidden;
+            -webkit-overflow-scrolling: touch;
+            padding-bottom: var(--s2);
+          }
+          .automation-year-tick { min-width: 64px; flex-shrink: 0; }
+        }
         .automation-year-slider {
           -webkit-appearance: none;
           appearance: none;

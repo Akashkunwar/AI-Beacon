@@ -62,14 +62,15 @@ export function SpeedChart() {
         boxShadow: 'var(--shadow-soft)',
       }}
     >
-      <svg
-        width="100%"
-        height={chartH}
-        viewBox={`0 0 ${LABEL_W + BAR_MAX_W + PAD.right} ${chartH}`}
-        preserveAspectRatio="xMidYMid meet"
-        style={{ maxWidth: 560, display: 'block', margin: '0 auto' }}
-        aria-label="Output tokens per second by model"
-      >
+      <div className="speed-chart-scroll" style={{ overflowX: 'auto', overflowY: 'hidden', maxWidth: '100%' }}>
+        <svg
+          width="100%"
+          height={chartH}
+          viewBox={`0 0 ${LABEL_W + BAR_MAX_W + PAD.right} ${chartH}`}
+          preserveAspectRatio="xMidYMid meet"
+          style={{ minWidth: 280, maxWidth: 560, display: 'block', margin: '0 auto' }}
+          aria-label="Output tokens per second by model"
+        >
         {/* Median line */}
         <line
           x1={medianX}
@@ -127,6 +128,7 @@ export function SpeedChart() {
           );
         })}
       </svg>
+      </div>
       <div
         style={{
           display: 'flex',

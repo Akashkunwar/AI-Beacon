@@ -164,6 +164,7 @@ export function BenchmarkLeaderboard() {
       aria-label="Sortable benchmark leaderboard"
     >
       <table
+        className="benchmark-leaderboard-table"
         style={{
           width: '100%',
           borderCollapse: 'collapse',
@@ -267,6 +268,30 @@ export function BenchmarkLeaderboard() {
           ))}
         </tbody>
       </table>
+      <style>{`
+        @media (max-width: 719px) {
+          .benchmark-leaderboard-table thead tr th:first-child,
+          .benchmark-leaderboard-table thead tr th:nth-child(2) {
+            position: sticky;
+            background: var(--table-header-bg);
+            z-index: 2;
+          }
+          .benchmark-leaderboard-table thead tr th:first-child { left: 0; }
+          .benchmark-leaderboard-table thead tr th:nth-child(2) { left: 52px; box-shadow: 2px 0 4px rgba(0,0,0,0.04); }
+          .benchmark-leaderboard-table tbody tr td:first-child,
+          .benchmark-leaderboard-table tbody tr td:nth-child(2) {
+            position: sticky;
+            background: var(--bg);
+            z-index: 1;
+          }
+          .benchmark-leaderboard-table tbody tr td:first-child { left: 0; }
+          .benchmark-leaderboard-table tbody tr td:nth-child(2) { left: 52px; box-shadow: 2px 0 4px rgba(0,0,0,0.04); }
+          .benchmark-leaderboard-table tbody tr:hover td:first-child,
+          .benchmark-leaderboard-table tbody tr:hover td:nth-child(2) {
+            background: var(--table-row-hover);
+          }
+        }
+      `}</style>
     </div>
   );
 }

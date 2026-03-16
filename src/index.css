@@ -349,6 +349,13 @@ pre,
   padding: 0 var(--s5);
 }
 
+@media (max-width: 479px) {
+  .depth-container {
+    padding-left: var(--s4);
+    padding-right: var(--s4);
+  }
+}
+
 @media (min-width: 768px) {
   .depth-container {
     padding: 0 var(--s6);

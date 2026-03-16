@@ -291,6 +291,7 @@ export function AutomationClockPage() {
         {/* Key metrics */}
         <Reveal delay={0.1} reduced={reduced}>
           <section
+            className="automation-metrics-grid"
             style={{
               display: 'grid',
               gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
@@ -364,6 +365,7 @@ export function AutomationClockPage() {
               </span>
             </div>
             <div
+              className="automation-sector-grid"
               style={{
                 display: 'grid',
                 gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))',
@@ -408,6 +410,12 @@ export function AutomationClockPage() {
           <SourcesPanel />
         </Reveal>
       </main>
+      <style>{`
+        @media (max-width: 479px) {
+          .automation-metrics-grid { grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); }
+          .automation-sector-grid { grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); }
+        }
+      `}</style>
 
       <footer
         style={{

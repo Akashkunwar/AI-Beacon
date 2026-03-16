@@ -163,36 +163,34 @@ export function TimelineCanvas({ activeTab, models: baseModels, filteredModelIds
     };
 
 
-    return (
-        <div style={{ position: 'relative', margin: 'var(--s6) 0' }}>
-            {/* Jump to year controls */}
-            <div className="depth-container" style={{
-                display: 'flex',
-                justifyContent: 'space-between',
-                alignItems: 'center',
-                marginBottom: 'var(--s4)'
-            }}>
-                {/* Zoom control */}
-                <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--s2)' }}>
-                    <span style={{ fontFamily: 'var(--font-mono)', fontSize: 'var(--text-xs)', color: 'var(--muted)' }}>Zoom</span>
-                    <input
-                        type="range"
-                        min="0.5"
-                        max="4"
-                        step="0.1"
-                        value={zoom}
-                        onChange={handleZoomChange}
-                        style={{ width: '120px', accentColor: 'var(--ink)' }}
-                        aria-label="Timeline zoom level"
-                    />
-                </div>
+    const canvasHeight = 'clamp(320px, 60vh, 660px)';
 
-                {/* Jump to year controls */}
-                <div style={{ display: 'flex', gap: 'var(--s1)' }}>
+    return (
+        <div style={{ position: 'relative', margin: 'var(--s6) 0' }} className="timeline-canvas-wrapper">
+            {/* Jump to year controls */}
+            <div className="depth-container timeline-canvas-controls">
+                <div className="timeline-zoom-row">
+                    <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--s2)' }}>
+                        <span style={{ fontFamily: 'var(--font-mono)', fontSize: 'var(--text-xs)', color: 'var(--muted)' }}>Zoom</span>
+                        <input
+                            type="range"
+                            min="0.5"
+                            max="4"
+                            step="0.1"
+                            value={zoom}
+                            onChange={handleZoomChange}
+                            style={{ width: '120px', accentColor: 'var(--ink)' }}
+                            aria-label="Timeline zoom level"
+                        />
+                    </div>
+                </div>
+                <div className="timeline-year-row">
                     {Array.from({ length: END_YEAR - START_YEAR + 1 }, (_, i) => START_YEAR + i).map(year => (
                         <button
                             key={year}
                             onClick={() => jumpToYear(year)}
+                            type="button"
+                            className="timeline-year-btn"
                             style={{
                                 fontFamily: 'var(--font-mono)',
                                 fontSize: 'var(--text-xs)',
@@ -200,9 +198,11 @@ export function TimelineCanvas({ activeTab, models: baseModels, filteredModelIds
                                 background: activeYear === year ? 'var(--ink)' : 'transparent',
                                 border: 'none',
                                 borderRadius: 'var(--r-sm)',
-                                padding: 'var(--s1) var(--s2)',
+                                padding: 'var(--s2) var(--s3)',
+                                minHeight: 44,
                                 cursor: 'pointer',
                                 transition: 'all var(--dur-fast) var(--ease-out)',
+                                flexShrink: 0,
                             }}
                         >
                             {year}
@@ -211,27 +211,27 @@ export function TimelineCanvas({ activeTab, models: baseModels, filteredModelIds
                 </div>
             </div>
 
-
-
             {/* Scroll hint */}
-            <div style={{
-                position: 'absolute',
-                right: 0,
-                height: '660px',
-                width: '80px',
-                background: 'linear-gradient(to right, transparent, var(--bg-panel))',
-                zIndex: 2,
-                pointerEvents: 'none',
-                opacity: scrolled ? 0 : 1,
-                transition: 'opacity var(--dur-slow) var(--ease-out)',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'flex-end',
-                paddingRight: 'var(--s4)',
-                fontFamily: 'var(--font-mono)',
-                fontSize: 'var(--text-xs)',
-                color: 'var(--muted)',
-            }}>
+            <div
+                className="timeline-scroll-hint"
+                style={{
+                    position: 'absolute',
+                    right: 0,
+                    height: canvasHeight,
+                    background: 'linear-gradient(to right, transparent, var(--bg-panel))',
+                    zIndex: 2,
+                    pointerEvents: 'none',
+                    opacity: scrolled ? 0 : 1,
+                    transition: 'opacity var(--dur-slow) var(--ease-out)',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'flex-end',
+                    paddingRight: 'var(--s4)',
+                    fontFamily: 'var(--font-mono)',
+                    fontSize: 'var(--text-xs)',
+                    color: 'var(--muted)',
+                }}
+            >
                 scroll &rarr;
             </div>
 
@@ -243,8 +243,8 @@ export function TimelineCanvas({ activeTab, models: baseModels, filteredModelIds
                 aria-label="AI model timeline, use arrow keys to scroll"
                 className="timeline-scroll-container"
                 style={{
-                    width: '100vw',
-                    height: '660px',
+                    width: '100%',
+                    height: canvasHeight,
                     background: 'var(--bg-panel)',
                     borderTop: '1px solid var(--stroke)',
                     borderBottom: '1px solid var(--stroke)',
@@ -252,7 +252,7 @@ export function TimelineCanvas({ activeTab, models: baseModels, filteredModelIds
                     overflowY: 'visible',
                     scrollBehavior: 'smooth',
                     position: 'relative',
-                    outlineOffset: '2px', // For focus
+                    outlineOffset: '2px',
                 }}
             >
                 {/* Inner Canvas */}
@@ -461,6 +461,38 @@ export function TimelineCanvas({ activeTab, models: baseModels, filteredModelIds
             </div>
 
             <style>{`
+                .timeline-canvas-controls {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    margin-bottom: var(--s4);
+                    gap: var(--s4);
+                }
+                .timeline-zoom-row { display: flex; align-items: center; }
+                .timeline-year-row {
+                    display: flex;
+                    gap: var(--s1);
+                    flex-wrap: wrap;
+                }
+                .timeline-scroll-hint { width: 80px; }
+                @media (max-width: 719px) {
+                    .timeline-canvas-controls {
+                        flex-direction: column;
+                        align-items: stretch;
+                    }
+                    .timeline-zoom-row { margin-bottom: var(--s2); }
+                    .timeline-year-row {
+                        flex-wrap: nowrap;
+                        overflow-x: auto;
+                        overflow-y: hidden;
+                        -webkit-overflow-scrolling: touch;
+                        padding-bottom: var(--s1);
+                        margin: 0 calc(-1 * var(--s4));
+                        padding-left: var(--s4);
+                        padding-right: var(--s4);
+                    }
+                    .timeline-scroll-hint { width: 40px; }
+                }
                 .timeline-scroll-container:focus {
                     outline: 2px solid var(--stroke-dark);
                 }
@@ -475,7 +507,6 @@ export function TimelineCanvas({ activeTab, models: baseModels, filteredModelIds
                     background: var(--stroke-dark);
                     border-radius: var(--r-pill);
                 }
-                /* Firefox scrollbar styling inline is possible but tricky, using standard browser fallback for now, css scrollbar-color can be added */
                 .timeline-scroll-container {
                     scrollbar-width: thin;
                     scrollbar-color: var(--stroke-dark) var(--stroke);

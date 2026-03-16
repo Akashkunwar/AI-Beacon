@@ -145,17 +145,13 @@ export function TimelineHeader({
 
             {/* Filters Row */}
             {activeTab === 'models' && (
-                <div style={{
-                    display: 'flex',
-                    gap: 'var(--s4)',
-                    flexWrap: 'wrap',
-                    alignItems: 'center'
-                }}>
+                <div className="timeline-header-filters">
                     {/* Filter 1: Company */}
                     <select
                         value={selectedCompany || ''}
                         onChange={(e) => onCompanyChange(e.target.value || null)}
                         style={dropdownStyle}
+                        className="timeline-filter-control"
                         aria-label="Filter by company"
                     >
                         <option value="">All companies</option>
@@ -163,7 +159,7 @@ export function TimelineHeader({
                     </select>
 
                     {/* Filter 2: Modality */}
-                    <div style={filterGroupStyle}>
+                    <div style={filterGroupStyle} className="timeline-filter-group">
                         <TogglePill
                             active={activeModalities.length === 0}
                             onClick={() => onModalitiesChange([])}
@@ -182,7 +178,7 @@ export function TimelineHeader({
                     </div>
 
                     {/* Filter 3: Open Source */}
-                    <div style={filterGroupStyle}>
+                    <div style={filterGroupStyle} className="timeline-filter-group">
                         <TogglePill
                             active={openSourceFilter === 'all'}
                             onClick={() => onOpenSourceChange('all')}
@@ -203,8 +199,8 @@ export function TimelineHeader({
                         </TogglePill>
                     </div>
 
-                    {/* Filter 4: Year Range Slider Placeholder or simple inputs */}
-                    <div style={{ ...filterGroupStyle, gap: 'var(--s2)' }}>
+                    {/* Filter 4: Year Range */}
+                    <div style={{ ...filterGroupStyle, gap: 'var(--s2)' }} className="timeline-filter-group timeline-filter-year">
                         <span style={{ fontFamily: 'var(--font-mono)', fontSize: 'var(--text-xs)', color: 'var(--secondary)' }}>
                             {yearRange[0]} — {yearRange[1]}
                         </span>
@@ -214,6 +210,7 @@ export function TimelineHeader({
                             value={yearRange[0]}
                             onChange={(e) => onYearRangeChange([Number(e.target.value), Math.max(Number(e.target.value), yearRange[1])])}
                             style={{ width: '80px', accentColor: 'var(--ink)' }}
+                            className="timeline-filter-control"
                             aria-label="Start year"
                         />
                         <input
@@ -222,6 +219,7 @@ export function TimelineHeader({
                             value={yearRange[1]}
                             onChange={(e) => onYearRangeChange([Math.min(yearRange[0], Number(e.target.value)), Number(e.target.value)])}
                             style={{ width: '80px', accentColor: 'var(--ink)' }}
+                            className="timeline-filter-control"
                             aria-label="End year"
                         />
                     </div>
@@ -229,7 +227,9 @@ export function TimelineHeader({
                     {/* Reset Filters */}
                     {isFiltered && (
                         <button
+                            type="button"
                             onClick={handleReset}
+                            className="timeline-filter-reset"
                             style={{
                                 background: 'none', border: 'none', cursor: 'pointer',
                                 fontFamily: 'var(--font-mono)', fontSize: 'var(--text-xs)',
@@ -244,6 +244,24 @@ export function TimelineHeader({
                     )}
                 </div>
             )}
+            <style>{`
+                .timeline-header-filters {
+                    display: flex;
+                    gap: var(--s4);
+                    flex-wrap: wrap;
+                    align-items: center;
+                }
+                .timeline-filter-control { min-height: 44px; }
+                @media (max-width: 719px) {
+                    .timeline-header-filters {
+                        flex-direction: column;
+                        align-items: stretch;
+                    }
+                    .timeline-filter-group { width: 100%; }
+                    .timeline-filter-year { flex-wrap: wrap; }
+                    .timeline-filter-reset { margin-left: 0; margin-top: var(--s2); }
+                }
+            `}</style>
         </section>
     );
 }
@@ -269,6 +287,7 @@ function StatChip({ text }: { text: string }) {
 function TabButton({ active, onClick, children }: { active: boolean, onClick: () => void, children: React.ReactNode }) {
     return (
         <button
+            type="button"
             role="tab"
             aria-selected={active}
             onClick={onClick}
@@ -281,6 +300,7 @@ function TabButton({ active, onClick, children }: { active: boolean, onClick: ()
                 border: 'none',
                 borderRadius: 'var(--r-pill)',
                 padding: 'var(--s2) var(--s5)',
+                minHeight: 44,
                 cursor: 'pointer',
                 transition: 'all var(--dur-fast) var(--ease-out)',
                 whiteSpace: 'nowrap',
@@ -306,7 +326,9 @@ function TabButton({ active, onClick, children }: { active: boolean, onClick: ()
 function TogglePill({ active, onClick, children }: { active: boolean, onClick: () => void, children: React.ReactNode }) {
     return (
         <button
+            type="button"
             onClick={onClick}
+            className="timeline-filter-touch"
             style={{
                 fontFamily: 'var(--font-sans)',
                 fontSize: 'var(--text-sm)',
@@ -315,6 +337,7 @@ function TogglePill({ active, onClick, children }: { active: boolean, onClick: (
                 border: `1px solid ${active ? 'var(--ink)' : 'var(--stroke)'}`,
                 borderRadius: 'var(--r-pill)',
                 padding: 'var(--s1) var(--s3)',
+                minHeight: 44,
                 cursor: 'pointer',
                 transition: 'all var(--dur-fast) var(--ease-out)',
             }}

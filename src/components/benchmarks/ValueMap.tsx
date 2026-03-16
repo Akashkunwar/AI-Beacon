@@ -104,14 +104,15 @@ export function ValueMap() {
         position: 'relative',
       }}
     >
-      <svg
-        width="100%"
-        height={H}
-        viewBox={`0 0 ${W} ${H}`}
-        preserveAspectRatio="xMidYMid meet"
-        style={{ maxWidth: W, display: 'block', margin: '0 auto' }}
-        aria-label="Quality vs cost scatter plot"
-      >
+      <div className="value-map-scroll" style={{ overflowX: 'auto', overflowY: 'hidden', maxWidth: '100%' }}>
+        <svg
+          width="100%"
+          height={H}
+          viewBox={`0 0 ${W} ${H}`}
+          preserveAspectRatio="xMidYMid meet"
+          style={{ minWidth: 280, maxWidth: W, display: 'block', margin: '0 auto' }}
+          aria-label="Quality vs cost scatter plot"
+        >
         {/* Y-axis grid + tick labels */}
         {yTicks.map((t, i) => (
           <g key={i}>
@@ -231,6 +232,7 @@ export function ValueMap() {
           Cost $/1M tokens (log) →
         </text>
       </svg>
+      </div>
 
       {/* Legend */}
       <div

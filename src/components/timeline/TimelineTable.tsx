@@ -87,12 +87,15 @@ export function TimelineTable({ activeTab, models, filteredModelIds, selectedMod
                 </div>
 
                 <button
+                    type="button"
                     onClick={cycleSort}
                     style={{
                         background: 'none', border: 'none', cursor: 'pointer',
                         fontFamily: 'var(--font-mono)',
                         fontSize: 'var(--text-xs)',
-                        color: 'var(--secondary)'
+                        color: 'var(--secondary)',
+                        minHeight: 44,
+                        padding: 'var(--s2) var(--s3)',
                     }}
                 >
                     Sort by: <span style={{ color: 'var(--ink)' }}>{sortOption}</span>
@@ -125,8 +128,8 @@ export function TimelineTable({ activeTab, models, filteredModelIds, selectedMod
                                     <th style={thStyle}>Authors</th>
                                     <th style={thStyle}>Institution</th>
                                     <th style={thStyle}>Topic</th>
-                                    <th style={thStyle}>Citations</th>
-                                    <th style={thStyle}>Published In</th>
+                                    <th style={thStyle} className="timeline-table-hide-mobile">Citations</th>
+                                    <th style={thStyle} className="timeline-table-hide-mobile">Published In</th>
                                 </>
                             ) : (
                                 <>
@@ -134,9 +137,9 @@ export function TimelineTable({ activeTab, models, filteredModelIds, selectedMod
                                     <th style={thStyle}>Company</th>
                                     <th style={thStyle}>Type</th>
                                     <th style={thStyle}>Params</th>
-                                    <th style={thStyle}>Context</th>
-                                    <th style={thStyle}>Modalities</th>
-                                    <th style={thStyle}>Open</th>
+                                    <th style={thStyle} className="timeline-table-hide-mobile">Context</th>
+                                    <th style={thStyle} className="timeline-table-hide-mobile">Modalities</th>
+                                    <th style={thStyle} className="timeline-table-hide-mobile">Open</th>
                                 </>
                             )}
                             <th style={thStyle}>Date</th>
@@ -170,10 +173,10 @@ export function TimelineTable({ activeTab, models, filteredModelIds, selectedMod
                                             <td style={{ ...tdStyle, fontFamily: 'var(--font-mono)', color: 'var(--ink)' }}>
                                                 {model.topic || '—'}
                                             </td>
-                                            <td style={{ ...tdStyle, fontFamily: 'var(--font-mono)', color: 'var(--secondary)' }}>
+                                            <td style={{ ...tdStyle, fontFamily: 'var(--font-mono)', color: 'var(--secondary)' }} className="timeline-table-hide-mobile">
                                                 {model.citations?.toLocaleString() || '—'}
                                             </td>
-                                            <td style={{ ...tdStyle }}>
+                                            <td style={{ ...tdStyle }} className="timeline-table-hide-mobile">
                                                 <span style={{ fontFamily: 'var(--font-mono)', fontSize: 'calc(var(--text-2xs) - 1px)', color: 'var(--muted)' }}>{model.published_in || '—'}</span>
                                             </td>
                                         </>
@@ -191,17 +194,17 @@ export function TimelineTable({ activeTab, models, filteredModelIds, selectedMod
                                             <td style={{ ...tdStyle, fontFamily: 'var(--font-mono)', color: 'var(--ink)' }}>
                                                 {formatParams(model.parameters, model.parameter_unit)}
                                             </td>
-                                            <td style={{ ...tdStyle, fontFamily: 'var(--font-mono)', color: 'var(--secondary)' }}>
+                                            <td style={{ ...tdStyle, fontFamily: 'var(--font-mono)', color: 'var(--secondary)' }} className="timeline-table-hide-mobile">
                                                 {formatContextWindow(model.context_window_tokens, 'short')}
                                             </td>
-                                            <td style={{ ...tdStyle }}>
+                                            <td style={{ ...tdStyle }} className="timeline-table-hide-mobile">
                                                 <div style={{ display: 'flex', gap: '4px', flexWrap: 'wrap' }}>
                                                     {model.modalities.map(m => (
                                                         <span key={m} style={miniPillStyle}>{m}</span>
                                                     ))}
                                                 </div>
                                             </td>
-                                            <td style={{ ...tdStyle, fontFamily: 'var(--font-mono)', color: 'var(--muted)' }}>
+                                            <td style={{ ...tdStyle, fontFamily: 'var(--font-mono)', color: 'var(--muted)' }} className="timeline-table-hide-mobile">
                                                 {model.open_source ? '●' : '○'}
                                             </td>
                                         </>
@@ -246,6 +249,7 @@ export function TimelineTable({ activeTab, models, filteredModelIds, selectedMod
             <style>{`
                 .timeline-row {
                     height: 48px;
+                    min-height: 44px;
                     border-bottom: 1px solid var(--table-border);
                     cursor: pointer;
                     transition: background var(--dur-fast) var(--ease-out);
@@ -255,6 +259,9 @@ export function TimelineTable({ activeTab, models, filteredModelIds, selectedMod
                 }
                 .timeline-row.active {
                     background: var(--table-row-active);
+                }
+                @media (max-width: 719px) {
+                    .timeline-table-hide-mobile { display: none !important; }
                 }
             `}</style>
         </section>

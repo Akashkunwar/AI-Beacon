@@ -109,14 +109,15 @@ export function ProgressTimeline() {
         boxShadow: 'var(--shadow-soft)',
       }}
     >
-      <svg
-        width="100%"
-        height={H}
-        viewBox={`0 0 ${W} ${H}`}
-        preserveAspectRatio="xMidYMid meet"
-        style={{ maxWidth: W, display: 'block', margin: '0 auto' }}
-        aria-label="MMLU score progress over time"
-      >
+      <div className="progress-timeline-scroll" style={{ overflowX: 'auto', overflowY: 'hidden', maxWidth: '100%' }}>
+        <svg
+          width="100%"
+          height={H}
+          viewBox={`0 0 ${W} ${H}`}
+          preserveAspectRatio="xMidYMid meet"
+          style={{ minWidth: 280, maxWidth: W, display: 'block', margin: '0 auto' }}
+          aria-label="MMLU score progress over time"
+        >
         {/* Y-axis score ticks + grid lines */}
         {scoreTicks.map((tick) => (
           <g key={tick.label}>
@@ -262,6 +263,7 @@ export function ProgressTimeline() {
           MMLU Score
         </text>
       </svg>
+      </div>
 
       {/* Hover detail */}
       {hoverId && (() => {

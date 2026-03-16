@@ -42,7 +42,8 @@ export function TimelinePopup({ activeTab, model, onClose, onNavigate, totalMode
                 role="dialog"
                 aria-modal="true"
                 aria-labelledby="popup-model-name"
-                onClick={(e) => e.stopPropagation()} // Prevent close
+                onClick={(e) => e.stopPropagation()}
+                className="timeline-popup-dialog"
                 style={{
                     background: 'var(--popup-bg)',
                     border: '1px solid var(--popup-border)',
@@ -77,15 +78,23 @@ export function TimelinePopup({ activeTab, model, onClose, onNavigate, totalMode
                         </div>
                     </div>
                     <button
+                        type="button"
                         onClick={onClose}
+                        className="timeline-popup-close"
                         style={{
                             background: 'none', border: 'none', cursor: 'pointer',
                             fontFamily: 'var(--font-sans)',
                             fontSize: 'var(--text-lg)',
-                            color: 'var(--muted)'
+                            color: 'var(--muted)',
+                            minWidth: 44,
+                            minHeight: 44,
+                            padding: 'var(--s2)',
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'center'
                         }}
-                        onMouseEnter={(e) => e.currentTarget.style.color = 'var(--ink)'}
-                        onMouseLeave={(e) => e.currentTarget.style.color = 'var(--muted)'}
+                        onMouseEnter={(e) => { e.currentTarget.style.color = 'var(--ink)'; }}
+                        onMouseLeave={(e) => { e.currentTarget.style.color = 'var(--muted)'; }}
                         aria-label="Close"
                     >
                         &times;
@@ -200,7 +209,7 @@ export function TimelinePopup({ activeTab, model, onClose, onNavigate, totalMode
                 {(model.use_cases?.length > 0 || model.notable_features?.length > 0 || (model.key_contributions?.length ?? 0) > 0) && (
                     <>
                         <hr style={dividerStyle} />
-                        <div style={{ display: 'grid', gridTemplateColumns: activeTab === 'papers' ? '1fr' : '1fr 1fr', gap: 'var(--s4)' }}>
+                        <div className="timeline-popup-specs-grid" style={{ display: 'grid', gridTemplateColumns: activeTab === 'papers' ? '1fr' : '1fr 1fr', gap: 'var(--s4)' }}>
                             {activeTab !== 'papers' && model.use_cases?.length > 0 && (
                                 <div>
                                     <h4 style={sectionHeaderStyle}>Use Cases</h4>
@@ -296,6 +305,13 @@ export function TimelinePopup({ activeTab, model, onClose, onNavigate, totalMode
                 </div>
 
             </div>
+            <style>{`
+                .timeline-popup-dialog { margin: 0 auto; }
+                @media (max-width: 479px) {
+                    .timeline-popup-dialog { margin: var(--s4); }
+                    .timeline-popup-specs-grid { grid-template-columns: 1fr !important; }
+                }
+            `}</style>
         </div>
     );
 }

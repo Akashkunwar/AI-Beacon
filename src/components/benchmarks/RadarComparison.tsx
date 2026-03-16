@@ -122,15 +122,7 @@ export function RadarComparison() {
         boxShadow: 'var(--shadow-soft)',
       }}
     >
-      <div
-        style={{
-          display: 'flex',
-          flexWrap: 'wrap',
-          gap: 'var(--s5)',
-          alignItems: 'flex-start',
-          marginBottom: 'var(--s5)',
-        }}
-      >
+      <div className="radar-comparison-selects">
         <div>
           <label
             htmlFor="radar-model-a"
@@ -159,6 +151,7 @@ export function RadarComparison() {
               borderRadius: 'var(--r-md)',
               padding: 'var(--s2) var(--s3)',
               minWidth: 180,
+              minHeight: 44,
             }}
           >
             {nonHistorical.map((m) => (
@@ -196,6 +189,7 @@ export function RadarComparison() {
               borderRadius: 'var(--r-md)',
               padding: 'var(--s2) var(--s3)',
               minWidth: 180,
+              minHeight: 44,
             }}
           >
             {nonHistorical.map((m) => (
@@ -207,13 +201,15 @@ export function RadarComparison() {
         </div>
       </div>
 
-      <svg
-        width={RADAR_SIZE}
-        height={RADAR_SIZE}
-        viewBox={`0 0 ${RADAR_SIZE} ${RADAR_SIZE}`}
-        style={{ display: 'block', margin: '0 auto' }}
-        aria-label="Radar comparison of two models"
-      >
+      <div className="radar-chart-wrap" style={{ maxWidth: 280, width: '100%', margin: '0 auto' }}>
+        <svg
+          width="100%"
+          height={RADAR_SIZE}
+          viewBox={`0 0 ${RADAR_SIZE} ${RADAR_SIZE}`}
+          preserveAspectRatio="xMidYMid meet"
+          style={{ display: 'block', margin: '0 auto' }}
+          aria-label="Radar comparison of two models"
+        >
         {/* Grid circles */}
         {[0.25, 0.5, 0.75, 1].map((r) => (
           <circle
@@ -274,6 +270,7 @@ export function RadarComparison() {
           strokeWidth={1.5}
         />
       </svg>
+      </div>
 
       {/* Legend */}
       <div
@@ -419,6 +416,22 @@ export function RadarComparison() {
           </tr>
         </tbody>
       </table>
+      <style>{`
+        .radar-comparison-selects {
+          display: flex;
+          flex-wrap: wrap;
+          gap: var(--s5);
+          align-items: flex-start;
+          margin-bottom: var(--s5);
+        }
+        @media (max-width: 719px) {
+          .radar-comparison-selects {
+            flex-direction: column;
+          }
+          .radar-comparison-selects > div { width: 100%; }
+          .radar-comparison-selects select { width: 100%; max-width: 100%; }
+        }
+      `}</style>
     </div>
   );
 }

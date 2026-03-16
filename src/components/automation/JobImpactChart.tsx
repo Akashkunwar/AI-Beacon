@@ -60,6 +60,7 @@ export function JobImpactChart({ jobsDisplaced, newJobsCreated }: JobImpactChart
         variants={fadeUp}
         initial="hidden"
         animate={inView ? 'visible' : 'hidden'}
+        className="job-impact-chart-grid"
         style={{
           display: 'grid',
           gridTemplateColumns: '1fr auto 1fr',
@@ -192,6 +193,13 @@ export function JobImpactChart({ jobsDisplaced, newJobsCreated }: JobImpactChart
         roles are created in the model, but they often require different skills; reskilling and
         policy will shape outcomes.
       </motion.p>
+      <style>{`
+        @media (max-width: 719px) {
+          .job-impact-chart-grid {
+            grid-template-columns: 1fr !important;
+          }
+        }
+      `}</style>
     </section>
   );
 }

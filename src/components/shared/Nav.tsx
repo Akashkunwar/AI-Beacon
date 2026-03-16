@@ -256,10 +256,11 @@ export function Nav({ activeRoute }: NavProps) {
             </AnimatePresence>
 
             <style>{`
-                @media (max-width: 760px) {
+                @media (max-width: 719px) {
                     .nav-links-desktop { display: none !important; }
                     .mobile-toggle { display: block !important; }
                 }
+                .mobile-toggle { min-width: 44px; min-height: 44px; }
             `}</style>
         </nav>
             <div aria-hidden="true" style={{ height: navHeight, flexShrink: 0 }} />
