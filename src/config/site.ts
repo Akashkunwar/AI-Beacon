@@ -7,7 +7,7 @@
 
 const base = typeof import.meta.env?.VITE_SITE_URL === 'string'
     ? import.meta.env.VITE_SITE_URL.replace(/\/$/, '')
-    : 'https://ai-beacon.vercel.app';
+    : 'https://ai-beacon.pages.dev';
 
 export const SITE_CONFIG = {
     /** Canonical base URL (no trailing slash) */

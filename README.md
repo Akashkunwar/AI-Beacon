@@ -2,7 +2,7 @@
 
 **A free, browser-native, zero-backend interactive toolkit for understanding how Large Language Models work.**
 
-[![Deployed on Vercel](https://img.shields.io/badge/Deployed-Vercel-black?style=flat&logo=vercel)](https://ai-beacon.vercel.app)
+[![Deployed on Cloudflare Pages](https://img.shields.io/badge/Deployed-Cloudflare%20Pages-F38020?style=flat&logo=cloudflare)](https://ai-beacon.pages.dev)
 
 ---
 
@@ -38,13 +38,15 @@ The AI revolution is moving fast. There’s no shortage of content about *what* 
 
 ## Screenshots
 
-Add screenshots to `docs/screenshots/` (e.g. `home.png`, `simulator.png`, `timeline.png`, `benchmarks.png`) and reference them below so visitors can see the app at a glance.
+Screenshots live in `docs/screenshots/`. Here’s the app at a glance:
 
 | Home | Transformer Simulator | Timeline |
 |------|------------------------|----------|
-| _Add_ `docs/screenshots/home.png` | _Add_ `docs/screenshots/simulator.png` | _Add_ `docs/screenshots/timeline.png` |
+| [![Home](docs/screenshots/AiBeacon-Home.png)](docs/screenshots/AiBeacon-Home.png) | [![Transformer Simulator](docs/screenshots/AiBeacon-Transformer-Simulator.png)](docs/screenshots/AiBeacon-Transformer-Simulator.png) | [![AI Timeline](docs/screenshots/Ai-Beacon-Timeline.png)](docs/screenshots/Ai-Beacon-Timeline.png) |
 
-Example markdown once images exist: `![Home](docs/screenshots/home.png)`
+- **Home** — Hero, module grid, and conceptual timeline.
+- **Transformer Simulator** — Step-through LLM forward pass (input, tokens, attention, sampling).
+- **Timeline** — Chronological view of AI models, papers, and tools with filters.
 
 ---
 
@@ -58,7 +60,7 @@ Example markdown once images exist: `![Home](docs/screenshots/home.png)`
 | **Animation** | Framer Motion 11 |
 | **Styling** | CSS custom properties (design tokens) + Tailwind 4 |
 | **Testing** | Vitest + React Testing Library |
-| **Deployment** | Vercel (static) |
+| **Deployment** | Cloudflare Pages (static) |
 
 **Math:** Custom pure-TypeScript tensor and transformer math (no `mathjs`). Toy dimensions only (e.g. `d_model ≤ 64`, `n_tokens ≤ 12`) so everything runs instantly in the browser.
 
@@ -97,7 +99,7 @@ Open [http://localhost:5173](http://localhost:5173).
 ## Project Structure
 
 ```text
-AiViz/
+AI-Beacon/
 ├── public/                 # Static assets, favicon, robots.txt, sitemap
 ├── src/
 │   ├── components/
@@ -125,9 +127,8 @@ AiViz/
 │   └── index.css           # Global styles, imports tokens
 ├── index.html
 ├── vite.config.ts
-├── LLM Visualizer PRD.md   # Product vision, personas, pipeline steps
-├── technical_specs.md      # Code-level specs, data structures
-└── STEPS.md                # Implementation steps
+├── AI-Beacon-PRD.md        # Product vision, personas, pipeline steps, modules
+└── AI-Beacon-Technical-Specs.md   # Code structure, data structures, design tokens
 ```
 
 ---
@@ -153,12 +154,10 @@ Before changing code, read these so the whole codebase and intent are clear:
 
 | Document | Purpose |
 |----------|--------|
-| [**LLM Visualizer PRD.md**](./LLM%20Visualizer%20PRD.md) | Product vision, target users, pipeline steps, dual-mode UI |
-| [**technical_specs.md**](./technical_specs.md) | Project structure, data structures, component architecture |
-| [**STEPS.md**](./STEPS.md) | Step-by-step implementation checklist |
-| [**.agents/skills/aiviz_frontend/SKILL.md**](./.agents/skills/aiviz_frontend/SKILL.md) | Frontend standards: design tokens, component rules, state, a11y, testing |
+| [**AI-Beacon-PRD.md**](./AI-Beacon-PRD.md) | Product vision, target users, pipeline steps, modules, design principles |
+| [**AI-Beacon-Technical-Specs.md**](./AI-Beacon-Technical-Specs.md) | Project structure, data structures, component architecture, design tokens |
 
-Design is **minimal monochrome light** (greyscale only in UI). Data visualizations may use a separate `--viz-*` token set; see `src/tokens.css` and the SKILL.
+Design is **minimal monochrome light** (greyscale only in UI). Data visualizations use a separate `--viz-*` token set; see `src/tokens.css`.
 
 ---
 
@@ -167,8 +166,8 @@ Design is **minimal monochrome light** (greyscale only in UI). Data visualizatio
 We welcome contributions that align with the PRD and technical specs.
 
 1. **Fork** the repo and create a branch from `main`.
-2. **Read** `LLM Visualizer PRD.md`, `technical_specs.md`, and `.agents/skills/aiviz_frontend/SKILL.md`.
-3. **Follow** existing patterns: named exports, tokens from `tokens.css`, no `any`, functional components, accessibility (keyboard, `aria-*`, `prefers-reduced-motion`).
+2. **Read** [AI-Beacon-PRD.md](./AI-Beacon-PRD.md) and [AI-Beacon-Technical-Specs.md](./AI-Beacon-Technical-Specs.md).
+3. **Follow** existing patterns: named exports, tokens from `src/tokens.css`, no `any`, functional components, accessibility (keyboard, `aria-*`, `prefers-reduced-motion`).
 4. **Test:** run `npm run lint` and `npm run test` before submitting.
 5. **Open a PR** with a short description of what changed and why.
 
@@ -184,5 +183,5 @@ License not yet specified. If you adopt a license (e.g. MIT), add a `LICENSE` fi
 
 ## Links
 
-- **Live site:** [https://ai-beacon.vercel.app](https://ai-beacon.vercel.app)
+- **Live site:** [https://ai-beacon.pages.dev](https://ai-beacon.pages.dev)
 - **Repository:** [https://github.com/Akashkunwar/AI-Beacon](https://github.com/Akashkunwar/AI-Beacon)

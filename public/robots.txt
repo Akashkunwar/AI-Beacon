@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://depth-llm.vercel.app/sitemap.xml
+Sitemap: https://ai-beacon.pages.dev/sitemap.xml
