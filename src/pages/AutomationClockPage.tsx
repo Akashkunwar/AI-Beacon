@@ -1,6 +1,7 @@
 import { useRef, useState, useMemo } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { SEO } from '@/components/common/SEO';
+import { SITE_CONFIG } from '@/config/site';
 import { Nav } from '@/components/shared/Nav';
 import { useReducedMotion } from '@/hooks/useReducedMotion';
 import { getInterpolatedData } from '@/utils/interpolationUtils';
@@ -87,10 +88,20 @@ export function AutomationClockPage() {
       <SEO
         title="The AI Impact Index | Automation Clock"
         description="Track AI disruption across 18 sectors from 2022 to 2030: jobs at risk, automation rates, and expert projections. Cited sources."
+        canonical={`${SITE_CONFIG.baseUrl}/automation-clock`}
+        structuredData={{
+          '@context': 'https://schema.org',
+          '@type': 'WebApplication',
+          name: 'AI Beacon — The AI Impact Index',
+          description: 'Track AI disruption across 18 sectors: jobs at risk, automation rates, and expert projections.',
+          applicationCategory: 'EducationalApplication',
+          operatingSystem: 'Web',
+        }}
       />
       <Nav />
 
       <main
+        id="main"
         className="depth-container"
         style={{
           paddingTop: 'var(--s8)',

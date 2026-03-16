@@ -47,7 +47,7 @@ export function SimulatorShell() {
             />
 
             {/* ── Main Layout ───────────────────────────────────────── */}
-            <div style={{ flex: 1, display: 'flex', overflow: 'hidden', position: 'relative' }}>
+            <div id="main" role="main" style={{ flex: 1, display: 'flex', overflow: 'hidden', position: 'relative' }}>
 
                 {/* LEFT: Control Panel */}
                 <div

@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
+import { SkipToMain } from '@/components/common/SkipToMain';
 
 const NAV_LINKS = [
     { label: 'AI Timeline', to: '/timeline', live: true },
@@ -32,21 +33,27 @@ export function Nav({ activeRoute }: NavProps) {
         };
     }, [isMobileMenuOpen]);
 
+    const navHeight = '52px';
+
     return (
-        <nav
-            aria-label="Main navigation"
-            style={{
-                position: 'sticky',
-                top: 0,
-                zIndex: 'var(--z-nav)',
-                background: 'rgba(249,249,249,0.92)',
-                backdropFilter: 'blur(12px)',
-                borderBottom: '1px solid var(--stroke)',
-                height: '52px',
-                display: 'flex',
-                alignItems: 'center',
-            }}
-        >
+        <>
+            <SkipToMain />
+            <nav
+                aria-label="Main navigation"
+                style={{
+                    position: 'fixed',
+                    top: 0,
+                    left: 0,
+                    right: 0,
+                    zIndex: 'var(--z-nav)',
+                    background: 'rgba(249,249,249,0.92)',
+                    backdropFilter: 'blur(12px)',
+                    borderBottom: '1px solid var(--stroke)',
+                    height: navHeight,
+                    display: 'flex',
+                    alignItems: 'center',
+                }}
+            >
             <div className="depth-container" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', width: '100%' }}>
                 {/* Logo */}
                 <Link to="/" style={{ display: 'flex', alignItems: 'center', gap: 'var(--s2)', textDecoration: 'none' }}>
@@ -255,5 +262,7 @@ export function Nav({ activeRoute }: NavProps) {
                 }
             `}</style>
         </nav>
+            <div aria-hidden="true" style={{ height: navHeight, flexShrink: 0 }} />
+        </>
     );
 }

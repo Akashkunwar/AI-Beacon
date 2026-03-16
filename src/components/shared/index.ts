@@ -10,3 +10,11 @@ export type { BadgeProps, BadgeVariant, BadgeSize } from './Badge';
 export { ErrorBoundary } from './ErrorBoundary';
 
 export { NumberDisplay } from './NumberDisplay';
+
+export { PrimaryButton } from './PrimaryButton';
+export type { PrimaryButtonProps } from './PrimaryButton';
+
+export { SecondaryButton } from './SecondaryButton';
+export type { SecondaryButtonProps } from './SecondaryButton';
+
+export { Footer } from './Footer';

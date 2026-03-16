@@ -3,6 +3,7 @@ import { lazy, Suspense } from 'react';
 import { HelmetProvider } from 'react-helmet-async';
 import '@/index.css';
 import { ScrollToTop } from '@/components/common/ScrollToTop';
+import { ErrorBoundary } from '@/components/shared/ErrorBoundary';
 
 // Lazy-load pages as per SKILL.md performance guidelines
 const Home = lazy(() =>
@@ -25,6 +26,9 @@ const AutomationClockPage = lazy(() =>
 );
 const BenchmarksPage = lazy(() =>
     import('@/pages/BenchmarksPage').then((m) => ({ default: m.BenchmarksPage }))
+);
+const NotFound = lazy(() =>
+    import('@/pages/NotFound').then((m) => ({ default: m.NotFound }))
 );
 
 // Minimal loading fallback — light background while pages load
@@ -58,19 +62,29 @@ export function App() {
         <HelmetProvider>
             <BrowserRouter>
                 <ScrollToTop />
-                <Suspense fallback={<LoadingFallback />}>
-                    <Routes>
-                        <Route path="/" element={<Home />} />
-                        <Route path="/transformer-simulator" element={<SimulatorPage />} />
-                        <Route path="/transformer-training-simulator" element={<Training />} />
-                        <Route path="/timeline" element={<Timeline />} />
-                        <Route path="/about" element={<About />} />
-                        <Route path="/automation-clock" element={<AutomationClockPage />} />
-                        <Route path="/benchmarks" element={<BenchmarksPage />} />
-                        {/* Catch-all → redirect to home */}
-                        <Route path="*" element={<Home />} />
-                    </Routes>
-                </Suspense>
+                <ErrorBoundary
+                    fallback={
+                        <div className="error-boundary" style={{ minHeight: '100vh' }}>
+                            <p className="error-boundary-title">Something went wrong</p>
+                            <p className="error-boundary-message">The app hit an error. Try refreshing the page.</p>
+                            <a href="/" className="btn btn-primary">Back to home</a>
+                        </div>
+                    }
+                >
+                    <Suspense fallback={<LoadingFallback />}>
+                        <Routes>
+                            <Route path="/" element={<Home />} />
+                            <Route path="/transformer-simulator" element={<SimulatorPage />} />
+                            <Route path="/transformer-training-simulator" element={<Training />} />
+                            <Route path="/timeline" element={<Timeline />} />
+                            <Route path="/about" element={<About />} />
+                            <Route path="/automation-clock" element={<AutomationClockPage />} />
+                            <Route path="/benchmarks" element={<BenchmarksPage />} />
+                            <Route path="/404" element={<NotFound />} />
+                            <Route path="*" element={<NotFound />} />
+                        </Routes>
+                    </Suspense>
+                </ErrorBoundary>
             </BrowserRouter>
         </HelmetProvider>
     );

@@ -8,10 +8,13 @@ import { Link } from 'react-router-dom';
 import { motion, useInView } from 'framer-motion';
 import { Nav } from '@/components/shared/Nav';
 import { SEO } from '@/components/common/SEO';
+import { PrimaryButton, SecondaryButton, Footer } from '@/components/shared';
 import { HeroVisual } from '@/components/educational/HeroVisual';
 import { ScaleVisual } from '@/components/educational/ScaleVisual';
 import { OpenSourceVisual } from '@/components/educational/OpenSourceVisual';
 import { AUTOMATION_DATA } from '@/data/automationData';
+import { useReducedMotion } from '@/hooks/useReducedMotion';
+import { SITE_CONFIG } from '@/config/site';
 
 // ─── Animation helpers ─────────────────────────────────────────────────────
 
@@ -24,16 +27,20 @@ const fadeUp = {
     }),
 };
 
-function Reveal({ children, delay = 0 }: { children: React.ReactNode; delay?: number }) {
+function Reveal({ children, delay = 0, reduced: reducedProp }: { children: React.ReactNode; delay?: number; reduced?: boolean }) {
+    const reduced = useReducedMotion();
+    const noMotion = reducedProp ?? reduced;
     const ref = useRef<HTMLDivElement>(null);
     const inView = useInView(ref, { once: true, margin: '-60px' });
+    const variants = noMotion ? { hidden: { opacity: 1, y: 0 }, visible: { opacity: 1, y: 0 } } : fadeUp;
     return (
         <motion.div
             ref={ref}
             initial="hidden"
             animate={inView ? 'visible' : 'hidden'}
-            custom={delay}
-            variants={fadeUp}
+            custom={noMotion ? 0 : delay}
+            variants={variants}
+            transition={noMotion ? { duration: 0 } : undefined}
         >
             {children}
         </motion.div>
@@ -153,73 +160,22 @@ function Hero() {
                             initial="hidden"
                             animate="visible"
                             variants={fadeUp}
-                            style={{ 
-                                display: 'flex', 
-                                gap: 'var(--s3)', 
-                                flexWrap: 'wrap', 
-                                alignItems: 'center', 
+                            style={{
+                                display: 'flex',
+                                gap: 'var(--s3)',
+                                flexWrap: 'wrap',
+                                alignItems: 'center',
                                 marginTop: 'var(--s2)',
-                                gridColumn: '1 / 2'
+                                gridColumn: '1 / 2',
                             }}
                             className="hero-cta-group"
                         >
-                            <Link
-                                to="/timeline"
-                                id="hero-cta-primary"
-                                style={{
-                                    display: 'inline-flex',
-                                    alignItems: 'center',
-                                    gap: 'var(--s2)',
-                                    padding: '0.6rem 1.25rem',
-                                    background: 'var(--bg-inverse)',
-                                    border: '1px solid var(--bg-inverse)',
-                                    borderRadius: 'var(--r-md)',
-                                    fontFamily: 'var(--font-sans)',
-                                    fontSize: 'var(--text-sm)',
-                                    fontWeight: 'var(--weight-medium)',
-                                    color: 'var(--text-inverse)',
-                                    textDecoration: 'none',
-                                    transition: `background var(--dur-fast) var(--ease-out)`,
-                                }}
-                                onMouseEnter={(e) => { (e.currentTarget as HTMLAnchorElement).style.background = '#333333'; }}
-                                onMouseLeave={(e) => { (e.currentTarget as HTMLAnchorElement).style.background = 'var(--bg-inverse)'; }}
-                            >
+                            <PrimaryButton to="/timeline" id="hero-cta-primary" aria-label="Explore the AI Timeline">
                                 Explore the AI Timeline →
-                            </Link>
-                            <a
-                                href="#module-grid"
-                                id="hero-cta-secondary"
-                                onClick={handleScrollToModules}
-                                style={{
-                                    display: 'inline-flex',
-                                    alignItems: 'center',
-                                    gap: 'var(--s2)',
-                                    padding: '0.6rem 1.25rem',
-                                    background: 'transparent',
-                                    border: '1px solid var(--stroke-dark)',
-                                    borderRadius: 'var(--r-md)',
-                                    fontFamily: 'var(--font-sans)',
-                                    fontSize: 'var(--text-sm)',
-                                    fontWeight: 'var(--weight-medium)',
-                                    color: 'var(--secondary)',
-                                    textDecoration: 'none',
-                                    transition: `all var(--dur-fast) var(--ease-out)`,
-                                }}
-                                onMouseEnter={(e) => {
-                                    const el = e.currentTarget as HTMLAnchorElement;
-                                    el.style.background = 'var(--bg-panel)';
-                                    el.style.color = 'var(--ink)';
-                                    el.style.borderColor = 'var(--primary)';
-                                }}
-                                onMouseLeave={(e) => {
-                                    const el = e.currentTarget as HTMLAnchorElement;
-                                    el.style.background = 'transparent';
-                                    el.style.color = 'var(--secondary)';
-                                    el.style.borderColor = 'var(--stroke-dark)';
-                                }}
-                            >
+                            </PrimaryButton>
+                            <SecondaryButton id="hero-cta-secondary" onClick={handleScrollToModules} aria-label="See what we're building">
                                 See what's coming
-                            </a>
+                            </SecondaryButton>
                         </motion.div>
                     </div>
                 </div>
@@ -282,8 +238,8 @@ const MODULES = [
         num: '04',
         title: 'Benchmarks & Leaderboard',
         desc: 'Every major model ranked across MMLU, HumanEval, MATH, and more. No hype. Just numbers.',
-        status: 'building' as const,
-        to: null,
+        status: 'live' as const,
+        to: '/benchmarks',
     },
     {
         num: '05',
@@ -476,7 +432,7 @@ function ModuleCard({
 
     if (isLive && mod.to) {
         return (
-            <Link to={mod.to} style={{ textDecoration: 'none', display: 'block', height: '100%' }}>
+            <Link to={mod.to} style={{ textDecoration: 'none', display: 'block', height: '100%' }} aria-label={`Open ${mod.title} explainer`}>
                 {cardContent}
             </Link>
         );
@@ -624,29 +580,9 @@ function TransformerSection() {
                 {/* CTA */}
                 <Reveal delay={0.2}>
                     <div style={{ marginTop: 'var(--s6)' }}>
-                        <Link
-                            to="/transformer-simulator"
-                            id="transformer-cta"
-                            style={{
-                                display: 'inline-flex',
-                                alignItems: 'center',
-                                gap: 'var(--s2)',
-                                padding: '0.6rem 1.25rem',
-                                background: 'var(--bg-inverse)',
-                                border: '1px solid var(--bg-inverse)',
-                                borderRadius: 'var(--r-md)',
-                                fontFamily: 'var(--font-sans)',
-                                fontSize: 'var(--text-sm)',
-                                fontWeight: 'var(--weight-medium)',
-                                color: 'var(--text-inverse)',
-                                textDecoration: 'none',
-                                transition: `background var(--dur-fast) var(--ease-out)`,
-                            }}
-                            onMouseEnter={(e) => { (e.currentTarget as HTMLAnchorElement).style.background = '#333333'; }}
-                            onMouseLeave={(e) => { (e.currentTarget as HTMLAnchorElement).style.background = 'var(--bg-inverse)'; }}
-                        >
+                        <PrimaryButton to="/transformer-simulator" id="transformer-cta" aria-label="Open LLM Visualizer">
                             Open Visualizer →
-                        </Link>
+                        </PrimaryButton>
                     </div>
                 </Reveal>
             </div>
@@ -791,39 +727,9 @@ function TrainingSection() {
                 {/* CTA */}
                 <Reveal delay={0.2}>
                     <div style={{ marginTop: 'var(--s6)' }}>
-                        <Link
-                            to="/transformer-training-simulator"
-                            id="training-cta"
-                            style={{
-                                display: 'inline-flex',
-                                alignItems: 'center',
-                                gap: 'var(--s2)',
-                                padding: '0.6rem 1.25rem',
-                                background: 'transparent',
-                                border: '1px solid var(--stroke-dark)',
-                                borderRadius: 'var(--r-md)',
-                                fontFamily: 'var(--font-sans)',
-                                fontSize: 'var(--text-sm)',
-                                fontWeight: 'var(--weight-medium)',
-                                color: 'var(--secondary)',
-                                textDecoration: 'none',
-                                transition: `all var(--dur-fast) var(--ease-out)`,
-                            }}
-                            onMouseEnter={(e) => {
-                                const el = e.currentTarget;
-                                el.style.background = 'var(--bg-raised)';
-                                el.style.color = 'var(--ink)';
-                                el.style.borderColor = 'var(--primary)';
-                            }}
-                            onMouseLeave={(e) => {
-                                const el = e.currentTarget;
-                                el.style.background = 'transparent';
-                                el.style.color = 'var(--secondary)';
-                                el.style.borderColor = 'var(--stroke-dark)';
-                            }}
-                        >
+                        <SecondaryButton to="/transformer-training-simulator" id="training-cta" aria-label="Open Training Walkthrough">
                             Open Walkthrough →
-                        </Link>
+                        </SecondaryButton>
                     </div>
                 </Reveal>
             </div>
@@ -918,39 +824,9 @@ function TimelineSection() {
                 {/* CTA */}
                 <Reveal delay={0.2}>
                     <div style={{ marginTop: 'var(--s6)' }}>
-                        <Link
-                            to="/timeline"
-                            id="timeline-cta"
-                            style={{
-                                display: 'inline-flex',
-                                alignItems: 'center',
-                                gap: 'var(--s2)',
-                                padding: '0.6rem 1.25rem',
-                                background: 'transparent',
-                                border: '1px solid var(--stroke-dark)',
-                                borderRadius: 'var(--r-md)',
-                                fontFamily: 'var(--font-sans)',
-                                fontSize: 'var(--text-sm)',
-                                fontWeight: 'var(--weight-medium)',
-                                color: 'var(--secondary)',
-                                textDecoration: 'none',
-                                transition: `all var(--dur-fast) var(--ease-out)`,
-                            }}
-                            onMouseEnter={(e) => {
-                                const el = e.currentTarget;
-                                el.style.background = 'var(--bg-raised)';
-                                el.style.color = 'var(--ink)';
-                                el.style.borderColor = 'var(--primary)';
-                            }}
-                            onMouseLeave={(e) => {
-                                const el = e.currentTarget;
-                                el.style.background = 'transparent';
-                                el.style.color = 'var(--secondary)';
-                                el.style.borderColor = 'var(--stroke-dark)';
-                            }}
-                        >
+                        <SecondaryButton to="/timeline" id="timeline-cta" aria-label="Open AI Timeline">
                             Open Timeline →
-                        </Link>
+                        </SecondaryButton>
                     </div>
                 </Reveal>
             </div>
@@ -1088,39 +964,9 @@ function AutomationClockTeaser() {
 
                         <Reveal delay={0.2}>
                             <div style={{ marginTop: 'var(--s6)' }}>
-                                <Link
-                                    to="/automation-clock"
-                                    id="clock-cta"
-                                    style={{
-                                        display: 'inline-flex',
-                                        alignItems: 'center',
-                                        gap: 'var(--s2)',
-                                        padding: '0.6rem 1.25rem',
-                                        background: 'transparent',
-                                        border: '1px solid var(--stroke-dark)',
-                                        borderRadius: 'var(--r-md)',
-                                        fontFamily: 'var(--font-sans)',
-                                        fontSize: 'var(--text-sm)',
-                                        fontWeight: 'var(--weight-medium)',
-                                        color: 'var(--secondary)',
-                                        textDecoration: 'none',
-                                        transition: `all var(--dur-fast) var(--ease-out)`,
-                                    }}
-                                    onMouseEnter={(e) => {
-                                        const el = e.currentTarget;
-                                        el.style.background = 'var(--bg-raised)';
-                                        el.style.color = 'var(--ink)';
-                                        el.style.borderColor = 'var(--primary)';
-                                    }}
-                                    onMouseLeave={(e) => {
-                                        const el = e.currentTarget;
-                                        el.style.background = 'transparent';
-                                        el.style.color = 'var(--secondary)';
-                                        el.style.borderColor = 'var(--stroke-dark)';
-                                    }}
-                                >
+                                <SecondaryButton to="/automation-clock" id="clock-cta" aria-label="Open AI Impact Dashboard">
                                     Open Dashboard →
-                                </Link>
+                                </SecondaryButton>
                             </div>
                         </Reveal>
                     </div>
@@ -1256,6 +1102,7 @@ const BENCHMARK_STATS = [
     { label: 'HumanEval (Code)', value: '84.1%' },
     { label: 'MATH (Reasoning)', value: '54.2%' },
 ];
+const BENCHMARK_STATS_CAPTION = 'Leading models (as of 2024)';
 
 function BenchmarkTeaser() {
     return (
@@ -1317,7 +1164,10 @@ function BenchmarkTeaser() {
 
                         {/* Stats */}
                         <Reveal delay={0.15}>
-                            <div style={{ marginTop: 'var(--s5)' }}>
+                            <p style={{ fontFamily: 'var(--font-mono)', fontSize: 'var(--text-2xs)', color: 'var(--muted)', marginTop: 'var(--s5)', marginBottom: 'var(--s2)' }}>
+                                {BENCHMARK_STATS_CAPTION}
+                            </p>
+                            <div style={{ marginTop: 'var(--s2)' }}>
                                 {BENCHMARK_STATS.map((stat, i) => (
                                     <div
                                         key={stat.label}
@@ -1342,20 +1192,11 @@ function BenchmarkTeaser() {
                         </Reveal>
 
                         <Reveal delay={0.2}>
-                            <Link
-                                to="/benchmarks"
-                                style={{
-                                    fontFamily: 'var(--font-mono)',
-                                    fontSize: 'var(--text-xs)',
-                                    color: 'var(--ink)',
-                                    marginTop: 'var(--s4)',
-                                    display: 'inline-block',
-                                    textDecoration: 'none',
-                                    borderBottom: '1px solid var(--ink)',
-                                }}
-                            >
-                                View the full leaderboard →
-                            </Link>
+                            <div style={{ marginTop: 'var(--s4)' }}>
+                                <PrimaryButton to="/benchmarks" aria-label="View the full benchmarks leaderboard">
+                                    View the full leaderboard →
+                                </PrimaryButton>
+                            </div>
                         </Reveal>
                     </div>
 
@@ -1661,40 +1502,9 @@ function PipelinePreview() {
 
                         <Reveal delay={0.2}>
                             <div style={{ marginTop: 'var(--s6)' }}>
-                                <a
-                                    href="https://github.com"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    style={{
-                                        display: 'inline-flex',
-                                        alignItems: 'center',
-                                        gap: 'var(--s2)',
-                                        padding: '0.6rem 1.25rem',
-                                        background: 'transparent',
-                                        border: '1px solid var(--stroke-dark)',
-                                        borderRadius: 'var(--r-md)',
-                                        fontFamily: 'var(--font-sans)',
-                                        fontSize: 'var(--text-sm)',
-                                        fontWeight: 'var(--weight-medium)',
-                                        color: 'var(--secondary)',
-                                        textDecoration: 'none',
-                                        transition: `all var(--dur-fast) var(--ease-out)`,
-                                    }}
-                                    onMouseEnter={(e) => {
-                                        const el = e.currentTarget as HTMLAnchorElement;
-                                        el.style.background = 'var(--bg-raised)';
-                                        el.style.color = 'var(--ink)';
-                                        el.style.borderColor = 'var(--ink)';
-                                    }}
-                                    onMouseLeave={(e) => {
-                                        const el = e.currentTarget as HTMLAnchorElement;
-                                        el.style.background = 'transparent';
-                                        el.style.color = 'var(--secondary)';
-                                        el.style.borderColor = 'var(--stroke-dark)';
-                                    }}
-                                >
+                                <SecondaryButton href={SITE_CONFIG.githubUrl} aria-label="AI Beacon on GitHub">
                                     Join us on GitHub
-                                </a>
+                                </SecondaryButton>
                             </div>
                         </Reveal>
                     </div>
@@ -1719,105 +1529,6 @@ function PipelinePreview() {
                 }
             `}</style>
         </section>
-    );
-}
-
-// ─── Footer ────────────────────────────────────────────────────────────────
-
-function Footer() {
-    return (
-        <footer
-            aria-label="Site footer"
-            style={{
-                paddingBlock: 'var(--s6)',
-                borderTop: '1px solid var(--stroke)',
-            }}
-        >
-            <div className="depth-container" style={{ maxWidth: '1100px', margin: '0 auto' }}>
-                {/* Row 1 */}
-                <div style={{
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'space-between',
-                    flexWrap: 'wrap',
-                    gap: 'var(--s3)',
-                }}>
-                    <span style={{
-                        fontFamily: 'var(--font-mono)',
-                        fontSize: 'var(--text-xs)',
-                        color: 'var(--ink)',
-                    }}>
-                        AI Beacon — LLM Visualizer
-                    </span>
-
-                    <div style={{ display: 'flex', gap: 'var(--s5)', alignItems: 'center' }}>
-                        <a
-                            href="https://github.com"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            style={{
-                                fontFamily: 'var(--font-sans)',
-                                fontSize: 'var(--text-xs)',
-                                color: 'var(--secondary)',
-                                textDecoration: 'none',
-                                transition: `color var(--dur-fast) var(--ease-out)`,
-                            }}
-                            onMouseEnter={(e) => { (e.currentTarget as HTMLAnchorElement).style.color = 'var(--ink)'; }}
-                            onMouseLeave={(e) => { (e.currentTarget as HTMLAnchorElement).style.color = 'var(--secondary)'; }}
-                        >
-                            GitHub
-                        </a>
-                        <Link
-                            to="/about"
-                            style={{
-                                fontFamily: 'var(--font-sans)',
-                                fontSize: 'var(--text-xs)',
-                                color: 'var(--secondary)',
-                                textDecoration: 'none',
-                                transition: `color var(--dur-fast) var(--ease-out)`,
-                            }}
-                            onMouseEnter={(e) => { (e.currentTarget as HTMLAnchorElement).style.color = 'var(--ink)'; }}
-                            onMouseLeave={(e) => { (e.currentTarget as HTMLAnchorElement).style.color = 'var(--secondary)'; }}
-                        >
-                            About
-                        </Link>
-                        <div style={{
-                            fontFamily: 'var(--font-mono)',
-                            fontSize: '10px',
-                            color: 'var(--muted)',
-                            background: 'var(--bg-panel)',
-                            padding: '2px 6px',
-                            borderRadius: '4px',
-                            border: '1px solid var(--stroke)',
-                        }}>
-                            v{__COMMIT_HASH__.substring(0, 7)}
-                        </div>
-                    </div>
-
-                    <span style={{
-                        fontFamily: 'var(--font-mono)',
-                        fontSize: 'var(--text-xs)',
-                        color: 'var(--muted)',
-                    }}>
-                        Open source — MIT
-                    </span>
-                </div>
-
-                {/* Row 2 */}
-                <div style={{
-                    textAlign: 'center',
-                    marginTop: 'var(--s4)',
-                }}>
-                    <span style={{
-                        fontFamily: 'var(--font-mono)',
-                        fontSize: 'var(--text-xs)',
-                        color: 'var(--muted)',
-                    }}>
-                        Built to make AI legible.
-                    </span>
-                </div>
-            </div>
-        </footer>
     );
 }
 
@@ -1846,7 +1557,7 @@ export function Home() {
         <div style={{ minHeight: '100vh', background: 'var(--bg)' }}>
             <SEO structuredData={homeStructuredData} />
             <Nav />
-            <main>
+            <main id="main">
                 <Hero />
                 <ModuleGrid />
                 <TimelineSection />

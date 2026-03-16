@@ -25,6 +25,8 @@
     /* headings, emphasis     */
     --bg-inverse: #0d0d0d;
     /* dark button bg         */
+    --hover-inverse: #333333;
+    /* dark button hover (slightly lighter than bg-inverse) */
     --text-inverse: #f9f9f9;
     /* text on dark bg        */
 

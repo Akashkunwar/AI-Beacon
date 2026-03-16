@@ -9,6 +9,7 @@ import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
 import { Nav } from '@/components/shared/Nav';
 import { ErrorBoundary } from '@/components/shared/ErrorBoundary';
 import { SEO } from '@/components/common/SEO';
+import { SITE_CONFIG } from '@/config/site';
 import { Step01DataCollection } from '@/components/training/Step01DataCollection';
 import { Step02Tokenizer } from '@/components/training/Step02Tokenizer';
 import { Step03Architecture } from '@/components/training/Step03Architecture';
@@ -497,7 +498,7 @@ export function Training() {
             '@type': 'HowToStep',
             'position': i + 1,
             'name': s.label,
-            'url': `https://ai-beacon.vercel.app/transformer-training-simulator#step-${s.num}`,
+            'url': `${SITE_CONFIG.baseUrl}/transformer-training-simulator#step-${s.num}`,
         })),
     };
 
@@ -532,6 +533,7 @@ export function Training() {
             <SEO
                 title="LLM Training Pipeline"
                 description="Interactive 10-step walkthrough of how Large Language Models are trained. From data collection to deployment."
+                canonical={`${SITE_CONFIG.baseUrl}/transformer-training-simulator`}
                 structuredData={trainingStructuredData}
             />
             <div
@@ -564,6 +566,7 @@ export function Training() {
 
                     {/* Main content column */}
                     <main
+                        id="main"
                         aria-label="Training step content"
                         style={{
                             flex: 1,

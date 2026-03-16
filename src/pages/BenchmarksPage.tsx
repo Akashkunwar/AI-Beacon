@@ -1,6 +1,7 @@
 import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { SEO } from '@/components/common/SEO';
+import { SITE_CONFIG } from '@/config/site';
 import { Nav } from '@/components/shared/Nav';
 import { useReducedMotion } from '@/hooks/useReducedMotion';
 import { BENCHMARK_MODELS, LAST_UPDATED } from '@/data/benchmarkData';
@@ -64,10 +65,20 @@ export function BenchmarksPage() {
       <SEO
         title="Model Benchmarks | AI Beacon"
         description="Every major AI model compared across MMLU, HumanEval, MATH, GPQA, GSM8K, and Arena ELO. No cherry-picked results. Just numbers."
+        canonical={`${SITE_CONFIG.baseUrl}/benchmarks`}
+        structuredData={{
+          '@context': 'https://schema.org',
+          '@type': 'WebApplication',
+          name: 'AI Beacon Benchmarks & Leaderboard',
+          description: 'Every major AI model compared across MMLU, HumanEval, MATH, GPQA, GSM8K, and Arena ELO.',
+          applicationCategory: 'EducationalApplication',
+          operatingSystem: 'Web',
+        }}
       />
       <Nav />
 
       <main
+        id="main"
         className="depth-container"
         style={{
           paddingTop: 'var(--s8)',

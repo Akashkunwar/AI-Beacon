@@ -1,6 +1,8 @@
 import { motion } from 'framer-motion';
 import { Nav } from '@/components/shared/Nav';
+import { Footer } from '@/components/shared/Footer';
 import { SEO } from '@/components/common/SEO';
+import { SITE_CONFIG } from '@/config/site';
 
 const fadeUp = {
     hidden: { opacity: 0, y: 20 },
@@ -15,11 +17,27 @@ export function About() {
     const buildDate = new Date(__BUILD_TIME__).toLocaleString();
     const shortHash = __COMMIT_HASH__ === 'dev' ? 'Development' : __COMMIT_HASH__.substring(0, 7);
 
+    const aboutStructuredData = {
+        '@context': 'https://schema.org',
+        '@type': 'AboutPage',
+        name: 'About AI Beacon',
+        description: 'Learn about the mission, history, and development of AI Beacon — the open-source LLM visualizer.',
+        mainEntity: {
+            '@type': 'Organization',
+            name: 'AI Beacon Project',
+        },
+    };
+
     return (
         <div style={{ minHeight: '100vh', background: 'var(--bg)' }}>
-            <SEO title="About AI Beacon" description="Learn about the mission, history, and development of AI Beacon." />
+            <SEO
+                title="About AI Beacon"
+                description="Learn about the mission, history, and development of AI Beacon."
+                canonical={`${SITE_CONFIG.baseUrl}/about`}
+                structuredData={aboutStructuredData}
+            />
             <Nav />
-            <main className="depth-container" style={{ maxWidth: '800px', margin: '0 auto', paddingTop: 'var(--s8)', paddingBottom: 'var(--s8)' }}>
+            <main id="main" className="depth-container" style={{ maxWidth: '800px', margin: '0 auto', paddingTop: 'var(--s8)', paddingBottom: 'var(--s8)' }}>
                 <motion.div initial="hidden" animate="visible" variants={fadeUp} custom={0.05}>
                     <h1 style={{
                         fontSize: 'var(--text-3xl)',
@@ -77,11 +95,7 @@ export function About() {
                 </motion.section>
             </main>
 
-            <footer style={{ paddingBlock: 'var(--s6)', borderTop: '1px solid var(--stroke)', textAlign: 'center' }}>
-                <span style={{ fontFamily: 'var(--font-mono)', fontSize: 'var(--text-xs)', color: 'var(--muted)' }}>
-                    AI Beacon — Open Source AI Education
-                </span>
-            </footer>
+            <Footer />
         </div>
     );
 }

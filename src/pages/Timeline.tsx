@@ -11,6 +11,7 @@ import timelineDataRaw from '@/data/LLM_Timeline_Dataset.json';
 import papersDataRaw from '@/data/Research_Papers_Dataset.json';
 import toolsDataRaw from '@/data/AI_Tools_Dataset.json';
 import { LLMModel } from '@/utils/timeline';
+import { SITE_CONFIG } from '@/config/site';
 
 // Ensure data matches our interface, and sort chronologically to assign natural serial number IDs
 const processData = (rawData: any) => {
@@ -216,11 +217,12 @@ export function Timeline() {
             <SEO
                 title="AI Timeline"
                 description="Interactive history of AI models, research papers, and tools. From the Transformer paper to GPT-4o."
+                canonical={`${SITE_CONFIG.baseUrl}/timeline`}
                 structuredData={timelineStructuredData}
             />
             <Nav activeRoute="/timeline" />
 
-            <main style={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
+            <main id="main" style={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
                 <div className="depth-container" style={{ paddingTop: 'var(--s6)' }}>
                     <TimelineHeader
                         activeTab={activeTab}
