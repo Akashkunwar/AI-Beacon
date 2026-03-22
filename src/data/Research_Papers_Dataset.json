@@ -3,7 +3,7 @@
         "title": "Foundational AI Research Papers Timeline",
         "description": "A curated list of the most influential AI research papers that drove the technological revolution.",
         "last_updated": "2026-03-16",
-        "total_papers": 53,
+        "total_papers": 57,
         "fields": [
             "id",
             "title",
@@ -105,7 +105,7 @@
                 "Aaron Courville",
                 "Yoshua Bengio"
             ],
-            "institution": "Université de Montréal",
+            "institution": "Universit\u00e9 de Montr\u00e9al",
             "publication_date": "2014-06-10",
             "published_in": "NeurIPS",
             "topic": "Generative AI",
@@ -151,7 +151,7 @@
                 "Kyunghyun Cho",
                 "Yoshua Bengio"
             ],
-            "institution": "Jacobs University / Université de Montréal",
+            "institution": "Jacobs University / Universit\u00e9 de Montr\u00e9al",
             "publication_date": "2014-09-01",
             "published_in": "ICLR",
             "topic": "Natural Language Processing",
@@ -552,10 +552,10 @@
                 "Fabio Petroni",
                 "Vladimir Karpukhin",
                 "Naman Goyal",
-                "Heinrich Küttler",
+                "Heinrich K\u00fcttler",
                 "Mike Lewis",
                 "Wen-tau Yih",
-                "Tim Rocktäschel",
+                "Tim Rockt\u00e4schel",
                 "Sebastian Riedel",
                 "Douwe Kiela"
             ],
@@ -716,7 +716,7 @@
                 "Olaf Ronneberger",
                 "Kathryn Tunyasuvunakool",
                 "Russ Bates",
-                "Augustin Žídek",
+                "Augustin \u017d\u00eddek",
                 "Anna Potapenko",
                 "Alex Bridgland",
                 "Clemens Meyer",
@@ -765,7 +765,7 @@
                 "Andreas Blattmann",
                 "Dominik Lorenz",
                 "Patrick Esser",
-                "Björn Ommer"
+                "Bj\u00f6rn Ommer"
             ],
             "institution": "CompVis Group / LMU Munich",
             "publication_date": "2021-12-20",
@@ -895,7 +895,7 @@
                 "Daniel Y. Fu",
                 "Stefano Ermon",
                 "Atri Rudra",
-                "Christopher Ré"
+                "Christopher R\u00e9"
             ],
             "institution": "Stanford University",
             "publication_date": "2022-05-27",
@@ -910,6 +910,32 @@
             "paper_url": "https://arxiv.org/abs/2205.14135",
             "code_url": "https://github.com/Dao-AILab/flash-attention",
             "citations": 6000
+        },
+        {
+            "id": 54,
+            "title": "ReAct: Synergizing Reasoning and Acting in Language Models",
+            "authors": [
+                "Shunyu Yao",
+                "Jeffrey Zhao",
+                "Dian Yu",
+                "Nan Du",
+                "Izhak Shafran",
+                "Karthik Narasimhan",
+                "Yuan Cao"
+            ],
+            "institution": "Google Brain / Princeton University",
+            "publication_date": "2022-10-06",
+            "published_in": "ICLR",
+            "topic": "Agentic AI",
+            "description": "Introduced the ReAct framework, which prompts LLMs to generate both reasoning traces and task-specific actions in an interleaved manner. This paradigm laid the foundation for modern AI agents that interact with external tools.",
+            "key_contributions": [
+                "Interleaved reasoning and acting",
+                "Significant reduction in hallucination",
+                "Foundation of autonomous agents"
+            ],
+            "paper_url": "https://arxiv.org/abs/2210.03629",
+            "code_url": "https://github.com/ysymyth/ReAct",
+            "citations": 4500
         },
         {
             "id": 33,
@@ -947,6 +973,33 @@
             "citations": 3000
         },
         {
+            "id": 55,
+            "title": "Toolformer: Language Models Can Teach Themselves to Use Tools",
+            "authors": [
+                "Timo Schick",
+                "Jane Dwivedi-Yu",
+                "Roberto Dess\u00ec",
+                "Roberta Raileanu",
+                "Maria Lomeli",
+                "Luke Zettlemoyer",
+                "Nicola Cancedda",
+                "Thomas Scialom"
+            ],
+            "institution": "Meta AI",
+            "publication_date": "2023-02-09",
+            "published_in": "arXiv",
+            "topic": "Agentic AI",
+            "description": "Demonstrated how LLMs can be fine-tuned via self-supervised learning to decide when to call external APIs (e.g., calculators, calendars, search engines) and incorporate the results, prefiguring function calling.",
+            "key_contributions": [
+                "Self-supervised tool use training",
+                "Integration of external APIs in inference",
+                "Pioneering function-calling capabilities"
+            ],
+            "paper_url": "https://arxiv.org/abs/2302.04761",
+            "code_url": null,
+            "citations": 2500
+        },
+        {
             "id": 34,
             "title": "LLaMA: Open and Efficient Foundation Language Models",
             "authors": [
@@ -955,8 +1008,8 @@
                 "Gautier Izacard",
                 "Xavier Martinet",
                 "Marie-Anne Lachaux",
-                "Timothée Lacroix",
-                "Baptiste Rozière",
+                "Timoth\u00e9e Lacroix",
+                "Baptiste Rozi\u00e8re",
                 "Naman Goyal",
                 "Eric Hambro",
                 "Faisal Azhar",
@@ -1000,6 +1053,31 @@
             "citations": 15000
         },
         {
+            "id": 56,
+            "title": "Generative Agents: Interactive Simulacra of Human Behavior",
+            "authors": [
+                "Joon Sung Park",
+                "Joseph C. O'Brien",
+                "Carrie J. Cai",
+                "Meredith Ringel Morris",
+                "Percy Liang",
+                "Michael S. Bernstein"
+            ],
+            "institution": "Stanford University / Google Research",
+            "publication_date": "2023-04-07",
+            "published_in": "UIST",
+            "topic": "Agentic AI",
+            "description": "Populated a sandbox environment (like The Sims) with 25 AI agents. The agents exhibited complex, believable behaviors, memory formation, reflection, and planning, inspiring massive interest in multi-agent systems.",
+            "key_contributions": [
+                "Memory and reflection architectures for agents",
+                "Emergent social behaviors",
+                "Interactive sandbox demonstration"
+            ],
+            "paper_url": "https://arxiv.org/abs/2304.03442",
+            "code_url": "https://github.com/joonspk-research/generative_agents",
+            "citations": 3500
+        },
+        {
             "id": 48,
             "title": "QLoRA: Efficient Finetuning of Quantized LLMs",
             "authors": [
@@ -1022,6 +1100,33 @@
             "paper_url": "https://arxiv.org/abs/2305.14314",
             "code_url": "https://github.com/artidoro/qlora",
             "citations": 20000
+        },
+        {
+            "id": 57,
+            "title": "Voyager: An Open-Ended Embodied Agent with Large Language Models",
+            "authors": [
+                "Guanzhi Wang",
+                "Yuqi Xie",
+                "Yunfan Jiang",
+                "Ajay Mandlekar",
+                "Chaowei Xiao",
+                "Yuke Zhu",
+                "Linxi Fan",
+                "Anima Anandkumar"
+            ],
+            "institution": "NVIDIA / Caltech / UT Austin / Stanford",
+            "publication_date": "2023-05-25",
+            "published_in": "arXiv",
+            "topic": "Agentic AI / Embodied AI",
+            "description": "Introduced the first LLM-powered embodied agent in Minecraft that continuously explores the world, acquires diverse skills, and makes novel discoveries without human intervention using an automatic curriculum.",
+            "key_contributions": [
+                "Automatic curriculum generation",
+                "Skill library for executable code",
+                "Open-ended learning in embodied agents"
+            ],
+            "paper_url": "https://arxiv.org/abs/2305.16291",
+            "code_url": "https://github.com/MineDojo/Voyager",
+            "citations": 2000
         },
         {
             "id": 36,
@@ -1055,7 +1160,7 @@
                 "Surya Gunasekar",
                 "Yi Zhang",
                 "Jyoti Aneja",
-                "Caio César Teodoro Mendes",
+                "Caio C\u00e9sar Teodoro Mendes",
                 "Allie Del Giorno",
                 "Srinivasan Gopi",
                 "Mojan Javaheripi",
@@ -1066,7 +1171,7 @@
                 "Shital Shah",
                 "Harkirat Singh Behl",
                 "Xin Wang",
-                "Sébastien Bubeck",
+                "S\u00e9bastien Bubeck",
                 "Ronen Eldan",
                 "Adam Tauman Kalai",
                 "Yin Tat Lee"
@@ -1199,7 +1304,7 @@
                 "Gianna Lengyel",
                 "Guillaume Bour",
                 "Guillaume Lample",
-                "Lélio Renard Lavaud",
+                "L\u00e9lio Renard Lavaud",
                 "Lucile Saulnier",
                 "Marie-Anne Lachaux",
                 "Pierre Stock",
@@ -1207,10 +1312,10 @@
                 "Sophia Yang",
                 "Szymon Antoniak",
                 "Teven Le Scao",
-                "Théophile Gervet",
+                "Th\u00e9ophile Gervet",
                 "Thibaut Lavril",
                 "Thomas Wang",
-                "Timothée Lacroix",
+                "Timoth\u00e9e Lacroix",
                 "William El Sayed"
             ],
             "institution": "Mistral AI",
@@ -1258,7 +1363,7 @@
                 "Sachin Vaidya",
                 "Fabian Ruehle",
                 "James Halverson",
-                "Marin Soljačić",
+                "Marin Solja\u010di\u0107",
                 "Thomas Y. Hou",
                 "Max Tegmark"
             ],

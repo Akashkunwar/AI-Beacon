@@ -3,7 +3,7 @@
         "title": "AI & LLM Models Timeline",
         "description": "Comprehensive list of AI and LLM models from 2017 to 2026, including text, vision, audio, multimodal and image generation models.",
         "last_updated": "2026-03-16",
-        "total_models": 176,
+        "total_models": 179,
         "audit_status": "Verified Deep Audit Complete (Chronological + Attribution)",
         "logo_source": "Clearbit Logo API (https://logo.clearbit.com/{domain})",
         "fields": [
@@ -568,7 +568,7 @@
             "training_data_cutoff": "2021-01",
             "release_date": "2021-08-11",
             "country": "Israel",
-            "description": "Jurassic-1 from Israel's AI21 Labs was one of the first GPT-3 competitors, at 178B parameters. Available via API with Jumbo (178B) and Large (7.5B) variants. Used a 250,000-token vocabulary — the largest at the time.",
+            "description": "Jurassic-1 from Israel's AI21 Labs was one of the first GPT-3 competitors, at 178B parameters. Available via API with Jumbo (178B) and Large (7.5B) variants. Used a 250,000-token vocabulary \u2014 the largest at the time.",
             "use_cases": [
                 "text generation",
                 "summarization",
@@ -1262,7 +1262,7 @@
             "training_data_cutoff": "2021-09",
             "release_date": "2022-11-30",
             "country": "USA",
-            "description": "ChatGPT reached 100 million users in 2 months — the fastest consumer product adoption in history. Fine-tuned from GPT-3.5 using RLHF, it sparked the modern AI chatbot era and changed public perception of AI.",
+            "description": "ChatGPT reached 100 million users in 2 months \u2014 the fastest consumer product adoption in history. Fine-tuned from GPT-3.5 using RLHF, it sparked the modern AI chatbot era and changed public perception of AI.",
             "use_cases": [
                 "chatbot",
                 "coding",
@@ -1313,7 +1313,7 @@
             "training_data_cutoff": "2022-01",
             "release_date": "2023-02-24",
             "country": "USA",
-            "description": "Meta's first LLaMA came in 7B–65B sizes. The 65B model was competitive with GPT-3 175B. Its weights were leaked, spawning a massive open-source ecosystem including Alpaca, Vicuna, and dozens of derivatives.",
+            "description": "Meta's first LLaMA came in 7B\u201365B sizes. The 65B model was competitive with GPT-3 175B. Its weights were leaked, spawning a massive open-source ecosystem including Alpaca, Vicuna, and dozens of derivatives.",
             "use_cases": [
                 "research",
                 "fine-tuning",
@@ -1412,7 +1412,7 @@
             "training_data_cutoff": "2023-01",
             "release_date": "2023-03-06",
             "country": "USA",
-            "description": "PaLM-E is the largest vision-language model at 562B parameters. Designed for embodied AI — controlling robots using natural language grounded in visual perception. Demonstrated robot planning from free-form language instructions without task-specific fine-tuning.",
+            "description": "PaLM-E is the largest vision-language model at 562B parameters. Designed for embodied AI \u2014 controlling robots using natural language grounded in visual perception. Demonstrated robot planning from free-form language instructions without task-specific fine-tuning.",
             "use_cases": [
                 "robotics control",
                 "embodied AI",
@@ -1658,7 +1658,7 @@
             "training_data_cutoff": "2023-01",
             "release_date": "2023-03-16",
             "country": "China",
-            "description": "ERNIE Bot (Wenxin Yiyan) is Baidu's ChatGPT competitor powered by ERNIE 3.5. Launched publicly on March 16, 2023 — one day after GPT-4. Reached 100M+ users rapidly. Supports Chinese multimodal tasks and integrates with Baidu Search.",
+            "description": "ERNIE Bot (Wenxin Yiyan) is Baidu's ChatGPT competitor powered by ERNIE 3.5. Launched publicly on March 16, 2023 \u2014 one day after GPT-4. Reached 100M+ users rapidly. Supports Chinese multimodal tasks and integrates with Baidu Search.",
             "use_cases": [
                 "chatbot",
                 "Chinese NLP",
@@ -1973,7 +1973,7 @@
             "model_name": "RWKV",
             "model_version": "4.0",
             "model_type": "LLM (RNN-Transformer Hybrid)",
-            "architecture": "RWKV (Receptance Weighted Key Value — linear RNN)",
+            "architecture": "RWKV (Receptance Weighted Key Value \u2014 linear RNN)",
             "modalities": [
                 "text"
             ],
@@ -2185,7 +2185,7 @@
             "training_data_cutoff": "2023-04",
             "release_date": "2023-06-26",
             "country": "USA",
-            "description": "Kosmos-2 added spatial grounding — the ability to link phrases to bounding boxes in images. This allows referring expression comprehension and phrase grounding, key steps toward spatially-aware AI assistants.",
+            "description": "Kosmos-2 added spatial grounding \u2014 the ability to link phrases to bounding boxes in images. This allows referring expression comprehension and phrase grounding, key steps toward spatially-aware AI assistants.",
             "use_cases": [
                 "visual grounding",
                 "referring expression comprehension",
@@ -2642,7 +2642,7 @@
             "training_data_cutoff": "2023-01",
             "release_date": "2023-09-27",
             "country": "France",
-            "description": "Mistral 7B outperformed LLaMA 2 13B on all benchmarks despite being much smaller. Used Grouped-Query Attention and Sliding Window Attention. Released as a torrent with no press release — causing a sensation in the AI community.",
+            "description": "Mistral 7B outperformed LLaMA 2 13B on all benchmarks despite being much smaller. Used Grouped-Query Attention and Sliding Window Attention. Released as a torrent with no press release \u2014 causing a sensation in the AI community.",
             "use_cases": [
                 "text generation",
                 "coding",
@@ -3791,6 +3791,56 @@
             "id": 79
         },
         {
+            "id": 177,
+            "company": "xAI",
+            "company_website": "https://x.ai",
+            "company_logo_url": "https://logo.clearbit.com/x.ai",
+            "model_family": "Grok",
+            "model_name": "Grok-1.5 Vision",
+            "model_version": "1.5.0",
+            "model_type": "Multimodal LLM",
+            "architecture": "Transformer (Decoder-only + Vision Encoder)",
+            "modalities": [
+                "text",
+                "vision"
+            ],
+            "parameters": 314,
+            "parameter_unit": "billion",
+            "training_tokens": null,
+            "open_source": false,
+            "license": "Proprietary",
+            "api_available": true,
+            "context_window_tokens": 128000,
+            "training_data_cutoff": "2024-03",
+            "release_date": "2024-04-12",
+            "country": "USA",
+            "description": "xAI's first multimodal model, bridging the gap between digital and physical worlds. Showed highly competitive spatial understanding and reasoning compared to GPT-4V and Claude 3 Opus.",
+            "use_cases": [
+                "code generation",
+                "real-world spatial analysis",
+                "visual reasoning",
+                "document understanding"
+            ],
+            "notable_features": [
+                "Advanced spatial intelligence",
+                "RealWorldQA benchmark introduced",
+                "Extremely long 128K context window"
+            ],
+            "benchmark_scores": {
+                "RealWorldQA": 68.7,
+                "MMMU": 53.6
+            },
+            "pricing_per_1m_tokens": {
+                "input": null,
+                "output": null
+            },
+            "official_model_link": "https://x.ai/blog/grok-1.5v",
+            "huggingface_url": null,
+            "paper_url": null,
+            "predecessor": "Grok-1.5",
+            "successor": "Grok-2"
+        },
+        {
             "company": "MiniMax",
             "company_website": "https://minimaxi.com",
             "company_logo_url": "https://logo.clearbit.com/minimaxi.com",
@@ -3860,7 +3910,7 @@
             "training_data_cutoff": "2023-12",
             "release_date": "2024-04-18",
             "country": "USA",
-            "description": "LLaMA 3 launched in 8B and 70B sizes, with 405B following in July 2024. Trained on 15T tokens — 7x more than LLaMA 2. Significantly improved reasoning, coding, and instruction following.",
+            "description": "LLaMA 3 launched in 8B and 70B sizes, with 405B following in July 2024. Trained on 15T tokens \u2014 7x more than LLaMA 2. Significantly improved reasoning, coding, and instruction following.",
             "use_cases": [
                 "chatbot",
                 "coding",
@@ -4744,6 +4794,53 @@
             "successor": "Gemma 3"
         },
         {
+            "id": 178,
+            "company": "Google",
+            "company_website": "https://google.com",
+            "company_logo_url": "https://logo.clearbit.com/google.com",
+            "model_family": "Gemma",
+            "model_name": "Gemma 2",
+            "model_version": "2.0",
+            "model_type": "LLM",
+            "architecture": "Transformer (Decoder-only)",
+            "modalities": [
+                "text"
+            ],
+            "parameters": 27,
+            "parameter_unit": "billion",
+            "training_tokens": 13000,
+            "open_source": true,
+            "license": "Gemma License",
+            "api_available": true,
+            "context_window_tokens": 8192,
+            "training_data_cutoff": "2024-06",
+            "release_date": "2024-06-27",
+            "country": "USA",
+            "description": "A highly efficient open-weights model from Google using Gemini technology. The 27B model punched above its weight, beating Llama 3 70B on several benchmarks despite being a fraction of the size.",
+            "use_cases": [
+                "edge computing",
+                "research",
+                "efficient fine-tuning"
+            ],
+            "notable_features": [
+                "Class-leading efficiency",
+                "Interleaved sliding window attention",
+                "Knowledge distillation from Gemini"
+            ],
+            "benchmark_scores": {
+                "MMLU": 75.2
+            },
+            "pricing_per_1m_tokens": {
+                "input": 0.3,
+                "output": 0.3
+            },
+            "official_model_link": "https://blog.google/technology/developers/google-gemma-2/",
+            "huggingface_url": "https://huggingface.co/google/gemma-2-27b",
+            "paper_url": "https://storage.googleapis.com/deepmind-media/gemma/gemma-2-report.pdf",
+            "predecessor": "Gemma",
+            "successor": "Gemma 3"
+        },
+        {
             "id": 100,
             "company": "OpenAI",
             "company_website": "https://openai.com",
@@ -4784,6 +4881,57 @@
                 "MMLU": 82.0,
                 "HumanEval": 87.2,
                 "MATH": 70.2
+            },
+            "pricing_per_1m_tokens": {
+                "input": 0.15,
+                "output": 0.6
+            },
+            "official_model_link": "https://openai.com/index/gpt-4o-mini-advancing-cost-efficient-intelligence/",
+            "huggingface_url": null,
+            "paper_url": null,
+            "predecessor": "GPT-3.5 Turbo",
+            "successor": null
+        },
+        {
+            "id": 179,
+            "company": "OpenAI",
+            "company_website": "https://openai.com",
+            "company_logo_url": "https://logo.clearbit.com/openai.com",
+            "model_family": "GPT",
+            "model_name": "GPT-4o mini",
+            "model_version": "mini",
+            "model_type": "Multimodal LLM",
+            "architecture": "Transformer",
+            "modalities": [
+                "text",
+                "vision",
+                "audio"
+            ],
+            "parameters": null,
+            "parameter_unit": "billion",
+            "training_tokens": null,
+            "open_source": false,
+            "license": "Proprietary",
+            "api_available": true,
+            "context_window_tokens": 128000,
+            "training_data_cutoff": "2023-10",
+            "release_date": "2024-07-18",
+            "country": "USA",
+            "description": "A radically cost-efficient small model replacing GPT-3.5 Turbo. Showed remarkable multi-modal reasoning capabilities while costing significantly less, democratizing access to GPT-4 class intelligence.",
+            "use_cases": [
+                "high-volume tasks",
+                "API orchestration",
+                "customer support bots",
+                "edge computing"
+            ],
+            "notable_features": [
+                "Matches GPT-4 capability at low cost",
+                "Native multi-modal input",
+                "First API model supporting Safety Hierarchy"
+            ],
+            "benchmark_scores": {
+                "MMLU": 82.0,
+                "HumanEval": 87.0
             },
             "pricing_per_1m_tokens": {
                 "input": 0.15,
@@ -6067,7 +6215,7 @@
             "training_data_cutoff": "2024-07",
             "release_date": "2025-01-20",
             "country": "China",
-            "description": "DeepSeek R1 matched OpenAI o1 on reasoning benchmarks while being fully open-source. Its release caused a stock market reaction — Nvidia lost ~$600B market cap in one day. Includes distilled 1.5B–70B variants.",
+            "description": "DeepSeek R1 matched OpenAI o1 on reasoning benchmarks while being fully open-source. Its release caused a stock market reaction \u2014 Nvidia lost ~$600B market cap in one day. Includes distilled 1.5B\u201370B variants.",
             "use_cases": [
                 "math",
                 "coding",
@@ -6292,7 +6440,7 @@
             "training_data_cutoff": "2025-01",
             "release_date": "2025-02-17",
             "country": "USA",
-            "description": "Grok 3 topped multiple reasoning benchmarks at launch. Features 'Think' mode for extended reasoning. Trained on xAI's Colossus cluster — claimed to be the world's largest GPU training cluster at launch.",
+            "description": "Grok 3 topped multiple reasoning benchmarks at launch. Features 'Think' mode for extended reasoning. Trained on xAI's Colossus cluster \u2014 claimed to be the world's largest GPU training cluster at launch.",
             "use_cases": [
                 "reasoning",
                 "coding",
@@ -7002,7 +7150,7 @@
             "training_data_cutoff": "2024-06",
             "release_date": "2025-04-16",
             "country": "USA",
-            "description": "OpenAI o3 achieved 87.5% on ARC-AGI at high compute — a benchmark considered a near-proxy for general intelligence. Major leap in reasoning over o1. Best in class across math, coding, and science at release.",
+            "description": "OpenAI o3 achieved 87.5% on ARC-AGI at high compute \u2014 a benchmark considered a near-proxy for general intelligence. Major leap in reasoning over o1. Best in class across math, coding, and science at release.",
             "use_cases": [
                 "advanced math",
                 "scientific reasoning",
@@ -7619,7 +7767,7 @@
             "training_data_cutoff": "2025-03",
             "release_date": "2025-10-01",
             "country": "France",
-            "description": "Mistral Large 3 (675B MoE) delivers ~92% of GPT-5.2 performance at ~15% of the cost. Open reasoning models in 3B–14B for edge deployment. Mistral's largest and most capable model to date.",
+            "description": "Mistral Large 3 (675B MoE) delivers ~92% of GPT-5.2 performance at ~15% of the cost. Open reasoning models in 3B\u201314B for edge deployment. Mistral's largest and most capable model to date.",
             "use_cases": [
                 "coding",
                 "reasoning",

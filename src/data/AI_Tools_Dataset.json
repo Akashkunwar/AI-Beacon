@@ -3,7 +3,7 @@
         "title": "AI Coding Tools Timeline",
         "description": "A curated timeline of the most influential AI tools, IDEs, and agents that revolutionized software development.",
         "last_updated": "2026-03-16",
-        "total_tools": 64,
+        "total_tools": 67,
         "fields": [
             "id",
             "name",
@@ -435,6 +435,22 @@
             "url": "https://coderabbit.ai/"
         },
         {
+            "id": 65,
+            "name": "Continue.dev",
+            "company": "Continue",
+            "release_date": "2023-08-15",
+            "open_source": true,
+            "license": "Apache 2.0",
+            "category": "AI Code Assistant",
+            "description": "An open-source AI code assistant ecosystem that integrates seamlessly as a VS Code and JetBrains extension, allowing developers to choose their own models and build custom workflows.",
+            "key_features": [
+                "Bring your own model (BYOM)",
+                "Open-source extension",
+                "Customizable slash commands"
+            ],
+            "url": "https://continue.dev/"
+        },
+        {
             "id": 27,
             "name": "v0",
             "company": "Vercel",
@@ -481,6 +497,22 @@
                 "Offline privacy"
             ],
             "url": "https://lmstudio.ai"
+        },
+        {
+            "id": 66,
+            "name": "Supermaven",
+            "company": "Supermaven",
+            "release_date": "2024-02-28",
+            "open_source": false,
+            "license": "Proprietary",
+            "category": "AI Code Assistant",
+            "description": "An incredibly fast AI copilot designed for developers, featuring an unprecedented 1-million token context window, enabling it to assist with large and complex codebases instantaneously.",
+            "key_features": [
+                "1-million token context window",
+                "Ultra-low latency code suggestions",
+                "Deep codebase awareness"
+            ],
+            "url": "https://supermaven.com/"
         },
         {
             "id": 30,
@@ -593,6 +625,22 @@
                 "Intelligent asset search"
             ],
             "url": "https://figma.com"
+        },
+        {
+            "id": 67,
+            "name": "PearAI",
+            "company": "PearAI",
+            "release_date": "2024-07-24",
+            "open_source": true,
+            "license": "Apache 2.0",
+            "category": "AI Code Editor",
+            "description": "An open-source, AI-powered code editor built as a fork of VS Code. It provides agentic workflows, built-in AI chat, and seamless integrations natively, catering to both novices and advanced developers.",
+            "key_features": [
+                "Open-source VS Code fork",
+                "Agentic AI workflows",
+                "Native integrations"
+            ],
+            "url": "https://trypear.ai/"
         },
         {
             "id": 37,
