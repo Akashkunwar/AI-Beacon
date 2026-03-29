@@ -1496,7 +1496,7 @@ function PipelinePreview() {
                                 lineHeight: 'var(--lead-body)',
                                 marginTop: 'var(--s4)',
                             }}>
-                                This project is 100% open source and community-driven. From datasets to interactive visualizers, everything is legible by design. Contribute to the collection or fork the engine.
+                                This project is 100% open source and community-driven. From datasets to interactive visualizers, everything is legible by design. Contributions are warmly welcomed and encouraged — whether you're adding to the datasets or forking the engine!
                             </p>
                         </Reveal>
 

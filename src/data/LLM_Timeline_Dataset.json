@@ -2,8 +2,8 @@
     "metadata": {
         "title": "AI & LLM Models Timeline",
         "description": "Comprehensive list of AI and LLM models from 2017 to 2026, including text, vision, audio, multimodal and image generation models.",
-        "last_updated": "2026-03-16",
-        "total_models": 179,
+        "last_updated": "2026-03-29",
+        "total_models": 188,
         "audit_status": "Verified Deep Audit Complete (Chronological + Attribution)",
         "logo_source": "Clearbit Logo API (https://logo.clearbit.com/{domain})",
         "fields": [
@@ -8648,6 +8648,410 @@
             "paper_url": null,
             "predecessor": "Nemotron Super",
             "successor": "Nemotron 3 Ultra"
+        },
+        {
+            "id": 177,
+            "company": "OpenAI",
+            "company_website": "https://openai.com",
+            "company_logo_url": "https://logo.clearbit.com/openai.com",
+            "model_family": "GPT",
+            "model_name": "GPT-5.3-Codex",
+            "model_version": "5.3-Codex",
+            "model_type": "Coding LLM",
+            "architecture": "Transformer",
+            "modalities": [
+                "text",
+                "code"
+            ],
+            "parameters": null,
+            "parameter_unit": null,
+            "training_tokens": null,
+            "open_source": false,
+            "license": "Proprietary",
+            "api_available": true,
+            "context_window_tokens": 128000,
+            "training_data_cutoff": "2025-10",
+            "release_date": "2026-02-05",
+            "country": "USA",
+            "description": "Specialized agentic coding model for autonomous software engineering and refactoring.",
+            "use_cases": [
+                "autonomous software engineering",
+                "code refactoring",
+                "agentic workflows"
+            ],
+            "notable_features": [
+                "high autonomous coding capabilities",
+                "low latency agent interactions"
+            ],
+            "benchmark_scores": {},
+            "pricing_per_1m_tokens": {
+                "input": null,
+                "output": null
+            },
+            "official_model_link": "https://openai.com",
+            "huggingface_url": null,
+            "paper_url": null,
+            "predecessor": "GPT-4",
+            "successor": "GPT-5.4"
+        },
+        {
+            "id": 178,
+            "company": "Google",
+            "company_website": "https://google.com",
+            "company_logo_url": "https://logo.clearbit.com/google.com",
+            "model_family": "Gemini",
+            "model_name": "Gemini 3.1 Flash-Lite",
+            "model_version": "3.1",
+            "model_type": "Multimodal LLM",
+            "architecture": "Transformer",
+            "modalities": [
+                "text",
+                "vision",
+                "audio"
+            ],
+            "parameters": null,
+            "parameter_unit": null,
+            "training_tokens": null,
+            "open_source": false,
+            "license": "Proprietary",
+            "api_available": true,
+            "context_window_tokens": 1000000,
+            "training_data_cutoff": "2026-01",
+            "release_date": "2026-03-03",
+            "country": "USA",
+            "description": "Cost-efficient, high-volume model designed for speed, edge devices, and low-latency tasks.",
+            "use_cases": [
+                "edge devices",
+                "high-volume requests",
+                "real-time chat"
+            ],
+            "notable_features": [
+                "1M context window",
+                "ultra-low latency"
+            ],
+            "benchmark_scores": {},
+            "pricing_per_1m_tokens": {
+                "input": null,
+                "output": null
+            },
+            "official_model_link": "https://deepmind.google/gemini",
+            "huggingface_url": null,
+            "paper_url": null,
+            "predecessor": "Gemini 3.0 Flash",
+            "successor": null
+        },
+        {
+            "id": 179,
+            "company": "OpenAI",
+            "company_website": "https://openai.com",
+            "company_logo_url": "https://logo.clearbit.com/openai.com",
+            "model_family": "GPT",
+            "model_name": "GPT-5.3 Instant",
+            "model_version": "5.3",
+            "model_type": "LLM",
+            "architecture": "Transformer",
+            "modalities": [
+                "text"
+            ],
+            "parameters": null,
+            "parameter_unit": null,
+            "training_tokens": null,
+            "open_source": false,
+            "license": "Proprietary",
+            "api_available": true,
+            "context_window_tokens": 128000,
+            "training_data_cutoff": "2026-01",
+            "release_date": "2026-03-03",
+            "country": "USA",
+            "description": "Aimed at improving accuracy and response fluidity in everyday enterprise and user conversations.",
+            "use_cases": [
+                "fast conversations",
+                "chatbots",
+                "enterprise QA"
+            ],
+            "notable_features": [
+                "high speed",
+                "reduced latency"
+            ],
+            "benchmark_scores": {},
+            "pricing_per_1m_tokens": {
+                "input": null,
+                "output": null
+            },
+            "official_model_link": "https://openai.com",
+            "huggingface_url": null,
+            "paper_url": null,
+            "predecessor": "GPT-4o",
+            "successor": "GPT-5.4"
+        },
+        {
+            "id": 180,
+            "company": "OpenAI",
+            "company_website": "https://openai.com",
+            "company_logo_url": "https://logo.clearbit.com/openai.com",
+            "model_family": "GPT",
+            "model_name": "GPT-5.4",
+            "model_version": "5.4",
+            "model_type": "Multimodal LLM (Reasoning)",
+            "architecture": "Transformer",
+            "modalities": [
+                "text",
+                "vision",
+                "audio"
+            ],
+            "parameters": null,
+            "parameter_unit": null,
+            "training_tokens": null,
+            "open_source": false,
+            "license": "Proprietary",
+            "api_available": true,
+            "context_window_tokens": 1000000,
+            "training_data_cutoff": "2026-02",
+            "release_date": "2026-03-05",
+            "country": "USA",
+            "description": "Flagship model featuring native computer-use capabilities and a 1M context window for long-horizon agentic workflows.",
+            "use_cases": [
+                "computer use",
+                "long-horizon planning",
+                "advanced reasoning"
+            ],
+            "notable_features": [
+                "1M context window",
+                "native computer-use capabilities"
+            ],
+            "benchmark_scores": {},
+            "pricing_per_1m_tokens": {
+                "input": null,
+                "output": null
+            },
+            "official_model_link": "https://openai.com",
+            "huggingface_url": null,
+            "paper_url": null,
+            "predecessor": "GPT-5.3",
+            "successor": null
+        },
+        {
+            "id": 181,
+            "company": "Mistral AI",
+            "company_website": "https://mistral.ai",
+            "company_logo_url": "https://logo.clearbit.com/mistral.ai",
+            "model_family": "Mistral",
+            "model_name": "Mistral Small 4",
+            "model_version": "4",
+            "model_type": "LLM (MoE)",
+            "architecture": "Mixture-of-Experts",
+            "modalities": [
+                "text",
+                "vision"
+            ],
+            "parameters": 119,
+            "parameter_unit": "billion",
+            "training_tokens": null,
+            "open_source": true,
+            "license": "Apache 2.0",
+            "api_available": true,
+            "context_window_tokens": 128000,
+            "training_data_cutoff": "2026-01",
+            "release_date": "2026-03-16",
+            "country": "France",
+            "description": "A 119B open-weight Mixture-of-Experts model, unifying instruction-following, reasoning, multimodal understanding and agentic capabilities.",
+            "use_cases": [
+                "coding",
+                "agentic workflows",
+                "on-premise deployment"
+            ],
+            "notable_features": [
+                "119B parameter MoE",
+                "Apache 2.0 license",
+                "multimodal input support"
+            ],
+            "benchmark_scores": {},
+            "pricing_per_1m_tokens": {
+                "input": null,
+                "output": null
+            },
+            "official_model_link": "https://mistral.ai/news/mistral-small-4",
+            "huggingface_url": null,
+            "paper_url": null,
+            "predecessor": "Mistral Small 3",
+            "successor": null
+        },
+        {
+            "id": 182,
+            "company": "OpenAI",
+            "company_website": "https://openai.com",
+            "company_logo_url": "https://logo.clearbit.com/openai.com",
+            "model_family": "GPT",
+            "model_name": "GPT-5.4 Mini",
+            "model_version": "5.4-mini",
+            "model_type": "LLM",
+            "architecture": "Transformer",
+            "modalities": [
+                "text"
+            ],
+            "parameters": null,
+            "parameter_unit": null,
+            "training_tokens": null,
+            "open_source": false,
+            "license": "Proprietary",
+            "api_available": true,
+            "context_window_tokens": 128000,
+            "training_data_cutoff": "2026-02",
+            "release_date": "2026-03-17",
+            "country": "USA",
+            "description": "Smaller, budget-friendly version of GPT-5.4. Made available for Free and Go plan users.",
+            "use_cases": [
+                "free tier chatbot",
+                "high-volume APIs"
+            ],
+            "notable_features": [
+                "budget-friendly",
+                "high speed"
+            ],
+            "benchmark_scores": {},
+            "pricing_per_1m_tokens": {
+                "input": null,
+                "output": null
+            },
+            "official_model_link": "https://openai.com",
+            "huggingface_url": null,
+            "paper_url": null,
+            "predecessor": "GPT-4o mini",
+            "successor": null
+        },
+        {
+            "id": 183,
+            "company": "MiniMax",
+            "company_website": "https://minimax.io",
+            "company_logo_url": "https://logo.clearbit.com/minimax.io",
+            "model_family": "MiniMax",
+            "model_name": "MiniMax-M2.7",
+            "model_version": "M2.7",
+            "model_type": "LLM",
+            "architecture": "Transformer",
+            "modalities": [
+                "text"
+            ],
+            "parameters": null,
+            "parameter_unit": null,
+            "training_tokens": null,
+            "open_source": true,
+            "license": "Apache 2.0",
+            "api_available": true,
+            "context_window_tokens": 128000,
+            "training_data_cutoff": "2026-01",
+            "release_date": "2026-03-18",
+            "country": "China",
+            "description": "Marketed as a 'self-evolving' model capable of recursively optimizing its own reinforcement learning harnesses. Specialized for agentic workflows.",
+            "use_cases": [
+                "agentic workflows",
+                "coding",
+                "automated RL tuning"
+            ],
+            "notable_features": [
+                "self-evolving capabilities",
+                "strong agentic behavior"
+            ],
+            "benchmark_scores": {},
+            "pricing_per_1m_tokens": {
+                "input": null,
+                "output": null
+            },
+            "official_model_link": "https://minimax.io",
+            "huggingface_url": null,
+            "paper_url": null,
+            "predecessor": "MiniMax-M2.6",
+            "successor": null
+        },
+        {
+            "id": 184,
+            "company": "xAI",
+            "company_website": "https://x.ai",
+            "company_logo_url": "https://logo.clearbit.com/x.ai",
+            "model_family": "Grok",
+            "model_name": "Grok 4.20",
+            "model_version": "4.20",
+            "model_type": "LLM (Multi-Agent)",
+            "architecture": "Transformer",
+            "modalities": [
+                "text",
+                "vision"
+            ],
+            "parameters": null,
+            "parameter_unit": null,
+            "training_tokens": null,
+            "open_source": false,
+            "license": "Proprietary",
+            "api_available": true,
+            "context_window_tokens": 2000000,
+            "training_data_cutoff": "2026-02",
+            "release_date": "2026-03-18",
+            "country": "USA",
+            "description": "Features a 4-agent multi-agent collaboration system allowing peer-review-style reasoning, with a 2 million token context window.",
+            "use_cases": [
+                "multi-agent reasoning",
+                "knowledge synthesis",
+                "programming"
+            ],
+            "notable_features": [
+                "4-agent collaboration system",
+                "2M context window",
+                "low hallucination rate"
+            ],
+            "benchmark_scores": {},
+            "pricing_per_1m_tokens": {
+                "input": null,
+                "output": null
+            },
+            "official_model_link": "https://x.ai",
+            "huggingface_url": null,
+            "paper_url": null,
+            "predecessor": "Grok 3",
+            "successor": null
+        },
+        {
+            "id": 185,
+            "company": "Xiaomi",
+            "company_website": "https://xiaomi.com",
+            "company_logo_url": "https://logo.clearbit.com/xiaomi.com",
+            "model_family": "MiMo",
+            "model_name": "MiMo-V2-Pro",
+            "model_version": "V2-Pro",
+            "model_type": "Foundation LLM",
+            "architecture": "Transformer",
+            "modalities": [
+                "text"
+            ],
+            "parameters": 1000,
+            "parameter_unit": "billion",
+            "training_tokens": null,
+            "open_source": true,
+            "license": "Apache 2.0",
+            "api_available": true,
+            "context_window_tokens": 128000,
+            "training_data_cutoff": "2026-02",
+            "release_date": "2026-03-19",
+            "country": "China",
+            "description": "A flagship 1-trillion-parameter foundation model optimized for intelligent agent workflows, complex orchestration, and autonomous planning.",
+            "use_cases": [
+                "complex orchestration",
+                "intelligent workflows",
+                "autonomous planning"
+            ],
+            "notable_features": [
+                "1-trillion parameters",
+                "tested anonymously as 'Hunter Alpha'"
+            ],
+            "benchmark_scores": {},
+            "pricing_per_1m_tokens": {
+                "input": null,
+                "output": null
+            },
+            "official_model_link": "https://xiaomi.com",
+            "huggingface_url": null,
+            "paper_url": null,
+            "predecessor": "MiMo-V2",
+            "successor": null
         }
     ]
 }

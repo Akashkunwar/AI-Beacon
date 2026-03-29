@@ -2,8 +2,8 @@
     "metadata": {
         "title": "Foundational AI Research Papers Timeline",
         "description": "A curated list of the most influential AI research papers that drove the technological revolution.",
-        "last_updated": "2026-03-16",
-        "total_papers": 57,
+        "last_updated": "2026-03-29",
+        "total_papers": 59,
         "fields": [
             "id",
             "title",
@@ -1553,6 +1553,47 @@
             "paper_url": "https://immersivecomputinglab.org/research/3dgs-vr/",
             "code_url": null,
             "citations": 30
+        },
+        {
+            "id": 58,
+            "title": "DeepSeekMath: Pushing the Limits of Mathematical Reasoning in Open Language Models",
+            "authors": [
+                "Zhiyu Li",
+                "et al."
+            ],
+            "institution": "DeepSeek",
+            "publication_date": "2025-02-01",
+            "published_in": "arXiv",
+            "topic": "RLHF Alignment / Mathematical Reasoning",
+            "description": "Introduces Group Relative Policy Optimization (GRPO), a highly efficient variation of PPO that significantly optimizes reinforcement learning alignment, establishing new benchmarks for open-weight reasoning models.",
+            "key_contributions": [
+                "Group Relative Policy Optimization (GRPO)",
+                "elimination of the critic model in RLHF",
+                "breakthrough performance in multi-step math tasks"
+            ],
+            "paper_url": "https://arxiv.org/abs/2402.03300",
+            "code_url": "https://github.com/deepseek-ai/DeepSeek-Math",
+            "citations": 250
+        },
+        {
+            "id": 59,
+            "title": "Native Sparse Attention: Hardware-Aligned and Natively Trainable Sparse Attention",
+            "authors": [
+                "DeepSeek Research Team"
+            ],
+            "institution": "DeepSeek",
+            "publication_date": "2025-03-01",
+            "published_in": "arXiv",
+            "topic": "Efficient Attention",
+            "description": "Proposes a new sparse attention mechanism designed to align perfectly with modern GPU architectures, vastly improving inference speed and scaling limits for large context windows without performance degradation.",
+            "key_contributions": [
+                "Hardware-aligned sparsity patterns",
+                "Native end-to-end trainability",
+                "Significant reduction in memory footprint during inference"
+            ],
+            "paper_url": "https://arxiv.org/abs/2502.11089",
+            "code_url": null,
+            "citations": 120
         }
     ]
 }

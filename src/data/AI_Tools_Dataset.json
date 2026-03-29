@@ -2,8 +2,8 @@
     "metadata": {
         "title": "AI Coding Tools Timeline",
         "description": "A curated timeline of the most influential AI tools, IDEs, and agents that revolutionized software development.",
-        "last_updated": "2026-03-16",
-        "total_tools": 67,
+        "last_updated": "2026-03-29",
+        "total_tools": 70,
         "fields": [
             "id",
             "name",
@@ -1089,6 +1089,54 @@
                 "Enterprise governance integration"
             ],
             "url": "https://www.databricks.com/product/genie"
+        },
+        {
+            "id": 68,
+            "name": "Gemini CLI",
+            "company": "Google",
+            "release_date": "2025-06-25",
+            "open_source": true,
+            "license": "Apache 2.0",
+            "category": "AI CLI Coding Assistant",
+            "description": "An open-source AI agent developed by Google that operates within the developer's terminal. Supports natural language prompts for coding, debugging, file manipulation, and complex problem-solving.",
+            "key_features": [
+                "ReAct loop",
+                "Model Context Protocol (MCP) support",
+                "Deep terminal integration"
+            ],
+            "url": "https://github.com/google/gemini-cli"
+        },
+        {
+            "id": 69,
+            "name": "Augment Code",
+            "company": "Augment",
+            "release_date": "2025-09-01",
+            "open_source": false,
+            "license": "Proprietary",
+            "category": "AI Code Assistant",
+            "description": "Context-aware AI developer platform integrating with Google Cloud infrastructure to provide large-scale contextual coding assistance directly in IDEs.",
+            "key_features": [
+                "Enterprise integration",
+                "Deep contextual understanding",
+                "IDE native workflows"
+            ],
+            "url": "https://augmentinc.com"
+        },
+        {
+            "id": 70,
+            "name": "OpenCode",
+            "company": "Community",
+            "release_date": "2026-01-15",
+            "open_source": true,
+            "license": "MIT",
+            "category": "AI CLI Coding Agent",
+            "description": "A lightweight, open-source AI coding agent built in Go that is gaining popularity for its speed and provider-agnostic approach.",
+            "key_features": [
+                "Speed performance via Go",
+                "Provider agnostic",
+                "Open-source multi-agent orchestration"
+            ],
+            "url": "https://github.com/opencode"
         }
     ]
 }
