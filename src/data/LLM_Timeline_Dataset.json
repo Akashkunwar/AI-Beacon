@@ -2,8 +2,8 @@
     "metadata": {
         "title": "AI & LLM Models Timeline",
         "description": "Comprehensive list of AI and LLM models from 2017 to 2026, including text, vision, audio, multimodal and image generation models.",
-        "last_updated": "2026-03-29",
-        "total_models": 188,
+        "last_updated": "2026-04-14",
+        "total_models": 212,
         "audit_status": "Verified Deep Audit Complete (Chronological + Attribution)",
         "logo_source": "Clearbit Logo API (https://logo.clearbit.com/{domain})",
         "fields": [
@@ -568,7 +568,7 @@
             "training_data_cutoff": "2021-01",
             "release_date": "2021-08-11",
             "country": "Israel",
-            "description": "Jurassic-1 from Israel's AI21 Labs was one of the first GPT-3 competitors, at 178B parameters. Available via API with Jumbo (178B) and Large (7.5B) variants. Used a 250,000-token vocabulary \u2014 the largest at the time.",
+            "description": "Jurassic-1 from Israel's AI21 Labs was one of the first GPT-3 competitors, at 178B parameters. Available via API with Jumbo (178B) and Large (7.5B) variants. Used a 250,000-token vocabulary — the largest at the time.",
             "use_cases": [
                 "text generation",
                 "summarization",
@@ -672,7 +672,7 @@
                 "knowledge-intensive tasks"
             ],
             "benchmark_scores": {
-                "MMLU": 60.0
+                "MMLU": 60
             },
             "pricing_per_1m_tokens": {
                 "input": null,
@@ -1262,7 +1262,7 @@
             "training_data_cutoff": "2021-09",
             "release_date": "2022-11-30",
             "country": "USA",
-            "description": "ChatGPT reached 100 million users in 2 months \u2014 the fastest consumer product adoption in history. Fine-tuned from GPT-3.5 using RLHF, it sparked the modern AI chatbot era and changed public perception of AI.",
+            "description": "ChatGPT reached 100 million users in 2 months — the fastest consumer product adoption in history. Fine-tuned from GPT-3.5 using RLHF, it sparked the modern AI chatbot era and changed public perception of AI.",
             "use_cases": [
                 "chatbot",
                 "coding",
@@ -1277,7 +1277,7 @@
                 "instruction following"
             ],
             "benchmark_scores": {
-                "MMLU": 70.0,
+                "MMLU": 70,
                 "HumanEval": 48.1
             },
             "pricing_per_1m_tokens": {
@@ -1313,7 +1313,7 @@
             "training_data_cutoff": "2022-01",
             "release_date": "2023-02-24",
             "country": "USA",
-            "description": "Meta's first LLaMA came in 7B\u201365B sizes. The 65B model was competitive with GPT-3 175B. Its weights were leaked, spawning a massive open-source ecosystem including Alpaca, Vicuna, and dozens of derivatives.",
+            "description": "Meta's first LLaMA came in 7B–65B sizes. The 65B model was competitive with GPT-3 175B. Its weights were leaked, spawning a massive open-source ecosystem including Alpaca, Vicuna, and dozens of derivatives.",
             "use_cases": [
                 "research",
                 "fine-tuning",
@@ -1412,7 +1412,7 @@
             "training_data_cutoff": "2023-01",
             "release_date": "2023-03-06",
             "country": "USA",
-            "description": "PaLM-E is the largest vision-language model at 562B parameters. Designed for embodied AI \u2014 controlling robots using natural language grounded in visual perception. Demonstrated robot planning from free-form language instructions without task-specific fine-tuning.",
+            "description": "PaLM-E is the largest vision-language model at 562B parameters. Designed for embodied AI — controlling robots using natural language grounded in visual perception. Demonstrated robot planning from free-form language instructions without task-specific fine-tuning.",
             "use_cases": [
                 "robotics control",
                 "embodied AI",
@@ -1574,12 +1574,12 @@
             ],
             "benchmark_scores": {
                 "MMLU": 86.4,
-                "HumanEval": 67.0,
+                "HumanEval": 67,
                 "MATH": 52.9
             },
             "pricing_per_1m_tokens": {
-                "input": 30.0,
-                "output": 60.0
+                "input": 30,
+                "output": 60
             },
             "official_model_link": "https://openai.com/gpt-4",
             "huggingface_url": null,
@@ -1658,7 +1658,7 @@
             "training_data_cutoff": "2023-01",
             "release_date": "2023-03-16",
             "country": "China",
-            "description": "ERNIE Bot (Wenxin Yiyan) is Baidu's ChatGPT competitor powered by ERNIE 3.5. Launched publicly on March 16, 2023 \u2014 one day after GPT-4. Reached 100M+ users rapidly. Supports Chinese multimodal tasks and integrates with Baidu Search.",
+            "description": "ERNIE Bot (Wenxin Yiyan) is Baidu's ChatGPT competitor powered by ERNIE 3.5. Launched publicly on March 16, 2023 — one day after GPT-4. Reached 100M+ users rapidly. Supports Chinese multimodal tasks and integrates with Baidu Search.",
             "use_cases": [
                 "chatbot",
                 "Chinese NLP",
@@ -1973,7 +1973,7 @@
             "model_name": "RWKV",
             "model_version": "4.0",
             "model_type": "LLM (RNN-Transformer Hybrid)",
-            "architecture": "RWKV (Receptance Weighted Key Value \u2014 linear RNN)",
+            "architecture": "RWKV (Receptance Weighted Key Value — linear RNN)",
             "modalities": [
                 "text"
             ],
@@ -2185,7 +2185,7 @@
             "training_data_cutoff": "2023-04",
             "release_date": "2023-06-26",
             "country": "USA",
-            "description": "Kosmos-2 added spatial grounding \u2014 the ability to link phrases to bounding boxes in images. This allows referring expression comprehension and phrase grounding, key steps toward spatially-aware AI assistants.",
+            "description": "Kosmos-2 added spatial grounding — the ability to link phrases to bounding boxes in images. This allows referring expression comprehension and phrase grounding, key steps toward spatially-aware AI assistants.",
             "use_cases": [
                 "visual grounding",
                 "referring expression comprehension",
@@ -2300,11 +2300,11 @@
             "benchmark_scores": {
                 "MMLU": 78.5,
                 "HumanEval": 71.2,
-                "GSM8K": 88.0
+                "GSM8K": 88
             },
             "pricing_per_1m_tokens": {
-                "input": 8.0,
-                "output": 24.0
+                "input": 8,
+                "output": 24
             },
             "official_model_link": "https://www.anthropic.com/news/claude-2",
             "huggingface_url": null,
@@ -2642,7 +2642,7 @@
             "training_data_cutoff": "2023-01",
             "release_date": "2023-09-27",
             "country": "France",
-            "description": "Mistral 7B outperformed LLaMA 2 13B on all benchmarks despite being much smaller. Used Grouped-Query Attention and Sliding Window Attention. Released as a torrent with no press release \u2014 causing a sensation in the AI community.",
+            "description": "Mistral 7B outperformed LLaMA 2 13B on all benchmarks despite being much smaller. Used Grouped-Query Attention and Sliding Window Attention. Released as a torrent with no press release — causing a sensation in the AI community.",
             "use_cases": [
                 "text generation",
                 "coding",
@@ -2803,13 +2803,13 @@
                 "less restricted outputs"
             ],
             "benchmark_scores": {
-                "MMLU": 73.0,
+                "MMLU": 73,
                 "HumanEval": 63.2,
                 "MATH": 23.9
             },
             "pricing_per_1m_tokens": {
-                "input": 5.0,
-                "output": 15.0
+                "input": 5,
+                "output": 15
             },
             "official_model_link": "https://x.ai/grok",
             "huggingface_url": "https://huggingface.co/xai-org/grok-1",
@@ -2867,7 +2867,53 @@
             "successor": "Yi-1.5"
         },
         {
-            "id": 61,
+            "company": "OpenAI",
+            "company_website": "https://openai.com",
+            "company_logo_url": "https://logo.clearbit.com/openai.com",
+            "model_family": "GPT",
+            "model_name": "GPT-4 Turbo",
+            "model_version": "gpt-4-1106-preview",
+            "model_type": "LLM",
+            "architecture": "Transformer (MoE)",
+            "modalities": [
+                "text",
+                "vision"
+            ],
+            "parameters": null,
+            "parameter_unit": null,
+            "training_tokens": null,
+            "open_source": false,
+            "license": "Proprietary",
+            "api_available": true,
+            "context_window_tokens": 128000,
+            "training_data_cutoff": "2023-04",
+            "release_date": "2023-11-06",
+            "country": "USA",
+            "description": "Released at OpenAI DevDay, GPT-4 Turbo offered a 128k context window, updated knowledge cutoff, and significantly lower pricing than the original GPT-4, solidifying it as the top-tier production API.",
+            "use_cases": [
+                "general reasoning",
+                "coding",
+                "software engineering"
+            ],
+            "notable_features": [
+                "128k Context limit",
+                "JSON mode",
+                "Lower pricing"
+            ],
+            "benchmark_scores": {},
+            "pricing_per_1m_tokens": {
+                "input": 10,
+                "output": 30
+            },
+            "official_model_link": "https://openai.com/index/new-models-and-developer-products-announced-at-devday",
+            "huggingface_url": null,
+            "paper_url": null,
+            "predecessor": "GPT-4",
+            "successor": "GPT-4o",
+            "id": 61
+        },
+        {
+            "id": 62,
             "company": "Google DeepMind",
             "company_website": "https://deepmind.google",
             "company_logo_url": "https://logo.clearbit.com/deepmind.com",
@@ -2921,7 +2967,7 @@
             "successor": "Gemini 1.5"
         },
         {
-            "id": 62,
+            "id": 63,
             "company": "Mistral AI",
             "company_website": "https://mistral.ai",
             "company_logo_url": "https://logo.clearbit.com/mistral.ai",
@@ -3016,7 +3062,7 @@
             "paper_url": null,
             "predecessor": "Phi-1.5",
             "successor": "Phi-3",
-            "id": 63
+            "id": 64
         },
         {
             "company": "Google",
@@ -3059,7 +3105,7 @@
             "paper_url": null,
             "predecessor": "Imagen 1",
             "successor": "Imagen 3",
-            "id": 64
+            "id": 65
         },
         {
             "company": "Zhipu AI",
@@ -3108,7 +3154,7 @@
             "paper_url": "https://arxiv.org/abs/2406.12793",
             "predecessor": "ChatGLM3",
             "successor": "GLM-4.5",
-            "id": 65
+            "id": 66
         },
         {
             "company": "Alibaba",
@@ -3143,7 +3189,7 @@
                 "DPO/PPO alignment"
             ],
             "benchmark_scores": {
-                "MMLU": 75.0
+                "MMLU": 75
             },
             "pricing_per_1m_tokens": {
                 "input": null,
@@ -3154,10 +3200,10 @@
             "paper_url": null,
             "predecessor": "Qwen",
             "successor": "Qwen 2",
-            "id": 66
+            "id": 67
         },
         {
-            "id": 67,
+            "id": 68,
             "company": "Google DeepMind",
             "company_website": "https://deepmind.google",
             "company_logo_url": "https://logo.clearbit.com/deepmind.com",
@@ -3202,7 +3248,7 @@
             },
             "pricing_per_1m_tokens": {
                 "input": 1.25,
-                "output": 5.0
+                "output": 5
             },
             "official_model_link": "https://deepmind.google/technologies/gemini/pro/",
             "huggingface_url": null,
@@ -3211,7 +3257,7 @@
             "successor": "Gemini 2.0"
         },
         {
-            "id": 68,
+            "id": 69,
             "company": "Google",
             "company_website": "https://google.com",
             "company_logo_url": "https://logo.clearbit.com/google.com",
@@ -3262,7 +3308,7 @@
             "successor": "Gemma 2"
         },
         {
-            "id": 69,
+            "id": 70,
             "company": "Anthropic",
             "company_website": "https://anthropic.com",
             "company_logo_url": "https://logo.clearbit.com/anthropic.com",
@@ -3299,12 +3345,12 @@
                 "enterprise optimized"
             ],
             "benchmark_scores": {
-                "MMLU": 79.0,
-                "HumanEval": 73.0
+                "MMLU": 79,
+                "HumanEval": 73
             },
             "pricing_per_1m_tokens": {
-                "input": 3.0,
-                "output": 15.0
+                "input": 3,
+                "output": 15
             },
             "official_model_link": "https://www.anthropic.com/claude/sonnet",
             "huggingface_url": null,
@@ -3313,7 +3359,7 @@
             "successor": "Claude 3.5 Sonnet"
         },
         {
-            "id": 70,
+            "id": 71,
             "company": "Anthropic",
             "company_website": "https://anthropic.com",
             "company_logo_url": "https://logo.clearbit.com/anthropic.com",
@@ -3354,11 +3400,11 @@
                 "MMLU": 86.8,
                 "HumanEval": 84.9,
                 "MATH": 60.1,
-                "GSM8K": 95.0
+                "GSM8K": 95
             },
             "pricing_per_1m_tokens": {
-                "input": 15.0,
-                "output": 75.0
+                "input": 15,
+                "output": 75
             },
             "official_model_link": "https://www.anthropic.com/claude/opus",
             "huggingface_url": null,
@@ -3411,10 +3457,10 @@
             "paper_url": null,
             "predecessor": "Pi-1",
             "successor": null,
-            "id": 71
+            "id": 72
         },
         {
-            "id": 72,
+            "id": 73,
             "company": "Cohere",
             "company_website": "https://cohere.com",
             "company_logo_url": "https://logo.clearbit.com/cohere.com",
@@ -3464,7 +3510,7 @@
             "successor": "Command R+"
         },
         {
-            "id": 73,
+            "id": 74,
             "company": "Anthropic",
             "company_website": "https://anthropic.com",
             "company_logo_url": "https://logo.clearbit.com/anthropic.com",
@@ -3555,7 +3601,7 @@
             "paper_url": null,
             "predecessor": "Suno v2",
             "successor": "Suno v3.5",
-            "id": 74
+            "id": 75
         },
         {
             "company": "Databricks",
@@ -3601,7 +3647,7 @@
             "paper_url": null,
             "predecessor": "MPT",
             "successor": null,
-            "id": 75
+            "id": 76
         },
         {
             "company": "xAI",
@@ -3637,7 +3683,7 @@
             ],
             "benchmark_scores": {
                 "HumanEval": 74.1,
-                "GSM8K": 90.0
+                "GSM8K": 90
             },
             "pricing_per_1m_tokens": {
                 "input": null,
@@ -3648,10 +3694,10 @@
             "paper_url": null,
             "predecessor": "Grok-1",
             "successor": "Grok-2",
-            "id": 76
+            "id": 77
         },
         {
-            "id": 77,
+            "id": 78,
             "company": "Mistral AI",
             "company_website": "https://mistral.ai",
             "company_logo_url": "https://logo.clearbit.com/mistral.ai",
@@ -3692,8 +3738,8 @@
                 "MATH": 41.8
             },
             "pricing_per_1m_tokens": {
-                "input": 2.0,
-                "output": 6.0
+                "input": 2,
+                "output": 6
             },
             "official_model_link": "https://mistral.ai/news/mixtral-8x22b/",
             "huggingface_url": "https://huggingface.co/mistralai/Mixtral-8x22B-Instruct-v0.1",
@@ -3742,7 +3788,7 @@
             "paper_url": null,
             "predecessor": null,
             "successor": "Udio v1.5",
-            "id": 78
+            "id": 79
         },
         {
             "company": "xAI",
@@ -3777,7 +3823,7 @@
                 "RealWorldQA leader"
             ],
             "benchmark_scores": {
-                "RealWorldQA": 50.0
+                "RealWorldQA": 50
             },
             "pricing_per_1m_tokens": {
                 "input": null,
@@ -3788,10 +3834,10 @@
             "paper_url": null,
             "predecessor": "Grok-1.5",
             "successor": "Grok-2",
-            "id": 79
+            "id": 80
         },
         {
-            "id": 177,
+            "id": 81,
             "company": "xAI",
             "company_website": "https://x.ai",
             "company_logo_url": "https://logo.clearbit.com/x.ai",
@@ -3874,7 +3920,7 @@
                 "200K context"
             ],
             "benchmark_scores": {
-                "MMLU": 85.0
+                "MMLU": 85
             },
             "pricing_per_1m_tokens": {
                 "input": null,
@@ -3885,10 +3931,10 @@
             "paper_url": null,
             "predecessor": "abab 6",
             "successor": "abab 7",
-            "id": 80
+            "id": 82
         },
         {
-            "id": 81,
+            "id": 83,
             "company": "Meta",
             "company_website": "https://meta.com",
             "company_logo_url": "https://logo.clearbit.com/meta.com",
@@ -3910,7 +3956,7 @@
             "training_data_cutoff": "2023-12",
             "release_date": "2024-04-18",
             "country": "USA",
-            "description": "LLaMA 3 launched in 8B and 70B sizes, with 405B following in July 2024. Trained on 15T tokens \u2014 7x more than LLaMA 2. Significantly improved reasoning, coding, and instruction following.",
+            "description": "LLaMA 3 launched in 8B and 70B sizes, with 405B following in July 2024. Trained on 15T tokens — 7x more than LLaMA 2. Significantly improved reasoning, coding, and instruction following.",
             "use_cases": [
                 "chatbot",
                 "coding",
@@ -3925,10 +3971,10 @@
                 "competitive with GPT-4"
             ],
             "benchmark_scores": {
-                "MMLU": 82.0,
+                "MMLU": 82,
                 "HumanEval": 81.7,
                 "MATH": 50.4,
-                "GSM8K": 93.0
+                "GSM8K": 93
             },
             "pricing_per_1m_tokens": {
                 "input": null,
@@ -3941,7 +3987,7 @@
             "successor": "LLaMA 3.1"
         },
         {
-            "id": 82,
+            "id": 84,
             "company": "Microsoft",
             "company_website": "https://microsoft.com",
             "company_logo_url": "https://logo.clearbit.com/microsoft.com",
@@ -4034,7 +4080,7 @@
             "paper_url": null,
             "predecessor": null,
             "successor": null,
-            "id": 83
+            "id": 85
         },
         {
             "company": "SML / 3AI Holding",
@@ -4062,10 +4108,10 @@
             "notable_features": [
                 "98 global languages support"
             ],
-            "id": 84
+            "id": 86
         },
         {
-            "id": 85,
+            "id": 87,
             "company": "DeepSeek",
             "company_website": "https://deepseek.com",
             "company_logo_url": "https://logo.clearbit.com/deepseek.com",
@@ -4157,10 +4203,10 @@
             "paper_url": "https://www.nature.com/articles/s41586-024-07487-w",
             "predecessor": "AlphaFold 2",
             "successor": null,
-            "id": 86
+            "id": 88
         },
         {
-            "id": 87,
+            "id": 89,
             "company": "OpenAI",
             "company_website": "https://openai.com",
             "company_logo_url": "https://logo.clearbit.com/openai.com",
@@ -4205,7 +4251,7 @@
             },
             "pricing_per_1m_tokens": {
                 "input": 2.5,
-                "output": 10.0
+                "output": 10
             },
             "official_model_link": "https://openai.com/index/hello-gpt-4o/",
             "huggingface_url": null,
@@ -4214,7 +4260,7 @@
             "successor": "GPT-4o mini"
         },
         {
-            "id": 88,
+            "id": 90,
             "company": "Google DeepMind",
             "company_website": "https://deepmind.google",
             "company_logo_url": "https://logo.clearbit.com/deepmind.com",
@@ -4308,10 +4354,10 @@
             "paper_url": "https://arxiv.org/abs/2405.08748",
             "predecessor": null,
             "successor": null,
-            "id": 89
+            "id": 91
         },
         {
-            "id": 90,
+            "id": 92,
             "company": "Cohere",
             "company_website": "https://cohere.com",
             "company_logo_url": "https://logo.clearbit.com/cohere.com",
@@ -4395,15 +4441,15 @@
                 "HumanEval": 81.1
             },
             "pricing_per_1m_tokens": {
-                "input": 1.0,
-                "output": 3.0
+                "input": 1,
+                "output": 3
             },
             "official_model_link": "https://mistral.ai/news/codestral/",
             "huggingface_url": "https://huggingface.co/mistralai/Codestral-22B-v0.1",
             "paper_url": null,
             "predecessor": "Mistral 7B",
             "successor": null,
-            "id": 91
+            "id": 93
         },
         {
             "company": "Kuaishou",
@@ -4450,10 +4496,10 @@
             "paper_url": null,
             "predecessor": null,
             "successor": "Kling 2.0",
-            "id": 92
+            "id": 94
         },
         {
-            "id": 93,
+            "id": 95,
             "company": "Alibaba",
             "company_website": "https://alibaba.com",
             "company_logo_url": "https://logo.clearbit.com/alibaba.com",
@@ -4547,10 +4593,10 @@
             "paper_url": null,
             "predecessor": null,
             "successor": null,
-            "id": 94
+            "id": 96
         },
         {
-            "id": 95,
+            "id": 97,
             "company": "Stability AI",
             "company_website": "https://stability.ai",
             "company_logo_url": "https://logo.clearbit.com/stability.ai",
@@ -4641,7 +4687,7 @@
             "paper_url": null,
             "predecessor": null,
             "successor": "Dream Machine 2",
-            "id": 96
+            "id": 98
         },
         {
             "company": "Microsoft",
@@ -4686,10 +4732,10 @@
             "paper_url": "https://arxiv.org/abs/2311.06242",
             "predecessor": "Florence",
             "successor": null,
-            "id": 97
+            "id": 99
         },
         {
-            "id": 98,
+            "id": 100,
             "company": "Anthropic",
             "company_website": "https://anthropic.com",
             "company_logo_url": "https://logo.clearbit.com/anthropic.com",
@@ -4728,13 +4774,13 @@
             ],
             "benchmark_scores": {
                 "MMLU": 88.3,
-                "HumanEval": 92.0,
+                "HumanEval": 92,
                 "MATH": 71.1,
-                "SWE-bench": 49.0
+                "SWE-bench": 49
             },
             "pricing_per_1m_tokens": {
-                "input": 3.0,
-                "output": 15.0
+                "input": 3,
+                "output": 15
             },
             "official_model_link": "https://www.anthropic.com/news/claude-3-5-sonnet",
             "huggingface_url": null,
@@ -4743,7 +4789,7 @@
             "successor": "Claude 3.7 Sonnet"
         },
         {
-            "id": 99,
+            "id": 101,
             "company": "Google",
             "company_website": "https://google.com",
             "company_logo_url": "https://logo.clearbit.com/google.com",
@@ -4794,7 +4840,7 @@
             "successor": "Gemma 3"
         },
         {
-            "id": 178,
+            "id": 102,
             "company": "Google",
             "company_website": "https://google.com",
             "company_logo_url": "https://logo.clearbit.com/google.com",
@@ -4841,7 +4887,7 @@
             "successor": "Gemma 3"
         },
         {
-            "id": 100,
+            "id": 103,
             "company": "OpenAI",
             "company_website": "https://openai.com",
             "company_logo_url": "https://logo.clearbit.com/openai.com",
@@ -4878,7 +4924,7 @@
                 "vision support"
             ],
             "benchmark_scores": {
-                "MMLU": 82.0,
+                "MMLU": 82,
                 "HumanEval": 87.2,
                 "MATH": 70.2
             },
@@ -4893,7 +4939,7 @@
             "successor": null
         },
         {
-            "id": 179,
+            "id": 104,
             "company": "OpenAI",
             "company_website": "https://openai.com",
             "company_logo_url": "https://logo.clearbit.com/openai.com",
@@ -4930,8 +4976,8 @@
                 "First API model supporting Safety Hierarchy"
             ],
             "benchmark_scores": {
-                "MMLU": 82.0,
-                "HumanEval": 87.0
+                "MMLU": 82,
+                "HumanEval": 87
             },
             "pricing_per_1m_tokens": {
                 "input": 0.15,
@@ -4944,7 +4990,7 @@
             "successor": null
         },
         {
-            "id": 101,
+            "id": 105,
             "company": "Meta",
             "company_website": "https://meta.com",
             "company_logo_url": "https://logo.clearbit.com/meta.com",
@@ -4982,7 +5028,7 @@
             ],
             "benchmark_scores": {
                 "MMLU": 88.6,
-                "HumanEval": 89.0,
+                "HumanEval": 89,
                 "MATH": 73.8,
                 "GSM8K": 96.8
             },
@@ -4997,7 +5043,49 @@
             "successor": "LLaMA 3.2"
         },
         {
-            "id": 102,
+            "company": "Meta",
+            "company_website": "https://meta.com",
+            "company_logo_url": "https://logo.clearbit.com/meta.com",
+            "model_family": "Llama",
+            "model_name": "Llama 3.1",
+            "model_version": "3.1",
+            "model_type": "Foundation LLM",
+            "architecture": "Transformer",
+            "modalities": [
+                "text"
+            ],
+            "parameters": 405,
+            "parameter_unit": "billion",
+            "training_tokens": 15000,
+            "open_source": true,
+            "license": "Llama 3.1 License",
+            "api_available": true,
+            "context_window_tokens": 128000,
+            "training_data_cutoff": "2023-12",
+            "release_date": "2024-07-23",
+            "country": "USA",
+            "description": "The first open-weight model to rival GPT-4o in reasoning and benchmarks, featuring a massive 405B parameter version.",
+            "use_cases": [
+                "local development",
+                "open research",
+                "high-end reasoning"
+            ],
+            "notable_features": [
+                "405B parameters",
+                "Advanced reasoning",
+                "Extensive context window"
+            ],
+            "benchmark_scores": {},
+            "pricing_per_1m_tokens": null,
+            "official_model_link": "https://llama.meta.com",
+            "huggingface_url": "https://huggingface.co/meta-llama/Llama-3.1-405B",
+            "paper_url": null,
+            "predecessor": "Llama 3",
+            "successor": "Llama 3.2",
+            "id": 106
+        },
+        {
+            "id": 107,
             "company": "Mistral AI",
             "company_website": "https://mistral.ai",
             "company_logo_url": "https://logo.clearbit.com/mistral.ai",
@@ -5034,13 +5122,13 @@
                 "competitive with Claude 3.5"
             ],
             "benchmark_scores": {
-                "MMLU": 84.0,
-                "HumanEval": 92.0,
+                "MMLU": 84,
+                "HumanEval": 92,
                 "MATH": 69.9
             },
             "pricing_per_1m_tokens": {
-                "input": 2.0,
-                "output": 6.0
+                "input": 2,
+                "output": 6
             },
             "official_model_link": "https://mistral.ai/news/mistral-large-2407/",
             "huggingface_url": "https://huggingface.co/mistralai/Mistral-Large-Instruct-2407",
@@ -5092,7 +5180,7 @@
             "paper_url": "https://arxiv.org/abs/2408.00714",
             "predecessor": "SAM",
             "successor": null,
-            "id": 103
+            "id": 108
         },
         {
             "company": "Black Forest Labs",
@@ -5138,7 +5226,7 @@
             "paper_url": null,
             "predecessor": "Stable Diffusion XL",
             "successor": "FLUX 1.1 [pro]",
-            "id": 104
+            "id": 109
         },
         {
             "company": "Sarvam AI",
@@ -5183,7 +5271,7 @@
             "paper_url": null,
             "predecessor": "OpenHathi",
             "successor": "Sarvam-1",
-            "id": 105
+            "id": 110
         },
         {
             "company": "xAI",
@@ -5230,7 +5318,53 @@
             "paper_url": null,
             "predecessor": "Grok-1.5",
             "successor": "Grok-3",
-            "id": 106
+            "id": 111
+        },
+        {
+            "company": "xAI",
+            "company_website": "https://x.ai",
+            "company_logo_url": "https://logo.clearbit.com/x.ai",
+            "model_family": "Grok",
+            "model_name": "Grok-2",
+            "model_version": "2.0",
+            "model_type": "LLM",
+            "architecture": "Transformer",
+            "modalities": [
+                "text",
+                "vision"
+            ],
+            "parameters": null,
+            "parameter_unit": null,
+            "training_tokens": null,
+            "open_source": false,
+            "license": "Proprietary",
+            "api_available": true,
+            "context_window_tokens": 131000,
+            "training_data_cutoff": "2024-07",
+            "release_date": "2024-08-13",
+            "country": "USA",
+            "description": "xAI's frontier model that matches or exceeds GPT-4o and Claude 3.5 Sonnet on major benhcmarks. Uniquely features real-time knowledge via the X platform.",
+            "use_cases": [
+                "chat",
+                "coding",
+                "real-time news"
+            ],
+            "notable_features": [
+                "Real-time data access",
+                "FLUX.1 image generation",
+                "State-of-the-art coding"
+            ],
+            "benchmark_scores": {},
+            "pricing_per_1m_tokens": {
+                "input": null,
+                "output": null
+            },
+            "official_model_link": "https://x.ai/blog/grok-2",
+            "huggingface_url": null,
+            "paper_url": null,
+            "predecessor": "Grok-1.5",
+            "successor": null,
+            "id": 112
         },
         {
             "company": "AI21 Labs",
@@ -5275,7 +5409,7 @@
             "paper_url": null,
             "predecessor": "Jamba",
             "successor": null,
-            "id": 107
+            "id": 113
         },
         {
             "company": "Aleph Alpha",
@@ -5319,7 +5453,7 @@
             "paper_url": null,
             "predecessor": "Luminous-base",
             "successor": null,
-            "id": 108
+            "id": 114
         },
         {
             "company": "Mistral AI",
@@ -5366,10 +5500,10 @@
             "paper_url": null,
             "predecessor": "Mistral Nemo",
             "successor": null,
-            "id": 109
+            "id": 115
         },
         {
-            "id": 110,
+            "id": 116,
             "company": "OpenAI",
             "company_website": "https://openai.com",
             "company_logo_url": "https://logo.clearbit.com/openai.com",
@@ -5407,8 +5541,8 @@
                 "AIME 2024": 83.3
             },
             "pricing_per_1m_tokens": {
-                "input": 15.0,
-                "output": 60.0
+                "input": 15,
+                "output": 60
             },
             "official_model_link": "https://openai.com/index/introducing-openai-o1-preview/",
             "huggingface_url": null,
@@ -5417,7 +5551,7 @@
             "successor": "o1-mini"
         },
         {
-            "id": 111,
+            "id": 117,
             "company": "OpenAI",
             "company_website": "https://openai.com",
             "company_logo_url": "https://logo.clearbit.com/openai.com",
@@ -5453,13 +5587,13 @@
                 "low cost"
             ],
             "benchmark_scores": {
-                "AIME_2024": 70.0,
+                "AIME_2024": 70,
                 "HumanEval": 97.6,
-                "MATH": 90.0
+                "MATH": 90
             },
             "pricing_per_1m_tokens": {
-                "input": 3.0,
-                "output": 12.0
+                "input": 3,
+                "output": 12
             },
             "official_model_link": "https://openai.com/o1-mini",
             "huggingface_url": null,
@@ -5468,7 +5602,7 @@
             "successor": "o3-mini"
         },
         {
-            "id": 112,
+            "id": 118,
             "company": "Alibaba",
             "company_website": "https://alibaba.com",
             "company_logo_url": "https://logo.clearbit.com/alibaba.com",
@@ -5520,7 +5654,7 @@
             "successor": "Qwen3"
         },
         {
-            "id": 113,
+            "id": 119,
             "company": "Meta",
             "company_website": "https://meta.com",
             "company_logo_url": "https://logo.clearbit.com/meta.com",
@@ -5558,8 +5692,8 @@
                 "on-device capable"
             ],
             "benchmark_scores": {
-                "MMLU": 86.0,
-                "HumanEval": 72.0
+                "MMLU": 86,
+                "HumanEval": 72
             },
             "pricing_per_1m_tokens": {
                 "input": null,
@@ -5570,6 +5704,48 @@
             "paper_url": null,
             "predecessor": "LLaMA 3.1",
             "successor": "LLaMA 3.3"
+        },
+        {
+            "company": "Meta",
+            "company_website": "https://meta.com",
+            "company_logo_url": "https://logo.clearbit.com/meta.com",
+            "model_family": "Llama",
+            "model_name": "Llama 3.2",
+            "model_version": "3.2",
+            "model_type": "Multimodal LLM",
+            "architecture": "Transformer",
+            "modalities": [
+                "text",
+                "vision"
+            ],
+            "parameters": 90,
+            "parameter_unit": "billion",
+            "training_tokens": null,
+            "open_source": true,
+            "license": "Llama 3.2 License",
+            "api_available": true,
+            "context_window_tokens": 128000,
+            "training_data_cutoff": "2023-12",
+            "release_date": "2024-09-25",
+            "country": "USA",
+            "description": "Introduced native vision capabilities and edge-optimized small models to the Llama family.",
+            "use_cases": [
+                "on-device AI",
+                "vision understanding",
+                "multimodal reasoning"
+            ],
+            "notable_features": [
+                "Vision support",
+                "Edge-optimized models"
+            ],
+            "benchmark_scores": {},
+            "pricing_per_1m_tokens": null,
+            "official_model_link": "https://llama.meta.com",
+            "huggingface_url": "https://huggingface.co/meta-llama/Llama-3.2-90B-Vision",
+            "paper_url": null,
+            "predecessor": "Llama 3.1",
+            "successor": null,
+            "id": 120
         },
         {
             "company": "Stability AI",
@@ -5615,7 +5791,7 @@
             "paper_url": null,
             "predecessor": "Stable Diffusion 3",
             "successor": null,
-            "id": 114
+            "id": 121
         },
         {
             "company": "Sapienza NLP",
@@ -5658,10 +5834,10 @@
             "paper_url": null,
             "predecessor": null,
             "successor": null,
-            "id": 115
+            "id": 122
         },
         {
-            "id": 116,
+            "id": 123,
             "company": "Anthropic",
             "company_website": "https://anthropic.com",
             "company_logo_url": "https://logo.clearbit.com/anthropic.com",
@@ -5709,7 +5885,7 @@
             "successor": "Claude 4 Haiku"
         },
         {
-            "id": 162,
+            "id": 124,
             "company": "Mistral AI",
             "company_website": "https://mistral.ai",
             "company_logo_url": "https://logo.clearbit.com/mistral.ai",
@@ -5751,8 +5927,8 @@
                 "DocVQA": 93.3
             },
             "pricing_per_1m_tokens": {
-                "input": 2.0,
-                "output": 6.0
+                "input": 2,
+                "output": 6
             },
             "official_model_link": "https://mistral.ai/news/pixtral-large",
             "huggingface_url": "https://huggingface.co/mistralai/Pixtral-Large-Instruct-2411",
@@ -5761,7 +5937,7 @@
             "successor": null
         },
         {
-            "id": 163,
+            "id": 125,
             "company": "Alibaba",
             "company_website": "https://qwenlm.github.io",
             "company_logo_url": "https://logo.clearbit.com/alibaba.com",
@@ -5797,9 +5973,9 @@
                 "Apache 2.0 license"
             ],
             "benchmark_scores": {
-                "AIME": 50.0,
+                "AIME": 50,
                 "MATH-500": 90.6,
-                "LiveCodeBench": 50.0
+                "LiveCodeBench": 50
             },
             "pricing_per_1m_tokens": {
                 "input": null,
@@ -5812,7 +5988,7 @@
             "successor": "QwQ-32B"
         },
         {
-            "id": 164,
+            "id": 126,
             "company": "Amazon",
             "company_website": "https://aws.amazon.com",
             "company_logo_url": "https://logo.clearbit.com/aws.amazon.com",
@@ -5861,7 +6037,7 @@
             "successor": "Amazon Nova Premier"
         },
         {
-            "id": 117,
+            "id": 127,
             "company": "OpenAI",
             "company_website": "https://openai.com",
             "company_logo_url": "https://logo.clearbit.com/openai.com",
@@ -5905,8 +6081,8 @@
                 "AIME_2024": 83.3
             },
             "pricing_per_1m_tokens": {
-                "input": 15.0,
-                "output": 60.0
+                "input": 15,
+                "output": 60
             },
             "official_model_link": "https://openai.com/o1",
             "huggingface_url": null,
@@ -5915,7 +6091,7 @@
             "successor": "o3"
         },
         {
-            "id": 118,
+            "id": 128,
             "company": "OpenAI",
             "company_website": "https://openai.com",
             "company_logo_url": "https://logo.clearbit.com/openai.com",
@@ -5964,7 +6140,7 @@
             "successor": null
         },
         {
-            "id": 119,
+            "id": 129,
             "company": "Microsoft",
             "company_website": "https://microsoft.com",
             "company_logo_url": "https://logo.clearbit.com/microsoft.com",
@@ -6015,7 +6191,7 @@
             "successor": "Phi-4-mini"
         },
         {
-            "id": 120,
+            "id": 130,
             "company": "Google DeepMind",
             "company_website": "https://deepmind.google",
             "company_logo_url": "https://logo.clearbit.com/deepmind.com",
@@ -6064,7 +6240,7 @@
             "successor": null
         },
         {
-            "id": 121,
+            "id": 131,
             "company": "DeepSeek",
             "company_website": "https://deepseek.com",
             "company_logo_url": "https://logo.clearbit.com/deepseek.com",
@@ -6117,7 +6293,7 @@
             "successor": "DeepSeek V3.2"
         },
         {
-            "id": 165,
+            "id": 132,
             "company": "Mistral AI",
             "company_website": "https://mistral.ai",
             "company_logo_url": "https://logo.clearbit.com/mistral.ai",
@@ -6190,10 +6366,10 @@
             "notable_features": [
                 "Indian language native support"
             ],
-            "id": 122
+            "id": 133
         },
         {
-            "id": 123,
+            "id": 134,
             "company": "DeepSeek",
             "company_website": "https://deepseek.com",
             "company_logo_url": "https://logo.clearbit.com/deepseek.com",
@@ -6215,7 +6391,7 @@
             "training_data_cutoff": "2024-07",
             "release_date": "2025-01-20",
             "country": "China",
-            "description": "DeepSeek R1 matched OpenAI o1 on reasoning benchmarks while being fully open-source. Its release caused a stock market reaction \u2014 Nvidia lost ~$600B market cap in one day. Includes distilled 1.5B\u201370B variants.",
+            "description": "DeepSeek R1 matched OpenAI o1 on reasoning benchmarks while being fully open-source. Its release caused a stock market reaction — Nvidia lost ~$600B market cap in one day. Includes distilled 1.5B–70B variants.",
             "use_cases": [
                 "math",
                 "coding",
@@ -6293,10 +6469,55 @@
             "paper_url": "https://arxiv.org/abs/2501.12948",
             "predecessor": "DeepSeek V3",
             "successor": "DeepSeek R1-0528",
-            "id": 124
+            "id": 135
         },
         {
-            "id": 125,
+            "id": 136,
+            "company": "Mistral AI",
+            "company_website": "https://mistral.ai",
+            "company_logo_url": "https://logo.clearbit.com/mistral.ai",
+            "model_family": "Mistral",
+            "model_name": "Mistral Small 3.0",
+            "model_version": "3.0",
+            "model_type": "Open-weight LLM",
+            "architecture": "Transformer",
+            "modalities": [
+                "text"
+            ],
+            "parameters": 24,
+            "parameter_unit": "billion",
+            "training_tokens": null,
+            "open_source": true,
+            "license": "Apache 2.0",
+            "api_available": true,
+            "context_window_tokens": 32000,
+            "training_data_cutoff": null,
+            "release_date": "2025-01-30",
+            "country": "France",
+            "description": "24B open model from Mistral focused on efficient deployment for personal and commercial use.",
+            "use_cases": [
+                "general chat",
+                "coding",
+                "enterprise assistants"
+            ],
+            "notable_features": [
+                "24B parameters",
+                "open-weight",
+                "32K context"
+            ],
+            "benchmark_scores": {},
+            "pricing_per_1m_tokens": {
+                "input": null,
+                "output": null
+            },
+            "official_model_link": "https://docs.mistral.ai/models/mistral-small-3-0-25-01",
+            "huggingface_url": null,
+            "paper_url": null,
+            "predecessor": "Mistral 7B",
+            "successor": "Mistral Small 3.2"
+        },
+        {
+            "id": 137,
             "company": "OpenAI",
             "company_website": "https://openai.com",
             "company_logo_url": "https://logo.clearbit.com/openai.com",
@@ -6396,7 +6617,7 @@
             "paper_url": null,
             "predecessor": "Gemini 1.5 Flash",
             "successor": "Gemini 2.1 Flash",
-            "id": 126
+            "id": 138
         },
         {
             "company": "Microsoft",
@@ -6414,10 +6635,10 @@
             "release_date": "2025-02-05",
             "description": "State-of-the-art small language model optimized for reasoning-dense tasks on edge devices.",
             "official_model_link": "https://azure.microsoft.com/en-us/blog/introducing-phi-4-mini/",
-            "id": 127
+            "id": 139
         },
         {
-            "id": 128,
+            "id": 140,
             "company": "xAI",
             "company_website": "https://x.ai",
             "company_logo_url": "https://logo.clearbit.com/x.ai",
@@ -6440,7 +6661,7 @@
             "training_data_cutoff": "2025-01",
             "release_date": "2025-02-17",
             "country": "USA",
-            "description": "Grok 3 topped multiple reasoning benchmarks at launch. Features 'Think' mode for extended reasoning. Trained on xAI's Colossus cluster \u2014 claimed to be the world's largest GPU training cluster at launch.",
+            "description": "Grok 3 topped multiple reasoning benchmarks at launch. Features 'Think' mode for extended reasoning. Trained on xAI's Colossus cluster — claimed to be the world's largest GPU training cluster at launch.",
             "use_cases": [
                 "reasoning",
                 "coding",
@@ -6460,8 +6681,8 @@
                 "HumanEval": 92.4
             },
             "pricing_per_1m_tokens": {
-                "input": 3.0,
-                "output": 15.0
+                "input": 3,
+                "output": 15
             },
             "official_model_link": "https://x.ai/grok",
             "huggingface_url": null,
@@ -6470,7 +6691,7 @@
             "successor": "Grok 4"
         },
         {
-            "id": 166,
+            "id": 141,
             "company": "xAI",
             "company_website": "https://x.ai",
             "company_logo_url": "https://logo.clearbit.com/x.ai",
@@ -6556,22 +6777,22 @@
             ],
             "benchmark_scores": {
                 "MMLU": 86.1,
-                "HumanEval": 98.0,
+                "HumanEval": 98,
                 "GPQA": 84.8
             },
             "pricing_per_1m_tokens": {
-                "input": 3.0,
-                "output": 15.0
+                "input": 3,
+                "output": 15
             },
             "official_model_link": "https://www.anthropic.com/news/claude-3-7-sonnet",
             "huggingface_url": null,
             "paper_url": null,
             "predecessor": "Claude 3.5 Sonnet",
             "successor": "Claude 4 Sonnet",
-            "id": 129
+            "id": 142
         },
         {
-            "id": 130,
+            "id": 143,
             "company": "OpenAI",
             "company_website": "https://openai.com",
             "company_logo_url": "https://logo.clearbit.com/openai.com",
@@ -6609,8 +6830,8 @@
                 "MMLU": 91.2
             },
             "pricing_per_1m_tokens": {
-                "input": 10.0,
-                "output": 30.0
+                "input": 10,
+                "output": 30
             },
             "official_model_link": "https://openai.com/orion",
             "huggingface_url": null,
@@ -6619,7 +6840,96 @@
             "successor": "GPT-5"
         },
         {
-            "id": 167,
+            "id": 144,
+            "company": "Baidu",
+            "company_website": "https://baidu.com",
+            "company_logo_url": "https://logo.clearbit.com/baidu.com",
+            "model_family": "ERNIE",
+            "model_name": "ERNIE 4.5",
+            "model_version": "4.5",
+            "model_type": "Multimodal Foundation Model",
+            "architecture": "MoE",
+            "modalities": [
+                "text",
+                "vision"
+            ],
+            "parameters": null,
+            "parameter_unit": null,
+            "training_tokens": null,
+            "open_source": false,
+            "license": "Proprietary",
+            "api_available": true,
+            "context_window_tokens": null,
+            "training_data_cutoff": null,
+            "release_date": "2025-03-01",
+            "country": "China",
+            "description": "Baidu’s first flagship multimodal foundation model; officially reported as released in March 2025.",
+            "use_cases": [
+                "enterprise AI",
+                "multimodal assistants",
+                "knowledge tasks"
+            ],
+            "notable_features": [
+                "multimodal capabilities",
+                "flagship ERNIE generation"
+            ],
+            "benchmark_scores": {},
+            "pricing_per_1m_tokens": {
+                "input": null,
+                "output": null
+            },
+            "official_model_link": "https://ir.baidu.com/node/14191/pdf",
+            "huggingface_url": null,
+            "paper_url": "https://ernie.baidu.com/blog/publication/ERNIE_Technical_Report.pdf",
+            "predecessor": "ERNIE 4.0",
+            "successor": "ERNIE 4.5 Turbo"
+        },
+        {
+            "id": 145,
+            "company": "Baidu",
+            "company_website": "https://baidu.com",
+            "company_logo_url": "https://logo.clearbit.com/baidu.com",
+            "model_family": "ERNIE",
+            "model_name": "ERNIE X1",
+            "model_version": "X1",
+            "model_type": "LLM (Reasoning)",
+            "architecture": "Transformer",
+            "modalities": [
+                "text"
+            ],
+            "parameters": null,
+            "parameter_unit": null,
+            "training_tokens": null,
+            "open_source": false,
+            "license": "Proprietary",
+            "api_available": true,
+            "context_window_tokens": null,
+            "training_data_cutoff": null,
+            "release_date": "2025-03-01",
+            "country": "China",
+            "description": "Baidu’s first dedicated reasoning model, released in March 2025.",
+            "use_cases": [
+                "reasoning tasks",
+                "math and logic",
+                "agent planning"
+            ],
+            "notable_features": [
+                "reasoning-focused architecture",
+                "paired with ERNIE 4.5 lineup"
+            ],
+            "benchmark_scores": {},
+            "pricing_per_1m_tokens": {
+                "input": null,
+                "output": null
+            },
+            "official_model_link": "https://ir.baidu.com/node/14191/pdf",
+            "huggingface_url": null,
+            "paper_url": null,
+            "predecessor": null,
+            "successor": "ERNIE X1 Turbo"
+        },
+        {
+            "id": 146,
             "company": "Alibaba",
             "company_website": "https://qwenlm.github.io",
             "company_logo_url": "https://logo.clearbit.com/alibaba.com",
@@ -6670,7 +6980,7 @@
             "successor": null
         },
         {
-            "id": 131,
+            "id": 147,
             "company": "Google",
             "company_website": "https://google.com",
             "company_logo_url": "https://logo.clearbit.com/google.com",
@@ -6708,8 +7018,8 @@
                 "runs on single GPU"
             ],
             "benchmark_scores": {
-                "MMLU": 87.0,
-                "HumanEval": 82.0
+                "MMLU": 87,
+                "HumanEval": 82
             },
             "pricing_per_1m_tokens": {
                 "input": null,
@@ -6722,7 +7032,7 @@
             "successor": null
         },
         {
-            "id": 132,
+            "id": 148,
             "company": "Google DeepMind",
             "company_website": "https://deepmind.google",
             "company_logo_url": "https://logo.clearbit.com/deepmind.com",
@@ -6770,7 +7080,7 @@
             },
             "pricing_per_1m_tokens": {
                 "input": 1.25,
-                "output": 10.0
+                "output": 10
             },
             "official_model_link": "https://deepmind.google/technologies/gemini/pro/",
             "huggingface_url": null,
@@ -6779,7 +7089,7 @@
             "successor": "Gemini 3"
         },
         {
-            "id": 133,
+            "id": 149,
             "company": "IBM",
             "company_website": "https://ibm.com",
             "company_logo_url": "https://logo.clearbit.com/ibm.com",
@@ -6828,7 +7138,93 @@
             "successor": null
         },
         {
-            "id": 134,
+            "id": 150,
+            "company": "Baidu",
+            "company_website": "https://baidu.com",
+            "company_logo_url": "https://logo.clearbit.com/baidu.com",
+            "model_family": "ERNIE",
+            "model_name": "ERNIE 4.5 Turbo",
+            "model_version": "4.5-turbo",
+            "model_type": "Multimodal Foundation Model",
+            "architecture": "MoE",
+            "modalities": [
+                "text",
+                "vision"
+            ],
+            "parameters": null,
+            "parameter_unit": null,
+            "training_tokens": null,
+            "open_source": false,
+            "license": "Proprietary",
+            "api_available": true,
+            "context_window_tokens": null,
+            "training_data_cutoff": null,
+            "release_date": "2025-04-01",
+            "country": "China",
+            "description": "Enhanced ERNIE 4.5 variant launched in April 2025 with improved performance and lower pricing.",
+            "use_cases": [
+                "production AI systems",
+                "multimodal workflows"
+            ],
+            "notable_features": [
+                "lower pricing",
+                "performance upgrade"
+            ],
+            "benchmark_scores": {},
+            "pricing_per_1m_tokens": {
+                "input": null,
+                "output": null
+            },
+            "official_model_link": "https://ir.baidu.com/node/14191/pdf",
+            "huggingface_url": null,
+            "paper_url": null,
+            "predecessor": "ERNIE 4.5",
+            "successor": null
+        },
+        {
+            "id": 151,
+            "company": "Baidu",
+            "company_website": "https://baidu.com",
+            "company_logo_url": "https://logo.clearbit.com/baidu.com",
+            "model_family": "ERNIE",
+            "model_name": "ERNIE X1 Turbo",
+            "model_version": "X1-turbo",
+            "model_type": "LLM (Reasoning)",
+            "architecture": "Transformer",
+            "modalities": [
+                "text"
+            ],
+            "parameters": null,
+            "parameter_unit": null,
+            "training_tokens": null,
+            "open_source": false,
+            "license": "Proprietary",
+            "api_available": true,
+            "context_window_tokens": null,
+            "training_data_cutoff": null,
+            "release_date": "2025-04-01",
+            "country": "China",
+            "description": "Enhanced reasoning variant of ERNIE X1 launched in April 2025.",
+            "use_cases": [
+                "advanced reasoning",
+                "enterprise assistants"
+            ],
+            "notable_features": [
+                "improved performance-to-cost"
+            ],
+            "benchmark_scores": {},
+            "pricing_per_1m_tokens": {
+                "input": null,
+                "output": null
+            },
+            "official_model_link": "https://ir.baidu.com/node/14191/pdf",
+            "huggingface_url": null,
+            "paper_url": null,
+            "predecessor": "ERNIE X1",
+            "successor": null
+        },
+        {
+            "id": 152,
             "company": "Meta",
             "company_website": "https://meta.com",
             "company_logo_url": "https://logo.clearbit.com/meta.com",
@@ -6879,7 +7275,7 @@
             "successor": null
         },
         {
-            "id": 135,
+            "id": 153,
             "company": "Meta",
             "company_website": "https://meta.com",
             "company_logo_url": "https://logo.clearbit.com/meta.com",
@@ -6931,7 +7327,7 @@
             "successor": null
         },
         {
-            "id": 136,
+            "id": 154,
             "company": "Meta",
             "company_website": "https://meta.com",
             "company_logo_url": "https://logo.clearbit.com/meta.com",
@@ -6967,7 +7363,7 @@
             ],
             "benchmark_scores": {
                 "MMLU": 91.5,
-                "HumanEval": 95.0
+                "HumanEval": 95
             },
             "pricing_per_1m_tokens": {
                 "input": null,
@@ -6980,7 +7376,7 @@
             "successor": null
         },
         {
-            "id": 168,
+            "id": 155,
             "company": "OpenAI",
             "company_website": "https://openai.com",
             "company_logo_url": "https://logo.clearbit.com/openai.com",
@@ -7019,11 +7415,11 @@
             "benchmark_scores": {
                 "SWE_bench_Verified": 54.6,
                 "MultiChallenge": 38.3,
-                "Video_MME": 72.0
+                "Video_MME": 72
             },
             "pricing_per_1m_tokens": {
-                "input": 2.0,
-                "output": 8.0
+                "input": 2,
+                "output": 8
             },
             "official_model_link": "https://openai.com/index/gpt-4-1",
             "huggingface_url": null,
@@ -7032,7 +7428,7 @@
             "successor": "GPT-5"
         },
         {
-            "id": 169,
+            "id": 156,
             "company": "OpenAI",
             "company_website": "https://openai.com",
             "company_logo_url": "https://logo.clearbit.com/openai.com",
@@ -7080,7 +7476,7 @@
             "successor": null
         },
         {
-            "id": 170,
+            "id": 157,
             "company": "OpenAI",
             "company_website": "https://openai.com",
             "company_logo_url": "https://logo.clearbit.com/openai.com",
@@ -7127,7 +7523,7 @@
             "successor": null
         },
         {
-            "id": 137,
+            "id": 158,
             "company": "OpenAI",
             "company_website": "https://openai.com",
             "company_logo_url": "https://logo.clearbit.com/openai.com",
@@ -7150,7 +7546,7 @@
             "training_data_cutoff": "2024-06",
             "release_date": "2025-04-16",
             "country": "USA",
-            "description": "OpenAI o3 achieved 87.5% on ARC-AGI at high compute \u2014 a benchmark considered a near-proxy for general intelligence. Major leap in reasoning over o1. Best in class across math, coding, and science at release.",
+            "description": "OpenAI o3 achieved 87.5% on ARC-AGI at high compute — a benchmark considered a near-proxy for general intelligence. Major leap in reasoning over o1. Best in class across math, coding, and science at release.",
             "use_cases": [
                 "advanced math",
                 "scientific reasoning",
@@ -7171,8 +7567,8 @@
                 "MMLU": 94.1
             },
             "pricing_per_1m_tokens": {
-                "input": 10.0,
-                "output": 40.0
+                "input": 10,
+                "output": 40
             },
             "official_model_link": "https://openai.com/o3",
             "huggingface_url": null,
@@ -7181,7 +7577,54 @@
             "successor": "o3-pro"
         },
         {
-            "id": 138,
+            "id": 159,
+            "company": "OpenAI",
+            "company_website": "https://openai.com",
+            "company_logo_url": "https://logo.clearbit.com/openai.com",
+            "model_family": "o-series",
+            "model_name": "OpenAI o4-mini",
+            "model_version": "o4-mini",
+            "model_type": "LLM (Reasoning, Small)",
+            "architecture": "Transformer + RL-based chain-of-thought",
+            "modalities": [
+                "text",
+                "vision"
+            ],
+            "parameters": null,
+            "parameter_unit": null,
+            "training_tokens": null,
+            "open_source": false,
+            "license": "Proprietary",
+            "api_available": true,
+            "context_window_tokens": 200000,
+            "training_data_cutoff": "2024-06",
+            "release_date": "2025-04-16",
+            "country": "USA",
+            "description": "Smaller reasoning model launched alongside o3, designed for high-efficiency reasoning and strong price/performance across math, coding, and multimodal tasks.",
+            "use_cases": [
+                "cost-efficient reasoning",
+                "coding",
+                "STEM tasks",
+                "agent workflows"
+            ],
+            "notable_features": [
+                "reasoning-optimized",
+                "multimodal reasoning",
+                "tool use support"
+            ],
+            "benchmark_scores": {},
+            "pricing_per_1m_tokens": {
+                "input": null,
+                "output": null
+            },
+            "official_model_link": "https://openai.com/index/introducing-o3-and-o4-mini/",
+            "huggingface_url": null,
+            "paper_url": "https://openai.com/index/o3-o4-mini-system-card/",
+            "predecessor": "OpenAI o3-mini",
+            "successor": null
+        },
+        {
+            "id": 160,
             "company": "Alibaba",
             "company_website": "https://alibaba.com",
             "company_logo_url": "https://logo.clearbit.com/alibaba.com",
@@ -7234,7 +7677,51 @@
             "successor": null
         },
         {
-            "id": 171,
+            "id": 161,
+            "company": "Sarvam AI",
+            "company_website": "https://sarvam.ai",
+            "company_logo_url": "https://logo.clearbit.com/sarvam.ai",
+            "model_family": "Sarvam",
+            "model_name": "Sarvam-M",
+            "model_version": "M",
+            "model_type": "Open-weight LLM",
+            "architecture": "Hybrid (Mistral Small-based)",
+            "modalities": [
+                "text"
+            ],
+            "parameters": 24,
+            "parameter_unit": "billion",
+            "training_tokens": null,
+            "open_source": true,
+            "license": "Open weights",
+            "api_available": true,
+            "context_window_tokens": null,
+            "training_data_cutoff": null,
+            "release_date": "2025-05-01",
+            "country": "India",
+            "description": "Sarvam’s 24B open-weights hybrid model, launched in May 2025 and built on Mistral Small foundations.",
+            "use_cases": [
+                "Indian language applications",
+                "enterprise assistants",
+                "LLM APIs"
+            ],
+            "notable_features": [
+                "24B open-weights",
+                "India-focused deployment"
+            ],
+            "benchmark_scores": {},
+            "pricing_per_1m_tokens": {
+                "input": null,
+                "output": null
+            },
+            "official_model_link": "https://docs.sarvam.ai/api-reference-docs/changelog",
+            "huggingface_url": null,
+            "paper_url": null,
+            "predecessor": null,
+            "successor": null
+        },
+        {
+            "id": 162,
             "company": "Google DeepMind",
             "company_website": "https://deepmind.google",
             "company_logo_url": "https://logo.clearbit.com/deepmind.google",
@@ -7284,7 +7771,7 @@
             "successor": "Gemini 3 Flash"
         },
         {
-            "id": 172,
+            "id": 163,
             "company": "Mistral AI",
             "company_website": "https://mistral.ai",
             "company_logo_url": "https://logo.clearbit.com/mistral.ai",
@@ -7334,7 +7821,7 @@
             "successor": "Devstral 2"
         },
         {
-            "id": 139,
+            "id": 164,
             "company": "Anthropic",
             "company_website": "https://anthropic.com",
             "company_logo_url": "https://logo.clearbit.com/anthropic.com",
@@ -7377,8 +7864,8 @@
                 "HumanEval": 95.1
             },
             "pricing_per_1m_tokens": {
-                "input": 3.0,
-                "output": 15.0
+                "input": 3,
+                "output": 15
             },
             "official_model_link": "https://www.anthropic.com/claude/sonnet",
             "huggingface_url": null,
@@ -7387,7 +7874,7 @@
             "successor": "Claude 4.5 Sonnet"
         },
         {
-            "id": 140,
+            "id": 165,
             "company": "Anthropic",
             "company_website": "https://anthropic.com",
             "company_logo_url": "https://logo.clearbit.com/anthropic.com",
@@ -7424,12 +7911,12 @@
                 "research SOTA"
             ],
             "benchmark_scores": {
-                "MMLU": 93.0,
-                "HumanEval": 96.0
+                "MMLU": 93,
+                "HumanEval": 96
             },
             "pricing_per_1m_tokens": {
-                "input": 15.0,
-                "output": 75.0
+                "input": 15,
+                "output": 75
             },
             "official_model_link": "https://www.anthropic.com/claude/opus",
             "huggingface_url": null,
@@ -7438,7 +7925,7 @@
             "successor": "Claude 4.5 Opus"
         },
         {
-            "id": 141,
+            "id": 166,
             "company": "DeepSeek",
             "company_website": "https://deepseek.com",
             "company_logo_url": "https://logo.clearbit.com/deepseek.com",
@@ -7487,7 +7974,98 @@
             "successor": "DeepSeek R2"
         },
         {
-            "id": 142,
+            "id": 167,
+            "company": "Mistral AI",
+            "company_website": "https://mistral.ai",
+            "company_logo_url": "https://logo.clearbit.com/mistral.ai",
+            "model_family": "Mistral",
+            "model_name": "Mistral Small 3.2",
+            "model_version": "3.2",
+            "model_type": "Open-weight LLM",
+            "architecture": "Transformer",
+            "modalities": [
+                "text"
+            ],
+            "parameters": null,
+            "parameter_unit": null,
+            "training_tokens": null,
+            "open_source": true,
+            "license": "Apache 2.0",
+            "api_available": true,
+            "context_window_tokens": null,
+            "training_data_cutoff": null,
+            "release_date": "2025-06-01",
+            "country": "France",
+            "description": "Updated Mistral Small model, documented as released in June 2025.",
+            "use_cases": [
+                "efficient enterprise inference",
+                "coding",
+                "agents"
+            ],
+            "notable_features": [
+                "June 2025 release",
+                "open model update"
+            ],
+            "benchmark_scores": {},
+            "pricing_per_1m_tokens": {
+                "input": null,
+                "output": null
+            },
+            "official_model_link": "https://docs.mistral.ai/getting-started/models",
+            "huggingface_url": null,
+            "paper_url": null,
+            "predecessor": "Mistral Small 3.0",
+            "successor": "Mistral Small 4"
+        },
+        {
+            "id": 168,
+            "company": "OpenAI",
+            "company_website": "https://openai.com",
+            "company_logo_url": "https://logo.clearbit.com/openai.com",
+            "model_family": "o-series",
+            "model_name": "OpenAI o3-pro",
+            "model_version": "o3-pro",
+            "model_type": "LLM (Reasoning, Pro)",
+            "architecture": "Transformer + RL-based chain-of-thought",
+            "modalities": [
+                "text",
+                "vision"
+            ],
+            "parameters": null,
+            "parameter_unit": null,
+            "training_tokens": null,
+            "open_source": false,
+            "license": "Proprietary",
+            "api_available": true,
+            "context_window_tokens": 200000,
+            "training_data_cutoff": "2024-06",
+            "release_date": "2025-06-10",
+            "country": "USA",
+            "description": "Pro tier of the o3 reasoning family focused on higher reliability for complex domains like math, science, and coding.",
+            "use_cases": [
+                "advanced reasoning",
+                "scientific workflows",
+                "high-stakes coding",
+                "research"
+            ],
+            "notable_features": [
+                "longer-thinking reasoning mode",
+                "higher reliability target",
+                "tool-enabled reasoning"
+            ],
+            "benchmark_scores": {},
+            "pricing_per_1m_tokens": {
+                "input": null,
+                "output": null
+            },
+            "official_model_link": "https://help.openai.com/en/articles/6825453-chatgpt-release-notes",
+            "huggingface_url": null,
+            "paper_url": null,
+            "predecessor": "OpenAI o3",
+            "successor": null
+        },
+        {
+            "id": 169,
             "company": "xAI",
             "company_website": "https://x.ai",
             "company_logo_url": "https://logo.clearbit.com/x.ai",
@@ -7528,8 +8106,8 @@
                 "AIME_2025": 88.9
             },
             "pricing_per_1m_tokens": {
-                "input": 3.0,
-                "output": 15.0
+                "input": 3,
+                "output": 15
             },
             "official_model_link": "https://x.ai/grok",
             "huggingface_url": null,
@@ -7583,10 +8161,100 @@
             "paper_url": null,
             "predecessor": "Qwen2.5 Coder",
             "successor": "Qwen3.5 Coder",
-            "id": 143
+            "id": 170
         },
         {
-            "id": 144,
+            "id": 171,
+            "company": "Mistral AI",
+            "company_website": "https://mistral.ai",
+            "company_logo_url": "https://logo.clearbit.com/mistral.ai",
+            "model_family": "Mistral",
+            "model_name": "Mistral Medium 3.1",
+            "model_version": "3.1",
+            "model_type": "Multimodal LLM",
+            "architecture": "Transformer",
+            "modalities": [
+                "text",
+                "vision"
+            ],
+            "parameters": null,
+            "parameter_unit": null,
+            "training_tokens": null,
+            "open_source": false,
+            "license": "Proprietary",
+            "api_available": true,
+            "context_window_tokens": null,
+            "training_data_cutoff": null,
+            "release_date": "2025-08-01",
+            "country": "France",
+            "description": "Frontier-class multimodal Mistral model documented as released in August 2025.",
+            "use_cases": [
+                "multimodal enterprise apps",
+                "advanced assistants"
+            ],
+            "notable_features": [
+                "August 2025 release",
+                "frontier-class multimodal"
+            ],
+            "benchmark_scores": {},
+            "pricing_per_1m_tokens": {
+                "input": null,
+                "output": null
+            },
+            "official_model_link": "https://docs.mistral.ai/getting-started/models",
+            "huggingface_url": null,
+            "paper_url": null,
+            "predecessor": "Mistral Medium 3",
+            "successor": null
+        },
+        {
+            "id": 172,
+            "company": "Anthropic",
+            "company_website": "https://anthropic.com",
+            "company_logo_url": "https://logo.clearbit.com/anthropic.com",
+            "model_family": "Claude",
+            "model_name": "Claude Opus 4.1",
+            "model_version": "4.1",
+            "model_type": "LLM (Reasoning)",
+            "architecture": "Transformer",
+            "modalities": [
+                "text",
+                "vision"
+            ],
+            "parameters": null,
+            "parameter_unit": null,
+            "training_tokens": null,
+            "open_source": false,
+            "license": "Proprietary",
+            "api_available": true,
+            "context_window_tokens": 200000,
+            "training_data_cutoff": null,
+            "release_date": "2025-08-05",
+            "country": "USA",
+            "description": "Anthropic upgrade to Opus 4 with stronger coding and agentic reasoning performance; available in API, Claude Code, Bedrock, and Vertex AI.",
+            "use_cases": [
+                "complex coding",
+                "agentic workflows",
+                "research assistance"
+            ],
+            "notable_features": [
+                "improved SWE-bench performance",
+                "drop-in upgrade from Opus 4",
+                "200K context"
+            ],
+            "benchmark_scores": {},
+            "pricing_per_1m_tokens": {
+                "input": null,
+                "output": null
+            },
+            "official_model_link": "https://www.anthropic.com/news/claude-opus-4-1",
+            "huggingface_url": null,
+            "paper_url": null,
+            "predecessor": "Claude 4 Opus",
+            "successor": null
+        },
+        {
+            "id": 173,
             "company": "OpenAI",
             "company_website": "https://openai.com",
             "company_logo_url": "https://logo.clearbit.com/openai.com",
@@ -7628,12 +8296,12 @@
             ],
             "benchmark_scores": {
                 "MMLU": 93.5,
-                "HumanEval": 96.0,
+                "HumanEval": 96,
                 "AIME_2025": 86.5
             },
             "pricing_per_1m_tokens": {
-                "input": 10.0,
-                "output": 40.0
+                "input": 10,
+                "output": 40
             },
             "official_model_link": "https://openai.com/gpt-5",
             "huggingface_url": null,
@@ -7642,7 +8310,7 @@
             "successor": "GPT-5.1"
         },
         {
-            "id": 145,
+            "id": 174,
             "company": "OpenAI",
             "company_website": "https://openai.com",
             "company_logo_url": "https://logo.clearbit.com/openai.com",
@@ -7684,8 +8352,8 @@
                 "AIME_2025": 91.2
             },
             "pricing_per_1m_tokens": {
-                "input": 10.0,
-                "output": 40.0
+                "input": 10,
+                "output": 40
             },
             "official_model_link": "https://openai.com",
             "huggingface_url": null,
@@ -7694,7 +8362,7 @@
             "successor": "GPT-5.2"
         },
         {
-            "id": 146,
+            "id": 175,
             "company": "Anthropic",
             "company_website": "https://anthropic.com",
             "company_logo_url": "https://logo.clearbit.com/anthropic.com",
@@ -7735,8 +8403,8 @@
                 "MMLU": 92.3
             },
             "pricing_per_1m_tokens": {
-                "input": 3.0,
-                "output": 15.0
+                "input": 3,
+                "output": 15
             },
             "official_model_link": "https://www.anthropic.com/claude/sonnet",
             "huggingface_url": null,
@@ -7745,7 +8413,7 @@
             "successor": "Claude 4.6 Sonnet"
         },
         {
-            "id": 147,
+            "id": 176,
             "company": "Mistral AI",
             "company_website": "https://mistral.ai",
             "company_logo_url": "https://logo.clearbit.com/mistral.ai",
@@ -7767,7 +8435,7 @@
             "training_data_cutoff": "2025-03",
             "release_date": "2025-10-01",
             "country": "France",
-            "description": "Mistral Large 3 (675B MoE) delivers ~92% of GPT-5.2 performance at ~15% of the cost. Open reasoning models in 3B\u201314B for edge deployment. Mistral's largest and most capable model to date.",
+            "description": "Mistral Large 3 (675B MoE) delivers ~92% of GPT-5.2 performance at ~15% of the cost. Open reasoning models in 3B–14B for edge deployment. Mistral's largest and most capable model to date.",
             "use_cases": [
                 "coding",
                 "reasoning",
@@ -7786,8 +8454,8 @@
                 "HumanEval": 93.1
             },
             "pricing_per_1m_tokens": {
-                "input": 2.0,
-                "output": 6.0
+                "input": 2,
+                "output": 6
             },
             "official_model_link": "https://mistral.ai",
             "huggingface_url": null,
@@ -7796,7 +8464,7 @@
             "successor": null
         },
         {
-            "id": 148,
+            "id": 177,
             "company": "Google DeepMind",
             "company_website": "https://deepmind.google",
             "company_logo_url": "https://logo.clearbit.com/deepmind.com",
@@ -7843,7 +8511,7 @@
             },
             "pricing_per_1m_tokens": {
                 "input": 1.25,
-                "output": 10.0
+                "output": 10
             },
             "official_model_link": "https://deepmind.google/technologies/gemini/",
             "huggingface_url": null,
@@ -7869,10 +8537,10 @@
             "release_date": "2025-11-18",
             "description": "Specialized model for breakthrough scientific research and complex logical deduction via parallel hypothesis exploration.",
             "official_model_link": "https://deepmind.google/gemini",
-            "id": 149
+            "id": 178
         },
         {
-            "id": 150,
+            "id": 179,
             "company": "Anthropic",
             "company_website": "https://anthropic.com",
             "company_logo_url": "https://logo.clearbit.com/anthropic.com",
@@ -7909,8 +8577,8 @@
                 "MMLU": 94.2
             },
             "pricing_per_1m_tokens": {
-                "input": 15.0,
-                "output": 75.0
+                "input": 15,
+                "output": 75
             },
             "official_model_link": "https://www.anthropic.com/claude",
             "huggingface_url": null,
@@ -7919,7 +8587,7 @@
             "successor": "Claude 4.6 Opus"
         },
         {
-            "id": 151,
+            "id": 180,
             "company": "DeepSeek",
             "company_website": "https://deepseek.com",
             "company_logo_url": "https://logo.clearbit.com/deepseek.com",
@@ -7966,7 +8634,7 @@
             "successor": null
         },
         {
-            "id": 173,
+            "id": 181,
             "company": "Mistral AI",
             "company_website": "https://mistral.ai",
             "company_logo_url": "https://logo.clearbit.com/mistral.ai",
@@ -8008,7 +8676,7 @@
             },
             "pricing_per_1m_tokens": {
                 "input": 0.4,
-                "output": 2.0
+                "output": 2
             },
             "official_model_link": "https://mistral.ai/news/devstral-2-vibe-cli",
             "huggingface_url": "https://huggingface.co/mistralai/Devstral-2-2512",
@@ -8060,10 +8728,10 @@
             "paper_url": null,
             "predecessor": "HyperCLOVA X",
             "successor": null,
-            "id": 152
+            "id": 182
         },
         {
-            "id": 153,
+            "id": 183,
             "company": "OpenAI",
             "company_website": "https://openai.com",
             "company_logo_url": "https://logo.clearbit.com/openai.com",
@@ -8104,12 +8772,12 @@
             ],
             "benchmark_scores": {
                 "MMLU": 95.2,
-                "AIME_2025": 100.0,
+                "AIME_2025": 100,
                 "HumanEval": 98.1
             },
             "pricing_per_1m_tokens": {
-                "input": 10.0,
-                "output": 40.0
+                "input": 10,
+                "output": 40
             },
             "official_model_link": "https://openai.com",
             "huggingface_url": null,
@@ -8155,15 +8823,15 @@
                 "MMLU": 95.1
             },
             "pricing_per_1m_tokens": {
-                "input": 15.0,
-                "output": 75.0
+                "input": 15,
+                "output": 75
             },
             "official_model_link": "https://www.anthropic.com/claude",
             "huggingface_url": null,
             "paper_url": null,
             "predecessor": "Claude 4 Opus (2025)",
             "successor": null,
-            "id": 154
+            "id": 184
         },
         {
             "company": "Kuaishou",
@@ -8210,7 +8878,52 @@
             "paper_url": null,
             "predecessor": "Kling 2.1",
             "successor": null,
-            "id": 155
+            "id": 185
+        },
+        {
+            "id": 186,
+            "company": "OpenAI",
+            "company_website": "https://openai.com",
+            "company_logo_url": "https://logo.clearbit.com/openai.com",
+            "model_family": "GPT",
+            "model_name": "GPT-5.3-Codex",
+            "model_version": "5.3-Codex",
+            "model_type": "Coding LLM",
+            "architecture": "Transformer",
+            "modalities": [
+                "text",
+                "code"
+            ],
+            "parameters": null,
+            "parameter_unit": null,
+            "training_tokens": null,
+            "open_source": false,
+            "license": "Proprietary",
+            "api_available": true,
+            "context_window_tokens": 128000,
+            "training_data_cutoff": "2025-10",
+            "release_date": "2026-02-05",
+            "country": "USA",
+            "description": "Specialized agentic coding model for autonomous software engineering and refactoring.",
+            "use_cases": [
+                "autonomous software engineering",
+                "code refactoring",
+                "agentic workflows"
+            ],
+            "notable_features": [
+                "high autonomous coding capabilities",
+                "low latency agent interactions"
+            ],
+            "benchmark_scores": {},
+            "pricing_per_1m_tokens": {
+                "input": null,
+                "output": null
+            },
+            "official_model_link": "https://openai.com",
+            "huggingface_url": null,
+            "paper_url": null,
+            "predecessor": "GPT-4",
+            "successor": "GPT-5.4"
         },
         {
             "company": "Zhipu AI",
@@ -8253,14 +8966,14 @@
             },
             "pricing_per_1m_tokens": {
                 "input": 2.5,
-                "output": 5.0
+                "output": 5
             },
             "official_model_link": "https://open.bigmodel.cn",
             "huggingface_url": null,
             "paper_url": null,
             "predecessor": "GLM-4.7",
             "successor": null,
-            "id": 156
+            "id": 187
         },
         {
             "company": "Alibaba",
@@ -8311,7 +9024,7 @@
             "paper_url": null,
             "predecessor": "Qwen3",
             "successor": null,
-            "id": 157
+            "id": 188
         },
         {
             "company": "Anthropic",
@@ -8351,15 +9064,15 @@
                 "MMLU": 90.5
             },
             "pricing_per_1m_tokens": {
-                "input": 3.0,
-                "output": 15.0
+                "input": 3,
+                "output": 15
             },
             "official_model_link": "https://www.anthropic.com/claude",
             "huggingface_url": null,
             "paper_url": null,
             "predecessor": "Claude 4 Sonnet",
             "successor": null,
-            "id": 158
+            "id": 189
         },
         {
             "company": "Sarvam AI",
@@ -8404,7 +9117,7 @@
             "paper_url": null,
             "predecessor": "Sarvam-1",
             "successor": "Sarvam-105B",
-            "id": 159
+            "id": 190
         },
         {
             "company": "Sarvam AI",
@@ -8449,7 +9162,7 @@
             "paper_url": null,
             "predecessor": "Sarvam-30B",
             "successor": null,
-            "id": 160
+            "id": 191
         },
         {
             "company": "Google",
@@ -8492,18 +9205,18 @@
                 "MMLU": 94.2
             },
             "pricing_per_1m_tokens": {
-                "input": 4.0,
-                "output": 12.0
+                "input": 4,
+                "output": 12
             },
             "official_model_link": "https://deepmind.google/gemini",
             "huggingface_url": null,
             "paper_url": null,
             "predecessor": "Gemini 3.0",
             "successor": null,
-            "id": 161
+            "id": 192
         },
         {
-            "id": 174,
+            "id": 193,
             "company": "Inception AI",
             "company_website": "https://www.inceptionlabs.ai",
             "company_logo_url": "https://logo.clearbit.com/inceptionlabs.ai",
@@ -8550,7 +9263,143 @@
             "successor": null
         },
         {
-            "id": 175,
+            "id": 194,
+            "company": "Google",
+            "company_website": "https://google.com",
+            "company_logo_url": "https://logo.clearbit.com/google.com",
+            "model_family": "Gemini",
+            "model_name": "Gemini 3.1 Flash-Lite",
+            "model_version": "3.1",
+            "model_type": "Multimodal LLM",
+            "architecture": "Transformer",
+            "modalities": [
+                "text",
+                "vision",
+                "audio"
+            ],
+            "parameters": null,
+            "parameter_unit": null,
+            "training_tokens": null,
+            "open_source": false,
+            "license": "Proprietary",
+            "api_available": true,
+            "context_window_tokens": 1000000,
+            "training_data_cutoff": "2026-01",
+            "release_date": "2026-03-03",
+            "country": "USA",
+            "description": "Cost-efficient, high-volume model designed for speed, edge devices, and low-latency tasks.",
+            "use_cases": [
+                "edge devices",
+                "high-volume requests",
+                "real-time chat"
+            ],
+            "notable_features": [
+                "1M context window",
+                "ultra-low latency"
+            ],
+            "benchmark_scores": {},
+            "pricing_per_1m_tokens": {
+                "input": null,
+                "output": null
+            },
+            "official_model_link": "https://deepmind.google/gemini",
+            "huggingface_url": null,
+            "paper_url": null,
+            "predecessor": "Gemini 3.0 Flash",
+            "successor": null
+        },
+        {
+            "id": 195,
+            "company": "OpenAI",
+            "company_website": "https://openai.com",
+            "company_logo_url": "https://logo.clearbit.com/openai.com",
+            "model_family": "GPT",
+            "model_name": "GPT-5.3 Instant",
+            "model_version": "5.3",
+            "model_type": "LLM",
+            "architecture": "Transformer",
+            "modalities": [
+                "text"
+            ],
+            "parameters": null,
+            "parameter_unit": null,
+            "training_tokens": null,
+            "open_source": false,
+            "license": "Proprietary",
+            "api_available": true,
+            "context_window_tokens": 128000,
+            "training_data_cutoff": "2026-01",
+            "release_date": "2026-03-03",
+            "country": "USA",
+            "description": "Aimed at improving accuracy and response fluidity in everyday enterprise and user conversations.",
+            "use_cases": [
+                "fast conversations",
+                "chatbots",
+                "enterprise QA"
+            ],
+            "notable_features": [
+                "high speed",
+                "reduced latency"
+            ],
+            "benchmark_scores": {},
+            "pricing_per_1m_tokens": {
+                "input": null,
+                "output": null
+            },
+            "official_model_link": "https://openai.com",
+            "huggingface_url": null,
+            "paper_url": null,
+            "predecessor": "GPT-4o",
+            "successor": "GPT-5.4"
+        },
+        {
+            "id": 196,
+            "company": "OpenAI",
+            "company_website": "https://openai.com",
+            "company_logo_url": "https://logo.clearbit.com/openai.com",
+            "model_family": "GPT",
+            "model_name": "GPT-5.4",
+            "model_version": "5.4",
+            "model_type": "Multimodal LLM (Reasoning)",
+            "architecture": "Transformer",
+            "modalities": [
+                "text",
+                "vision",
+                "audio"
+            ],
+            "parameters": null,
+            "parameter_unit": null,
+            "training_tokens": null,
+            "open_source": false,
+            "license": "Proprietary",
+            "api_available": true,
+            "context_window_tokens": 1000000,
+            "training_data_cutoff": "2026-02",
+            "release_date": "2026-03-05",
+            "country": "USA",
+            "description": "Flagship model featuring native computer-use capabilities and a 1M context window for long-horizon agentic workflows.",
+            "use_cases": [
+                "computer use",
+                "long-horizon planning",
+                "advanced reasoning"
+            ],
+            "notable_features": [
+                "1M context window",
+                "native computer-use capabilities"
+            ],
+            "benchmark_scores": {},
+            "pricing_per_1m_tokens": {
+                "input": null,
+                "output": null
+            },
+            "official_model_link": "https://openai.com",
+            "huggingface_url": null,
+            "paper_url": null,
+            "predecessor": "GPT-5.3",
+            "successor": null
+        },
+        {
+            "id": 197,
             "company": "Microsoft",
             "company_website": "https://microsoft.com",
             "company_logo_url": "https://logo.clearbit.com/microsoft.com",
@@ -8603,7 +9452,7 @@
             "successor": null
         },
         {
-            "id": 176,
+            "id": 198,
             "company": "NVIDIA",
             "company_website": "https://nvidia.com",
             "company_logo_url": "https://logo.clearbit.com/nvidia.com",
@@ -8650,188 +9499,7 @@
             "successor": "Nemotron 3 Ultra"
         },
         {
-            "id": 177,
-            "company": "OpenAI",
-            "company_website": "https://openai.com",
-            "company_logo_url": "https://logo.clearbit.com/openai.com",
-            "model_family": "GPT",
-            "model_name": "GPT-5.3-Codex",
-            "model_version": "5.3-Codex",
-            "model_type": "Coding LLM",
-            "architecture": "Transformer",
-            "modalities": [
-                "text",
-                "code"
-            ],
-            "parameters": null,
-            "parameter_unit": null,
-            "training_tokens": null,
-            "open_source": false,
-            "license": "Proprietary",
-            "api_available": true,
-            "context_window_tokens": 128000,
-            "training_data_cutoff": "2025-10",
-            "release_date": "2026-02-05",
-            "country": "USA",
-            "description": "Specialized agentic coding model for autonomous software engineering and refactoring.",
-            "use_cases": [
-                "autonomous software engineering",
-                "code refactoring",
-                "agentic workflows"
-            ],
-            "notable_features": [
-                "high autonomous coding capabilities",
-                "low latency agent interactions"
-            ],
-            "benchmark_scores": {},
-            "pricing_per_1m_tokens": {
-                "input": null,
-                "output": null
-            },
-            "official_model_link": "https://openai.com",
-            "huggingface_url": null,
-            "paper_url": null,
-            "predecessor": "GPT-4",
-            "successor": "GPT-5.4"
-        },
-        {
-            "id": 178,
-            "company": "Google",
-            "company_website": "https://google.com",
-            "company_logo_url": "https://logo.clearbit.com/google.com",
-            "model_family": "Gemini",
-            "model_name": "Gemini 3.1 Flash-Lite",
-            "model_version": "3.1",
-            "model_type": "Multimodal LLM",
-            "architecture": "Transformer",
-            "modalities": [
-                "text",
-                "vision",
-                "audio"
-            ],
-            "parameters": null,
-            "parameter_unit": null,
-            "training_tokens": null,
-            "open_source": false,
-            "license": "Proprietary",
-            "api_available": true,
-            "context_window_tokens": 1000000,
-            "training_data_cutoff": "2026-01",
-            "release_date": "2026-03-03",
-            "country": "USA",
-            "description": "Cost-efficient, high-volume model designed for speed, edge devices, and low-latency tasks.",
-            "use_cases": [
-                "edge devices",
-                "high-volume requests",
-                "real-time chat"
-            ],
-            "notable_features": [
-                "1M context window",
-                "ultra-low latency"
-            ],
-            "benchmark_scores": {},
-            "pricing_per_1m_tokens": {
-                "input": null,
-                "output": null
-            },
-            "official_model_link": "https://deepmind.google/gemini",
-            "huggingface_url": null,
-            "paper_url": null,
-            "predecessor": "Gemini 3.0 Flash",
-            "successor": null
-        },
-        {
-            "id": 179,
-            "company": "OpenAI",
-            "company_website": "https://openai.com",
-            "company_logo_url": "https://logo.clearbit.com/openai.com",
-            "model_family": "GPT",
-            "model_name": "GPT-5.3 Instant",
-            "model_version": "5.3",
-            "model_type": "LLM",
-            "architecture": "Transformer",
-            "modalities": [
-                "text"
-            ],
-            "parameters": null,
-            "parameter_unit": null,
-            "training_tokens": null,
-            "open_source": false,
-            "license": "Proprietary",
-            "api_available": true,
-            "context_window_tokens": 128000,
-            "training_data_cutoff": "2026-01",
-            "release_date": "2026-03-03",
-            "country": "USA",
-            "description": "Aimed at improving accuracy and response fluidity in everyday enterprise and user conversations.",
-            "use_cases": [
-                "fast conversations",
-                "chatbots",
-                "enterprise QA"
-            ],
-            "notable_features": [
-                "high speed",
-                "reduced latency"
-            ],
-            "benchmark_scores": {},
-            "pricing_per_1m_tokens": {
-                "input": null,
-                "output": null
-            },
-            "official_model_link": "https://openai.com",
-            "huggingface_url": null,
-            "paper_url": null,
-            "predecessor": "GPT-4o",
-            "successor": "GPT-5.4"
-        },
-        {
-            "id": 180,
-            "company": "OpenAI",
-            "company_website": "https://openai.com",
-            "company_logo_url": "https://logo.clearbit.com/openai.com",
-            "model_family": "GPT",
-            "model_name": "GPT-5.4",
-            "model_version": "5.4",
-            "model_type": "Multimodal LLM (Reasoning)",
-            "architecture": "Transformer",
-            "modalities": [
-                "text",
-                "vision",
-                "audio"
-            ],
-            "parameters": null,
-            "parameter_unit": null,
-            "training_tokens": null,
-            "open_source": false,
-            "license": "Proprietary",
-            "api_available": true,
-            "context_window_tokens": 1000000,
-            "training_data_cutoff": "2026-02",
-            "release_date": "2026-03-05",
-            "country": "USA",
-            "description": "Flagship model featuring native computer-use capabilities and a 1M context window for long-horizon agentic workflows.",
-            "use_cases": [
-                "computer use",
-                "long-horizon planning",
-                "advanced reasoning"
-            ],
-            "notable_features": [
-                "1M context window",
-                "native computer-use capabilities"
-            ],
-            "benchmark_scores": {},
-            "pricing_per_1m_tokens": {
-                "input": null,
-                "output": null
-            },
-            "official_model_link": "https://openai.com",
-            "huggingface_url": null,
-            "paper_url": null,
-            "predecessor": "GPT-5.3",
-            "successor": null
-        },
-        {
-            "id": 181,
+            "id": 199,
             "company": "Mistral AI",
             "company_website": "https://mistral.ai",
             "company_logo_url": "https://logo.clearbit.com/mistral.ai",
@@ -8877,7 +9545,7 @@
             "successor": null
         },
         {
-            "id": 182,
+            "id": 200,
             "company": "OpenAI",
             "company_website": "https://openai.com",
             "company_logo_url": "https://logo.clearbit.com/openai.com",
@@ -8920,7 +9588,54 @@
             "successor": null
         },
         {
-            "id": 183,
+            "id": 201,
+            "company": "OpenAI",
+            "company_website": "https://openai.com",
+            "company_logo_url": "https://logo.clearbit.com/openai.com",
+            "model_family": "GPT",
+            "model_name": "GPT-5.4 Nano",
+            "model_version": "5.4-nano",
+            "model_type": "LLM",
+            "architecture": "Transformer",
+            "modalities": [
+                "text",
+                "vision"
+            ],
+            "parameters": null,
+            "parameter_unit": null,
+            "training_tokens": null,
+            "open_source": false,
+            "license": "Proprietary",
+            "api_available": true,
+            "context_window_tokens": null,
+            "training_data_cutoff": "2026-02",
+            "release_date": "2026-03-17",
+            "country": "USA",
+            "description": "The smallest GPT-5.4 variant optimized for low-latency, high-throughput tasks such as classification, extraction, ranking, and lightweight coding subagents.",
+            "use_cases": [
+                "classification",
+                "data extraction",
+                "ranking",
+                "coding subagents"
+            ],
+            "notable_features": [
+                "lowest-cost GPT-5.4 tier",
+                "API-first availability",
+                "optimized for speed"
+            ],
+            "benchmark_scores": {},
+            "pricing_per_1m_tokens": {
+                "input": 0.2,
+                "output": 1.25
+            },
+            "official_model_link": "https://openai.com/index/introducing-gpt-5-4-mini-and-nano/",
+            "huggingface_url": null,
+            "paper_url": null,
+            "predecessor": "GPT-5 Nano",
+            "successor": null
+        },
+        {
+            "id": 202,
             "company": "MiniMax",
             "company_website": "https://minimax.io",
             "company_logo_url": "https://logo.clearbit.com/minimax.io",
@@ -8964,7 +9679,7 @@
             "successor": null
         },
         {
-            "id": 184,
+            "id": 203,
             "company": "xAI",
             "company_website": "https://x.ai",
             "company_logo_url": "https://logo.clearbit.com/x.ai",
@@ -9010,7 +9725,7 @@
             "successor": null
         },
         {
-            "id": 185,
+            "id": 204,
             "company": "Xiaomi",
             "company_website": "https://xiaomi.com",
             "company_logo_url": "https://logo.clearbit.com/xiaomi.com",
@@ -9052,6 +9767,374 @@
             "paper_url": null,
             "predecessor": "MiMo-V2",
             "successor": null
+        },
+        {
+            "company": "Alibaba",
+            "company_website": "https://alibabacloud.com",
+            "company_logo_url": "https://logo.clearbit.com/alibaba.com",
+            "model_family": "Qwen",
+            "model_name": "Qwen 3.5 Max",
+            "model_version": "3.5-max",
+            "model_type": "Foundation LLM",
+            "architecture": "Transformer",
+            "modalities": [
+                "text",
+                "coding"
+            ],
+            "parameters": 397,
+            "parameter_unit": "billion",
+            "training_tokens": null,
+            "open_source": true,
+            "license": "Apache 2.0",
+            "api_available": true,
+            "context_window_tokens": 256000,
+            "training_data_cutoff": "2026-02",
+            "release_date": "2026-03-24",
+            "country": "China",
+            "description": "The largest and most capable model in the Qwen 3.5 series, outperforming many proprietary models in reasoning, math, and code.",
+            "use_cases": [
+                "advanced reasoning",
+                "math",
+                "code"
+            ],
+            "notable_features": [
+                "Open weights",
+                "SOTA in math and code"
+            ],
+            "benchmark_scores": {},
+            "pricing_per_1m_tokens": {
+                "input": null,
+                "output": null
+            },
+            "official_model_link": "https://qwenlm.github.io/",
+            "huggingface_url": null,
+            "paper_url": null,
+            "predecessor": "Qwen 2.5",
+            "successor": null,
+            "id": 205
+        },
+        {
+            "company": "OpenAI",
+            "company_website": "https://openai.com",
+            "company_logo_url": "https://logo.clearbit.com/openai.com",
+            "model_family": "GPT",
+            "model_name": "GPT-5.4 Pro",
+            "model_version": "5.4-pro",
+            "model_type": "Foundation LLM",
+            "architecture": "MoE",
+            "modalities": [
+                "text",
+                "image",
+                "audio",
+                "video"
+            ],
+            "parameters": null,
+            "parameter_unit": null,
+            "training_tokens": null,
+            "open_source": false,
+            "license": "Proprietary",
+            "api_available": true,
+            "context_window_tokens": 1000000,
+            "training_data_cutoff": "2026-01",
+            "release_date": "2026-03-25",
+            "country": "USA",
+            "description": "The top-tier version of the GPT-5.4 series, offering the highest level of reasoning, multimodal synthesis, and agentic autonomy.",
+            "use_cases": [
+                "frontier research",
+                "complex agentic autonomy",
+                "multimodal synthesis"
+            ],
+            "notable_features": [
+                "1M context window",
+                "Advanced reasoning",
+                "Native computer use"
+            ],
+            "benchmark_scores": {},
+            "pricing_per_1m_tokens": {
+                "input": null,
+                "output": null
+            },
+            "official_model_link": "https://openai.com",
+            "huggingface_url": null,
+            "paper_url": null,
+            "predecessor": "GPT-5.4",
+            "successor": null,
+            "id": 206
+        },
+        {
+            "company": "Mistral AI",
+            "company_website": "https://mistral.ai",
+            "company_logo_url": "https://logo.clearbit.com/mistral.ai",
+            "model_family": "Mistral",
+            "model_name": "Mistral Large 4",
+            "model_version": "4",
+            "model_type": "LLM (MoE)",
+            "architecture": "Mixture-of-Experts",
+            "modalities": [
+                "text",
+                "vision"
+            ],
+            "parameters": null,
+            "parameter_unit": null,
+            "training_tokens": null,
+            "open_source": false,
+            "license": "Proprietary",
+            "api_available": true,
+            "context_window_tokens": 128000,
+            "training_data_cutoff": "2026-01",
+            "release_date": "2026-03-26",
+            "country": "France",
+            "description": "The next-generation flagship model from Mistral AI, featuring improved reasoning, multimodal capabilities, and advanced instruction following.",
+            "use_cases": [
+                "enterprise support",
+                "multimodal analysis",
+                "coding"
+            ],
+            "notable_features": [
+                "Advanced MoE",
+                "Native vision support",
+                "SOTA reasoning"
+            ],
+            "benchmark_scores": {},
+            "pricing_per_1m_tokens": {
+                "input": null,
+                "output": null
+            },
+            "official_model_link": "https://mistral.ai",
+            "huggingface_url": null,
+            "paper_url": null,
+            "predecessor": "Mistral Large 3",
+            "successor": null,
+            "id": 207
+        },
+        {
+            "company": "Alibaba",
+            "company_website": "https://alibabacloud.com",
+            "company_logo_url": "https://logo.clearbit.com/alibaba.com",
+            "model_family": "Qwen",
+            "model_name": "Qwen 3.6-Plus",
+            "model_version": "3.6-plus",
+            "model_type": "Foundation LLM",
+            "architecture": "Transformer",
+            "modalities": [
+                "text",
+                "coding"
+            ],
+            "parameters": null,
+            "parameter_unit": null,
+            "training_tokens": null,
+            "open_source": false,
+            "license": "Proprietary",
+            "api_available": true,
+            "context_window_tokens": 1000000,
+            "training_data_cutoff": "2026-02",
+            "release_date": "2026-04-03",
+            "country": "China",
+            "description": "An upgraded version of the Qwen 3 series focused on extremely powerful agentic coding capabilities heavily utilizing a 1-million token context window.",
+            "use_cases": [
+                "agentic coding",
+                "long-context analysis",
+                "enterprise AI"
+            ],
+            "notable_features": [
+                "1M token context window",
+                "Advanced agentic coding loop"
+            ],
+            "benchmark_scores": {},
+            "pricing_per_1m_tokens": {
+                "input": null,
+                "output": null
+            },
+            "official_model_link": "https://qwenlm.github.io/",
+            "huggingface_url": null,
+            "paper_url": null,
+            "predecessor": "Qwen 3.5 Max",
+            "successor": null,
+            "id": 208
+        },
+        {
+            "company": "Google",
+            "company_website": "https://google.com",
+            "company_logo_url": "https://logo.clearbit.com/google.com",
+            "model_family": "Gemma",
+            "model_name": "Gemma 4",
+            "model_version": "4.0",
+            "model_type": "LLM",
+            "architecture": "Transformer",
+            "modalities": [
+                "text"
+            ],
+            "parameters": 27,
+            "parameter_unit": "billion",
+            "training_tokens": null,
+            "open_source": true,
+            "license": "Gemma License",
+            "api_available": true,
+            "context_window_tokens": 32000,
+            "training_data_cutoff": "2026-01",
+            "release_date": "2026-04-04",
+            "country": "USA",
+            "description": "Google's latest open-weight model family, aiming to provide powerful, accessible developer tools with best-in-class efficiency.",
+            "use_cases": [
+                "open-weights development",
+                "edge computing",
+                "research"
+            ],
+            "notable_features": [
+                "Highly efficient open-weights",
+                "Developer focused"
+            ],
+            "benchmark_scores": {},
+            "pricing_per_1m_tokens": {
+                "input": null,
+                "output": null
+            },
+            "official_model_link": "https://ai.google.dev/gemma",
+            "huggingface_url": null,
+            "paper_url": null,
+            "predecessor": "Gemma 3",
+            "successor": null,
+            "id": 209
+        },
+        {
+            "company": "Anthropic",
+            "company_website": "https://anthropic.com",
+            "company_logo_url": "https://logo.clearbit.com/anthropic.com",
+            "model_family": "Claude",
+            "model_name": "Claude Mythos",
+            "model_version": "Mythos",
+            "model_type": "LLM",
+            "architecture": "Transformer",
+            "modalities": [
+                "text",
+                "vision",
+                "computer use"
+            ],
+            "parameters": null,
+            "parameter_unit": null,
+            "training_tokens": null,
+            "open_source": false,
+            "license": "Proprietary",
+            "api_available": false,
+            "context_window_tokens": 200000,
+            "training_data_cutoff": "2026-02",
+            "release_date": "2026-04-07",
+            "country": "USA",
+            "description": "Anthropic's most capable model to date. It has not been released to the public and is gated through Project Glasswing for cybersecurity use cases.",
+            "use_cases": [
+                "cybersecurity",
+                "agentic autonomy",
+                "research"
+            ],
+            "notable_features": [
+                "Project Glasswing gating",
+                "Unprecedented cybersecurity capabilities",
+                "Agentic orchestration"
+            ],
+            "benchmark_scores": {},
+            "pricing_per_1m_tokens": {
+                "input": null,
+                "output": null
+            },
+            "official_model_link": "https://anthropic.com/news",
+            "huggingface_url": null,
+            "paper_url": null,
+            "predecessor": "Claude 3.5 Opus",
+            "successor": null,
+            "id": 210
+        },
+        {
+            "company": "Zhipu AI",
+            "company_website": "https://zhipuai.cn",
+            "company_logo_url": "https://logo.clearbit.com/zhipuai.cn",
+            "model_family": "GLM",
+            "model_name": "GLM-5.1",
+            "model_version": "5.1",
+            "model_type": "LLM (MoE)",
+            "architecture": "Mixture of Experts (MoE)",
+            "modalities": [
+                "text",
+                "coding"
+            ],
+            "parameters": 744,
+            "parameter_unit": "billion",
+            "training_tokens": null,
+            "open_source": true,
+            "license": "MIT",
+            "api_available": true,
+            "context_window_tokens": 128000,
+            "training_data_cutoff": "2026-01",
+            "release_date": "2026-04-07",
+            "country": "China",
+            "description": "A 744-billion-parameter Mixture-of-Experts (MoE) model released under an MIT license, rivaling other leading frontier models in coding benchmarks.",
+            "use_cases": [
+                "coding",
+                "general reasoning",
+                "open-source development"
+            ],
+            "notable_features": [
+                "744B MoE architecture",
+                "MIT Open Source",
+                "SOTA coding performance"
+            ],
+            "benchmark_scores": {},
+            "pricing_per_1m_tokens": {
+                "input": null,
+                "output": null
+            },
+            "official_model_link": "https://zhipuai.cn",
+            "huggingface_url": null,
+            "paper_url": null,
+            "predecessor": "GLM-4",
+            "successor": null,
+            "id": 211
+        },
+        {
+            "company": "Meta",
+            "company_website": "https://meta.com",
+            "company_logo_url": "https://logo.clearbit.com/meta.com",
+            "model_family": "Muse",
+            "model_name": "Muse Spark",
+            "model_version": "Spark",
+            "model_type": "Multimodal Reasoning Model",
+            "architecture": "Natively Multimodal Transformer",
+            "modalities": [
+                "text",
+                "vision",
+                "tool use"
+            ],
+            "parameters": null,
+            "parameter_unit": null,
+            "training_tokens": null,
+            "open_source": false,
+            "license": "Proprietary",
+            "api_available": true,
+            "context_window_tokens": 128000,
+            "training_data_cutoff": "2026-01",
+            "release_date": "2026-04-08",
+            "country": "USA",
+            "description": "A natively multimodal reasoning model developed by Meta Superintelligence Labs with visual chain-of-thought processing and multi-agent orchestration.",
+            "use_cases": [
+                "reasoning",
+                "multi-agent orchestration",
+                "vision"
+            ],
+            "notable_features": [
+                "Natively multimodal",
+                "Visual chain-of-thought",
+                "Tool use"
+            ],
+            "benchmark_scores": {},
+            "pricing_per_1m_tokens": {
+                "input": null,
+                "output": null
+            },
+            "official_model_link": "https://meta.ai",
+            "huggingface_url": null,
+            "paper_url": null,
+            "predecessor": "Llama 3.1",
+            "successor": null,
+            "id": 212
         }
     ]
 }

@@ -2,8 +2,8 @@
     "metadata": {
         "title": "Foundational AI Research Papers Timeline",
         "description": "A curated list of the most influential AI research papers that drove the technological revolution.",
-        "last_updated": "2026-03-29",
-        "total_papers": 59,
+        "last_updated": "2026-04-14",
+        "total_papers": 71,
         "fields": [
             "id",
             "title",
@@ -105,7 +105,7 @@
                 "Aaron Courville",
                 "Yoshua Bengio"
             ],
-            "institution": "Universit\u00e9 de Montr\u00e9al",
+            "institution": "Université de Montréal",
             "publication_date": "2014-06-10",
             "published_in": "NeurIPS",
             "topic": "Generative AI",
@@ -151,7 +151,7 @@
                 "Kyunghyun Cho",
                 "Yoshua Bengio"
             ],
-            "institution": "Jacobs University / Universit\u00e9 de Montr\u00e9al",
+            "institution": "Jacobs University / Université de Montréal",
             "publication_date": "2014-09-01",
             "published_in": "ICLR",
             "topic": "Natural Language Processing",
@@ -552,10 +552,10 @@
                 "Fabio Petroni",
                 "Vladimir Karpukhin",
                 "Naman Goyal",
-                "Heinrich K\u00fcttler",
+                "Heinrich Küttler",
                 "Mike Lewis",
                 "Wen-tau Yih",
-                "Tim Rockt\u00e4schel",
+                "Tim Rocktäschel",
                 "Sebastian Riedel",
                 "Douwe Kiela"
             ],
@@ -716,7 +716,7 @@
                 "Olaf Ronneberger",
                 "Kathryn Tunyasuvunakool",
                 "Russ Bates",
-                "Augustin \u017d\u00eddek",
+                "Augustin Žídek",
                 "Anna Potapenko",
                 "Alex Bridgland",
                 "Clemens Meyer",
@@ -765,7 +765,7 @@
                 "Andreas Blattmann",
                 "Dominik Lorenz",
                 "Patrick Esser",
-                "Bj\u00f6rn Ommer"
+                "Björn Ommer"
             ],
             "institution": "CompVis Group / LMU Munich",
             "publication_date": "2021-12-20",
@@ -895,7 +895,7 @@
                 "Daniel Y. Fu",
                 "Stefano Ermon",
                 "Atri Rudra",
-                "Christopher R\u00e9"
+                "Christopher Ré"
             ],
             "institution": "Stanford University",
             "publication_date": "2022-05-27",
@@ -912,7 +912,7 @@
             "citations": 6000
         },
         {
-            "id": 54,
+            "id": 33,
             "title": "ReAct: Synergizing Reasoning and Acting in Language Models",
             "authors": [
                 "Shunyu Yao",
@@ -938,7 +938,7 @@
             "citations": 4500
         },
         {
-            "id": 33,
+            "id": 34,
             "title": "Constitutional AI: Harmlessness from AI Feedback",
             "authors": [
                 "Yuntao Bai",
@@ -973,12 +973,12 @@
             "citations": 3000
         },
         {
-            "id": 55,
+            "id": 35,
             "title": "Toolformer: Language Models Can Teach Themselves to Use Tools",
             "authors": [
                 "Timo Schick",
                 "Jane Dwivedi-Yu",
-                "Roberto Dess\u00ec",
+                "Roberto Dessì",
                 "Roberta Raileanu",
                 "Maria Lomeli",
                 "Luke Zettlemoyer",
@@ -1000,7 +1000,7 @@
             "citations": 2500
         },
         {
-            "id": 34,
+            "id": 36,
             "title": "LLaMA: Open and Efficient Foundation Language Models",
             "authors": [
                 "Hugo Touvron",
@@ -1008,8 +1008,8 @@
                 "Gautier Izacard",
                 "Xavier Martinet",
                 "Marie-Anne Lachaux",
-                "Timoth\u00e9e Lacroix",
-                "Baptiste Rozi\u00e8re",
+                "Timothée Lacroix",
+                "Baptiste Rozière",
                 "Naman Goyal",
                 "Eric Hambro",
                 "Faisal Azhar",
@@ -1033,7 +1033,7 @@
             "citations": 10000
         },
         {
-            "id": 35,
+            "id": 37,
             "title": "GPT-4 Technical Report",
             "authors": [
                 "OpenAI"
@@ -1053,7 +1053,7 @@
             "citations": 15000
         },
         {
-            "id": 56,
+            "id": 38,
             "title": "Generative Agents: Interactive Simulacra of Human Behavior",
             "authors": [
                 "Joon Sung Park",
@@ -1078,7 +1078,7 @@
             "citations": 3500
         },
         {
-            "id": 48,
+            "id": 39,
             "title": "QLoRA: Efficient Finetuning of Quantized LLMs",
             "authors": [
                 "Tim Dettmers",
@@ -1102,7 +1102,7 @@
             "citations": 20000
         },
         {
-            "id": 57,
+            "id": 40,
             "title": "Voyager: An Open-Ended Embodied Agent with Large Language Models",
             "authors": [
                 "Guanzhi Wang",
@@ -1129,7 +1129,7 @@
             "citations": 2000
         },
         {
-            "id": 36,
+            "id": 41,
             "title": "Direct Preference Optimization: Your Language Model is Secretly a Reward Model",
             "authors": [
                 "Rafael Rafailov",
@@ -1154,13 +1154,13 @@
             "citations": 5000
         },
         {
-            "id": 49,
+            "id": 42,
             "title": "Textbooks Are All You Need",
             "authors": [
                 "Surya Gunasekar",
                 "Yi Zhang",
                 "Jyoti Aneja",
-                "Caio C\u00e9sar Teodoro Mendes",
+                "Caio César Teodoro Mendes",
                 "Allie Del Giorno",
                 "Srinivasan Gopi",
                 "Mojan Javaheripi",
@@ -1171,7 +1171,7 @@
                 "Shital Shah",
                 "Harkirat Singh Behl",
                 "Xin Wang",
-                "S\u00e9bastien Bubeck",
+                "Sébastien Bubeck",
                 "Ronen Eldan",
                 "Adam Tauman Kalai",
                 "Yin Tat Lee"
@@ -1192,7 +1192,7 @@
             "citations": 5000
         },
         {
-            "id": 37,
+            "id": 43,
             "title": "Llama 2: Open Foundation and Fine-Tuned Chat Models",
             "authors": [
                 "Hugo Touvron",
@@ -1217,7 +1217,7 @@
             "citations": 8000
         },
         {
-            "id": 38,
+            "id": 44,
             "title": "BitNet: Scaling 1-bit Transformers for Large Language Models",
             "authors": [
                 "Hongyu Wang",
@@ -1264,10 +1264,10 @@
             "paper_url": "https://arxiv.org/abs/2312.00752",
             "code_url": "https://github.com/state-spaces/mamba",
             "citations": 1200,
-            "id": 39
+            "id": 45
         },
         {
-            "id": 40,
+            "id": 46,
             "title": "Gemini: A Family of Highly Capable Multimodal Models",
             "authors": [
                 "Gemini Team",
@@ -1288,7 +1288,7 @@
             "citations": 3000
         },
         {
-            "id": 50,
+            "id": 47,
             "title": "Mixtral of Experts",
             "authors": [
                 "Albert Q. Jiang",
@@ -1304,7 +1304,7 @@
                 "Gianna Lengyel",
                 "Guillaume Bour",
                 "Guillaume Lample",
-                "L\u00e9lio Renard Lavaud",
+                "Lélio Renard Lavaud",
                 "Lucile Saulnier",
                 "Marie-Anne Lachaux",
                 "Pierre Stock",
@@ -1312,10 +1312,10 @@
                 "Sophia Yang",
                 "Szymon Antoniak",
                 "Teven Le Scao",
-                "Th\u00e9ophile Gervet",
+                "Théophile Gervet",
                 "Thibaut Lavril",
                 "Thomas Wang",
-                "Timoth\u00e9e Lacroix",
+                "Timothée Lacroix",
                 "William El Sayed"
             ],
             "institution": "Mistral AI",
@@ -1334,7 +1334,7 @@
             "citations": 3000
         },
         {
-            "id": 41,
+            "id": 48,
             "title": "The Llama 3 Herd of Models",
             "authors": [
                 "Llama Team",
@@ -1355,7 +1355,7 @@
             "citations": 2000
         },
         {
-            "id": 51,
+            "id": 49,
             "title": "KAN: Kolmogorov-Arnold Networks",
             "authors": [
                 "Ziming Liu",
@@ -1363,7 +1363,7 @@
                 "Sachin Vaidya",
                 "Fabian Ruehle",
                 "James Halverson",
-                "Marin Solja\u010di\u0107",
+                "Marin Soljačić",
                 "Thomas Y. Hou",
                 "Max Tegmark"
             ],
@@ -1383,7 +1383,7 @@
             "citations": 3000
         },
         {
-            "id": 42,
+            "id": 50,
             "title": "Accurate structure prediction of biomolecular interactions with AlphaFold 3",
             "authors": [
                 "Josh Abramson",
@@ -1406,7 +1406,7 @@
             "citations": 1500
         },
         {
-            "id": 52,
+            "id": 51,
             "title": "Scaling LLM Test-Time Compute Optimally can be More Effective than Scaling Model Parameters",
             "authors": [
                 "Charlie Snell",
@@ -1430,7 +1430,7 @@
             "citations": 1500
         },
         {
-            "id": 43,
+            "id": 52,
             "title": "OpenAI o1 System Card",
             "authors": [
                 "OpenAI"
@@ -1471,7 +1471,7 @@
             "citations": 800
         },
         {
-            "id": 44,
+            "id": 54,
             "title": "DeepSeek-R1: Incentivizing Reasoning Capability in LLMs via Reinforcement Learning",
             "authors": [
                 "DeepSeek-AI"
@@ -1491,7 +1491,108 @@
             "citations": 500
         },
         {
-            "id": 45,
+            "id": 55,
+            "title": "DeepSeekMath: Pushing the Limits of Mathematical Reasoning in Open Language Models",
+            "authors": [
+                "Zhiyu Li",
+                "et al."
+            ],
+            "institution": "DeepSeek",
+            "publication_date": "2025-02-01",
+            "published_in": "arXiv",
+            "topic": "RLHF Alignment / Mathematical Reasoning",
+            "description": "Introduces Group Relative Policy Optimization (GRPO), a highly efficient variation of PPO that significantly optimizes reinforcement learning alignment, establishing new benchmarks for open-weight reasoning models.",
+            "key_contributions": [
+                "Group Relative Policy Optimization (GRPO)",
+                "elimination of the critic model in RLHF",
+                "breakthrough performance in multi-step math tasks"
+            ],
+            "paper_url": "https://arxiv.org/abs/2402.03300",
+            "code_url": "https://github.com/deepseek-ai/DeepSeek-Math",
+            "citations": 250
+        },
+        {
+            "id": 56,
+            "title": "Native Sparse Attention: Hardware-Aligned and Natively Trainable Sparse Attention",
+            "authors": [
+                "DeepSeek Research Team"
+            ],
+            "institution": "DeepSeek",
+            "publication_date": "2025-03-01",
+            "published_in": "arXiv",
+            "topic": "Efficient Attention",
+            "description": "Proposes a new sparse attention mechanism designed to align perfectly with modern GPU architectures, vastly improving inference speed and scaling limits for large context windows without performance degradation.",
+            "key_contributions": [
+                "Hardware-aligned sparsity patterns",
+                "Native end-to-end trainability",
+                "Significant reduction in memory footprint during inference"
+            ],
+            "paper_url": "https://arxiv.org/abs/2502.11089",
+            "code_url": null,
+            "citations": 120
+        },
+        {
+            "id": 57,
+            "title": "Gemma 3 Technical Report",
+            "authors": [
+                "Gemma Team"
+            ],
+            "institution": "Google DeepMind",
+            "publication_date": "2025-03-25",
+            "published_in": "arXiv",
+            "topic": "Efficient Open Multimodal LLMs",
+            "description": "Introduces Gemma 3, a lightweight multimodal open model family (1B to 27B) optimized for strong performance on constrained hardware.",
+            "key_contributions": [
+                "Open multimodal model family optimized for single-accelerator use",
+                "Long-context efficiency improvements for KV-cache scaling",
+                "Strong multilingual and reasoning gains over Gemma 2"
+            ],
+            "paper_url": "https://arxiv.org/abs/2503.19786",
+            "code_url": null,
+            "citations": 0
+        },
+        {
+            "id": 58,
+            "title": "OpenAI o3 and o4-mini System Card",
+            "authors": [
+                "OpenAI"
+            ],
+            "institution": "OpenAI",
+            "publication_date": "2025-04-16",
+            "published_in": "OpenAI Safety Publication",
+            "topic": "Reasoning Model Safety",
+            "description": "System card covering safety evaluations, preparedness analysis, and deployment considerations for OpenAI o3 and o4-mini.",
+            "key_contributions": [
+                "Preparedness framework evaluation for reasoning models",
+                "Detailed risk and safeguards documentation",
+                "Deployment-focused safety analysis for multimodal/tool-using models"
+            ],
+            "paper_url": "https://openai.com/index/o3-o4-mini-system-card/",
+            "code_url": null,
+            "citations": 0
+        },
+        {
+            "id": 59,
+            "title": "Qwen3 Technical Report",
+            "authors": [
+                "Qwen Team"
+            ],
+            "institution": "Alibaba",
+            "publication_date": "2025-05-14",
+            "published_in": "arXiv",
+            "topic": "Open LLMs / Reasoning",
+            "description": "Presents Qwen3 models with unified thinking and non-thinking modes across dense and MoE variants from 0.6B to 235B.",
+            "key_contributions": [
+                "Unified thinking and non-thinking inference modes",
+                "Large multilingual expansion to 119 languages and dialects",
+                "Apache 2.0 open release across model sizes"
+            ],
+            "paper_url": "https://arxiv.org/abs/2505.09388",
+            "code_url": "https://huggingface.co/Qwen",
+            "citations": 0
+        },
+        {
+            "id": 60,
             "title": "NVIDIA DiffusionRenderer: Unifying Inverse and Forward Rendering",
             "authors": [
                 "NVIDIA Research"
@@ -1511,7 +1612,27 @@
             "citations": 250
         },
         {
-            "id": 46,
+            "id": 61,
+            "title": "ERNIE 4.5 Technical Report",
+            "authors": [
+                "Baidu-ERNIE-Team"
+            ],
+            "institution": "Baidu",
+            "publication_date": "2025-06-30",
+            "published_in": "ERNIE Blog Publication",
+            "topic": "Multimodal MoE Models",
+            "description": "Technical report for the ERNIE 4.5 family, covering multimodal heterogeneous MoE architecture, training efficiency, and benchmark results.",
+            "key_contributions": [
+                "Heterogeneous multimodal MoE architecture",
+                "Industrial-scale training and inference optimization",
+                "Open release under Apache 2.0 for multiple ERNIE 4.5 variants"
+            ],
+            "paper_url": "https://ernie.baidu.com/blog/publication/ERNIE_Technical_Report.pdf",
+            "code_url": "https://github.com/PaddlePaddle/ERNIE",
+            "citations": 0
+        },
+        {
+            "id": 62,
             "title": "ArithMotion: Intent-Aware Lifelike VR Avatars on Mobile",
             "authors": [
                 "Jaewoong Jang",
@@ -1533,7 +1654,7 @@
             "citations": 50
         },
         {
-            "id": 47,
+            "id": 63,
             "title": "Perceptually Guided 3DGS Streaming and Rendering for Virtual Reality",
             "authors": [
                 "Yunxiang Zhang",
@@ -1555,45 +1676,164 @@
             "citations": 30
         },
         {
-            "id": 58,
-            "title": "DeepSeekMath: Pushing the Limits of Mathematical Reasoning in Open Language Models",
+            "title": "TurboQuant: Fast and Efficient LLM Inference with Quantized KV Cache",
             "authors": [
-                "Zhiyu Li",
-                "et al."
+                "Google Research Team"
             ],
-            "institution": "DeepSeek",
-            "publication_date": "2025-02-01",
-            "published_in": "arXiv",
-            "topic": "RLHF Alignment / Mathematical Reasoning",
-            "description": "Introduces Group Relative Policy Optimization (GRPO), a highly efficient variation of PPO that significantly optimizes reinforcement learning alignment, establishing new benchmarks for open-weight reasoning models.",
+            "institution": "Google Research",
+            "publication_date": "2026-03-10",
+            "published_in": "ICLR 2026",
+            "topic": "Efficient Inference & Quantization",
+            "description": "Introduces a novel technique compressing the KV cache by up to 6x (down to 3 bits) using PolarQuant and QJL, significantly reducing memory requirements for long-context LLM inference.",
             "key_contributions": [
-                "Group Relative Policy Optimization (GRPO)",
-                "elimination of the critic model in RLHF",
-                "breakthrough performance in multi-step math tasks"
+                "PolarQuant vector rotation",
+                "Quantized Johnson-Lindenstrauss (QJL) compression",
+                "8x speedup in attention computations without significant accuracy loss"
             ],
-            "paper_url": "https://arxiv.org/abs/2402.03300",
-            "code_url": "https://github.com/deepseek-ai/DeepSeek-Math",
-            "citations": 250
+            "paper_url": "https://arxiv.org/abs/2603.XXXXX",
+            "code_url": null,
+            "citations": 0,
+            "id": 64
         },
         {
-            "id": 59,
-            "title": "Native Sparse Attention: Hardware-Aligned and Natively Trainable Sparse Attention",
+            "title": "DeepAnalyze: Autonomous Data Science via Agentic LLMs",
             "authors": [
-                "DeepSeek Research Team"
+                "Research Collaboration"
             ],
-            "institution": "DeepSeek",
-            "publication_date": "2025-03-01",
+            "institution": "Various Labs",
+            "publication_date": "2026-03-15",
             "published_in": "arXiv",
-            "topic": "Efficient Attention",
-            "description": "Proposes a new sparse attention mechanism designed to align perfectly with modern GPU architectures, vastly improving inference speed and scaling limits for large context windows without performance degradation.",
+            "topic": "Autonomous Agents",
+            "description": "Explores a comprehensive framework for LLM-driven autonomous data science, introducing agents capable of end-to-end data pipeline operations on par with junior engineers in the MLE-bench.",
             "key_contributions": [
-                "Hardware-aligned sparsity patterns",
-                "Native end-to-end trainability",
-                "Significant reduction in memory footprint during inference"
+                "End-to-end pipeline automation",
+                "Self-correcting data imputation steps",
+                "State-of-the-art on MLE-bench"
             ],
-            "paper_url": "https://arxiv.org/abs/2502.11089",
+            "paper_url": "https://arxiv.org",
             "code_url": null,
-            "citations": 120
+            "citations": 0,
+            "id": 65
+        },
+        {
+            "title": "Kosmos: An AI Scientist for Autonomous Discovery",
+            "authors": [
+                "AI Research Initiative"
+            ],
+            "institution": "Open Research Labs",
+            "publication_date": "2026-03-21",
+            "published_in": "arXiv",
+            "topic": "AI Scientist",
+            "description": "Presents an AI agent capable of coordinating literature searches, hypothesis generation, and data analysis to generate traceable, novel scientific discoveries.",
+            "key_contributions": [
+                "Hypothesis generation framework",
+                "Literature mapping API",
+                "Traceable agentic steps"
+            ],
+            "paper_url": "https://arxiv.org",
+            "code_url": null,
+            "citations": 0,
+            "id": 66
+        },
+        {
+            "title": "The Triadic Cognitive Architecture",
+            "authors": [
+                "Agentic AI Lab"
+            ],
+            "institution": "Independent",
+            "publication_date": "2026-03-26",
+            "published_in": "arXiv",
+            "topic": "Cognitive Architectures",
+            "description": "Focuses on building robust autonomous actions through spatio-temporal and epistemic friction, providing a novel framework for controlling and aligning advanced agents.",
+            "key_contributions": [
+                "Spatio-temporal alignment models",
+                "Epistemic friction introduction",
+                "Robust real-world autonomy"
+            ],
+            "paper_url": "https://arxiv.org",
+            "code_url": null,
+            "citations": 0,
+            "id": 67
+        },
+        {
+            "title": "On-Device LLM Inference with Selective Parameter Activation",
+            "authors": [
+                "Google Mobile AI Team"
+            ],
+            "institution": "Google",
+            "publication_date": "2026-03-31",
+            "published_in": "arXiv",
+            "topic": "Edge AI & Efficient Architecture",
+            "description": "Details the architecture behind the Gemma-3n E2B and E4B models, utilizing selective parameter activation technology to enable sustained, highly efficient LLM execution on low-resource mobile and edge environments.",
+            "key_contributions": [
+                "Selective parameter activation",
+                "Thermal-aware sustained load execution",
+                "On-device memory bandwidth optimization"
+            ],
+            "paper_url": "https://arxiv.org/abs/2603.XXXXX",
+            "code_url": null,
+            "citations": 0,
+            "id": 68
+        },
+        {
+            "title": "AI Agent Traps: Vulnerabilities in Autonomous AI Navigation",
+            "authors": [
+                "Google DeepMind Research Team"
+            ],
+            "institution": "Google DeepMind",
+            "publication_date": "2026-04-06",
+            "published_in": "Google DeepMind Security Report",
+            "topic": "AI Security",
+            "description": "Identified a class of vulnerabilities termed 'AI Agent Traps' where malicious web content exploits the gap between human-visible rendering and machine-parsed DOM to deceive autonomous agents.",
+            "key_contributions": [
+                "Identification of 6 trap vectors",
+                "Content injection attacks",
+                "Semantic manipulation against LLMs"
+            ],
+            "paper_url": "https://deepmind.google/security",
+            "code_url": null,
+            "citations": 0,
+            "id": 69
+        },
+        {
+            "title": "Industrial Policy for the Intelligence Age",
+            "authors": [
+                "OpenAI Policy team"
+            ],
+            "institution": "OpenAI",
+            "publication_date": "2026-04-06",
+            "published_in": "OpenAI Policy Brief",
+            "topic": "AI Policy & Economics",
+            "description": "A major roadmap outlining recommendations for managing the transition to superintelligence, featuring concepts like a Public Wealth Fund and shorter workweeks to manage economic impacts.",
+            "key_contributions": [
+                "Roadmap to Superintelligence",
+                "Public Wealth Fund proposal",
+                "Economic mitigation strategies"
+            ],
+            "paper_url": "https://openai.com/research/industrial-policy-for-the-intelligence-age",
+            "code_url": null,
+            "citations": 0,
+            "id": 70
+        },
+        {
+            "title": "Dynamic Reflections: Probing Video Representations with Text Alignment",
+            "authors": [
+                "DeepMind Vision-Language Team"
+            ],
+            "institution": "Google DeepMind",
+            "publication_date": "2026-04-13",
+            "published_in": "arXiv",
+            "topic": "Video Representation",
+            "description": "A comprehensive study on how modern video foundation models represent and compress dynamic data through alignment with continuous text streams.",
+            "key_contributions": [
+                "Novel text-alignment probing technique",
+                "Video compression heuristics",
+                "Temporal consistency improvements"
+            ],
+            "paper_url": "https://arxiv.org/abs/2604.XXXXX",
+            "code_url": null,
+            "citations": 0,
+            "id": 71
         }
     ]
 }

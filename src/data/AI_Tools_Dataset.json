@@ -2,8 +2,8 @@
     "metadata": {
         "title": "AI Coding Tools Timeline",
         "description": "A curated timeline of the most influential AI tools, IDEs, and agents that revolutionized software development.",
-        "last_updated": "2026-03-29",
-        "total_tools": 70,
+        "last_updated": "2026-04-14",
+        "total_tools": 81,
         "fields": [
             "id",
             "name",
@@ -51,7 +51,23 @@
             "url": "https://www.comet.com/"
         },
         {
-            "id": 3,
+            "name": "Hugging Face Hub",
+            "company": "Hugging Face",
+            "release_date": "2019-10-01",
+            "open_source": true,
+            "license": "Apache 2.0",
+            "category": "AI Model Repository",
+            "description": "The central repository for open-source machine learning models, datasets, and applications, fundamentally accelerating the collaborative AI revolution.",
+            "key_features": [
+                "Model hosting",
+                "Dataset repository",
+                "Spaces / Gradio apps"
+            ],
+            "url": "https://huggingface.co",
+            "id": 3
+        },
+        {
+            "id": 4,
             "name": "Pinecone",
             "company": "Pinecone Systems",
             "release_date": "2021-01-01",
@@ -67,7 +83,7 @@
             "url": "https://pinecone.io"
         },
         {
-            "id": 4,
+            "id": 5,
             "name": "GitHub Copilot",
             "company": "GitHub / OpenAI",
             "release_date": "2021-06-29",
@@ -83,7 +99,7 @@
             "url": "https://github.com/features/copilot"
         },
         {
-            "id": 5,
+            "id": 6,
             "name": "Nomic Atlas",
             "company": "Nomic AI",
             "release_date": "2022-03-01",
@@ -99,7 +115,7 @@
             "url": "https://nomic.ai/"
         },
         {
-            "id": 6,
+            "id": 7,
             "name": "HeyGen",
             "company": "HeyGen",
             "release_date": "2022-07-01",
@@ -115,7 +131,7 @@
             "url": "https://heygen.com"
         },
         {
-            "id": 7,
+            "id": 8,
             "name": "Phind",
             "company": "DGB Solutions",
             "release_date": "2022-07-01",
@@ -131,7 +147,7 @@
             "url": "https://phind.com"
         },
         {
-            "id": 8,
+            "id": 9,
             "name": "Midjourney",
             "company": "Midjourney, Inc.",
             "release_date": "2022-07-12",
@@ -147,7 +163,7 @@
             "url": "https://midjourney.com"
         },
         {
-            "id": 9,
+            "id": 10,
             "name": "LangChain",
             "company": "Harrison Chase / LangChain",
             "release_date": "2022-10-01",
@@ -163,7 +179,7 @@
             "url": "https://www.langchain.com/"
         },
         {
-            "id": 10,
+            "id": 11,
             "name": "LlamaIndex",
             "company": "LlamaIndex, Inc.",
             "release_date": "2022-11-01",
@@ -179,7 +195,7 @@
             "url": "https://llamaindex.ai"
         },
         {
-            "id": 11,
+            "id": 12,
             "name": "ChatGPT",
             "company": "OpenAI",
             "release_date": "2022-11-30",
@@ -208,10 +224,10 @@
                 "Real-time generation"
             ],
             "url": "https://leonardo.ai",
-            "id": 12
+            "id": 13
         },
         {
-            "id": 13,
+            "id": 14,
             "name": "Perplexity",
             "company": "Perplexity AI",
             "release_date": "2022-12-07",
@@ -227,7 +243,7 @@
             "url": "https://www.perplexity.ai/"
         },
         {
-            "id": 14,
+            "id": 15,
             "name": "Poe",
             "company": "Quora",
             "release_date": "2022-12-21",
@@ -243,7 +259,7 @@
             "url": "https://poe.com"
         },
         {
-            "id": 15,
+            "id": 16,
             "name": "Cursor",
             "company": "Anysphere",
             "release_date": "2023-01-01",
@@ -259,7 +275,7 @@
             "url": "https://cursor.com/"
         },
         {
-            "id": 16,
+            "id": 17,
             "name": "ElevenLabs",
             "company": "ElevenLabs",
             "release_date": "2023-01-21",
@@ -275,7 +291,7 @@
             "url": "https://elevenlabs.io"
         },
         {
-            "id": 17,
+            "id": 18,
             "name": "Runway Gen-2",
             "company": "Runway AI, Inc.",
             "release_date": "2023-03-20",
@@ -291,7 +307,7 @@
             "url": "https://runwayml.com"
         },
         {
-            "id": 18,
+            "id": 19,
             "name": "AutoGPT",
             "company": "Significant Gravitas Ltd",
             "release_date": "2023-03-30",
@@ -307,7 +323,7 @@
             "url": "https://github.com/Significant-Gravitas/AutoGPT"
         },
         {
-            "id": 19,
+            "id": 20,
             "name": "Supabase Vector",
             "company": "Supabase / Celonis",
             "release_date": "2023-05-01",
@@ -323,7 +339,23 @@
             "url": "https://supabase.com"
         },
         {
-            "id": 20,
+            "name": "Dify",
+            "company": "Langgenius",
+            "release_date": "2023-05-09",
+            "open_source": true,
+            "license": "Apache 2.0",
+            "category": "LLM App Platform",
+            "description": "An open-source LLM application development platform that simplifies creating workflows, agents, and RAG pipelines via a visual interface and robust APIs.",
+            "key_features": [
+                "Visual workflow builder",
+                "BaaS for LLM apps",
+                "Multi-model support"
+            ],
+            "url": "https://dify.ai",
+            "id": 21
+        },
+        {
+            "id": 22,
             "name": "NotebookLM",
             "company": "Google",
             "release_date": "2023-05-10",
@@ -339,7 +371,7 @@
             "url": "https://notebooklm.google"
         },
         {
-            "id": 21,
+            "id": 23,
             "name": "Aider",
             "company": "Paul Gauthier",
             "release_date": "2023-05-11",
@@ -355,7 +387,7 @@
             "url": "https://aider.chat/"
         },
         {
-            "id": 22,
+            "id": 24,
             "name": "Sourcegraph Cody",
             "company": "Sourcegraph",
             "release_date": "2023-06-01",
@@ -384,10 +416,10 @@
                 "High-throughput serving"
             ],
             "url": "https://vllm.ai",
-            "id": 23
+            "id": 25
         },
         {
-            "id": 24,
+            "id": 26,
             "name": "Greptile",
             "company": "Tabnam Inc.",
             "release_date": "2023-07-01",
@@ -403,7 +435,7 @@
             "url": "https://greptile.com"
         },
         {
-            "id": 25,
+            "id": 27,
             "name": "Ollama",
             "company": "Ollama",
             "release_date": "2023-07-08",
@@ -419,7 +451,7 @@
             "url": "https://ollama.com/"
         },
         {
-            "id": 26,
+            "id": 28,
             "name": "CodeRabbit",
             "company": "CodeRabbit",
             "release_date": "2023-08-01",
@@ -435,7 +467,7 @@
             "url": "https://coderabbit.ai/"
         },
         {
-            "id": 65,
+            "id": 29,
             "name": "Continue.dev",
             "company": "Continue",
             "release_date": "2023-08-15",
@@ -451,7 +483,7 @@
             "url": "https://continue.dev/"
         },
         {
-            "id": 27,
+            "id": 30,
             "name": "v0",
             "company": "Vercel",
             "release_date": "2023-10-11",
@@ -480,10 +512,10 @@
                 "Video inpainting"
             ],
             "url": "https://pika.art",
-            "id": 28
+            "id": 31
         },
         {
-            "id": 29,
+            "id": 32,
             "name": "LM Studio",
             "company": "Element Labs",
             "release_date": "2023-11-29",
@@ -499,7 +531,7 @@
             "url": "https://lmstudio.ai"
         },
         {
-            "id": 66,
+            "id": 33,
             "name": "Supermaven",
             "company": "Supermaven",
             "release_date": "2024-02-28",
@@ -515,7 +547,7 @@
             "url": "https://supermaven.com/"
         },
         {
-            "id": 30,
+            "id": 34,
             "name": "Zapier Central",
             "company": "Zapier",
             "release_date": "2024-03-06",
@@ -531,7 +563,7 @@
             "url": "https://zapier.com/central"
         },
         {
-            "id": 31,
+            "id": 35,
             "name": "Devin",
             "company": "Cognition Labs",
             "release_date": "2024-03-12",
@@ -547,7 +579,7 @@
             "url": "https://www.cognition.ai/"
         },
         {
-            "id": 32,
+            "id": 36,
             "name": "OpenHands",
             "company": "OpenHands (formerly OpenDevin)",
             "release_date": "2024-03-12",
@@ -563,7 +595,7 @@
             "url": "https://openhands.dev/"
         },
         {
-            "id": 33,
+            "id": 37,
             "name": "Suno AI",
             "company": "Suno AI",
             "release_date": "2024-03-21",
@@ -579,7 +611,7 @@
             "url": "https://suno.com"
         },
         {
-            "id": 34,
+            "id": 38,
             "name": "Udio",
             "company": "Udio Music",
             "release_date": "2024-04-10",
@@ -595,7 +627,7 @@
             "url": "https://udio.com"
         },
         {
-            "id": 35,
+            "id": 39,
             "name": "Luma Dream Machine",
             "company": "Luma AI",
             "release_date": "2024-06-12",
@@ -611,7 +643,7 @@
             "url": "https://lumalabs.ai"
         },
         {
-            "id": 36,
+            "id": 40,
             "name": "Figma AI",
             "company": "Figma",
             "release_date": "2024-06-26",
@@ -627,7 +659,7 @@
             "url": "https://figma.com"
         },
         {
-            "id": 67,
+            "id": 41,
             "name": "PearAI",
             "company": "PearAI",
             "release_date": "2024-07-24",
@@ -643,7 +675,7 @@
             "url": "https://trypear.ai/"
         },
         {
-            "id": 37,
+            "id": 42,
             "name": "FLUX.1",
             "company": "Black Forest Labs",
             "release_date": "2024-08-01",
@@ -672,10 +704,10 @@
                 "Open weights"
             ],
             "url": "https://blackforestlabs.ai",
-            "id": 38
+            "id": 43
         },
         {
-            "id": 39,
+            "id": 44,
             "name": "Replit Agent",
             "company": "Replit",
             "release_date": "2024-09-05",
@@ -691,7 +723,7 @@
             "url": "https://replit.com"
         },
         {
-            "id": 40,
+            "id": 45,
             "name": "Bolt.new",
             "company": "StackBlitz",
             "release_date": "2024-10-03",
@@ -707,7 +739,7 @@
             "url": "https://bolt.new/"
         },
         {
-            "id": 41,
+            "id": 46,
             "name": "Webflow AI",
             "company": "Webflow",
             "release_date": "2024-10-15",
@@ -723,7 +755,7 @@
             "url": "https://webflow.com/"
         },
         {
-            "id": 42,
+            "id": 47,
             "name": "Windsurf",
             "company": "Codeium",
             "release_date": "2024-11-14",
@@ -739,7 +771,7 @@
             "url": "https://windsurf.ai/"
         },
         {
-            "id": 43,
+            "id": 48,
             "name": "Lovable",
             "company": "Lovable",
             "release_date": "2024-11-18",
@@ -755,7 +787,7 @@
             "url": "https://lovable.dev/"
         },
         {
-            "id": 44,
+            "id": 49,
             "name": "Model Context Protocol (MCP)",
             "company": "Anthropic",
             "release_date": "2024-11-25",
@@ -771,7 +803,7 @@
             "url": "https://modelcontextprotocol.io/"
         },
         {
-            "id": 45,
+            "id": 50,
             "name": "Sora",
             "company": "OpenAI",
             "release_date": "2024-12-09",
@@ -787,7 +819,7 @@
             "url": "https://sora.com"
         },
         {
-            "id": 46,
+            "id": 51,
             "name": "n8n AI Agents",
             "company": "n8n",
             "release_date": "2025-01-15",
@@ -803,7 +835,7 @@
             "url": "https://n8n.io/ai/"
         },
         {
-            "id": 59,
+            "id": 52,
             "name": "Trae",
             "company": "ByteDance",
             "release_date": "2025-01-20",
@@ -819,7 +851,7 @@
             "url": "https://www.trae.ai/"
         },
         {
-            "id": 47,
+            "id": 53,
             "name": "OpenAI Operator",
             "company": "OpenAI",
             "release_date": "2025-01-23",
@@ -835,7 +867,7 @@
             "url": "https://openai.com/index/introducing-operator/"
         },
         {
-            "id": 48,
+            "id": 54,
             "name": "Roo Code (Roo Cline)",
             "company": "Community / Open Source",
             "release_date": "2025-01-28",
@@ -851,7 +883,7 @@
             "url": "https://roocode.com/"
         },
         {
-            "id": 60,
+            "id": 55,
             "name": "Deep Research",
             "company": "OpenAI",
             "release_date": "2025-02-02",
@@ -867,7 +899,7 @@
             "url": "https://openai.com/index/introducing-deep-research"
         },
         {
-            "id": 61,
+            "id": 56,
             "name": "Manus AI",
             "company": "Butterfly Effect",
             "release_date": "2025-03-06",
@@ -883,7 +915,7 @@
             "url": "https://manus.im/"
         },
         {
-            "id": 49,
+            "id": 57,
             "name": "Make.com",
             "company": "Celonis",
             "release_date": "2025-04-01",
@@ -899,7 +931,7 @@
             "url": "https://make.com"
         },
         {
-            "id": 62,
+            "id": 58,
             "name": "Genspark",
             "company": "Genspark",
             "release_date": "2025-04-15",
@@ -915,7 +947,7 @@
             "url": "https://www.genspark.ai/"
         },
         {
-            "id": 50,
+            "id": 59,
             "name": "Codex (Agent)",
             "company": "OpenAI",
             "release_date": "2025-05-16",
@@ -931,7 +963,23 @@
             "url": "https://openai.com"
         },
         {
-            "id": 51,
+            "id": 60,
+            "name": "Jules",
+            "company": "Google",
+            "release_date": "2025-05-19",
+            "open_source": false,
+            "license": "Proprietary",
+            "category": "Autonomous AI Coding Agent",
+            "description": "Google’s asynchronous coding agent that plans, executes, and proposes pull requests on GitHub repositories.",
+            "key_features": [
+                "Asynchronous coding sessions",
+                "GitHub repository task execution",
+                "Agentic planning with reviewable outputs"
+            ],
+            "url": "https://jules.google"
+        },
+        {
+            "id": 61,
             "name": "Claude Code",
             "company": "Anthropic",
             "release_date": "2025-05-25",
@@ -947,7 +995,7 @@
             "url": "https://docs.anthropic.com/en/docs/agents-and-tools/claude-code/overview"
         },
         {
-            "id": 52,
+            "id": 62,
             "name": "Warp CLI / ADE",
             "company": "Warp",
             "release_date": "2025-06-16",
@@ -963,135 +1011,7 @@
             "url": "https://warp.dev"
         },
         {
-            "id": 53,
-            "name": "Ralph Loop",
-            "company": "Community / Jeffrey Huntley",
-            "release_date": "2025-07-01",
-            "open_source": true,
-            "license": "Open Methodology",
-            "category": "AI Methodology",
-            "description": "An iterative AI development methodology (also known as the 'Ralph Wiggum' technique) where prompts are continuously fed to an AI agent in a loop until a task is successfully completed.",
-            "key_features": [
-                "Persistent iteration",
-                "Failure-driven learning",
-                "Context decay management"
-            ],
-            "url": "https://awesomeclaude.ai/"
-        },
-        {
             "id": 63,
-            "name": "CrewAI",
-            "company": "CrewAI Inc.",
-            "release_date": "2025-10-01",
-            "open_source": true,
-            "license": "MIT",
-            "category": "Multi-Agent AI Framework",
-            "description": "The dominant open-source multi-agent orchestration framework with 40K+ GitHub stars and 1.8M+ monthly downloads. Enables developers to build collaborative AI agent systems with planning, memory, and tool use capabilities. Used by 60%+ of Fortune 500 companies.",
-            "key_features": [
-                "Multi-agent orchestration",
-                "100+ open-source tools",
-                "Agentic RAG and memory management"
-            ],
-            "url": "https://crewai.com/"
-        },
-        {
-            "id": 54,
-            "name": "Comet Browser",
-            "company": "Perplexity AI",
-            "release_date": "2025-10-02",
-            "open_source": false,
-            "license": "Proprietary",
-            "category": "AI Web Browser",
-            "description": "An AI-first web browser built by Perplexity AI, integrating conversational search natively into the browsing experience for seamless information discovery.",
-            "key_features": [
-                "Native AI search integration",
-                "AI-assisted browsing",
-                "Cross-platform"
-            ],
-            "url": "https://www.perplexity.ai/"
-        },
-        {
-            "id": 55,
-            "name": "OpenClaw",
-            "company": "Peter Steinberger",
-            "release_date": "2025-11-01",
-            "open_source": true,
-            "license": "MIT",
-            "category": "Autonomous AI Agent",
-            "description": "A free, open-source personal AI assistant designed to run locally, functioning independently by executing tasks across messaging platforms, browsing the web, and manipulating files.",
-            "key_features": [
-                "Local autonomy",
-                "WhatsApp/Discord integration",
-                "Shell and file access"
-            ],
-            "url": "https://github.com/petersteinberger/openclaw"
-        },
-        {
-            "id": 56,
-            "name": "Microsoft Copilot Studio",
-            "company": "Microsoft",
-            "release_date": "2025-11-15",
-            "open_source": false,
-            "license": "Proprietary",
-            "category": "Enterprise AI Agent Platform",
-            "description": "A comprehensive platform for building and managing autonomous enterprise agents with deep integration into Microsoft 365 and external systems via MCP.",
-            "key_features": [
-                "Autonomous agent publishing",
-                "MCP standard integration",
-                "GPT-5 powered reasoning"
-            ],
-            "url": "https://www.microsoft.com/en-us/microsoft-copilot/copilot-studio"
-        },
-        {
-            "id": 57,
-            "name": "Antigravity",
-            "company": "Google DeepMind",
-            "release_date": "2025-11-18",
-            "open_source": false,
-            "license": "Proprietary",
-            "category": "Agentic Development Environment",
-            "description": "An agent-first development platform where AI agents autonomously plan, build, test, and iterate on complex software tasks in a dedicated workspace.",
-            "key_features": [
-                "Agent-first architecture",
-                "Integrated browser & terminal",
-                "Verifiable artifact generation"
-            ],
-            "url": "https://antigravity.google"
-        },
-        {
-            "id": 58,
-            "name": "FlowHunt",
-            "company": "QualityUnit",
-            "release_date": "2026-02-28",
-            "open_source": false,
-            "license": "Proprietary",
-            "category": "No-code AI Agent Builder",
-            "description": "A no-code enterprise agent platform for designing complex AI workflows, supporting multi-agent collaboration and extensive knowledge base integration.",
-            "key_features": [
-                "Multi-agent collaboration",
-                "No-code visual builder",
-                "FlowHunt 2.0 AI-first engine"
-            ],
-            "url": "https://www.flowhunt.io/"
-        },
-        {
-            "id": 64,
-            "name": "Databricks Genie Code",
-            "company": "Databricks",
-            "release_date": "2026-03-11",
-            "open_source": false,
-            "license": "Proprietary",
-            "category": "AI Data Engineering Agent",
-            "description": "An autonomous AI agent for data work that doubled success rates on data science tasks compared to leading coding agents. Automates data pipeline building, debugging, and production system maintenance with enterprise governance built in.",
-            "key_features": [
-                "Autonomous data engineering",
-                "2x success rate vs leading agents",
-                "Enterprise governance integration"
-            ],
-            "url": "https://www.databricks.com/product/genie"
-        },
-        {
-            "id": 68,
             "name": "Gemini CLI",
             "company": "Google",
             "release_date": "2025-06-25",
@@ -1107,7 +1027,23 @@
             "url": "https://github.com/google/gemini-cli"
         },
         {
-            "id": 69,
+            "id": 64,
+            "name": "Ralph Loop",
+            "company": "Community / Jeffrey Huntley",
+            "release_date": "2025-07-01",
+            "open_source": true,
+            "license": "Open Methodology",
+            "category": "AI Methodology",
+            "description": "An iterative AI development methodology (also known as the 'Ralph Wiggum' technique) where prompts are continuously fed to an AI agent in a loop until a task is successfully completed.",
+            "key_features": [
+                "Persistent iteration",
+                "Failure-driven learning",
+                "Context decay management"
+            ],
+            "url": "https://awesomeclaude.ai/"
+        },
+        {
+            "id": 65,
             "name": "Augment Code",
             "company": "Augment",
             "release_date": "2025-09-01",
@@ -1123,7 +1059,151 @@
             "url": "https://augmentinc.com"
         },
         {
+            "id": 66,
+            "name": "CrewAI",
+            "company": "CrewAI Inc.",
+            "release_date": "2025-10-01",
+            "open_source": true,
+            "license": "MIT",
+            "category": "Multi-Agent AI Framework",
+            "description": "The dominant open-source multi-agent orchestration framework with 40K+ GitHub stars and 1.8M+ monthly downloads. Enables developers to build collaborative AI agent systems with planning, memory, and tool use capabilities. Used by 60%+ of Fortune 500 companies.",
+            "key_features": [
+                "Multi-agent orchestration",
+                "100+ open-source tools",
+                "Agentic RAG and memory management"
+            ],
+            "url": "https://crewai.com/"
+        },
+        {
+            "id": 67,
+            "name": "Comet Browser",
+            "company": "Perplexity AI",
+            "release_date": "2025-10-02",
+            "open_source": false,
+            "license": "Proprietary",
+            "category": "AI Web Browser",
+            "description": "An AI-first web browser built by Perplexity AI, integrating conversational search natively into the browsing experience for seamless information discovery.",
+            "key_features": [
+                "Native AI search integration",
+                "AI-assisted browsing",
+                "Cross-platform"
+            ],
+            "url": "https://www.perplexity.ai/"
+        },
+        {
+            "id": 68,
+            "name": "Jules Tools (CLI)",
+            "company": "Google",
+            "release_date": "2025-10-02",
+            "open_source": false,
+            "license": "Proprietary",
+            "category": "AI CLI Coding Assistant",
+            "description": "Terminal interface for Jules enabling scriptable task creation, monitoring, and local patch workflows.",
+            "key_features": [
+                "Terminal task control",
+                "Local patch apply",
+                "Automation-friendly CLI commands"
+            ],
+            "url": "https://jules.google/docs/changelog/2025-10-02/"
+        },
+        {
+            "id": 69,
+            "name": "Jules API",
+            "company": "Google",
+            "release_date": "2025-10-03",
+            "open_source": false,
+            "license": "Proprietary",
+            "category": "AI Development Ecosystem",
+            "description": "REST API for integrating Jules coding sessions into CI/CD, project management, and ChatOps workflows.",
+            "key_features": [
+                "Programmatic session management",
+                "Workflow integration for CI/CD and issue trackers",
+                "API-key based automation"
+            ],
+            "url": "https://jules.google/docs/changelog/2025-10-03/"
+        },
+        {
             "id": 70,
+            "name": "Codex CLI",
+            "company": "OpenAI",
+            "release_date": "2025-10-06",
+            "open_source": true,
+            "license": "Apache-2.0",
+            "category": "AI Coding Agent",
+            "description": "Terminal-first coding agent that runs locally and supports multi-step autonomous code tasks, shell execution, MCP integration, and repository-aware workflows.",
+            "key_features": [
+                "Terminal-native coding agent",
+                "Repository-aware code edits",
+                "MCP tool ecosystem"
+            ],
+            "url": "https://github.com/openai/codex"
+        },
+        {
+            "id": 71,
+            "name": "Codex SDK",
+            "company": "OpenAI",
+            "release_date": "2025-10-06",
+            "open_source": false,
+            "license": "Proprietary",
+            "category": "AI Development Ecosystem",
+            "description": "Developer SDK for embedding the Codex agent into engineering workflows and internal tools with structured outputs and resumable agent sessions.",
+            "key_features": [
+                "Embeddable coding agent runtime",
+                "Structured outputs",
+                "Session and context management"
+            ],
+            "url": "https://openai.com/index/codex-now-generally-available/"
+        },
+        {
+            "id": 72,
+            "name": "OpenClaw",
+            "company": "Peter Steinberger",
+            "release_date": "2025-11-01",
+            "open_source": true,
+            "license": "MIT",
+            "category": "Autonomous AI Agent",
+            "description": "A free, open-source personal AI assistant designed to run locally, functioning independently by executing tasks across messaging platforms, browsing the web, and manipulating files.",
+            "key_features": [
+                "Local autonomy",
+                "WhatsApp/Discord integration",
+                "Shell and file access"
+            ],
+            "url": "https://github.com/petersteinberger/openclaw"
+        },
+        {
+            "id": 73,
+            "name": "Microsoft Copilot Studio",
+            "company": "Microsoft",
+            "release_date": "2025-11-15",
+            "open_source": false,
+            "license": "Proprietary",
+            "category": "Enterprise AI Agent Platform",
+            "description": "A comprehensive platform for building and managing autonomous enterprise agents with deep integration into Microsoft 365 and external systems via MCP.",
+            "key_features": [
+                "Autonomous agent publishing",
+                "MCP standard integration",
+                "GPT-5 powered reasoning"
+            ],
+            "url": "https://www.microsoft.com/en-us/microsoft-copilot/copilot-studio"
+        },
+        {
+            "id": 74,
+            "name": "Antigravity",
+            "company": "Google DeepMind",
+            "release_date": "2025-11-18",
+            "open_source": false,
+            "license": "Proprietary",
+            "category": "Agentic Development Environment",
+            "description": "An agent-first development platform where AI agents autonomously plan, build, test, and iterate on complex software tasks in a dedicated workspace.",
+            "key_features": [
+                "Agent-first architecture",
+                "Integrated browser & terminal",
+                "Verifiable artifact generation"
+            ],
+            "url": "https://antigravity.google"
+        },
+        {
+            "id": 75,
             "name": "OpenCode",
             "company": "Community",
             "release_date": "2026-01-15",
@@ -1137,6 +1217,102 @@
                 "Open-source multi-agent orchestration"
             ],
             "url": "https://github.com/opencode"
+        },
+        {
+            "id": 76,
+            "name": "FlowHunt",
+            "company": "QualityUnit",
+            "release_date": "2026-02-28",
+            "open_source": false,
+            "license": "Proprietary",
+            "category": "No-code AI Agent Builder",
+            "description": "A no-code enterprise agent platform for designing complex AI workflows, supporting multi-agent collaboration and extensive knowledge base integration.",
+            "key_features": [
+                "Multi-agent collaboration",
+                "No-code visual builder",
+                "FlowHunt 2.0 AI-first engine"
+            ],
+            "url": "https://www.flowhunt.io/"
+        },
+        {
+            "id": 77,
+            "name": "Databricks Genie Code",
+            "company": "Databricks",
+            "release_date": "2026-03-11",
+            "open_source": false,
+            "license": "Proprietary",
+            "category": "AI Data Engineering Agent",
+            "description": "An autonomous AI agent for data work that doubled success rates on data science tasks compared to leading coding agents. Automates data pipeline building, debugging, and production system maintenance with enterprise governance built in.",
+            "key_features": [
+                "Autonomous data engineering",
+                "2x success rate vs leading agents",
+                "Enterprise governance integration"
+            ],
+            "url": "https://www.databricks.com/product/genie"
+        },
+        {
+            "id": 78,
+            "name": "Devin V2",
+            "company": "Cognition",
+            "release_date": "2026-03-24",
+            "open_source": false,
+            "license": "Proprietary",
+            "category": "Autonomous AI Software Engineer",
+            "description": "Devin V2 introduces deeply integrated multi-repo reasoning, capable of migrating entire tech stacks autonomously with zero human supervision.",
+            "key_features": [
+                "Multi-repo reasoning",
+                "Autonomous migration",
+                "Native database administration"
+            ],
+            "url": "https://cognition-labs.com/"
+        },
+        {
+            "name": "JetBrains Agent Client Protocol",
+            "company": "JetBrains",
+            "release_date": "2026-03-26",
+            "open_source": false,
+            "license": "Proprietary",
+            "category": "AI Development Ecosystem",
+            "description": "Introduced with CLion 2026.1, a unified protocol enabling developers to seamlessly swap out different AI agents (like GitHub Copilot, Cursor, etc.) within their preferred JetBrains IDE.",
+            "key_features": [
+                "Agent Client Protocol",
+                "Open ecosystem",
+                "Seamless multi-model usage"
+            ],
+            "url": "https://jetbrains.com",
+            "id": 79
+        },
+        {
+            "name": "Cursor 3",
+            "company": "Anysphere",
+            "release_date": "2026-04-02",
+            "open_source": false,
+            "license": "Proprietary",
+            "category": "AI Code Editor",
+            "description": "A major update to Cursor introducing a full agentic coding interface natively integrated into the IDE, enabling autonomous task completion workflows.",
+            "key_features": [
+                "Autonomous coding agent",
+                "Deep codebase reasoning",
+                "Agentic task execution"
+            ],
+            "url": "https://cursor.com",
+            "id": 80
+        },
+        {
+            "name": "Microsoft Agent Governance Toolkit",
+            "company": "Microsoft",
+            "release_date": "2026-04-05",
+            "open_source": true,
+            "license": "MIT",
+            "category": "Compliance Tool",
+            "description": "An open source compliance automation layer for enterprise AI products, mapping to the EU AI Act, HIPAA, and SOC2. Integrates with major LLM agent frameworks.",
+            "key_features": [
+                "EU AI Act compliance",
+                "LangChain & Azure integration",
+                "Compliance automation"
+            ],
+            "url": "https://github.com/microsoft",
+            "id": 81
         }
     ]
 }
