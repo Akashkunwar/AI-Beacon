@@ -2,8 +2,8 @@
     "metadata": {
         "title": "AI Coding Tools Timeline",
         "description": "A curated timeline of the most influential AI tools, IDEs, and agents that revolutionized software development.",
-        "last_updated": "2026-04-14",
-        "total_tools": 81,
+        "last_updated": "2026-04-30",
+        "total_tools": 87,
         "fields": [
             "id",
             "name",
@@ -1313,6 +1313,102 @@
             ],
             "url": "https://github.com/microsoft",
             "id": 81
+        },
+        {
+            "id": 82,
+            "name": "Claude Cowork",
+            "company": "Anthropic",
+            "release_date": "2026-04-09",
+            "open_source": false,
+            "license": "Proprietary",
+            "category": "Autonomous Desktop Agent",
+            "description": "An agentic AI tool that assists non-technical knowledge workers by autonomously performing multi-step tasks on their computers. Reads local files, edits documents, executes code, and manages folders within a sandboxed environment. Described as 'Claude Code for the rest of your work.'",
+            "key_features": [
+                "Sandboxed desktop automation",
+                "MCP plugin integrations",
+                "Non-technical user friendly GUI"
+            ],
+            "url": "https://anthropic.com/claude-cowork"
+        },
+        {
+            "id": 83,
+            "name": "Claude Design",
+            "company": "Anthropic",
+            "release_date": "2026-04-09",
+            "open_source": false,
+            "license": "Proprietary",
+            "category": "AI Design Tool",
+            "description": "A dedicated AI design tool by Anthropic for creating prototypes, visual assets, and creative work. Leverages Claude's multimodal capabilities for design iteration and visual reasoning.",
+            "key_features": [
+                "AI-powered prototype creation",
+                "Visual reasoning",
+                "Creative workflow integration"
+            ],
+            "url": "https://anthropic.com/claude-design"
+        },
+        {
+            "id": 84,
+            "name": "World Labs Studio",
+            "company": "World Labs",
+            "release_date": "2026-04-02",
+            "open_source": false,
+            "license": "Proprietary",
+            "category": "3D World Generator",
+            "description": "A platform for generating and exploring 3D environments using World Labs' Marble 1.1 generative world model. Features improved model selection, real-world unit scaling, and API access for production workflows in gaming, architecture, and VFX.",
+            "key_features": [
+                "3D environment generation",
+                "Multiple model variants (1.0, 1.1, 1.1-Plus)",
+                "API access for production use"
+            ],
+            "url": "https://worldlabs.ai"
+        },
+        {
+            "id": 85,
+            "name": "Amazon Bio Discovery",
+            "company": "Amazon",
+            "release_date": "2026-04-14",
+            "open_source": false,
+            "license": "Proprietary",
+            "category": "AI Drug Research",
+            "description": "An AI-powered drug research platform by Amazon that accelerates biological discovery and pharmaceutical development using advanced foundation models for molecular analysis and drug candidate identification.",
+            "key_features": [
+                "Molecular analysis",
+                "Drug candidate identification",
+                "Biological data synthesis"
+            ],
+            "url": "https://aws.amazon.com/bio-discovery"
+        },
+        {
+            "id": 86,
+            "name": "ChatGPT for Clinicians",
+            "company": "OpenAI",
+            "release_date": "2026-04-22",
+            "open_source": false,
+            "license": "Proprietary",
+            "category": "Healthcare AI",
+            "description": "A specialized version of ChatGPT designed for healthcare professionals, providing clinical decision support, medical literature synthesis, and documentation assistance while maintaining HIPAA compliance.",
+            "key_features": [
+                "Clinical decision support",
+                "Medical literature synthesis",
+                "HIPAA-compliant workflows"
+            ],
+            "url": "https://openai.com/chatgpt-for-clinicians"
+        },
+        {
+            "id": 87,
+            "name": "Microsoft Agent 365 (Preview)",
+            "company": "Microsoft",
+            "release_date": "2026-04-28",
+            "open_source": false,
+            "license": "Proprietary",
+            "category": "Enterprise Agent Platform",
+            "description": "Microsoft's enterprise agent platform that integrates autonomous AI agents into the Microsoft 365 ecosystem. Features multi-model orchestration, governance controls, and deep integration with Teams, Outlook, and SharePoint for the 'agentic web.'",
+            "key_features": [
+                "Multi-model orchestration",
+                "Enterprise governance controls",
+                "Deep M365 integration"
+            ],
+            "url": "https://microsoft.com/agent-365"
         }
     ]
 }

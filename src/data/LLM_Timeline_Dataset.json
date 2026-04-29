@@ -2,8 +2,8 @@
     "metadata": {
         "title": "AI & LLM Models Timeline",
         "description": "Comprehensive list of AI and LLM models from 2017 to 2026, including text, vision, audio, multimodal and image generation models.",
-        "last_updated": "2026-04-14",
-        "total_models": 212,
+        "last_updated": "2026-04-30",
+        "total_models": 222,
         "audit_status": "Verified Deep Audit Complete (Chronological + Attribution)",
         "logo_source": "Clearbit Logo API (https://logo.clearbit.com/{domain})",
         "fields": [
@@ -10135,6 +10135,483 @@
             "predecessor": "Llama 3.1",
             "successor": null,
             "id": 212
+        },
+        {
+            "id": 213,
+            "company": "World Labs",
+            "company_website": "https://worldlabs.ai",
+            "company_logo_url": "https://logo.clearbit.com/worldlabs.ai",
+            "model_family": "Marble",
+            "model_name": "Marble 1.1",
+            "model_version": "1.1",
+            "model_type": "Large World Model (3D Generation)",
+            "architecture": "Generative World Model",
+            "modalities": [
+                "text",
+                "image",
+                "3D"
+            ],
+            "parameters": null,
+            "parameter_unit": null,
+            "training_tokens": null,
+            "open_source": false,
+            "license": "Proprietary",
+            "api_available": true,
+            "context_window_tokens": null,
+            "training_data_cutoff": "2026-01",
+            "release_date": "2026-04-02",
+            "country": "USA",
+            "description": "World Labs' updated generative world model for 3D environment creation. Features improved lighting, higher contrast, reduced visual artifacts, and a new Plus variant for generating larger, more complex 3D environments.",
+            "use_cases": [
+                "3D environment generation",
+                "gaming",
+                "architecture",
+                "VFX"
+            ],
+            "notable_features": [
+                "improved lighting and contrast",
+                "Marble 1.1-Plus for large worlds",
+                "real-world unit scaling",
+                "API access"
+            ],
+            "benchmark_scores": {},
+            "pricing_per_1m_tokens": {
+                "input": null,
+                "output": null
+            },
+            "official_model_link": "https://worldlabs.ai",
+            "huggingface_url": null,
+            "paper_url": null,
+            "predecessor": "Marble 1.0",
+            "successor": null
+        },
+        {
+            "id": 214,
+            "company": "HeyGen",
+            "company_website": "https://heygen.com",
+            "company_logo_url": "https://logo.clearbit.com/heygen.com",
+            "model_family": "Avatar",
+            "model_name": "HeyGen Avatar V",
+            "model_version": "V",
+            "model_type": "Video Generation (Avatar)",
+            "architecture": "Identity-Consistent Avatar Model",
+            "modalities": [
+                "video",
+                "audio"
+            ],
+            "parameters": null,
+            "parameter_unit": null,
+            "training_tokens": null,
+            "open_source": false,
+            "license": "Proprietary",
+            "api_available": true,
+            "context_window_tokens": null,
+            "training_data_cutoff": null,
+            "release_date": "2026-04-08",
+            "country": "USA",
+            "description": "HeyGen's identity-consistent AI avatar model that solves 'identity drift' in AI-generated avatars. Creates realistic digital twins from a 15-second webcam recording, maintaining consistent micro-expressions and lip geometry across scenes.",
+            "use_cases": [
+                "AI avatars",
+                "marketing videos",
+                "corporate training",
+                "localization"
+            ],
+            "notable_features": [
+                "identity drift solution",
+                "15-second webcam setup",
+                "consistent across camera angles",
+                "Seedance 2.0 integration"
+            ],
+            "benchmark_scores": {},
+            "pricing_per_1m_tokens": {
+                "input": null,
+                "output": null
+            },
+            "official_model_link": "https://heygen.com/avatar-v",
+            "huggingface_url": null,
+            "paper_url": null,
+            "predecessor": "HeyGen Avatar 4.0",
+            "successor": null
+        },
+        {
+            "id": 215,
+            "company": "Anthropic",
+            "company_website": "https://anthropic.com",
+            "company_logo_url": "https://logo.clearbit.com/anthropic.com",
+            "model_family": "Claude",
+            "model_name": "Claude Opus 4.7",
+            "model_version": "4.7",
+            "model_type": "LLM",
+            "architecture": "Transformer",
+            "modalities": [
+                "text",
+                "vision",
+                "computer use"
+            ],
+            "parameters": null,
+            "parameter_unit": null,
+            "training_tokens": null,
+            "open_source": false,
+            "license": "Proprietary",
+            "api_available": true,
+            "context_window_tokens": 1000000,
+            "training_data_cutoff": "2026-03",
+            "release_date": "2026-04-16",
+            "country": "USA",
+            "description": "Anthropic's most capable generally available model. Features an xhigh effort level for fine-grained reasoning control, 3.75 megapixel high-resolution image input, and significant gains in advanced software engineering and multi-step agentic workflows.",
+            "use_cases": [
+                "advanced software engineering",
+                "agentic workflows",
+                "computer use",
+                "long-running coding tasks"
+            ],
+            "notable_features": [
+                "xhigh effort level",
+                "3.75MP vision input",
+                "task budgets (beta)",
+                "1M context window"
+            ],
+            "benchmark_scores": {},
+            "pricing_per_1m_tokens": {
+                "input": 5,
+                "output": 25
+            },
+            "official_model_link": "https://anthropic.com/news/claude-opus-4-7",
+            "huggingface_url": null,
+            "paper_url": null,
+            "predecessor": "Claude Opus 4.6",
+            "successor": null
+        },
+        {
+            "id": 216,
+            "company": "Moonshot AI",
+            "company_website": "https://kimi.ai",
+            "company_logo_url": "https://logo.clearbit.com/moonshot.cn",
+            "model_family": "Kimi",
+            "model_name": "Kimi K2.6",
+            "model_version": "2.6",
+            "model_type": "Multimodal Agentic LLM (MoE)",
+            "architecture": "Mixture-of-Experts",
+            "modalities": [
+                "text",
+                "vision"
+            ],
+            "parameters": 1000,
+            "parameter_unit": "billion",
+            "training_tokens": null,
+            "open_source": false,
+            "license": "Proprietary",
+            "api_available": true,
+            "context_window_tokens": 262144,
+            "training_data_cutoff": "2026-03",
+            "release_date": "2026-04-20",
+            "country": "China",
+            "description": "Moonshot AI's native multimodal agentic model with 1T total / 32B active MoE architecture. Supports scaling up to 300 sub-agents executing 4,000 coordinated steps for complex autonomous workflows. Excels at long-horizon coding in Python, Rust, and Go.",
+            "use_cases": [
+                "agentic swarm orchestration",
+                "long-horizon coding",
+                "multi-agent workflows",
+                "full-stack applications"
+            ],
+            "notable_features": [
+                "1T total / 32B active MoE",
+                "300 sub-agent swarm (4000 steps)",
+                "long-horizon coding without oversight",
+                "reworked attention system"
+            ],
+            "benchmark_scores": {},
+            "pricing_per_1m_tokens": {
+                "input": null,
+                "output": null
+            },
+            "official_model_link": "https://kimi.ai",
+            "huggingface_url": null,
+            "paper_url": null,
+            "predecessor": "Kimi K2.5",
+            "successor": null
+        },
+        {
+            "id": 217,
+            "company": "OpenAI",
+            "company_website": "https://openai.com",
+            "company_logo_url": "https://logo.clearbit.com/openai.com",
+            "model_family": "GPT",
+            "model_name": "GPT-5.5",
+            "model_version": "5.5",
+            "model_type": "Multimodal LLM (Reasoning)",
+            "architecture": "Transformer",
+            "modalities": [
+                "text",
+                "vision",
+                "audio"
+            ],
+            "parameters": null,
+            "parameter_unit": null,
+            "training_tokens": null,
+            "open_source": false,
+            "license": "Proprietary",
+            "api_available": true,
+            "context_window_tokens": 1000000,
+            "training_data_cutoff": "2026-03",
+            "release_date": "2026-04-23",
+            "country": "USA",
+            "description": "OpenAI's latest flagship model with significant improvements in agentic coding, conceptual clarity, and scientific research ability. Features Thinking and Pro variants with a 1M-token context window. Positioned as a step toward a unified super app.",
+            "use_cases": [
+                "agentic coding",
+                "scientific research",
+                "complex reasoning",
+                "computer use"
+            ],
+            "notable_features": [
+                "1M context window",
+                "Thinking and Pro variants",
+                "unified super app integration",
+                "advanced agentic capabilities"
+            ],
+            "benchmark_scores": {},
+            "pricing_per_1m_tokens": {
+                "input": null,
+                "output": null
+            },
+            "official_model_link": "https://openai.com/index/gpt-5-5",
+            "huggingface_url": null,
+            "paper_url": null,
+            "predecessor": "GPT-5.4 Pro",
+            "successor": null
+        },
+        {
+            "id": 218,
+            "company": "OpenAI",
+            "company_website": "https://openai.com",
+            "company_logo_url": "https://logo.clearbit.com/openai.com",
+            "model_family": "GPT",
+            "model_name": "GPT-5.5 Pro",
+            "model_version": "5.5-pro",
+            "model_type": "Foundation LLM (Reasoning)",
+            "architecture": "Transformer",
+            "modalities": [
+                "text",
+                "vision",
+                "audio"
+            ],
+            "parameters": null,
+            "parameter_unit": null,
+            "training_tokens": null,
+            "open_source": false,
+            "license": "Proprietary",
+            "api_available": true,
+            "context_window_tokens": 1000000,
+            "training_data_cutoff": "2026-03",
+            "release_date": "2026-04-23",
+            "country": "USA",
+            "description": "The top-tier variant of GPT-5.5 designed for frontier research, maximum reasoning depth, and complex agentic autonomy. Available to Pro plan users.",
+            "use_cases": [
+                "frontier research",
+                "maximum reasoning depth",
+                "complex agentic autonomy"
+            ],
+            "notable_features": [
+                "highest reasoning capability",
+                "Pro plan exclusive",
+                "1M context window"
+            ],
+            "benchmark_scores": {},
+            "pricing_per_1m_tokens": {
+                "input": null,
+                "output": null
+            },
+            "official_model_link": "https://openai.com/index/gpt-5-5",
+            "huggingface_url": null,
+            "paper_url": null,
+            "predecessor": "GPT-5.5",
+            "successor": null
+        },
+        {
+            "id": 219,
+            "company": "DeepSeek",
+            "company_website": "https://deepseek.com",
+            "company_logo_url": "https://logo.clearbit.com/deepseek.com",
+            "model_family": "DeepSeek",
+            "model_name": "DeepSeek-V4-Pro",
+            "model_version": "V4-Pro",
+            "model_type": "LLM (MoE)",
+            "architecture": "Hybrid Attention MoE (CSA + HCA)",
+            "modalities": [
+                "text"
+            ],
+            "parameters": 1600,
+            "parameter_unit": "billion",
+            "training_tokens": null,
+            "open_source": true,
+            "license": "MIT",
+            "api_available": true,
+            "context_window_tokens": 1000000,
+            "training_data_cutoff": "2026-03",
+            "release_date": "2026-04-24",
+            "country": "China",
+            "description": "DeepSeek's flagship 1.6T parameter MoE model with 49B active parameters per forward pass. Features a novel Hybrid Attention Architecture combining Compressed Sparse Attention (CSA) and Heavily Compressed Attention (HCA) for efficient 1M context processing.",
+            "use_cases": [
+                "high-capability reasoning",
+                "complex agentic tasks",
+                "deep world knowledge",
+                "coding"
+            ],
+            "notable_features": [
+                "1.6T total / 49B active",
+                "Hybrid Attention (CSA + HCA)",
+                "1M context window",
+                "MIT open-weight release"
+            ],
+            "benchmark_scores": {},
+            "pricing_per_1m_tokens": {
+                "input": null,
+                "output": null
+            },
+            "official_model_link": "https://deepseek.com",
+            "huggingface_url": "https://huggingface.co/deepseek-ai/DeepSeek-V4-Pro",
+            "paper_url": null,
+            "predecessor": "DeepSeek-V3",
+            "successor": null
+        },
+        {
+            "id": 220,
+            "company": "DeepSeek",
+            "company_website": "https://deepseek.com",
+            "company_logo_url": "https://logo.clearbit.com/deepseek.com",
+            "model_family": "DeepSeek",
+            "model_name": "DeepSeek-V4-Flash",
+            "model_version": "V4-Flash",
+            "model_type": "LLM (MoE)",
+            "architecture": "Hybrid Attention MoE (CSA + HCA)",
+            "modalities": [
+                "text"
+            ],
+            "parameters": 284,
+            "parameter_unit": "billion",
+            "training_tokens": null,
+            "open_source": true,
+            "license": "MIT",
+            "api_available": true,
+            "context_window_tokens": 1000000,
+            "training_data_cutoff": "2026-03",
+            "release_date": "2026-04-24",
+            "country": "China",
+            "description": "The efficient variant of DeepSeek-V4 with 284B total / 13B active parameters. Optimized for fast, cost-efficient inference while maintaining strong reasoning capabilities with a 1M context window.",
+            "use_cases": [
+                "fast inference",
+                "cost-efficient reasoning",
+                "high-volume APIs",
+                "coding"
+            ],
+            "notable_features": [
+                "284B total / 13B active",
+                "ultra-efficient inference",
+                "1M context window",
+                "MIT open-weight release"
+            ],
+            "benchmark_scores": {},
+            "pricing_per_1m_tokens": {
+                "input": null,
+                "output": null
+            },
+            "official_model_link": "https://deepseek.com",
+            "huggingface_url": "https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash",
+            "paper_url": null,
+            "predecessor": "DeepSeek-V3",
+            "successor": null
+        },
+        {
+            "id": 221,
+            "company": "Tencent",
+            "company_website": "https://tencent.com",
+            "company_logo_url": "https://logo.clearbit.com/tencent.com",
+            "model_family": "Hunyuan",
+            "model_name": "Hunyuan Hy3",
+            "model_version": "3.0-preview",
+            "model_type": "LLM (MoE)",
+            "architecture": "Mixture-of-Experts (Fast + Slow Thinking)",
+            "modalities": [
+                "text"
+            ],
+            "parameters": 295,
+            "parameter_unit": "billion",
+            "training_tokens": null,
+            "open_source": true,
+            "license": "Apache 2.0",
+            "api_available": true,
+            "context_window_tokens": 256000,
+            "training_data_cutoff": "2026-03",
+            "release_date": "2026-04-24",
+            "country": "China",
+            "description": "Tencent's open-source MoE model with 295B total / 21B active parameters. Integrates both fast and slow thinking capabilities. Built on rebuilt pre-training infrastructure led by former OpenAI researcher Yao Shunyu. Integrated into Yuanbao, ima, CodeBuddy, and other Tencent products.",
+            "use_cases": [
+                "complex reasoning",
+                "coding",
+                "agentic workflows",
+                "instruction following"
+            ],
+            "notable_features": [
+                "295B total / 21B active MoE",
+                "fast + slow thinking modes",
+                "rebuilt training infrastructure",
+                "integrated into Tencent ecosystem"
+            ],
+            "benchmark_scores": {},
+            "pricing_per_1m_tokens": {
+                "input": null,
+                "output": null
+            },
+            "official_model_link": "https://tencent.com",
+            "huggingface_url": null,
+            "paper_url": null,
+            "predecessor": "Hunyuan-Large",
+            "successor": null
+        },
+        {
+            "id": 222,
+            "company": "Microsoft",
+            "company_website": "https://microsoft.com",
+            "company_logo_url": "https://logo.clearbit.com/microsoft.com",
+            "model_family": "MAI",
+            "model_name": "MAI-Voice",
+            "model_version": "1.0",
+            "model_type": "Voice AI Model",
+            "architecture": "Transformer (Human-Centric)",
+            "modalities": [
+                "audio",
+                "text"
+            ],
+            "parameters": null,
+            "parameter_unit": null,
+            "training_tokens": null,
+            "open_source": false,
+            "license": "Proprietary",
+            "api_available": true,
+            "context_window_tokens": null,
+            "training_data_cutoff": null,
+            "release_date": "2026-04-10",
+            "country": "USA",
+            "description": "Microsoft's human-centric AI model for voice generation and transcription, available through the Foundry playground. Part of Microsoft's broader push toward specialized AI models for enterprise communication workflows.",
+            "use_cases": [
+                "voice generation",
+                "transcription",
+                "enterprise communication"
+            ],
+            "notable_features": [
+                "human-centric voice synthesis",
+                "high-fidelity transcription",
+                "Foundry playground access"
+            ],
+            "benchmark_scores": {},
+            "pricing_per_1m_tokens": {
+                "input": null,
+                "output": null
+            },
+            "official_model_link": "https://microsoft.com/ai",
+            "huggingface_url": null,
+            "paper_url": null,
+            "predecessor": null,
+            "successor": null
         }
     ]
 }

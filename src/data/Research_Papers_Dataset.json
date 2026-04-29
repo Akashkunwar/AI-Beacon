@@ -2,8 +2,8 @@
     "metadata": {
         "title": "Foundational AI Research Papers Timeline",
         "description": "A curated list of the most influential AI research papers that drove the technological revolution.",
-        "last_updated": "2026-04-14",
-        "total_papers": 71,
+        "last_updated": "2026-04-30",
+        "total_papers": 75,
         "fields": [
             "id",
             "title",
@@ -1834,6 +1834,90 @@
             "code_url": null,
             "citations": 0,
             "id": 71
+        },
+        {
+            "id": 72,
+            "title": "Claude Opus 4.7 Model Card",
+            "authors": [
+                "Anthropic"
+            ],
+            "institution": "Anthropic",
+            "publication_date": "2026-04-16",
+            "published_in": "Anthropic Safety Publication",
+            "topic": "Model Safety & Capabilities",
+            "description": "Model card for Claude Opus 4.7, detailing safety evaluations, capability improvements including xhigh effort level, 3.75MP vision support, and task budgets. Covers performance benchmarks across software engineering, agentic workflows, and computer use scenarios.",
+            "key_contributions": [
+                "xhigh effort level for fine-grained reasoning control",
+                "3.75 megapixel high-resolution vision input",
+                "Task budget system for API cost management",
+                "Comprehensive safety evaluation for agentic use"
+            ],
+            "paper_url": "https://anthropic.com/news/claude-opus-4-7",
+            "code_url": null,
+            "citations": 0
+        },
+        {
+            "id": 73,
+            "title": "Kimi K2.6: Native Multimodal Agentic Intelligence",
+            "authors": [
+                "Moonshot AI Research Team"
+            ],
+            "institution": "Moonshot AI",
+            "publication_date": "2026-04-20",
+            "published_in": "arXiv",
+            "topic": "Agentic AI / MoE Architecture",
+            "description": "Technical report for Kimi K2.6, a 1T total / 32B active MoE model designed for native multimodal agentic intelligence. Details the 300 sub-agent swarm orchestration system capable of 4,000 coordinated steps, along with long-horizon coding performance and reworked attention mechanisms.",
+            "key_contributions": [
+                "300 sub-agent swarm orchestration (4,000 steps)",
+                "1T parameter MoE with 32B active per token",
+                "Long-horizon autonomous coding without human oversight",
+                "Reworked attention system for ultra-low latency"
+            ],
+            "paper_url": "https://arxiv.org/abs/2604.XXXXX",
+            "code_url": null,
+            "citations": 0
+        },
+        {
+            "id": 74,
+            "title": "GPT-5.5 System Card",
+            "authors": [
+                "OpenAI"
+            ],
+            "institution": "OpenAI",
+            "publication_date": "2026-04-23",
+            "published_in": "OpenAI Safety Publication",
+            "topic": "Reasoning Model Safety",
+            "description": "System card covering safety evaluations, preparedness analysis, and deployment considerations for GPT-5.5 and its Thinking/Pro variants. Documents improvements in agentic coding, scientific research capabilities, and the unified super app integration strategy.",
+            "key_contributions": [
+                "Safety evaluation for agentic coding capabilities",
+                "Preparedness framework for frontier reasoning models",
+                "Documentation of Thinking and Pro variant differences",
+                "Unified super app deployment strategy"
+            ],
+            "paper_url": "https://openai.com/index/gpt-5-5-system-card",
+            "code_url": null,
+            "citations": 0
+        },
+        {
+            "id": 75,
+            "title": "DeepSeek-V4 Technical Report",
+            "authors": [
+                "DeepSeek-AI"
+            ],
+            "institution": "DeepSeek",
+            "publication_date": "2026-04-24",
+            "published_in": "arXiv",
+            "topic": "Efficient LLMs / MoE Architecture",
+            "description": "Technical report for the DeepSeek-V4 model series including the 1.6T Pro (49B active) and 284B Flash (13B active) variants. Details the novel Hybrid Attention Architecture combining Compressed Sparse Attention (CSA) and Heavily Compressed Attention (HCA), enabling efficient 1M context window processing.",
+            "key_contributions": [
+                "Hybrid Attention Architecture (CSA + HCA)",
+                "1.6T parameter MoE with 49B active parameters",
+                "Efficient 1M context window via attention compression",
+                "MIT open-weight release for both Pro and Flash variants"
+            ],
+            "paper_url": "https://arxiv.org/abs/2604.XXXXX",
+            "code_url": "https://github.com/deepseek-ai/DeepSeek-V4",
+            "citations": 0
         }
     ]
 }
