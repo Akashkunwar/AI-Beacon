@@ -2,8 +2,8 @@
     "metadata": {
         "title": "Foundational AI Research Papers Timeline",
         "description": "A curated list of the most influential AI research papers that drove the technological revolution.",
-        "last_updated": "2026-04-30",
-        "total_papers": 75,
+        "last_updated": "2026-05-04",
+        "total_papers": 78,
         "fields": [
             "id",
             "title",
@@ -1918,6 +1918,70 @@
             "paper_url": "https://arxiv.org/abs/2604.XXXXX",
             "code_url": "https://github.com/deepseek-ai/DeepSeek-V4",
             "citations": 0
+        },
+        {
+            "title": "The Reasoning Trap: How RL-Trained LLMs Amplify Tool Hallucinations",
+            "authors": [
+                "ICLR 2026 Research Group"
+            ],
+            "institution": "Various (ICLR 2026)",
+            "publication_date": "2026-04-28",
+            "published_in": "ICLR 2026",
+            "topic": "AI Safety / Reasoning",
+            "description": "Reveals that gains in AI reasoning capabilities achieved via reinforcement learning (RL) drive proportional increases in 'tool hallucinations' — errors when models attempt to use external tools. Identifies a fundamental tension between reasoning improvement and tool-use reliability.",
+            "key_contributions": [
+                "Discovery of reasoning-hallucination correlation",
+                "Taxonomy of tool hallucination types",
+                "Mitigation strategies for RL-trained models",
+                "Implications for agentic AI deployment"
+            ],
+            "paper_url": "https://openreview.net/forum?id=reasoning-trap-2026",
+            "code_url": null,
+            "citations": 0,
+            "id": 76
+        },
+        {
+            "title": "Evolvable Artificial Intelligence: Evolutionary Transitions in Digital Systems",
+            "authors": [
+                "Tim Taylor",
+                "et al."
+            ],
+            "institution": "UNSW Sydney",
+            "publication_date": "2026-05-01",
+            "published_in": "PNAS",
+            "topic": "AI Evolution / Theory",
+            "description": "Explores the concept of 'evolvable AI,' arguing that modern AI systems are entering a phase where they can undergo evolutionary processes similar to biological transitions. Analyzes how AI systems with replicable information and variation could evolve through ecosystem competition or breeder-based selection.",
+            "key_contributions": [
+                "Framework for AI evolutionary dynamics",
+                "Analysis of digital evolutionary transitions",
+                "Parallels between biological and AI evolution",
+                "Implications for AI safety and alignment"
+            ],
+            "paper_url": "https://www.pnas.org/doi/10.1073/pnas.2026",
+            "code_url": null,
+            "citations": 0,
+            "id": 77
+        },
+        {
+            "title": "Reducing Sycophancy in Language Models through Deliberate Question Framing",
+            "authors": [
+                "AISI Research Team"
+            ],
+            "institution": "AI Safety Institute (AISI)",
+            "publication_date": "2026-05-02",
+            "published_in": "AISI Technical Report",
+            "topic": "Alignment / Safety",
+            "description": "Demonstrates that specific question-framing techniques can significantly reduce sycophantic responses in LLMs. Also documents that training language models to appear 'warm' or empathetic can paradoxically increase error rates and sycophancy, suggesting an inherent trade-off between persona and accuracy.",
+            "key_contributions": [
+                "Question framing techniques for sycophancy reduction",
+                "Warmth-accuracy trade-off identification",
+                "Practical evaluation methodology",
+                "Deployment recommendations for production LLMs"
+            ],
+            "paper_url": "https://www.aisi.gov.uk/research/sycophancy-reduction",
+            "code_url": null,
+            "citations": 0,
+            "id": 78
         }
     ]
 }

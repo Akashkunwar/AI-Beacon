@@ -2,8 +2,8 @@
     "metadata": {
         "title": "AI & LLM Models Timeline",
         "description": "Comprehensive list of AI and LLM models from 2017 to 2026, including text, vision, audio, multimodal and image generation models.",
-        "last_updated": "2026-04-30",
-        "total_models": 222,
+        "last_updated": "2026-05-04",
+        "total_models": 227,
         "audit_status": "Verified Deep Audit Complete (Chronological + Attribution)",
         "logo_source": "Clearbit Logo API (https://logo.clearbit.com/{domain})",
         "fields": [
@@ -919,6 +919,53 @@
         },
         {
             "id": 20,
+            "company": "BigScience / HuggingFace",
+            "company_website": "https://huggingface.co",
+            "company_logo_url": "https://logo.clearbit.com/huggingface.co",
+            "model_family": "BLOOM",
+            "model_name": "BLOOM",
+            "model_version": "1.0",
+            "model_type": "LLM (Multilingual)",
+            "architecture": "Transformer (Decoder-only)",
+            "modalities": [
+                "text"
+            ],
+            "parameters": 176,
+            "parameter_unit": "billion",
+            "training_tokens": 366,
+            "open_source": true,
+            "license": "OpenRAIL-M",
+            "api_available": true,
+            "context_window_tokens": 2048,
+            "training_data_cutoff": "2022-01",
+            "release_date": "2022-07-12",
+            "country": "International",
+            "description": "BigScience Large Open-Science Open-Access Multilingual model. Created by 1,000+ researchers from 70+ countries. Supports 46 natural languages and 13 programming languages.",
+            "use_cases": [
+                "multilingual NLP",
+                "text generation",
+                "research",
+                "translation"
+            ],
+            "notable_features": [
+                "46 natural languages",
+                "1000+ researcher collaboration",
+                "fully open weights",
+                "OpenRAIL license"
+            ],
+            "benchmark_scores": {},
+            "pricing_per_1m_tokens": {
+                "input": null,
+                "output": null
+            },
+            "official_model_link": "https://bigscience.huggingface.co/blog/bloom",
+            "huggingface_url": "https://huggingface.co/bigscience/bloom",
+            "paper_url": "https://arxiv.org/abs/2211.05100",
+            "predecessor": null,
+            "successor": null
+        },
+        {
+            "id": 21,
             "company": "Tsinghua University / Zhipu AI",
             "company_website": "https://zhipuai.cn",
             "company_logo_url": "https://logo.clearbit.com/zhipuai.cn",
@@ -1007,10 +1054,10 @@
             "paper_url": "https://arxiv.org/abs/2112.10752",
             "predecessor": null,
             "successor": "Stable Diffusion v1.5",
-            "id": 21
+            "id": 22
         },
         {
-            "id": 22,
+            "id": 23,
             "company": "OpenAI",
             "company_website": "https://openai.com",
             "company_logo_url": "https://logo.clearbit.com/openai.com",
@@ -1099,7 +1146,7 @@
             "paper_url": null,
             "predecessor": "Stable Diffusion v1.4",
             "successor": "Stable Diffusion XL",
-            "id": 23
+            "id": 24
         },
         {
             "company": "Midjourney",
@@ -1142,54 +1189,7 @@
             "paper_url": null,
             "predecessor": "Midjourney v3",
             "successor": "Midjourney v5",
-            "id": 24
-        },
-        {
-            "id": 25,
-            "company": "BigScience / HuggingFace",
-            "company_website": "https://huggingface.co",
-            "company_logo_url": "https://logo.clearbit.com/huggingface.co",
-            "model_family": "BLOOM",
-            "model_name": "BLOOM",
-            "model_version": "1.0",
-            "model_type": "LLM (Multilingual)",
-            "architecture": "Transformer (Decoder-only)",
-            "modalities": [
-                "text"
-            ],
-            "parameters": 176,
-            "parameter_unit": "billion",
-            "training_tokens": 366,
-            "open_source": true,
-            "license": "OpenRAIL-M",
-            "api_available": true,
-            "context_window_tokens": 2048,
-            "training_data_cutoff": "2022-01",
-            "release_date": "2022-11-09",
-            "country": "International",
-            "description": "BigScience Large Open-Science Open-Access Multilingual model. Created by 1,000+ researchers from 70+ countries. Supports 46 natural languages and 13 programming languages.",
-            "use_cases": [
-                "multilingual NLP",
-                "text generation",
-                "research",
-                "translation"
-            ],
-            "notable_features": [
-                "46 natural languages",
-                "1000+ researcher collaboration",
-                "fully open weights",
-                "OpenRAIL license"
-            ],
-            "benchmark_scores": {},
-            "pricing_per_1m_tokens": {
-                "input": null,
-                "output": null
-            },
-            "official_model_link": "https://bigscience.huggingface.co/blog/bloom",
-            "huggingface_url": "https://huggingface.co/bigscience/bloom",
-            "paper_url": "https://arxiv.org/abs/2211.05100",
-            "predecessor": null,
-            "successor": null
+            "id": 25
         },
         {
             "id": 26,
@@ -9908,236 +9908,7 @@
             "id": 207
         },
         {
-            "company": "Alibaba",
-            "company_website": "https://alibabacloud.com",
-            "company_logo_url": "https://logo.clearbit.com/alibaba.com",
-            "model_family": "Qwen",
-            "model_name": "Qwen 3.6-Plus",
-            "model_version": "3.6-plus",
-            "model_type": "Foundation LLM",
-            "architecture": "Transformer",
-            "modalities": [
-                "text",
-                "coding"
-            ],
-            "parameters": null,
-            "parameter_unit": null,
-            "training_tokens": null,
-            "open_source": false,
-            "license": "Proprietary",
-            "api_available": true,
-            "context_window_tokens": 1000000,
-            "training_data_cutoff": "2026-02",
-            "release_date": "2026-04-03",
-            "country": "China",
-            "description": "An upgraded version of the Qwen 3 series focused on extremely powerful agentic coding capabilities heavily utilizing a 1-million token context window.",
-            "use_cases": [
-                "agentic coding",
-                "long-context analysis",
-                "enterprise AI"
-            ],
-            "notable_features": [
-                "1M token context window",
-                "Advanced agentic coding loop"
-            ],
-            "benchmark_scores": {},
-            "pricing_per_1m_tokens": {
-                "input": null,
-                "output": null
-            },
-            "official_model_link": "https://qwenlm.github.io/",
-            "huggingface_url": null,
-            "paper_url": null,
-            "predecessor": "Qwen 3.5 Max",
-            "successor": null,
-            "id": 208
-        },
-        {
-            "company": "Google",
-            "company_website": "https://google.com",
-            "company_logo_url": "https://logo.clearbit.com/google.com",
-            "model_family": "Gemma",
-            "model_name": "Gemma 4",
-            "model_version": "4.0",
-            "model_type": "LLM",
-            "architecture": "Transformer",
-            "modalities": [
-                "text"
-            ],
-            "parameters": 27,
-            "parameter_unit": "billion",
-            "training_tokens": null,
-            "open_source": true,
-            "license": "Gemma License",
-            "api_available": true,
-            "context_window_tokens": 32000,
-            "training_data_cutoff": "2026-01",
-            "release_date": "2026-04-04",
-            "country": "USA",
-            "description": "Google's latest open-weight model family, aiming to provide powerful, accessible developer tools with best-in-class efficiency.",
-            "use_cases": [
-                "open-weights development",
-                "edge computing",
-                "research"
-            ],
-            "notable_features": [
-                "Highly efficient open-weights",
-                "Developer focused"
-            ],
-            "benchmark_scores": {},
-            "pricing_per_1m_tokens": {
-                "input": null,
-                "output": null
-            },
-            "official_model_link": "https://ai.google.dev/gemma",
-            "huggingface_url": null,
-            "paper_url": null,
-            "predecessor": "Gemma 3",
-            "successor": null,
-            "id": 209
-        },
-        {
-            "company": "Anthropic",
-            "company_website": "https://anthropic.com",
-            "company_logo_url": "https://logo.clearbit.com/anthropic.com",
-            "model_family": "Claude",
-            "model_name": "Claude Mythos",
-            "model_version": "Mythos",
-            "model_type": "LLM",
-            "architecture": "Transformer",
-            "modalities": [
-                "text",
-                "vision",
-                "computer use"
-            ],
-            "parameters": null,
-            "parameter_unit": null,
-            "training_tokens": null,
-            "open_source": false,
-            "license": "Proprietary",
-            "api_available": false,
-            "context_window_tokens": 200000,
-            "training_data_cutoff": "2026-02",
-            "release_date": "2026-04-07",
-            "country": "USA",
-            "description": "Anthropic's most capable model to date. It has not been released to the public and is gated through Project Glasswing for cybersecurity use cases.",
-            "use_cases": [
-                "cybersecurity",
-                "agentic autonomy",
-                "research"
-            ],
-            "notable_features": [
-                "Project Glasswing gating",
-                "Unprecedented cybersecurity capabilities",
-                "Agentic orchestration"
-            ],
-            "benchmark_scores": {},
-            "pricing_per_1m_tokens": {
-                "input": null,
-                "output": null
-            },
-            "official_model_link": "https://anthropic.com/news",
-            "huggingface_url": null,
-            "paper_url": null,
-            "predecessor": "Claude 3.5 Opus",
-            "successor": null,
-            "id": 210
-        },
-        {
-            "company": "Zhipu AI",
-            "company_website": "https://zhipuai.cn",
-            "company_logo_url": "https://logo.clearbit.com/zhipuai.cn",
-            "model_family": "GLM",
-            "model_name": "GLM-5.1",
-            "model_version": "5.1",
-            "model_type": "LLM (MoE)",
-            "architecture": "Mixture of Experts (MoE)",
-            "modalities": [
-                "text",
-                "coding"
-            ],
-            "parameters": 744,
-            "parameter_unit": "billion",
-            "training_tokens": null,
-            "open_source": true,
-            "license": "MIT",
-            "api_available": true,
-            "context_window_tokens": 128000,
-            "training_data_cutoff": "2026-01",
-            "release_date": "2026-04-07",
-            "country": "China",
-            "description": "A 744-billion-parameter Mixture-of-Experts (MoE) model released under an MIT license, rivaling other leading frontier models in coding benchmarks.",
-            "use_cases": [
-                "coding",
-                "general reasoning",
-                "open-source development"
-            ],
-            "notable_features": [
-                "744B MoE architecture",
-                "MIT Open Source",
-                "SOTA coding performance"
-            ],
-            "benchmark_scores": {},
-            "pricing_per_1m_tokens": {
-                "input": null,
-                "output": null
-            },
-            "official_model_link": "https://zhipuai.cn",
-            "huggingface_url": null,
-            "paper_url": null,
-            "predecessor": "GLM-4",
-            "successor": null,
-            "id": 211
-        },
-        {
-            "company": "Meta",
-            "company_website": "https://meta.com",
-            "company_logo_url": "https://logo.clearbit.com/meta.com",
-            "model_family": "Muse",
-            "model_name": "Muse Spark",
-            "model_version": "Spark",
-            "model_type": "Multimodal Reasoning Model",
-            "architecture": "Natively Multimodal Transformer",
-            "modalities": [
-                "text",
-                "vision",
-                "tool use"
-            ],
-            "parameters": null,
-            "parameter_unit": null,
-            "training_tokens": null,
-            "open_source": false,
-            "license": "Proprietary",
-            "api_available": true,
-            "context_window_tokens": 128000,
-            "training_data_cutoff": "2026-01",
-            "release_date": "2026-04-08",
-            "country": "USA",
-            "description": "A natively multimodal reasoning model developed by Meta Superintelligence Labs with visual chain-of-thought processing and multi-agent orchestration.",
-            "use_cases": [
-                "reasoning",
-                "multi-agent orchestration",
-                "vision"
-            ],
-            "notable_features": [
-                "Natively multimodal",
-                "Visual chain-of-thought",
-                "Tool use"
-            ],
-            "benchmark_scores": {},
-            "pricing_per_1m_tokens": {
-                "input": null,
-                "output": null
-            },
-            "official_model_link": "https://meta.ai",
-            "huggingface_url": null,
-            "paper_url": null,
-            "predecessor": "Llama 3.1",
-            "successor": null,
-            "id": 212
-        },
-        {
-            "id": 213,
+            "id": 208,
             "company": "World Labs",
             "company_website": "https://worldlabs.ai",
             "company_logo_url": "https://logo.clearbit.com/worldlabs.ai",
@@ -10184,6 +9955,235 @@
             "paper_url": null,
             "predecessor": "Marble 1.0",
             "successor": null
+        },
+        {
+            "company": "Alibaba",
+            "company_website": "https://alibabacloud.com",
+            "company_logo_url": "https://logo.clearbit.com/alibaba.com",
+            "model_family": "Qwen",
+            "model_name": "Qwen 3.6-Plus",
+            "model_version": "3.6-plus",
+            "model_type": "Foundation LLM",
+            "architecture": "Transformer",
+            "modalities": [
+                "text",
+                "coding"
+            ],
+            "parameters": null,
+            "parameter_unit": null,
+            "training_tokens": null,
+            "open_source": false,
+            "license": "Proprietary",
+            "api_available": true,
+            "context_window_tokens": 1000000,
+            "training_data_cutoff": "2026-02",
+            "release_date": "2026-04-03",
+            "country": "China",
+            "description": "An upgraded version of the Qwen 3 series focused on extremely powerful agentic coding capabilities heavily utilizing a 1-million token context window.",
+            "use_cases": [
+                "agentic coding",
+                "long-context analysis",
+                "enterprise AI"
+            ],
+            "notable_features": [
+                "1M token context window",
+                "Advanced agentic coding loop"
+            ],
+            "benchmark_scores": {},
+            "pricing_per_1m_tokens": {
+                "input": null,
+                "output": null
+            },
+            "official_model_link": "https://qwenlm.github.io/",
+            "huggingface_url": null,
+            "paper_url": null,
+            "predecessor": "Qwen 3.5 Max",
+            "successor": null,
+            "id": 209
+        },
+        {
+            "company": "Google",
+            "company_website": "https://google.com",
+            "company_logo_url": "https://logo.clearbit.com/google.com",
+            "model_family": "Gemma",
+            "model_name": "Gemma 4",
+            "model_version": "4.0",
+            "model_type": "LLM",
+            "architecture": "Transformer",
+            "modalities": [
+                "text"
+            ],
+            "parameters": 27,
+            "parameter_unit": "billion",
+            "training_tokens": null,
+            "open_source": true,
+            "license": "Gemma License",
+            "api_available": true,
+            "context_window_tokens": 32000,
+            "training_data_cutoff": "2026-01",
+            "release_date": "2026-04-04",
+            "country": "USA",
+            "description": "Google's latest open-weight model family, aiming to provide powerful, accessible developer tools with best-in-class efficiency.",
+            "use_cases": [
+                "open-weights development",
+                "edge computing",
+                "research"
+            ],
+            "notable_features": [
+                "Highly efficient open-weights",
+                "Developer focused"
+            ],
+            "benchmark_scores": {},
+            "pricing_per_1m_tokens": {
+                "input": null,
+                "output": null
+            },
+            "official_model_link": "https://ai.google.dev/gemma",
+            "huggingface_url": null,
+            "paper_url": null,
+            "predecessor": "Gemma 3",
+            "successor": null,
+            "id": 210
+        },
+        {
+            "company": "Anthropic",
+            "company_website": "https://anthropic.com",
+            "company_logo_url": "https://logo.clearbit.com/anthropic.com",
+            "model_family": "Claude",
+            "model_name": "Claude Mythos",
+            "model_version": "Mythos",
+            "model_type": "LLM",
+            "architecture": "Transformer",
+            "modalities": [
+                "text",
+                "vision",
+                "computer use"
+            ],
+            "parameters": null,
+            "parameter_unit": null,
+            "training_tokens": null,
+            "open_source": false,
+            "license": "Proprietary",
+            "api_available": false,
+            "context_window_tokens": 200000,
+            "training_data_cutoff": "2026-02",
+            "release_date": "2026-04-07",
+            "country": "USA",
+            "description": "Anthropic's most capable model to date. It has not been released to the public and is gated through Project Glasswing for cybersecurity use cases.",
+            "use_cases": [
+                "cybersecurity",
+                "agentic autonomy",
+                "research"
+            ],
+            "notable_features": [
+                "Project Glasswing gating",
+                "Unprecedented cybersecurity capabilities",
+                "Agentic orchestration"
+            ],
+            "benchmark_scores": {},
+            "pricing_per_1m_tokens": {
+                "input": null,
+                "output": null
+            },
+            "official_model_link": "https://anthropic.com/news",
+            "huggingface_url": null,
+            "paper_url": null,
+            "predecessor": "Claude 3.5 Opus",
+            "successor": null,
+            "id": 211
+        },
+        {
+            "company": "Zhipu AI",
+            "company_website": "https://zhipuai.cn",
+            "company_logo_url": "https://logo.clearbit.com/zhipuai.cn",
+            "model_family": "GLM",
+            "model_name": "GLM-5.1",
+            "model_version": "5.1",
+            "model_type": "LLM (MoE)",
+            "architecture": "Mixture of Experts (MoE)",
+            "modalities": [
+                "text",
+                "coding"
+            ],
+            "parameters": 744,
+            "parameter_unit": "billion",
+            "training_tokens": null,
+            "open_source": true,
+            "license": "MIT",
+            "api_available": true,
+            "context_window_tokens": 128000,
+            "training_data_cutoff": "2026-01",
+            "release_date": "2026-04-07",
+            "country": "China",
+            "description": "A 744-billion-parameter Mixture-of-Experts (MoE) model released under an MIT license, rivaling other leading frontier models in coding benchmarks.",
+            "use_cases": [
+                "coding",
+                "general reasoning",
+                "open-source development"
+            ],
+            "notable_features": [
+                "744B MoE architecture",
+                "MIT Open Source",
+                "SOTA coding performance"
+            ],
+            "benchmark_scores": {},
+            "pricing_per_1m_tokens": {
+                "input": null,
+                "output": null
+            },
+            "official_model_link": "https://zhipuai.cn",
+            "huggingface_url": null,
+            "paper_url": null,
+            "predecessor": "GLM-4",
+            "successor": null,
+            "id": 212
+        },
+        {
+            "company": "Meta",
+            "company_website": "https://meta.com",
+            "company_logo_url": "https://logo.clearbit.com/meta.com",
+            "model_family": "Muse",
+            "model_name": "Muse Spark",
+            "model_version": "Spark",
+            "model_type": "Multimodal Reasoning Model",
+            "architecture": "Natively Multimodal Transformer",
+            "modalities": [
+                "text",
+                "vision",
+                "tool use"
+            ],
+            "parameters": null,
+            "parameter_unit": null,
+            "training_tokens": null,
+            "open_source": false,
+            "license": "Proprietary",
+            "api_available": true,
+            "context_window_tokens": 128000,
+            "training_data_cutoff": "2026-01",
+            "release_date": "2026-04-08",
+            "country": "USA",
+            "description": "A natively multimodal reasoning model developed by Meta Superintelligence Labs with visual chain-of-thought processing and multi-agent orchestration.",
+            "use_cases": [
+                "reasoning",
+                "multi-agent orchestration",
+                "vision"
+            ],
+            "notable_features": [
+                "Natively multimodal",
+                "Visual chain-of-thought",
+                "Tool use"
+            ],
+            "benchmark_scores": {},
+            "pricing_per_1m_tokens": {
+                "input": null,
+                "output": null
+            },
+            "official_model_link": "https://meta.ai",
+            "huggingface_url": null,
+            "paper_url": null,
+            "predecessor": "Llama 3.1",
+            "successor": null,
+            "id": 213
         },
         {
             "id": 214,
@@ -10235,6 +10235,52 @@
         },
         {
             "id": 215,
+            "company": "Microsoft",
+            "company_website": "https://microsoft.com",
+            "company_logo_url": "https://logo.clearbit.com/microsoft.com",
+            "model_family": "MAI",
+            "model_name": "MAI-Voice",
+            "model_version": "1.0",
+            "model_type": "Voice AI Model",
+            "architecture": "Transformer (Human-Centric)",
+            "modalities": [
+                "audio",
+                "text"
+            ],
+            "parameters": null,
+            "parameter_unit": null,
+            "training_tokens": null,
+            "open_source": false,
+            "license": "Proprietary",
+            "api_available": true,
+            "context_window_tokens": null,
+            "training_data_cutoff": null,
+            "release_date": "2026-04-10",
+            "country": "USA",
+            "description": "Microsoft's human-centric AI model for voice generation and transcription, available through the Foundry playground. Part of Microsoft's broader push toward specialized AI models for enterprise communication workflows.",
+            "use_cases": [
+                "voice generation",
+                "transcription",
+                "enterprise communication"
+            ],
+            "notable_features": [
+                "human-centric voice synthesis",
+                "high-fidelity transcription",
+                "Foundry playground access"
+            ],
+            "benchmark_scores": {},
+            "pricing_per_1m_tokens": {
+                "input": null,
+                "output": null
+            },
+            "official_model_link": "https://microsoft.com/ai",
+            "huggingface_url": null,
+            "paper_url": null,
+            "predecessor": null,
+            "successor": null
+        },
+        {
+            "id": 216,
             "company": "Anthropic",
             "company_website": "https://anthropic.com",
             "company_logo_url": "https://logo.clearbit.com/anthropic.com",
@@ -10283,7 +10329,105 @@
             "successor": null
         },
         {
-            "id": 216,
+            "company": "Alibaba",
+            "company_website": "https://qwen.ai",
+            "company_logo_url": "https://logo.clearbit.com/qwen.ai",
+            "model_family": "Qwen",
+            "model_name": "Qwen3.6-35B-A3B",
+            "model_version": "3.6-35B-A3B",
+            "model_type": "LLM (MoE)",
+            "architecture": "Transformer (Gated DeltaNet + Sparse MoE)",
+            "modalities": [
+                "text",
+                "vision",
+                "video"
+            ],
+            "parameters": 35,
+            "parameter_unit": "billion",
+            "training_tokens": null,
+            "open_source": true,
+            "license": "Apache 2.0",
+            "api_available": true,
+            "context_window_tokens": 262144,
+            "training_data_cutoff": "2026-02",
+            "release_date": "2026-04-16",
+            "country": "China",
+            "description": "An open-source Mixture-of-Experts model from Alibaba's Qwen team with 35B total parameters but only 3B active per token. Designed for high-performance agentic coding and multimodal reasoning at extremely low inference cost. Context extendable to 1M tokens via YaRN.",
+            "use_cases": [
+                "agentic coding",
+                "multimodal reasoning",
+                "edge deployment",
+                "research"
+            ],
+            "notable_features": [
+                "3B active parameters per token",
+                "Gated DeltaNet hybrid attention",
+                "native multimodal (text, image, video)",
+                "Apache 2.0 open weights"
+            ],
+            "benchmark_scores": {},
+            "pricing_per_1m_tokens": {
+                "input": null,
+                "output": null
+            },
+            "official_model_link": "https://qwen.ai",
+            "huggingface_url": "https://huggingface.co/Qwen/Qwen3.6-35B-A3B",
+            "paper_url": null,
+            "predecessor": "Qwen 3.5",
+            "successor": null,
+            "id": 217
+        },
+        {
+            "company": "Alibaba",
+            "company_website": "https://qwen.ai",
+            "company_logo_url": "https://logo.clearbit.com/qwen.ai",
+            "model_family": "Qwen",
+            "model_name": "Qwen3.6-Max-Preview",
+            "model_version": "3.6-Max",
+            "model_type": "LLM (Flagship)",
+            "architecture": "Transformer (Gated DeltaNet + Sparse MoE)",
+            "modalities": [
+                "text",
+                "vision",
+                "video"
+            ],
+            "parameters": null,
+            "parameter_unit": null,
+            "training_tokens": null,
+            "open_source": false,
+            "license": "Proprietary",
+            "api_available": true,
+            "context_window_tokens": 1000000,
+            "training_data_cutoff": "2026-02",
+            "release_date": "2026-04-17",
+            "country": "China",
+            "description": "Preview of Alibaba's most powerful proprietary Qwen model, the flagship of the Qwen3.6 family. Features the largest context window and highest reasoning capabilities in the lineup, available via Alibaba Cloud Model Studio.",
+            "use_cases": [
+                "complex reasoning",
+                "long-document analysis",
+                "agentic workflows",
+                "enterprise AI"
+            ],
+            "notable_features": [
+                "1M native context window",
+                "flagship Qwen3.6 variant",
+                "highest reasoning in family",
+                "API-only access"
+            ],
+            "benchmark_scores": {},
+            "pricing_per_1m_tokens": {
+                "input": null,
+                "output": null
+            },
+            "official_model_link": "https://qwen.ai",
+            "huggingface_url": null,
+            "paper_url": null,
+            "predecessor": "Qwen 3.5 Max",
+            "successor": null,
+            "id": 218
+        },
+        {
+            "id": 219,
             "company": "Moonshot AI",
             "company_website": "https://kimi.ai",
             "company_logo_url": "https://logo.clearbit.com/moonshot.cn",
@@ -10331,7 +10475,56 @@
             "successor": null
         },
         {
-            "id": 217,
+            "company": "Alibaba",
+            "company_website": "https://qwen.ai",
+            "company_logo_url": "https://logo.clearbit.com/qwen.ai",
+            "model_family": "Qwen",
+            "model_name": "Qwen3.6-27B",
+            "model_version": "3.6-27B",
+            "model_type": "LLM (Dense)",
+            "architecture": "Transformer (Gated DeltaNet)",
+            "modalities": [
+                "text",
+                "vision",
+                "video"
+            ],
+            "parameters": 27,
+            "parameter_unit": "billion",
+            "training_tokens": null,
+            "open_source": true,
+            "license": "Apache 2.0",
+            "api_available": true,
+            "context_window_tokens": 262144,
+            "training_data_cutoff": "2026-02",
+            "release_date": "2026-04-22",
+            "country": "China",
+            "description": "An open-source dense 27B parameter model from the Qwen3.6 family. Known for strong coding and multimodal reasoning capabilities, combining high performance with practical deployability. Context extendable to 1M tokens via YaRN.",
+            "use_cases": [
+                "coding",
+                "multimodal reasoning",
+                "document analysis",
+                "fine-tuning"
+            ],
+            "notable_features": [
+                "27B dense parameters",
+                "strong coding performance",
+                "native multimodal input",
+                "Apache 2.0 open weights"
+            ],
+            "benchmark_scores": {},
+            "pricing_per_1m_tokens": {
+                "input": null,
+                "output": null
+            },
+            "official_model_link": "https://qwen.ai",
+            "huggingface_url": "https://huggingface.co/Qwen/Qwen3.6-27B",
+            "paper_url": null,
+            "predecessor": "Qwen 3.5",
+            "successor": null,
+            "id": 220
+        },
+        {
+            "id": 221,
             "company": "OpenAI",
             "company_website": "https://openai.com",
             "company_logo_url": "https://logo.clearbit.com/openai.com",
@@ -10380,7 +10573,7 @@
             "successor": null
         },
         {
-            "id": 218,
+            "id": 222,
             "company": "OpenAI",
             "company_website": "https://openai.com",
             "company_logo_url": "https://logo.clearbit.com/openai.com",
@@ -10427,7 +10620,55 @@
             "successor": null
         },
         {
-            "id": 219,
+            "company": "OpenAI",
+            "company_website": "https://openai.com",
+            "company_logo_url": "https://logo.clearbit.com/openai.com",
+            "model_family": "GPT",
+            "model_name": "GPT-5.5 Thinking",
+            "model_version": "5.5-thinking",
+            "model_type": "LLM (Reasoning)",
+            "architecture": "Transformer (proprietary, reasoning-optimized)",
+            "modalities": [
+                "text",
+                "vision"
+            ],
+            "parameters": null,
+            "parameter_unit": null,
+            "training_tokens": null,
+            "open_source": false,
+            "license": "Proprietary",
+            "api_available": true,
+            "context_window_tokens": 1050000,
+            "training_data_cutoff": "2025-12",
+            "release_date": "2026-04-23",
+            "country": "USA",
+            "description": "The reasoning-enhanced variant of GPT-5.5 that uses extended chain-of-thought processing for complex multi-step problems. Features configurable reasoning effort levels and is designed for tasks requiring deep analytical thinking.",
+            "use_cases": [
+                "complex reasoning",
+                "mathematical proofs",
+                "scientific analysis",
+                "code debugging"
+            ],
+            "notable_features": [
+                "configurable reasoning effort",
+                "extended chain-of-thought",
+                "1.05M token context window",
+                "STEM-optimized reasoning"
+            ],
+            "benchmark_scores": {},
+            "pricing_per_1m_tokens": {
+                "input": null,
+                "output": null
+            },
+            "official_model_link": "https://openai.com/gpt-5-5",
+            "huggingface_url": null,
+            "paper_url": "https://openai.com/index/gpt-5-5-system-card",
+            "predecessor": "GPT-5.5",
+            "successor": null,
+            "id": 223
+        },
+        {
+            "id": 224,
             "company": "DeepSeek",
             "company_website": "https://deepseek.com",
             "company_logo_url": "https://logo.clearbit.com/deepseek.com",
@@ -10474,7 +10715,7 @@
             "successor": null
         },
         {
-            "id": 220,
+            "id": 225,
             "company": "DeepSeek",
             "company_website": "https://deepseek.com",
             "company_logo_url": "https://logo.clearbit.com/deepseek.com",
@@ -10521,7 +10762,7 @@
             "successor": null
         },
         {
-            "id": 221,
+            "id": 226,
             "company": "Tencent",
             "company_website": "https://tencent.com",
             "company_logo_url": "https://logo.clearbit.com/tencent.com",
@@ -10568,18 +10809,17 @@
             "successor": null
         },
         {
-            "id": 222,
-            "company": "Microsoft",
-            "company_website": "https://microsoft.com",
-            "company_logo_url": "https://logo.clearbit.com/microsoft.com",
-            "model_family": "MAI",
-            "model_name": "MAI-Voice",
-            "model_version": "1.0",
-            "model_type": "Voice AI Model",
-            "architecture": "Transformer (Human-Centric)",
+            "company": "OpenAI",
+            "company_website": "https://openai.com",
+            "company_logo_url": "https://logo.clearbit.com/openai.com",
+            "model_family": "GPT",
+            "model_name": "GPT-5.5-Cyber",
+            "model_version": "5.5-cyber",
+            "model_type": "LLM (Security-Focused)",
+            "architecture": "Transformer (proprietary, security-hardened)",
             "modalities": [
-                "audio",
-                "text"
+                "text",
+                "vision"
             ],
             "parameters": null,
             "parameter_unit": null,
@@ -10587,31 +10827,34 @@
             "open_source": false,
             "license": "Proprietary",
             "api_available": true,
-            "context_window_tokens": null,
-            "training_data_cutoff": null,
-            "release_date": "2026-04-10",
+            "context_window_tokens": 1050000,
+            "training_data_cutoff": "2025-12",
+            "release_date": "2026-04-30",
             "country": "USA",
-            "description": "Microsoft's human-centric AI model for voice generation and transcription, available through the Foundry playground. Part of Microsoft's broader push toward specialized AI models for enterprise communication workflows.",
+            "description": "A security-focused variant of GPT-5.5 positioned as a foundation for an agent-driven 'compute-powered economy.' Optimized for cybersecurity analysis, secure coding practices, and enterprise security workflows with enhanced guardrails.",
             "use_cases": [
-                "voice generation",
-                "transcription",
-                "enterprise communication"
+                "cybersecurity analysis",
+                "secure coding",
+                "threat detection",
+                "security automation"
             ],
             "notable_features": [
-                "human-centric voice synthesis",
-                "high-fidelity transcription",
-                "Foundry playground access"
+                "security-hardened architecture",
+                "agent-driven economy foundation",
+                "enhanced security guardrails",
+                "enterprise security workflows"
             ],
             "benchmark_scores": {},
             "pricing_per_1m_tokens": {
                 "input": null,
                 "output": null
             },
-            "official_model_link": "https://microsoft.com/ai",
+            "official_model_link": "https://openai.com",
             "huggingface_url": null,
             "paper_url": null,
-            "predecessor": null,
-            "successor": null
+            "predecessor": "GPT-5.5",
+            "successor": null,
+            "id": 227
         }
     ]
 }

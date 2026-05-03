@@ -2,8 +2,8 @@
     "metadata": {
         "title": "AI Coding Tools Timeline",
         "description": "A curated timeline of the most influential AI tools, IDEs, and agents that revolutionized software development.",
-        "last_updated": "2026-04-30",
-        "total_tools": 87,
+        "last_updated": "2026-05-04",
+        "total_tools": 90,
         "fields": [
             "id",
             "name",
@@ -1299,6 +1299,22 @@
             "id": 80
         },
         {
+            "id": 81,
+            "name": "World Labs Studio",
+            "company": "World Labs",
+            "release_date": "2026-04-02",
+            "open_source": false,
+            "license": "Proprietary",
+            "category": "3D World Generator",
+            "description": "A platform for generating and exploring 3D environments using World Labs' Marble 1.1 generative world model. Features improved model selection, real-world unit scaling, and API access for production workflows in gaming, architecture, and VFX.",
+            "key_features": [
+                "3D environment generation",
+                "Multiple model variants (1.0, 1.1, 1.1-Plus)",
+                "API access for production use"
+            ],
+            "url": "https://worldlabs.ai"
+        },
+        {
             "name": "Microsoft Agent Governance Toolkit",
             "company": "Microsoft",
             "release_date": "2026-04-05",
@@ -1312,10 +1328,10 @@
                 "Compliance automation"
             ],
             "url": "https://github.com/microsoft",
-            "id": 81
+            "id": 82
         },
         {
-            "id": 82,
+            "id": 83,
             "name": "Claude Cowork",
             "company": "Anthropic",
             "release_date": "2026-04-09",
@@ -1331,7 +1347,7 @@
             "url": "https://anthropic.com/claude-cowork"
         },
         {
-            "id": 83,
+            "id": 84,
             "name": "Claude Design",
             "company": "Anthropic",
             "release_date": "2026-04-09",
@@ -1345,22 +1361,6 @@
                 "Creative workflow integration"
             ],
             "url": "https://anthropic.com/claude-design"
-        },
-        {
-            "id": 84,
-            "name": "World Labs Studio",
-            "company": "World Labs",
-            "release_date": "2026-04-02",
-            "open_source": false,
-            "license": "Proprietary",
-            "category": "3D World Generator",
-            "description": "A platform for generating and exploring 3D environments using World Labs' Marble 1.1 generative world model. Features improved model selection, real-world unit scaling, and API access for production workflows in gaming, architecture, and VFX.",
-            "key_features": [
-                "3D environment generation",
-                "Multiple model variants (1.0, 1.1, 1.1-Plus)",
-                "API access for production use"
-            ],
-            "url": "https://worldlabs.ai"
         },
         {
             "id": 85,
@@ -1409,6 +1409,54 @@
                 "Deep M365 integration"
             ],
             "url": "https://microsoft.com/agent-365"
+        },
+        {
+            "name": "Stripe Projects",
+            "company": "Stripe / Cloudflare",
+            "release_date": "2026-04-28",
+            "open_source": true,
+            "license": "Open Protocol",
+            "category": "AI Agent Commerce Protocol",
+            "description": "An open protocol co-designed by Stripe and Cloudflare enabling AI coding agents to autonomously provision cloud infrastructure, register domains, manage billing, and deploy applications without manual human intervention. Includes $100/month spending caps per provider.",
+            "key_features": [
+                "Autonomous infrastructure provisioning",
+                "Identity-based agent authentication",
+                "Payment tokenization with spending caps"
+            ],
+            "url": "https://stripe.com/projects",
+            "id": 88
+        },
+        {
+            "name": "Goodfire Silico",
+            "company": "Goodfire",
+            "release_date": "2026-04-30",
+            "open_source": false,
+            "license": "Proprietary",
+            "category": "AI Interpretability Platform",
+            "description": "A mechanistic interpretability platform that enables researchers and engineers to inspect and adjust the internal behaviors of LLMs—such as specific neurons and pathways—during the training process, transitioning AI development from 'alchemy' to precision engineering.",
+            "key_features": [
+                "Live neuron inspection at production scale",
+                "Targeted model behavior interventions",
+                "Hallucination and bias pathway tracing"
+            ],
+            "url": "https://goodfire.ai",
+            "id": 89
+        },
+        {
+            "name": "Mistral Workflows",
+            "company": "Mistral AI",
+            "release_date": "2026-05-01",
+            "open_source": false,
+            "license": "Proprietary",
+            "category": "AI Orchestration Engine",
+            "description": "An enterprise orchestration engine from Mistral AI that helps organizations move AI systems from experimentation into production with structured, multistep operations featuring built-in observability and privacy controls.",
+            "key_features": [
+                "Structured multistep AI operations",
+                "Built-in observability and monitoring",
+                "Enterprise privacy controls"
+            ],
+            "url": "https://mistral.ai/workflows",
+            "id": 90
         }
     ]
 }
