@@ -2,8 +2,8 @@
     "metadata": {
         "title": "AI Coding Tools Timeline",
         "description": "A curated timeline of the most influential AI tools, IDEs, and agents that revolutionized software development.",
-        "last_updated": "2026-05-04",
-        "total_tools": 90,
+        "last_updated": "2026-05-06",
+        "total_tools": 92,
         "fields": [
             "id",
             "name",
@@ -51,6 +51,7 @@
             "url": "https://www.comet.com/"
         },
         {
+            "id": 3,
             "name": "Hugging Face Hub",
             "company": "Hugging Face",
             "release_date": "2019-10-01",
@@ -63,8 +64,7 @@
                 "Dataset repository",
                 "Spaces / Gradio apps"
             ],
-            "url": "https://huggingface.co",
-            "id": 3
+            "url": "https://huggingface.co"
         },
         {
             "id": 4,
@@ -211,6 +211,7 @@
             "url": "https://chat.openai.com"
         },
         {
+            "id": 13,
             "name": "Leonardo.ai",
             "company": "Canva / Leonardo.ai",
             "release_date": "2022-12-01",
@@ -223,8 +224,7 @@
                 "Custom model training",
                 "Real-time generation"
             ],
-            "url": "https://leonardo.ai",
-            "id": 13
+            "url": "https://leonardo.ai"
         },
         {
             "id": 14,
@@ -339,6 +339,7 @@
             "url": "https://supabase.com"
         },
         {
+            "id": 21,
             "name": "Dify",
             "company": "Langgenius",
             "release_date": "2023-05-09",
@@ -351,8 +352,7 @@
                 "BaaS for LLM apps",
                 "Multi-model support"
             ],
-            "url": "https://dify.ai",
-            "id": 21
+            "url": "https://dify.ai"
         },
         {
             "id": 22,
@@ -403,6 +403,7 @@
             "url": "https://about.sourcegraph.com/cody"
         },
         {
+            "id": 25,
             "name": "vLLM",
             "company": "vLLM Project",
             "release_date": "2023-06-01",
@@ -415,11 +416,26 @@
                 "Continuous batching",
                 "High-throughput serving"
             ],
-            "url": "https://vllm.ai",
-            "id": 25
+            "url": "https://vllm.ai"
         },
         {
             "id": 26,
+            "name": "OpenRouter",
+            "company": "OpenRouter",
+            "release_date": "2023-06-30",
+            "open_source": false,
+            "license": "Proprietary",
+            "category": "LLM API Gateway",
+            "description": "A unified API gateway for routing requests across many frontier and open models with model-level pricing visibility and fallback routing.",
+            "key_features": [
+                "Multi-model API access",
+                "Automatic model routing",
+                "Usage and cost controls"
+            ],
+            "url": "https://openrouter.ai"
+        },
+        {
+            "id": 27,
             "name": "Greptile",
             "company": "Tabnam Inc.",
             "release_date": "2023-07-01",
@@ -435,7 +451,7 @@
             "url": "https://greptile.com"
         },
         {
-            "id": 27,
+            "id": 28,
             "name": "Ollama",
             "company": "Ollama",
             "release_date": "2023-07-08",
@@ -451,7 +467,23 @@
             "url": "https://ollama.com/"
         },
         {
-            "id": 28,
+            "id": 29,
+            "name": "LangSmith",
+            "company": "LangChain",
+            "release_date": "2023-07-20",
+            "open_source": false,
+            "license": "Proprietary",
+            "category": "LLM Observability Platform",
+            "description": "An observability and evaluation platform for LLM applications that helps teams trace, debug, test, and monitor prompts, chains, and agents in production.",
+            "key_features": [
+                "End-to-end tracing",
+                "Dataset-based evals",
+                "Production monitoring"
+            ],
+            "url": "https://smith.langchain.com"
+        },
+        {
+            "id": 30,
             "name": "CodeRabbit",
             "company": "CodeRabbit",
             "release_date": "2023-08-01",
@@ -467,7 +499,7 @@
             "url": "https://coderabbit.ai/"
         },
         {
-            "id": 29,
+            "id": 31,
             "name": "Continue.dev",
             "company": "Continue",
             "release_date": "2023-08-15",
@@ -483,7 +515,7 @@
             "url": "https://continue.dev/"
         },
         {
-            "id": 30,
+            "id": 32,
             "name": "v0",
             "company": "Vercel",
             "release_date": "2023-10-11",
@@ -499,6 +531,7 @@
             "url": "https://v0.dev/"
         },
         {
+            "id": 33,
             "name": "Pika",
             "company": "Pika Labs",
             "release_date": "2023-11-28",
@@ -511,11 +544,10 @@
                 "Sound effects generation",
                 "Video inpainting"
             ],
-            "url": "https://pika.art",
-            "id": 31
+            "url": "https://pika.art"
         },
         {
-            "id": 32,
+            "id": 34,
             "name": "LM Studio",
             "company": "Element Labs",
             "release_date": "2023-11-29",
@@ -531,7 +563,7 @@
             "url": "https://lmstudio.ai"
         },
         {
-            "id": 33,
+            "id": 35,
             "name": "Supermaven",
             "company": "Supermaven",
             "release_date": "2024-02-28",
@@ -547,7 +579,7 @@
             "url": "https://supermaven.com/"
         },
         {
-            "id": 34,
+            "id": 36,
             "name": "Zapier Central",
             "company": "Zapier",
             "release_date": "2024-03-06",
@@ -563,7 +595,7 @@
             "url": "https://zapier.com/central"
         },
         {
-            "id": 35,
+            "id": 37,
             "name": "Devin",
             "company": "Cognition Labs",
             "release_date": "2024-03-12",
@@ -579,7 +611,7 @@
             "url": "https://www.cognition.ai/"
         },
         {
-            "id": 36,
+            "id": 38,
             "name": "OpenHands",
             "company": "OpenHands (formerly OpenDevin)",
             "release_date": "2024-03-12",
@@ -595,7 +627,7 @@
             "url": "https://openhands.dev/"
         },
         {
-            "id": 37,
+            "id": 39,
             "name": "Suno AI",
             "company": "Suno AI",
             "release_date": "2024-03-21",
@@ -611,7 +643,7 @@
             "url": "https://suno.com"
         },
         {
-            "id": 38,
+            "id": 40,
             "name": "Udio",
             "company": "Udio Music",
             "release_date": "2024-04-10",
@@ -627,7 +659,7 @@
             "url": "https://udio.com"
         },
         {
-            "id": 39,
+            "id": 41,
             "name": "Luma Dream Machine",
             "company": "Luma AI",
             "release_date": "2024-06-12",
@@ -643,7 +675,7 @@
             "url": "https://lumalabs.ai"
         },
         {
-            "id": 40,
+            "id": 42,
             "name": "Figma AI",
             "company": "Figma",
             "release_date": "2024-06-26",
@@ -659,7 +691,7 @@
             "url": "https://figma.com"
         },
         {
-            "id": 41,
+            "id": 43,
             "name": "PearAI",
             "company": "PearAI",
             "release_date": "2024-07-24",
@@ -675,7 +707,7 @@
             "url": "https://trypear.ai/"
         },
         {
-            "id": 42,
+            "id": 44,
             "name": "FLUX.1",
             "company": "Black Forest Labs",
             "release_date": "2024-08-01",
@@ -691,6 +723,7 @@
             "url": "https://blackforestlabs.ai"
         },
         {
+            "id": 45,
             "name": "Flux.1 (Schnell)",
             "company": "Black Forest Labs",
             "release_date": "2024-08-01",
@@ -703,11 +736,10 @@
                 "Photorealistic detail",
                 "Open weights"
             ],
-            "url": "https://blackforestlabs.ai",
-            "id": 43
+            "url": "https://blackforestlabs.ai"
         },
         {
-            "id": 44,
+            "id": 46,
             "name": "Replit Agent",
             "company": "Replit",
             "release_date": "2024-09-05",
@@ -723,7 +755,7 @@
             "url": "https://replit.com"
         },
         {
-            "id": 45,
+            "id": 47,
             "name": "Bolt.new",
             "company": "StackBlitz",
             "release_date": "2024-10-03",
@@ -739,7 +771,7 @@
             "url": "https://bolt.new/"
         },
         {
-            "id": 46,
+            "id": 48,
             "name": "Webflow AI",
             "company": "Webflow",
             "release_date": "2024-10-15",
@@ -755,7 +787,7 @@
             "url": "https://webflow.com/"
         },
         {
-            "id": 47,
+            "id": 49,
             "name": "Windsurf",
             "company": "Codeium",
             "release_date": "2024-11-14",
@@ -771,7 +803,7 @@
             "url": "https://windsurf.ai/"
         },
         {
-            "id": 48,
+            "id": 50,
             "name": "Lovable",
             "company": "Lovable",
             "release_date": "2024-11-18",
@@ -787,7 +819,7 @@
             "url": "https://lovable.dev/"
         },
         {
-            "id": 49,
+            "id": 51,
             "name": "Model Context Protocol (MCP)",
             "company": "Anthropic",
             "release_date": "2024-11-25",
@@ -803,7 +835,7 @@
             "url": "https://modelcontextprotocol.io/"
         },
         {
-            "id": 50,
+            "id": 52,
             "name": "Sora",
             "company": "OpenAI",
             "release_date": "2024-12-09",
@@ -819,7 +851,7 @@
             "url": "https://sora.com"
         },
         {
-            "id": 51,
+            "id": 53,
             "name": "n8n AI Agents",
             "company": "n8n",
             "release_date": "2025-01-15",
@@ -835,7 +867,7 @@
             "url": "https://n8n.io/ai/"
         },
         {
-            "id": 52,
+            "id": 54,
             "name": "Trae",
             "company": "ByteDance",
             "release_date": "2025-01-20",
@@ -851,7 +883,7 @@
             "url": "https://www.trae.ai/"
         },
         {
-            "id": 53,
+            "id": 55,
             "name": "OpenAI Operator",
             "company": "OpenAI",
             "release_date": "2025-01-23",
@@ -867,7 +899,7 @@
             "url": "https://openai.com/index/introducing-operator/"
         },
         {
-            "id": 54,
+            "id": 56,
             "name": "Roo Code (Roo Cline)",
             "company": "Community / Open Source",
             "release_date": "2025-01-28",
@@ -883,7 +915,7 @@
             "url": "https://roocode.com/"
         },
         {
-            "id": 55,
+            "id": 57,
             "name": "Deep Research",
             "company": "OpenAI",
             "release_date": "2025-02-02",
@@ -899,7 +931,7 @@
             "url": "https://openai.com/index/introducing-deep-research"
         },
         {
-            "id": 56,
+            "id": 58,
             "name": "Manus AI",
             "company": "Butterfly Effect",
             "release_date": "2025-03-06",
@@ -915,7 +947,7 @@
             "url": "https://manus.im/"
         },
         {
-            "id": 57,
+            "id": 59,
             "name": "Make.com",
             "company": "Celonis",
             "release_date": "2025-04-01",
@@ -931,7 +963,7 @@
             "url": "https://make.com"
         },
         {
-            "id": 58,
+            "id": 60,
             "name": "Genspark",
             "company": "Genspark",
             "release_date": "2025-04-15",
@@ -947,7 +979,7 @@
             "url": "https://www.genspark.ai/"
         },
         {
-            "id": 59,
+            "id": 61,
             "name": "Codex (Agent)",
             "company": "OpenAI",
             "release_date": "2025-05-16",
@@ -963,14 +995,14 @@
             "url": "https://openai.com"
         },
         {
-            "id": 60,
+            "id": 62,
             "name": "Jules",
             "company": "Google",
             "release_date": "2025-05-19",
             "open_source": false,
             "license": "Proprietary",
             "category": "Autonomous AI Coding Agent",
-            "description": "Google’s asynchronous coding agent that plans, executes, and proposes pull requests on GitHub repositories.",
+            "description": "Google\u2019s asynchronous coding agent that plans, executes, and proposes pull requests on GitHub repositories.",
             "key_features": [
                 "Asynchronous coding sessions",
                 "GitHub repository task execution",
@@ -979,7 +1011,7 @@
             "url": "https://jules.google"
         },
         {
-            "id": 61,
+            "id": 63,
             "name": "Claude Code",
             "company": "Anthropic",
             "release_date": "2025-05-25",
@@ -995,7 +1027,7 @@
             "url": "https://docs.anthropic.com/en/docs/agents-and-tools/claude-code/overview"
         },
         {
-            "id": 62,
+            "id": 64,
             "name": "Warp CLI / ADE",
             "company": "Warp",
             "release_date": "2025-06-16",
@@ -1011,7 +1043,7 @@
             "url": "https://warp.dev"
         },
         {
-            "id": 63,
+            "id": 65,
             "name": "Gemini CLI",
             "company": "Google",
             "release_date": "2025-06-25",
@@ -1027,7 +1059,7 @@
             "url": "https://github.com/google/gemini-cli"
         },
         {
-            "id": 64,
+            "id": 66,
             "name": "Ralph Loop",
             "company": "Community / Jeffrey Huntley",
             "release_date": "2025-07-01",
@@ -1043,7 +1075,7 @@
             "url": "https://awesomeclaude.ai/"
         },
         {
-            "id": 65,
+            "id": 67,
             "name": "Augment Code",
             "company": "Augment",
             "release_date": "2025-09-01",
@@ -1059,7 +1091,7 @@
             "url": "https://augmentinc.com"
         },
         {
-            "id": 66,
+            "id": 68,
             "name": "CrewAI",
             "company": "CrewAI Inc.",
             "release_date": "2025-10-01",
@@ -1075,7 +1107,7 @@
             "url": "https://crewai.com/"
         },
         {
-            "id": 67,
+            "id": 69,
             "name": "Comet Browser",
             "company": "Perplexity AI",
             "release_date": "2025-10-02",
@@ -1091,7 +1123,7 @@
             "url": "https://www.perplexity.ai/"
         },
         {
-            "id": 68,
+            "id": 70,
             "name": "Jules Tools (CLI)",
             "company": "Google",
             "release_date": "2025-10-02",
@@ -1107,7 +1139,7 @@
             "url": "https://jules.google/docs/changelog/2025-10-02/"
         },
         {
-            "id": 69,
+            "id": 71,
             "name": "Jules API",
             "company": "Google",
             "release_date": "2025-10-03",
@@ -1123,7 +1155,7 @@
             "url": "https://jules.google/docs/changelog/2025-10-03/"
         },
         {
-            "id": 70,
+            "id": 72,
             "name": "Codex CLI",
             "company": "OpenAI",
             "release_date": "2025-10-06",
@@ -1139,7 +1171,7 @@
             "url": "https://github.com/openai/codex"
         },
         {
-            "id": 71,
+            "id": 73,
             "name": "Codex SDK",
             "company": "OpenAI",
             "release_date": "2025-10-06",
@@ -1155,7 +1187,7 @@
             "url": "https://openai.com/index/codex-now-generally-available/"
         },
         {
-            "id": 72,
+            "id": 74,
             "name": "OpenClaw",
             "company": "Peter Steinberger",
             "release_date": "2025-11-01",
@@ -1171,7 +1203,7 @@
             "url": "https://github.com/petersteinberger/openclaw"
         },
         {
-            "id": 73,
+            "id": 75,
             "name": "Microsoft Copilot Studio",
             "company": "Microsoft",
             "release_date": "2025-11-15",
@@ -1187,7 +1219,7 @@
             "url": "https://www.microsoft.com/en-us/microsoft-copilot/copilot-studio"
         },
         {
-            "id": 74,
+            "id": 76,
             "name": "Antigravity",
             "company": "Google DeepMind",
             "release_date": "2025-11-18",
@@ -1203,7 +1235,7 @@
             "url": "https://antigravity.google"
         },
         {
-            "id": 75,
+            "id": 77,
             "name": "OpenCode",
             "company": "Community",
             "release_date": "2026-01-15",
@@ -1219,7 +1251,7 @@
             "url": "https://github.com/opencode"
         },
         {
-            "id": 76,
+            "id": 78,
             "name": "FlowHunt",
             "company": "QualityUnit",
             "release_date": "2026-02-28",
@@ -1235,7 +1267,7 @@
             "url": "https://www.flowhunt.io/"
         },
         {
-            "id": 77,
+            "id": 79,
             "name": "Databricks Genie Code",
             "company": "Databricks",
             "release_date": "2026-03-11",
@@ -1251,7 +1283,7 @@
             "url": "https://www.databricks.com/product/genie"
         },
         {
-            "id": 78,
+            "id": 80,
             "name": "Devin V2",
             "company": "Cognition",
             "release_date": "2026-03-24",
@@ -1267,6 +1299,7 @@
             "url": "https://cognition-labs.com/"
         },
         {
+            "id": 81,
             "name": "JetBrains Agent Client Protocol",
             "company": "JetBrains",
             "release_date": "2026-03-26",
@@ -1279,10 +1312,10 @@
                 "Open ecosystem",
                 "Seamless multi-model usage"
             ],
-            "url": "https://jetbrains.com",
-            "id": 79
+            "url": "https://jetbrains.com"
         },
         {
+            "id": 82,
             "name": "Cursor 3",
             "company": "Anysphere",
             "release_date": "2026-04-02",
@@ -1295,11 +1328,10 @@
                 "Deep codebase reasoning",
                 "Agentic task execution"
             ],
-            "url": "https://cursor.com",
-            "id": 80
+            "url": "https://cursor.com"
         },
         {
-            "id": 81,
+            "id": 83,
             "name": "World Labs Studio",
             "company": "World Labs",
             "release_date": "2026-04-02",
@@ -1315,6 +1347,7 @@
             "url": "https://worldlabs.ai"
         },
         {
+            "id": 84,
             "name": "Microsoft Agent Governance Toolkit",
             "company": "Microsoft",
             "release_date": "2026-04-05",
@@ -1327,11 +1360,10 @@
                 "LangChain & Azure integration",
                 "Compliance automation"
             ],
-            "url": "https://github.com/microsoft",
-            "id": 82
+            "url": "https://github.com/microsoft"
         },
         {
-            "id": 83,
+            "id": 85,
             "name": "Claude Cowork",
             "company": "Anthropic",
             "release_date": "2026-04-09",
@@ -1347,7 +1379,7 @@
             "url": "https://anthropic.com/claude-cowork"
         },
         {
-            "id": 84,
+            "id": 86,
             "name": "Claude Design",
             "company": "Anthropic",
             "release_date": "2026-04-09",
@@ -1363,7 +1395,7 @@
             "url": "https://anthropic.com/claude-design"
         },
         {
-            "id": 85,
+            "id": 87,
             "name": "Amazon Bio Discovery",
             "company": "Amazon",
             "release_date": "2026-04-14",
@@ -1379,7 +1411,7 @@
             "url": "https://aws.amazon.com/bio-discovery"
         },
         {
-            "id": 86,
+            "id": 88,
             "name": "ChatGPT for Clinicians",
             "company": "OpenAI",
             "release_date": "2026-04-22",
@@ -1395,7 +1427,7 @@
             "url": "https://openai.com/chatgpt-for-clinicians"
         },
         {
-            "id": 87,
+            "id": 89,
             "name": "Microsoft Agent 365 (Preview)",
             "company": "Microsoft",
             "release_date": "2026-04-28",
@@ -1411,6 +1443,7 @@
             "url": "https://microsoft.com/agent-365"
         },
         {
+            "id": 90,
             "name": "Stripe Projects",
             "company": "Stripe / Cloudflare",
             "release_date": "2026-04-28",
@@ -1423,26 +1456,26 @@
                 "Identity-based agent authentication",
                 "Payment tokenization with spending caps"
             ],
-            "url": "https://stripe.com/projects",
-            "id": 88
+            "url": "https://stripe.com/projects"
         },
         {
+            "id": 91,
             "name": "Goodfire Silico",
             "company": "Goodfire",
             "release_date": "2026-04-30",
             "open_source": false,
             "license": "Proprietary",
             "category": "AI Interpretability Platform",
-            "description": "A mechanistic interpretability platform that enables researchers and engineers to inspect and adjust the internal behaviors of LLMs—such as specific neurons and pathways—during the training process, transitioning AI development from 'alchemy' to precision engineering.",
+            "description": "A mechanistic interpretability platform that enables researchers and engineers to inspect and adjust the internal behaviors of LLMs\u2014such as specific neurons and pathways\u2014during the training process, transitioning AI development from 'alchemy' to precision engineering.",
             "key_features": [
                 "Live neuron inspection at production scale",
                 "Targeted model behavior interventions",
                 "Hallucination and bias pathway tracing"
             ],
-            "url": "https://goodfire.ai",
-            "id": 89
+            "url": "https://goodfire.ai"
         },
         {
+            "id": 92,
             "name": "Mistral Workflows",
             "company": "Mistral AI",
             "release_date": "2026-05-01",
@@ -1455,8 +1488,7 @@
                 "Built-in observability and monitoring",
                 "Enterprise privacy controls"
             ],
-            "url": "https://mistral.ai/workflows",
-            "id": 90
+            "url": "https://mistral.ai/workflows"
         }
     ]
 }

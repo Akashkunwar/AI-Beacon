@@ -2,8 +2,8 @@
     "metadata": {
         "title": "Foundational AI Research Papers Timeline",
         "description": "A curated list of the most influential AI research papers that drove the technological revolution.",
-        "last_updated": "2026-05-04",
-        "total_papers": 78,
+        "last_updated": "2026-05-06",
+        "total_papers": 81,
         "fields": [
             "id",
             "title",
@@ -105,7 +105,7 @@
                 "Aaron Courville",
                 "Yoshua Bengio"
             ],
-            "institution": "Université de Montréal",
+            "institution": "Universit\u00e9 de Montr\u00e9al",
             "publication_date": "2014-06-10",
             "published_in": "NeurIPS",
             "topic": "Generative AI",
@@ -151,7 +151,7 @@
                 "Kyunghyun Cho",
                 "Yoshua Bengio"
             ],
-            "institution": "Jacobs University / Université de Montréal",
+            "institution": "Jacobs University / Universit\u00e9 de Montr\u00e9al",
             "publication_date": "2014-09-01",
             "published_in": "ICLR",
             "topic": "Natural Language Processing",
@@ -552,10 +552,10 @@
                 "Fabio Petroni",
                 "Vladimir Karpukhin",
                 "Naman Goyal",
-                "Heinrich Küttler",
+                "Heinrich K\u00fcttler",
                 "Mike Lewis",
                 "Wen-tau Yih",
-                "Tim Rocktäschel",
+                "Tim Rockt\u00e4schel",
                 "Sebastian Riedel",
                 "Douwe Kiela"
             ],
@@ -716,7 +716,7 @@
                 "Olaf Ronneberger",
                 "Kathryn Tunyasuvunakool",
                 "Russ Bates",
-                "Augustin Žídek",
+                "Augustin \u017d\u00eddek",
                 "Anna Potapenko",
                 "Alex Bridgland",
                 "Clemens Meyer",
@@ -765,7 +765,7 @@
                 "Andreas Blattmann",
                 "Dominik Lorenz",
                 "Patrick Esser",
-                "Björn Ommer"
+                "Bj\u00f6rn Ommer"
             ],
             "institution": "CompVis Group / LMU Munich",
             "publication_date": "2021-12-20",
@@ -895,7 +895,7 @@
                 "Daniel Y. Fu",
                 "Stefano Ermon",
                 "Atri Rudra",
-                "Christopher Ré"
+                "Christopher R\u00e9"
             ],
             "institution": "Stanford University",
             "publication_date": "2022-05-27",
@@ -978,7 +978,7 @@
             "authors": [
                 "Timo Schick",
                 "Jane Dwivedi-Yu",
-                "Roberto Dessì",
+                "Roberto Dess\u00ec",
                 "Roberta Raileanu",
                 "Maria Lomeli",
                 "Luke Zettlemoyer",
@@ -1008,8 +1008,8 @@
                 "Gautier Izacard",
                 "Xavier Martinet",
                 "Marie-Anne Lachaux",
-                "Timothée Lacroix",
-                "Baptiste Rozière",
+                "Timoth\u00e9e Lacroix",
+                "Baptiste Rozi\u00e8re",
                 "Naman Goyal",
                 "Eric Hambro",
                 "Faisal Azhar",
@@ -1053,7 +1053,38 @@
             "citations": 15000
         },
         {
-            "id": 38,
+            "title": "Segment Anything",
+            "authors": [
+                "Alexander Kirillov",
+                "Eric Mintun",
+                "Nikhila Ravi",
+                "Hanzi Mao",
+                "Chloe Rolland",
+                "Laura Gustafson",
+                "Tete Xiao",
+                "Spencer Whitehead",
+                "Alexander C. Berg",
+                "Wan-Yen Lo",
+                "Piotr Dollar",
+                "Ross Girshick"
+            ],
+            "institution": "Meta AI",
+            "publication_date": "2023-04-05",
+            "published_in": "arXiv",
+            "topic": "Computer Vision / Foundation Models",
+            "description": "Introduced the Segment Anything Model (SAM), a promptable foundation model for image segmentation trained on the massive SA-1B dataset.",
+            "key_contributions": [
+                "Promptable segmentation framework",
+                "SA-1B dataset with 1B+ masks",
+                "Strong zero-shot transfer"
+            ],
+            "paper_url": "https://arxiv.org/abs/2304.02643",
+            "code_url": "https://github.com/facebookresearch/segment-anything",
+            "citations": 25000,
+            "id": 38
+        },
+        {
+            "id": 39,
             "title": "Generative Agents: Interactive Simulacra of Human Behavior",
             "authors": [
                 "Joon Sung Park",
@@ -1078,7 +1109,36 @@
             "citations": 3500
         },
         {
-            "id": 39,
+            "title": "Visual Instruction Tuning",
+            "authors": [
+                "Haotian Liu",
+                "Chunyuan Li",
+                "Qingyang Wu",
+                "Yuan Zhou",
+                "Yuheng Li",
+                "Rui Qian",
+                "Mingyang Bao",
+                "Haozhe Zhao",
+                "Wei Wang",
+                "Yong Jae Lee"
+            ],
+            "institution": "University of Wisconsin-Madison / Microsoft Research",
+            "publication_date": "2023-04-17",
+            "published_in": "NeurIPS 2023",
+            "topic": "Multimodal LLMs",
+            "description": "Introduced LLaVA and the visual instruction tuning paradigm, enabling general-purpose multimodal assistants through instruction-following data and GPT-assisted annotation.",
+            "key_contributions": [
+                "Visual instruction tuning paradigm",
+                "LLaVA multimodal assistant",
+                "Cost-efficient GPT-assisted data generation"
+            ],
+            "paper_url": "https://arxiv.org/abs/2304.08485",
+            "code_url": "https://github.com/haotian-liu/LLaVA",
+            "citations": 6000,
+            "id": 40
+        },
+        {
+            "id": 41,
             "title": "QLoRA: Efficient Finetuning of Quantized LLMs",
             "authors": [
                 "Tim Dettmers",
@@ -1102,7 +1162,7 @@
             "citations": 20000
         },
         {
-            "id": 40,
+            "id": 42,
             "title": "Voyager: An Open-Ended Embodied Agent with Large Language Models",
             "authors": [
                 "Guanzhi Wang",
@@ -1129,7 +1189,7 @@
             "citations": 2000
         },
         {
-            "id": 41,
+            "id": 43,
             "title": "Direct Preference Optimization: Your Language Model is Secretly a Reward Model",
             "authors": [
                 "Rafael Rafailov",
@@ -1154,13 +1214,13 @@
             "citations": 5000
         },
         {
-            "id": 42,
+            "id": 44,
             "title": "Textbooks Are All You Need",
             "authors": [
                 "Surya Gunasekar",
                 "Yi Zhang",
                 "Jyoti Aneja",
-                "Caio César Teodoro Mendes",
+                "Caio C\u00e9sar Teodoro Mendes",
                 "Allie Del Giorno",
                 "Srinivasan Gopi",
                 "Mojan Javaheripi",
@@ -1171,7 +1231,7 @@
                 "Shital Shah",
                 "Harkirat Singh Behl",
                 "Xin Wang",
-                "Sébastien Bubeck",
+                "S\u00e9bastien Bubeck",
                 "Ronen Eldan",
                 "Adam Tauman Kalai",
                 "Yin Tat Lee"
@@ -1192,7 +1252,27 @@
             "citations": 5000
         },
         {
-            "id": 43,
+            "title": "FlashAttention-2: Faster Attention with Better Parallelism and Work Partitioning",
+            "authors": [
+                "Tri Dao"
+            ],
+            "institution": "Princeton University",
+            "publication_date": "2023-07-17",
+            "published_in": "arXiv",
+            "topic": "Efficient LLM Training / Systems",
+            "description": "Presents FlashAttention-2, substantially improving attention throughput with better hardware utilization and becoming a standard optimization in modern LLM training stacks.",
+            "key_contributions": [
+                "Improved parallelism for attention",
+                "Higher GPU utilization",
+                "Lower training and inference cost"
+            ],
+            "paper_url": "https://arxiv.org/abs/2307.08691",
+            "code_url": "https://github.com/Dao-AILab/flash-attention",
+            "citations": 4000,
+            "id": 45
+        },
+        {
+            "id": 46,
             "title": "Llama 2: Open Foundation and Fine-Tuned Chat Models",
             "authors": [
                 "Hugo Touvron",
@@ -1217,7 +1297,7 @@
             "citations": 8000
         },
         {
-            "id": 44,
+            "id": 47,
             "title": "BitNet: Scaling 1-bit Transformers for Large Language Models",
             "authors": [
                 "Hongyu Wang",
@@ -1264,10 +1344,10 @@
             "paper_url": "https://arxiv.org/abs/2312.00752",
             "code_url": "https://github.com/state-spaces/mamba",
             "citations": 1200,
-            "id": 45
+            "id": 48
         },
         {
-            "id": 46,
+            "id": 49,
             "title": "Gemini: A Family of Highly Capable Multimodal Models",
             "authors": [
                 "Gemini Team",
@@ -1288,7 +1368,7 @@
             "citations": 3000
         },
         {
-            "id": 47,
+            "id": 50,
             "title": "Mixtral of Experts",
             "authors": [
                 "Albert Q. Jiang",
@@ -1304,7 +1384,7 @@
                 "Gianna Lengyel",
                 "Guillaume Bour",
                 "Guillaume Lample",
-                "Lélio Renard Lavaud",
+                "L\u00e9lio Renard Lavaud",
                 "Lucile Saulnier",
                 "Marie-Anne Lachaux",
                 "Pierre Stock",
@@ -1312,10 +1392,10 @@
                 "Sophia Yang",
                 "Szymon Antoniak",
                 "Teven Le Scao",
-                "Théophile Gervet",
+                "Th\u00e9ophile Gervet",
                 "Thibaut Lavril",
                 "Thomas Wang",
-                "Timothée Lacroix",
+                "Timoth\u00e9e Lacroix",
                 "William El Sayed"
             ],
             "institution": "Mistral AI",
@@ -1334,7 +1414,7 @@
             "citations": 3000
         },
         {
-            "id": 48,
+            "id": 51,
             "title": "The Llama 3 Herd of Models",
             "authors": [
                 "Llama Team",
@@ -1355,7 +1435,7 @@
             "citations": 2000
         },
         {
-            "id": 49,
+            "id": 52,
             "title": "KAN: Kolmogorov-Arnold Networks",
             "authors": [
                 "Ziming Liu",
@@ -1363,7 +1443,7 @@
                 "Sachin Vaidya",
                 "Fabian Ruehle",
                 "James Halverson",
-                "Marin Soljačić",
+                "Marin Solja\u010di\u0107",
                 "Thomas Y. Hou",
                 "Max Tegmark"
             ],
@@ -1383,7 +1463,7 @@
             "citations": 3000
         },
         {
-            "id": 50,
+            "id": 53,
             "title": "Accurate structure prediction of biomolecular interactions with AlphaFold 3",
             "authors": [
                 "Josh Abramson",
@@ -1406,7 +1486,7 @@
             "citations": 1500
         },
         {
-            "id": 51,
+            "id": 54,
             "title": "Scaling LLM Test-Time Compute Optimally can be More Effective than Scaling Model Parameters",
             "authors": [
                 "Charlie Snell",
@@ -1430,7 +1510,7 @@
             "citations": 1500
         },
         {
-            "id": 52,
+            "id": 55,
             "title": "OpenAI o1 System Card",
             "authors": [
                 "OpenAI"
@@ -1450,7 +1530,7 @@
             "citations": 1000
         },
         {
-            "id": 53,
+            "id": 56,
             "title": "DeepSeek-V3 Technical Report",
             "authors": [
                 "DeepSeek-AI"
@@ -1471,7 +1551,7 @@
             "citations": 800
         },
         {
-            "id": 54,
+            "id": 57,
             "title": "DeepSeek-R1: Incentivizing Reasoning Capability in LLMs via Reinforcement Learning",
             "authors": [
                 "DeepSeek-AI"
@@ -1491,7 +1571,7 @@
             "citations": 500
         },
         {
-            "id": 55,
+            "id": 58,
             "title": "DeepSeekMath: Pushing the Limits of Mathematical Reasoning in Open Language Models",
             "authors": [
                 "Zhiyu Li",
@@ -1512,7 +1592,7 @@
             "citations": 250
         },
         {
-            "id": 56,
+            "id": 59,
             "title": "Native Sparse Attention: Hardware-Aligned and Natively Trainable Sparse Attention",
             "authors": [
                 "DeepSeek Research Team"
@@ -1532,7 +1612,7 @@
             "citations": 120
         },
         {
-            "id": 57,
+            "id": 60,
             "title": "Gemma 3 Technical Report",
             "authors": [
                 "Gemma Team"
@@ -1552,7 +1632,7 @@
             "citations": 0
         },
         {
-            "id": 58,
+            "id": 61,
             "title": "OpenAI o3 and o4-mini System Card",
             "authors": [
                 "OpenAI"
@@ -1572,7 +1652,7 @@
             "citations": 0
         },
         {
-            "id": 59,
+            "id": 62,
             "title": "Qwen3 Technical Report",
             "authors": [
                 "Qwen Team"
@@ -1592,7 +1672,7 @@
             "citations": 0
         },
         {
-            "id": 60,
+            "id": 63,
             "title": "NVIDIA DiffusionRenderer: Unifying Inverse and Forward Rendering",
             "authors": [
                 "NVIDIA Research"
@@ -1612,7 +1692,7 @@
             "citations": 250
         },
         {
-            "id": 61,
+            "id": 64,
             "title": "ERNIE 4.5 Technical Report",
             "authors": [
                 "Baidu-ERNIE-Team"
@@ -1632,7 +1712,7 @@
             "citations": 0
         },
         {
-            "id": 62,
+            "id": 65,
             "title": "ArithMotion: Intent-Aware Lifelike VR Avatars on Mobile",
             "authors": [
                 "Jaewoong Jang",
@@ -1654,7 +1734,7 @@
             "citations": 50
         },
         {
-            "id": 63,
+            "id": 66,
             "title": "Perceptually Guided 3DGS Streaming and Rendering for Virtual Reality",
             "authors": [
                 "Yunxiang Zhang",
@@ -1693,7 +1773,7 @@
             "paper_url": "https://arxiv.org/abs/2603.XXXXX",
             "code_url": null,
             "citations": 0,
-            "id": 64
+            "id": 67
         },
         {
             "title": "DeepAnalyze: Autonomous Data Science via Agentic LLMs",
@@ -1713,7 +1793,7 @@
             "paper_url": "https://arxiv.org",
             "code_url": null,
             "citations": 0,
-            "id": 65
+            "id": 68
         },
         {
             "title": "Kosmos: An AI Scientist for Autonomous Discovery",
@@ -1733,7 +1813,7 @@
             "paper_url": "https://arxiv.org",
             "code_url": null,
             "citations": 0,
-            "id": 66
+            "id": 69
         },
         {
             "title": "The Triadic Cognitive Architecture",
@@ -1753,7 +1833,7 @@
             "paper_url": "https://arxiv.org",
             "code_url": null,
             "citations": 0,
-            "id": 67
+            "id": 70
         },
         {
             "title": "On-Device LLM Inference with Selective Parameter Activation",
@@ -1773,7 +1853,7 @@
             "paper_url": "https://arxiv.org/abs/2603.XXXXX",
             "code_url": null,
             "citations": 0,
-            "id": 68
+            "id": 71
         },
         {
             "title": "AI Agent Traps: Vulnerabilities in Autonomous AI Navigation",
@@ -1793,7 +1873,7 @@
             "paper_url": "https://deepmind.google/security",
             "code_url": null,
             "citations": 0,
-            "id": 69
+            "id": 72
         },
         {
             "title": "Industrial Policy for the Intelligence Age",
@@ -1813,7 +1893,7 @@
             "paper_url": "https://openai.com/research/industrial-policy-for-the-intelligence-age",
             "code_url": null,
             "citations": 0,
-            "id": 70
+            "id": 73
         },
         {
             "title": "Dynamic Reflections: Probing Video Representations with Text Alignment",
@@ -1833,10 +1913,10 @@
             "paper_url": "https://arxiv.org/abs/2604.XXXXX",
             "code_url": null,
             "citations": 0,
-            "id": 71
+            "id": 74
         },
         {
-            "id": 72,
+            "id": 75,
             "title": "Claude Opus 4.7 Model Card",
             "authors": [
                 "Anthropic"
@@ -1857,7 +1937,7 @@
             "citations": 0
         },
         {
-            "id": 73,
+            "id": 76,
             "title": "Kimi K2.6: Native Multimodal Agentic Intelligence",
             "authors": [
                 "Moonshot AI Research Team"
@@ -1878,7 +1958,7 @@
             "citations": 0
         },
         {
-            "id": 74,
+            "id": 77,
             "title": "GPT-5.5 System Card",
             "authors": [
                 "OpenAI"
@@ -1899,7 +1979,7 @@
             "citations": 0
         },
         {
-            "id": 75,
+            "id": 78,
             "title": "DeepSeek-V4 Technical Report",
             "authors": [
                 "DeepSeek-AI"
@@ -1928,7 +2008,7 @@
             "publication_date": "2026-04-28",
             "published_in": "ICLR 2026",
             "topic": "AI Safety / Reasoning",
-            "description": "Reveals that gains in AI reasoning capabilities achieved via reinforcement learning (RL) drive proportional increases in 'tool hallucinations' — errors when models attempt to use external tools. Identifies a fundamental tension between reasoning improvement and tool-use reliability.",
+            "description": "Reveals that gains in AI reasoning capabilities achieved via reinforcement learning (RL) drive proportional increases in 'tool hallucinations' \u2014 errors when models attempt to use external tools. Identifies a fundamental tension between reasoning improvement and tool-use reliability.",
             "key_contributions": [
                 "Discovery of reasoning-hallucination correlation",
                 "Taxonomy of tool hallucination types",
@@ -1938,7 +2018,7 @@
             "paper_url": "https://openreview.net/forum?id=reasoning-trap-2026",
             "code_url": null,
             "citations": 0,
-            "id": 76
+            "id": 79
         },
         {
             "title": "Evolvable Artificial Intelligence: Evolutionary Transitions in Digital Systems",
@@ -1960,7 +2040,7 @@
             "paper_url": "https://www.pnas.org/doi/10.1073/pnas.2026",
             "code_url": null,
             "citations": 0,
-            "id": 77
+            "id": 80
         },
         {
             "title": "Reducing Sycophancy in Language Models through Deliberate Question Framing",
@@ -1981,7 +2061,7 @@
             "paper_url": "https://www.aisi.gov.uk/research/sycophancy-reduction",
             "code_url": null,
             "citations": 0,
-            "id": 78
+            "id": 81
         }
     ]
 }
