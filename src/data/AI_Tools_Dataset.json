@@ -2,8 +2,8 @@
     "metadata": {
         "title": "AI Coding Tools Timeline",
         "description": "A curated timeline of the most influential AI tools, IDEs, and agents that revolutionized software development.",
-        "last_updated": "2026-05-06",
-        "total_tools": 92,
+        "last_updated": "2026-05-16",
+        "total_tools": 97,
         "fields": [
             "id",
             "name",
@@ -708,7 +708,7 @@
         },
         {
             "id": 44,
-            "name": "FLUX.1",
+            "name": "FLUX.1 [dev]",
             "company": "Black Forest Labs",
             "release_date": "2024-08-01",
             "open_source": true,
@@ -720,11 +720,11 @@
                 "Consistent text rendering",
                 "Open-weights availability"
             ],
-            "url": "https://blackforestlabs.ai"
+            "url": "https://huggingface.co/black-forest-labs/FLUX.1-dev"
         },
         {
             "id": 45,
-            "name": "Flux.1 (Schnell)",
+            "name": "FLUX.1 [schnell]",
             "company": "Black Forest Labs",
             "release_date": "2024-08-01",
             "open_source": true,
@@ -736,7 +736,7 @@
                 "Photorealistic detail",
                 "Open weights"
             ],
-            "url": "https://blackforestlabs.ai"
+            "url": "https://huggingface.co/black-forest-labs/FLUX.1-schnell"
         },
         {
             "id": 46,
@@ -1002,7 +1002,7 @@
             "open_source": false,
             "license": "Proprietary",
             "category": "Autonomous AI Coding Agent",
-            "description": "Google\u2019s asynchronous coding agent that plans, executes, and proposes pull requests on GitHub repositories.",
+            "description": "Google’s asynchronous coding agent that plans, executes, and proposes pull requests on GitHub repositories.",
             "key_features": [
                 "Asynchronous coding sessions",
                 "GitHub repository task execution",
@@ -1120,7 +1120,7 @@
                 "AI-assisted browsing",
                 "Cross-platform"
             ],
-            "url": "https://www.perplexity.ai/"
+            "url": "https://www.perplexity.ai/comet"
         },
         {
             "id": 70,
@@ -1408,7 +1408,7 @@
                 "Drug candidate identification",
                 "Biological data synthesis"
             ],
-            "url": "https://aws.amazon.com/bio-discovery"
+            "url": "https://aws.amazon.com/biodiscovery/"
         },
         {
             "id": 88,
@@ -1424,23 +1424,23 @@
                 "Medical literature synthesis",
                 "HIPAA-compliant workflows"
             ],
-            "url": "https://openai.com/chatgpt-for-clinicians"
+            "url": "https://openai.com/index/chatgpt-for-clinicians/"
         },
         {
             "id": 89,
-            "name": "Microsoft Agent 365 (Preview)",
+            "name": "Microsoft Agent 365",
             "company": "Microsoft",
-            "release_date": "2026-04-28",
+            "release_date": "2026-05-01",
             "open_source": false,
             "license": "Proprietary",
             "category": "Enterprise Agent Platform",
-            "description": "Microsoft's enterprise agent platform that integrates autonomous AI agents into the Microsoft 365 ecosystem. Features multi-model orchestration, governance controls, and deep integration with Teams, Outlook, and SharePoint for the 'agentic web.'",
+            "description": "Microsoft's control plane for observing, governing, and securing AI agents across the Microsoft 365 ecosystem. Generally available as of May 2026 with integrations across Entra, Defender, and Purview.",
             "key_features": [
                 "Multi-model orchestration",
                 "Enterprise governance controls",
                 "Deep M365 integration"
             ],
-            "url": "https://microsoft.com/agent-365"
+            "url": "https://www.microsoft.com/en-us/microsoft-agent-365"
         },
         {
             "id": 90,
@@ -1456,7 +1456,7 @@
                 "Identity-based agent authentication",
                 "Payment tokenization with spending caps"
             ],
-            "url": "https://stripe.com/projects"
+            "url": "https://www.projects.dev/"
         },
         {
             "id": 91,
@@ -1466,7 +1466,7 @@
             "open_source": false,
             "license": "Proprietary",
             "category": "AI Interpretability Platform",
-            "description": "A mechanistic interpretability platform that enables researchers and engineers to inspect and adjust the internal behaviors of LLMs\u2014such as specific neurons and pathways\u2014during the training process, transitioning AI development from 'alchemy' to precision engineering.",
+            "description": "A mechanistic interpretability platform that enables researchers and engineers to inspect and adjust the internal behaviors of LLMs—such as specific neurons and pathways—during the training process, transitioning AI development from 'alchemy' to precision engineering.",
             "key_features": [
                 "Live neuron inspection at production scale",
                 "Targeted model behavior interventions",
@@ -1489,6 +1489,91 @@
                 "Enterprise privacy controls"
             ],
             "url": "https://mistral.ai/workflows"
+        },
+        {
+            "id": 93,
+            "name": "Junie CLI",
+            "company": "JetBrains",
+            "release_date": "2026-03-15",
+            "open_source": false,
+            "license": "Proprietary",
+            "category": "AI Coding Agent",
+            "description": "JetBrains' LLM-agnostic coding agent that runs from the terminal, CI/CD pipelines, and any IDE. Supports OpenAI, Anthropic, Google, and Grok models with BYOK pricing, codebase intelligence, and MCP configuration.",
+            "key_features": [
+                "LLM-agnostic model selection",
+                "Terminal and CI/CD integration",
+                "Bring Your Own Key (BYOK)",
+                "MCP server configuration"
+            ],
+            "url": "https://www.jetbrains.com/junie/"
+        },
+        {
+            "id": 94,
+            "name": "IBM Bob",
+            "company": "IBM",
+            "release_date": "2026-04-28",
+            "open_source": false,
+            "license": "Proprietary",
+            "category": "Enterprise AI Development Platform",
+            "description": "IBM's enterprise AI development partner that automates the full software lifecycle from requirements to production-ready code. Features multi-model orchestration, security controls, and auditability through the BobShell CLI.",
+            "key_features": [
+                "Full SDLC automation",
+                "Multi-model orchestration",
+                "BobShell CLI with audit trails",
+                "Enterprise security controls"
+            ],
+            "url": "https://www.ibm.com/bob"
+        },
+        {
+            "id": 95,
+            "name": "Composer 2",
+            "company": "Cursor",
+            "release_date": "2026-03-01",
+            "open_source": false,
+            "license": "Proprietary",
+            "category": "Frontier Coding Model",
+            "description": "Cursor's proprietary frontier coding model integrated into Cursor 3. Optimized for multi-file edits, agentic software engineering, and parallel cloud/local agent workflows.",
+            "key_features": [
+                "Frontier coding performance",
+                "Multi-repo agent workspaces",
+                "Cloud and local agent handoff",
+                "Deep codebase understanding"
+            ],
+            "url": "https://cursor.com/blog/cursor-3"
+        },
+        {
+            "id": 96,
+            "name": "Gemini API File Search",
+            "company": "Google",
+            "release_date": "2026-05-05",
+            "open_source": false,
+            "license": "Proprietary",
+            "category": "Multimodal RAG Platform",
+            "description": "Google's managed retrieval layer for the Gemini API, now supporting multimodal documents with Gemini Embedding 2. Processes images and text together with custom metadata filtering and page-level citations.",
+            "key_features": [
+                "Multimodal document indexing",
+                "Gemini Embedding 2",
+                "Custom metadata filtering",
+                "Page-level citations"
+            ],
+            "url": "https://ai.google.dev/gemini-api/docs/file-search"
+        },
+        {
+            "id": 97,
+            "name": "GPT Realtime API",
+            "company": "OpenAI",
+            "release_date": "2026-05-07",
+            "open_source": false,
+            "license": "Proprietary",
+            "category": "Voice AI Platform",
+            "description": "OpenAI's next-generation voice API suite including GPT-Realtime-2 for GPT-5-class conversational reasoning, GPT-Realtime-Translate for live translation across 70+ languages, and GPT-Realtime-Whisper for streaming speech-to-text.",
+            "key_features": [
+                "GPT-5-class voice reasoning",
+                "Live translation (70+ languages)",
+                "Streaming speech-to-text",
+                "Low-latency conversational agents"
+            ],
+            "url": "https://openai.com/index/advancing-voice-intelligence-with-new-models-in-the-api"
         }
     ]
 }

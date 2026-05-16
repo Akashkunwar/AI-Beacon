@@ -1,0 +1,692 @@
+{
+  "/Users/kunwar/Documents/Code/AiViz/vercel.json": {
+    "mtime": 1772527091.835295,
+    "ast_hash": "9056aff519857784f91d80cf40ec6990",
+    "semantic_hash": ""
+  },
+  "/Users/kunwar/Documents/Code/AiViz/package.json": {
+    "mtime": 1772890620.7703292,
+    "ast_hash": "3d1cf38392d282509b752b37ee513864",
+    "semantic_hash": ""
+  },
+  "/Users/kunwar/Documents/Code/AiViz/tsconfig.json": {
+    "mtime": 1772440909.900159,
+    "ast_hash": "3eb31350dc5bcdedfbc0ab097e51766c",
+    "semantic_hash": ""
+  },
+  "/Users/kunwar/Documents/Code/AiViz/vite.config.ts": {
+    "mtime": 1772890562.8702464,
+    "ast_hash": "690bfdf477f2f7a9818e28351a746298",
+    "semantic_hash": ""
+  },
+  "/Users/kunwar/Documents/Code/AiViz/tmp/update_datasets.js": {
+    "mtime": 1775210928.4511926,
+    "ast_hash": "0bd44eec7d6c39b994d1d2e31a1c5004",
+    "semantic_hash": ""
+  },
+  "/Users/kunwar/Documents/Code/AiViz/tmp/update_datasets.py": {
+    "mtime": 1776162721.21286,
+    "ast_hash": "b1f6cba684f9f36cf6889da60ff4bc59",
+    "semantic_hash": ""
+  },
+  "/Users/kunwar/Documents/Code/AiViz/src/App.tsx": {
+    "mtime": 1773639386.9528065,
+    "ast_hash": "7927d494cee4f53789fd9b09f45b3c11",
+    "semantic_hash": ""
+  },
+  "/Users/kunwar/Documents/Code/AiViz/src/main.tsx": {
+    "mtime": 1772816417.705164,
+    "ast_hash": "e631cdf7a912d4f5c24442fcc3831051",
+    "semantic_hash": ""
+  },
+  "/Users/kunwar/Documents/Code/AiViz/src/types/vite-env.d.ts": {
+    "mtime": 1773639521.8041763,
+    "ast_hash": "52d019a76ce71a59d1bd63503e031f87",
+    "semantic_hash": ""
+  },
+  "/Users/kunwar/Documents/Code/AiViz/src/config/site.ts": {
+    "mtime": 1773641547.9492414,
+    "ast_hash": "a2f43b391815813fd82dabac48a94e70",
+    "semantic_hash": ""
+  },
+  "/Users/kunwar/Documents/Code/AiViz/src/utils/interpolationUtils.ts": {
+    "mtime": 1773608734.438551,
+    "ast_hash": "5a9772280e60c1e5a6cafa6c6fe7e5a6",
+    "semantic_hash": ""
+  },
+  "/Users/kunwar/Documents/Code/AiViz/src/utils/timeline.ts": {
+    "mtime": 1772726519.0071805,
+    "ast_hash": "18899b5fd94c02050e685c549ff5e427",
+    "semantic_hash": ""
+  },
+  "/Users/kunwar/Documents/Code/AiViz/src/components/pipeline/RawInputStep.tsx": {
+    "mtime": 1772554036.3939364,
+    "ast_hash": "b00f11f3dbe57b3e8f96aa442c64e6bf",
+    "semantic_hash": ""
+  },
+  "/Users/kunwar/Documents/Code/AiViz/src/components/pipeline/PositionalEncodingStep.tsx": {
+    "mtime": 1772593716.8281047,
+    "ast_hash": "9e541eec3dbe1012438a3ce4aedd2dfa",
+    "semantic_hash": ""
+  },
+  "/Users/kunwar/Documents/Code/AiViz/src/components/pipeline/AttentionStep.tsx": {
+    "mtime": 1772560184.3226652,
+    "ast_hash": "c90ccadc66a9504a92bce5d099000081",
+    "semantic_hash": ""
+  },
+  "/Users/kunwar/Documents/Code/AiViz/src/components/pipeline/SoftmaxStep.tsx": {
+    "mtime": 1772593226.7577078,
+    "ast_hash": "c788a1da3e08e36e5d860e30d44f6517",
+    "semantic_hash": ""
+  },
+  "/Users/kunwar/Documents/Code/AiViz/src/components/pipeline/FFNStep.tsx": {
+    "mtime": 1772560417.4675386,
+    "ast_hash": "e9b69f1d0b954f6185d138e5f940fbdd",
+    "semantic_hash": ""
+  },
+  "/Users/kunwar/Documents/Code/AiViz/src/components/pipeline/LayerNormStep.tsx": {
+    "mtime": 1772560419.4004898,
+    "ast_hash": "f044a373ed962ae3f97fba0b87266d9b",
+    "semantic_hash": ""
+  },
+  "/Users/kunwar/Documents/Code/AiViz/src/components/pipeline/TokenizationStep.tsx": {
+    "mtime": 1772555450.3688362,
+    "ast_hash": "f180fdcb2de238246bf73c5d42cc3d14",
+    "semantic_hash": ""
+  },
+  "/Users/kunwar/Documents/Code/AiViz/src/components/pipeline/EmbeddingStep.tsx": {
+    "mtime": 1772816421.7329242,
+    "ast_hash": "a16012a70e115f6bd1e7b0870c1d039c",
+    "semantic_hash": ""
+  },
+  "/Users/kunwar/Documents/Code/AiViz/src/components/pipeline/ResidualStep.tsx": {
+    "mtime": 1772594192.2465627,
+    "ast_hash": "07626e9c56173e2c35484a8ed9697bc3",
+    "semantic_hash": ""
+  },
+  "/Users/kunwar/Documents/Code/AiViz/src/components/pipeline/LMHeadStep.tsx": {
+    "mtime": 1772594203.6913445,
+    "ast_hash": "9f383aa8a232f55fc9af05e6b8017ce3",
+    "semantic_hash": ""
+  },
+  "/Users/kunwar/Documents/Code/AiViz/src/components/pipeline/TokenIDStep.tsx": {
+    "mtime": 1772560182.3586044,
+    "ast_hash": "c062ff491b6fb717f6dc86cedad142f8",
+    "semantic_hash": ""
+  },
+  "/Users/kunwar/Documents/Code/AiViz/src/components/pipeline/SamplingStep.tsx": {
+    "mtime": 1772594205.6982617,
+    "ast_hash": "d1c182e4f326b581910fcd8dc8c4c3a4",
+    "semantic_hash": ""
+  },
+  "/Users/kunwar/Documents/Code/AiViz/src/components/core/SimulatorShell.tsx": {
+    "mtime": 1773639498.6080215,
+    "ast_hash": "58e50039a50ac6dbc1ef4fcf1bbdfe78",
+    "semantic_hash": ""
+  },
+  "/Users/kunwar/Documents/Code/AiViz/src/components/core/StepRouter.tsx": {
+    "mtime": 1772527025.2830703,
+    "ast_hash": "5b208ab601c81c9e7df6a74cfd30ad1e",
+    "semantic_hash": ""
+  },
+  "/Users/kunwar/Documents/Code/AiViz/src/components/core/PipelineCanvas.tsx": {
+    "mtime": 1772553902.5037196,
+    "ast_hash": "a279bf62be96612d33e254847d40e000",
+    "semantic_hash": ""
+  },
+  "/Users/kunwar/Documents/Code/AiViz/src/components/training/Step03Architecture.tsx": {
+    "mtime": 1772704141.4100792,
+    "ast_hash": "4a1ce5c0c5479dd70239377f6b28547d",
+    "semantic_hash": ""
+  },
+  "/Users/kunwar/Documents/Code/AiViz/src/components/training/Step07Alignment.tsx": {
+    "mtime": 1772704012.1812534,
+    "ast_hash": "4fc2b98af1738dd9caef9d5cedf98e1b",
+    "semantic_hash": ""
+  },
+  "/Users/kunwar/Documents/Code/AiViz/src/components/training/Step10Deployment.tsx": {
+    "mtime": 1772625754.8056679,
+    "ast_hash": "2e67650b44b7fa50fbd750f22e45bfc2",
+    "semantic_hash": ""
+  },
+  "/Users/kunwar/Documents/Code/AiViz/src/components/training/Step05Evaluation.tsx": {
+    "mtime": 1772624767.8507395,
+    "ast_hash": "a3eb6d396b3bcb0bf5207657593959e3",
+    "semantic_hash": ""
+  },
+  "/Users/kunwar/Documents/Code/AiViz/src/components/training/Step08Benchmarking.tsx": {
+    "mtime": 1772625821.3869328,
+    "ast_hash": "2a030d37933f80781b846f2958a0d07f",
+    "semantic_hash": ""
+  },
+  "/Users/kunwar/Documents/Code/AiViz/src/components/training/Step02Tokenizer.tsx": {
+    "mtime": 1772615747.1585855,
+    "ast_hash": "1330637302e978eebd2189a080b17504",
+    "semantic_hash": ""
+  },
+  "/Users/kunwar/Documents/Code/AiViz/src/components/training/Step09Inference.tsx": {
+    "mtime": 1772643717.6411242,
+    "ast_hash": "fa13cffa42ef1faeb81bd7707a80eddc",
+    "semantic_hash": ""
+  },
+  "/Users/kunwar/Documents/Code/AiViz/src/components/training/Step04PreTraining.tsx": {
+    "mtime": 1772624765.4765625,
+    "ast_hash": "95b3b0f8b29fcfd26aa6add441fec54b",
+    "semantic_hash": ""
+  },
+  "/Users/kunwar/Documents/Code/AiViz/src/components/training/Step01DataCollection.tsx": {
+    "mtime": 1772623670.4737387,
+    "ast_hash": "fbbd369afac866284650478a6ec8c628",
+    "semantic_hash": ""
+  },
+  "/Users/kunwar/Documents/Code/AiViz/src/components/training/Step06SFT.tsx": {
+    "mtime": 1772703979.6499355,
+    "ast_hash": "721cfd11eb922ea0476db4635b59fb46",
+    "semantic_hash": ""
+  },
+  "/Users/kunwar/Documents/Code/AiViz/src/components/training/alignment/RLHFPanel.tsx": {
+    "mtime": 1772622473.2444174,
+    "ast_hash": "92718b7f08f9cd8216b8e505191de8a4",
+    "semantic_hash": ""
+  },
+  "/Users/kunwar/Documents/Code/AiViz/src/components/training/alignment/RLAIFPanel.tsx": {
+    "mtime": 1772623693.174614,
+    "ast_hash": "478649139d3600d731ca6807c67c2e71",
+    "semantic_hash": ""
+  },
+  "/Users/kunwar/Documents/Code/AiViz/src/components/training/alignment/CAIPanel.tsx": {
+    "mtime": 1772623698.816562,
+    "ast_hash": "5d5234bd93c1338ea054d8f32b1bdc5c",
+    "semantic_hash": ""
+  },
+  "/Users/kunwar/Documents/Code/AiViz/src/components/training/alignment/DPOPanel.tsx": {
+    "mtime": 1772623688.6795602,
+    "ast_hash": "692781e18e7adc14c04398a1bfae7ba1",
+    "semantic_hash": ""
+  },
+  "/Users/kunwar/Documents/Code/AiViz/src/components/visualizers/MatrixHeatmap.tsx": {
+    "mtime": 1772555478.9755397,
+    "ast_hash": "a87c897582bc76511a2f7596553f0015",
+    "semantic_hash": ""
+  },
+  "/Users/kunwar/Documents/Code/AiViz/src/components/visualizers/VectorBar.tsx": {
+    "mtime": 1772704438.856219,
+    "ast_hash": "ec6a430a6a7cd1ad9d3d9056ff6501a5",
+    "semantic_hash": ""
+  },
+  "/Users/kunwar/Documents/Code/AiViz/src/components/visualizers/AttentionHeatmap.tsx": {
+    "mtime": 1772704287.7091155,
+    "ast_hash": "241f5ba926e5bc0faca66657757850db",
+    "semantic_hash": ""
+  },
+  "/Users/kunwar/Documents/Code/AiViz/src/components/visualizers/FlowArrow.tsx": {
+    "mtime": 1772704362.4216347,
+    "ast_hash": "90ee5fb2c080af94a871d669561dc508",
+    "semantic_hash": ""
+  },
+  "/Users/kunwar/Documents/Code/AiViz/src/components/visualizers/ShapeLabel.tsx": {
+    "mtime": 1772704386.823845,
+    "ast_hash": "8e088640060335d6e525dd31f3e4e672",
+    "semantic_hash": ""
+  },
+  "/Users/kunwar/Documents/Code/AiViz/src/components/visualizers/TokenBadge.tsx": {
+    "mtime": 1772704413.9140105,
+    "ast_hash": "4a35192d130902e3c84b32bd098939f2",
+    "semantic_hash": ""
+  },
+  "/Users/kunwar/Documents/Code/AiViz/src/components/shared/Nav.tsx": {
+    "mtime": 1773647576.853886,
+    "ast_hash": "fd66fb37dbd2f95c044cab472d00b383",
+    "semantic_hash": ""
+  },
+  "/Users/kunwar/Documents/Code/AiViz/src/components/shared/GlassCard.tsx": {
+    "mtime": 1772564437.7170527,
+    "ast_hash": "4c786e2a52bc978faa64a62fb3785348",
+    "semantic_hash": ""
+  },
+  "/Users/kunwar/Documents/Code/AiViz/src/components/shared/NumberDisplay.tsx": {
+    "mtime": 1772479149.518261,
+    "ast_hash": "c6e05012c18498f44725d5f905b45a39",
+    "semantic_hash": ""
+  },
+  "/Users/kunwar/Documents/Code/AiViz/src/components/shared/PrimaryButton.tsx": {
+    "mtime": 1773639151.1460323,
+    "ast_hash": "8a7030955aeaf83120ec6fc2c975d9e7",
+    "semantic_hash": ""
+  },
+  "/Users/kunwar/Documents/Code/AiViz/src/components/shared/Footer.tsx": {
+    "mtime": 1773639336.619902,
+    "ast_hash": "ee42687f9dd40e7e1d5d07005d79fcdf",
+    "semantic_hash": ""
+  },
+  "/Users/kunwar/Documents/Code/AiViz/src/components/shared/Badge.tsx": {
+    "mtime": 1772816799.5824661,
+    "ast_hash": "bf33e5270ac34c2f58880a56400561ba",
+    "semantic_hash": ""
+  },
+  "/Users/kunwar/Documents/Code/AiViz/src/components/shared/index.ts": {
+    "mtime": 1773639356.071649,
+    "ast_hash": "b736232440965f5133e6b049342c2cbd",
+    "semantic_hash": ""
+  },
+  "/Users/kunwar/Documents/Code/AiViz/src/components/shared/SecondaryButton.tsx": {
+    "mtime": 1773639161.2937958,
+    "ast_hash": "f456aaceb4201b9a8556db33943df97e",
+    "semantic_hash": ""
+  },
+  "/Users/kunwar/Documents/Code/AiViz/src/components/shared/ErrorBoundary.tsx": {
+    "mtime": 1772553703.6685982,
+    "ast_hash": "42f8e3668ab56913cdd5c5cbe12de4db",
+    "semantic_hash": ""
+  },
+  "/Users/kunwar/Documents/Code/AiViz/src/components/educational/OpenSourceVisual.tsx": {
+    "mtime": 1772978430.7248104,
+    "ast_hash": "de870ce12b8291ae096bf7e5928406b8",
+    "semantic_hash": ""
+  },
+  "/Users/kunwar/Documents/Code/AiViz/src/components/educational/OnboardingTour.tsx": {
+    "mtime": 1772816413.6792376,
+    "ast_hash": "5f2ba707572095aa6a3cb04806f9537a",
+    "semantic_hash": ""
+  },
+  "/Users/kunwar/Documents/Code/AiViz/src/components/educational/ConceptCard.tsx": {
+    "mtime": 1772816415.6900983,
+    "ast_hash": "e3c013ed3f77279707ef768c701d3344",
+    "semantic_hash": ""
+  },
+  "/Users/kunwar/Documents/Code/AiViz/src/components/educational/HeroVisual.tsx": {
+    "mtime": 1772888166.7135108,
+    "ast_hash": "6847a5817fb3c38313c4f0533e62ac72",
+    "semantic_hash": ""
+  },
+  "/Users/kunwar/Documents/Code/AiViz/src/components/educational/ScaleVisual.tsx": {
+    "mtime": 1773646585.2738895,
+    "ast_hash": "ac4c962f9cff5f759b15bdf503829651",
+    "semantic_hash": ""
+  },
+  "/Users/kunwar/Documents/Code/AiViz/src/components/educational/TooltipEngine.tsx": {
+    "mtime": 1772704272.2056656,
+    "ast_hash": "4cb0a25b69200bb356523e515944c4ce",
+    "semantic_hash": ""
+  },
+  "/Users/kunwar/Documents/Code/AiViz/src/components/controls/ControlPanel.tsx": {
+    "mtime": 1772553962.0750353,
+    "ast_hash": "53a2589569583867e704ea79f230fc0b",
+    "semantic_hash": ""
+  },
+  "/Users/kunwar/Documents/Code/AiViz/src/components/controls/ModelConfigForm.tsx": {
+    "mtime": 1772553781.177693,
+    "ast_hash": "049531746bf9306b3b05e37f7f4ba2c6",
+    "semantic_hash": ""
+  },
+  "/Users/kunwar/Documents/Code/AiViz/src/components/controls/ModeToggle.tsx": {
+    "mtime": 1772704752.5923429,
+    "ast_hash": "9dafa241273c04cff25440d882c87e26",
+    "semantic_hash": ""
+  },
+  "/Users/kunwar/Documents/Code/AiViz/src/components/controls/PlaybackControls.tsx": {
+    "mtime": 1772553960.0837514,
+    "ast_hash": "3a84d35de8398d8ebf9766111829cd00",
+    "semantic_hash": ""
+  },
+  "/Users/kunwar/Documents/Code/AiViz/src/components/common/ScrollToTop.tsx": {
+    "mtime": 1772887495.966894,
+    "ast_hash": "88cae4cf94f4cef6f92ba26a9fee7624",
+    "semantic_hash": ""
+  },
+  "/Users/kunwar/Documents/Code/AiViz/src/components/common/SEO.tsx": {
+    "mtime": 1773639135.5120223,
+    "ast_hash": "2274d35e710879bf413174aaf3915a73",
+    "semantic_hash": ""
+  },
+  "/Users/kunwar/Documents/Code/AiViz/src/components/common/SkipToMain.tsx": {
+    "mtime": 1773639340.0344722,
+    "ast_hash": "4f8a3fb8ee29924562122fb08352062f",
+    "semantic_hash": ""
+  },
+  "/Users/kunwar/Documents/Code/AiViz/src/components/benchmarks/BenchmarkGlossary.tsx": {
+    "mtime": 1773610396.8168383,
+    "ast_hash": "6bb2a285d784736c3d32eb113829e28f",
+    "semantic_hash": ""
+  },
+  "/Users/kunwar/Documents/Code/AiViz/src/components/benchmarks/SpeedChart.tsx": {
+    "mtime": 1773647576.85319,
+    "ast_hash": "0c559462dbcb15aa24bd640102a80eaa",
+    "semantic_hash": ""
+  },
+  "/Users/kunwar/Documents/Code/AiViz/src/components/benchmarks/ProgressTimeline.tsx": {
+    "mtime": 1773647576.8525438,
+    "ast_hash": "db5fed4d96c85aa3f8030aad71ccdc82",
+    "semantic_hash": ""
+  },
+  "/Users/kunwar/Documents/Code/AiViz/src/components/benchmarks/BenchmarkLeaderboard.tsx": {
+    "mtime": 1773647576.852214,
+    "ast_hash": "e67ed507ff62995dc396c7bee374d743",
+    "semantic_hash": ""
+  },
+  "/Users/kunwar/Documents/Code/AiViz/src/components/benchmarks/BenchmarkSources.tsx": {
+    "mtime": 1773610358.169455,
+    "ast_hash": "1c3c12ff08c1331747b3c1e83244066d",
+    "semantic_hash": ""
+  },
+  "/Users/kunwar/Documents/Code/AiViz/src/components/benchmarks/ValueMap.tsx": {
+    "mtime": 1773647576.8535497,
+    "ast_hash": "44ef8ea3fe4830088b31190bc3eaeee5",
+    "semantic_hash": ""
+  },
+  "/Users/kunwar/Documents/Code/AiViz/src/components/benchmarks/RadarComparison.tsx": {
+    "mtime": 1773647576.852838,
+    "ast_hash": "a285c1fbdd5d0aed95a4ae977fa4b476",
+    "semantic_hash": ""
+  },
+  "/Users/kunwar/Documents/Code/AiViz/src/components/automation/ImpactMetric.tsx": {
+    "mtime": 1773608809.7296112,
+    "ast_hash": "f92af80c97638c6e3aab8e3061cea182",
+    "semantic_hash": ""
+  },
+  "/Users/kunwar/Documents/Code/AiViz/src/components/automation/SourcesPanel.tsx": {
+    "mtime": 1773608890.374189,
+    "ast_hash": "8394ebc531d600f50e6754c206fdb50e",
+    "semantic_hash": ""
+  },
+  "/Users/kunwar/Documents/Code/AiViz/src/components/automation/SectorCard.tsx": {
+    "mtime": 1773609066.6947045,
+    "ast_hash": "b8c8ebdc529f8fee4b384e84547f12cc",
+    "semantic_hash": ""
+  },
+  "/Users/kunwar/Documents/Code/AiViz/src/components/automation/MilestoneTimeline.tsx": {
+    "mtime": 1773608831.6029112,
+    "ast_hash": "3f019c42dc88cb49855d481b94a40a75",
+    "semantic_hash": ""
+  },
+  "/Users/kunwar/Documents/Code/AiViz/src/components/automation/YearSlider.tsx": {
+    "mtime": 1773647576.8518353,
+    "ast_hash": "15d6f3e77111459c2fdf15705c24ae02",
+    "semantic_hash": ""
+  },
+  "/Users/kunwar/Documents/Code/AiViz/src/components/automation/JobImpactChart.tsx": {
+    "mtime": 1773647576.851494,
+    "ast_hash": "1e51f9babd8c5c439e76045781e3a879",
+    "semantic_hash": ""
+  },
+  "/Users/kunwar/Documents/Code/AiViz/src/components/timeline/TimelineHeader.tsx": {
+    "mtime": 1773647576.8545556,
+    "ast_hash": "2812ef049d42dda5ddb5d46f33094844",
+    "semantic_hash": ""
+  },
+  "/Users/kunwar/Documents/Code/AiViz/src/components/timeline/TimelineCanvas.tsx": {
+    "mtime": 1773647576.854201,
+    "ast_hash": "1bf9323960ff5eb93610d00123bf54c2",
+    "semantic_hash": ""
+  },
+  "/Users/kunwar/Documents/Code/AiViz/src/components/timeline/TimelinePopup.tsx": {
+    "mtime": 1773647576.8548822,
+    "ast_hash": "458d695bd90c174f440c920b0d3f7cd7",
+    "semantic_hash": ""
+  },
+  "/Users/kunwar/Documents/Code/AiViz/src/components/timeline/TimelineNode.tsx": {
+    "mtime": 1772864540.7083652,
+    "ast_hash": "84127fc1d7aafa3a9e9ad5558d906b81",
+    "semantic_hash": ""
+  },
+  "/Users/kunwar/Documents/Code/AiViz/src/components/timeline/TimelineTable.tsx": {
+    "mtime": 1773647576.8552847,
+    "ast_hash": "fbca2f83d5399c4afebcf21c2fdb73e0",
+    "semantic_hash": ""
+  },
+  "/Users/kunwar/Documents/Code/AiViz/src/__tests__/setup.ts": {
+    "mtime": 1772441148.8469913,
+    "ast_hash": "94f6597f999803fd22cc428c59c1cd71",
+    "semantic_hash": ""
+  },
+  "/Users/kunwar/Documents/Code/AiViz/src/__tests__/mathEngine/normalization.test.ts": {
+    "mtime": 1772452644.5268357,
+    "ast_hash": "666083817c159f4fe96d09f20a13ab18",
+    "semantic_hash": ""
+  },
+  "/Users/kunwar/Documents/Code/AiViz/src/__tests__/mathEngine/tensor.test.ts": {
+    "mtime": 1772452580.1066358,
+    "ast_hash": "0875cbc63a68615858e8d63a0a13fa4f",
+    "semantic_hash": ""
+  },
+  "/Users/kunwar/Documents/Code/AiViz/src/__tests__/mathEngine/softmax.test.ts": {
+    "mtime": 1772452642.5497553,
+    "ast_hash": "b8135faa540d0489eb7b38bb11f5f724",
+    "semantic_hash": ""
+  },
+  "/Users/kunwar/Documents/Code/AiViz/src/__tests__/mathEngine/embedding_pe_integration.test.ts": {
+    "mtime": 1772463949.6621854,
+    "ast_hash": "3c995b046649e0e4d65b5d836e94cbb2",
+    "semantic_hash": ""
+  },
+  "/Users/kunwar/Documents/Code/AiViz/src/__tests__/mathEngine/matmul.test.ts": {
+    "mtime": 1772452617.8636878,
+    "ast_hash": "496a15b05e45f024dc854e70c24c6619",
+    "semantic_hash": ""
+  },
+  "/Users/kunwar/Documents/Code/AiViz/src/__tests__/mathEngine/attention.test.ts": {
+    "mtime": 1772452692.6388447,
+    "ast_hash": "b492313855168d3631565407146de50f",
+    "semantic_hash": ""
+  },
+  "/Users/kunwar/Documents/Code/AiViz/src/__tests__/store/stepMachine.test.ts": {
+    "mtime": 1772458225.913459,
+    "ast_hash": "e42c16c61b8ded30f6ea295365701381",
+    "semantic_hash": ""
+  },
+  "/Users/kunwar/Documents/Code/AiViz/src/hooks/useReducedMotion.ts": {
+    "mtime": 1772816784.2557309,
+    "ast_hash": "409fa0ff3c191cff773170c5fee4ba77",
+    "semantic_hash": ""
+  },
+  "/Users/kunwar/Documents/Code/AiViz/src/lib/tokenizer/wordSplit.ts": {
+    "mtime": 1772452471.5502443,
+    "ast_hash": "68a9ae914c141417163dd4867893dcb4",
+    "semantic_hash": ""
+  },
+  "/Users/kunwar/Documents/Code/AiViz/src/lib/tokenizer/vocab.ts": {
+    "mtime": 1772816786.2637658,
+    "ast_hash": "287bb47cc19fae10da72aac8c1d584d5",
+    "semantic_hash": ""
+  },
+  "/Users/kunwar/Documents/Code/AiViz/src/lib/mathEngine/positional.ts": {
+    "mtime": 1772452435.8057604,
+    "ast_hash": "3b6dd63969c029ecb9405b8342a20fdd",
+    "semantic_hash": ""
+  },
+  "/Users/kunwar/Documents/Code/AiViz/src/lib/mathEngine/softmax.ts": {
+    "mtime": 1772452404.3641188,
+    "ast_hash": "dfd2778e5912e3880220221459393d21",
+    "semantic_hash": ""
+  },
+  "/Users/kunwar/Documents/Code/AiViz/src/lib/mathEngine/normalization.ts": {
+    "mtime": 1772452410.318443,
+    "ast_hash": "7fdcdf6e1400c23a4350abe1be33ffc7",
+    "semantic_hash": ""
+  },
+  "/Users/kunwar/Documents/Code/AiViz/src/lib/mathEngine/sampling.ts": {
+    "mtime": 1772452437.8134453,
+    "ast_hash": "ff757638641229da5c06f6ba40fa8f06",
+    "semantic_hash": ""
+  },
+  "/Users/kunwar/Documents/Code/AiViz/src/lib/mathEngine/tensor.ts": {
+    "mtime": 1772452346.4689085,
+    "ast_hash": "292974e5cd406a91e396182d72a286cb",
+    "semantic_hash": ""
+  },
+  "/Users/kunwar/Documents/Code/AiViz/src/lib/mathEngine/activations.ts": {
+    "mtime": 1772452412.3280413,
+    "ast_hash": "2735d677493b587f2ea68bc7d62fffec",
+    "semantic_hash": ""
+  },
+  "/Users/kunwar/Documents/Code/AiViz/src/lib/mathEngine/index.ts": {
+    "mtime": 1772452703.5957341,
+    "ast_hash": "491308fd192143b6d066d2b3064bcd0e",
+    "semantic_hash": ""
+  },
+  "/Users/kunwar/Documents/Code/AiViz/src/lib/mathEngine/matmul.ts": {
+    "mtime": 1772452382.005224,
+    "ast_hash": "a8de8d21e2f9464e59289e15f040c980",
+    "semantic_hash": ""
+  },
+  "/Users/kunwar/Documents/Code/AiViz/src/lib/mathEngine/attention.ts": {
+    "mtime": 1772452462.9274156,
+    "ast_hash": "57c635f7b46ff814a98f14a78ac99368",
+    "semantic_hash": ""
+  },
+  "/Users/kunwar/Documents/Code/AiViz/src/lib/store/stepMachine.ts": {
+    "mtime": 1772457965.1758676,
+    "ast_hash": "48ba14437d0d6564dba9223534148ef0",
+    "semantic_hash": ""
+  },
+  "/Users/kunwar/Documents/Code/AiViz/src/lib/store/types.ts": {
+    "mtime": 1772816769.4108531,
+    "ast_hash": "59c4497431cfc89e6fd4b6598c06c73a",
+    "semantic_hash": ""
+  },
+  "/Users/kunwar/Documents/Code/AiViz/src/lib/store/simulatorStore.ts": {
+    "mtime": 1772816419.7200246,
+    "ast_hash": "79207a81cb674bdcd10fa63d0ff3613c",
+    "semantic_hash": ""
+  },
+  "/Users/kunwar/Documents/Code/AiViz/src/data/Research_Papers_Dataset.json": {
+    "mtime": 1778938215.6549828,
+    "ast_hash": "be64fe1caa3ea1f7d1a9db8badee0a9f",
+    "semantic_hash": ""
+  },
+  "/Users/kunwar/Documents/Code/AiViz/src/data/AI_Tools_Dataset.json": {
+    "mtime": 1778938215.6558564,
+    "ast_hash": "f3661bd5dab2e26233fc1d6e214702cf",
+    "semantic_hash": ""
+  },
+  "/Users/kunwar/Documents/Code/AiViz/src/data/automationData.ts": {
+    "mtime": 1778938232.838468,
+    "ast_hash": "0142371c756eb3f096df1970dd995c5e",
+    "semantic_hash": ""
+  },
+  "/Users/kunwar/Documents/Code/AiViz/src/data/LLM_Timeline_Dataset.json": {
+    "mtime": 1778938215.6483476,
+    "ast_hash": "38d33e0118e9f74a789f0cef0fb77e25",
+    "semantic_hash": ""
+  },
+  "/Users/kunwar/Documents/Code/AiViz/src/data/benchmarkData.ts": {
+    "mtime": 1778938232.1809833,
+    "ast_hash": "fe4335323989eaf8a7d9953cd739675d",
+    "semantic_hash": ""
+  },
+  "/Users/kunwar/Documents/Code/AiViz/src/pages/AutomationClockPage.tsx": {
+    "mtime": 1773647576.8559458,
+    "ast_hash": "1834a8f79712b2d5f9041063467ae496",
+    "semantic_hash": ""
+  },
+  "/Users/kunwar/Documents/Code/AiViz/src/pages/Home.tsx": {
+    "mtime": 1774761522.3487206,
+    "ast_hash": "323b8de487b01c9f945750113c38ba01",
+    "semantic_hash": ""
+  },
+  "/Users/kunwar/Documents/Code/AiViz/src/pages/Timeline.tsx": {
+    "mtime": 1773639448.6907985,
+    "ast_hash": "460e8652568ab618ea1decd100fc3bc0",
+    "semantic_hash": ""
+  },
+  "/Users/kunwar/Documents/Code/AiViz/src/pages/SimulatorPage.tsx": {
+    "mtime": 1773639416.125668,
+    "ast_hash": "ca198dc403d9c3394e611cf61c7f8f76",
+    "semantic_hash": ""
+  },
+  "/Users/kunwar/Documents/Code/AiViz/src/pages/BenchmarksPage.tsx": {
+    "mtime": 1773639468.9223454,
+    "ast_hash": "e39cb4db00887fca6a6b44dc76284cac",
+    "semantic_hash": ""
+  },
+  "/Users/kunwar/Documents/Code/AiViz/src/pages/Training.tsx": {
+    "mtime": 1773639463.9626777,
+    "ast_hash": "34c0c5fe0bdfa950df0267647c74f82e",
+    "semantic_hash": ""
+  },
+  "/Users/kunwar/Documents/Code/AiViz/src/pages/NotFound.tsx": {
+    "mtime": 1773639346.5780847,
+    "ast_hash": "759a14dba5429d78101593cab41010eb",
+    "semantic_hash": ""
+  },
+  "/Users/kunwar/Documents/Code/AiViz/src/pages/About.tsx": {
+    "mtime": 1773639408.7079136,
+    "ast_hash": "d5421bcaa23a84fa2b81c37302862f0b",
+    "semantic_hash": ""
+  },
+  "/Users/kunwar/Documents/Code/AiViz/index.html": {
+    "mtime": 1773641546.6553822,
+    "ast_hash": "3ec30f02131d1ab755abe15848913ed8",
+    "semantic_hash": ""
+  },
+  "/Users/kunwar/Documents/Code/AiViz/AI-Beacon-Technical-Specs.md": {
+    "mtime": 1773641555.497512,
+    "ast_hash": "003fcc9f14103dd932f896b0707f86e1",
+    "semantic_hash": ""
+  },
+  "/Users/kunwar/Documents/Code/AiViz/consites.md": {
+    "mtime": 1773772063.1999464,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "/Users/kunwar/Documents/Code/AiViz/README.md": {
+    "mtime": 1773641545.9507964,
+    "ast_hash": "26a820caf86c20cfc446eb1fd10c65d1",
+    "semantic_hash": ""
+  },
+  "/Users/kunwar/Documents/Code/AiViz/AI-Beacon-PRD.md": {
+    "mtime": 1773641554.2787004,
+    "ast_hash": "6bbcca36b802e01f74ef2bf19dd2db33",
+    "semantic_hash": ""
+  },
+  "/Users/kunwar/Documents/Code/AiViz/.agents/workflows/implement_aiviz_component.md": {
+    "mtime": 1772553550.0359643,
+    "ast_hash": "eef8f08e5ccbc3cb61eb59a37705eca7",
+    "semantic_hash": ""
+  },
+  "/Users/kunwar/Documents/Code/AiViz/.agents/skills/aiviz_frontend/SKILL.md": {
+    "mtime": 1772605201.7334425,
+    "ast_hash": "3cc5730d7150019a762f1fd80ca7d312",
+    "semantic_hash": ""
+  },
+  "/Users/kunwar/Documents/Code/AiViz/public/robots.txt": {
+    "mtime": 1773641548.3338668,
+    "ast_hash": "48b7cb6d0b1f76370402142a48144533",
+    "semantic_hash": ""
+  },
+  "/Users/kunwar/Documents/Code/AiViz/.github/ISSUE_TEMPLATE/feature_request.md": {
+    "mtime": 1773647576.836648,
+    "ast_hash": "174545e1d9daff8020525fdd1e020411",
+    "semantic_hash": ""
+  },
+  "/Users/kunwar/Documents/Code/AiViz/.github/ISSUE_TEMPLATE/bug_report.md": {
+    "mtime": 1773647576.836349,
+    "ast_hash": "e468801d29e6b66b0d496136e22e8b34",
+    "semantic_hash": ""
+  },
+  "/Users/kunwar/Documents/Code/AiViz/.github/ISSUE_TEMPLATE/custom.md": {
+    "mtime": 1773647576.8364942,
+    "ast_hash": "73b81d391445186c7a22c42708ff1832",
+    "semantic_hash": ""
+  },
+  "/Users/kunwar/Documents/Code/AiViz/docs/screenshots/AiBeacon-Transformer-Simulator.png": {
+    "mtime": 1773641304.7068257,
+    "ast_hash": "37b284a8e5a385c08c6e8c91bd078ee1",
+    "semantic_hash": ""
+  },
+  "/Users/kunwar/Documents/Code/AiViz/docs/screenshots/Ai-Beacon-Timeline.png": {
+    "mtime": 1773641304.6821687,
+    "ast_hash": "c24e62c781916e549b3e5da3e8f3bcb8",
+    "semantic_hash": ""
+  },
+  "/Users/kunwar/Documents/Code/AiViz/docs/screenshots/AiBeacon-Home.png": {
+    "mtime": 1773641304.687143,
+    "ast_hash": "60cb02c7e0bd644f41b342e698ac088b",
+    "semantic_hash": ""
+  },
+  "/Users/kunwar/Documents/Code/AiViz/public/favicon.svg": {
+    "mtime": 1772817603.081535,
+    "ast_hash": "90593e846e0cd609321d4a397fb184aa",
+    "semantic_hash": ""
+  }
+}

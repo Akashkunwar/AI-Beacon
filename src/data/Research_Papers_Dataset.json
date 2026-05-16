@@ -2,8 +2,8 @@
     "metadata": {
         "title": "Foundational AI Research Papers Timeline",
         "description": "A curated list of the most influential AI research papers that drove the technological revolution.",
-        "last_updated": "2026-05-06",
-        "total_papers": 81,
+        "last_updated": "2026-05-16",
+        "total_papers": 85,
         "fields": [
             "id",
             "title",
@@ -105,7 +105,7 @@
                 "Aaron Courville",
                 "Yoshua Bengio"
             ],
-            "institution": "Universit\u00e9 de Montr\u00e9al",
+            "institution": "Université de Montréal",
             "publication_date": "2014-06-10",
             "published_in": "NeurIPS",
             "topic": "Generative AI",
@@ -151,7 +151,7 @@
                 "Kyunghyun Cho",
                 "Yoshua Bengio"
             ],
-            "institution": "Jacobs University / Universit\u00e9 de Montr\u00e9al",
+            "institution": "Jacobs University / Université de Montréal",
             "publication_date": "2014-09-01",
             "published_in": "ICLR",
             "topic": "Natural Language Processing",
@@ -552,10 +552,10 @@
                 "Fabio Petroni",
                 "Vladimir Karpukhin",
                 "Naman Goyal",
-                "Heinrich K\u00fcttler",
+                "Heinrich Küttler",
                 "Mike Lewis",
                 "Wen-tau Yih",
-                "Tim Rockt\u00e4schel",
+                "Tim Rocktäschel",
                 "Sebastian Riedel",
                 "Douwe Kiela"
             ],
@@ -716,7 +716,7 @@
                 "Olaf Ronneberger",
                 "Kathryn Tunyasuvunakool",
                 "Russ Bates",
-                "Augustin \u017d\u00eddek",
+                "Augustin Žídek",
                 "Anna Potapenko",
                 "Alex Bridgland",
                 "Clemens Meyer",
@@ -765,7 +765,7 @@
                 "Andreas Blattmann",
                 "Dominik Lorenz",
                 "Patrick Esser",
-                "Bj\u00f6rn Ommer"
+                "Björn Ommer"
             ],
             "institution": "CompVis Group / LMU Munich",
             "publication_date": "2021-12-20",
@@ -895,7 +895,7 @@
                 "Daniel Y. Fu",
                 "Stefano Ermon",
                 "Atri Rudra",
-                "Christopher R\u00e9"
+                "Christopher Ré"
             ],
             "institution": "Stanford University",
             "publication_date": "2022-05-27",
@@ -978,7 +978,7 @@
             "authors": [
                 "Timo Schick",
                 "Jane Dwivedi-Yu",
-                "Roberto Dess\u00ec",
+                "Roberto Dessì",
                 "Roberta Raileanu",
                 "Maria Lomeli",
                 "Luke Zettlemoyer",
@@ -1008,8 +1008,8 @@
                 "Gautier Izacard",
                 "Xavier Martinet",
                 "Marie-Anne Lachaux",
-                "Timoth\u00e9e Lacroix",
-                "Baptiste Rozi\u00e8re",
+                "Timothée Lacroix",
+                "Baptiste Rozière",
                 "Naman Goyal",
                 "Eric Hambro",
                 "Faisal Azhar",
@@ -1220,7 +1220,7 @@
                 "Surya Gunasekar",
                 "Yi Zhang",
                 "Jyoti Aneja",
-                "Caio C\u00e9sar Teodoro Mendes",
+                "Caio César Teodoro Mendes",
                 "Allie Del Giorno",
                 "Srinivasan Gopi",
                 "Mojan Javaheripi",
@@ -1231,7 +1231,7 @@
                 "Shital Shah",
                 "Harkirat Singh Behl",
                 "Xin Wang",
-                "S\u00e9bastien Bubeck",
+                "Sébastien Bubeck",
                 "Ronen Eldan",
                 "Adam Tauman Kalai",
                 "Yin Tat Lee"
@@ -1384,7 +1384,7 @@
                 "Gianna Lengyel",
                 "Guillaume Bour",
                 "Guillaume Lample",
-                "L\u00e9lio Renard Lavaud",
+                "Lélio Renard Lavaud",
                 "Lucile Saulnier",
                 "Marie-Anne Lachaux",
                 "Pierre Stock",
@@ -1392,10 +1392,10 @@
                 "Sophia Yang",
                 "Szymon Antoniak",
                 "Teven Le Scao",
-                "Th\u00e9ophile Gervet",
+                "Théophile Gervet",
                 "Thibaut Lavril",
                 "Thomas Wang",
-                "Timoth\u00e9e Lacroix",
+                "Timothée Lacroix",
                 "William El Sayed"
             ],
             "institution": "Mistral AI",
@@ -1443,7 +1443,7 @@
                 "Sachin Vaidya",
                 "Fabian Ruehle",
                 "James Halverson",
-                "Marin Solja\u010di\u0107",
+                "Marin Soljačić",
                 "Thomas Y. Hou",
                 "Max Tegmark"
             ],
@@ -1756,6 +1756,27 @@
             "citations": 30
         },
         {
+            "id": 67,
+            "title": "GLM-5: from Vibe Coding to Agentic Engineering",
+            "authors": [
+                "Zhipu AI Research Team"
+            ],
+            "institution": "Zhipu AI",
+            "publication_date": "2026-02-12",
+            "published_in": "arXiv",
+            "topic": "Agentic AI / MoE Architecture",
+            "description": "Technical report for GLM-5, a 744B total / 40B active MoE model with DeepSeek Sparse Attention and the slime asynchronous RL infrastructure. Achieves state-of-the-art open-weight performance on SWE-bench Verified (77.8%) and agentic engineering benchmarks.",
+            "key_contributions": [
+                "744B MoE with DeepSeek Sparse Attention",
+                "slime asynchronous RL for long-horizon post-training",
+                "MIT open-weight release",
+                "SOTA open-weight agentic coding performance"
+            ],
+            "paper_url": "https://arxiv.org/abs/2602.15763",
+            "code_url": "https://github.com/zai-org/GLM-5",
+            "citations": 0
+        },
+        {
             "title": "TurboQuant: Fast and Efficient LLM Inference with Quantized KV Cache",
             "authors": [
                 "Google Research Team"
@@ -1770,10 +1791,10 @@
                 "Quantized Johnson-Lindenstrauss (QJL) compression",
                 "8x speedup in attention computations without significant accuracy loss"
             ],
-            "paper_url": "https://arxiv.org/abs/2603.XXXXX",
+            "paper_url": null,
             "code_url": null,
             "citations": 0,
-            "id": 67
+            "id": 68
         },
         {
             "title": "DeepAnalyze: Autonomous Data Science via Agentic LLMs",
@@ -1793,7 +1814,7 @@
             "paper_url": "https://arxiv.org",
             "code_url": null,
             "citations": 0,
-            "id": 68
+            "id": 69
         },
         {
             "title": "Kosmos: An AI Scientist for Autonomous Discovery",
@@ -1813,7 +1834,7 @@
             "paper_url": "https://arxiv.org",
             "code_url": null,
             "citations": 0,
-            "id": 69
+            "id": 70
         },
         {
             "title": "The Triadic Cognitive Architecture",
@@ -1833,7 +1854,7 @@
             "paper_url": "https://arxiv.org",
             "code_url": null,
             "citations": 0,
-            "id": 70
+            "id": 71
         },
         {
             "title": "On-Device LLM Inference with Selective Parameter Activation",
@@ -1850,10 +1871,10 @@
                 "Thermal-aware sustained load execution",
                 "On-device memory bandwidth optimization"
             ],
-            "paper_url": "https://arxiv.org/abs/2603.XXXXX",
+            "paper_url": null,
             "code_url": null,
             "citations": 0,
-            "id": 71
+            "id": 72
         },
         {
             "title": "AI Agent Traps: Vulnerabilities in Autonomous AI Navigation",
@@ -1873,7 +1894,7 @@
             "paper_url": "https://deepmind.google/security",
             "code_url": null,
             "citations": 0,
-            "id": 72
+            "id": 73
         },
         {
             "title": "Industrial Policy for the Intelligence Age",
@@ -1893,7 +1914,7 @@
             "paper_url": "https://openai.com/research/industrial-policy-for-the-intelligence-age",
             "code_url": null,
             "citations": 0,
-            "id": 73
+            "id": 74
         },
         {
             "title": "Dynamic Reflections: Probing Video Representations with Text Alignment",
@@ -1910,13 +1931,13 @@
                 "Video compression heuristics",
                 "Temporal consistency improvements"
             ],
-            "paper_url": "https://arxiv.org/abs/2604.XXXXX",
+            "paper_url": null,
             "code_url": null,
             "citations": 0,
-            "id": 74
+            "id": 75
         },
         {
-            "id": 75,
+            "id": 76,
             "title": "Claude Opus 4.7 Model Card",
             "authors": [
                 "Anthropic"
@@ -1937,7 +1958,7 @@
             "citations": 0
         },
         {
-            "id": 76,
+            "id": 77,
             "title": "Kimi K2.6: Native Multimodal Agentic Intelligence",
             "authors": [
                 "Moonshot AI Research Team"
@@ -1953,12 +1974,33 @@
                 "Long-horizon autonomous coding without human oversight",
                 "Reworked attention system for ultra-low latency"
             ],
-            "paper_url": "https://arxiv.org/abs/2604.XXXXX",
+            "paper_url": null,
             "code_url": null,
             "citations": 0
         },
         {
-            "id": 77,
+            "id": 78,
+            "title": "Qwen3.6 Technical Report",
+            "authors": [
+                "Alibaba Qwen Team"
+            ],
+            "institution": "Alibaba",
+            "publication_date": "2026-04-22",
+            "published_in": "arXiv",
+            "topic": "Multimodal LLMs",
+            "description": "Technical report for the Qwen3.6 model family including dense and MoE variants from 27B to Max-Preview. Details Gated DeltaNet architecture, native multimodal reasoning, and leading performance across six coding and agent benchmarks.",
+            "key_contributions": [
+                "Gated DeltaNet + Sparse MoE architecture",
+                "Qwen3.6 Max-Preview flagship for agentic coding",
+                "Open-weight 27B and 35B-A3B variants",
+                "Native multimodal text/vision/video input"
+            ],
+            "paper_url": null,
+            "code_url": "https://huggingface.co/Qwen",
+            "citations": 0
+        },
+        {
+            "id": 79,
             "title": "GPT-5.5 System Card",
             "authors": [
                 "OpenAI"
@@ -1979,7 +2021,7 @@
             "citations": 0
         },
         {
-            "id": 78,
+            "id": 80,
             "title": "DeepSeek-V4 Technical Report",
             "authors": [
                 "DeepSeek-AI"
@@ -1995,8 +2037,29 @@
                 "Efficient 1M context window via attention compression",
                 "MIT open-weight release for both Pro and Flash variants"
             ],
-            "paper_url": "https://arxiv.org/abs/2604.XXXXX",
+            "paper_url": null,
             "code_url": "https://github.com/deepseek-ai/DeepSeek-V4",
+            "citations": 0
+        },
+        {
+            "id": 81,
+            "title": "Hunyuan Hy3 Technical Report",
+            "authors": [
+                "Tencent Hunyuan Team"
+            ],
+            "institution": "Tencent",
+            "publication_date": "2026-04-24",
+            "published_in": "arXiv",
+            "topic": "Efficient LLMs / MoE Architecture",
+            "description": "Technical report for Hunyuan Hy3, a 295B total / 21B active open-source MoE model integrating fast and slow thinking modes. Built on rebuilt pre-training infrastructure and integrated across Tencent's Yuanbao, ima, and CodeBuddy products.",
+            "key_contributions": [
+                "295B MoE with fast + slow thinking modes",
+                "Apache 2.0 open-weight release",
+                "Rebuilt pre-training infrastructure",
+                "Integrated Tencent ecosystem deployment"
+            ],
+            "paper_url": null,
+            "code_url": null,
             "citations": 0
         },
         {
@@ -2008,7 +2071,7 @@
             "publication_date": "2026-04-28",
             "published_in": "ICLR 2026",
             "topic": "AI Safety / Reasoning",
-            "description": "Reveals that gains in AI reasoning capabilities achieved via reinforcement learning (RL) drive proportional increases in 'tool hallucinations' \u2014 errors when models attempt to use external tools. Identifies a fundamental tension between reasoning improvement and tool-use reliability.",
+            "description": "Reveals that gains in AI reasoning capabilities achieved via reinforcement learning (RL) drive proportional increases in 'tool hallucinations' — errors when models attempt to use external tools. Identifies a fundamental tension between reasoning improvement and tool-use reliability.",
             "key_contributions": [
                 "Discovery of reasoning-hallucination correlation",
                 "Taxonomy of tool hallucination types",
@@ -2018,7 +2081,7 @@
             "paper_url": "https://openreview.net/forum?id=reasoning-trap-2026",
             "code_url": null,
             "citations": 0,
-            "id": 79
+            "id": 82
         },
         {
             "title": "Evolvable Artificial Intelligence: Evolutionary Transitions in Digital Systems",
@@ -2040,7 +2103,7 @@
             "paper_url": "https://www.pnas.org/doi/10.1073/pnas.2026",
             "code_url": null,
             "citations": 0,
-            "id": 80
+            "id": 83
         },
         {
             "title": "Reducing Sycophancy in Language Models through Deliberate Question Framing",
@@ -2061,7 +2124,28 @@
             "paper_url": "https://www.aisi.gov.uk/research/sycophancy-reduction",
             "code_url": null,
             "citations": 0,
-            "id": 81
+            "id": 84
+        },
+        {
+            "id": 85,
+            "title": "Scaling Trusted Access for Cyber with GPT-5.5 and GPT-5.5-Cyber",
+            "authors": [
+                "OpenAI"
+            ],
+            "institution": "OpenAI",
+            "publication_date": "2026-05-07",
+            "published_in": "OpenAI Safety Publication",
+            "topic": "AI Safety / Cybersecurity",
+            "description": "Safety publication describing GPT-5.5-Cyber, a security-hardened variant of GPT-5.5 released in limited preview for critical infrastructure defenders. Covers vulnerability identification, malware analysis, and trusted-access deployment frameworks.",
+            "key_contributions": [
+                "GPT-5.5-Cyber security-specialized variant",
+                "Trusted access framework for defenders",
+                "Malware analysis and reverse engineering capabilities",
+                "Enhanced guardrails for cyber use cases"
+            ],
+            "paper_url": "https://openai.com/index/gpt-5-5-with-trusted-access-for-cyber",
+            "code_url": null,
+            "citations": 0
         }
     ]
 }
