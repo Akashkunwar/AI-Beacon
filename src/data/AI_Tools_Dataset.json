@@ -2,8 +2,8 @@
     "metadata": {
         "title": "AI Coding Tools Timeline",
         "description": "A curated timeline of the most influential AI tools, IDEs, and agents that revolutionized software development.",
-        "last_updated": "2026-05-16",
-        "total_tools": 97,
+        "last_updated": "2026-05-24",
+        "total_tools": 115,
         "fields": [
             "id",
             "name",
@@ -1574,6 +1574,294 @@
                 "Low-latency conversational agents"
             ],
             "url": "https://openai.com/index/advancing-voice-intelligence-with-new-models-in-the-api"
+        },
+        {
+            "name": "Codeium",
+            "company": "Exafunction",
+            "release_date": "2022-11-01",
+            "open_source": false,
+            "license": "Proprietary (Free tier)",
+            "category": "AI Code Assistant",
+            "description": "A free AI code assistant offering fast autocomplete, chat, and search capabilities across 70+ languages. Became one of the most popular free alternatives to GitHub Copilot before evolving into Windsurf.",
+            "key_features": [
+                "Free unlimited autocomplete",
+                "70+ language support",
+                "IDE-agnostic"
+            ],
+            "url": "https://codeium.com/",
+            "id": 98
+        },
+        {
+            "name": "Character.AI",
+            "company": "Character Technologies",
+            "release_date": "2022-09-16",
+            "open_source": false,
+            "license": "Proprietary",
+            "category": "AI Chatbot Platform",
+            "description": "A platform allowing users to create and interact with custom AI characters with distinct personalities, enabling creative roleplay, learning, and entertainment through personalized conversational AI.",
+            "key_features": [
+                "Custom character creation",
+                "Personality-driven conversations",
+                "Community-shared characters"
+            ],
+            "url": "https://character.ai/",
+            "id": 99
+        },
+        {
+            "name": "Synthesia",
+            "company": "Synthesia",
+            "release_date": "2022-01-01",
+            "open_source": false,
+            "license": "Proprietary",
+            "category": "AI Video Platform",
+            "description": "A leading AI video generation platform that creates professional videos with realistic AI avatars from text scripts, used extensively for training, onboarding, and corporate communications.",
+            "key_features": [
+                "160+ AI avatars",
+                "120+ language support",
+                "Script-to-video generation"
+            ],
+            "url": "https://www.synthesia.io/",
+            "id": 100
+        },
+        {
+            "name": "Jasper AI",
+            "company": "Jasper",
+            "release_date": "2023-01-10",
+            "open_source": false,
+            "license": "Proprietary",
+            "category": "AI Writing Assistant",
+            "description": "An enterprise-focused AI content creation platform that generates marketing copy, blog posts, social media content, and brand-consistent materials using customizable AI workflows.",
+            "key_features": [
+                "Brand voice customization",
+                "Campaign-level content generation",
+                "Marketing workflow templates"
+            ],
+            "url": "https://www.jasper.ai/",
+            "id": 101
+        },
+        {
+            "name": "Copy.ai",
+            "company": "Copy.ai",
+            "release_date": "2022-06-01",
+            "open_source": false,
+            "license": "Proprietary",
+            "category": "AI Marketing Platform",
+            "description": "An AI-powered platform focused on go-to-market automation that generates sales copy, marketing content, and automates content workflows across the entire marketing funnel.",
+            "key_features": [
+                "Go-to-market automation",
+                "Sales copy generation",
+                "Workflow builder"
+            ],
+            "url": "https://www.copy.ai/",
+            "id": 102
+        },
+        {
+            "name": "Adobe Firefly",
+            "company": "Adobe",
+            "release_date": "2023-03-21",
+            "open_source": false,
+            "license": "Proprietary (IP-safe)",
+            "category": "AI Image Generator",
+            "description": "Adobe's family of generative AI models designed for commercial safety, trained exclusively on licensed content. Integrated into Creative Cloud apps (Photoshop, Illustrator, Express) for text-to-image, generative fill, and text effects.",
+            "key_features": [
+                "Commercially safe / IP-indemnified",
+                "Creative Cloud integration",
+                "Generative Fill and Expand"
+            ],
+            "url": "https://www.adobe.com/products/firefly.html",
+            "id": 103
+        },
+        {
+            "name": "Google AI Studio",
+            "company": "Google",
+            "release_date": "2023-12-13",
+            "open_source": false,
+            "license": "Proprietary",
+            "category": "AI Development Platform",
+            "description": "A free, web-based development environment for prototyping and testing AI applications with Google's Gemini models. Provides prompt engineering tools, API key management, and model tuning capabilities.",
+            "key_features": [
+                "Free Gemini API access",
+                "Prompt engineering tools",
+                "Model fine-tuning"
+            ],
+            "url": "https://aistudio.google.com/",
+            "id": 104
+        },
+        {
+            "name": "Samsung Galaxy AI",
+            "company": "Samsung",
+            "release_date": "2024-01-17",
+            "open_source": false,
+            "license": "Proprietary",
+            "category": "On-device AI Suite",
+            "description": "Samsung's suite of on-device AI features for Galaxy smartphones, including real-time call translation, AI-powered photo editing (Generative Edit), note summarization, and writing assistance.",
+            "key_features": [
+                "Live call translation",
+                "Generative photo editing",
+                "Circle to Search"
+            ],
+            "url": "https://www.samsung.com/global/galaxy/galaxy-ai/",
+            "id": 105
+        },
+        {
+            "name": "Gamma",
+            "company": "Gamma App",
+            "release_date": "2023-02-01",
+            "open_source": false,
+            "license": "Proprietary",
+            "category": "AI Presentation Tool",
+            "description": "An AI-powered presentation and document creation platform that generates polished slide decks, documents, and web pages from natural language prompts with built-in design intelligence.",
+            "key_features": [
+                "AI-generated presentations",
+                "Adaptive design layouts",
+                "One-click restyling"
+            ],
+            "url": "https://gamma.app/",
+            "id": 106
+        },
+        {
+            "name": "Google Gemini App",
+            "company": "Google",
+            "release_date": "2024-02-08",
+            "open_source": false,
+            "license": "Proprietary",
+            "category": "AI Chatbot / Assistant",
+            "description": "Google's rebranded AI assistant (formerly Bard), powered by Gemini models. Provides multimodal conversation, Google services integration, and advanced reasoning capabilities across web and mobile platforms.",
+            "key_features": [
+                "Multimodal input (text, image, voice)",
+                "Google services integration",
+                "Gemini Advanced with Ultra model"
+            ],
+            "url": "https://gemini.google.com/",
+            "id": 107
+        },
+        {
+            "name": "Meta AI",
+            "company": "Meta",
+            "release_date": "2024-04-18",
+            "open_source": false,
+            "license": "Proprietary",
+            "category": "AI Assistant",
+            "description": "Meta's AI assistant powered by Llama 3, integrated across WhatsApp, Instagram, Messenger, and Facebook. Features image generation, real-time web search, and conversational AI capabilities.",
+            "key_features": [
+                "Cross-platform integration",
+                "Real-time image generation",
+                "Web search capabilities"
+            ],
+            "url": "https://www.meta.ai/",
+            "id": 108
+        },
+        {
+            "name": "Amazon Q Developer",
+            "company": "Amazon Web Services",
+            "release_date": "2024-04-30",
+            "open_source": false,
+            "license": "Proprietary",
+            "category": "AI Coding Assistant",
+            "description": "AWS's AI-powered coding assistant (formerly CodeWhisperer) that helps developers write, debug, test, and transform code. Features autonomous agent capabilities for multi-step development tasks within the AWS ecosystem.",
+            "key_features": [
+                "Autonomous code transformation",
+                "AWS integration",
+                "Security vulnerability scanning"
+            ],
+            "url": "https://aws.amazon.com/q/developer/",
+            "id": 109
+        },
+        {
+            "name": "Vercel AI SDK",
+            "company": "Vercel",
+            "release_date": "2023-06-14",
+            "open_source": true,
+            "license": "Apache 2.0",
+            "category": "AI Development SDK",
+            "description": "An open-source TypeScript toolkit for building AI-powered applications with React, Next.js, Vue, and other frameworks. Provides streaming UI primitives, model-agnostic API, and structured output generation.",
+            "key_features": [
+                "Streaming UI components",
+                "Multi-model provider support",
+                "Structured output generation"
+            ],
+            "url": "https://sdk.vercel.ai/",
+            "id": 110
+        },
+        {
+            "name": "Cline",
+            "company": "Community / Open Source",
+            "release_date": "2024-07-01",
+            "open_source": true,
+            "license": "Apache 2.0",
+            "category": "AI Code Extension",
+            "description": "An autonomous AI coding agent for VS Code that can create/edit files, execute terminal commands, use the browser, and coordinate multi-step development workflows. Supports multiple LLM providers.",
+            "key_features": [
+                "Autonomous file manipulation",
+                "Browser interaction",
+                "Multi-provider LLM support"
+            ],
+            "url": "https://github.com/cline/cline",
+            "id": 111
+        },
+        {
+            "name": "Microsoft AutoGen",
+            "company": "Microsoft",
+            "release_date": "2023-09-25",
+            "open_source": true,
+            "license": "MIT",
+            "category": "Multi-Agent Framework",
+            "description": "An open-source framework for building multi-agent AI systems where customizable and conversable agents collaborate to solve complex tasks. Enables both automated and human-in-the-loop workflows.",
+            "key_features": [
+                "Multi-agent conversation",
+                "Human-in-the-loop workflows",
+                "Customizable agent roles"
+            ],
+            "url": "https://github.com/microsoft/autogen",
+            "id": 112
+        },
+        {
+            "name": "Apple Intelligence",
+            "company": "Apple",
+            "release_date": "2024-06-10",
+            "open_source": false,
+            "license": "Proprietary",
+            "category": "On-device AI Platform",
+            "description": "Apple's personal intelligence system deeply integrated into iOS, iPadOS, and macOS. Features on-device language models, Writing Tools, Image Playground, Genmoji, and enhanced Siri with app-aware context understanding.",
+            "key_features": [
+                "On-device processing",
+                "System-wide Writing Tools",
+                "Private Cloud Compute"
+            ],
+            "url": "https://www.apple.com/apple-intelligence/",
+            "id": 113
+        },
+        {
+            "name": "GitHub Copilot Workspace",
+            "company": "GitHub",
+            "release_date": "2024-10-29",
+            "open_source": false,
+            "license": "Proprietary",
+            "category": "AI Development Workspace",
+            "description": "An AI-native development environment that helps developers plan, implement, and validate code changes for entire tasks using natural language, from GitHub issues to pull requests.",
+            "key_features": [
+                "Issue-to-PR workflows",
+                "Multi-file code generation",
+                "Integrated testing"
+            ],
+            "url": "https://github.com/features/copilot/workspace",
+            "id": 114
+        },
+        {
+            "name": "Canva Magic Studio",
+            "company": "Canva",
+            "release_date": "2023-10-04",
+            "open_source": false,
+            "license": "Proprietary",
+            "category": "AI Design Suite",
+            "description": "Canva's comprehensive AI design toolkit featuring Magic Design (AI-generated templates), Magic Write, Magic Edit (AI photo editing), Magic Animate, and text-to-image generation.",
+            "key_features": [
+                "Magic Design auto-layouts",
+                "Magic Edit photo AI",
+                "Brand Kit AI consistency"
+            ],
+            "url": "https://www.canva.com/magic/",
+            "id": 115
         }
     ]
 }

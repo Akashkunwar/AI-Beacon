@@ -2,8 +2,8 @@
     "metadata": {
         "title": "AI & LLM Models Timeline",
         "description": "Comprehensive list of AI and LLM models from 2017 to 2026, including text, vision, audio, multimodal and image generation models.",
-        "last_updated": "2026-05-16",
-        "total_models": 226,
+        "last_updated": "2026-05-24",
+        "total_models": 233,
         "audit_status": "Verified audit 2026-05-16: duplicates removed, dates cross-checked",
         "logo_source": "Clearbit Logo API (https://logo.clearbit.com/{domain})",
         "fields": [
@@ -3744,6 +3744,101 @@
             "id": 78
         },
         {
+            "company": "Stability AI",
+            "company_website": "https://stability.ai",
+            "company_logo_url": "https://logo.clearbit.com/stability.ai",
+            "model_family": "Stable Audio",
+            "model_name": "Stable Audio 2.0",
+            "model_version": "2.0",
+            "model_type": "Audio Generation",
+            "architecture": "Latent Diffusion (Audio)",
+            "modalities": [
+                "text-to-audio",
+                "audio-to-audio"
+            ],
+            "parameters": null,
+            "parameter_unit": "billion",
+            "training_tokens": null,
+            "open_source": true,
+            "license": "Stability AI Community License",
+            "api_available": true,
+            "context_window_tokens": null,
+            "training_data_cutoff": "2024-03",
+            "release_date": "2024-04-03",
+            "country": "UK",
+            "description": "An audio generation model capable of producing full tracks up to 3 minutes long at 44.1kHz stereo, with audio-to-audio and timeline-based editing.",
+            "use_cases": [
+                "music generation",
+                "sound effects",
+                "audio production"
+            ],
+            "notable_features": [
+                "3-minute track generation",
+                "44.1kHz stereo output",
+                "audio-to-audio transformation"
+            ],
+            "benchmark_scores": {},
+            "pricing_per_1m_tokens": {
+                "input": null,
+                "output": null
+            },
+            "official_model_link": "https://stability.ai/news/stable-audio-2-0",
+            "huggingface_url": "https://huggingface.co/stabilityai/stable-audio-open-1.0",
+            "paper_url": "https://arxiv.org/abs/2407.14358",
+            "predecessor": "Stable Audio 1.0",
+            "successor": null,
+            "id": 235
+        },
+        {
+            "company": "Cohere",
+            "company_website": "https://cohere.com",
+            "company_logo_url": "https://logo.clearbit.com/cohere.com",
+            "model_family": "Command",
+            "model_name": "Command R+",
+            "model_version": "R+",
+            "model_type": "LLM (RAG-Optimized)",
+            "architecture": "Transformer (Decoder-only)",
+            "modalities": [
+                "text"
+            ],
+            "parameters": 104,
+            "parameter_unit": "billion",
+            "training_tokens": null,
+            "open_source": true,
+            "license": "CC-BY-NC-4.0",
+            "api_available": true,
+            "context_window_tokens": 128000,
+            "training_data_cutoff": "2024-03",
+            "release_date": "2024-04-04",
+            "country": "Canada",
+            "description": "Cohere's most capable enterprise model at launch with 104B parameters, optimized for RAG and tool use. Features a 128K context window and strong multilingual support across 10 languages.",
+            "use_cases": [
+                "enterprise RAG",
+                "tool use",
+                "multilingual tasks",
+                "complex reasoning"
+            ],
+            "notable_features": [
+                "128K context window",
+                "RAG-optimized",
+                "10 language support",
+                "tool use native"
+            ],
+            "benchmark_scores": {
+                "MMLU": 75.7
+            },
+            "pricing_per_1m_tokens": {
+                "input": 3.0,
+                "output": 15.0
+            },
+            "official_model_link": "https://cohere.com/blog/command-r-plus-microsoft-azure",
+            "huggingface_url": "https://huggingface.co/CohereForAI/c4ai-command-r-plus",
+            "paper_url": null,
+            "predecessor": "Command R",
+            "successor": "Command R+ 08-2024",
+            "id": 236
+        },
+        {
             "id": 79,
             "company": "Mistral AI",
             "company_website": "https://mistral.ai",
@@ -4039,6 +4134,51 @@
             "successor": "Phi-4"
         },
         {
+            "company": "Adobe",
+            "company_website": "https://adobe.com",
+            "company_logo_url": "https://logo.clearbit.com/adobe.com",
+            "model_family": "Firefly",
+            "model_name": "Adobe Firefly Image Model 3",
+            "model_version": "3.0",
+            "model_type": "Text-to-Image",
+            "architecture": "Proprietary (Diffusion)",
+            "modalities": [
+                "text-to-image"
+            ],
+            "parameters": null,
+            "parameter_unit": "billion",
+            "training_tokens": null,
+            "open_source": false,
+            "license": "Proprietary (IP-safe)",
+            "api_available": true,
+            "context_window_tokens": null,
+            "training_data_cutoff": "2024-04",
+            "release_date": "2024-04-23",
+            "country": "USA",
+            "description": "Adobe's commercially safe text-to-image model trained exclusively on licensed content. Generates photorealistic images with superior prompt adherence, typography, and detail.",
+            "use_cases": [
+                "commercial image generation",
+                "marketing",
+                "design"
+            ],
+            "notable_features": [
+                "IP-safe training data",
+                "photorealistic output",
+                "integrated into Creative Cloud"
+            ],
+            "benchmark_scores": {},
+            "pricing_per_1m_tokens": {
+                "input": null,
+                "output": null
+            },
+            "official_model_link": "https://www.adobe.com/products/firefly.html",
+            "huggingface_url": null,
+            "paper_url": null,
+            "predecessor": "Firefly Image Model 2",
+            "successor": null,
+            "id": 237
+        },
+        {
             "company": "Snowflake",
             "company_website": "https://snowflake.com",
             "company_logo_url": "https://logo.clearbit.com/snowflake.com",
@@ -4259,6 +4399,54 @@
             "paper_url": null,
             "predecessor": "GPT-4 Turbo",
             "successor": "GPT-4o mini"
+        },
+        {
+            "company": "01.AI",
+            "company_website": "https://01.ai",
+            "company_logo_url": "https://logo.clearbit.com/01.ai",
+            "model_family": "Yi",
+            "model_name": "Yi-1.5",
+            "model_version": "1.5",
+            "model_type": "LLM",
+            "architecture": "Transformer (Decoder-only)",
+            "modalities": [
+                "text"
+            ],
+            "parameters": 34,
+            "parameter_unit": "billion",
+            "training_tokens": null,
+            "open_source": true,
+            "license": "Apache 2.0",
+            "api_available": true,
+            "context_window_tokens": 32768,
+            "training_data_cutoff": "2024-04",
+            "release_date": "2024-05-13",
+            "country": "China",
+            "description": "An upgraded version of Yi-34B with improved reasoning and multilingual capabilities. Available in 6B, 9B, and 34B variants with strong performance on MMLU and other benchmarks.",
+            "use_cases": [
+                "text generation",
+                "coding",
+                "reasoning",
+                "multilingual"
+            ],
+            "notable_features": [
+                "Apache 2.0 open-source",
+                "3 size variants",
+                "improved reasoning"
+            ],
+            "benchmark_scores": {
+                "MMLU": 77.2
+            },
+            "pricing_per_1m_tokens": {
+                "input": null,
+                "output": null
+            },
+            "official_model_link": "https://github.com/01-ai/Yi-1.5",
+            "huggingface_url": "https://huggingface.co/01-ai/Yi-1.5-34B",
+            "paper_url": null,
+            "predecessor": "Yi-34B",
+            "successor": null,
+            "id": 238
         },
         {
             "id": 91,
@@ -5090,6 +5278,51 @@
             "id": 110
         },
         {
+            "company": "Google DeepMind",
+            "company_website": "https://deepmind.google",
+            "company_logo_url": "https://logo.clearbit.com/deepmind.com",
+            "model_family": "Imagen",
+            "model_name": "Imagen 3",
+            "model_version": "3.0",
+            "model_type": "Text-to-Image",
+            "architecture": "Diffusion",
+            "modalities": [
+                "text-to-image"
+            ],
+            "parameters": null,
+            "parameter_unit": "billion",
+            "training_tokens": null,
+            "open_source": false,
+            "license": "Proprietary",
+            "api_available": true,
+            "context_window_tokens": null,
+            "training_data_cutoff": "2024-07",
+            "release_date": "2024-08-01",
+            "country": "USA",
+            "description": "Google's highest-quality text-to-image model, producing photorealistic images with superior prompt adherence. Available through Google AI Studio and Vertex AI.",
+            "use_cases": [
+                "image generation",
+                "creative design",
+                "marketing"
+            ],
+            "notable_features": [
+                "superior prompt adherence",
+                "photorealistic output",
+                "natural language rendering"
+            ],
+            "benchmark_scores": {},
+            "pricing_per_1m_tokens": {
+                "input": null,
+                "output": null
+            },
+            "official_model_link": "https://deepmind.google/technologies/imagen-3/",
+            "huggingface_url": null,
+            "paper_url": null,
+            "predecessor": "Imagen 2",
+            "successor": null,
+            "id": 239
+        },
+        {
             "company": "xAI",
             "company_website": "https://x.ai",
             "company_logo_url": "https://logo.clearbit.com/x.ai",
@@ -5519,6 +5752,51 @@
             "paper_url": null,
             "predecessor": "LLaMA 3.1",
             "successor": "LLaMA 3.3"
+        },
+        {
+            "company": "Cohere",
+            "company_website": "https://cohere.com",
+            "company_logo_url": "https://logo.clearbit.com/cohere.com",
+            "model_family": "Aya",
+            "model_name": "Aya Expanse",
+            "model_version": "1.0",
+            "model_type": "LLM (Multilingual)",
+            "architecture": "Transformer (Decoder-only)",
+            "modalities": [
+                "text"
+            ],
+            "parameters": 32,
+            "parameter_unit": "billion",
+            "training_tokens": null,
+            "open_source": true,
+            "license": "CC-BY-NC-4.0",
+            "api_available": true,
+            "context_window_tokens": 8192,
+            "training_data_cutoff": "2024-09",
+            "release_date": "2024-10-10",
+            "country": "Canada",
+            "description": "Cohere's multilingual model supporting 23 languages with strong cross-lingual transfer. Available in 8B and 32B variants with state-of-the-art multilingual performance.",
+            "use_cases": [
+                "multilingual NLP",
+                "translation",
+                "cross-lingual transfer"
+            ],
+            "notable_features": [
+                "23 language support",
+                "cross-lingual transfer",
+                "8B and 32B variants"
+            ],
+            "benchmark_scores": {},
+            "pricing_per_1m_tokens": {
+                "input": null,
+                "output": null
+            },
+            "official_model_link": "https://cohere.com/blog/aya-expanse",
+            "huggingface_url": "https://huggingface.co/CohereForAI/aya-expanse-32b",
+            "paper_url": null,
+            "predecessor": "Aya 23",
+            "successor": null,
+            "id": 240
         },
         {
             "company": "Stability AI",
@@ -10532,54 +10810,6 @@
             "successor": null
         },
         {
-            "company": "OpenAI",
-            "company_website": "https://openai.com",
-            "company_logo_url": "https://logo.clearbit.com/openai.com",
-            "model_family": "GPT",
-            "model_name": "GPT-5.5-Cyber",
-            "model_version": "5.5-cyber",
-            "model_type": "LLM (Security-Focused)",
-            "architecture": "Transformer (proprietary, security-hardened)",
-            "modalities": [
-                "text",
-                "vision"
-            ],
-            "parameters": null,
-            "parameter_unit": null,
-            "training_tokens": null,
-            "open_source": false,
-            "license": "Proprietary",
-            "api_available": true,
-            "context_window_tokens": 1050000,
-            "training_data_cutoff": "2025-12",
-            "release_date": "2026-05-07",
-            "country": "USA",
-            "description": "A security-focused variant of GPT-5.5 released in limited preview for critical infrastructure defenders. Optimized for vulnerability identification, malware analysis, reverse engineering, and enterprise security workflows with enhanced guardrails.",
-            "use_cases": [
-                "cybersecurity analysis",
-                "secure coding",
-                "threat detection",
-                "security automation"
-            ],
-            "notable_features": [
-                "security-hardened architecture",
-                "agent-driven economy foundation",
-                "enhanced security guardrails",
-                "enterprise security workflows"
-            ],
-            "benchmark_scores": {},
-            "pricing_per_1m_tokens": {
-                "input": null,
-                "output": null
-            },
-            "official_model_link": "https://openai.com",
-            "huggingface_url": null,
-            "paper_url": null,
-            "predecessor": "GPT-5.5",
-            "successor": null,
-            "id": 228
-        },
-        {
             "id": 230,
             "company": "OpenAI",
             "company_website": "https://openai.com",
@@ -10626,6 +10856,99 @@
             "paper_url": null,
             "predecessor": "GPT-5.3 Instant",
             "successor": null
+        },
+        {
+            "id": 234,
+            "company": "Subquadratic",
+            "company_website": "https://subquadratic.ai",
+            "company_logo_url": "https://logo.clearbit.com/subquadratic.ai",
+            "model_family": "SubQ",
+            "model_name": "SubQ",
+            "model_version": "1.0-preview",
+            "model_type": "LLM",
+            "architecture": "Subquadratic Sparse Attention",
+            "modalities": [
+                "text"
+            ],
+            "parameters": null,
+            "parameter_unit": null,
+            "training_tokens": null,
+            "open_source": false,
+            "license": "Proprietary",
+            "api_available": false,
+            "context_window_tokens": 12000000,
+            "training_data_cutoff": "2026-04",
+            "release_date": "2026-05-05",
+            "country": "USA",
+            "description": "Preview model from Subquadratic using subquadratic sparse attention instead of standard O(n²) transformer attention, enabling a claimed 12-million-token context window for long-horizon agentic workloads.",
+            "use_cases": [
+                "long-horizon agents",
+                "full-codebase analysis",
+                "document synthesis at extreme scale"
+            ],
+            "notable_features": [
+                "12M token context (claimed)",
+                "subquadratic attention architecture",
+                "long-horizon agent focus"
+            ],
+            "benchmark_scores": {},
+            "pricing_per_1m_tokens": {
+                "input": null,
+                "output": null
+            },
+            "official_model_link": "https://subquadratic.ai",
+            "huggingface_url": null,
+            "paper_url": null,
+            "predecessor": null,
+            "successor": null
+        },
+        {
+            "company": "OpenAI",
+            "company_website": "https://openai.com",
+            "company_logo_url": "https://logo.clearbit.com/openai.com",
+            "model_family": "GPT",
+            "model_name": "GPT-5.5-Cyber",
+            "model_version": "5.5-cyber",
+            "model_type": "LLM (Security-Focused)",
+            "architecture": "Transformer (proprietary, security-hardened)",
+            "modalities": [
+                "text",
+                "vision"
+            ],
+            "parameters": null,
+            "parameter_unit": null,
+            "training_tokens": null,
+            "open_source": false,
+            "license": "Proprietary",
+            "api_available": true,
+            "context_window_tokens": 1050000,
+            "training_data_cutoff": "2025-12",
+            "release_date": "2026-05-07",
+            "country": "USA",
+            "description": "A security-focused variant of GPT-5.5 released in limited preview for critical infrastructure defenders. Optimized for vulnerability identification, malware analysis, reverse engineering, and enterprise security workflows with enhanced guardrails.",
+            "use_cases": [
+                "cybersecurity analysis",
+                "secure coding",
+                "threat detection",
+                "security automation"
+            ],
+            "notable_features": [
+                "security-hardened architecture",
+                "agent-driven economy foundation",
+                "enhanced security guardrails",
+                "enterprise security workflows"
+            ],
+            "benchmark_scores": {},
+            "pricing_per_1m_tokens": {
+                "input": null,
+                "output": null
+            },
+            "official_model_link": "https://openai.com",
+            "huggingface_url": null,
+            "paper_url": null,
+            "predecessor": "GPT-5.5",
+            "successor": null,
+            "id": 228
         },
         {
             "id": 231,
@@ -10767,49 +11090,53 @@
             "successor": null
         },
         {
-            "id": 234,
-            "company": "Subquadratic",
-            "company_website": "https://subquadratic.ai",
-            "company_logo_url": "https://logo.clearbit.com/subquadratic.ai",
-            "model_family": "SubQ",
-            "model_name": "SubQ",
-            "model_version": "1.0-preview",
-            "model_type": "LLM",
-            "architecture": "Subquadratic Sparse Attention",
+            "company": "Google",
+            "company_website": "https://google.com",
+            "company_logo_url": "https://logo.clearbit.com/google.com",
+            "model_family": "Gemma",
+            "model_name": "Gemma 3n",
+            "model_version": "3n",
+            "model_type": "SLM (On-device)",
+            "architecture": "Transformer (Selective Parameter Activation)",
             "modalities": [
-                "text"
+                "text",
+                "vision",
+                "audio"
             ],
-            "parameters": null,
-            "parameter_unit": null,
+            "parameters": 8,
+            "parameter_unit": "billion",
             "training_tokens": null,
-            "open_source": false,
-            "license": "Proprietary",
-            "api_available": false,
-            "context_window_tokens": 12000000,
+            "open_source": true,
+            "license": "Gemma Terms of Use",
+            "api_available": true,
+            "context_window_tokens": 32768,
             "training_data_cutoff": "2026-04",
-            "release_date": "2026-05-05",
+            "release_date": "2026-05-20",
             "country": "USA",
-            "description": "Preview model from Subquadratic using subquadratic sparse attention instead of standard O(n²) transformer attention, enabling a claimed 12-million-token context window for long-horizon agentic workloads.",
+            "description": "Google's on-device optimized variant of Gemma with selective parameter activation technology. E2B and E4B variants use only 2B and 4B active parameters respectively while maintaining quality of larger models. Designed for sustained mobile/edge inference with minimal thermal throttling.",
             "use_cases": [
-                "long-horizon agents",
-                "full-codebase analysis",
-                "document synthesis at extreme scale"
+                "on-device AI",
+                "mobile applications",
+                "edge computing",
+                "multimodal tasks"
             ],
             "notable_features": [
-                "12M token context (claimed)",
-                "subquadratic attention architecture",
-                "long-horizon agent focus"
+                "selective parameter activation",
+                "E2B and E4B variants",
+                "thermal-aware inference",
+                "natively multimodal"
             ],
             "benchmark_scores": {},
             "pricing_per_1m_tokens": {
-                "input": null,
-                "output": null
+                "input": 0.0,
+                "output": 0.0
             },
-            "official_model_link": "https://subquadratic.ai",
-            "huggingface_url": null,
+            "official_model_link": "https://ai.google.dev/gemma",
+            "huggingface_url": "https://huggingface.co/google/gemma-3n-E4B",
             "paper_url": null,
-            "predecessor": null,
-            "successor": null
+            "predecessor": "Gemma 3",
+            "successor": null,
+            "id": 241
         }
     ]
 }
