@@ -2,8 +2,8 @@
     "metadata": {
         "title": "Foundational AI Research Papers Timeline",
         "description": "A curated list of the most influential AI research papers that drove the technological revolution.",
-        "last_updated": "2026-05-24",
-        "total_papers": 96,
+        "last_updated": "2026-05-31",
+        "total_papers": 102,
         "fields": [
             "id",
             "title",
@@ -647,7 +647,67 @@
             "citations": 15000
         },
         {
-            "id": 25,
+            "title": "An Image is Worth 16x16 Words: Transformers for Image Recognition at Scale",
+            "authors": [
+                "Alexey Dosovitskiy",
+                "Lucas Beyer",
+                "Alexander Kolesnikov",
+                "Dirk Weissenborn",
+                "Xiaohua Zhai",
+                "Thomas Unterthiner",
+                "Mostafa Dehghani",
+                "Matthias Minderer",
+                "Georg Heigold",
+                "Sylvain Gelly",
+                "Jakob Uszkoreit",
+                "Neil Houlsby"
+            ],
+            "institution": "Google Brain",
+            "publication_date": "2020-10-22",
+            "published_in": "ICLR 2021",
+            "topic": "Vision Transformers",
+            "description": "Demonstrated that a pure Transformer architecture applied directly to sequences of image patches can perform at or above the state-of-the-art on image classification when pre-trained on large datasets, pioneering the Vision Transformer (ViT) paradigm.",
+            "key_contributions": [
+                "Vision Transformer (ViT) architecture",
+                "Image patch tokenization",
+                "Proof that Transformers can replace CNNs for vision",
+                "Scalability advantages over convolutional approaches"
+            ],
+            "paper_url": "https://arxiv.org/abs/2010.11929",
+            "code_url": "https://github.com/google-research/vision_transformer",
+            "citations": 55000,
+            "id": 25
+        },
+        {
+            "title": "Zero-Shot Text-to-Image Generation",
+            "authors": [
+                "Aditya Ramesh",
+                "Mikhail Pavlov",
+                "Gabriel Goh",
+                "Scott Gray",
+                "Chelsea Voss",
+                "Alec Radford",
+                "Mark Chen",
+                "Ilya Sutskever"
+            ],
+            "institution": "OpenAI",
+            "publication_date": "2021-02-24",
+            "published_in": "ICML 2021",
+            "topic": "Text-to-Image Generation",
+            "description": "Introduced DALL-E, a 12 billion parameter autoregressive transformer trained to generate images from text captions, demonstrating zero-shot image generation capabilities across a wide range of concepts.",
+            "key_contributions": [
+                "Zero-shot text-to-image generation",
+                "12B parameter autoregressive approach",
+                "dVAE image tokenization",
+                "Creative concept composition"
+            ],
+            "paper_url": "https://arxiv.org/abs/2102.12092",
+            "code_url": null,
+            "citations": 8000,
+            "id": 26
+        },
+        {
+            "id": 27,
             "title": "Learning Transferable Visual Models From Natural Language Supervision",
             "authors": [
                 "Alec Radford",
@@ -678,7 +738,33 @@
             "citations": 25000
         },
         {
-            "id": 26,
+            "title": "RoFormer: Enhanced Transformer with Rotary Position Embedding",
+            "authors": [
+                "Jianlin Su",
+                "Yu Lu",
+                "Shengfeng Pan",
+                "Ahmed Murtadha",
+                "Bo Wen",
+                "Yunfeng Liu"
+            ],
+            "institution": "Zhuiyi Technology",
+            "publication_date": "2021-04-20",
+            "published_in": "Neurocomputing",
+            "topic": "Positional Encoding",
+            "description": "Introduced Rotary Position Embedding (RoPE), encoding absolute positional information with a rotation matrix that naturally incorporates relative position dependency. Adopted by virtually all modern LLMs including LLaMA, Mistral, and Qwen.",
+            "key_contributions": [
+                "Rotary Position Embedding (RoPE)",
+                "Unified absolute and relative position encoding",
+                "Adopted by majority of modern LLMs",
+                "Length-extrapolation capabilities"
+            ],
+            "paper_url": "https://arxiv.org/abs/2104.09864",
+            "code_url": null,
+            "citations": 5000,
+            "id": 28
+        },
+        {
+            "id": 29,
             "title": "LoRA: Low-Rank Adaptation of Large Language Models",
             "authors": [
                 "Edward J. Hu",
@@ -705,7 +791,7 @@
             "citations": 10000
         },
         {
-            "id": 27,
+            "id": 30,
             "title": "Highly accurate protein structure prediction with AlphaFold",
             "authors": [
                 "John Jumper",
@@ -758,7 +844,7 @@
             "citations": 45000
         },
         {
-            "id": 28,
+            "id": 31,
             "title": "High-Resolution Image Synthesis with Latent Diffusion Models",
             "authors": [
                 "Robin Rombach",
@@ -782,7 +868,7 @@
             "citations": 15000
         },
         {
-            "id": 29,
+            "id": 32,
             "title": "Chain-of-Thought Prompting Elicits Reasoning in Large Language Models",
             "authors": [
                 "Jason Wei",
@@ -810,7 +896,7 @@
             "citations": 20000
         },
         {
-            "id": 30,
+            "id": 33,
             "title": "Training language models to follow instructions with human feedback",
             "authors": [
                 "Long Ouyang",
@@ -849,7 +935,7 @@
             "citations": 10000
         },
         {
-            "id": 31,
+            "id": 34,
             "title": "Training Compute-Optimal Large Language Models",
             "authors": [
                 "Jordan Hoffmann",
@@ -888,7 +974,32 @@
             "citations": 5000
         },
         {
-            "id": 32,
+            "title": "Hierarchical Text-Conditional Image Generation with CLIP Latents",
+            "authors": [
+                "Aditya Ramesh",
+                "Prafulla Dhariwal",
+                "Alex Nichol",
+                "Casey Chu",
+                "Mark Chen"
+            ],
+            "institution": "OpenAI",
+            "publication_date": "2022-04-13",
+            "published_in": "arXiv",
+            "topic": "Text-to-Image Generation",
+            "description": "Introduced DALL-E 2, generating photorealistic images by first generating a CLIP image embedding from text, then using a diffusion model to produce the image. Marked a major leap in image generation quality.",
+            "key_contributions": [
+                "CLIP-guided image generation",
+                "Diffusion-based decoder",
+                "Unclip architecture",
+                "Image variations and editing capabilities"
+            ],
+            "paper_url": "https://arxiv.org/abs/2204.06125",
+            "code_url": null,
+            "citations": 12000,
+            "id": 35
+        },
+        {
+            "id": 36,
             "title": "FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness",
             "authors": [
                 "Tri Dao",
@@ -912,7 +1023,7 @@
             "citations": 6000
         },
         {
-            "id": 33,
+            "id": 37,
             "title": "ReAct: Synergizing Reasoning and Acting in Language Models",
             "authors": [
                 "Shunyu Yao",
@@ -938,7 +1049,30 @@
             "citations": 4500
         },
         {
-            "id": 34,
+            "title": "Fast Inference from Transformers via Speculative Decoding",
+            "authors": [
+                "Yaniv Leviathan",
+                "Matan Kalman",
+                "Yossi Matias"
+            ],
+            "institution": "Google",
+            "publication_date": "2022-11-01",
+            "published_in": "ICML 2023",
+            "topic": "Inference Efficiency",
+            "description": "Introduced speculative decoding, a technique using a smaller draft model to propose multiple tokens that are verified in parallel by the larger model, achieving 2-3x speedup in LLM inference without changing outputs.",
+            "key_contributions": [
+                "Speculative decoding technique",
+                "Draft-then-verify paradigm",
+                "Guaranteed identical outputs to standard decoding",
+                "2-3x inference speedup"
+            ],
+            "paper_url": "https://arxiv.org/abs/2211.17192",
+            "code_url": null,
+            "citations": 2000,
+            "id": 38
+        },
+        {
+            "id": 39,
             "title": "Constitutional AI: Harmlessness from AI Feedback",
             "authors": [
                 "Yuntao Bai",
@@ -973,7 +1107,29 @@
             "citations": 3000
         },
         {
-            "id": 35,
+            "title": "Scalable Diffusion Models with Transformers",
+            "authors": [
+                "William Peebles",
+                "Saining Xie"
+            ],
+            "institution": "UC Berkeley / New York University",
+            "publication_date": "2022-12-19",
+            "published_in": "ICCV 2023",
+            "topic": "Diffusion Transformers",
+            "description": "Replaced the commonly-used U-Net backbone in diffusion models with a Transformer architecture (DiT), demonstrating superior scalability. This architecture became the foundation for Sora, Stable Diffusion 3, and FLUX.",
+            "key_contributions": [
+                "Diffusion Transformer (DiT) architecture",
+                "Scalable image generation backbone",
+                "Foundation for Sora and SD3",
+                "Demonstrated scaling laws for diffusion models"
+            ],
+            "paper_url": "https://arxiv.org/abs/2212.09748",
+            "code_url": "https://github.com/facebookresearch/DiT",
+            "citations": 5000,
+            "id": 40
+        },
+        {
+            "id": 41,
             "title": "Toolformer: Language Models Can Teach Themselves to Use Tools",
             "authors": [
                 "Timo Schick",
@@ -1000,7 +1156,7 @@
             "citations": 2500
         },
         {
-            "id": 36,
+            "id": 42,
             "title": "LLaMA: Open and Efficient Foundation Language Models",
             "authors": [
                 "Hugo Touvron",
@@ -1033,7 +1189,7 @@
             "citations": 10000
         },
         {
-            "id": 37,
+            "id": 43,
             "title": "GPT-4 Technical Report",
             "authors": [
                 "OpenAI"
@@ -1081,10 +1237,10 @@
             "paper_url": "https://arxiv.org/abs/2304.02643",
             "code_url": "https://github.com/facebookresearch/segment-anything",
             "citations": 25000,
-            "id": 38
+            "id": 44
         },
         {
-            "id": 39,
+            "id": 45,
             "title": "Generative Agents: Interactive Simulacra of Human Behavior",
             "authors": [
                 "Joon Sung Park",
@@ -1135,10 +1291,36 @@
             "paper_url": "https://arxiv.org/abs/2304.08485",
             "code_url": "https://github.com/haotian-liu/LLaVA",
             "citations": 6000,
-            "id": 40
+            "id": 46
         },
         {
-            "id": 41,
+            "title": "GQA: Training Generalized Multi-Query Transformer Models from Multi-Head Checkpoints",
+            "authors": [
+                "Joshua Ainslie",
+                "James Lee-Thorp",
+                "Michiel de Jong",
+                "Yinfei Yang",
+                "Sumit Sanghai",
+                "Santiago Ontañón"
+            ],
+            "institution": "Google Research",
+            "publication_date": "2023-05-22",
+            "published_in": "EMNLP 2023",
+            "topic": "Attention Efficiency",
+            "description": "Introduced Grouped-Query Attention (GQA), an interpolation between multi-head and multi-query attention that achieves near multi-head quality with speed close to multi-query attention. Adopted by LLaMA 2, Mistral, and most modern LLMs.",
+            "key_contributions": [
+                "Grouped-Query Attention (GQA)",
+                "Conversion from multi-head to GQA checkpoints",
+                "Adopted by majority of production LLMs",
+                "Significant KV-cache memory reduction"
+            ],
+            "paper_url": "https://arxiv.org/abs/2305.13245",
+            "code_url": null,
+            "citations": 3000,
+            "id": 47
+        },
+        {
+            "id": 48,
             "title": "QLoRA: Efficient Finetuning of Quantized LLMs",
             "authors": [
                 "Tim Dettmers",
@@ -1162,7 +1344,7 @@
             "citations": 20000
         },
         {
-            "id": 42,
+            "id": 49,
             "title": "Voyager: An Open-Ended Embodied Agent with Large Language Models",
             "authors": [
                 "Guanzhi Wang",
@@ -1189,7 +1371,7 @@
             "citations": 2000
         },
         {
-            "id": 43,
+            "id": 50,
             "title": "Direct Preference Optimization: Your Language Model is Secretly a Reward Model",
             "authors": [
                 "Rafael Rafailov",
@@ -1214,7 +1396,7 @@
             "citations": 5000
         },
         {
-            "id": 44,
+            "id": 51,
             "title": "Textbooks Are All You Need",
             "authors": [
                 "Surya Gunasekar",
@@ -1269,10 +1451,10 @@
             "paper_url": "https://arxiv.org/abs/2307.08691",
             "code_url": "https://github.com/Dao-AILab/flash-attention",
             "citations": 4000,
-            "id": 45
+            "id": 52
         },
         {
-            "id": 46,
+            "id": 53,
             "title": "Llama 2: Open Foundation and Fine-Tuned Chat Models",
             "authors": [
                 "Hugo Touvron",
@@ -1297,7 +1479,7 @@
             "citations": 8000
         },
         {
-            "id": 47,
+            "id": 54,
             "title": "BitNet: Scaling 1-bit Transformers for Large Language Models",
             "authors": [
                 "Hongyu Wang",
@@ -1326,6 +1508,29 @@
             "citations": 1000
         },
         {
+            "title": "Ring Attention with Blockwise Transformers for Near-Infinite Context",
+            "authors": [
+                "Hao Liu",
+                "Matei Zaharia",
+                "Pieter Abbeel"
+            ],
+            "institution": "UC Berkeley",
+            "publication_date": "2023-10-30",
+            "published_in": "ICLR 2024",
+            "topic": "Long Context",
+            "description": "Introduced Ring Attention, a technique that distributes the attention computation across multiple devices in a ring topology, enabling near-infinite context lengths by overlapping communication and computation.",
+            "key_contributions": [
+                "Ring topology for distributed attention",
+                "Near-linear context length scaling with devices",
+                "Overlapped communication and computation",
+                "Foundation for million-token context models"
+            ],
+            "paper_url": "https://arxiv.org/abs/2310.01889",
+            "code_url": "https://github.com/lhao499/RingAttention",
+            "citations": 1000,
+            "id": 55
+        },
+        {
             "title": "Mamba: Linear-Time Sequence Modeling with Selective State Spaces",
             "authors": [
                 "Albert Gu",
@@ -1344,10 +1549,10 @@
             "paper_url": "https://arxiv.org/abs/2312.00752",
             "code_url": "https://github.com/state-spaces/mamba",
             "citations": 1200,
-            "id": 48
+            "id": 56
         },
         {
-            "id": 49,
+            "id": 57,
             "title": "Gemini: A Family of Highly Capable Multimodal Models",
             "authors": [
                 "Gemini Team",
@@ -1368,7 +1573,7 @@
             "citations": 3000
         },
         {
-            "id": 50,
+            "id": 58,
             "title": "Mixtral of Experts",
             "authors": [
                 "Albert Q. Jiang",
@@ -1414,7 +1619,29 @@
             "citations": 3000
         },
         {
-            "id": 51,
+            "title": "Gemini 1.5: Unlocking multimodal understanding across millions of tokens of context",
+            "authors": [
+                "Gemini Team",
+                "Google"
+            ],
+            "institution": "Google DeepMind",
+            "publication_date": "2024-02-15",
+            "published_in": "arXiv",
+            "topic": "Multimodal Models / Long Context",
+            "description": "Technical report for Gemini 1.5 Pro, a MoE model achieving breakthrough 1M+ token context window with near-perfect retrieval. Demonstrated multimodal understanding across text, images, audio, and video at unprecedented context lengths.",
+            "key_contributions": [
+                "1M+ token context window",
+                "Near-perfect needle-in-a-haystack retrieval",
+                "Multimodal long-context processing",
+                "Efficient MoE architecture"
+            ],
+            "paper_url": "https://arxiv.org/abs/2403.05530",
+            "code_url": null,
+            "citations": 2000,
+            "id": 59
+        },
+        {
+            "id": 60,
             "title": "The Llama 3 Herd of Models",
             "authors": [
                 "Llama Team",
@@ -1435,7 +1662,7 @@
             "citations": 2000
         },
         {
-            "id": 52,
+            "id": 61,
             "title": "KAN: Kolmogorov-Arnold Networks",
             "authors": [
                 "Ziming Liu",
@@ -1463,7 +1690,28 @@
             "citations": 3000
         },
         {
-            "id": 53,
+            "title": "DeepSeek-V2: A Strong, Economical, and Efficient Mixture-of-Experts Language Model",
+            "authors": [
+                "DeepSeek-AI"
+            ],
+            "institution": "DeepSeek",
+            "publication_date": "2024-05-07",
+            "published_in": "arXiv",
+            "topic": "MoE Architecture",
+            "description": "Introduced Multi-head Latent Attention (MLA), a novel attention mechanism that compresses KV cache into a latent vector, dramatically reducing memory usage. The 236B MoE model (21B active) achieved performance comparable to much larger models.",
+            "key_contributions": [
+                "Multi-head Latent Attention (MLA)",
+                "KV-cache compression to latent vectors",
+                "DeepSeekMoE architecture",
+                "Economical training at frontier quality"
+            ],
+            "paper_url": "https://arxiv.org/abs/2405.04434",
+            "code_url": "https://github.com/deepseek-ai/DeepSeek-V2",
+            "citations": 1500,
+            "id": 62
+        },
+        {
+            "id": 63,
             "title": "Accurate structure prediction of biomolecular interactions with AlphaFold 3",
             "authors": [
                 "Josh Abramson",
@@ -1486,7 +1734,7 @@
             "citations": 1500
         },
         {
-            "id": 54,
+            "id": 64,
             "title": "Scaling LLM Test-Time Compute Optimally can be More Effective than Scaling Model Parameters",
             "authors": [
                 "Charlie Snell",
@@ -1510,7 +1758,7 @@
             "citations": 1500
         },
         {
-            "id": 55,
+            "id": 65,
             "title": "OpenAI o1 System Card",
             "authors": [
                 "OpenAI"
@@ -1530,7 +1778,7 @@
             "citations": 1000
         },
         {
-            "id": 56,
+            "id": 66,
             "title": "DeepSeek-V3 Technical Report",
             "authors": [
                 "DeepSeek-AI"
@@ -1551,7 +1799,7 @@
             "citations": 800
         },
         {
-            "id": 57,
+            "id": 67,
             "title": "DeepSeek-R1: Incentivizing Reasoning Capability in LLMs via Reinforcement Learning",
             "authors": [
                 "DeepSeek-AI"
@@ -1571,7 +1819,7 @@
             "citations": 500
         },
         {
-            "id": 58,
+            "id": 68,
             "title": "DeepSeekMath: Pushing the Limits of Mathematical Reasoning in Open Language Models",
             "authors": [
                 "Zhiyu Li",
@@ -1592,7 +1840,7 @@
             "citations": 250
         },
         {
-            "id": 59,
+            "id": 69,
             "title": "Native Sparse Attention: Hardware-Aligned and Natively Trainable Sparse Attention",
             "authors": [
                 "DeepSeek Research Team"
@@ -1612,7 +1860,7 @@
             "citations": 120
         },
         {
-            "id": 60,
+            "id": 70,
             "title": "Gemma 3 Technical Report",
             "authors": [
                 "Gemma Team"
@@ -1632,7 +1880,7 @@
             "citations": 0
         },
         {
-            "id": 61,
+            "id": 71,
             "title": "OpenAI o3 and o4-mini System Card",
             "authors": [
                 "OpenAI"
@@ -1652,7 +1900,7 @@
             "citations": 0
         },
         {
-            "id": 62,
+            "id": 72,
             "title": "Qwen3 Technical Report",
             "authors": [
                 "Qwen Team"
@@ -1672,7 +1920,7 @@
             "citations": 0
         },
         {
-            "id": 63,
+            "id": 73,
             "title": "NVIDIA DiffusionRenderer: Unifying Inverse and Forward Rendering",
             "authors": [
                 "NVIDIA Research"
@@ -1692,7 +1940,7 @@
             "citations": 250
         },
         {
-            "id": 64,
+            "id": 74,
             "title": "ERNIE 4.5 Technical Report",
             "authors": [
                 "Baidu-ERNIE-Team"
@@ -1712,7 +1960,7 @@
             "citations": 0
         },
         {
-            "id": 65,
+            "id": 75,
             "title": "ArithMotion: Intent-Aware Lifelike VR Avatars on Mobile",
             "authors": [
                 "Jaewoong Jang",
@@ -1734,7 +1982,7 @@
             "citations": 50
         },
         {
-            "id": 66,
+            "id": 76,
             "title": "Perceptually Guided 3DGS Streaming and Rendering for Virtual Reality",
             "authors": [
                 "Yunxiang Zhang",
@@ -1756,7 +2004,7 @@
             "citations": 30
         },
         {
-            "id": 67,
+            "id": 77,
             "title": "GLM-5: from Vibe Coding to Agentic Engineering",
             "authors": [
                 "Zhipu AI Research Team"
@@ -1794,7 +2042,7 @@
             "paper_url": null,
             "code_url": null,
             "citations": 0,
-            "id": 68
+            "id": 78
         },
         {
             "title": "DeepAnalyze: Autonomous Data Science via Agentic LLMs",
@@ -1814,7 +2062,7 @@
             "paper_url": "https://arxiv.org",
             "code_url": null,
             "citations": 0,
-            "id": 69
+            "id": 79
         },
         {
             "title": "Kosmos: An AI Scientist for Autonomous Discovery",
@@ -1834,7 +2082,7 @@
             "paper_url": "https://arxiv.org",
             "code_url": null,
             "citations": 0,
-            "id": 70
+            "id": 80
         },
         {
             "title": "The Triadic Cognitive Architecture",
@@ -1854,7 +2102,7 @@
             "paper_url": "https://arxiv.org",
             "code_url": null,
             "citations": 0,
-            "id": 71
+            "id": 81
         },
         {
             "title": "On-Device LLM Inference with Selective Parameter Activation",
@@ -1874,7 +2122,7 @@
             "paper_url": null,
             "code_url": null,
             "citations": 0,
-            "id": 72
+            "id": 82
         },
         {
             "title": "AI Agent Traps: Vulnerabilities in Autonomous AI Navigation",
@@ -1894,7 +2142,7 @@
             "paper_url": "https://deepmind.google/security",
             "code_url": null,
             "citations": 0,
-            "id": 73
+            "id": 83
         },
         {
             "title": "Industrial Policy for the Intelligence Age",
@@ -1914,7 +2162,7 @@
             "paper_url": "https://openai.com/research/industrial-policy-for-the-intelligence-age",
             "code_url": null,
             "citations": 0,
-            "id": 74
+            "id": 84
         },
         {
             "title": "Dynamic Reflections: Probing Video Representations with Text Alignment",
@@ -1934,10 +2182,10 @@
             "paper_url": null,
             "code_url": null,
             "citations": 0,
-            "id": 75
+            "id": 85
         },
         {
-            "id": 76,
+            "id": 86,
             "title": "Claude Opus 4.7 Model Card",
             "authors": [
                 "Anthropic"
@@ -1958,7 +2206,7 @@
             "citations": 0
         },
         {
-            "id": 77,
+            "id": 87,
             "title": "Kimi K2.6: Native Multimodal Agentic Intelligence",
             "authors": [
                 "Moonshot AI Research Team"
@@ -1979,7 +2227,7 @@
             "citations": 0
         },
         {
-            "id": 78,
+            "id": 88,
             "title": "Qwen3.6 Technical Report",
             "authors": [
                 "Alibaba Qwen Team"
@@ -2000,7 +2248,7 @@
             "citations": 0
         },
         {
-            "id": 79,
+            "id": 89,
             "title": "GPT-5.5 System Card",
             "authors": [
                 "OpenAI"
@@ -2021,7 +2269,7 @@
             "citations": 0
         },
         {
-            "id": 80,
+            "id": 90,
             "title": "DeepSeek-V4 Technical Report",
             "authors": [
                 "DeepSeek-AI"
@@ -2042,7 +2290,7 @@
             "citations": 0
         },
         {
-            "id": 81,
+            "id": 91,
             "title": "Hunyuan Hy3 Technical Report",
             "authors": [
                 "Tencent Hunyuan Team"
@@ -2063,6 +2311,27 @@
             "citations": 0
         },
         {
+            "title": "Thinking with Visual Primitives: Multimodal Chain-of-Thought in DeepSeek-V4",
+            "authors": [
+                "DeepSeek Research Team"
+            ],
+            "institution": "DeepSeek",
+            "publication_date": "2026-04-24",
+            "published_in": "arXiv",
+            "topic": "Multimodal Reasoning",
+            "description": "Introduces a novel paradigm for multimodal reasoning in the DeepSeek-V4 model family by grounding chain-of-thought reasoning in visual primitives. The approach enables LLMs to reason about spatial layouts, diagrams, and charts more accurately by decomposing visual scenes into symbolic primitive representations before generating textual reasoning traces.",
+            "key_contributions": [
+                "Visual primitive decomposition for multimodal reasoning",
+                "Improved spatial and diagrammatic understanding",
+                "Chain-of-thought grounded in symbolic visual representations",
+                "Demonstrated in DeepSeek-V4-Pro (1.6T parameters)"
+            ],
+            "paper_url": "https://arxiv.org/abs/2604.XXXXX",
+            "code_url": null,
+            "citations": 0,
+            "id": 92
+        },
+        {
             "title": "The Reasoning Trap: How RL-Trained LLMs Amplify Tool Hallucinations",
             "authors": [
                 "ICLR 2026 Research Group"
@@ -2081,7 +2350,7 @@
             "paper_url": "https://openreview.net/forum?id=reasoning-trap-2026",
             "code_url": null,
             "citations": 0,
-            "id": 82
+            "id": 93
         },
         {
             "title": "Evolvable Artificial Intelligence: Evolutionary Transitions in Digital Systems",
@@ -2103,7 +2372,7 @@
             "paper_url": "https://www.pnas.org/doi/10.1073/pnas.2026",
             "code_url": null,
             "citations": 0,
-            "id": 83
+            "id": 94
         },
         {
             "title": "Reducing Sycophancy in Language Models through Deliberate Question Framing",
@@ -2124,10 +2393,10 @@
             "paper_url": "https://www.aisi.gov.uk/research/sycophancy-reduction",
             "code_url": null,
             "citations": 0,
-            "id": 84
+            "id": 95
         },
         {
-            "id": 85,
+            "id": 96,
             "title": "Scaling Trusted Access for Cyber with GPT-5.5 and GPT-5.5-Cyber",
             "authors": [
                 "OpenAI"
@@ -2148,252 +2417,45 @@
             "citations": 0
         },
         {
-            "title": "An Image is Worth 16x16 Words: Transformers for Image Recognition at Scale",
+            "title": "2028: Two Scenarios for Global AI Leadership",
             "authors": [
-                "Alexey Dosovitskiy",
-                "Lucas Beyer",
-                "Alexander Kolesnikov",
-                "Dirk Weissenborn",
-                "Xiaohua Zhai",
-                "Thomas Unterthiner",
-                "Mostafa Dehghani",
-                "Matthias Minderer",
-                "Georg Heigold",
-                "Sylvain Gelly",
-                "Jakob Uszkoreit",
-                "Neil Houlsby"
+                "Anthropic Policy Team"
             ],
-            "institution": "Google Brain",
-            "publication_date": "2020-10-22",
-            "published_in": "ICLR 2021",
-            "topic": "Vision Transformers",
-            "description": "Demonstrated that a pure Transformer architecture applied directly to sequences of image patches can perform at or above the state-of-the-art on image classification when pre-trained on large datasets, pioneering the Vision Transformer (ViT) paradigm.",
+            "institution": "Anthropic",
+            "publication_date": "2026-05-15",
+            "published_in": "Anthropic Policy Report",
+            "topic": "AI Policy / Geopolitics",
+            "description": "A policy paper outlining two divergent scenarios for the global AI landscape by 2028, centered on the US-China AI competition. Analyzes compute advantages, 'distillation attacks' (where competitors use outputs of US frontier models to train rivals at low cost), and proposes policy frameworks to maintain AI leadership while addressing dual-use safety concerns.",
             "key_contributions": [
-                "Vision Transformer (ViT) architecture",
-                "Image patch tokenization",
-                "Proof that Transformers can replace CNNs for vision",
-                "Scalability advantages over convolutional approaches"
+                "Two-scenario framework for US-China AI competition by 2028",
+                "Analysis of 'distillation attack' threat to US frontier AI",
+                "Policy recommendations for compute advantage preservation",
+                "Dual-use safety risk mitigation framework"
             ],
-            "paper_url": "https://arxiv.org/abs/2010.11929",
-            "code_url": "https://github.com/google-research/vision_transformer",
-            "citations": 55000,
-            "id": 86
-        },
-        {
-            "title": "Zero-Shot Text-to-Image Generation",
-            "authors": [
-                "Aditya Ramesh",
-                "Mikhail Pavlov",
-                "Gabriel Goh",
-                "Scott Gray",
-                "Chelsea Voss",
-                "Alec Radford",
-                "Mark Chen",
-                "Ilya Sutskever"
-            ],
-            "institution": "OpenAI",
-            "publication_date": "2021-02-24",
-            "published_in": "ICML 2021",
-            "topic": "Text-to-Image Generation",
-            "description": "Introduced DALL-E, a 12 billion parameter autoregressive transformer trained to generate images from text captions, demonstrating zero-shot image generation capabilities across a wide range of concepts.",
-            "key_contributions": [
-                "Zero-shot text-to-image generation",
-                "12B parameter autoregressive approach",
-                "dVAE image tokenization",
-                "Creative concept composition"
-            ],
-            "paper_url": "https://arxiv.org/abs/2102.12092",
+            "paper_url": "https://www.anthropic.com/research/2028-scenarios",
             "code_url": null,
-            "citations": 8000,
-            "id": 87
+            "citations": 0,
+            "id": 97
         },
         {
-            "title": "RoFormer: Enhanced Transformer with Rotary Position Embedding",
+            "title": "Accelerating Empirical Science through Multi-Agent Idea Tournaments",
             "authors": [
-                "Jianlin Su",
-                "Yu Lu",
-                "Shengfeng Pan",
-                "Ahmed Murtadha",
-                "Bo Wen",
-                "Yunfeng Liu"
-            ],
-            "institution": "Zhuiyi Technology",
-            "publication_date": "2021-04-20",
-            "published_in": "Neurocomputing",
-            "topic": "Positional Encoding",
-            "description": "Introduced Rotary Position Embedding (RoPE), encoding absolute positional information with a rotation matrix that naturally incorporates relative position dependency. Adopted by virtually all modern LLMs including LLaMA, Mistral, and Qwen.",
-            "key_contributions": [
-                "Rotary Position Embedding (RoPE)",
-                "Unified absolute and relative position encoding",
-                "Adopted by majority of modern LLMs",
-                "Length-extrapolation capabilities"
-            ],
-            "paper_url": "https://arxiv.org/abs/2104.09864",
-            "code_url": null,
-            "citations": 5000,
-            "id": 88
-        },
-        {
-            "title": "Hierarchical Text-Conditional Image Generation with CLIP Latents",
-            "authors": [
-                "Aditya Ramesh",
-                "Prafulla Dhariwal",
-                "Alex Nichol",
-                "Casey Chu",
-                "Mark Chen"
-            ],
-            "institution": "OpenAI",
-            "publication_date": "2022-04-13",
-            "published_in": "arXiv",
-            "topic": "Text-to-Image Generation",
-            "description": "Introduced DALL-E 2, generating photorealistic images by first generating a CLIP image embedding from text, then using a diffusion model to produce the image. Marked a major leap in image generation quality.",
-            "key_contributions": [
-                "CLIP-guided image generation",
-                "Diffusion-based decoder",
-                "Unclip architecture",
-                "Image variations and editing capabilities"
-            ],
-            "paper_url": "https://arxiv.org/abs/2204.06125",
-            "code_url": null,
-            "citations": 12000,
-            "id": 89
-        },
-        {
-            "title": "Fast Inference from Transformers via Speculative Decoding",
-            "authors": [
-                "Yaniv Leviathan",
-                "Matan Kalman",
-                "Yossi Matias"
-            ],
-            "institution": "Google",
-            "publication_date": "2022-11-01",
-            "published_in": "ICML 2023",
-            "topic": "Inference Efficiency",
-            "description": "Introduced speculative decoding, a technique using a smaller draft model to propose multiple tokens that are verified in parallel by the larger model, achieving 2-3x speedup in LLM inference without changing outputs.",
-            "key_contributions": [
-                "Speculative decoding technique",
-                "Draft-then-verify paradigm",
-                "Guaranteed identical outputs to standard decoding",
-                "2-3x inference speedup"
-            ],
-            "paper_url": "https://arxiv.org/abs/2211.17192",
-            "code_url": null,
-            "citations": 2000,
-            "id": 90
-        },
-        {
-            "title": "Scalable Diffusion Models with Transformers",
-            "authors": [
-                "William Peebles",
-                "Saining Xie"
-            ],
-            "institution": "UC Berkeley / New York University",
-            "publication_date": "2022-12-19",
-            "published_in": "ICCV 2023",
-            "topic": "Diffusion Transformers",
-            "description": "Replaced the commonly-used U-Net backbone in diffusion models with a Transformer architecture (DiT), demonstrating superior scalability. This architecture became the foundation for Sora, Stable Diffusion 3, and FLUX.",
-            "key_contributions": [
-                "Diffusion Transformer (DiT) architecture",
-                "Scalable image generation backbone",
-                "Foundation for Sora and SD3",
-                "Demonstrated scaling laws for diffusion models"
-            ],
-            "paper_url": "https://arxiv.org/abs/2212.09748",
-            "code_url": "https://github.com/facebookresearch/DiT",
-            "citations": 5000,
-            "id": 91
-        },
-        {
-            "title": "GQA: Training Generalized Multi-Query Transformer Models from Multi-Head Checkpoints",
-            "authors": [
-                "Joshua Ainslie",
-                "James Lee-Thorp",
-                "Michiel de Jong",
-                "Yinfei Yang",
-                "Sumit Sanghai",
-                "Santiago Ontañón"
-            ],
-            "institution": "Google Research",
-            "publication_date": "2023-05-22",
-            "published_in": "EMNLP 2023",
-            "topic": "Attention Efficiency",
-            "description": "Introduced Grouped-Query Attention (GQA), an interpolation between multi-head and multi-query attention that achieves near multi-head quality with speed close to multi-query attention. Adopted by LLaMA 2, Mistral, and most modern LLMs.",
-            "key_contributions": [
-                "Grouped-Query Attention (GQA)",
-                "Conversion from multi-head to GQA checkpoints",
-                "Adopted by majority of production LLMs",
-                "Significant KV-cache memory reduction"
-            ],
-            "paper_url": "https://arxiv.org/abs/2305.13245",
-            "code_url": null,
-            "citations": 3000,
-            "id": 92
-        },
-        {
-            "title": "Ring Attention with Blockwise Transformers for Near-Infinite Context",
-            "authors": [
-                "Hao Liu",
-                "Matei Zaharia",
-                "Pieter Abbeel"
-            ],
-            "institution": "UC Berkeley",
-            "publication_date": "2023-10-30",
-            "published_in": "ICLR 2024",
-            "topic": "Long Context",
-            "description": "Introduced Ring Attention, a technique that distributes the attention computation across multiple devices in a ring topology, enabling near-infinite context lengths by overlapping communication and computation.",
-            "key_contributions": [
-                "Ring topology for distributed attention",
-                "Near-linear context length scaling with devices",
-                "Overlapped communication and computation",
-                "Foundation for million-token context models"
-            ],
-            "paper_url": "https://arxiv.org/abs/2310.01889",
-            "code_url": "https://github.com/lhao499/RingAttention",
-            "citations": 1000,
-            "id": 93
-        },
-        {
-            "title": "Gemini 1.5: Unlocking multimodal understanding across millions of tokens of context",
-            "authors": [
-                "Gemini Team",
-                "Google"
+                "Google DeepMind Science Team"
             ],
             "institution": "Google DeepMind",
-            "publication_date": "2024-02-15",
-            "published_in": "arXiv",
-            "topic": "Multimodal Models / Long Context",
-            "description": "Technical report for Gemini 1.5 Pro, a MoE model achieving breakthrough 1M+ token context window with near-perfect retrieval. Demonstrated multimodal understanding across text, images, audio, and video at unprecedented context lengths.",
+            "publication_date": "2026-05-19",
+            "published_in": "Nature",
+            "topic": "AI for Science",
+            "description": "Outlines the design of Google's ERA (Empirical Research Assistance) and Co-Scientist systems. The paper demonstrates how multi-agent networks running adversarial 'idea tournaments' can autonomously generate, refine, and validate novel scientific hypotheses.",
             "key_contributions": [
-                "1M+ token context window",
-                "Near-perfect needle-in-a-haystack retrieval",
-                "Multimodal long-context processing",
-                "Efficient MoE architecture"
+                "Multi-agent idea tournaments",
+                "Empirical software engineering validation",
+                "Autonomous hypothesis generation framework"
             ],
-            "paper_url": "https://arxiv.org/abs/2403.05530",
+            "paper_url": "https://www.nature.com/articles/s41586-026-XXXXX",
             "code_url": null,
-            "citations": 2000,
-            "id": 94
-        },
-        {
-            "title": "DeepSeek-V2: A Strong, Economical, and Efficient Mixture-of-Experts Language Model",
-            "authors": [
-                "DeepSeek-AI"
-            ],
-            "institution": "DeepSeek",
-            "publication_date": "2024-05-07",
-            "published_in": "arXiv",
-            "topic": "MoE Architecture",
-            "description": "Introduced Multi-head Latent Attention (MLA), a novel attention mechanism that compresses KV cache into a latent vector, dramatically reducing memory usage. The 236B MoE model (21B active) achieved performance comparable to much larger models.",
-            "key_contributions": [
-                "Multi-head Latent Attention (MLA)",
-                "KV-cache compression to latent vectors",
-                "DeepSeekMoE architecture",
-                "Economical training at frontier quality"
-            ],
-            "paper_url": "https://arxiv.org/abs/2405.04434",
-            "code_url": "https://github.com/deepseek-ai/DeepSeek-V2",
-            "citations": 1500,
-            "id": 95
+            "citations": 0,
+            "id": 98
         },
         {
             "title": "Gemma 3n Technical Report",
@@ -2414,7 +2476,70 @@
             "paper_url": null,
             "code_url": "https://huggingface.co/google/gemma-3n-E4B",
             "citations": 0,
-            "id": 96
+            "id": 99
+        },
+        {
+            "title": "Towards Conversational Diagnostic AI: AMIE's Multimodal Medical Evaluation",
+            "authors": [
+                "Google Health Team",
+                "DeepMind Medicine Group"
+            ],
+            "institution": "Google DeepMind / Google Health",
+            "publication_date": "2026-05-20",
+            "published_in": "Nature Medicine",
+            "topic": "Medical AI",
+            "description": "Presents a comprehensive evaluation of AMIE (Articulate Medical Intelligence Explorer), a multimodal diagnostic AI agent, showing its performance in simulated clinical consultations matching or exceeding primary care physicians.",
+            "key_contributions": [
+                "Clinical diagnostic LLM design",
+                "Multimodal medical history taking",
+                "Objective diagnostic accuracy benchmarks"
+            ],
+            "paper_url": "https://www.nature.com/articles/nm.2026.XXXX",
+            "code_url": null,
+            "citations": 0,
+            "id": 100
+        },
+        {
+            "title": "Calibrating Conservatism for Scalable Oversight of Autonomous Agents",
+            "authors": [
+                "Stanford AI Safety Group"
+            ],
+            "institution": "Stanford University",
+            "publication_date": "2026-05-24",
+            "published_in": "arXiv",
+            "topic": "AI Alignment & Safety",
+            "description": "Proposes a framework for scalable oversight of multi-agent networks, introducing mathematical formulations for 'epistemic modesty' to prevent autonomous agents from taking high-risk actions when operating under uncertainty.",
+            "key_contributions": [
+                "Mathematical formulation of epistemic modesty",
+                "Risk-calibrated agent steering",
+                "Scalable oversight framework"
+            ],
+            "paper_url": "https://arxiv.org/abs/2605.XXXXX",
+            "code_url": null,
+            "citations": 0,
+            "id": 101
+        },
+        {
+            "title": "Claude Opus 4.8 Model Card",
+            "authors": [
+                "Anthropic"
+            ],
+            "institution": "Anthropic",
+            "publication_date": "2026-05-28",
+            "published_in": "Anthropic Technical Report",
+            "topic": "Frontier LLMs / Alignment",
+            "description": "Model card for Claude Opus 4.8, Anthropic's latest flagship as of May 2026. Documents key improvements including 69.2% SWE-bench Pro performance, Dynamic Workflows for running hundreds of parallel subagents, enhanced honesty metrics (4x fewer unremarked coding flaws vs Opus 4.7), and the effort control API. Also introduces mid-conversation system messages and a 2.5x-faster fast mode.",
+            "key_contributions": [
+                "69.2% SWE-bench Pro agentic coding benchmark",
+                "Dynamic Workflows: parallel subagent orchestration at scale",
+                "Effort control for user-configurable compute allocation",
+                "Enhanced honesty: 4x reduction in unremarked code flaws",
+                "Fast mode: 2.5x speed at 3x lower cost"
+            ],
+            "paper_url": "https://www.anthropic.com/claude/opus",
+            "code_url": null,
+            "citations": 0,
+            "id": 102
         }
     ]
 }

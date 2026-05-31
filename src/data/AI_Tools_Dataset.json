@@ -2,8 +2,8 @@
     "metadata": {
         "title": "AI Coding Tools Timeline",
         "description": "A curated timeline of the most influential AI tools, IDEs, and agents that revolutionized software development.",
-        "last_updated": "2026-05-24",
-        "total_tools": 115,
+        "last_updated": "2026-05-31",
+        "total_tools": 120,
         "fields": [
             "id",
             "name",
@@ -99,7 +99,23 @@
             "url": "https://github.com/features/copilot"
         },
         {
-            "id": 6,
+            "name": "Synthesia",
+            "company": "Synthesia",
+            "release_date": "2022-01-01",
+            "open_source": false,
+            "license": "Proprietary",
+            "category": "AI Video Platform",
+            "description": "A leading AI video generation platform that creates professional videos with realistic AI avatars from text scripts, used extensively for training, onboarding, and corporate communications.",
+            "key_features": [
+                "160+ AI avatars",
+                "120+ language support",
+                "Script-to-video generation"
+            ],
+            "url": "https://www.synthesia.io/",
+            "id": 6
+        },
+        {
+            "id": 7,
             "name": "Nomic Atlas",
             "company": "Nomic AI",
             "release_date": "2022-03-01",
@@ -115,7 +131,23 @@
             "url": "https://nomic.ai/"
         },
         {
-            "id": 7,
+            "name": "Copy.ai",
+            "company": "Copy.ai",
+            "release_date": "2022-06-01",
+            "open_source": false,
+            "license": "Proprietary",
+            "category": "AI Marketing Platform",
+            "description": "An AI-powered platform focused on go-to-market automation that generates sales copy, marketing content, and automates content workflows across the entire marketing funnel.",
+            "key_features": [
+                "Go-to-market automation",
+                "Sales copy generation",
+                "Workflow builder"
+            ],
+            "url": "https://www.copy.ai/",
+            "id": 8
+        },
+        {
+            "id": 9,
             "name": "HeyGen",
             "company": "HeyGen",
             "release_date": "2022-07-01",
@@ -131,7 +163,7 @@
             "url": "https://heygen.com"
         },
         {
-            "id": 8,
+            "id": 10,
             "name": "Phind",
             "company": "DGB Solutions",
             "release_date": "2022-07-01",
@@ -147,7 +179,7 @@
             "url": "https://phind.com"
         },
         {
-            "id": 9,
+            "id": 11,
             "name": "Midjourney",
             "company": "Midjourney, Inc.",
             "release_date": "2022-07-12",
@@ -163,7 +195,23 @@
             "url": "https://midjourney.com"
         },
         {
-            "id": 10,
+            "name": "Character.AI",
+            "company": "Character Technologies",
+            "release_date": "2022-09-16",
+            "open_source": false,
+            "license": "Proprietary",
+            "category": "AI Chatbot Platform",
+            "description": "A platform allowing users to create and interact with custom AI characters with distinct personalities, enabling creative roleplay, learning, and entertainment through personalized conversational AI.",
+            "key_features": [
+                "Custom character creation",
+                "Personality-driven conversations",
+                "Community-shared characters"
+            ],
+            "url": "https://character.ai/",
+            "id": 12
+        },
+        {
+            "id": 13,
             "name": "LangChain",
             "company": "Harrison Chase / LangChain",
             "release_date": "2022-10-01",
@@ -179,7 +227,7 @@
             "url": "https://www.langchain.com/"
         },
         {
-            "id": 11,
+            "id": 14,
             "name": "LlamaIndex",
             "company": "LlamaIndex, Inc.",
             "release_date": "2022-11-01",
@@ -195,7 +243,23 @@
             "url": "https://llamaindex.ai"
         },
         {
-            "id": 12,
+            "name": "Codeium",
+            "company": "Exafunction",
+            "release_date": "2022-11-01",
+            "open_source": false,
+            "license": "Proprietary (Free tier)",
+            "category": "AI Code Assistant",
+            "description": "A free AI code assistant offering fast autocomplete, chat, and search capabilities across 70+ languages. Became one of the most popular free alternatives to GitHub Copilot before evolving into Windsurf.",
+            "key_features": [
+                "Free unlimited autocomplete",
+                "70+ language support",
+                "IDE-agnostic"
+            ],
+            "url": "https://codeium.com/",
+            "id": 15
+        },
+        {
+            "id": 16,
             "name": "ChatGPT",
             "company": "OpenAI",
             "release_date": "2022-11-30",
@@ -211,7 +275,7 @@
             "url": "https://chat.openai.com"
         },
         {
-            "id": 13,
+            "id": 17,
             "name": "Leonardo.ai",
             "company": "Canva / Leonardo.ai",
             "release_date": "2022-12-01",
@@ -227,7 +291,7 @@
             "url": "https://leonardo.ai"
         },
         {
-            "id": 14,
+            "id": 18,
             "name": "Perplexity",
             "company": "Perplexity AI",
             "release_date": "2022-12-07",
@@ -243,7 +307,7 @@
             "url": "https://www.perplexity.ai/"
         },
         {
-            "id": 15,
+            "id": 19,
             "name": "Poe",
             "company": "Quora",
             "release_date": "2022-12-21",
@@ -259,7 +323,7 @@
             "url": "https://poe.com"
         },
         {
-            "id": 16,
+            "id": 20,
             "name": "Cursor",
             "company": "Anysphere",
             "release_date": "2023-01-01",
@@ -275,7 +339,23 @@
             "url": "https://cursor.com/"
         },
         {
-            "id": 17,
+            "name": "Jasper AI",
+            "company": "Jasper",
+            "release_date": "2023-01-10",
+            "open_source": false,
+            "license": "Proprietary",
+            "category": "AI Writing Assistant",
+            "description": "An enterprise-focused AI content creation platform that generates marketing copy, blog posts, social media content, and brand-consistent materials using customizable AI workflows.",
+            "key_features": [
+                "Brand voice customization",
+                "Campaign-level content generation",
+                "Marketing workflow templates"
+            ],
+            "url": "https://www.jasper.ai/",
+            "id": 21
+        },
+        {
+            "id": 22,
             "name": "ElevenLabs",
             "company": "ElevenLabs",
             "release_date": "2023-01-21",
@@ -291,7 +371,23 @@
             "url": "https://elevenlabs.io"
         },
         {
-            "id": 18,
+            "name": "Gamma",
+            "company": "Gamma App",
+            "release_date": "2023-02-01",
+            "open_source": false,
+            "license": "Proprietary",
+            "category": "AI Presentation Tool",
+            "description": "An AI-powered presentation and document creation platform that generates polished slide decks, documents, and web pages from natural language prompts with built-in design intelligence.",
+            "key_features": [
+                "AI-generated presentations",
+                "Adaptive design layouts",
+                "One-click restyling"
+            ],
+            "url": "https://gamma.app/",
+            "id": 23
+        },
+        {
+            "id": 24,
             "name": "Runway Gen-2",
             "company": "Runway AI, Inc.",
             "release_date": "2023-03-20",
@@ -307,7 +403,23 @@
             "url": "https://runwayml.com"
         },
         {
-            "id": 19,
+            "name": "Adobe Firefly",
+            "company": "Adobe",
+            "release_date": "2023-03-21",
+            "open_source": false,
+            "license": "Proprietary (IP-safe)",
+            "category": "AI Image Generator",
+            "description": "Adobe's family of generative AI models designed for commercial safety, trained exclusively on licensed content. Integrated into Creative Cloud apps (Photoshop, Illustrator, Express) for text-to-image, generative fill, and text effects.",
+            "key_features": [
+                "Commercially safe / IP-indemnified",
+                "Creative Cloud integration",
+                "Generative Fill and Expand"
+            ],
+            "url": "https://www.adobe.com/products/firefly.html",
+            "id": 25
+        },
+        {
+            "id": 26,
             "name": "AutoGPT",
             "company": "Significant Gravitas Ltd",
             "release_date": "2023-03-30",
@@ -323,7 +435,7 @@
             "url": "https://github.com/Significant-Gravitas/AutoGPT"
         },
         {
-            "id": 20,
+            "id": 27,
             "name": "Supabase Vector",
             "company": "Supabase / Celonis",
             "release_date": "2023-05-01",
@@ -339,7 +451,7 @@
             "url": "https://supabase.com"
         },
         {
-            "id": 21,
+            "id": 28,
             "name": "Dify",
             "company": "Langgenius",
             "release_date": "2023-05-09",
@@ -355,7 +467,7 @@
             "url": "https://dify.ai"
         },
         {
-            "id": 22,
+            "id": 29,
             "name": "NotebookLM",
             "company": "Google",
             "release_date": "2023-05-10",
@@ -371,7 +483,7 @@
             "url": "https://notebooklm.google"
         },
         {
-            "id": 23,
+            "id": 30,
             "name": "Aider",
             "company": "Paul Gauthier",
             "release_date": "2023-05-11",
@@ -387,7 +499,7 @@
             "url": "https://aider.chat/"
         },
         {
-            "id": 24,
+            "id": 31,
             "name": "Sourcegraph Cody",
             "company": "Sourcegraph",
             "release_date": "2023-06-01",
@@ -403,7 +515,7 @@
             "url": "https://about.sourcegraph.com/cody"
         },
         {
-            "id": 25,
+            "id": 32,
             "name": "vLLM",
             "company": "vLLM Project",
             "release_date": "2023-06-01",
@@ -419,7 +531,23 @@
             "url": "https://vllm.ai"
         },
         {
-            "id": 26,
+            "name": "Vercel AI SDK",
+            "company": "Vercel",
+            "release_date": "2023-06-14",
+            "open_source": true,
+            "license": "Apache 2.0",
+            "category": "AI Development SDK",
+            "description": "An open-source TypeScript toolkit for building AI-powered applications with React, Next.js, Vue, and other frameworks. Provides streaming UI primitives, model-agnostic API, and structured output generation.",
+            "key_features": [
+                "Streaming UI components",
+                "Multi-model provider support",
+                "Structured output generation"
+            ],
+            "url": "https://sdk.vercel.ai/",
+            "id": 33
+        },
+        {
+            "id": 34,
             "name": "OpenRouter",
             "company": "OpenRouter",
             "release_date": "2023-06-30",
@@ -435,7 +563,7 @@
             "url": "https://openrouter.ai"
         },
         {
-            "id": 27,
+            "id": 35,
             "name": "Greptile",
             "company": "Tabnam Inc.",
             "release_date": "2023-07-01",
@@ -451,7 +579,7 @@
             "url": "https://greptile.com"
         },
         {
-            "id": 28,
+            "id": 36,
             "name": "Ollama",
             "company": "Ollama",
             "release_date": "2023-07-08",
@@ -467,7 +595,7 @@
             "url": "https://ollama.com/"
         },
         {
-            "id": 29,
+            "id": 37,
             "name": "LangSmith",
             "company": "LangChain",
             "release_date": "2023-07-20",
@@ -483,7 +611,7 @@
             "url": "https://smith.langchain.com"
         },
         {
-            "id": 30,
+            "id": 38,
             "name": "CodeRabbit",
             "company": "CodeRabbit",
             "release_date": "2023-08-01",
@@ -499,7 +627,7 @@
             "url": "https://coderabbit.ai/"
         },
         {
-            "id": 31,
+            "id": 39,
             "name": "Continue.dev",
             "company": "Continue",
             "release_date": "2023-08-15",
@@ -515,7 +643,39 @@
             "url": "https://continue.dev/"
         },
         {
-            "id": 32,
+            "name": "Microsoft AutoGen",
+            "company": "Microsoft",
+            "release_date": "2023-09-25",
+            "open_source": true,
+            "license": "MIT",
+            "category": "Multi-Agent Framework",
+            "description": "An open-source framework for building multi-agent AI systems where customizable and conversable agents collaborate to solve complex tasks. Enables both automated and human-in-the-loop workflows.",
+            "key_features": [
+                "Multi-agent conversation",
+                "Human-in-the-loop workflows",
+                "Customizable agent roles"
+            ],
+            "url": "https://github.com/microsoft/autogen",
+            "id": 40
+        },
+        {
+            "name": "Canva Magic Studio",
+            "company": "Canva",
+            "release_date": "2023-10-04",
+            "open_source": false,
+            "license": "Proprietary",
+            "category": "AI Design Suite",
+            "description": "Canva's comprehensive AI design toolkit featuring Magic Design (AI-generated templates), Magic Write, Magic Edit (AI photo editing), Magic Animate, and text-to-image generation.",
+            "key_features": [
+                "Magic Design auto-layouts",
+                "Magic Edit photo AI",
+                "Brand Kit AI consistency"
+            ],
+            "url": "https://www.canva.com/magic/",
+            "id": 41
+        },
+        {
+            "id": 42,
             "name": "v0",
             "company": "Vercel",
             "release_date": "2023-10-11",
@@ -531,7 +691,7 @@
             "url": "https://v0.dev/"
         },
         {
-            "id": 33,
+            "id": 43,
             "name": "Pika",
             "company": "Pika Labs",
             "release_date": "2023-11-28",
@@ -547,7 +707,7 @@
             "url": "https://pika.art"
         },
         {
-            "id": 34,
+            "id": 44,
             "name": "LM Studio",
             "company": "Element Labs",
             "release_date": "2023-11-29",
@@ -563,7 +723,55 @@
             "url": "https://lmstudio.ai"
         },
         {
-            "id": 35,
+            "name": "Google AI Studio",
+            "company": "Google",
+            "release_date": "2023-12-13",
+            "open_source": false,
+            "license": "Proprietary",
+            "category": "AI Development Platform",
+            "description": "A free, web-based development environment for prototyping and testing AI applications with Google's Gemini models. Provides prompt engineering tools, API key management, and model tuning capabilities.",
+            "key_features": [
+                "Free Gemini API access",
+                "Prompt engineering tools",
+                "Model fine-tuning"
+            ],
+            "url": "https://aistudio.google.com/",
+            "id": 45
+        },
+        {
+            "name": "Samsung Galaxy AI",
+            "company": "Samsung",
+            "release_date": "2024-01-17",
+            "open_source": false,
+            "license": "Proprietary",
+            "category": "On-device AI Suite",
+            "description": "Samsung's suite of on-device AI features for Galaxy smartphones, including real-time call translation, AI-powered photo editing (Generative Edit), note summarization, and writing assistance.",
+            "key_features": [
+                "Live call translation",
+                "Generative photo editing",
+                "Circle to Search"
+            ],
+            "url": "https://www.samsung.com/global/galaxy/galaxy-ai/",
+            "id": 46
+        },
+        {
+            "name": "Google Gemini App",
+            "company": "Google",
+            "release_date": "2024-02-08",
+            "open_source": false,
+            "license": "Proprietary",
+            "category": "AI Chatbot / Assistant",
+            "description": "Google's rebranded AI assistant (formerly Bard), powered by Gemini models. Provides multimodal conversation, Google services integration, and advanced reasoning capabilities across web and mobile platforms.",
+            "key_features": [
+                "Multimodal input (text, image, voice)",
+                "Google services integration",
+                "Gemini Advanced with Ultra model"
+            ],
+            "url": "https://gemini.google.com/",
+            "id": 47
+        },
+        {
+            "id": 48,
             "name": "Supermaven",
             "company": "Supermaven",
             "release_date": "2024-02-28",
@@ -579,7 +787,7 @@
             "url": "https://supermaven.com/"
         },
         {
-            "id": 36,
+            "id": 49,
             "name": "Zapier Central",
             "company": "Zapier",
             "release_date": "2024-03-06",
@@ -595,7 +803,7 @@
             "url": "https://zapier.com/central"
         },
         {
-            "id": 37,
+            "id": 50,
             "name": "Devin",
             "company": "Cognition Labs",
             "release_date": "2024-03-12",
@@ -611,7 +819,7 @@
             "url": "https://www.cognition.ai/"
         },
         {
-            "id": 38,
+            "id": 51,
             "name": "OpenHands",
             "company": "OpenHands (formerly OpenDevin)",
             "release_date": "2024-03-12",
@@ -627,7 +835,7 @@
             "url": "https://openhands.dev/"
         },
         {
-            "id": 39,
+            "id": 52,
             "name": "Suno AI",
             "company": "Suno AI",
             "release_date": "2024-03-21",
@@ -643,7 +851,7 @@
             "url": "https://suno.com"
         },
         {
-            "id": 40,
+            "id": 53,
             "name": "Udio",
             "company": "Udio Music",
             "release_date": "2024-04-10",
@@ -659,7 +867,55 @@
             "url": "https://udio.com"
         },
         {
-            "id": 41,
+            "name": "Meta AI",
+            "company": "Meta",
+            "release_date": "2024-04-18",
+            "open_source": false,
+            "license": "Proprietary",
+            "category": "AI Assistant",
+            "description": "Meta's AI assistant powered by Llama 3, integrated across WhatsApp, Instagram, Messenger, and Facebook. Features image generation, real-time web search, and conversational AI capabilities.",
+            "key_features": [
+                "Cross-platform integration",
+                "Real-time image generation",
+                "Web search capabilities"
+            ],
+            "url": "https://www.meta.ai/",
+            "id": 54
+        },
+        {
+            "name": "Amazon Q Developer",
+            "company": "Amazon Web Services",
+            "release_date": "2024-04-30",
+            "open_source": false,
+            "license": "Proprietary",
+            "category": "AI Coding Assistant",
+            "description": "AWS's AI-powered coding assistant (formerly CodeWhisperer) that helps developers write, debug, test, and transform code. Features autonomous agent capabilities for multi-step development tasks within the AWS ecosystem.",
+            "key_features": [
+                "Autonomous code transformation",
+                "AWS integration",
+                "Security vulnerability scanning"
+            ],
+            "url": "https://aws.amazon.com/q/developer/",
+            "id": 55
+        },
+        {
+            "name": "Apple Intelligence",
+            "company": "Apple",
+            "release_date": "2024-06-10",
+            "open_source": false,
+            "license": "Proprietary",
+            "category": "On-device AI Platform",
+            "description": "Apple's personal intelligence system deeply integrated into iOS, iPadOS, and macOS. Features on-device language models, Writing Tools, Image Playground, Genmoji, and enhanced Siri with app-aware context understanding.",
+            "key_features": [
+                "On-device processing",
+                "System-wide Writing Tools",
+                "Private Cloud Compute"
+            ],
+            "url": "https://www.apple.com/apple-intelligence/",
+            "id": 56
+        },
+        {
+            "id": 57,
             "name": "Luma Dream Machine",
             "company": "Luma AI",
             "release_date": "2024-06-12",
@@ -675,7 +931,7 @@
             "url": "https://lumalabs.ai"
         },
         {
-            "id": 42,
+            "id": 58,
             "name": "Figma AI",
             "company": "Figma",
             "release_date": "2024-06-26",
@@ -691,7 +947,23 @@
             "url": "https://figma.com"
         },
         {
-            "id": 43,
+            "name": "Cline",
+            "company": "Community / Open Source",
+            "release_date": "2024-07-01",
+            "open_source": true,
+            "license": "Apache 2.0",
+            "category": "AI Code Extension",
+            "description": "An autonomous AI coding agent for VS Code that can create/edit files, execute terminal commands, use the browser, and coordinate multi-step development workflows. Supports multiple LLM providers.",
+            "key_features": [
+                "Autonomous file manipulation",
+                "Browser interaction",
+                "Multi-provider LLM support"
+            ],
+            "url": "https://github.com/cline/cline",
+            "id": 59
+        },
+        {
+            "id": 60,
             "name": "PearAI",
             "company": "PearAI",
             "release_date": "2024-07-24",
@@ -707,7 +979,7 @@
             "url": "https://trypear.ai/"
         },
         {
-            "id": 44,
+            "id": 61,
             "name": "FLUX.1 [dev]",
             "company": "Black Forest Labs",
             "release_date": "2024-08-01",
@@ -723,7 +995,7 @@
             "url": "https://huggingface.co/black-forest-labs/FLUX.1-dev"
         },
         {
-            "id": 45,
+            "id": 62,
             "name": "FLUX.1 [schnell]",
             "company": "Black Forest Labs",
             "release_date": "2024-08-01",
@@ -739,7 +1011,7 @@
             "url": "https://huggingface.co/black-forest-labs/FLUX.1-schnell"
         },
         {
-            "id": 46,
+            "id": 63,
             "name": "Replit Agent",
             "company": "Replit",
             "release_date": "2024-09-05",
@@ -755,7 +1027,7 @@
             "url": "https://replit.com"
         },
         {
-            "id": 47,
+            "id": 64,
             "name": "Bolt.new",
             "company": "StackBlitz",
             "release_date": "2024-10-03",
@@ -771,7 +1043,7 @@
             "url": "https://bolt.new/"
         },
         {
-            "id": 48,
+            "id": 65,
             "name": "Webflow AI",
             "company": "Webflow",
             "release_date": "2024-10-15",
@@ -787,7 +1059,23 @@
             "url": "https://webflow.com/"
         },
         {
-            "id": 49,
+            "name": "GitHub Copilot Workspace",
+            "company": "GitHub",
+            "release_date": "2024-10-29",
+            "open_source": false,
+            "license": "Proprietary",
+            "category": "AI Development Workspace",
+            "description": "An AI-native development environment that helps developers plan, implement, and validate code changes for entire tasks using natural language, from GitHub issues to pull requests.",
+            "key_features": [
+                "Issue-to-PR workflows",
+                "Multi-file code generation",
+                "Integrated testing"
+            ],
+            "url": "https://github.com/features/copilot/workspace",
+            "id": 66
+        },
+        {
+            "id": 67,
             "name": "Windsurf",
             "company": "Codeium",
             "release_date": "2024-11-14",
@@ -803,7 +1091,7 @@
             "url": "https://windsurf.ai/"
         },
         {
-            "id": 50,
+            "id": 68,
             "name": "Lovable",
             "company": "Lovable",
             "release_date": "2024-11-18",
@@ -819,7 +1107,7 @@
             "url": "https://lovable.dev/"
         },
         {
-            "id": 51,
+            "id": 69,
             "name": "Model Context Protocol (MCP)",
             "company": "Anthropic",
             "release_date": "2024-11-25",
@@ -835,7 +1123,7 @@
             "url": "https://modelcontextprotocol.io/"
         },
         {
-            "id": 52,
+            "id": 70,
             "name": "Sora",
             "company": "OpenAI",
             "release_date": "2024-12-09",
@@ -851,7 +1139,7 @@
             "url": "https://sora.com"
         },
         {
-            "id": 53,
+            "id": 71,
             "name": "n8n AI Agents",
             "company": "n8n",
             "release_date": "2025-01-15",
@@ -867,7 +1155,7 @@
             "url": "https://n8n.io/ai/"
         },
         {
-            "id": 54,
+            "id": 72,
             "name": "Trae",
             "company": "ByteDance",
             "release_date": "2025-01-20",
@@ -883,7 +1171,7 @@
             "url": "https://www.trae.ai/"
         },
         {
-            "id": 55,
+            "id": 73,
             "name": "OpenAI Operator",
             "company": "OpenAI",
             "release_date": "2025-01-23",
@@ -899,7 +1187,7 @@
             "url": "https://openai.com/index/introducing-operator/"
         },
         {
-            "id": 56,
+            "id": 74,
             "name": "Roo Code (Roo Cline)",
             "company": "Community / Open Source",
             "release_date": "2025-01-28",
@@ -915,7 +1203,7 @@
             "url": "https://roocode.com/"
         },
         {
-            "id": 57,
+            "id": 75,
             "name": "Deep Research",
             "company": "OpenAI",
             "release_date": "2025-02-02",
@@ -931,7 +1219,7 @@
             "url": "https://openai.com/index/introducing-deep-research"
         },
         {
-            "id": 58,
+            "id": 76,
             "name": "Manus AI",
             "company": "Butterfly Effect",
             "release_date": "2025-03-06",
@@ -947,7 +1235,7 @@
             "url": "https://manus.im/"
         },
         {
-            "id": 59,
+            "id": 77,
             "name": "Make.com",
             "company": "Celonis",
             "release_date": "2025-04-01",
@@ -963,7 +1251,7 @@
             "url": "https://make.com"
         },
         {
-            "id": 60,
+            "id": 78,
             "name": "Genspark",
             "company": "Genspark",
             "release_date": "2025-04-15",
@@ -979,7 +1267,7 @@
             "url": "https://www.genspark.ai/"
         },
         {
-            "id": 61,
+            "id": 79,
             "name": "Codex (Agent)",
             "company": "OpenAI",
             "release_date": "2025-05-16",
@@ -995,7 +1283,7 @@
             "url": "https://openai.com"
         },
         {
-            "id": 62,
+            "id": 80,
             "name": "Jules",
             "company": "Google",
             "release_date": "2025-05-19",
@@ -1011,7 +1299,7 @@
             "url": "https://jules.google"
         },
         {
-            "id": 63,
+            "id": 81,
             "name": "Claude Code",
             "company": "Anthropic",
             "release_date": "2025-05-25",
@@ -1027,7 +1315,7 @@
             "url": "https://docs.anthropic.com/en/docs/agents-and-tools/claude-code/overview"
         },
         {
-            "id": 64,
+            "id": 82,
             "name": "Warp CLI / ADE",
             "company": "Warp",
             "release_date": "2025-06-16",
@@ -1043,7 +1331,7 @@
             "url": "https://warp.dev"
         },
         {
-            "id": 65,
+            "id": 83,
             "name": "Gemini CLI",
             "company": "Google",
             "release_date": "2025-06-25",
@@ -1059,7 +1347,7 @@
             "url": "https://github.com/google/gemini-cli"
         },
         {
-            "id": 66,
+            "id": 84,
             "name": "Ralph Loop",
             "company": "Community / Jeffrey Huntley",
             "release_date": "2025-07-01",
@@ -1075,7 +1363,7 @@
             "url": "https://awesomeclaude.ai/"
         },
         {
-            "id": 67,
+            "id": 85,
             "name": "Augment Code",
             "company": "Augment",
             "release_date": "2025-09-01",
@@ -1091,7 +1379,7 @@
             "url": "https://augmentinc.com"
         },
         {
-            "id": 68,
+            "id": 86,
             "name": "CrewAI",
             "company": "CrewAI Inc.",
             "release_date": "2025-10-01",
@@ -1107,7 +1395,7 @@
             "url": "https://crewai.com/"
         },
         {
-            "id": 69,
+            "id": 87,
             "name": "Comet Browser",
             "company": "Perplexity AI",
             "release_date": "2025-10-02",
@@ -1123,7 +1411,7 @@
             "url": "https://www.perplexity.ai/comet"
         },
         {
-            "id": 70,
+            "id": 88,
             "name": "Jules Tools (CLI)",
             "company": "Google",
             "release_date": "2025-10-02",
@@ -1139,7 +1427,7 @@
             "url": "https://jules.google/docs/changelog/2025-10-02/"
         },
         {
-            "id": 71,
+            "id": 89,
             "name": "Jules API",
             "company": "Google",
             "release_date": "2025-10-03",
@@ -1155,7 +1443,7 @@
             "url": "https://jules.google/docs/changelog/2025-10-03/"
         },
         {
-            "id": 72,
+            "id": 90,
             "name": "Codex CLI",
             "company": "OpenAI",
             "release_date": "2025-10-06",
@@ -1171,7 +1459,7 @@
             "url": "https://github.com/openai/codex"
         },
         {
-            "id": 73,
+            "id": 91,
             "name": "Codex SDK",
             "company": "OpenAI",
             "release_date": "2025-10-06",
@@ -1187,7 +1475,7 @@
             "url": "https://openai.com/index/codex-now-generally-available/"
         },
         {
-            "id": 74,
+            "id": 92,
             "name": "OpenClaw",
             "company": "Peter Steinberger",
             "release_date": "2025-11-01",
@@ -1203,7 +1491,7 @@
             "url": "https://github.com/petersteinberger/openclaw"
         },
         {
-            "id": 75,
+            "id": 93,
             "name": "Microsoft Copilot Studio",
             "company": "Microsoft",
             "release_date": "2025-11-15",
@@ -1219,7 +1507,7 @@
             "url": "https://www.microsoft.com/en-us/microsoft-copilot/copilot-studio"
         },
         {
-            "id": 76,
+            "id": 94,
             "name": "Antigravity",
             "company": "Google DeepMind",
             "release_date": "2025-11-18",
@@ -1235,7 +1523,7 @@
             "url": "https://antigravity.google"
         },
         {
-            "id": 77,
+            "id": 95,
             "name": "OpenCode",
             "company": "Community",
             "release_date": "2026-01-15",
@@ -1251,7 +1539,24 @@
             "url": "https://github.com/opencode"
         },
         {
-            "id": 78,
+            "name": "Mastra",
+            "company": "Mastra",
+            "release_date": "2026-01-20",
+            "open_source": true,
+            "license": "Apache 2.0",
+            "category": "AI Agent Framework",
+            "description": "A production-ready, TypeScript-native framework for building AI agents, workflows, and RAG pipelines. Mastra 1.0 (stable release Jan 20, 2026) provides first-class support for memory, evaluations, tool integrations, and multi-step workflows, making it the leading choice for Node.js and frontend teams shipping agentic features to production.",
+            "key_features": [
+                "TypeScript-native agent and workflow primitives",
+                "Built-in memory and evaluation tooling",
+                "LLM-agnostic model provider support",
+                "Native MCP integration"
+            ],
+            "url": "https://mastra.ai",
+            "id": 96
+        },
+        {
+            "id": 97,
             "name": "FlowHunt",
             "company": "QualityUnit",
             "release_date": "2026-02-28",
@@ -1267,265 +1572,7 @@
             "url": "https://www.flowhunt.io/"
         },
         {
-            "id": 79,
-            "name": "Databricks Genie Code",
-            "company": "Databricks",
-            "release_date": "2026-03-11",
-            "open_source": false,
-            "license": "Proprietary",
-            "category": "AI Data Engineering Agent",
-            "description": "An autonomous AI agent for data work that doubled success rates on data science tasks compared to leading coding agents. Automates data pipeline building, debugging, and production system maintenance with enterprise governance built in.",
-            "key_features": [
-                "Autonomous data engineering",
-                "2x success rate vs leading agents",
-                "Enterprise governance integration"
-            ],
-            "url": "https://www.databricks.com/product/genie"
-        },
-        {
-            "id": 80,
-            "name": "Devin V2",
-            "company": "Cognition",
-            "release_date": "2026-03-24",
-            "open_source": false,
-            "license": "Proprietary",
-            "category": "Autonomous AI Software Engineer",
-            "description": "Devin V2 introduces deeply integrated multi-repo reasoning, capable of migrating entire tech stacks autonomously with zero human supervision.",
-            "key_features": [
-                "Multi-repo reasoning",
-                "Autonomous migration",
-                "Native database administration"
-            ],
-            "url": "https://cognition-labs.com/"
-        },
-        {
-            "id": 81,
-            "name": "JetBrains Agent Client Protocol",
-            "company": "JetBrains",
-            "release_date": "2026-03-26",
-            "open_source": false,
-            "license": "Proprietary",
-            "category": "AI Development Ecosystem",
-            "description": "Introduced with CLion 2026.1, a unified protocol enabling developers to seamlessly swap out different AI agents (like GitHub Copilot, Cursor, etc.) within their preferred JetBrains IDE.",
-            "key_features": [
-                "Agent Client Protocol",
-                "Open ecosystem",
-                "Seamless multi-model usage"
-            ],
-            "url": "https://jetbrains.com"
-        },
-        {
-            "id": 82,
-            "name": "Cursor 3",
-            "company": "Anysphere",
-            "release_date": "2026-04-02",
-            "open_source": false,
-            "license": "Proprietary",
-            "category": "AI Code Editor",
-            "description": "A major update to Cursor introducing a full agentic coding interface natively integrated into the IDE, enabling autonomous task completion workflows.",
-            "key_features": [
-                "Autonomous coding agent",
-                "Deep codebase reasoning",
-                "Agentic task execution"
-            ],
-            "url": "https://cursor.com"
-        },
-        {
-            "id": 83,
-            "name": "World Labs Studio",
-            "company": "World Labs",
-            "release_date": "2026-04-02",
-            "open_source": false,
-            "license": "Proprietary",
-            "category": "3D World Generator",
-            "description": "A platform for generating and exploring 3D environments using World Labs' Marble 1.1 generative world model. Features improved model selection, real-world unit scaling, and API access for production workflows in gaming, architecture, and VFX.",
-            "key_features": [
-                "3D environment generation",
-                "Multiple model variants (1.0, 1.1, 1.1-Plus)",
-                "API access for production use"
-            ],
-            "url": "https://worldlabs.ai"
-        },
-        {
-            "id": 84,
-            "name": "Microsoft Agent Governance Toolkit",
-            "company": "Microsoft",
-            "release_date": "2026-04-05",
-            "open_source": true,
-            "license": "MIT",
-            "category": "Compliance Tool",
-            "description": "An open source compliance automation layer for enterprise AI products, mapping to the EU AI Act, HIPAA, and SOC2. Integrates with major LLM agent frameworks.",
-            "key_features": [
-                "EU AI Act compliance",
-                "LangChain & Azure integration",
-                "Compliance automation"
-            ],
-            "url": "https://github.com/microsoft"
-        },
-        {
-            "id": 85,
-            "name": "Claude Cowork",
-            "company": "Anthropic",
-            "release_date": "2026-04-09",
-            "open_source": false,
-            "license": "Proprietary",
-            "category": "Autonomous Desktop Agent",
-            "description": "An agentic AI tool that assists non-technical knowledge workers by autonomously performing multi-step tasks on their computers. Reads local files, edits documents, executes code, and manages folders within a sandboxed environment. Described as 'Claude Code for the rest of your work.'",
-            "key_features": [
-                "Sandboxed desktop automation",
-                "MCP plugin integrations",
-                "Non-technical user friendly GUI"
-            ],
-            "url": "https://anthropic.com/claude-cowork"
-        },
-        {
-            "id": 86,
-            "name": "Claude Design",
-            "company": "Anthropic",
-            "release_date": "2026-04-09",
-            "open_source": false,
-            "license": "Proprietary",
-            "category": "AI Design Tool",
-            "description": "A dedicated AI design tool by Anthropic for creating prototypes, visual assets, and creative work. Leverages Claude's multimodal capabilities for design iteration and visual reasoning.",
-            "key_features": [
-                "AI-powered prototype creation",
-                "Visual reasoning",
-                "Creative workflow integration"
-            ],
-            "url": "https://anthropic.com/claude-design"
-        },
-        {
-            "id": 87,
-            "name": "Amazon Bio Discovery",
-            "company": "Amazon",
-            "release_date": "2026-04-14",
-            "open_source": false,
-            "license": "Proprietary",
-            "category": "AI Drug Research",
-            "description": "An AI-powered drug research platform by Amazon that accelerates biological discovery and pharmaceutical development using advanced foundation models for molecular analysis and drug candidate identification.",
-            "key_features": [
-                "Molecular analysis",
-                "Drug candidate identification",
-                "Biological data synthesis"
-            ],
-            "url": "https://aws.amazon.com/biodiscovery/"
-        },
-        {
-            "id": 88,
-            "name": "ChatGPT for Clinicians",
-            "company": "OpenAI",
-            "release_date": "2026-04-22",
-            "open_source": false,
-            "license": "Proprietary",
-            "category": "Healthcare AI",
-            "description": "A specialized version of ChatGPT designed for healthcare professionals, providing clinical decision support, medical literature synthesis, and documentation assistance while maintaining HIPAA compliance.",
-            "key_features": [
-                "Clinical decision support",
-                "Medical literature synthesis",
-                "HIPAA-compliant workflows"
-            ],
-            "url": "https://openai.com/index/chatgpt-for-clinicians/"
-        },
-        {
-            "id": 89,
-            "name": "Microsoft Agent 365",
-            "company": "Microsoft",
-            "release_date": "2026-05-01",
-            "open_source": false,
-            "license": "Proprietary",
-            "category": "Enterprise Agent Platform",
-            "description": "Microsoft's control plane for observing, governing, and securing AI agents across the Microsoft 365 ecosystem. Generally available as of May 2026 with integrations across Entra, Defender, and Purview.",
-            "key_features": [
-                "Multi-model orchestration",
-                "Enterprise governance controls",
-                "Deep M365 integration"
-            ],
-            "url": "https://www.microsoft.com/en-us/microsoft-agent-365"
-        },
-        {
-            "id": 90,
-            "name": "Stripe Projects",
-            "company": "Stripe / Cloudflare",
-            "release_date": "2026-04-28",
-            "open_source": true,
-            "license": "Open Protocol",
-            "category": "AI Agent Commerce Protocol",
-            "description": "An open protocol co-designed by Stripe and Cloudflare enabling AI coding agents to autonomously provision cloud infrastructure, register domains, manage billing, and deploy applications without manual human intervention. Includes $100/month spending caps per provider.",
-            "key_features": [
-                "Autonomous infrastructure provisioning",
-                "Identity-based agent authentication",
-                "Payment tokenization with spending caps"
-            ],
-            "url": "https://www.projects.dev/"
-        },
-        {
-            "id": 91,
-            "name": "Goodfire Silico",
-            "company": "Goodfire",
-            "release_date": "2026-04-30",
-            "open_source": false,
-            "license": "Proprietary",
-            "category": "AI Interpretability Platform",
-            "description": "A mechanistic interpretability platform that enables researchers and engineers to inspect and adjust the internal behaviors of LLMs—such as specific neurons and pathways—during the training process, transitioning AI development from 'alchemy' to precision engineering.",
-            "key_features": [
-                "Live neuron inspection at production scale",
-                "Targeted model behavior interventions",
-                "Hallucination and bias pathway tracing"
-            ],
-            "url": "https://goodfire.ai"
-        },
-        {
-            "id": 92,
-            "name": "Mistral Workflows",
-            "company": "Mistral AI",
-            "release_date": "2026-05-01",
-            "open_source": false,
-            "license": "Proprietary",
-            "category": "AI Orchestration Engine",
-            "description": "An enterprise orchestration engine from Mistral AI that helps organizations move AI systems from experimentation into production with structured, multistep operations featuring built-in observability and privacy controls.",
-            "key_features": [
-                "Structured multistep AI operations",
-                "Built-in observability and monitoring",
-                "Enterprise privacy controls"
-            ],
-            "url": "https://mistral.ai/workflows"
-        },
-        {
-            "id": 93,
-            "name": "Junie CLI",
-            "company": "JetBrains",
-            "release_date": "2026-03-15",
-            "open_source": false,
-            "license": "Proprietary",
-            "category": "AI Coding Agent",
-            "description": "JetBrains' LLM-agnostic coding agent that runs from the terminal, CI/CD pipelines, and any IDE. Supports OpenAI, Anthropic, Google, and Grok models with BYOK pricing, codebase intelligence, and MCP configuration.",
-            "key_features": [
-                "LLM-agnostic model selection",
-                "Terminal and CI/CD integration",
-                "Bring Your Own Key (BYOK)",
-                "MCP server configuration"
-            ],
-            "url": "https://www.jetbrains.com/junie/"
-        },
-        {
-            "id": 94,
-            "name": "IBM Bob",
-            "company": "IBM",
-            "release_date": "2026-04-28",
-            "open_source": false,
-            "license": "Proprietary",
-            "category": "Enterprise AI Development Platform",
-            "description": "IBM's enterprise AI development partner that automates the full software lifecycle from requirements to production-ready code. Features multi-model orchestration, security controls, and auditability through the BobShell CLI.",
-            "key_features": [
-                "Full SDLC automation",
-                "Multi-model orchestration",
-                "BobShell CLI with audit trails",
-                "Enterprise security controls"
-            ],
-            "url": "https://www.ibm.com/bob"
-        },
-        {
-            "id": 95,
+            "id": 98,
             "name": "Composer 2",
             "company": "Cursor",
             "release_date": "2026-03-01",
@@ -1542,7 +1589,282 @@
             "url": "https://cursor.com/blog/cursor-3"
         },
         {
-            "id": 96,
+            "id": 99,
+            "name": "Databricks Genie Code",
+            "company": "Databricks",
+            "release_date": "2026-03-11",
+            "open_source": false,
+            "license": "Proprietary",
+            "category": "AI Data Engineering Agent",
+            "description": "An autonomous AI agent for data work that doubled success rates on data science tasks compared to leading coding agents. Automates data pipeline building, debugging, and production system maintenance with enterprise governance built in.",
+            "key_features": [
+                "Autonomous data engineering",
+                "2x success rate vs leading agents",
+                "Enterprise governance integration"
+            ],
+            "url": "https://www.databricks.com/product/genie"
+        },
+        {
+            "id": 100,
+            "name": "Junie CLI",
+            "company": "JetBrains",
+            "release_date": "2026-03-15",
+            "open_source": false,
+            "license": "Proprietary",
+            "category": "AI Coding Agent",
+            "description": "JetBrains' LLM-agnostic coding agent that runs from the terminal, CI/CD pipelines, and any IDE. Supports OpenAI, Anthropic, Google, and Grok models with BYOK pricing, codebase intelligence, and MCP configuration.",
+            "key_features": [
+                "LLM-agnostic model selection",
+                "Terminal and CI/CD integration",
+                "Bring Your Own Key (BYOK)",
+                "MCP server configuration"
+            ],
+            "url": "https://www.jetbrains.com/junie/"
+        },
+        {
+            "id": 101,
+            "name": "Devin V2",
+            "company": "Cognition",
+            "release_date": "2026-03-24",
+            "open_source": false,
+            "license": "Proprietary",
+            "category": "Autonomous AI Software Engineer",
+            "description": "Devin V2 introduces deeply integrated multi-repo reasoning, capable of migrating entire tech stacks autonomously with zero human supervision.",
+            "key_features": [
+                "Multi-repo reasoning",
+                "Autonomous migration",
+                "Native database administration"
+            ],
+            "url": "https://cognition-labs.com/"
+        },
+        {
+            "id": 102,
+            "name": "JetBrains Agent Client Protocol",
+            "company": "JetBrains",
+            "release_date": "2026-03-26",
+            "open_source": false,
+            "license": "Proprietary",
+            "category": "AI Development Ecosystem",
+            "description": "Introduced with CLion 2026.1, a unified protocol enabling developers to seamlessly swap out different AI agents (like GitHub Copilot, Cursor, etc.) within their preferred JetBrains IDE.",
+            "key_features": [
+                "Agent Client Protocol",
+                "Open ecosystem",
+                "Seamless multi-model usage"
+            ],
+            "url": "https://jetbrains.com"
+        },
+        {
+            "id": 103,
+            "name": "Cursor 3",
+            "company": "Anysphere",
+            "release_date": "2026-04-02",
+            "open_source": false,
+            "license": "Proprietary",
+            "category": "AI Code Editor",
+            "description": "A major update to Cursor introducing a full agentic coding interface natively integrated into the IDE, enabling autonomous task completion workflows.",
+            "key_features": [
+                "Autonomous coding agent",
+                "Deep codebase reasoning",
+                "Agentic task execution"
+            ],
+            "url": "https://cursor.com"
+        },
+        {
+            "id": 104,
+            "name": "World Labs Studio",
+            "company": "World Labs",
+            "release_date": "2026-04-02",
+            "open_source": false,
+            "license": "Proprietary",
+            "category": "3D World Generator",
+            "description": "A platform for generating and exploring 3D environments using World Labs' Marble 1.1 generative world model. Features improved model selection, real-world unit scaling, and API access for production workflows in gaming, architecture, and VFX.",
+            "key_features": [
+                "3D environment generation",
+                "Multiple model variants (1.0, 1.1, 1.1-Plus)",
+                "API access for production use"
+            ],
+            "url": "https://worldlabs.ai"
+        },
+        {
+            "id": 105,
+            "name": "Microsoft Agent Governance Toolkit",
+            "company": "Microsoft",
+            "release_date": "2026-04-05",
+            "open_source": true,
+            "license": "MIT",
+            "category": "Compliance Tool",
+            "description": "An open source compliance automation layer for enterprise AI products, mapping to the EU AI Act, HIPAA, and SOC2. Integrates with major LLM agent frameworks.",
+            "key_features": [
+                "EU AI Act compliance",
+                "LangChain & Azure integration",
+                "Compliance automation"
+            ],
+            "url": "https://github.com/microsoft"
+        },
+        {
+            "id": 106,
+            "name": "Claude Cowork",
+            "company": "Anthropic",
+            "release_date": "2026-04-09",
+            "open_source": false,
+            "license": "Proprietary",
+            "category": "Autonomous Desktop Agent",
+            "description": "An agentic AI tool that assists non-technical knowledge workers by autonomously performing multi-step tasks on their computers. Reads local files, edits documents, executes code, and manages folders within a sandboxed environment. Described as 'Claude Code for the rest of your work.'",
+            "key_features": [
+                "Sandboxed desktop automation",
+                "MCP plugin integrations",
+                "Non-technical user friendly GUI"
+            ],
+            "url": "https://anthropic.com/claude-cowork"
+        },
+        {
+            "id": 107,
+            "name": "Claude Design",
+            "company": "Anthropic",
+            "release_date": "2026-04-09",
+            "open_source": false,
+            "license": "Proprietary",
+            "category": "AI Design Tool",
+            "description": "A dedicated AI design tool by Anthropic for creating prototypes, visual assets, and creative work. Leverages Claude's multimodal capabilities for design iteration and visual reasoning.",
+            "key_features": [
+                "AI-powered prototype creation",
+                "Visual reasoning",
+                "Creative workflow integration"
+            ],
+            "url": "https://anthropic.com/claude-design"
+        },
+        {
+            "name": "Windsurf 2.0",
+            "company": "Codeium",
+            "release_date": "2026-04-10",
+            "open_source": false,
+            "license": "Proprietary",
+            "category": "AI Code Editor",
+            "description": "A major update to the Windsurf AI code editor introducing deep integration with Devin Cloud, enabling developers to plan tasks locally in the IDE and hand off long-running execution to persistent cloud agents that continue working even after the local device shuts down. Features the Cascade agent for proactive, flow-state code assistance.",
+            "key_features": [
+                "Devin Cloud persistent execution",
+                "Cascade agentic code assistant",
+                "Local-to-cloud agent handoff",
+                "Multi-repo reasoning"
+            ],
+            "url": "https://codeium.com/windsurf",
+            "id": 108
+        },
+        {
+            "id": 109,
+            "name": "Amazon Bio Discovery",
+            "company": "Amazon",
+            "release_date": "2026-04-14",
+            "open_source": false,
+            "license": "Proprietary",
+            "category": "AI Drug Research",
+            "description": "An AI-powered drug research platform by Amazon that accelerates biological discovery and pharmaceutical development using advanced foundation models for molecular analysis and drug candidate identification.",
+            "key_features": [
+                "Molecular analysis",
+                "Drug candidate identification",
+                "Biological data synthesis"
+            ],
+            "url": "https://aws.amazon.com/biodiscovery/"
+        },
+        {
+            "id": 110,
+            "name": "ChatGPT for Clinicians",
+            "company": "OpenAI",
+            "release_date": "2026-04-22",
+            "open_source": false,
+            "license": "Proprietary",
+            "category": "Healthcare AI",
+            "description": "A specialized version of ChatGPT designed for healthcare professionals, providing clinical decision support, medical literature synthesis, and documentation assistance while maintaining HIPAA compliance.",
+            "key_features": [
+                "Clinical decision support",
+                "Medical literature synthesis",
+                "HIPAA-compliant workflows"
+            ],
+            "url": "https://openai.com/index/chatgpt-for-clinicians/"
+        },
+        {
+            "id": 111,
+            "name": "Stripe Projects",
+            "company": "Stripe / Cloudflare",
+            "release_date": "2026-04-28",
+            "open_source": true,
+            "license": "Open Protocol",
+            "category": "AI Agent Commerce Protocol",
+            "description": "An open protocol co-designed by Stripe and Cloudflare enabling AI coding agents to autonomously provision cloud infrastructure, register domains, manage billing, and deploy applications without manual human intervention. Includes $100/month spending caps per provider.",
+            "key_features": [
+                "Autonomous infrastructure provisioning",
+                "Identity-based agent authentication",
+                "Payment tokenization with spending caps"
+            ],
+            "url": "https://www.projects.dev/"
+        },
+        {
+            "id": 112,
+            "name": "IBM Bob",
+            "company": "IBM",
+            "release_date": "2026-04-28",
+            "open_source": false,
+            "license": "Proprietary",
+            "category": "Enterprise AI Development Platform",
+            "description": "IBM's enterprise AI development partner that automates the full software lifecycle from requirements to production-ready code. Features multi-model orchestration, security controls, and auditability through the BobShell CLI.",
+            "key_features": [
+                "Full SDLC automation",
+                "Multi-model orchestration",
+                "BobShell CLI with audit trails",
+                "Enterprise security controls"
+            ],
+            "url": "https://www.ibm.com/bob"
+        },
+        {
+            "id": 113,
+            "name": "Goodfire Silico",
+            "company": "Goodfire",
+            "release_date": "2026-04-30",
+            "open_source": false,
+            "license": "Proprietary",
+            "category": "AI Interpretability Platform",
+            "description": "A mechanistic interpretability platform that enables researchers and engineers to inspect and adjust the internal behaviors of LLMs—such as specific neurons and pathways—during the training process, transitioning AI development from 'alchemy' to precision engineering.",
+            "key_features": [
+                "Live neuron inspection at production scale",
+                "Targeted model behavior interventions",
+                "Hallucination and bias pathway tracing"
+            ],
+            "url": "https://goodfire.ai"
+        },
+        {
+            "id": 114,
+            "name": "Microsoft Agent 365",
+            "company": "Microsoft",
+            "release_date": "2026-05-01",
+            "open_source": false,
+            "license": "Proprietary",
+            "category": "Enterprise Agent Platform",
+            "description": "Microsoft's control plane for observing, governing, and securing AI agents across the Microsoft 365 ecosystem. Generally available as of May 2026 with integrations across Entra, Defender, and Purview.",
+            "key_features": [
+                "Multi-model orchestration",
+                "Enterprise governance controls",
+                "Deep M365 integration"
+            ],
+            "url": "https://www.microsoft.com/en-us/microsoft-agent-365"
+        },
+        {
+            "id": 115,
+            "name": "Mistral Workflows",
+            "company": "Mistral AI",
+            "release_date": "2026-05-01",
+            "open_source": false,
+            "license": "Proprietary",
+            "category": "AI Orchestration Engine",
+            "description": "An enterprise orchestration engine from Mistral AI that helps organizations move AI systems from experimentation into production with structured, multistep operations featuring built-in observability and privacy controls.",
+            "key_features": [
+                "Structured multistep AI operations",
+                "Built-in observability and monitoring",
+                "Enterprise privacy controls"
+            ],
+            "url": "https://mistral.ai/workflows"
+        },
+        {
+            "id": 116,
             "name": "Gemini API File Search",
             "company": "Google",
             "release_date": "2026-05-05",
@@ -1559,7 +1881,7 @@
             "url": "https://ai.google.dev/gemini-api/docs/file-search"
         },
         {
-            "id": 97,
+            "id": 117,
             "name": "GPT Realtime API",
             "company": "OpenAI",
             "release_date": "2026-05-07",
@@ -1576,292 +1898,56 @@
             "url": "https://openai.com/index/advancing-voice-intelligence-with-new-models-in-the-api"
         },
         {
-            "name": "Codeium",
-            "company": "Exafunction",
-            "release_date": "2022-11-01",
-            "open_source": false,
-            "license": "Proprietary (Free tier)",
-            "category": "AI Code Assistant",
-            "description": "A free AI code assistant offering fast autocomplete, chat, and search capabilities across 70+ languages. Became one of the most popular free alternatives to GitHub Copilot before evolving into Windsurf.",
-            "key_features": [
-                "Free unlimited autocomplete",
-                "70+ language support",
-                "IDE-agnostic"
-            ],
-            "url": "https://codeium.com/",
-            "id": 98
-        },
-        {
-            "name": "Character.AI",
-            "company": "Character Technologies",
-            "release_date": "2022-09-16",
-            "open_source": false,
-            "license": "Proprietary",
-            "category": "AI Chatbot Platform",
-            "description": "A platform allowing users to create and interact with custom AI characters with distinct personalities, enabling creative roleplay, learning, and entertainment through personalized conversational AI.",
-            "key_features": [
-                "Custom character creation",
-                "Personality-driven conversations",
-                "Community-shared characters"
-            ],
-            "url": "https://character.ai/",
-            "id": 99
-        },
-        {
-            "name": "Synthesia",
-            "company": "Synthesia",
-            "release_date": "2022-01-01",
-            "open_source": false,
-            "license": "Proprietary",
-            "category": "AI Video Platform",
-            "description": "A leading AI video generation platform that creates professional videos with realistic AI avatars from text scripts, used extensively for training, onboarding, and corporate communications.",
-            "key_features": [
-                "160+ AI avatars",
-                "120+ language support",
-                "Script-to-video generation"
-            ],
-            "url": "https://www.synthesia.io/",
-            "id": 100
-        },
-        {
-            "name": "Jasper AI",
-            "company": "Jasper",
-            "release_date": "2023-01-10",
-            "open_source": false,
-            "license": "Proprietary",
-            "category": "AI Writing Assistant",
-            "description": "An enterprise-focused AI content creation platform that generates marketing copy, blog posts, social media content, and brand-consistent materials using customizable AI workflows.",
-            "key_features": [
-                "Brand voice customization",
-                "Campaign-level content generation",
-                "Marketing workflow templates"
-            ],
-            "url": "https://www.jasper.ai/",
-            "id": 101
-        },
-        {
-            "name": "Copy.ai",
-            "company": "Copy.ai",
-            "release_date": "2022-06-01",
-            "open_source": false,
-            "license": "Proprietary",
-            "category": "AI Marketing Platform",
-            "description": "An AI-powered platform focused on go-to-market automation that generates sales copy, marketing content, and automates content workflows across the entire marketing funnel.",
-            "key_features": [
-                "Go-to-market automation",
-                "Sales copy generation",
-                "Workflow builder"
-            ],
-            "url": "https://www.copy.ai/",
-            "id": 102
-        },
-        {
-            "name": "Adobe Firefly",
-            "company": "Adobe",
-            "release_date": "2023-03-21",
-            "open_source": false,
-            "license": "Proprietary (IP-safe)",
-            "category": "AI Image Generator",
-            "description": "Adobe's family of generative AI models designed for commercial safety, trained exclusively on licensed content. Integrated into Creative Cloud apps (Photoshop, Illustrator, Express) for text-to-image, generative fill, and text effects.",
-            "key_features": [
-                "Commercially safe / IP-indemnified",
-                "Creative Cloud integration",
-                "Generative Fill and Expand"
-            ],
-            "url": "https://www.adobe.com/products/firefly.html",
-            "id": 103
-        },
-        {
-            "name": "Google AI Studio",
+            "name": "Google Antigravity 2.0",
             "company": "Google",
-            "release_date": "2023-12-13",
+            "release_date": "2026-05-19",
             "open_source": false,
             "license": "Proprietary",
-            "category": "AI Development Platform",
-            "description": "A free, web-based development environment for prototyping and testing AI applications with Google's Gemini models. Provides prompt engineering tools, API key management, and model tuning capabilities.",
+            "category": "AI Agent Platform",
+            "description": "A standalone, desktop-integrated platform for orchestrating and managing autonomous AI agents. Features dynamic subagent definition, scheduled cron tasks, private cloud compute integration, and a unified workspace for managing multi-agent workflows.",
             "key_features": [
-                "Free Gemini API access",
-                "Prompt engineering tools",
-                "Model fine-tuning"
+                "Dynamic subagent execution",
+                "Scheduled tasks (cron)",
+                "Voice-to-agent commands",
+                "Private sandboxing"
             ],
-            "url": "https://aistudio.google.com/",
-            "id": 104
+            "url": "https://antigravity.google",
+            "id": 118
         },
         {
-            "name": "Samsung Galaxy AI",
-            "company": "Samsung",
-            "release_date": "2024-01-17",
-            "open_source": false,
-            "license": "Proprietary",
-            "category": "On-device AI Suite",
-            "description": "Samsung's suite of on-device AI features for Galaxy smartphones, including real-time call translation, AI-powered photo editing (Generative Edit), note summarization, and writing assistance.",
-            "key_features": [
-                "Live call translation",
-                "Generative photo editing",
-                "Circle to Search"
-            ],
-            "url": "https://www.samsung.com/global/galaxy/galaxy-ai/",
-            "id": 105
-        },
-        {
-            "name": "Gamma",
-            "company": "Gamma App",
-            "release_date": "2023-02-01",
-            "open_source": false,
-            "license": "Proprietary",
-            "category": "AI Presentation Tool",
-            "description": "An AI-powered presentation and document creation platform that generates polished slide decks, documents, and web pages from natural language prompts with built-in design intelligence.",
-            "key_features": [
-                "AI-generated presentations",
-                "Adaptive design layouts",
-                "One-click restyling"
-            ],
-            "url": "https://gamma.app/",
-            "id": 106
-        },
-        {
-            "name": "Google Gemini App",
+            "name": "Gemini Spark",
             "company": "Google",
-            "release_date": "2024-02-08",
+            "release_date": "2026-05-19",
             "open_source": false,
             "license": "Proprietary",
-            "category": "AI Chatbot / Assistant",
-            "description": "Google's rebranded AI assistant (formerly Bard), powered by Gemini models. Provides multimodal conversation, Google services integration, and advanced reasoning capabilities across web and mobile platforms.",
+            "category": "Personal AI Agent Platform",
+            "description": "Announced at Google I/O 2026, Gemini Spark is a 24/7 always-on personal AI agent platform running on Google Cloud VMs. Powered by Gemini 3.5 and the Antigravity harness, it executes complex multi-step tasks across Gmail, Calendar, Drive, and 30+ third-party MCP integrations even when user devices are offline. Tracks progress via Android Halo UI and is available to Google AI Ultra and Workspace Enterprise subscribers.",
             "key_features": [
-                "Multimodal input (text, image, voice)",
-                "Google services integration",
-                "Gemini Advanced with Ultra model"
+                "24/7 cloud-hosted background execution",
+                "30+ MCP third-party tool integrations",
+                "Adaptive Context resource management",
+                "Android Halo agent progress UI",
+                "Deep Google Workspace integration"
             ],
-            "url": "https://gemini.google.com/",
-            "id": 107
+            "url": "https://gemini.google.com/spark",
+            "id": 119
         },
         {
-            "name": "Meta AI",
-            "company": "Meta",
-            "release_date": "2024-04-18",
+            "name": "OpenAI Daybreak",
+            "company": "OpenAI",
+            "release_date": "2026-05-23",
             "open_source": false,
             "license": "Proprietary",
-            "category": "AI Assistant",
-            "description": "Meta's AI assistant powered by Llama 3, integrated across WhatsApp, Instagram, Messenger, and Facebook. Features image generation, real-time web search, and conversational AI capabilities.",
+            "category": "AI Cybersecurity Platform",
+            "description": "A specialized enterprise cybersecurity platform powered by GPT-5.5. It performs real-time threat modeling, automated vulnerability patching, and secure source-code validation, integrating with existing security operations center (SOC) tooling.",
             "key_features": [
-                "Cross-platform integration",
-                "Real-time image generation",
-                "Web search capabilities"
+                "Real-time threat modeling",
+                "Automated patching",
+                "SOC tool integration",
+                "Security guardrails"
             ],
-            "url": "https://www.meta.ai/",
-            "id": 108
-        },
-        {
-            "name": "Amazon Q Developer",
-            "company": "Amazon Web Services",
-            "release_date": "2024-04-30",
-            "open_source": false,
-            "license": "Proprietary",
-            "category": "AI Coding Assistant",
-            "description": "AWS's AI-powered coding assistant (formerly CodeWhisperer) that helps developers write, debug, test, and transform code. Features autonomous agent capabilities for multi-step development tasks within the AWS ecosystem.",
-            "key_features": [
-                "Autonomous code transformation",
-                "AWS integration",
-                "Security vulnerability scanning"
-            ],
-            "url": "https://aws.amazon.com/q/developer/",
-            "id": 109
-        },
-        {
-            "name": "Vercel AI SDK",
-            "company": "Vercel",
-            "release_date": "2023-06-14",
-            "open_source": true,
-            "license": "Apache 2.0",
-            "category": "AI Development SDK",
-            "description": "An open-source TypeScript toolkit for building AI-powered applications with React, Next.js, Vue, and other frameworks. Provides streaming UI primitives, model-agnostic API, and structured output generation.",
-            "key_features": [
-                "Streaming UI components",
-                "Multi-model provider support",
-                "Structured output generation"
-            ],
-            "url": "https://sdk.vercel.ai/",
-            "id": 110
-        },
-        {
-            "name": "Cline",
-            "company": "Community / Open Source",
-            "release_date": "2024-07-01",
-            "open_source": true,
-            "license": "Apache 2.0",
-            "category": "AI Code Extension",
-            "description": "An autonomous AI coding agent for VS Code that can create/edit files, execute terminal commands, use the browser, and coordinate multi-step development workflows. Supports multiple LLM providers.",
-            "key_features": [
-                "Autonomous file manipulation",
-                "Browser interaction",
-                "Multi-provider LLM support"
-            ],
-            "url": "https://github.com/cline/cline",
-            "id": 111
-        },
-        {
-            "name": "Microsoft AutoGen",
-            "company": "Microsoft",
-            "release_date": "2023-09-25",
-            "open_source": true,
-            "license": "MIT",
-            "category": "Multi-Agent Framework",
-            "description": "An open-source framework for building multi-agent AI systems where customizable and conversable agents collaborate to solve complex tasks. Enables both automated and human-in-the-loop workflows.",
-            "key_features": [
-                "Multi-agent conversation",
-                "Human-in-the-loop workflows",
-                "Customizable agent roles"
-            ],
-            "url": "https://github.com/microsoft/autogen",
-            "id": 112
-        },
-        {
-            "name": "Apple Intelligence",
-            "company": "Apple",
-            "release_date": "2024-06-10",
-            "open_source": false,
-            "license": "Proprietary",
-            "category": "On-device AI Platform",
-            "description": "Apple's personal intelligence system deeply integrated into iOS, iPadOS, and macOS. Features on-device language models, Writing Tools, Image Playground, Genmoji, and enhanced Siri with app-aware context understanding.",
-            "key_features": [
-                "On-device processing",
-                "System-wide Writing Tools",
-                "Private Cloud Compute"
-            ],
-            "url": "https://www.apple.com/apple-intelligence/",
-            "id": 113
-        },
-        {
-            "name": "GitHub Copilot Workspace",
-            "company": "GitHub",
-            "release_date": "2024-10-29",
-            "open_source": false,
-            "license": "Proprietary",
-            "category": "AI Development Workspace",
-            "description": "An AI-native development environment that helps developers plan, implement, and validate code changes for entire tasks using natural language, from GitHub issues to pull requests.",
-            "key_features": [
-                "Issue-to-PR workflows",
-                "Multi-file code generation",
-                "Integrated testing"
-            ],
-            "url": "https://github.com/features/copilot/workspace",
-            "id": 114
-        },
-        {
-            "name": "Canva Magic Studio",
-            "company": "Canva",
-            "release_date": "2023-10-04",
-            "open_source": false,
-            "license": "Proprietary",
-            "category": "AI Design Suite",
-            "description": "Canva's comprehensive AI design toolkit featuring Magic Design (AI-generated templates), Magic Write, Magic Edit (AI photo editing), Magic Animate, and text-to-image generation.",
-            "key_features": [
-                "Magic Design auto-layouts",
-                "Magic Edit photo AI",
-                "Brand Kit AI consistency"
-            ],
-            "url": "https://www.canva.com/magic/",
-            "id": 115
+            "url": "https://openai.com/daybreak",
+            "id": 120
         }
     ]
 }

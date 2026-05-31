@@ -2,9 +2,9 @@
     "metadata": {
         "title": "AI & LLM Models Timeline",
         "description": "Comprehensive list of AI and LLM models from 2017 to 2026, including text, vision, audio, multimodal and image generation models.",
-        "last_updated": "2026-05-24",
-        "total_models": 233,
-        "audit_status": "Verified audit 2026-05-16: duplicates removed, dates cross-checked",
+        "last_updated": "2026-05-31",
+        "total_models": 240,
+        "audit_status": "Verified audit 2026-05-31: Grok 4.3 and ZAYA1-8B added; DeepSeek-V4-Pro pricing updated to permanent rates",
         "logo_source": "Clearbit Logo API (https://logo.clearbit.com/{domain})",
         "fields": [
             "id",
@@ -3787,7 +3787,7 @@
             "paper_url": "https://arxiv.org/abs/2407.14358",
             "predecessor": "Stable Audio 1.0",
             "successor": null,
-            "id": 235
+            "id": 79
         },
         {
             "company": "Cohere",
@@ -3828,18 +3828,18 @@
                 "MMLU": 75.7
             },
             "pricing_per_1m_tokens": {
-                "input": 3.0,
-                "output": 15.0
+                "input": 3,
+                "output": 15
             },
             "official_model_link": "https://cohere.com/blog/command-r-plus-microsoft-azure",
             "huggingface_url": "https://huggingface.co/CohereForAI/c4ai-command-r-plus",
             "paper_url": null,
             "predecessor": "Command R",
             "successor": "Command R+ 08-2024",
-            "id": 236
+            "id": 80
         },
         {
-            "id": 79,
+            "id": 81,
             "company": "Mistral AI",
             "company_website": "https://mistral.ai",
             "company_logo_url": "https://logo.clearbit.com/mistral.ai",
@@ -3930,10 +3930,10 @@
             "paper_url": null,
             "predecessor": null,
             "successor": "Udio v1.5",
-            "id": 80
+            "id": 82
         },
         {
-            "id": 81,
+            "id": 83,
             "company": "xAI",
             "company_website": "https://x.ai",
             "company_logo_url": "https://logo.clearbit.com/x.ai",
@@ -4027,10 +4027,10 @@
             "paper_url": null,
             "predecessor": "abab 6",
             "successor": "abab 7",
-            "id": 83
+            "id": 84
         },
         {
-            "id": 84,
+            "id": 85,
             "company": "Meta",
             "company_website": "https://meta.com",
             "company_logo_url": "https://logo.clearbit.com/meta.com",
@@ -4083,7 +4083,7 @@
             "successor": "LLaMA 3.1"
         },
         {
-            "id": 85,
+            "id": 86,
             "company": "Microsoft",
             "company_website": "https://microsoft.com",
             "company_logo_url": "https://logo.clearbit.com/microsoft.com",
@@ -4176,7 +4176,7 @@
             "paper_url": null,
             "predecessor": "Firefly Image Model 2",
             "successor": null,
-            "id": 237
+            "id": 87
         },
         {
             "company": "Snowflake",
@@ -4221,7 +4221,7 @@
             "paper_url": null,
             "predecessor": null,
             "successor": null,
-            "id": 86
+            "id": 88
         },
         {
             "company": "SML / 3AI Holding",
@@ -4249,10 +4249,10 @@
             "notable_features": [
                 "98 global languages support"
             ],
-            "id": 87
+            "id": 89
         },
         {
-            "id": 88,
+            "id": 90,
             "company": "DeepSeek",
             "company_website": "https://deepseek.com",
             "company_logo_url": "https://logo.clearbit.com/deepseek.com",
@@ -4344,10 +4344,10 @@
             "paper_url": "https://www.nature.com/articles/s41586-024-07487-w",
             "predecessor": "AlphaFold 2",
             "successor": null,
-            "id": 89
+            "id": 91
         },
         {
-            "id": 90,
+            "id": 92,
             "company": "OpenAI",
             "company_website": "https://openai.com",
             "company_logo_url": "https://logo.clearbit.com/openai.com",
@@ -4446,10 +4446,10 @@
             "paper_url": null,
             "predecessor": "Yi-34B",
             "successor": null,
-            "id": 238
+            "id": 93
         },
         {
-            "id": 91,
+            "id": 94,
             "company": "Google DeepMind",
             "company_website": "https://deepmind.google",
             "company_logo_url": "https://logo.clearbit.com/deepmind.com",
@@ -4543,10 +4543,10 @@
             "paper_url": "https://arxiv.org/abs/2405.08748",
             "predecessor": null,
             "successor": null,
-            "id": 92
+            "id": 95
         },
         {
-            "id": 93,
+            "id": 96,
             "company": "Cohere",
             "company_website": "https://cohere.com",
             "company_logo_url": "https://logo.clearbit.com/cohere.com",
@@ -4638,7 +4638,7 @@
             "paper_url": null,
             "predecessor": "Mistral 7B",
             "successor": null,
-            "id": 94
+            "id": 97
         },
         {
             "company": "Kuaishou",
@@ -4685,10 +4685,10 @@
             "paper_url": null,
             "predecessor": null,
             "successor": "Kling 2.0",
-            "id": 95
+            "id": 98
         },
         {
-            "id": 96,
+            "id": 99,
             "company": "Alibaba",
             "company_website": "https://alibaba.com",
             "company_logo_url": "https://logo.clearbit.com/alibaba.com",
@@ -4782,7 +4782,7 @@
             "paper_url": null,
             "predecessor": null,
             "successor": null,
-            "id": 97
+            "id": 100
         },
         {
             "company": "Luma AI",
@@ -4828,10 +4828,10 @@
             "paper_url": null,
             "predecessor": null,
             "successor": "Dream Machine 2",
-            "id": 98
+            "id": 101
         },
         {
-            "id": 99,
+            "id": 102,
             "company": "Stability AI",
             "company_website": "https://stability.ai",
             "company_logo_url": "https://logo.clearbit.com/stability.ai",
@@ -4921,10 +4921,10 @@
             "paper_url": "https://arxiv.org/abs/2311.06242",
             "predecessor": "Florence",
             "successor": null,
-            "id": 100
+            "id": 103
         },
         {
-            "id": 101,
+            "id": 104,
             "company": "Anthropic",
             "company_website": "https://anthropic.com",
             "company_logo_url": "https://logo.clearbit.com/anthropic.com",
@@ -4978,7 +4978,7 @@
             "successor": "Claude 3.7 Sonnet"
         },
         {
-            "id": 102,
+            "id": 105,
             "company": "Google",
             "company_website": "https://google.com",
             "company_logo_url": "https://logo.clearbit.com/google.com",
@@ -5029,7 +5029,7 @@
             "successor": "Gemma 3"
         },
         {
-            "id": 104,
+            "id": 106,
             "company": "OpenAI",
             "company_website": "https://openai.com",
             "company_logo_url": "https://logo.clearbit.com/openai.com",
@@ -5081,7 +5081,7 @@
             "successor": null
         },
         {
-            "id": 106,
+            "id": 107,
             "company": "Meta",
             "company_website": "https://meta.com",
             "company_logo_url": "https://logo.clearbit.com/meta.com",
@@ -5320,7 +5320,7 @@
             "paper_url": null,
             "predecessor": "Imagen 2",
             "successor": null,
-            "id": 239
+            "id": 111
         },
         {
             "company": "xAI",
@@ -5367,7 +5367,7 @@
             "paper_url": null,
             "predecessor": "Grok-1.5",
             "successor": "Grok-3",
-            "id": 111
+            "id": 112
         },
         {
             "company": "Sarvam AI",
@@ -5796,7 +5796,7 @@
             "paper_url": null,
             "predecessor": "Aya 23",
             "successor": null,
-            "id": 240
+            "id": 121
         },
         {
             "company": "Stability AI",
@@ -6473,7 +6473,7 @@
             "successor": "DeepSeek R1-0528"
         },
         {
-            "id": 137,
+            "id": 136,
             "company": "Mistral AI",
             "company_website": "https://mistral.ai",
             "company_logo_url": "https://logo.clearbit.com/mistral.ai",
@@ -6518,7 +6518,7 @@
             "successor": "Mistral Small 3.2"
         },
         {
-            "id": 138,
+            "id": 137,
             "company": "OpenAI",
             "company_website": "https://openai.com",
             "company_logo_url": "https://logo.clearbit.com/openai.com",
@@ -6618,7 +6618,7 @@
             "paper_url": null,
             "predecessor": "Gemini 1.5 Flash",
             "successor": "Gemini 2.1 Flash",
-            "id": 139
+            "id": 138
         },
         {
             "company": "Microsoft",
@@ -6636,10 +6636,10 @@
             "release_date": "2025-02-05",
             "description": "State-of-the-art small language model optimized for reasoning-dense tasks on edge devices.",
             "official_model_link": "https://azure.microsoft.com/en-us/blog/introducing-phi-4-mini/",
-            "id": 140
+            "id": 139
         },
         {
-            "id": 141,
+            "id": 140,
             "company": "xAI",
             "company_website": "https://x.ai",
             "company_logo_url": "https://logo.clearbit.com/x.ai",
@@ -6692,7 +6692,7 @@
             "successor": "Grok 4"
         },
         {
-            "id": 142,
+            "id": 141,
             "company": "xAI",
             "company_website": "https://x.ai",
             "company_logo_url": "https://logo.clearbit.com/x.ai",
@@ -6790,10 +6790,10 @@
             "paper_url": null,
             "predecessor": "Claude 3.5 Sonnet",
             "successor": "Claude 4 Sonnet",
-            "id": 143
+            "id": 142
         },
         {
-            "id": 144,
+            "id": 143,
             "company": "OpenAI",
             "company_website": "https://openai.com",
             "company_logo_url": "https://logo.clearbit.com/openai.com",
@@ -6841,7 +6841,7 @@
             "successor": "GPT-5"
         },
         {
-            "id": 145,
+            "id": 144,
             "company": "Baidu",
             "company_website": "https://baidu.com",
             "company_logo_url": "https://logo.clearbit.com/baidu.com",
@@ -6886,7 +6886,7 @@
             "successor": "ERNIE 4.5 Turbo"
         },
         {
-            "id": 146,
+            "id": 145,
             "company": "Baidu",
             "company_website": "https://baidu.com",
             "company_logo_url": "https://logo.clearbit.com/baidu.com",
@@ -6930,7 +6930,7 @@
             "successor": "ERNIE X1 Turbo"
         },
         {
-            "id": 147,
+            "id": 146,
             "company": "Alibaba",
             "company_website": "https://qwenlm.github.io",
             "company_logo_url": "https://logo.clearbit.com/alibaba.com",
@@ -6981,7 +6981,7 @@
             "successor": null
         },
         {
-            "id": 148,
+            "id": 147,
             "company": "Google",
             "company_website": "https://google.com",
             "company_logo_url": "https://logo.clearbit.com/google.com",
@@ -7033,7 +7033,7 @@
             "successor": null
         },
         {
-            "id": 149,
+            "id": 148,
             "company": "Google DeepMind",
             "company_website": "https://deepmind.google",
             "company_logo_url": "https://logo.clearbit.com/deepmind.com",
@@ -7090,7 +7090,7 @@
             "successor": "Gemini 3"
         },
         {
-            "id": 150,
+            "id": 149,
             "company": "Baidu",
             "company_website": "https://baidu.com",
             "company_logo_url": "https://logo.clearbit.com/baidu.com",
@@ -7134,7 +7134,7 @@
             "successor": null
         },
         {
-            "id": 151,
+            "id": 150,
             "company": "Baidu",
             "company_website": "https://baidu.com",
             "company_logo_url": "https://logo.clearbit.com/baidu.com",
@@ -7176,7 +7176,7 @@
             "successor": null
         },
         {
-            "id": 152,
+            "id": 151,
             "company": "IBM",
             "company_website": "https://ibm.com",
             "company_logo_url": "https://logo.clearbit.com/ibm.com",
@@ -7225,7 +7225,7 @@
             "successor": null
         },
         {
-            "id": 153,
+            "id": 152,
             "company": "Meta",
             "company_website": "https://meta.com",
             "company_logo_url": "https://logo.clearbit.com/meta.com",
@@ -7274,7 +7274,7 @@
             "successor": null
         },
         {
-            "id": 154,
+            "id": 153,
             "company": "Meta",
             "company_website": "https://meta.com",
             "company_logo_url": "https://logo.clearbit.com/meta.com",
@@ -7326,7 +7326,7 @@
             "successor": null
         },
         {
-            "id": 155,
+            "id": 154,
             "company": "Meta",
             "company_website": "https://meta.com",
             "company_logo_url": "https://logo.clearbit.com/meta.com",
@@ -7377,7 +7377,7 @@
             "successor": null
         },
         {
-            "id": 156,
+            "id": 155,
             "company": "OpenAI",
             "company_website": "https://openai.com",
             "company_logo_url": "https://logo.clearbit.com/openai.com",
@@ -7429,7 +7429,7 @@
             "successor": "GPT-5"
         },
         {
-            "id": 157,
+            "id": 156,
             "company": "OpenAI",
             "company_website": "https://openai.com",
             "company_logo_url": "https://logo.clearbit.com/openai.com",
@@ -7477,7 +7477,7 @@
             "successor": null
         },
         {
-            "id": 158,
+            "id": 157,
             "company": "OpenAI",
             "company_website": "https://openai.com",
             "company_logo_url": "https://logo.clearbit.com/openai.com",
@@ -7524,7 +7524,7 @@
             "successor": null
         },
         {
-            "id": 159,
+            "id": 158,
             "company": "OpenAI",
             "company_website": "https://openai.com",
             "company_logo_url": "https://logo.clearbit.com/openai.com",
@@ -7578,7 +7578,7 @@
             "successor": "o3-pro"
         },
         {
-            "id": 160,
+            "id": 159,
             "company": "OpenAI",
             "company_website": "https://openai.com",
             "company_logo_url": "https://logo.clearbit.com/openai.com",
@@ -7625,7 +7625,7 @@
             "successor": null
         },
         {
-            "id": 161,
+            "id": 160,
             "company": "Alibaba",
             "company_website": "https://alibaba.com",
             "company_logo_url": "https://logo.clearbit.com/alibaba.com",
@@ -7678,7 +7678,7 @@
             "successor": null
         },
         {
-            "id": 162,
+            "id": 161,
             "company": "Sarvam AI",
             "company_website": "https://sarvam.ai",
             "company_logo_url": "https://logo.clearbit.com/sarvam.ai",
@@ -7722,7 +7722,7 @@
             "successor": null
         },
         {
-            "id": 163,
+            "id": 162,
             "company": "Google DeepMind",
             "company_website": "https://deepmind.google",
             "company_logo_url": "https://logo.clearbit.com/deepmind.google",
@@ -7772,7 +7772,7 @@
             "successor": "Gemini 3 Flash"
         },
         {
-            "id": 164,
+            "id": 163,
             "company": "Mistral AI",
             "company_website": "https://mistral.ai",
             "company_logo_url": "https://logo.clearbit.com/mistral.ai",
@@ -7822,7 +7822,7 @@
             "successor": "Devstral 2"
         },
         {
-            "id": 165,
+            "id": 164,
             "company": "Anthropic",
             "company_website": "https://anthropic.com",
             "company_logo_url": "https://logo.clearbit.com/anthropic.com",
@@ -7873,7 +7873,7 @@
             "successor": "Claude 4.5 Opus"
         },
         {
-            "id": 166,
+            "id": 165,
             "company": "Anthropic",
             "company_website": "https://anthropic.com",
             "company_logo_url": "https://logo.clearbit.com/anthropic.com",
@@ -7926,7 +7926,7 @@
             "successor": "Claude 4.5 Sonnet"
         },
         {
-            "id": 167,
+            "id": 166,
             "company": "DeepSeek",
             "company_website": "https://deepseek.com",
             "company_logo_url": "https://logo.clearbit.com/deepseek.com",
@@ -7975,7 +7975,7 @@
             "successor": "DeepSeek R2"
         },
         {
-            "id": 168,
+            "id": 167,
             "company": "Mistral AI",
             "company_website": "https://mistral.ai",
             "company_logo_url": "https://logo.clearbit.com/mistral.ai",
@@ -8019,7 +8019,7 @@
             "successor": "Mistral Small 4"
         },
         {
-            "id": 169,
+            "id": 168,
             "company": "OpenAI",
             "company_website": "https://openai.com",
             "company_logo_url": "https://logo.clearbit.com/openai.com",
@@ -8066,7 +8066,7 @@
             "successor": null
         },
         {
-            "id": 170,
+            "id": 169,
             "company": "xAI",
             "company_website": "https://x.ai",
             "company_logo_url": "https://logo.clearbit.com/x.ai",
@@ -8162,10 +8162,10 @@
             "paper_url": null,
             "predecessor": "Qwen2.5 Coder",
             "successor": "Qwen3.5 Coder",
-            "id": 171
+            "id": 170
         },
         {
-            "id": 172,
+            "id": 171,
             "company": "Mistral AI",
             "company_website": "https://mistral.ai",
             "company_logo_url": "https://logo.clearbit.com/mistral.ai",
@@ -8209,7 +8209,7 @@
             "successor": null
         },
         {
-            "id": 173,
+            "id": 172,
             "company": "Anthropic",
             "company_website": "https://anthropic.com",
             "company_logo_url": "https://logo.clearbit.com/anthropic.com",
@@ -8255,7 +8255,7 @@
             "successor": null
         },
         {
-            "id": 174,
+            "id": 173,
             "company": "OpenAI",
             "company_website": "https://openai.com",
             "company_logo_url": "https://logo.clearbit.com/openai.com",
@@ -8311,7 +8311,7 @@
             "successor": "GPT-5.1"
         },
         {
-            "id": 175,
+            "id": 174,
             "company": "Anthropic",
             "company_website": "https://anthropic.com",
             "company_logo_url": "https://logo.clearbit.com/anthropic.com",
@@ -8362,7 +8362,7 @@
             "successor": "Claude 4.6 Sonnet"
         },
         {
-            "id": 176,
+            "id": 175,
             "company": "OpenAI",
             "company_website": "https://openai.com",
             "company_logo_url": "https://logo.clearbit.com/openai.com",
@@ -8414,7 +8414,7 @@
             "successor": "GPT-5.2"
         },
         {
-            "id": 177,
+            "id": 176,
             "company": "Mistral AI",
             "company_website": "https://mistral.ai",
             "company_logo_url": "https://logo.clearbit.com/mistral.ai",
@@ -8465,7 +8465,7 @@
             "successor": null
         },
         {
-            "id": 178,
+            "id": 177,
             "company": "Google DeepMind",
             "company_website": "https://deepmind.google",
             "company_logo_url": "https://logo.clearbit.com/deepmind.com",
@@ -8538,10 +8538,10 @@
             "release_date": "2025-11-18",
             "description": "Specialized model for breakthrough scientific research and complex logical deduction via parallel hypothesis exploration.",
             "official_model_link": "https://deepmind.google/gemini",
-            "id": 179
+            "id": 178
         },
         {
-            "id": 180,
+            "id": 179,
             "company": "Anthropic",
             "company_website": "https://anthropic.com",
             "company_logo_url": "https://logo.clearbit.com/anthropic.com",
@@ -8588,7 +8588,7 @@
             "successor": "Claude 4.6 Opus"
         },
         {
-            "id": 181,
+            "id": 180,
             "company": "DeepSeek",
             "company_website": "https://deepseek.com",
             "company_logo_url": "https://logo.clearbit.com/deepseek.com",
@@ -8635,7 +8635,7 @@
             "successor": null
         },
         {
-            "id": 182,
+            "id": 181,
             "company": "Mistral AI",
             "company_website": "https://mistral.ai",
             "company_logo_url": "https://logo.clearbit.com/mistral.ai",
@@ -8729,10 +8729,10 @@
             "paper_url": null,
             "predecessor": "HyperCLOVA X",
             "successor": null,
-            "id": 183
+            "id": 182
         },
         {
-            "id": 184,
+            "id": 183,
             "company": "OpenAI",
             "company_website": "https://openai.com",
             "company_logo_url": "https://logo.clearbit.com/openai.com",
@@ -8832,10 +8832,10 @@
             "paper_url": null,
             "predecessor": "Claude 4 Opus (2025)",
             "successor": null,
-            "id": 185
+            "id": 184
         },
         {
-            "id": 186,
+            "id": 185,
             "company": "OpenAI",
             "company_website": "https://openai.com",
             "company_logo_url": "https://logo.clearbit.com/openai.com",
@@ -8924,7 +8924,7 @@
             "paper_url": null,
             "predecessor": "Kling 2.1",
             "successor": null,
-            "id": 187
+            "id": 186
         },
         {
             "company": "Zhipu AI",
@@ -8974,7 +8974,7 @@
             "paper_url": "https://arxiv.org/abs/2602.15763",
             "predecessor": "GLM-4.7",
             "successor": "GLM-5.1",
-            "id": 188
+            "id": 187
         },
         {
             "company": "Alibaba",
@@ -9025,7 +9025,7 @@
             "paper_url": null,
             "predecessor": "Qwen3",
             "successor": null,
-            "id": 189
+            "id": 188
         },
         {
             "company": "Anthropic",
@@ -9073,7 +9073,7 @@
             "paper_url": null,
             "predecessor": "Claude 4 Sonnet",
             "successor": null,
-            "id": 190
+            "id": 189
         },
         {
             "company": "Sarvam AI",
@@ -9118,7 +9118,7 @@
             "paper_url": null,
             "predecessor": "Sarvam-30B",
             "successor": null,
-            "id": 191
+            "id": 190
         },
         {
             "company": "Sarvam AI",
@@ -9163,7 +9163,7 @@
             "paper_url": null,
             "predecessor": "Sarvam-1",
             "successor": "Sarvam-105B",
-            "id": 192
+            "id": 191
         },
         {
             "company": "Google",
@@ -9214,10 +9214,10 @@
             "paper_url": null,
             "predecessor": "Gemini 3.0",
             "successor": null,
-            "id": 193
+            "id": 192
         },
         {
-            "id": 194,
+            "id": 193,
             "company": "Inception AI",
             "company_website": "https://www.inceptionlabs.ai",
             "company_logo_url": "https://logo.clearbit.com/inceptionlabs.ai",
@@ -9264,7 +9264,7 @@
             "successor": null
         },
         {
-            "id": 195,
+            "id": 194,
             "company": "OpenAI",
             "company_website": "https://openai.com",
             "company_logo_url": "https://logo.clearbit.com/openai.com",
@@ -9308,7 +9308,7 @@
             "successor": "GPT-5.4"
         },
         {
-            "id": 196,
+            "id": 195,
             "company": "Google",
             "company_website": "https://google.com",
             "company_logo_url": "https://logo.clearbit.com/google.com",
@@ -9354,7 +9354,7 @@
             "successor": null
         },
         {
-            "id": 197,
+            "id": 196,
             "company": "OpenAI",
             "company_website": "https://openai.com",
             "company_logo_url": "https://logo.clearbit.com/openai.com",
@@ -9400,7 +9400,7 @@
             "successor": null
         },
         {
-            "id": 198,
+            "id": 197,
             "company": "Microsoft",
             "company_website": "https://microsoft.com",
             "company_logo_url": "https://logo.clearbit.com/microsoft.com",
@@ -9453,7 +9453,7 @@
             "successor": null
         },
         {
-            "id": 199,
+            "id": 198,
             "company": "NVIDIA",
             "company_website": "https://nvidia.com",
             "company_logo_url": "https://logo.clearbit.com/nvidia.com",
@@ -9500,7 +9500,7 @@
             "successor": "Nemotron 3 Ultra"
         },
         {
-            "id": 200,
+            "id": 199,
             "company": "Mistral AI",
             "company_website": "https://mistral.ai",
             "company_logo_url": "https://logo.clearbit.com/mistral.ai",
@@ -9546,7 +9546,7 @@
             "successor": null
         },
         {
-            "id": 201,
+            "id": 200,
             "company": "OpenAI",
             "company_website": "https://openai.com",
             "company_logo_url": "https://logo.clearbit.com/openai.com",
@@ -9589,7 +9589,7 @@
             "successor": null
         },
         {
-            "id": 202,
+            "id": 201,
             "company": "OpenAI",
             "company_website": "https://openai.com",
             "company_logo_url": "https://logo.clearbit.com/openai.com",
@@ -9636,7 +9636,7 @@
             "successor": null
         },
         {
-            "id": 203,
+            "id": 202,
             "company": "xAI",
             "company_website": "https://x.ai",
             "company_logo_url": "https://logo.clearbit.com/x.ai",
@@ -9682,7 +9682,7 @@
             "successor": null
         },
         {
-            "id": 204,
+            "id": 203,
             "company": "MiniMax",
             "company_website": "https://minimax.io",
             "company_logo_url": "https://logo.clearbit.com/minimax.io",
@@ -9726,7 +9726,7 @@
             "successor": null
         },
         {
-            "id": 205,
+            "id": 204,
             "company": "Xiaomi",
             "company_website": "https://xiaomi.com",
             "company_logo_url": "https://logo.clearbit.com/xiaomi.com",
@@ -9812,7 +9812,7 @@
             "paper_url": null,
             "predecessor": "Qwen 2.5",
             "successor": null,
-            "id": 206
+            "id": 205
         },
         {
             "company": "OpenAI",
@@ -9860,7 +9860,7 @@
             "paper_url": null,
             "predecessor": "GPT-5.4",
             "successor": null,
-            "id": 207
+            "id": 206
         },
         {
             "company": "Mistral AI",
@@ -9906,10 +9906,10 @@
             "paper_url": null,
             "predecessor": "Mistral Large 3",
             "successor": null,
-            "id": 208
+            "id": 207
         },
         {
-            "id": 209,
+            "id": 208,
             "company": "World Labs",
             "company_website": "https://worldlabs.ai",
             "company_logo_url": "https://logo.clearbit.com/worldlabs.ai",
@@ -10000,7 +10000,7 @@
             "paper_url": null,
             "predecessor": "Qwen 3.5 Max",
             "successor": null,
-            "id": 210
+            "id": 209
         },
         {
             "company": "Google",
@@ -10044,7 +10044,7 @@
             "paper_url": null,
             "predecessor": "Gemma 3",
             "successor": null,
-            "id": 211
+            "id": 210
         },
         {
             "company": "Anthropic",
@@ -10091,7 +10091,7 @@
             "paper_url": null,
             "predecessor": "Claude 3.5 Opus",
             "successor": null,
-            "id": 212
+            "id": 211
         },
         {
             "company": "Zhipu AI",
@@ -10137,10 +10137,10 @@
             "paper_url": null,
             "predecessor": "GLM-4",
             "successor": null,
-            "id": 213
+            "id": 212
         },
         {
-            "id": 214,
+            "id": 213,
             "company": "HeyGen",
             "company_website": "https://heygen.com",
             "company_logo_url": "https://logo.clearbit.com/heygen.com",
@@ -10232,10 +10232,10 @@
             "paper_url": null,
             "predecessor": "Llama 3.1",
             "successor": null,
-            "id": 215
+            "id": 214
         },
         {
-            "id": 216,
+            "id": 215,
             "company": "Microsoft",
             "company_website": "https://microsoft.com",
             "company_logo_url": "https://logo.clearbit.com/microsoft.com",
@@ -10281,7 +10281,7 @@
             "successor": null
         },
         {
-            "id": 217,
+            "id": 216,
             "company": "Anthropic",
             "company_website": "https://anthropic.com",
             "company_logo_url": "https://logo.clearbit.com/anthropic.com",
@@ -10376,7 +10376,7 @@
             "paper_url": null,
             "predecessor": "Qwen 3.5",
             "successor": null,
-            "id": 218
+            "id": 217
         },
         {
             "company": "Alibaba",
@@ -10425,10 +10425,10 @@
             "paper_url": null,
             "predecessor": "Qwen 3.5 Max",
             "successor": null,
-            "id": 219
+            "id": 218
         },
         {
-            "id": 220,
+            "id": 219,
             "company": "Moonshot AI",
             "company_website": "https://kimi.ai",
             "company_logo_url": "https://logo.clearbit.com/moonshot.cn",
@@ -10522,10 +10522,10 @@
             "paper_url": null,
             "predecessor": "Qwen 3.5",
             "successor": null,
-            "id": 221
+            "id": 220
         },
         {
-            "id": 222,
+            "id": 221,
             "company": "OpenAI",
             "company_website": "https://openai.com",
             "company_logo_url": "https://logo.clearbit.com/openai.com",
@@ -10574,7 +10574,7 @@
             "successor": null
         },
         {
-            "id": 223,
+            "id": 222,
             "company": "OpenAI",
             "company_website": "https://openai.com",
             "company_logo_url": "https://logo.clearbit.com/openai.com",
@@ -10666,10 +10666,10 @@
             "paper_url": "https://openai.com/index/gpt-5-5-system-card",
             "predecessor": "GPT-5.5",
             "successor": null,
-            "id": 224
+            "id": 223
         },
         {
-            "id": 225,
+            "id": 224,
             "company": "DeepSeek",
             "company_website": "https://deepseek.com",
             "company_logo_url": "https://logo.clearbit.com/deepseek.com",
@@ -10706,8 +10706,8 @@
             ],
             "benchmark_scores": {},
             "pricing_per_1m_tokens": {
-                "input": null,
-                "output": null
+                "input": 0.07,
+                "output": 0.28
             },
             "official_model_link": "https://deepseek.com",
             "huggingface_url": "https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash",
@@ -10716,7 +10716,7 @@
             "successor": null
         },
         {
-            "id": 226,
+            "id": 225,
             "company": "DeepSeek",
             "company_website": "https://deepseek.com",
             "company_logo_url": "https://logo.clearbit.com/deepseek.com",
@@ -10738,7 +10738,7 @@
             "training_data_cutoff": "2026-03",
             "release_date": "2026-04-24",
             "country": "China",
-            "description": "DeepSeek's flagship 1.6T parameter MoE model with 49B active parameters per forward pass. Features a novel Hybrid Attention Architecture combining Compressed Sparse Attention (CSA) and Heavily Compressed Attention (HCA) for efficient 1M context processing.",
+            "description": "DeepSeek's flagship 1.6T parameter MoE model with 49B active parameters per forward pass. Features a novel Hybrid Attention Architecture combining Compressed Sparse Attention (CSA) and Heavily Compressed Attention (HCA) for efficient 1M context processing. As of May 31, 2026, the previously promotional 75% price discount was made permanent: $0.435/M input and $0.87/M output.",
             "use_cases": [
                 "high-capability reasoning",
                 "complex agentic tasks",
@@ -10753,8 +10753,8 @@
             ],
             "benchmark_scores": {},
             "pricing_per_1m_tokens": {
-                "input": null,
-                "output": null
+                "input": 0.435,
+                "output": 0.87
             },
             "official_model_link": "https://deepseek.com",
             "huggingface_url": "https://huggingface.co/deepseek-ai/DeepSeek-V4-Pro",
@@ -10763,7 +10763,7 @@
             "successor": null
         },
         {
-            "id": 227,
+            "id": 226,
             "company": "Tencent",
             "company_website": "https://tencent.com",
             "company_logo_url": "https://logo.clearbit.com/tencent.com",
@@ -10810,7 +10810,56 @@
             "successor": null
         },
         {
-            "id": 230,
+            "company": "xAI",
+            "company_website": "https://x.ai",
+            "company_logo_url": "https://logo.clearbit.com/x.ai",
+            "model_family": "Grok",
+            "model_name": "Grok 4.3",
+            "model_version": "4.3",
+            "model_type": "Multimodal LLM (Reasoning)",
+            "architecture": "Transformer (chain-of-thought reasoning enabled by default)",
+            "modalities": [
+                "text",
+                "vision",
+                "video"
+            ],
+            "parameters": null,
+            "parameter_unit": null,
+            "training_tokens": null,
+            "open_source": false,
+            "license": "Proprietary",
+            "api_available": true,
+            "context_window_tokens": 1000000,
+            "training_data_cutoff": "2025-12",
+            "release_date": "2026-04-30",
+            "country": "USA",
+            "description": "xAI's latest reasoning-centric flagship model, released in public beta on April 17, 2026 for SuperGrok Heavy subscribers and broadly via API on April 30, 2026. The first Grok model to natively support video input alongside text and images. Built-in chain-of-thought reasoning is enabled by default for all API requests. Designed for complex agentic workflows, multi-step tool-calling, and competitive pricing at $1.25/$2.50 per 1M tokens.",
+            "use_cases": [
+                "complex reasoning",
+                "agentic workflows",
+                "video understanding",
+                "tool-calling pipelines"
+            ],
+            "notable_features": [
+                "first Grok model with native video input",
+                "built-in chain-of-thought reasoning by default",
+                "1M token context window",
+                "competitive pricing ($1.25/$2.50 per 1M)"
+            ],
+            "benchmark_scores": {},
+            "pricing_per_1m_tokens": {
+                "input": 1.25,
+                "output": 2.5
+            },
+            "official_model_link": "https://x.ai/grok",
+            "huggingface_url": null,
+            "paper_url": null,
+            "predecessor": "Grok 3.5",
+            "successor": null,
+            "id": 227
+        },
+        {
+            "id": 228,
             "company": "OpenAI",
             "company_website": "https://openai.com",
             "company_logo_url": "https://logo.clearbit.com/openai.com",
@@ -10858,7 +10907,7 @@
             "successor": null
         },
         {
-            "id": 234,
+            "id": 229,
             "company": "Subquadratic",
             "company_website": "https://subquadratic.ai",
             "company_logo_url": "https://logo.clearbit.com/subquadratic.ai",
@@ -10901,6 +10950,54 @@
             "paper_url": null,
             "predecessor": null,
             "successor": null
+        },
+        {
+            "company": "Zyphra",
+            "company_website": "https://zyphra.com",
+            "company_logo_url": "https://logo.clearbit.com/zyphra.com",
+            "model_family": "ZAYA",
+            "model_name": "ZAYA1-8B",
+            "model_version": "1.0",
+            "model_type": "LLM (MoE, Reasoning)",
+            "architecture": "Sparse MoE++ with Compressed Convolutional Attention (CCA) and Markovian RSA",
+            "modalities": [
+                "text"
+            ],
+            "parameters": 8.4,
+            "parameter_unit": "billion",
+            "training_tokens": null,
+            "open_source": true,
+            "license": "Apache 2.0",
+            "api_available": true,
+            "context_window_tokens": 131072,
+            "training_data_cutoff": "2025-12",
+            "release_date": "2026-05-06",
+            "country": "USA",
+            "description": "ZAYA1-8B is an open-weights sparse Mixture-of-Experts reasoning model by Palo Alto startup Zyphra, released May 6, 2026 under Apache 2.0. With ~8.4B total parameters but only ~760M active parameters per token, it achieves high 'intelligence density'. Key innovations include Compressed Convolutional Attention (CCA) for 8x KV-cache reduction, the ZAYA1 Router for stable expert routing, Learned Residual Scaling, and Markovian RSA test-time compute. Pretrained entirely on AMD MI300X GPUs.",
+            "use_cases": [
+                "complex mathematics",
+                "competitive coding",
+                "multi-step reasoning",
+                "efficient on-device inference"
+            ],
+            "notable_features": [
+                "8.4B total / ~760M active parameters per token",
+                "CCA: 8x KV-cache reduction",
+                "Markovian RSA test-time compute",
+                "Trained on AMD MI300X (1,024 GPUs)",
+                "Apache 2.0 open weights"
+            ],
+            "benchmark_scores": {},
+            "pricing_per_1m_tokens": {
+                "input": null,
+                "output": null
+            },
+            "official_model_link": "https://zyphra.com/zaya1",
+            "huggingface_url": "https://huggingface.co/Zyphra/ZAYA1-8B",
+            "paper_url": "https://arxiv.org/abs/2605.XXXXX",
+            "predecessor": null,
+            "successor": null,
+            "id": 230
         },
         {
             "company": "OpenAI",
@@ -10948,10 +11045,10 @@
             "paper_url": null,
             "predecessor": "GPT-5.5",
             "successor": null,
-            "id": 228
+            "id": 231
         },
         {
-            "id": 231,
+            "id": 232,
             "company": "OpenAI",
             "company_website": "https://openai.com",
             "company_logo_url": "https://logo.clearbit.com/openai.com",
@@ -10997,7 +11094,7 @@
             "successor": null
         },
         {
-            "id": 232,
+            "id": 233,
             "company": "OpenAI",
             "company_website": "https://openai.com",
             "company_logo_url": "https://logo.clearbit.com/openai.com",
@@ -11043,7 +11140,7 @@
             "successor": null
         },
         {
-            "id": 233,
+            "id": 234,
             "company": "OpenAI",
             "company_website": "https://openai.com",
             "company_logo_url": "https://logo.clearbit.com/openai.com",
@@ -11093,6 +11190,203 @@
             "company": "Google",
             "company_website": "https://google.com",
             "company_logo_url": "https://logo.clearbit.com/google.com",
+            "model_family": "Gemini",
+            "model_name": "Gemini 3.5 Flash",
+            "model_version": "3.5-flash",
+            "model_type": "Multimodal LLM",
+            "architecture": "Transformer (Selective Parameter Activation / Dynamic Thinking)",
+            "modalities": [
+                "text",
+                "vision",
+                "audio",
+                "video"
+            ],
+            "parameters": null,
+            "parameter_unit": null,
+            "training_tokens": null,
+            "open_source": false,
+            "license": "Proprietary",
+            "api_available": true,
+            "context_window_tokens": 1048576,
+            "training_data_cutoff": "2026-01",
+            "release_date": "2026-05-19",
+            "country": "USA",
+            "description": "Announced at Google I/O 2026, Gemini 3.5 Flash is optimized for agentic workflows and coding tasks. It features 'Dynamic Thinking' allowing the model to allocate compute based on task complexity, and integrates natively with the Antigravity developer platform.",
+            "use_cases": [
+                "agentic workflows",
+                "coding",
+                "general reasoning",
+                "multimodal analysis"
+            ],
+            "notable_features": [
+                "Dynamic thinking",
+                "1M context window",
+                "native audio/video processing",
+                "agent-first design"
+            ],
+            "benchmark_scores": {},
+            "pricing_per_1m_tokens": {
+                "input": 1.5,
+                "output": 9
+            },
+            "official_model_link": "https://blog.google",
+            "huggingface_url": null,
+            "paper_url": null,
+            "predecessor": "Gemini 3.1 Pro",
+            "successor": null,
+            "id": 235
+        },
+        {
+            "company": "Google",
+            "company_website": "https://google.com",
+            "company_logo_url": "https://logo.clearbit.com/google.com",
+            "model_family": "Gemini",
+            "model_name": "Gemini 3.5 Pro",
+            "model_version": "3.5-pro",
+            "model_type": "Foundation LLM (Reasoning)",
+            "architecture": "Transformer",
+            "modalities": [
+                "text",
+                "vision",
+                "audio",
+                "video"
+            ],
+            "parameters": null,
+            "parameter_unit": null,
+            "training_tokens": null,
+            "open_source": false,
+            "license": "Proprietary",
+            "api_available": false,
+            "context_window_tokens": 2000000,
+            "training_data_cutoff": "2026-01",
+            "release_date": "2026-05-19",
+            "country": "USA",
+            "description": "Announced at Google I/O 2026 as the flagship deep-reasoning tier of the Gemini 3.5 family. It supports a context window of up to 2 million tokens and is optimized for advanced scientific research and complex agentic planning.",
+            "use_cases": [
+                "scientific research",
+                "complex planning",
+                "coding",
+                "multi-modal reasoning"
+            ],
+            "notable_features": [
+                "2M context window",
+                "deep reasoning",
+                "agentic planning"
+            ],
+            "benchmark_scores": {},
+            "pricing_per_1m_tokens": {
+                "input": null,
+                "output": null
+            },
+            "official_model_link": "https://blog.google",
+            "huggingface_url": null,
+            "paper_url": null,
+            "predecessor": "Gemini 3.1 Pro",
+            "successor": null,
+            "id": 236
+        },
+        {
+            "company": "Google",
+            "company_website": "https://google.com",
+            "company_logo_url": "https://logo.clearbit.com/google.com",
+            "model_family": "Gemini",
+            "model_name": "Gemini Omni",
+            "model_version": "1.0",
+            "model_type": "Multimodal LLM",
+            "architecture": "Transformer (Omni, natively multimodal)",
+            "modalities": [
+                "text",
+                "vision",
+                "audio",
+                "video"
+            ],
+            "parameters": null,
+            "parameter_unit": null,
+            "training_tokens": null,
+            "open_source": false,
+            "license": "Proprietary",
+            "api_available": true,
+            "context_window_tokens": 1000000,
+            "training_data_cutoff": "2026-01",
+            "release_date": "2026-05-19",
+            "country": "USA",
+            "description": "Announced at Google I/O 2026, Gemini Omni natively processes audio, video, images, and text in real-time with ultra-low latency. Designed for human-like conversational interfaces and continuous streaming interactions.",
+            "use_cases": [
+                "real-time voice conversation",
+                "continuous video stream parsing",
+                "interactive UI assistance"
+            ],
+            "notable_features": [
+                "real-time streaming omni modalities",
+                "ultra-low latency",
+                "native audio/video understanding"
+            ],
+            "benchmark_scores": {},
+            "pricing_per_1m_tokens": {
+                "input": null,
+                "output": null
+            },
+            "official_model_link": "https://blog.google",
+            "huggingface_url": null,
+            "paper_url": null,
+            "predecessor": "Gemini 1.5 Pro",
+            "successor": null,
+            "id": 237
+        },
+        {
+            "id": 238,
+            "company": "Google",
+            "company_website": "https://google.com",
+            "company_logo_url": "https://logo.clearbit.com/google.com",
+            "model_family": "Gemini",
+            "model_name": "Gemini Spark",
+            "model_version": "1.0",
+            "model_type": "Agentic AI (Personal Agent)",
+            "architecture": "Transformer (Gemini 3.5 family, Antigravity harness)",
+            "modalities": [
+                "text",
+                "vision",
+                "audio"
+            ],
+            "parameters": null,
+            "parameter_unit": null,
+            "training_tokens": null,
+            "open_source": false,
+            "license": "Proprietary",
+            "api_available": true,
+            "context_window_tokens": 1000000,
+            "training_data_cutoff": "2026-01",
+            "release_date": "2026-05-19",
+            "country": "USA",
+            "description": "Announced at Google I/O 2026, Gemini Spark is a 24/7 always-on personal AI agent that runs persistently on Google Cloud virtual machines. Powered by Gemini 3.5 and the Antigravity harness, it handles long-horizon multi-step tasks across Gmail, Calendar, Drive, and 30+ third-party tools via MCP — even when user devices are offline. Features Adaptive Context for dynamic resource-aware processing and is available to Google AI Ultra and Workspace Enterprise subscribers.",
+            "use_cases": [
+                "persistent task automation",
+                "email and calendar management",
+                "document organization",
+                "enterprise workflow automation"
+            ],
+            "notable_features": [
+                "24/7 cloud-hosted background execution",
+                "Antigravity harness for long-horizon tasks",
+                "30+ third-party MCP integrations",
+                "Adaptive Context resource awareness",
+                "Android Halo progress tracking UI"
+            ],
+            "benchmark_scores": {},
+            "pricing_per_1m_tokens": {
+                "input": null,
+                "output": null
+            },
+            "official_model_link": "https://blog.google/products/gemini/gemini-spark",
+            "huggingface_url": null,
+            "paper_url": null,
+            "predecessor": "Gemini 3.5 Flash",
+            "successor": null
+        },
+        {
+            "company": "Google",
+            "company_website": "https://google.com",
+            "company_logo_url": "https://logo.clearbit.com/google.com",
             "model_family": "Gemma",
             "model_name": "Gemma 3n",
             "model_version": "3n",
@@ -11128,15 +11422,68 @@
             ],
             "benchmark_scores": {},
             "pricing_per_1m_tokens": {
-                "input": 0.0,
-                "output": 0.0
+                "input": 0,
+                "output": 0
             },
             "official_model_link": "https://ai.google.dev/gemma",
             "huggingface_url": "https://huggingface.co/google/gemma-3n-E4B",
             "paper_url": null,
             "predecessor": "Gemma 3",
             "successor": null,
-            "id": 241
+            "id": 239
+        },
+        {
+            "id": 240,
+            "company": "Anthropic",
+            "company_website": "https://anthropic.com",
+            "company_logo_url": "https://logo.clearbit.com/anthropic.com",
+            "model_family": "Claude",
+            "model_name": "Claude Opus 4.8",
+            "model_version": "4.8",
+            "model_type": "Foundation LLM (Agentic Reasoning)",
+            "architecture": "Transformer",
+            "modalities": [
+                "text",
+                "vision"
+            ],
+            "parameters": null,
+            "parameter_unit": null,
+            "training_tokens": null,
+            "open_source": false,
+            "license": "Proprietary",
+            "api_available": true,
+            "context_window_tokens": 1000000,
+            "training_data_cutoff": "2025-12",
+            "release_date": "2026-05-28",
+            "country": "USA",
+            "description": "Anthropic's latest flagship model, released May 28, 2026. Claude Opus 4.8 achieves 69.2% on SWE-bench Pro and is approximately 4x less likely than Opus 4.7 to allow coding flaws to pass unremarked. Introduces Dynamic Workflows (research preview) for running hundreds of parallel subagents in a single Claude Code session, user-configurable effort control, and mid-conversation system messages in the Messages API. Fast mode is 2.5x faster and 3x cheaper than previous models.",
+            "use_cases": [
+                "agentic coding",
+                "complex reasoning",
+                "financial analysis",
+                "scientific research",
+                "multi-agent orchestration"
+            ],
+            "notable_features": [
+                "69.2% SWE-bench Pro",
+                "Dynamic Workflows for parallel subagents",
+                "Configurable effort control",
+                "Mid-conversation system messages",
+                "Fast mode (2.5x speed, 3x cheaper)",
+                "Enhanced honesty and reliability"
+            ],
+            "benchmark_scores": {
+                "SWE-bench Pro": 69.2
+            },
+            "pricing_per_1m_tokens": {
+                "input": 5,
+                "output": 25
+            },
+            "official_model_link": "https://www.anthropic.com/claude/opus",
+            "huggingface_url": null,
+            "paper_url": null,
+            "predecessor": "Claude Opus 4.7",
+            "successor": null
         }
     ]
 }
