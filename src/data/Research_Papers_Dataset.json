@@ -2,8 +2,8 @@
     "metadata": {
         "title": "Foundational AI Research Papers Timeline",
         "description": "A curated list of the most influential AI research papers that drove the technological revolution.",
-        "last_updated": "2026-05-31",
-        "total_papers": 102,
+        "last_updated": "2026-06-17",
+        "total_papers": 110,
         "fields": [
             "id",
             "title",
@@ -2165,6 +2165,28 @@
             "id": 84
         },
         {
+            "title": "Muse Spark: A Technical Overview of Meta Superintelligence Labs' First Frontier Model",
+            "authors": [
+                "Meta Superintelligence Labs Team"
+            ],
+            "institution": "Meta Superintelligence Labs",
+            "publication_date": "2026-04-08",
+            "published_in": "Meta AI Blog / Technical Report",
+            "topic": "Frontier LLMs / Natively Multimodal Architecture",
+            "description": "Technical overview of Muse Spark, the first publicly released model from Meta Superintelligence Labs (MSL). Documents the nine-month ground-up architectural overhaul that produced a natively multimodal, closed-source system designed as the first step on Meta's scaling ladder toward 'personal superintelligence.' Describes Contemplating Mode, the parallel multi-agent reasoning paradigm, and the model's context window design at 262k tokens.",
+            "key_contributions": [
+                "Natively multimodal architecture built from scratch",
+                "Contemplating Mode: parallel multi-agent reasoning",
+                "262k token context window design",
+                "Meta's strategic pivot from Llama open-source model",
+                "Integration across Meta social platform ecosystem"
+            ],
+            "paper_url": "https://ai.meta.com/research/muse-spark-technical-report",
+            "code_url": null,
+            "citations": 0,
+            "id": 85
+        },
+        {
             "title": "Dynamic Reflections: Probing Video Representations with Text Alignment",
             "authors": [
                 "DeepMind Vision-Language Team"
@@ -2182,10 +2204,10 @@
             "paper_url": null,
             "code_url": null,
             "citations": 0,
-            "id": 85
+            "id": 86
         },
         {
-            "id": 86,
+            "id": 87,
             "title": "Claude Opus 4.7 Model Card",
             "authors": [
                 "Anthropic"
@@ -2206,7 +2228,7 @@
             "citations": 0
         },
         {
-            "id": 87,
+            "id": 88,
             "title": "Kimi K2.6: Native Multimodal Agentic Intelligence",
             "authors": [
                 "Moonshot AI Research Team"
@@ -2227,7 +2249,7 @@
             "citations": 0
         },
         {
-            "id": 88,
+            "id": 89,
             "title": "Qwen3.6 Technical Report",
             "authors": [
                 "Alibaba Qwen Team"
@@ -2248,7 +2270,7 @@
             "citations": 0
         },
         {
-            "id": 89,
+            "id": 90,
             "title": "GPT-5.5 System Card",
             "authors": [
                 "OpenAI"
@@ -2269,7 +2291,7 @@
             "citations": 0
         },
         {
-            "id": 90,
+            "id": 91,
             "title": "DeepSeek-V4 Technical Report",
             "authors": [
                 "DeepSeek-AI"
@@ -2290,7 +2312,7 @@
             "citations": 0
         },
         {
-            "id": 91,
+            "id": 92,
             "title": "Hunyuan Hy3 Technical Report",
             "authors": [
                 "Tencent Hunyuan Team"
@@ -2329,7 +2351,7 @@
             "paper_url": "https://arxiv.org/abs/2604.XXXXX",
             "code_url": null,
             "citations": 0,
-            "id": 92
+            "id": 93
         },
         {
             "title": "The Reasoning Trap: How RL-Trained LLMs Amplify Tool Hallucinations",
@@ -2350,7 +2372,7 @@
             "paper_url": "https://openreview.net/forum?id=reasoning-trap-2026",
             "code_url": null,
             "citations": 0,
-            "id": 93
+            "id": 94
         },
         {
             "title": "Evolvable Artificial Intelligence: Evolutionary Transitions in Digital Systems",
@@ -2372,7 +2394,7 @@
             "paper_url": "https://www.pnas.org/doi/10.1073/pnas.2026",
             "code_url": null,
             "citations": 0,
-            "id": 94
+            "id": 95
         },
         {
             "title": "Reducing Sycophancy in Language Models through Deliberate Question Framing",
@@ -2393,10 +2415,10 @@
             "paper_url": "https://www.aisi.gov.uk/research/sycophancy-reduction",
             "code_url": null,
             "citations": 0,
-            "id": 95
+            "id": 96
         },
         {
-            "id": 96,
+            "id": 97,
             "title": "Scaling Trusted Access for Cyber with GPT-5.5 and GPT-5.5-Cyber",
             "authors": [
                 "OpenAI"
@@ -2435,7 +2457,7 @@
             "paper_url": "https://www.anthropic.com/research/2028-scenarios",
             "code_url": null,
             "citations": 0,
-            "id": 97
+            "id": 98
         },
         {
             "title": "Accelerating Empirical Science through Multi-Agent Idea Tournaments",
@@ -2455,7 +2477,7 @@
             "paper_url": "https://www.nature.com/articles/s41586-026-XXXXX",
             "code_url": null,
             "citations": 0,
-            "id": 98
+            "id": 99
         },
         {
             "title": "Gemma 3n Technical Report",
@@ -2476,7 +2498,7 @@
             "paper_url": null,
             "code_url": "https://huggingface.co/google/gemma-3n-E4B",
             "citations": 0,
-            "id": 99
+            "id": 100
         },
         {
             "title": "Towards Conversational Diagnostic AI: AMIE's Multimodal Medical Evaluation",
@@ -2497,7 +2519,30 @@
             "paper_url": "https://www.nature.com/articles/nm.2026.XXXX",
             "code_url": null,
             "citations": 0,
-            "id": 100
+            "id": 101
+        },
+        {
+            "title": "Qwen 3.7 Max: An Agent-First Frontier Mixture-of-Experts Language Model",
+            "authors": [
+                "Qwen Team",
+                "Alibaba Cloud"
+            ],
+            "institution": "Alibaba Group",
+            "publication_date": "2026-05-20",
+            "published_in": "Alibaba Cloud Summit Technical Report",
+            "topic": "Frontier LLMs / Agentic MoE",
+            "description": "Technical report for Qwen 3.7 Max, Alibaba's closed-weight flagship MoE model with a 1-million-token context window. Positioned as the 'Agent Frontier' model, optimized for sustained autonomous execution across multi-step coding, office productivity, and MCP tool orchestration. Introduces Native Extended-Thinking Mode for high-difficulty logical reasoning and supports prompt caching for repeated context scenarios. API-only, available on Alibaba Cloud Model Studio, OpenRouter, and Together AI.",
+            "key_contributions": [
+                "1M token context window with 65,536 max output",
+                "Native Extended-Thinking Mode for complex reasoning",
+                "Prompt caching for efficiency",
+                "Agent-first MoE architecture for sustained autonomy",
+                "Positioning as 'Agent Frontier' vs closed-weight rivals"
+            ],
+            "paper_url": "https://qwen.ai/qwen-3-7-max-technical-report",
+            "code_url": null,
+            "citations": 0,
+            "id": 102
         },
         {
             "title": "Calibrating Conservatism for Scalable Oversight of Autonomous Agents",
@@ -2517,7 +2562,7 @@
             "paper_url": "https://arxiv.org/abs/2605.XXXXX",
             "code_url": null,
             "citations": 0,
-            "id": 101
+            "id": 103
         },
         {
             "title": "Claude Opus 4.8 Model Card",
@@ -2539,7 +2584,140 @@
             "paper_url": "https://www.anthropic.com/claude/opus",
             "code_url": null,
             "citations": 0,
-            "id": 102
+            "id": 104
+        },
+        {
+            "title": "MiniMax M3: A Natively Multimodal Mixture-of-Experts Model for Autonomous Software Engineering",
+            "authors": [
+                "MiniMax Research Team"
+            ],
+            "institution": "MiniMax",
+            "publication_date": "2026-06-01",
+            "published_in": "arXiv / MiniMax Technical Report",
+            "topic": "Multimodal LLMs / Agentic Coding",
+            "description": "Technical report for MiniMax M3, a 428B total / ~22B active parameter open-source MoE model with a 1-million-token context window. Introduces MiniMax Sparse Attention (MSA), reducing computational complexity to 1/20th of the previous generation at long contexts. The model is natively multimodal (text, image, video), achieved 59.0% on SWE-bench Pro, and received Day-0 support on NVIDIA NIM and AMD Instinct GPUs. Released under Apache 2.0 for private and on-premise deployment.",
+            "key_contributions": [
+                "MiniMax Sparse Attention (MSA) for 20x efficiency improvement",
+                "428B total / 22B active MoE with native multimodality",
+                "1M token context window",
+                "59.0% SWE-bench Pro score",
+                "Apache 2.0 open-weight release"
+            ],
+            "paper_url": "https://minimax.io/research/m3-technical-report",
+            "code_url": "https://huggingface.co/MiniMaxAI/MiniMax-M3",
+            "citations": 0,
+            "id": 105
+        },
+        {
+            "title": "MAI: Introducing Microsoft's In-House AI Model Family",
+            "authors": [
+                "Microsoft AI Research Team"
+            ],
+            "institution": "Microsoft",
+            "publication_date": "2026-06-08",
+            "published_in": "Microsoft AI Blog",
+            "topic": "Frontier LLMs / Enterprise AI",
+            "description": "Introduces the MAI (Microsoft AI) model family, a suite of seven in-house AI models built without distillation from third-party models. The flagship MAI-Thinking-1 (35B active params, MoE, 256K context) targets advanced reasoning, while MAI-Code-1-Flash (5B) is optimized for GitHub Copilot integration. Documents the 'hill-climbing' development strategy for continuous improvement via integrated data pipelines and reinforcement learning.",
+            "key_contributions": [
+                "MAI-Thinking-1: 35B active MoE reasoning model with 256K context",
+                "MAI-Code-1-Flash: 5B efficient coding model for GitHub Copilot",
+                "Enterprise-grade training on commercially licensed data (no third-party distillation)",
+                "Hill-climbing development strategy",
+                "Microsoft's move toward AI infrastructure independence"
+            ],
+            "paper_url": "https://microsoft.ai/research/mai-model-family",
+            "code_url": null,
+            "citations": 0,
+            "id": 106
+        },
+        {
+            "title": "MAI Model Family: Microsoft's In-House Multimodal AI Suite",
+            "authors": [
+                "Microsoft AI Research"
+            ],
+            "institution": "Microsoft",
+            "publication_date": "2026-06-08",
+            "published_in": "Microsoft Build 2026 / Microsoft AI Blog",
+            "topic": "Frontier LLMs / Multimodal AI / Enterprise",
+            "description": "Full technical overview of the seven-model MAI (Microsoft AI) family announced at Microsoft Build 2026. Covers MAI-Thinking-1 (35B active MoE reasoning), MAI-Code-1-Flash (5B coding), MAI-Image-2.5 (20B diffusion image generation/editing with flow-matching loss), and MAI-Transcribe-1.5 (43-language speech-to-text). All models trained from scratch on clean, commercially licensed enterprise data without third-party model distillation. Hill-climbing development strategy for continuous improvement.",
+            "key_contributions": [
+                "Seven-model MAI family for enterprise AI independence",
+                "MAI-Image-2.5: 20B diffusion model with control-with-preservation editing",
+                "MAI-Transcribe-1.5: 43-language STT at >4x real-time speed",
+                "Enterprise training pipeline free of third-party distillation",
+                "Integration across M365, PowerPoint, Teams, Dynamics 365"
+            ],
+            "paper_url": "https://microsoft.ai/research/mai-full-model-family",
+            "code_url": null,
+            "citations": 0,
+            "id": 107
+        },
+        {
+            "title": "Claude Fable 5 & Claude Mythos 5 System Card",
+            "authors": [
+                "Anthropic"
+            ],
+            "institution": "Anthropic",
+            "publication_date": "2026-06-09",
+            "published_in": "Anthropic Technical Report",
+            "topic": "Frontier LLMs / AI Safety / Agentic Systems",
+            "description": "System card for Claude Fable 5 and its unrestricted counterpart Claude Mythos 5 (available only through Project Glasswing). Documents the first Mythos-class models with 80.3% SWE-Bench Pro (SOTA), 29.3% FrontierCode Diamond, and Adaptive Thinking (always on). Covers safety architecture including built-in classifiers for high-risk task refusal, 30-day data retention policy for misuse detection, fallback-to-Opus-4.8 behavior, and the dual export-control considerations that led to the temporary access suspension on June 12, 2026.",
+            "key_contributions": [
+                "80.3% SWE-Bench Pro (SOTA at release)",
+                "29.3% FrontierCode Diamond split",
+                "Mythos-class architecture: Adaptive Thinking (always on)",
+                "Built-in safety classifiers with high-risk refusal",
+                "30-day data retention for misuse prevention",
+                "Long-horizon self-verification via test writing and vision"
+            ],
+            "paper_url": "https://www.anthropic.com/research/fable-5-system-card",
+            "code_url": null,
+            "citations": 0,
+            "id": 108
+        },
+        {
+            "title": "Kimi K2.7-Code: A 1-Trillion Parameter Open-Weight Model for Long-Horizon Software Engineering",
+            "authors": [
+                "Moonshot AI Team"
+            ],
+            "institution": "Moonshot AI",
+            "publication_date": "2026-06-12",
+            "published_in": "arXiv / Moonshot Technical Report",
+            "topic": "Agentic Coding / LLMs",
+            "description": "Technical report for Kimi K2.7-Code, a 1-trillion total parameter / 32B active MoE coding model released under a Modified MIT license. Demonstrates 21.8% improvement on Kimi Code Bench v2 vs. the previous K2.6 and ~30% reduction in reasoning-token usage. Features a 256K token context window, always-on thinking mode, and fixed sampling parameters. Supports vLLM, SGLang, and KTransformers for deployment. Represents Moonshot AI's commitment to open-weight frontier coding models.",
+            "key_contributions": [
+                "1T total / 32B active MoE architecture",
+                "21.8% improvement on Kimi Code Bench v2",
+                "~30% reasoning-token reduction vs K2.6",
+                "Always-on thinking mode for deep reasoning",
+                "Modified MIT open-weight license"
+            ],
+            "paper_url": "https://arxiv.org/abs/2606.XXXXX",
+            "code_url": "https://huggingface.co/moonshotai/Kimi-K2.7-Code",
+            "citations": 0,
+            "id": 109
+        },
+        {
+            "title": "GLM-5.2: Fully Open Agentic Coding at Trillion-Scale Mixture-of-Experts",
+            "authors": [
+                "Zhipu AI Team"
+            ],
+            "institution": "Zhipu AI (Z.ai)",
+            "publication_date": "2026-06-13",
+            "published_in": "Zhipu AI Technical Blog",
+            "topic": "Agentic Coding / Open-Source LLMs",
+            "description": "Technical report for GLM-5.2, Zhipu AI's flagship agentic coding model (744B total / ~40B active MoE). Provides a 1-million-token context window and 131,072 max output tokens, with two new thinking-effort levels (High and Max). Released as an explicit 'fully open' response to US export controls restricting frontier model access to foreign nationals. MIT-licensed weights scheduled for open release the week of June 22, 2026.",
+            "key_contributions": [
+                "744B total / 40B active MoE architecture",
+                "1M token context window for long-horizon tasks",
+                "High and Max thinking-effort levels",
+                "MIT open-weight license as export control response",
+                "GLM Coding Plan tiered access at launch"
+            ],
+            "paper_url": "https://z.ai/research/glm-5-2",
+            "code_url": "https://huggingface.co/THUDM/GLM-5.2",
+            "citations": 0,
+            "id": 110
         }
     ]
 }

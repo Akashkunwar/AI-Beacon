@@ -2,8 +2,8 @@
     "metadata": {
         "title": "AI Coding Tools Timeline",
         "description": "A curated timeline of the most influential AI tools, IDEs, and agents that revolutionized software development.",
-        "last_updated": "2026-05-31",
-        "total_tools": 120,
+        "last_updated": "2026-06-17",
+        "total_tools": 124,
         "fields": [
             "id",
             "name",
@@ -1898,6 +1898,24 @@
             "url": "https://openai.com/index/advancing-voice-intelligence-with-new-models-in-the-api"
         },
         {
+            "name": "Grok Build",
+            "company": "xAI",
+            "release_date": "2026-05-14",
+            "open_source": false,
+            "license": "Proprietary",
+            "category": "AI CLI Coding Agent",
+            "description": "xAI's terminal-native, autonomous coding agent built on specialized grok-build models. Entered early beta May 14, 2026, with wider release May 25. Competes directly with Claude Code and Codex CLI. Features Plan Mode for reviewing and editing execution plans before changes are applied, parallel sub-agent orchestration (up to 8 simultaneous agents), MCP server compatibility, and an Agent Dashboard for managing parallel sessions.",
+            "key_features": [
+                "Terminal-native autonomous coding",
+                "Up to 8 parallel sub-agents",
+                "Plan Mode (review before execution)",
+                "MCP server and AGENTS.md support",
+                "Agent Dashboard for session management"
+            ],
+            "url": "https://x.ai/grok-build",
+            "id": 118
+        },
+        {
             "name": "Google Antigravity 2.0",
             "company": "Google",
             "release_date": "2026-05-19",
@@ -1912,7 +1930,7 @@
                 "Private sandboxing"
             ],
             "url": "https://antigravity.google",
-            "id": 118
+            "id": 119
         },
         {
             "name": "Gemini Spark",
@@ -1930,7 +1948,7 @@
                 "Deep Google Workspace integration"
             ],
             "url": "https://gemini.google.com/spark",
-            "id": 119
+            "id": 120
         },
         {
             "name": "OpenAI Daybreak",
@@ -1947,7 +1965,61 @@
                 "Security guardrails"
             ],
             "url": "https://openai.com/daybreak",
-            "id": 120
+            "id": 121
+        },
+        {
+            "name": "Mistral Vibe",
+            "company": "Mistral AI",
+            "release_date": "2026-05-28",
+            "open_source": false,
+            "license": "Proprietary",
+            "category": "AI Agent Platform",
+            "description": "Mistral AI's unified AI agent platform (rebranded from Le Chat), launched May 28, 2026. Consolidates chat, productivity, and software development workflows into a single platform. Powered by Mistral Medium 3.5, features Work Mode (enterprise search, report synthesis, scheduled tasks), Code Mode (web, terminal, and VS Code extension with remote cloud agent execution), and Chat Mode. Vibe 2.0 (released by June 2026) added custom subagents, multi-choice clarifications, and legacy codebase support.",
+            "key_features": [
+                "Work Mode for enterprise productivity tasks",
+                "Code Mode with VS Code extension and cloud agents",
+                "Remote async agent execution in sandboxed VMs",
+                "Custom subagents and reusable skill workflows",
+                "Powered by Mistral Medium 3.5"
+            ],
+            "url": "https://chat.mistral.ai",
+            "id": 122
+        },
+        {
+            "name": "NotebookLM Research Agent",
+            "company": "Google",
+            "release_date": "2026-06-08",
+            "open_source": false,
+            "license": "Proprietary",
+            "category": "AI Research Agent",
+            "description": "Google rebuilt NotebookLM as an AI Research Agent on June 8, 2026, integrating Gemini 3.5 and the Antigravity agentic architecture. Each notebook now has a dedicated secure cloud VM that can write and execute Python code, run 100+ curated software skills, and perform autonomous web research via Google Search. Outputs documents in PDF, DOCX, Markdown, XLSX, PPTX, CSV, JSON, and image formats. Achieves 65%+ average win rate, 78% on advanced web research. Available to Google AI Ultra and Workspace Enterprise subscribers.",
+            "key_features": [
+                "Dedicated secure cloud VM per notebook",
+                "Python code execution for data analysis",
+                "Autonomous Google Search-powered web research",
+                "100+ curated software skills",
+                "Multi-format export (PDF, DOCX, XLSX, PPTX, CSV, JSON)"
+            ],
+            "url": "https://notebooklm.google",
+            "id": 123
+        },
+        {
+            "name": "Microsoft Work IQ",
+            "company": "Microsoft",
+            "release_date": "2026-06-16",
+            "open_source": false,
+            "license": "Proprietary",
+            "category": "Enterprise AI Workplace Intelligence API",
+            "description": "A workplace intelligence layer for Microsoft 365 that reached general availability on June 16, 2026. Work IQ continuously processes organizational content (emails, calendars, meetings, documents, chats) and exposes it to AI agents via REST, Agent-to-Agent (A2A), and Model Context Protocol (MCP) APIs. Eliminates need for custom data pipelines, provides permission-aware context grounding, and is billed through Copilot Credits consumption.",
+            "key_features": [
+                "Permission-aware M365 context grounding",
+                "REST, A2A, and MCP protocol support",
+                "No custom data pipeline required",
+                "Consumption-based Copilot Credits billing",
+                "Enterprise-grade governance and security"
+            ],
+            "url": "https://developer.microsoft.com/microsoft-365/work-iq",
+            "id": 124
         }
     ]
 }

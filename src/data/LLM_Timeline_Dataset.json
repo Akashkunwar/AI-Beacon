@@ -2,9 +2,9 @@
     "metadata": {
         "title": "AI & LLM Models Timeline",
         "description": "Comprehensive list of AI and LLM models from 2017 to 2026, including text, vision, audio, multimodal and image generation models.",
-        "last_updated": "2026-05-31",
-        "total_models": 240,
-        "audit_status": "Verified audit 2026-05-31: Grok 4.3 and ZAYA1-8B added; DeepSeek-V4-Pro pricing updated to permanent rates",
+        "last_updated": "2026-06-17",
+        "total_models": 252,
+        "audit_status": "Verified audit 2026-06-17: Full comprehensive sweep — added Grok Build, MAI family (Thinking-1, Code-1-Flash, Image-2.5, Transcribe-1.5), Claude Fable 5, MiniMax M3, NVIDIA Nemotron 3 Ultra, Kimi K2.7-Code, GLM-5.2, Qwen 3.7 Max, Gemini 3.5 Live Translate. Total: 252 models.",
         "logo_source": "Clearbit Logo API (https://logo.clearbit.com/{domain})",
         "fields": [
             "id",
@@ -11187,6 +11187,55 @@
             "successor": null
         },
         {
+            "company": "xAI",
+            "company_website": "https://x.ai",
+            "company_logo_url": "https://logo.clearbit.com/x.ai",
+            "model_family": "Grok",
+            "model_name": "Grok Build",
+            "model_version": "grok-build-0.1",
+            "model_type": "Agentic Coding Model",
+            "architecture": "Transformer (specialized coding model)",
+            "modalities": [
+                "text"
+            ],
+            "parameters": null,
+            "parameter_unit": null,
+            "training_tokens": null,
+            "open_source": false,
+            "license": "Proprietary",
+            "api_available": true,
+            "context_window_tokens": null,
+            "training_data_cutoff": "2026-01",
+            "release_date": "2026-05-14",
+            "country": "USA",
+            "description": "Grok Build (powered by the grok-build-0.1 model) is xAI's terminal-native, autonomous coding agent. Entered early beta on May 14, 2026, with wider rollout on May 25. Directly competes with Claude Code and Codex CLI for terminal-based autonomous software development. Features Plan Mode for review-before-execute workflows, up to 8 parallel sub-agents for concurrent task execution, and native MCP server compatibility.",
+            "use_cases": [
+                "autonomous coding",
+                "codebase refactoring",
+                "software engineering",
+                "terminal workflows"
+            ],
+            "notable_features": [
+                "Terminal-native autonomous coding agent",
+                "Up to 8 parallel sub-agents",
+                "Plan Mode (review before execution)",
+                "MCP server compatibility",
+                "AGENTS.md configuration support",
+                "Available for SuperGrok and X Premium Plus subscribers"
+            ],
+            "benchmark_scores": {},
+            "pricing_per_1m_tokens": {
+                "input": null,
+                "output": null
+            },
+            "official_model_link": "https://x.ai/grok-build",
+            "huggingface_url": null,
+            "paper_url": null,
+            "predecessor": "Grok 4.3",
+            "successor": null,
+            "id": 235
+        },
+        {
             "company": "Google",
             "company_website": "https://google.com",
             "company_logo_url": "https://logo.clearbit.com/google.com",
@@ -11234,7 +11283,7 @@
             "paper_url": null,
             "predecessor": "Gemini 3.1 Pro",
             "successor": null,
-            "id": 235
+            "id": 236
         },
         {
             "company": "Google",
@@ -11283,7 +11332,7 @@
             "paper_url": null,
             "predecessor": "Gemini 3.1 Pro",
             "successor": null,
-            "id": 236
+            "id": 237
         },
         {
             "company": "Google",
@@ -11331,10 +11380,10 @@
             "paper_url": null,
             "predecessor": "Gemini 1.5 Pro",
             "successor": null,
-            "id": 237
+            "id": 238
         },
         {
-            "id": 238,
+            "id": 239,
             "company": "Google",
             "company_website": "https://google.com",
             "company_logo_url": "https://logo.clearbit.com/google.com",
@@ -11430,10 +11479,59 @@
             "paper_url": null,
             "predecessor": "Gemma 3",
             "successor": null,
-            "id": 239
+            "id": 240
         },
         {
-            "id": 240,
+            "company": "Alibaba",
+            "company_website": "https://alibaba.com",
+            "company_logo_url": "https://logo.clearbit.com/alibaba.com",
+            "model_family": "Qwen",
+            "model_name": "Qwen 3.7 Max",
+            "model_version": "3.7-Max",
+            "model_type": "Foundation LLM (MoE, Agent-First)",
+            "architecture": "Mixture of Experts (MoE)",
+            "modalities": [
+                "text"
+            ],
+            "parameters": null,
+            "parameter_unit": null,
+            "training_tokens": null,
+            "open_source": false,
+            "license": "Proprietary",
+            "api_available": true,
+            "context_window_tokens": 1000000,
+            "training_data_cutoff": "2025-12",
+            "release_date": "2026-05-20",
+            "country": "China",
+            "description": "Announced at the Alibaba Cloud Summit in Hangzhou (API availability May 19, 2026), Qwen 3.7 Max is Alibaba's closed-weight, agent-first flagship MoE model. Features a 1-million-token context window, native Extended-Thinking Mode, and 65,536 max output tokens. Designed for sustained autonomous execution including multi-step coding, office productivity, and MCP tool orchestration. API-only with no open weights.",
+            "use_cases": [
+                "agentic workflows",
+                "complex coding",
+                "scientific computation",
+                "MCP tool orchestration"
+            ],
+            "notable_features": [
+                "1M token context window",
+                "65,536 max output tokens",
+                "Native Extended-Thinking Mode",
+                "Prompt caching support",
+                "Agent-first design (\"Agent Frontier\")",
+                "Available via Alibaba Cloud, OpenRouter, Together AI"
+            ],
+            "benchmark_scores": {},
+            "pricing_per_1m_tokens": {
+                "input": null,
+                "output": null
+            },
+            "official_model_link": "https://qwen.ai/qwen-3-7-max",
+            "huggingface_url": null,
+            "paper_url": null,
+            "predecessor": "Qwen 3",
+            "successor": null,
+            "id": 241
+        },
+        {
+            "id": 242,
             "company": "Anthropic",
             "company_website": "https://anthropic.com",
             "company_logo_url": "https://logo.clearbit.com/anthropic.com",
@@ -11484,6 +11582,507 @@
             "paper_url": null,
             "predecessor": "Claude Opus 4.7",
             "successor": null
+        },
+        {
+            "company": "MiniMax",
+            "company_website": "https://minimax.io",
+            "company_logo_url": "https://logo.clearbit.com/minimax.io",
+            "model_family": "MiniMax",
+            "model_name": "MiniMax M3",
+            "model_version": "M3",
+            "model_type": "Foundation LLM (MoE, Multimodal)",
+            "architecture": "Mixture of Experts (MoE) with MiniMax Sparse Attention (MSA)",
+            "modalities": [
+                "text",
+                "vision",
+                "video"
+            ],
+            "parameters": 428,
+            "parameter_unit": "billion",
+            "training_tokens": null,
+            "open_source": true,
+            "license": "Apache 2.0",
+            "api_available": true,
+            "context_window_tokens": 1000000,
+            "training_data_cutoff": "2026-01",
+            "release_date": "2026-06-01",
+            "country": "China",
+            "description": "Released June 1, 2026, MiniMax M3 is a frontier-level natively multimodal model supporting text, image, and video input. Uses a 428B total / ~22B active parameter MoE architecture with MiniMax Sparse Attention (MSA), reducing computational complexity to 1/20th of the previous generation at long contexts. Achieved 59.0% on SWE-bench Pro. Day-0 support on NVIDIA NIM and AMD Instinct GPUs. Open-weights Apache 2.0 license for private and on-premise deployment.",
+            "use_cases": [
+                "autonomous software engineering",
+                "multimodal analysis",
+                "agentic workflows",
+                "video understanding"
+            ],
+            "notable_features": [
+                "428B total / ~22B active parameters",
+                "1M token context window",
+                "MiniMax Sparse Attention (MSA) for efficiency",
+                "59.0% SWE-bench Pro",
+                "Natively multimodal (text, image, video)",
+                "Day-0 support on NVIDIA NIM and AMD Instinct",
+                "Apache 2.0 open-weights"
+            ],
+            "benchmark_scores": {
+                "SWE-bench Pro": 59.0
+            },
+            "pricing_per_1m_tokens": {
+                "input": null,
+                "output": null
+            },
+            "official_model_link": "https://minimax.io/m3",
+            "huggingface_url": "https://huggingface.co/MiniMaxAI/MiniMax-M3",
+            "paper_url": null,
+            "predecessor": "MiniMax-01",
+            "successor": null,
+            "id": 243
+        },
+        {
+            "company": "NVIDIA",
+            "company_website": "https://nvidia.com",
+            "company_logo_url": "https://logo.clearbit.com/nvidia.com",
+            "model_family": "Nemotron",
+            "model_name": "Nemotron 3 Ultra",
+            "model_version": "3-Ultra-550B",
+            "model_type": "Foundation LLM",
+            "architecture": "Transformer",
+            "modalities": [
+                "text"
+            ],
+            "parameters": 550,
+            "parameter_unit": "billion",
+            "training_tokens": null,
+            "open_source": true,
+            "license": "OpenMDW-1.1",
+            "api_available": true,
+            "context_window_tokens": null,
+            "training_data_cutoff": "2026-01",
+            "release_date": "2026-06-04",
+            "country": "USA",
+            "description": "Released June 4, 2026, NVIDIA Nemotron 3 Ultra is a 550-billion-parameter open-weights model with a fully permissive OpenMDW-1.1 license (Linux Foundation initiative). Designed for enterprise deployment with fine-tuning and commercial use allowed. Available via NVIDIA NIM and the NGC catalog. Released as NVIDIA's flagship open model for the enterprise ecosystem.",
+            "use_cases": [
+                "enterprise AI",
+                "fine-tuning",
+                "research",
+                "commercial deployment"
+            ],
+            "notable_features": [
+                "550B parameters",
+                "Fully permissive OpenMDW-1.1 license",
+                "Available via NVIDIA NIM",
+                "Commercial fine-tuning and redistribution allowed",
+                "No output ownership claims by NVIDIA"
+            ],
+            "benchmark_scores": {},
+            "pricing_per_1m_tokens": {
+                "input": 0,
+                "output": 0
+            },
+            "official_model_link": "https://catalog.ngc.nvidia.com/orgs/nvidia/models/nemotron-3-ultra-550b",
+            "huggingface_url": "https://huggingface.co/nvidia/Nemotron-3-Ultra-550B",
+            "paper_url": null,
+            "predecessor": "Nemotron-4-340B",
+            "successor": null,
+            "id": 244
+        },
+        {
+            "company": "Microsoft",
+            "company_website": "https://microsoft.com",
+            "company_logo_url": "https://logo.clearbit.com/microsoft.com",
+            "model_family": "MAI",
+            "model_name": "MAI-Thinking-1",
+            "model_version": "1.0",
+            "model_type": "Foundation LLM (Reasoning, MoE)",
+            "architecture": "Mixture of Experts (MoE)",
+            "modalities": [
+                "text"
+            ],
+            "parameters": 35,
+            "parameter_unit": "billion",
+            "training_tokens": null,
+            "open_source": false,
+            "license": "Proprietary",
+            "api_available": true,
+            "context_window_tokens": 262144,
+            "training_data_cutoff": "2026-01",
+            "release_date": "2026-06-08",
+            "country": "USA",
+            "description": "Announced June 8, 2026, MAI-Thinking-1 is Microsoft's flagship in-house reasoning model, part of the new MAI (Microsoft AI) model family. Features 35 billion active parameters using a MoE architecture, and a 256K token context window. Designed for advanced mathematical reasoning, complex code debugging, and long-horizon planning. Trained from scratch on clean, traceable, commercially licensed enterprise-grade data without distillation from third-party models. Currently in private preview via Microsoft Foundry.",
+            "use_cases": [
+                "mathematical reasoning",
+                "complex code debugging",
+                "scientific reasoning",
+                "long-horizon planning"
+            ],
+            "notable_features": [
+                "35B active parameters (MoE architecture)",
+                "256K token context window",
+                "No third-party model distillation",
+                "Enterprise-grade training data",
+                "Available via Microsoft Foundry",
+                "Tightly integrated with GitHub Copilot"
+            ],
+            "benchmark_scores": {},
+            "pricing_per_1m_tokens": {
+                "input": null,
+                "output": null
+            },
+            "official_model_link": "https://microsoft.ai/mai-thinking-1",
+            "huggingface_url": null,
+            "paper_url": null,
+            "predecessor": null,
+            "successor": null,
+            "id": 245
+        },
+        {
+            "company": "Microsoft",
+            "company_website": "https://microsoft.com",
+            "company_logo_url": "https://logo.clearbit.com/microsoft.com",
+            "model_family": "MAI",
+            "model_name": "MAI-Code-1-Flash",
+            "model_version": "1.0-Flash",
+            "model_type": "Foundation LLM (Coding, Efficient)",
+            "architecture": "Transformer",
+            "modalities": [
+                "text"
+            ],
+            "parameters": 5,
+            "parameter_unit": "billion",
+            "training_tokens": null,
+            "open_source": false,
+            "license": "Proprietary",
+            "api_available": true,
+            "context_window_tokens": 131072,
+            "training_data_cutoff": "2026-01",
+            "release_date": "2026-06-08",
+            "country": "USA",
+            "description": "Announced June 8, 2026, alongside MAI-Thinking-1, MAI-Code-1-Flash is a 5B parameter model purpose-built for software engineering workflows. Designed for GitHub Copilot and Visual Studio Code, it acts as a fast 'first responder' for routine coding tasks, with larger models handling complex escalations. Generally available for all GitHub Copilot plans. Outperforms other small-tier models like Claude Haiku 4.5 on core coding benchmarks while using significantly fewer tokens.",
+            "use_cases": [
+                "code completion",
+                "code review",
+                "inline coding assistance",
+                "GitHub Copilot integration"
+            ],
+            "notable_features": [
+                "5B parameters optimized for coding",
+                "Fast inference for routine coding tasks",
+                "Outperforms Claude Haiku 4.5 on coding benchmarks",
+                "Generally available across all GitHub Copilot plans",
+                "Token-efficient for low-latency suggestions"
+            ],
+            "benchmark_scores": {},
+            "pricing_per_1m_tokens": {
+                "input": null,
+                "output": null
+            },
+            "official_model_link": "https://microsoft.ai/mai-code-1-flash",
+            "huggingface_url": null,
+            "paper_url": null,
+            "predecessor": null,
+            "successor": null,
+            "id": 246
+        },
+        {
+            "company": "Microsoft",
+            "company_website": "https://microsoft.com",
+            "company_logo_url": "https://logo.clearbit.com/microsoft.com",
+            "model_family": "MAI",
+            "model_name": "MAI-Image-2.5",
+            "model_version": "2.5",
+            "model_type": "Image Generation / Editing Model",
+            "architecture": "Diffusion (Flow-Matching Loss)",
+            "modalities": [
+                "text",
+                "vision"
+            ],
+            "parameters": 20,
+            "parameter_unit": "billion",
+            "training_tokens": null,
+            "open_source": false,
+            "license": "Proprietary",
+            "api_available": true,
+            "context_window_tokens": 32768,
+            "training_data_cutoff": "2026-01",
+            "release_date": "2026-06-08",
+            "country": "USA",
+            "description": "Announced June 8, 2026 as part of the MAI model family at Microsoft Build 2026. MAI-Image-2.5 is a 20B non-embedding parameter diffusion model using flow-matching loss. Supports text-to-image synthesis and precise controllable image-to-image editing with 'control with preservation' capabilities (surgical edits while maintaining visual consistency). Available in a standard version (max fidelity) and a Flash variant (speed-optimized). Supports max resolution up to 1,048,576 pixels. Live in PowerPoint, OneDrive, and Microsoft Foundry.",
+            "use_cases": [
+                "text-to-image generation",
+                "image editing",
+                "product design",
+                "marketing visuals"
+            ],
+            "notable_features": [
+                "20B non-embedding parameters (diffusion)",
+                "Control-with-preservation image editing",
+                "Up to 1,048,576 pixel resolution",
+                "Standard and Flash variants",
+                "Integrated in PowerPoint and OneDrive",
+                "Available via Microsoft Foundry"
+            ],
+            "benchmark_scores": {},
+            "pricing_per_1m_tokens": {
+                "input": null,
+                "output": null
+            },
+            "official_model_link": "https://microsoft.ai/mai-image-2-5",
+            "huggingface_url": null,
+            "paper_url": null,
+            "predecessor": null,
+            "successor": null,
+            "id": 247
+        },
+        {
+            "company": "Microsoft",
+            "company_website": "https://microsoft.com",
+            "company_logo_url": "https://logo.clearbit.com/microsoft.com",
+            "model_family": "MAI",
+            "model_name": "MAI-Transcribe-1.5",
+            "model_version": "1.5",
+            "model_type": "Speech-to-Text Model",
+            "architecture": "Transformer (Speech)",
+            "modalities": [
+                "audio"
+            ],
+            "parameters": null,
+            "parameter_unit": null,
+            "training_tokens": null,
+            "open_source": false,
+            "license": "Proprietary",
+            "api_available": true,
+            "context_window_tokens": null,
+            "training_data_cutoff": "2026-01",
+            "release_date": "2026-06-08",
+            "country": "USA",
+            "description": "Announced June 8, 2026 as part of the MAI model family at Microsoft Build 2026. MAI-Transcribe-1.5 is a high-accuracy multilingual speech-to-text model supporting 43 languages with automatic language detection. Features Keyword Biasing (entity biasing) for domain-specific terminology. Can transcribe one hour of audio in under 15 seconds. Top-ranked on FLEURS multilingual benchmark and Artificial Analysis speech-to-text leaderboard. Integrated into Copilot, Teams, GitHub, and Dynamics 365, and available via the LLM Speech API in Microsoft Foundry.",
+            "use_cases": [
+                "meeting transcription",
+                "clinical documentation",
+                "real-time captioning",
+                "call center analytics"
+            ],
+            "notable_features": [
+                "43 language support with automatic detection",
+                "Keyword Biasing for domain-specific terms",
+                "1 hour of audio transcribed in under 15 seconds",
+                "Top FLEURS benchmark performance",
+                "Integrated in Copilot, Teams, GitHub, Dynamics 365"
+            ],
+            "benchmark_scores": {},
+            "pricing_per_1m_tokens": {
+                "input": null,
+                "output": null
+            },
+            "official_model_link": "https://microsoft.ai/mai-transcribe-1-5",
+            "huggingface_url": null,
+            "paper_url": null,
+            "predecessor": null,
+            "successor": null,
+            "id": 248
+        },
+        {
+            "company": "Anthropic",
+            "company_website": "https://anthropic.com",
+            "company_logo_url": "https://logo.clearbit.com/anthropic.com",
+            "model_family": "Claude",
+            "model_name": "Claude Fable 5",
+            "model_version": "Fable 5",
+            "model_type": "Foundation LLM (Mythos-class, Agentic)",
+            "architecture": "Transformer",
+            "modalities": [
+                "text",
+                "vision"
+            ],
+            "parameters": null,
+            "parameter_unit": null,
+            "training_tokens": null,
+            "open_source": false,
+            "license": "Proprietary",
+            "api_available": true,
+            "context_window_tokens": 1000000,
+            "training_data_cutoff": "2026-01",
+            "release_date": "2026-06-09",
+            "country": "USA",
+            "description": "Released June 9, 2026, Claude Fable 5 is Anthropic's first publicly available 'Mythos-class' model — the tier above Opus. Designed for complex, long-horizon agentic workflows such as multi-day coding projects, large codebase migrations (demonstrated: 50M line Ruby codebase in one day), and sophisticated knowledge tasks. Features Adaptive Thinking (always on), advanced vision, and can work autonomously for extended periods writing and running its own tests to verify outputs. Access was temporarily suspended around June 12, 2026, following a US government export control directive. Requires 30-day data retention for misuse detection.",
+            "use_cases": [
+                "long-horizon agentic coding",
+                "codebase migration",
+                "deep research",
+                "complex planning",
+                "scientific analysis"
+            ],
+            "notable_features": [
+                "Mythos-class (highest Claude capability tier)",
+                "80.3% SWE-Bench Pro (SOTA at release)",
+                "29.3% FrontierCode Diamond split",
+                "1M token context window",
+                "128K max output tokens",
+                "Adaptive Thinking (always on)",
+                "Self-verification via test writing and vision",
+                "Available on Bedrock, Vertex AI, Azure, Microsoft Foundry"
+            ],
+            "benchmark_scores": {
+                "SWE-bench Pro": 80.3,
+                "FrontierCode Diamond": 29.3
+            },
+            "pricing_per_1m_tokens": {
+                "input": 10.0,
+                "output": 50.0
+            },
+            "official_model_link": "https://www.anthropic.com/claude/fable-5",
+            "huggingface_url": null,
+            "paper_url": "https://www.anthropic.com/research/fable-5-system-card",
+            "predecessor": "Claude Opus 4.8",
+            "successor": null,
+            "id": 249
+        },
+        {
+            "company": "Google",
+            "company_website": "https://google.com",
+            "company_logo_url": "https://logo.clearbit.com/google.com",
+            "model_family": "Gemini",
+            "model_name": "Gemini 3.5 Live Translate",
+            "model_version": "3.5-live-translate",
+            "model_type": "Specialized Speech-to-Speech Translation Model",
+            "architecture": "Transformer (Streaming audio-to-audio)",
+            "modalities": [
+                "audio"
+            ],
+            "parameters": null,
+            "parameter_unit": null,
+            "training_tokens": null,
+            "open_source": false,
+            "license": "Proprietary",
+            "api_available": true,
+            "context_window_tokens": null,
+            "training_data_cutoff": "2026-01",
+            "release_date": "2026-06-09",
+            "country": "USA",
+            "description": "Released June 9, 2026, Gemini 3.5 Live Translate is a specialized streaming audio-to-audio translation model (model ID: gemini-3.5-live-translate-preview). Processes speech in ~100ms audio chunks for near real-time continuous translation. Supports 70+ languages with automatic detection. Preserves the original speaker's intonation, pacing, and pitch. Uses 16kHz audio input and 24kHz output. Includes SynthID watermarking. Available in the Google Translate app, Gemini Live API, Google AI Studio, and Google Meet (enterprise preview). Not a general-purpose model — does not support function calling or system instructions.",
+            "use_cases": [
+                "real-time speech translation",
+                "video conferencing",
+                "language learning",
+                "cross-language communication"
+            ],
+            "notable_features": [
+                "~100ms audio chunk streaming",
+                "70+ languages with automatic detection",
+                "Prosody preservation (intonation, pacing, pitch)",
+                "SynthID watermarking",
+                "Available in Google Translate, Meet, and Gemini Live API",
+                "16kHz input / 24kHz output audio pipeline"
+            ],
+            "benchmark_scores": {},
+            "pricing_per_1m_tokens": {
+                "input": null,
+                "output": null
+            },
+            "official_model_link": "https://ai.google.dev/gemini-api/docs/live-translate",
+            "huggingface_url": null,
+            "paper_url": null,
+            "predecessor": "Gemini Omni",
+            "successor": null,
+            "id": 250
+        },
+        {
+            "company": "Moonshot AI",
+            "company_website": "https://moonshot.cn",
+            "company_logo_url": "https://logo.clearbit.com/moonshot.cn",
+            "model_family": "Kimi",
+            "model_name": "Kimi K2.7-Code",
+            "model_version": "K2.7-Code",
+            "model_type": "Agentic Coding Model (MoE, Open-Weight)",
+            "architecture": "Mixture of Experts (MoE)",
+            "modalities": [
+                "text"
+            ],
+            "parameters": 1000,
+            "parameter_unit": "billion",
+            "training_tokens": null,
+            "open_source": true,
+            "license": "Modified MIT",
+            "api_available": true,
+            "context_window_tokens": 262144,
+            "training_data_cutoff": "2026-03",
+            "release_date": "2026-06-12",
+            "country": "China",
+            "description": "Released June 12, 2026, Kimi K2.7-Code is Moonshot AI's latest open-weight coding model. Built on a 1 trillion total parameter MoE architecture with 32B active parameters per forward pass. Achieves a 21.8% improvement on Kimi Code Bench v2 vs. the previous K2.6 and a ~30% reduction in reasoning-token usage. Features always-on thinking mode (cannot be disabled), locked sampling parameters (temperature 1.0, top_p 0.95), and a 256K context window. Open-weight under Modified MIT on Hugging Face. Supports vLLM, SGLang, and KTransformers deployment.",
+            "use_cases": [
+                "long-horizon software engineering",
+                "multi-file refactoring",
+                "debugging",
+                "agentic coding"
+            ],
+            "notable_features": [
+                "1T total / 32B active parameters",
+                "256K token context window",
+                "21.8% improvement on Kimi Code Bench v2 vs K2.6",
+                "~30% reduction in reasoning-token usage",
+                "Always-on thinking mode",
+                "Modified MIT open-weight license",
+                "vLLM, SGLang, KTransformers support"
+            ],
+            "benchmark_scores": {},
+            "pricing_per_1m_tokens": {
+                "input": null,
+                "output": null
+            },
+            "official_model_link": "https://kimi.moonshot.cn",
+            "huggingface_url": "https://huggingface.co/moonshotai/Kimi-K2.7-Code",
+            "paper_url": null,
+            "predecessor": "Kimi K2.6",
+            "successor": null,
+            "id": 251
+        },
+        {
+            "company": "Zhipu AI",
+            "company_website": "https://z.ai",
+            "company_logo_url": "https://logo.clearbit.com/zhipuai.cn",
+            "model_family": "GLM",
+            "model_name": "GLM-5.2",
+            "model_version": "5.2",
+            "model_type": "Foundation LLM (MoE, Agentic Coding)",
+            "architecture": "Mixture of Experts (MoE)",
+            "modalities": [
+                "text"
+            ],
+            "parameters": 744,
+            "parameter_unit": "billion",
+            "training_tokens": null,
+            "open_source": true,
+            "license": "MIT",
+            "api_available": true,
+            "context_window_tokens": 1000000,
+            "training_data_cutoff": "2026-04",
+            "release_date": "2026-06-13",
+            "country": "China",
+            "description": "Announced June 13, 2026, GLM-5.2 is Zhipu AI's (Z.ai) flagship model designed for agentic coding and long-horizon software engineering. Uses a 744B total / ~40B active parameter MoE architecture with a 1M token context window and 131,072 max output tokens. Introduces two new thinking-effort levels: High and Max (recommended for complex tasks). Framed as a 'fully open' response to US export controls restricting frontier model access to foreign nationals. MIT-licensed weights scheduled for open-source release the week of June 22, 2026.",
+            "use_cases": [
+                "agentic coding",
+                "repository analysis",
+                "debugging",
+                "automated research workflows"
+            ],
+            "notable_features": [
+                "744B total / ~40B active parameters",
+                "1M token context window",
+                "131,072 max output tokens",
+                "High and Max thinking-effort levels",
+                "MIT license (open weights from June 22, 2026)",
+                "Framed as response to US export control directives"
+            ],
+            "benchmark_scores": {},
+            "pricing_per_1m_tokens": {
+                "input": null,
+                "output": null
+            },
+            "official_model_link": "https://z.ai/glm-5-2",
+            "huggingface_url": "https://huggingface.co/THUDM/GLM-5.2",
+            "paper_url": null,
+            "predecessor": "GLM-4",
+            "successor": null,
+            "id": 252
         }
     ]
 }
