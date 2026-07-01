@@ -3,7 +3,7 @@
         "title": "AI Coding Tools Timeline",
         "description": "A curated timeline of the most influential AI tools, IDEs, and agents that revolutionized software development.",
         "last_updated": "2026-06-17",
-        "total_tools": 124,
+        "total_tools": 126,
         "fields": [
             "id",
             "name",
@@ -2004,6 +2004,23 @@
             "id": 123
         },
         {
+            "name": "Open Knowledge Format (OKF)",
+            "company": "Google Cloud",
+            "release_date": "2026-06-12",
+            "open_source": true,
+            "license": "Apache 2.0",
+            "category": "AI Knowledge Catalog Specification",
+            "description": "An open, vendor-neutral technical specification published by Google Cloud on June 12, 2026, to standardize how organizational knowledge is packaged for consumption by both humans and AI agents. It represents knowledge as a directory of UTF-8 Markdown files with YAML frontmatter to resolve context-assembly problems for autonomous agents.",
+            "key_features": [
+                "Vendor-neutral specification",
+                "Markdown with YAML frontmatter",
+                "Git-compatible catalog structure",
+                "Agent-friendly partial disclosure"
+            ],
+            "url": "https://github.com/GoogleCloudPlatform/knowledge-catalog",
+            "id": 124
+        },
+        {
             "name": "Microsoft Work IQ",
             "company": "Microsoft",
             "release_date": "2026-06-16",
@@ -2019,7 +2036,24 @@
                 "Enterprise-grade governance and security"
             ],
             "url": "https://developer.microsoft.com/microsoft-365/work-iq",
-            "id": 124
+            "id": 125
+        },
+        {
+            "name": "Databricks Lakeflow Designer",
+            "company": "Databricks",
+            "release_date": "2026-06-16",
+            "open_source": false,
+            "license": "Proprietary",
+            "category": "AI MLOps / Data Engineering",
+            "description": "A visual, no-code data transformation tool that reached general availability on June 16, 2026. Natively integrated into the Databricks Lakeflow platform, it uses generative AI to assist data engineers in building, testing, and deploying production-grade data pipelines.",
+            "key_features": [
+                "Visual pipeline builder",
+                "No-code data transformation",
+                "AI-assisted pipeline generation",
+                "Native Databricks integration"
+            ],
+            "url": "https://www.databricks.com/product/lakeflow",
+            "id": 126
         }
     ]
 }

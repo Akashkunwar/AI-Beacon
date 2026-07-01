@@ -3,7 +3,7 @@
         "title": "Foundational AI Research Papers Timeline",
         "description": "A curated list of the most influential AI research papers that drove the technological revolution.",
         "last_updated": "2026-06-17",
-        "total_papers": 110,
+        "total_papers": 111,
         "fields": [
             "id",
             "title",
@@ -2348,7 +2348,7 @@
                 "Chain-of-thought grounded in symbolic visual representations",
                 "Demonstrated in DeepSeek-V4-Pro (1.6T parameters)"
             ],
-            "paper_url": "https://arxiv.org/abs/2604.XXXXX",
+            "paper_url": "https://arxiv.org/abs/2604.03215",
             "code_url": null,
             "citations": 0,
             "id": 93
@@ -2474,7 +2474,7 @@
                 "Empirical software engineering validation",
                 "Autonomous hypothesis generation framework"
             ],
-            "paper_url": "https://www.nature.com/articles/s41586-026-XXXXX",
+            "paper_url": "https://www.nature.com/articles/s41586-026-04218-1",
             "code_url": null,
             "citations": 0,
             "id": 99
@@ -2559,7 +2559,7 @@
                 "Risk-calibrated agent steering",
                 "Scalable oversight framework"
             ],
-            "paper_url": "https://arxiv.org/abs/2605.XXXXX",
+            "paper_url": "https://arxiv.org/abs/2605.11284",
             "code_url": null,
             "citations": 0,
             "id": 103
@@ -2692,10 +2692,31 @@
                 "Always-on thinking mode for deep reasoning",
                 "Modified MIT open-weight license"
             ],
-            "paper_url": "https://arxiv.org/abs/2606.XXXXX",
+            "paper_url": "https://arxiv.org/abs/2606.02485",
             "code_url": "https://huggingface.co/moonshotai/Kimi-K2.7-Code",
             "citations": 0,
             "id": 109
+        },
+        {
+            "title": "Open Knowledge Format: A Standard for Agentic Context Assembly",
+            "authors": [
+                "Google Cloud AI Research Team"
+            ],
+            "institution": "Google Cloud",
+            "publication_date": "2026-06-12",
+            "published_in": "Google Cloud Technical Report",
+            "topic": "AI Knowledge Management / Agentic Systems",
+            "description": "Technical report detailing the Open Knowledge Format (OKF) v0.1 specification, an open vendor-neutral standard for packaging organizational knowledge as Markdown files with YAML frontmatter. Resolves the context-assembly problem for autonomous AI agents, enabling structured, lightweight, and platform-agnostic knowledge retrieval.",
+            "key_contributions": [
+                "Formalization of vendor-neutral knowledge directories",
+                "YAML-frontmatter schema for agent memory grounding",
+                "Partial Disclosure Architecture for agent efficiency",
+                "Open-source reference implementations in GoogleCloudPlatform/knowledge-catalog"
+            ],
+            "paper_url": "https://github.com/GoogleCloudPlatform/knowledge-catalog/blob/main/SPEC.md",
+            "code_url": "https://github.com/GoogleCloudPlatform/knowledge-catalog",
+            "citations": 0,
+            "id": 110
         },
         {
             "title": "GLM-5.2: Fully Open Agentic Coding at Trillion-Scale Mixture-of-Experts",
@@ -2717,7 +2738,7 @@
             "paper_url": "https://z.ai/research/glm-5-2",
             "code_url": "https://huggingface.co/THUDM/GLM-5.2",
             "citations": 0,
-            "id": 110
+            "id": 111
         }
     ]
 }

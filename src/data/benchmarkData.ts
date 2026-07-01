@@ -4,7 +4,7 @@
  * official provider announcements, llm-prices.com.
  */
 
-export const LAST_UPDATED = '2026-05-16';
+export const LAST_UPDATED = '2026-05-29';
 
 export interface BenchmarkScores {
   mmlu: number | null;       // 0–100
@@ -248,6 +248,19 @@ export const BENCHMARK_MODELS: BenchmarkModel[] = [
     scores: { mmlu: 92.0, humanEval: 96.5, math: 93.0, gpqa: 90.0, gsm8k: 95.5, arenaElo: 1295 },
     pricing: { input: 1.2, output: 6 },
     speed: { tokensPerSecond: 90, timeToFirstToken: 170 },
+  },
+  {
+    id: 'gemini-3.5-flash',
+    name: 'Gemini 3.5 Flash',
+    provider: 'Google',
+    providerLogo: clearbit('google.com'),
+    releaseDate: '2026-05-19',
+    openSource: false,
+    contextWindow: 1_048_576,
+    tier: 'frontier',
+    scores: { mmlu: 88.5, humanEval: 91.2, math: 80.5, gpqa: 62.5, gsm8k: 93.8, arenaElo: 1262 },
+    pricing: { input: 1.5, output: 9 },
+    speed: { tokensPerSecond: 130, timeToFirstToken: 110 },
   },
   // —— Open-weight ——
   {

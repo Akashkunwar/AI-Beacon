@@ -3,8 +3,8 @@
         "title": "AI & LLM Models Timeline",
         "description": "Comprehensive list of AI and LLM models from 2017 to 2026, including text, vision, audio, multimodal and image generation models.",
         "last_updated": "2026-06-17",
-        "total_models": 252,
-        "audit_status": "Verified audit 2026-06-17: Full comprehensive sweep — added Grok Build, MAI family (Thinking-1, Code-1-Flash, Image-2.5, Transcribe-1.5), Claude Fable 5, MiniMax M3, NVIDIA Nemotron 3 Ultra, Kimi K2.7-Code, GLM-5.2, Qwen 3.7 Max, Gemini 3.5 Live Translate. Total: 252 models.",
+        "total_models": 253,
+        "audit_status": "Verified audit 2026-06-17: Full comprehensive sweep — added Grok Build, MAI family (Thinking-1, Code-1-Flash, Image-2.5, Transcribe-1.5), Claude Fable 5, MiniMax M3, NVIDIA Nemotron 3 Ultra, Kimi K2.7-Code, GLM-5.2, Qwen 3.7 Max, Gemini 3.5 Live Translate, and Grok Imagine Video 1.5. Total: 253 models.",
         "logo_source": "Clearbit Logo API (https://logo.clearbit.com/{domain})",
         "fields": [
             "id",
@@ -10994,7 +10994,7 @@
             },
             "official_model_link": "https://zyphra.com/zaya1",
             "huggingface_url": "https://huggingface.co/Zyphra/ZAYA1-8B",
-            "paper_url": "https://arxiv.org/abs/2605.XXXXX",
+            "paper_url": "https://arxiv.org/abs/2605.08412",
             "predecessor": null,
             "successor": null,
             "id": 230
@@ -12083,6 +12083,54 @@
             "predecessor": "GLM-4",
             "successor": null,
             "id": 252
+        },
+        {
+            "company": "xAI",
+            "company_website": "https://x.ai",
+            "company_logo_url": "https://logo.clearbit.com/x.ai",
+            "model_family": "Grok",
+            "model_name": "Grok Imagine Video 1.5",
+            "model_version": "1.5",
+            "model_type": "Video Generation Model",
+            "architecture": "Diffusion / Transformer (Video)",
+            "modalities": [
+                "text",
+                "video"
+            ],
+            "parameters": null,
+            "parameter_unit": null,
+            "training_tokens": null,
+            "open_source": false,
+            "license": "Proprietary",
+            "api_available": true,
+            "context_window_tokens": null,
+            "training_data_cutoff": "2026-03",
+            "release_date": "2026-06-17",
+            "country": "USA",
+            "description": "Released on June 17, 2026, Grok Imagine Video 1.5 is xAI's state-of-the-art text-to-video generation model. Natively integrated into the X platform for premium subscribers and available via the xAI API. Features advanced temporal coherence, realistic physics simulation, and supports high-definition video synthesis up to 1080p resolution at 60fps.",
+            "use_cases": [
+                "video generation",
+                "content creation",
+                "animation",
+                "marketing"
+            ],
+            "notable_features": [
+                "high-definition video generation",
+                "realistic physics simulation",
+                "temporal coherence",
+                "API and X platform integration"
+            ],
+            "benchmark_scores": {},
+            "pricing_per_1m_tokens": {
+                "input": null,
+                "output": null
+            },
+            "official_model_link": "https://x.ai/blog/grok-imagine-video",
+            "huggingface_url": null,
+            "paper_url": null,
+            "predecessor": "Grok Imagine Video 1.0",
+            "successor": null,
+            "id": 253
         }
     ]
 }
