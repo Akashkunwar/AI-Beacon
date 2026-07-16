@@ -2,9 +2,9 @@
     "metadata": {
         "title": "AI & LLM Models Timeline",
         "description": "Comprehensive list of AI and LLM models from 2017 to 2026, including text, vision, audio, multimodal and image generation models.",
-        "last_updated": "2026-06-17",
-        "total_models": 253,
-        "audit_status": "Verified audit 2026-06-17: Full comprehensive sweep — added Grok Build, MAI family (Thinking-1, Code-1-Flash, Image-2.5, Transcribe-1.5), Claude Fable 5, MiniMax M3, NVIDIA Nemotron 3 Ultra, Kimi K2.7-Code, GLM-5.2, Qwen 3.7 Max, Gemini 3.5 Live Translate, and Grok Imagine Video 1.5. Total: 253 models.",
+        "last_updated": "2026-07-16",
+        "total_models": 273,
+        "audit_status": "Verified audit 2026-07-16 (final confidence pass): Frontier June–July 2026 complete (GPT-5.6 family, Claude Sonnet/Mythos/Fable 5, Grok 4.5, Muse Spark 1.1/Image/Video, Inkling, Audex, Robostral, Seedream 5.0 Pro). Added Seedance 2.0/Fast. Corrected Gemini 3.5 Pro non-GA status, GPT-5.5 pricing, Claude/Nemotron links, recent predecessor chains. Cross-checked official lab announcements.",
         "logo_source": "Clearbit Logo API (https://logo.clearbit.com/{domain})",
         "fields": [
             "id",
@@ -8830,7 +8830,7 @@
             "official_model_link": "https://www.anthropic.com/claude",
             "huggingface_url": null,
             "paper_url": null,
-            "predecessor": "Claude 4 Opus (2025)",
+            "predecessor": "Claude 4.5 Opus",
             "successor": null,
             "id": 184
         },
@@ -8922,7 +8922,7 @@
             "official_model_link": "https://klingai.com",
             "huggingface_url": null,
             "paper_url": null,
-            "predecessor": "Kling 2.1",
+            "predecessor": "Kling AI",
             "successor": null,
             "id": 186
         },
@@ -8972,9 +8972,106 @@
             "official_model_link": "https://open.bigmodel.cn",
             "huggingface_url": "https://huggingface.co/zai-org/GLM-5",
             "paper_url": "https://arxiv.org/abs/2602.15763",
-            "predecessor": "GLM-4.7",
+            "predecessor": null,
             "successor": "GLM-5.1",
             "id": 187
+        },
+        {
+            "company": "ByteDance",
+            "company_website": "https://www.bytedance.com",
+            "company_logo_url": "https://logo.clearbit.com/bytedance.com",
+            "model_family": "Seedance",
+            "model_name": "Seedance 2.0",
+            "model_version": "2.0",
+            "model_type": "Video Generation Model",
+            "architecture": "Unified multimodal audio-video generative model",
+            "modalities": [
+                "text",
+                "vision",
+                "video",
+                "audio"
+            ],
+            "parameters": null,
+            "parameter_unit": null,
+            "training_tokens": null,
+            "open_source": false,
+            "license": "Proprietary",
+            "api_available": true,
+            "context_window_tokens": null,
+            "training_data_cutoff": null,
+            "release_date": "2026-02-12",
+            "country": "China",
+            "description": "ByteDance Seed team's next-generation video creation model, officially launched February 12, 2026. Unified multimodal architecture for joint audio-video generation from text, image, audio, and video references. Available via Dreamina, Jimeng, Doubao, and CapCut; companion Fast variant for lower latency.",
+            "use_cases": [
+                "text-to-video",
+                "image-to-video",
+                "audio-conditioned video",
+                "multimodal video editing"
+            ],
+            "notable_features": [
+                "Native audio-video joint generation",
+                "Text/image/audio/video inputs",
+                "4–15s clips; 480p/720p native",
+                "C2PA watermarking",
+                "Seedance 2.0 Fast sibling"
+            ],
+            "benchmark_scores": {},
+            "pricing_per_1m_tokens": {
+                "input": null,
+                "output": null
+            },
+            "official_model_link": "https://seed.bytedance.com/en/blog/seedance-2-0-%E6%AD%A3%E5%BC%8F%E5%8F%91%E5%B8%83",
+            "huggingface_url": null,
+            "paper_url": "https://arxiv.org/pdf/2604.14148",
+            "predecessor": null,
+            "successor": "Seedance 2.0 Fast",
+            "id": 188
+        },
+        {
+            "company": "ByteDance",
+            "company_website": "https://www.bytedance.com",
+            "company_logo_url": "https://logo.clearbit.com/bytedance.com",
+            "model_family": "Seedance",
+            "model_name": "Seedance 2.0 Fast",
+            "model_version": "2.0-fast",
+            "model_type": "Video Generation Model",
+            "architecture": "Unified multimodal audio-video generative model",
+            "modalities": [
+                "text",
+                "vision",
+                "video",
+                "audio"
+            ],
+            "parameters": null,
+            "parameter_unit": null,
+            "training_tokens": null,
+            "open_source": false,
+            "license": "Proprietary",
+            "api_available": true,
+            "context_window_tokens": null,
+            "training_data_cutoff": null,
+            "release_date": "2026-02-12",
+            "country": "China",
+            "description": "Accelerated variant of Seedance 2.0 for lower-latency video generation, released alongside Seedance 2.0 in February 2026.",
+            "use_cases": [
+                "fast text-to-video",
+                "low-latency creative iteration"
+            ],
+            "notable_features": [
+                "Lower latency than Seedance 2.0",
+                "Same multimodal input family"
+            ],
+            "benchmark_scores": {},
+            "pricing_per_1m_tokens": {
+                "input": null,
+                "output": null
+            },
+            "official_model_link": "https://seed.bytedance.com/en/blog/seedance-2-0-%E6%AD%A3%E5%BC%8F%E5%8F%91%E5%B8%83",
+            "huggingface_url": null,
+            "paper_url": "https://arxiv.org/pdf/2604.14148",
+            "predecessor": "Seedance 2.0",
+            "successor": null,
+            "id": 189
         },
         {
             "company": "Alibaba",
@@ -9025,7 +9122,7 @@
             "paper_url": null,
             "predecessor": "Qwen3",
             "successor": null,
-            "id": 188
+            "id": 190
         },
         {
             "company": "Anthropic",
@@ -9072,8 +9169,8 @@
             "huggingface_url": null,
             "paper_url": null,
             "predecessor": "Claude 4 Sonnet",
-            "successor": null,
-            "id": 189
+            "successor": "Claude Sonnet 5",
+            "id": 191
         },
         {
             "company": "Sarvam AI",
@@ -9118,7 +9215,7 @@
             "paper_url": null,
             "predecessor": "Sarvam-30B",
             "successor": null,
-            "id": 190
+            "id": 192
         },
         {
             "company": "Sarvam AI",
@@ -9161,9 +9258,9 @@
             "official_model_link": "https://sarvam.ai",
             "huggingface_url": "https://huggingface.co/sarvamai/sarvam-30b-instruct",
             "paper_url": null,
-            "predecessor": "Sarvam-1",
+            "predecessor": null,
             "successor": "Sarvam-105B",
-            "id": 191
+            "id": 193
         },
         {
             "company": "Google",
@@ -9212,12 +9309,12 @@
             "official_model_link": "https://deepmind.google/gemini",
             "huggingface_url": null,
             "paper_url": null,
-            "predecessor": "Gemini 3.0",
+            "predecessor": "Gemini 3",
             "successor": null,
-            "id": 192
+            "id": 194
         },
         {
-            "id": 193,
+            "id": 195,
             "company": "Inception AI",
             "company_website": "https://www.inceptionlabs.ai",
             "company_logo_url": "https://logo.clearbit.com/inceptionlabs.ai",
@@ -9260,11 +9357,11 @@
             "official_model_link": "https://www.inceptionlabs.ai/blog/introducing-mercury-2",
             "huggingface_url": null,
             "paper_url": null,
-            "predecessor": "Mercury 1",
+            "predecessor": null,
             "successor": null
         },
         {
-            "id": 194,
+            "id": 196,
             "company": "OpenAI",
             "company_website": "https://openai.com",
             "company_logo_url": "https://logo.clearbit.com/openai.com",
@@ -9308,7 +9405,7 @@
             "successor": "GPT-5.4"
         },
         {
-            "id": 195,
+            "id": 197,
             "company": "Google",
             "company_website": "https://google.com",
             "company_logo_url": "https://logo.clearbit.com/google.com",
@@ -9350,11 +9447,11 @@
             "official_model_link": "https://deepmind.google/gemini",
             "huggingface_url": null,
             "paper_url": null,
-            "predecessor": "Gemini 3.0 Flash",
+            "predecessor": "Gemini 3.1 Pro",
             "successor": null
         },
         {
-            "id": 196,
+            "id": 198,
             "company": "OpenAI",
             "company_website": "https://openai.com",
             "company_logo_url": "https://logo.clearbit.com/openai.com",
@@ -9396,11 +9493,11 @@
             "official_model_link": "https://openai.com",
             "huggingface_url": null,
             "paper_url": null,
-            "predecessor": "GPT-5.3",
+            "predecessor": "GPT-5.3 Instant",
             "successor": null
         },
         {
-            "id": 197,
+            "id": 199,
             "company": "Microsoft",
             "company_website": "https://microsoft.com",
             "company_logo_url": "https://logo.clearbit.com/microsoft.com",
@@ -9453,7 +9550,7 @@
             "successor": null
         },
         {
-            "id": 198,
+            "id": 200,
             "company": "NVIDIA",
             "company_website": "https://nvidia.com",
             "company_logo_url": "https://logo.clearbit.com/nvidia.com",
@@ -9496,11 +9593,59 @@
             "official_model_link": "https://developer.nvidia.com/blog/introducing-nemotron-3-super-an-open-hybrid-mamba-transformer-moe-for-agentic-reasoning/",
             "huggingface_url": null,
             "paper_url": null,
-            "predecessor": "Nemotron Super",
+            "predecessor": null,
             "successor": "Nemotron 3 Ultra"
         },
         {
-            "id": 199,
+            "company": "Google DeepMind",
+            "company_website": "https://deepmind.google",
+            "company_logo_url": "https://logo.clearbit.com/deepmind.com",
+            "model_family": "Veo",
+            "model_name": "Veo 3.1",
+            "model_version": "3.1",
+            "model_type": "Video Generation Model",
+            "architecture": "Diffusion / Transformer video model",
+            "modalities": [
+                "text",
+                "vision",
+                "video",
+                "audio"
+            ],
+            "parameters": null,
+            "parameter_unit": null,
+            "training_tokens": null,
+            "open_source": false,
+            "license": "Proprietary",
+            "api_available": true,
+            "context_window_tokens": null,
+            "training_data_cutoff": null,
+            "release_date": "2026-03-14",
+            "country": "USA",
+            "description": "Google DeepMind Veo 3.1 video generation model (March 2026), with a Fast variant for lower-latency generation. Available via Gemini API preview endpoints.",
+            "use_cases": [
+                "text-to-video",
+                "video generation",
+                "creative production"
+            ],
+            "notable_features": [
+                "Veo 3.1 quality tier",
+                "Veo 3.1 Fast sibling",
+                "Gemini API preview availability"
+            ],
+            "benchmark_scores": {},
+            "pricing_per_1m_tokens": {
+                "input": null,
+                "output": null
+            },
+            "official_model_link": "https://deepmind.google/models/veo/",
+            "huggingface_url": null,
+            "paper_url": null,
+            "predecessor": "Veo 2",
+            "successor": null,
+            "id": 201
+        },
+        {
+            "id": 202,
             "company": "Mistral AI",
             "company_website": "https://mistral.ai",
             "company_logo_url": "https://logo.clearbit.com/mistral.ai",
@@ -9542,11 +9687,11 @@
             "official_model_link": "https://mistral.ai/news/mistral-small-4",
             "huggingface_url": null,
             "paper_url": null,
-            "predecessor": "Mistral Small 3",
+            "predecessor": null,
             "successor": null
         },
         {
-            "id": 200,
+            "id": 203,
             "company": "OpenAI",
             "company_website": "https://openai.com",
             "company_logo_url": "https://logo.clearbit.com/openai.com",
@@ -9589,7 +9734,7 @@
             "successor": null
         },
         {
-            "id": 201,
+            "id": 204,
             "company": "OpenAI",
             "company_website": "https://openai.com",
             "company_logo_url": "https://logo.clearbit.com/openai.com",
@@ -9632,11 +9777,11 @@
             "official_model_link": "https://openai.com/index/introducing-gpt-5-4-mini-and-nano/",
             "huggingface_url": null,
             "paper_url": null,
-            "predecessor": "GPT-5 Nano",
+            "predecessor": "GPT-5.4 Mini",
             "successor": null
         },
         {
-            "id": 202,
+            "id": 205,
             "company": "xAI",
             "company_website": "https://x.ai",
             "company_logo_url": "https://logo.clearbit.com/x.ai",
@@ -9682,7 +9827,7 @@
             "successor": null
         },
         {
-            "id": 203,
+            "id": 206,
             "company": "MiniMax",
             "company_website": "https://minimax.io",
             "company_logo_url": "https://logo.clearbit.com/minimax.io",
@@ -9722,11 +9867,11 @@
             "official_model_link": "https://minimax.io",
             "huggingface_url": null,
             "paper_url": null,
-            "predecessor": "MiniMax-M2.6",
-            "successor": null
+            "predecessor": null,
+            "successor": "MiniMax M3"
         },
         {
-            "id": 204,
+            "id": 207,
             "company": "Xiaomi",
             "company_website": "https://xiaomi.com",
             "company_logo_url": "https://logo.clearbit.com/xiaomi.com",
@@ -9766,7 +9911,7 @@
             "official_model_link": "https://xiaomi.com",
             "huggingface_url": null,
             "paper_url": null,
-            "predecessor": "MiMo-V2",
+            "predecessor": null,
             "successor": null
         },
         {
@@ -9810,9 +9955,9 @@
             "official_model_link": "https://qwenlm.github.io/",
             "huggingface_url": null,
             "paper_url": null,
-            "predecessor": "Qwen 2.5",
+            "predecessor": null,
             "successor": null,
-            "id": 205
+            "id": 208
         },
         {
             "company": "OpenAI",
@@ -9860,7 +10005,7 @@
             "paper_url": null,
             "predecessor": "GPT-5.4",
             "successor": null,
-            "id": 206
+            "id": 209
         },
         {
             "company": "Mistral AI",
@@ -9906,10 +10051,10 @@
             "paper_url": null,
             "predecessor": "Mistral Large 3",
             "successor": null,
-            "id": 207
+            "id": 210
         },
         {
-            "id": 208,
+            "id": 211,
             "company": "World Labs",
             "company_website": "https://worldlabs.ai",
             "company_logo_url": "https://logo.clearbit.com/worldlabs.ai",
@@ -9954,7 +10099,7 @@
             "official_model_link": "https://worldlabs.ai",
             "huggingface_url": null,
             "paper_url": null,
-            "predecessor": "Marble 1.0",
+            "predecessor": null,
             "successor": null
         },
         {
@@ -10000,7 +10145,7 @@
             "paper_url": null,
             "predecessor": "Qwen 3.5 Max",
             "successor": null,
-            "id": 209
+            "id": 212
         },
         {
             "company": "Google",
@@ -10044,7 +10189,7 @@
             "paper_url": null,
             "predecessor": "Gemma 3",
             "successor": null,
-            "id": 210
+            "id": 213
         },
         {
             "company": "Anthropic",
@@ -10089,9 +10234,9 @@
             "official_model_link": "https://anthropic.com/news",
             "huggingface_url": null,
             "paper_url": null,
-            "predecessor": "Claude 3.5 Opus",
-            "successor": null,
-            "id": 211
+            "predecessor": "Claude Opus 4.7",
+            "successor": "Claude Mythos 5",
+            "id": 214
         },
         {
             "company": "Zhipu AI",
@@ -10137,10 +10282,10 @@
             "paper_url": null,
             "predecessor": "GLM-4",
             "successor": null,
-            "id": 212
+            "id": 215
         },
         {
-            "id": 213,
+            "id": 216,
             "company": "HeyGen",
             "company_website": "https://heygen.com",
             "company_logo_url": "https://logo.clearbit.com/heygen.com",
@@ -10184,7 +10329,7 @@
             "official_model_link": "https://heygen.com/avatar-v",
             "huggingface_url": null,
             "paper_url": null,
-            "predecessor": "HeyGen Avatar 4.0",
+            "predecessor": null,
             "successor": null
         },
         {
@@ -10231,11 +10376,11 @@
             "huggingface_url": null,
             "paper_url": null,
             "predecessor": "Llama 3.1",
-            "successor": null,
-            "id": 214
+            "successor": "Muse Spark 1.1",
+            "id": 217
         },
         {
-            "id": 215,
+            "id": 218,
             "company": "Microsoft",
             "company_website": "https://microsoft.com",
             "company_logo_url": "https://logo.clearbit.com/microsoft.com",
@@ -10281,7 +10426,7 @@
             "successor": null
         },
         {
-            "id": 216,
+            "id": 219,
             "company": "Anthropic",
             "company_website": "https://anthropic.com",
             "company_logo_url": "https://logo.clearbit.com/anthropic.com",
@@ -10326,7 +10471,7 @@
             "official_model_link": "https://anthropic.com/news/claude-opus-4-7",
             "huggingface_url": null,
             "paper_url": null,
-            "predecessor": "Claude Opus 4.6",
+            "predecessor": "Claude 4 Opus 4.6",
             "successor": null
         },
         {
@@ -10374,9 +10519,9 @@
             "official_model_link": "https://qwen.ai",
             "huggingface_url": "https://huggingface.co/Qwen/Qwen3.6-35B-A3B",
             "paper_url": null,
-            "predecessor": "Qwen 3.5",
+            "predecessor": "Qwen 3.6-Plus",
             "successor": null,
-            "id": 217
+            "id": 220
         },
         {
             "company": "Alibaba",
@@ -10425,10 +10570,10 @@
             "paper_url": null,
             "predecessor": "Qwen 3.5 Max",
             "successor": null,
-            "id": 218
+            "id": 221
         },
         {
-            "id": 219,
+            "id": 222,
             "company": "Moonshot AI",
             "company_website": "https://kimi.ai",
             "company_logo_url": "https://logo.clearbit.com/moonshot.cn",
@@ -10472,8 +10617,57 @@
             "official_model_link": "https://kimi.ai",
             "huggingface_url": null,
             "paper_url": null,
-            "predecessor": "Kimi K2.5",
-            "successor": null
+            "predecessor": null,
+            "successor": "Kimi K2.7-Code"
+        },
+        {
+            "company": "OpenAI",
+            "company_website": "https://openai.com",
+            "company_logo_url": "https://logo.clearbit.com/openai.com",
+            "model_family": "GPT Image",
+            "model_name": "GPT Image 2",
+            "model_version": "2",
+            "model_type": "Image Generation Model",
+            "architecture": "Multimodal Generative Model",
+            "modalities": [
+                "text",
+                "vision"
+            ],
+            "parameters": null,
+            "parameter_unit": null,
+            "training_tokens": null,
+            "open_source": false,
+            "license": "Proprietary",
+            "api_available": true,
+            "context_window_tokens": null,
+            "training_data_cutoff": null,
+            "release_date": "2026-04-21",
+            "country": "USA",
+            "description": "OpenAI's most capable dedicated image generation model (API ID gpt-image-2), launched April 21, 2026 as ChatGPT Images 2.0. Improves editing, layouts, multilingual text rendering, and instruction-following, with Instant and Thinking modes (Thinking can web-search and self-check). Available in ChatGPT, the Images API, and Codex.",
+            "use_cases": [
+                "image generation",
+                "image editing",
+                "product visuals",
+                "design drafts"
+            ],
+            "notable_features": [
+                "API ID: gpt-image-2",
+                "Instant and Thinking modes",
+                "Up to 2K resolution / more aspect ratios",
+                "Stronger multilingual text-in-image",
+                "ChatGPT Images 2.0 product surface"
+            ],
+            "benchmark_scores": {},
+            "pricing_per_1m_tokens": {
+                "input": null,
+                "output": null
+            },
+            "official_model_link": "https://openai.com/index/introducing-chatgpt-images-2-0/",
+            "huggingface_url": null,
+            "paper_url": null,
+            "predecessor": "DALL-E 3",
+            "successor": null,
+            "id": 223
         },
         {
             "company": "Alibaba",
@@ -10520,12 +10714,12 @@
             "official_model_link": "https://qwen.ai",
             "huggingface_url": "https://huggingface.co/Qwen/Qwen3.6-27B",
             "paper_url": null,
-            "predecessor": "Qwen 3.5",
+            "predecessor": "Qwen 3.6-Plus",
             "successor": null,
-            "id": 220
+            "id": 224
         },
         {
-            "id": 221,
+            "id": 225,
             "company": "OpenAI",
             "company_website": "https://openai.com",
             "company_logo_url": "https://logo.clearbit.com/openai.com",
@@ -10545,7 +10739,7 @@
             "open_source": false,
             "license": "Proprietary",
             "api_available": true,
-            "context_window_tokens": 1000000,
+            "context_window_tokens": 1050000,
             "training_data_cutoff": "2026-03",
             "release_date": "2026-04-23",
             "country": "USA",
@@ -10564,17 +10758,17 @@
             ],
             "benchmark_scores": {},
             "pricing_per_1m_tokens": {
-                "input": null,
-                "output": null
+                "input": 5,
+                "output": 30
             },
             "official_model_link": "https://openai.com/index/gpt-5-5",
             "huggingface_url": null,
             "paper_url": null,
             "predecessor": "GPT-5.4 Pro",
-            "successor": null
+            "successor": "GPT-5.6 Sol"
         },
         {
-            "id": 222,
+            "id": 226,
             "company": "OpenAI",
             "company_website": "https://openai.com",
             "company_logo_url": "https://logo.clearbit.com/openai.com",
@@ -10594,7 +10788,7 @@
             "open_source": false,
             "license": "Proprietary",
             "api_available": true,
-            "context_window_tokens": 1000000,
+            "context_window_tokens": 1050000,
             "training_data_cutoff": "2026-03",
             "release_date": "2026-04-23",
             "country": "USA",
@@ -10611,14 +10805,14 @@
             ],
             "benchmark_scores": {},
             "pricing_per_1m_tokens": {
-                "input": null,
-                "output": null
+                "input": 30,
+                "output": 180
             },
             "official_model_link": "https://openai.com/index/gpt-5-5",
             "huggingface_url": null,
             "paper_url": null,
             "predecessor": "GPT-5.5",
-            "successor": null
+            "successor": "GPT-5.6 Sol"
         },
         {
             "company": "OpenAI",
@@ -10658,18 +10852,18 @@
             ],
             "benchmark_scores": {},
             "pricing_per_1m_tokens": {
-                "input": null,
-                "output": null
+                "input": 5,
+                "output": 30
             },
             "official_model_link": "https://openai.com/gpt-5-5",
             "huggingface_url": null,
             "paper_url": "https://openai.com/index/gpt-5-5-system-card",
             "predecessor": "GPT-5.5",
             "successor": null,
-            "id": 223
+            "id": 227
         },
         {
-            "id": 224,
+            "id": 228,
             "company": "DeepSeek",
             "company_website": "https://deepseek.com",
             "company_logo_url": "https://logo.clearbit.com/deepseek.com",
@@ -10712,11 +10906,11 @@
             "official_model_link": "https://deepseek.com",
             "huggingface_url": "https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash",
             "paper_url": null,
-            "predecessor": "DeepSeek-V3",
+            "predecessor": "DeepSeek V3.2",
             "successor": null
         },
         {
-            "id": 225,
+            "id": 229,
             "company": "DeepSeek",
             "company_website": "https://deepseek.com",
             "company_logo_url": "https://logo.clearbit.com/deepseek.com",
@@ -10759,11 +10953,11 @@
             "official_model_link": "https://deepseek.com",
             "huggingface_url": "https://huggingface.co/deepseek-ai/DeepSeek-V4-Pro",
             "paper_url": null,
-            "predecessor": "DeepSeek-V3",
+            "predecessor": "DeepSeek V3.2",
             "successor": null
         },
         {
-            "id": 226,
+            "id": 230,
             "company": "Tencent",
             "company_website": "https://tencent.com",
             "company_logo_url": "https://logo.clearbit.com/tencent.com",
@@ -10806,7 +11000,7 @@
             "official_model_link": "https://tencent.com",
             "huggingface_url": null,
             "paper_url": null,
-            "predecessor": "Hunyuan-Large",
+            "predecessor": null,
             "successor": null
         },
         {
@@ -10854,12 +11048,12 @@
             "official_model_link": "https://x.ai/grok",
             "huggingface_url": null,
             "paper_url": null,
-            "predecessor": "Grok 3.5",
-            "successor": null,
-            "id": 227
+            "predecessor": "Grok 4.20",
+            "successor": "Grok 4.5",
+            "id": 231
         },
         {
-            "id": 228,
+            "id": 232,
             "company": "OpenAI",
             "company_website": "https://openai.com",
             "company_logo_url": "https://logo.clearbit.com/openai.com",
@@ -10897,17 +11091,17 @@
             ],
             "benchmark_scores": {},
             "pricing_per_1m_tokens": {
-                "input": null,
-                "output": null
+                "input": 5,
+                "output": 30
             },
             "official_model_link": "https://openai.com/index/gpt-5-5-instant",
             "huggingface_url": null,
             "paper_url": null,
             "predecessor": "GPT-5.3 Instant",
-            "successor": null
+            "successor": "GPT-5.6 Luna"
         },
         {
-            "id": 229,
+            "id": 233,
             "company": "Subquadratic",
             "company_website": "https://subquadratic.ai",
             "company_logo_url": "https://logo.clearbit.com/subquadratic.ai",
@@ -10997,7 +11191,7 @@
             "paper_url": "https://arxiv.org/abs/2605.08412",
             "predecessor": null,
             "successor": null,
-            "id": 230
+            "id": 234
         },
         {
             "company": "OpenAI",
@@ -11045,10 +11239,10 @@
             "paper_url": null,
             "predecessor": "GPT-5.5",
             "successor": null,
-            "id": 231
+            "id": 235
         },
         {
-            "id": 232,
+            "id": 236,
             "company": "OpenAI",
             "company_website": "https://openai.com",
             "company_logo_url": "https://logo.clearbit.com/openai.com",
@@ -11090,11 +11284,11 @@
             "official_model_link": "https://openai.com/index/advancing-voice-intelligence-with-new-models-in-the-api",
             "huggingface_url": null,
             "paper_url": null,
-            "predecessor": "GPT-4o Realtime",
+            "predecessor": null,
             "successor": null
         },
         {
-            "id": 233,
+            "id": 237,
             "company": "OpenAI",
             "company_website": "https://openai.com",
             "company_logo_url": "https://logo.clearbit.com/openai.com",
@@ -11140,7 +11334,7 @@
             "successor": null
         },
         {
-            "id": 234,
+            "id": 238,
             "company": "OpenAI",
             "company_website": "https://openai.com",
             "company_logo_url": "https://logo.clearbit.com/openai.com",
@@ -11232,8 +11426,8 @@
             "huggingface_url": null,
             "paper_url": null,
             "predecessor": "Grok 4.3",
-            "successor": null,
-            "id": 235
+            "successor": "Grok 4.5",
+            "id": 239
         },
         {
             "company": "Google",
@@ -11257,10 +11451,10 @@
             "license": "Proprietary",
             "api_available": true,
             "context_window_tokens": 1048576,
-            "training_data_cutoff": "2026-01",
+            "training_data_cutoff": "2025-01",
             "release_date": "2026-05-19",
             "country": "USA",
-            "description": "Announced at Google I/O 2026, Gemini 3.5 Flash is optimized for agentic workflows and coding tasks. It features 'Dynamic Thinking' allowing the model to allocate compute based on task complexity, and integrates natively with the Antigravity developer platform.",
+            "description": "Generally available May 19, 2026 at Google I/O. Gemini 3.5 Flash is Google's agentic/coding-focused Flash model with a 1M-token context window, configurable thinking, and strong long-horizon tool-use performance. Default model for the Gemini app and AI Mode in Search; available via Gemini API (gemini-3.5-flash), Antigravity, and Gemini Enterprise.",
             "use_cases": [
                 "agentic workflows",
                 "coding",
@@ -11268,22 +11462,23 @@
                 "multimodal analysis"
             ],
             "notable_features": [
-                "Dynamic thinking",
-                "1M context window",
-                "native audio/video processing",
-                "agent-first design"
+                "GA May 19, 2026",
+                "1M context / 65K max output",
+                "API ID: gemini-3.5-flash",
+                "Configurable thinking levels",
+                "Strong agentic/coding Flash performance"
             ],
             "benchmark_scores": {},
             "pricing_per_1m_tokens": {
                 "input": 1.5,
                 "output": 9
             },
-            "official_model_link": "https://blog.google",
+            "official_model_link": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-5/",
             "huggingface_url": null,
             "paper_url": null,
             "predecessor": "Gemini 3.1 Pro",
             "successor": null,
-            "id": 236
+            "id": 240
         },
         {
             "company": "Google",
@@ -11306,11 +11501,11 @@
             "open_source": false,
             "license": "Proprietary",
             "api_available": false,
-            "context_window_tokens": 2000000,
-            "training_data_cutoff": "2026-01",
+            "context_window_tokens": null,
+            "training_data_cutoff": null,
             "release_date": "2026-05-19",
             "country": "USA",
-            "description": "Announced at Google I/O 2026 as the flagship deep-reasoning tier of the Gemini 3.5 family. It supports a context window of up to 2 million tokens and is optimized for advanced scientific research and complex agentic planning.",
+            "description": "Announced at Google I/O 2026 (May 19) as the deep-reasoning tier of the Gemini 3.5 family, with Google stating it was already in internal use and expected to follow 3.5 Flash. As of mid-July 2026 it is still not generally available in the public Gemini API (no gemini-3.5-pro listing); limited enterprise preview reported on Vertex AI. Specs such as a rumored 2M context window remain unconfirmed until Google publishes a model card and API pricing.",
             "use_cases": [
                 "scientific research",
                 "complex planning",
@@ -11318,21 +11513,22 @@
                 "multi-modal reasoning"
             ],
             "notable_features": [
-                "2M context window",
-                "deep reasoning",
-                "agentic planning"
+                "Announced at Google I/O 2026",
+                "Not yet public API GA as of mid-July 2026",
+                "Limited enterprise preview reported",
+                "Successor to Gemini 3.1 Pro (when released)"
             ],
             "benchmark_scores": {},
             "pricing_per_1m_tokens": {
                 "input": null,
                 "output": null
             },
-            "official_model_link": "https://blog.google",
+            "official_model_link": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-5/",
             "huggingface_url": null,
             "paper_url": null,
             "predecessor": "Gemini 3.1 Pro",
             "successor": null,
-            "id": 237
+            "id": 241
         },
         {
             "company": "Google",
@@ -11375,15 +11571,15 @@
                 "input": null,
                 "output": null
             },
-            "official_model_link": "https://blog.google",
+            "official_model_link": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-omni-3-5-videos/",
             "huggingface_url": null,
             "paper_url": null,
             "predecessor": "Gemini 1.5 Pro",
-            "successor": null,
-            "id": 238
+            "successor": "Gemini Omni Flash",
+            "id": 242
         },
         {
-            "id": 239,
+            "id": 243,
             "company": "Google",
             "company_website": "https://google.com",
             "company_logo_url": "https://logo.clearbit.com/google.com",
@@ -11479,7 +11675,7 @@
             "paper_url": null,
             "predecessor": "Gemma 3",
             "successor": null,
-            "id": 240
+            "id": 244
         },
         {
             "company": "Alibaba",
@@ -11526,12 +11722,59 @@
             "official_model_link": "https://qwen.ai/qwen-3-7-max",
             "huggingface_url": null,
             "paper_url": null,
-            "predecessor": "Qwen 3",
+            "predecessor": "Qwen 3.6-Plus",
             "successor": null,
-            "id": 241
+            "id": 245
         },
         {
-            "id": 242,
+            "company": "Alibaba",
+            "company_website": "https://www.alibabacloud.com",
+            "company_logo_url": "https://logo.clearbit.com/alibabacloud.com",
+            "model_family": "Qwen",
+            "model_name": "Qwen 3.7 Plus",
+            "model_version": "3.7-plus",
+            "model_type": "Foundation LLM",
+            "architecture": "Transformer",
+            "modalities": [
+                "text",
+                "vision"
+            ],
+            "parameters": null,
+            "parameter_unit": null,
+            "training_tokens": null,
+            "open_source": false,
+            "license": "Proprietary",
+            "api_available": true,
+            "context_window_tokens": null,
+            "training_data_cutoff": null,
+            "release_date": "2026-05-20",
+            "country": "China",
+            "description": "Alibaba Qwen 3.7 Plus mid/high tier released alongside Qwen 3.7 Max on May 20, 2026, targeting strong reasoning and coding at a lower price point than Max.",
+            "use_cases": [
+                "reasoning",
+                "coding",
+                "general chat",
+                "enterprise apps"
+            ],
+            "notable_features": [
+                "Qwen 3.7 family mid-high tier",
+                "API availability",
+                "Paired launch with Qwen 3.7 Max"
+            ],
+            "benchmark_scores": {},
+            "pricing_per_1m_tokens": {
+                "input": null,
+                "output": null
+            },
+            "official_model_link": "https://qwenlm.github.io/",
+            "huggingface_url": null,
+            "paper_url": null,
+            "predecessor": "Qwen 3.7 Max",
+            "successor": null,
+            "id": 246
+        },
+        {
+            "id": 247,
             "company": "Anthropic",
             "company_website": "https://anthropic.com",
             "company_logo_url": "https://logo.clearbit.com/anthropic.com",
@@ -11577,11 +11820,11 @@
                 "input": 5,
                 "output": 25
             },
-            "official_model_link": "https://www.anthropic.com/claude/opus",
+            "official_model_link": "https://www.anthropic.com/news/claude-opus-4-8",
             "huggingface_url": null,
-            "paper_url": null,
+            "paper_url": "https://www-cdn.anthropic.com/0f0c97ad20d8005706296bd92aa1c27c6b2f4f61/Claude-Opus-4.8-System-Card.pdf",
             "predecessor": "Claude Opus 4.7",
-            "successor": null
+            "successor": "Claude Fable 5"
         },
         {
             "company": "MiniMax",
@@ -11624,7 +11867,7 @@
                 "Apache 2.0 open-weights"
             ],
             "benchmark_scores": {
-                "SWE-bench Pro": 59.0
+                "SWE-bench Pro": 59
             },
             "pricing_per_1m_tokens": {
                 "input": null,
@@ -11633,9 +11876,9 @@
             "official_model_link": "https://minimax.io/m3",
             "huggingface_url": "https://huggingface.co/MiniMaxAI/MiniMax-M3",
             "paper_url": null,
-            "predecessor": "MiniMax-01",
+            "predecessor": "MiniMax-M2.7",
             "successor": null,
-            "id": 243
+            "id": 248
         },
         {
             "company": "NVIDIA",
@@ -11655,11 +11898,11 @@
             "open_source": true,
             "license": "OpenMDW-1.1",
             "api_available": true,
-            "context_window_tokens": null,
+            "context_window_tokens": 1000000,
             "training_data_cutoff": "2026-01",
             "release_date": "2026-06-04",
             "country": "USA",
-            "description": "Released June 4, 2026, NVIDIA Nemotron 3 Ultra is a 550-billion-parameter open-weights model with a fully permissive OpenMDW-1.1 license (Linux Foundation initiative). Designed for enterprise deployment with fine-tuning and commercial use allowed. Available via NVIDIA NIM and the NGC catalog. Released as NVIDIA's flagship open model for the enterprise ecosystem.",
+            "description": "Released June 4, 2026, NVIDIA Nemotron 3 Ultra is a 550-billion-parameter (55B active) open-weights model with a fully permissive OpenMDW-1.1 license (Linux Foundation initiative). Designed for enterprise deployment with fine-tuning and commercial use allowed. Available via NVIDIA NIM and the NGC catalog. Released as NVIDIA's flagship open model for the enterprise ecosystem.",
             "use_cases": [
                 "enterprise AI",
                 "fine-tuning",
@@ -11675,15 +11918,15 @@
             ],
             "benchmark_scores": {},
             "pricing_per_1m_tokens": {
-                "input": 0,
-                "output": 0
+                "input": null,
+                "output": null
             },
-            "official_model_link": "https://catalog.ngc.nvidia.com/orgs/nvidia/models/nemotron-3-ultra-550b",
-            "huggingface_url": "https://huggingface.co/nvidia/Nemotron-3-Ultra-550B",
-            "paper_url": null,
-            "predecessor": "Nemotron-4-340B",
-            "successor": null,
-            "id": 244
+            "official_model_link": "https://developer.nvidia.com/blog/nvidia-nemotron-3-ultra-powers-faster-more-efficient-reasoning-for-long-running-agents/",
+            "huggingface_url": "https://huggingface.co/nvidia/NVIDIA-Nemotron-3-Ultra-550B-A55B-BF16",
+            "paper_url": "https://research.nvidia.com/labs/nemotron/files/NVIDIA-Nemotron-3-Ultra-Technical-Report.pdf",
+            "predecessor": "Nemotron 3 Super",
+            "successor": "Nemotron Labs Audex 30B-A3B",
+            "id": 249
         },
         {
             "company": "Microsoft",
@@ -11732,7 +11975,7 @@
             "paper_url": null,
             "predecessor": null,
             "successor": null,
-            "id": 245
+            "id": 250
         },
         {
             "company": "Microsoft",
@@ -11780,7 +12023,7 @@
             "paper_url": null,
             "predecessor": null,
             "successor": null,
-            "id": 246
+            "id": 251
         },
         {
             "company": "Microsoft",
@@ -11830,7 +12073,7 @@
             "paper_url": null,
             "predecessor": null,
             "successor": null,
-            "id": 247
+            "id": 252
         },
         {
             "company": "Microsoft",
@@ -11878,7 +12121,7 @@
             "paper_url": null,
             "predecessor": null,
             "successor": null,
-            "id": 248
+            "id": 253
         },
         {
             "company": "Anthropic",
@@ -11913,7 +12156,7 @@
             ],
             "notable_features": [
                 "Mythos-class (highest Claude capability tier)",
-                "80.3% SWE-Bench Pro (SOTA at release)",
+                "80% SWE-Bench Pro (near-SOTA at release)",
                 "29.3% FrontierCode Diamond split",
                 "1M token context window",
                 "128K max output tokens",
@@ -11922,19 +12165,19 @@
                 "Available on Bedrock, Vertex AI, Azure, Microsoft Foundry"
             ],
             "benchmark_scores": {
-                "SWE-bench Pro": 80.3,
+                "SWE-bench Pro": 80,
                 "FrontierCode Diamond": 29.3
             },
             "pricing_per_1m_tokens": {
-                "input": 10.0,
-                "output": 50.0
+                "input": 10,
+                "output": 50
             },
-            "official_model_link": "https://www.anthropic.com/claude/fable-5",
+            "official_model_link": "https://www.anthropic.com/news/claude-fable-5-mythos-5",
             "huggingface_url": null,
-            "paper_url": "https://www.anthropic.com/research/fable-5-system-card",
+            "paper_url": "https://www-cdn.anthropic.com/d00db56fa754a1b115b6dd7cb2e3c342ee809620.pdf",
             "predecessor": "Claude Opus 4.8",
             "successor": null,
-            "id": 249
+            "id": 254
         },
         {
             "company": "Google",
@@ -11983,7 +12226,60 @@
             "paper_url": null,
             "predecessor": "Gemini Omni",
             "successor": null,
-            "id": 250
+            "id": 255
+        },
+        {
+            "company": "Anthropic",
+            "company_website": "https://anthropic.com",
+            "company_logo_url": "https://logo.clearbit.com/anthropic.com",
+            "model_family": "Claude",
+            "model_name": "Claude Mythos 5",
+            "model_version": "Mythos 5",
+            "model_type": "Foundation LLM (Mythos-class, Trusted Access)",
+            "architecture": "Transformer",
+            "modalities": [
+                "text",
+                "vision"
+            ],
+            "parameters": null,
+            "parameter_unit": null,
+            "training_tokens": null,
+            "open_source": false,
+            "license": "Proprietary",
+            "api_available": true,
+            "context_window_tokens": 1000000,
+            "training_data_cutoff": "2026-01",
+            "release_date": "2026-06-09",
+            "country": "USA",
+            "description": "Released June 9, 2026 alongside Claude Fable 5. Claude Mythos 5 shares Fable 5's underlying weights and capabilities but with cybersecurity (and later biology) safety classifiers lifted for Project Glasswing trusted partners. It is not generally available; access is limited to vetted cyberdefense and critical-infrastructure organizations. Temporarily suspended under US export controls from June 12–30, 2026.",
+            "use_cases": [
+                "defensive cybersecurity",
+                "vulnerability research",
+                "critical infrastructure defense",
+                "long-horizon agentic coding"
+            ],
+            "notable_features": [
+                "Same underlying model as Claude Fable 5",
+                "Cyber safeguards lifted for Glasswing partners",
+                "1M token context / 128K max output",
+                "Project Glasswing limited release",
+                "Successor to Claude Mythos Preview"
+            ],
+            "benchmark_scores": {
+                "SWE-bench Pro": 80.3,
+                "Terminal-Bench 2.1": 88,
+                "BrowseComp": 88
+            },
+            "pricing_per_1m_tokens": {
+                "input": 10,
+                "output": 50
+            },
+            "official_model_link": "https://platform.claude.com/docs/en/about-claude/models/introducing-claude-fable-5-and-claude-mythos-5",
+            "huggingface_url": null,
+            "paper_url": "https://www-cdn.anthropic.com/d00db56fa754a1b115b6dd7cb2e3c342ee809620.pdf",
+            "predecessor": "Claude Mythos",
+            "successor": null,
+            "id": 256
         },
         {
             "company": "Moonshot AI",
@@ -12033,7 +12329,7 @@
             "paper_url": null,
             "predecessor": "Kimi K2.6",
             "successor": null,
-            "id": 251
+            "id": 257
         },
         {
             "company": "Zhipu AI",
@@ -12082,7 +12378,7 @@
             "paper_url": null,
             "predecessor": "GLM-4",
             "successor": null,
-            "id": 252
+            "id": 258
         },
         {
             "company": "xAI",
@@ -12128,9 +12424,731 @@
             "official_model_link": "https://x.ai/blog/grok-imagine-video",
             "huggingface_url": null,
             "paper_url": null,
-            "predecessor": "Grok Imagine Video 1.0",
+            "predecessor": null,
             "successor": null,
-            "id": 253
+            "id": 259
+        },
+        {
+            "company": "Anthropic",
+            "company_website": "https://anthropic.com",
+            "company_logo_url": "https://logo.clearbit.com/anthropic.com",
+            "model_family": "Claude",
+            "model_name": "Claude Sonnet 5",
+            "model_version": "Sonnet 5",
+            "model_type": "Foundation LLM (Agentic)",
+            "architecture": "Transformer",
+            "modalities": [
+                "text",
+                "vision"
+            ],
+            "parameters": null,
+            "parameter_unit": null,
+            "training_tokens": null,
+            "open_source": false,
+            "license": "Proprietary",
+            "api_available": true,
+            "context_window_tokens": 1000000,
+            "training_data_cutoff": "2026-01",
+            "release_date": "2026-06-30",
+            "country": "USA",
+            "description": "Anthropic's most agentic Sonnet model, released June 30, 2026 as a drop-in upgrade for Sonnet 4.6. Narrows the gap with Opus 4.8 on reasoning, coding, tool use, and knowledge work at lower cost. Adaptive thinking is on by default; uses an updated tokenizer (~1.0–1.35× more tokens for equivalent text). Default model for Free and Pro Claude plans.",
+            "use_cases": [
+                "agentic coding",
+                "tool use",
+                "computer use",
+                "knowledge work",
+                "multi-step automation"
+            ],
+            "notable_features": [
+                "Most agentic Sonnet to date",
+                "1M context / 128K max output",
+                "Adaptive thinking on by default",
+                "New tokenizer vs Sonnet 4.6",
+                "Intro pricing $2/$10 through Aug 31, 2026 then $3/$15",
+                "API ID: claude-sonnet-5"
+            ],
+            "benchmark_scores": {
+                "SWE-Bench Pro": 63.2,
+                "Terminal-Bench 2.1": 80.4,
+                "OSWorld-Verified": 81.2,
+                "BrowseComp": 84.7
+            },
+            "pricing_per_1m_tokens": {
+                "input": 3,
+                "output": 15
+            },
+            "official_model_link": "https://www.anthropic.com/news/claude-sonnet-5",
+            "huggingface_url": null,
+            "paper_url": "https://www.anthropic.com/claude-sonnet-5-system-card",
+            "predecessor": "Claude 4 Sonnet 4.6",
+            "successor": null,
+            "id": 260
+        },
+        {
+            "company": "Google",
+            "company_website": "https://google.com",
+            "company_logo_url": "https://logo.clearbit.com/google.com",
+            "model_family": "Gemini",
+            "model_name": "Gemini Omni Flash",
+            "model_version": "omni-flash-preview",
+            "model_type": "Video Generation / Multimodal",
+            "architecture": "Transformer (Omni)",
+            "modalities": [
+                "text",
+                "vision",
+                "video",
+                "audio"
+            ],
+            "parameters": null,
+            "parameter_unit": null,
+            "training_tokens": null,
+            "open_source": false,
+            "license": "Proprietary",
+            "api_available": true,
+            "context_window_tokens": null,
+            "training_data_cutoff": "2026-01",
+            "release_date": "2026-06-30",
+            "country": "USA",
+            "description": "Cost-efficient Gemini Omni variant for high-quality video generation and conversational video editing, released to developers via the Gemini API and Google AI Studio on June 30, 2026 (public preview). Accepts text, image, and video inputs; priced at $0.10 per second of video output.",
+            "use_cases": [
+                "video generation",
+                "conversational video editing",
+                "style transfer",
+                "character/product swaps"
+            ],
+            "notable_features": [
+                "Video generation + conversational editing",
+                "Text/image/video inputs",
+                "$0.10/sec video output pricing",
+                "API ID: gemini-omni-flash-preview"
+            ],
+            "benchmark_scores": {},
+            "pricing_per_1m_tokens": {
+                "input": null,
+                "output": null
+            },
+            "official_model_link": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-omni-flash-nano-banana-2-lite/",
+            "huggingface_url": null,
+            "paper_url": null,
+            "predecessor": "Gemini Omni",
+            "successor": null,
+            "id": 261
+        },
+        {
+            "company": "Google",
+            "company_website": "https://google.com",
+            "company_logo_url": "https://logo.clearbit.com/google.com",
+            "model_family": "Gemini",
+            "model_name": "Gemini 3.1 Flash Lite Image",
+            "model_version": "3.1-flash-lite-image",
+            "model_type": "Image Generation Model",
+            "architecture": "Transformer (Multimodal)",
+            "modalities": [
+                "text",
+                "vision"
+            ],
+            "parameters": null,
+            "parameter_unit": null,
+            "training_tokens": null,
+            "open_source": false,
+            "license": "Proprietary",
+            "api_available": true,
+            "context_window_tokens": 65536,
+            "training_data_cutoff": "2025-01",
+            "release_date": "2026-06-30",
+            "country": "USA",
+            "description": "Also known as Nano Banana 2 Lite. Google's fastest, most cost-efficient image generation and editing model in the Nano Banana family, GA on June 30, 2026. Optimized for high-throughput, low-latency pipelines; recommended replacement for gemini-2.5-flash-image.",
+            "use_cases": [
+                "high-volume image generation",
+                "rapid ideation",
+                "image editing",
+                "A/B creative testing"
+            ],
+            "notable_features": [
+                "Nano Banana 2 Lite branding",
+                "Ultra-low latency image gen/edit",
+                "API ID: gemini-3.1-flash-lite-image",
+                "65K input / 4K output token limits",
+                "Paid tier ~$0.25 input / $1.50 text output per 1M tokens"
+            ],
+            "benchmark_scores": {},
+            "pricing_per_1m_tokens": {
+                "input": 0.25,
+                "output": 1.5
+            },
+            "official_model_link": "https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite-image",
+            "huggingface_url": null,
+            "paper_url": null,
+            "predecessor": "Gemini 3.1 Flash-Lite",
+            "successor": null,
+            "id": 262
+        },
+        {
+            "company": "NVIDIA",
+            "company_website": "https://nvidia.com",
+            "company_logo_url": "https://logo.clearbit.com/nvidia.com",
+            "model_family": "Nemotron",
+            "model_name": "Nemotron Labs Audex 30B-A3B",
+            "model_version": "Audex-30B-A3B",
+            "model_type": "Audio-Text Multimodal LLM",
+            "architecture": "Transformer MoE (unified audio-text decoder)",
+            "modalities": [
+                "text",
+                "audio",
+                "speech"
+            ],
+            "parameters": 30,
+            "parameter_unit": "billion",
+            "training_tokens": "157.4B audio + 320.5B text tokens",
+            "open_source": true,
+            "license": "NVIDIA Open Model License (noncommercial)",
+            "api_available": false,
+            "context_window_tokens": null,
+            "training_data_cutoff": null,
+            "release_date": "2026-07-06",
+            "country": "USA",
+            "description": "Unified audio-text LLM (Audex) built on Nemotron-Cascade-2-30B-A3B. Single Transformer decoder treats encoded audio and text uniformly for understanding and generation (ASR, TTS, speech-to-speech, general audio) while preserving backbone text intelligence with marginal regression. Checkpoints released for open research.",
+            "use_cases": [
+                "speech recognition",
+                "text-to-speech",
+                "audio understanding",
+                "speech-to-speech",
+                "multimodal audio agents"
+            ],
+            "notable_features": [
+                "Unified audio-text architecture",
+                "Preserves text backbone reasoning",
+                "SOTA open-model ASR / audio understanding claims",
+                "Open checkpoints (Audex-30B + Audex-2B)",
+                "arXiv:2607.05196"
+            ],
+            "benchmark_scores": {},
+            "pricing_per_1m_tokens": {
+                "input": null,
+                "output": null
+            },
+            "official_model_link": "https://arxiv.org/abs/2607.05196",
+            "huggingface_url": null,
+            "paper_url": "https://arxiv.org/abs/2607.05196",
+            "predecessor": "Nemotron 3 Ultra",
+            "successor": null,
+            "id": 263
+        },
+        {
+            "company": "Meta",
+            "company_website": "https://meta.com",
+            "company_logo_url": "https://logo.clearbit.com/meta.com",
+            "model_family": "Muse",
+            "model_name": "Muse Image",
+            "model_version": "1.0",
+            "model_type": "Image Generation Model",
+            "architecture": "Multimodal Generative Model",
+            "modalities": [
+                "text",
+                "vision"
+            ],
+            "parameters": null,
+            "parameter_unit": null,
+            "training_tokens": null,
+            "open_source": false,
+            "license": "Proprietary",
+            "api_available": false,
+            "context_window_tokens": null,
+            "training_data_cutoff": null,
+            "release_date": "2026-07-07",
+            "country": "USA",
+            "description": "First image generation model from Meta Superintelligence Labs, launched July 7, 2026 with a Muse Video preview. Strong instruction following, precise editing, multi-reference composition, and agentic tool use (search/coding) when paired with Muse Spark. Available in Meta AI, Instagram Stories (US), and WhatsApp (limited markets).",
+            "use_cases": [
+                "image generation",
+                "image editing",
+                "creative remixing",
+                "infographic / text-in-image"
+            ],
+            "notable_features": [
+                "Multi-reference composition",
+                "Agentic tool use with Muse Spark",
+                "Web search + coding tools for accurate visuals",
+                "Instagram Stories / WhatsApp / Meta AI surfaces"
+            ],
+            "benchmark_scores": {},
+            "pricing_per_1m_tokens": {
+                "input": null,
+                "output": null
+            },
+            "official_model_link": "https://ai.meta.com/blog/introducing-muse-image-muse-video-msl/",
+            "huggingface_url": null,
+            "paper_url": null,
+            "predecessor": "Muse Spark",
+            "successor": null,
+            "id": 264
+        },
+        {
+            "company": "Meta",
+            "company_website": "https://meta.com",
+            "company_logo_url": "https://logo.clearbit.com/meta.com",
+            "model_family": "Muse",
+            "model_name": "Muse Video",
+            "model_version": "preview",
+            "model_type": "Video Generation Model (Preview)",
+            "architecture": "Multimodal Generative Model",
+            "modalities": [
+                "text",
+                "vision",
+                "video",
+                "audio"
+            ],
+            "parameters": null,
+            "parameter_unit": null,
+            "training_tokens": null,
+            "open_source": false,
+            "license": "Proprietary",
+            "api_available": false,
+            "context_window_tokens": null,
+            "training_data_cutoff": null,
+            "release_date": "2026-07-07",
+            "country": "USA",
+            "description": "Early preview of Muse Video from Meta Superintelligence Labs (July 7, 2026), sharing a pretraining base with Muse Image. Targets high visual fidelity with native audio; coming soon to creators and Meta AI.",
+            "use_cases": [
+                "video generation",
+                "creator tools",
+                "native audio video"
+            ],
+            "notable_features": [
+                "Native audio support",
+                "Shared base with Muse Image",
+                "Preview / coming soon status"
+            ],
+            "benchmark_scores": {},
+            "pricing_per_1m_tokens": {
+                "input": null,
+                "output": null
+            },
+            "official_model_link": "https://ai.meta.com/blog/introducing-muse-image-muse-video-msl/",
+            "huggingface_url": null,
+            "paper_url": null,
+            "predecessor": "Muse Image",
+            "successor": null,
+            "id": 265
+        },
+        {
+            "company": "ByteDance",
+            "company_website": "https://www.bytedance.com",
+            "company_logo_url": "https://logo.clearbit.com/bytedance.com",
+            "model_family": "Seedream",
+            "model_name": "Seedream 5.0 Pro",
+            "model_version": "5.0-pro",
+            "model_type": "Image Generation Model",
+            "architecture": "Diffusion / Multimodal Generative Model",
+            "modalities": [
+                "text",
+                "vision"
+            ],
+            "parameters": null,
+            "parameter_unit": null,
+            "training_tokens": null,
+            "open_source": false,
+            "license": "Proprietary",
+            "api_available": true,
+            "context_window_tokens": null,
+            "training_data_cutoff": null,
+            "release_date": "2026-07-08",
+            "country": "China",
+            "description": "ByteDance Seed team's flagship multimodal image creation model, officially launched July 8, 2026. Improves image-text alignment, structural coherence, multilingual text rendering (10+ languages), and adds design-oriented controls including layer separation, precision editing, and up to 2K resolution. Available via Dreamina, Volcano Engine, BytePlus ModelArk, and partner APIs.",
+            "use_cases": [
+                "image generation",
+                "creative design",
+                "marketing visuals"
+            ],
+            "notable_features": [
+                "Up to 2K resolution",
+                "Native multilingual text rendering (10+ languages)",
+                "Layer separation / precision editing",
+                "Multi-reference image-to-image",
+                "Design-oriented deep-thinking generation"
+            ],
+            "benchmark_scores": {},
+            "pricing_per_1m_tokens": {
+                "input": null,
+                "output": null
+            },
+            "official_model_link": "https://seed.bytedance.com/en/blog/beyond-generation-it-understands-design-introducing-seedream-5-0-pro",
+            "huggingface_url": null,
+            "paper_url": null,
+            "predecessor": null,
+            "successor": null,
+            "id": 266
+        },
+        {
+            "company": "xAI",
+            "company_website": "https://x.ai",
+            "company_logo_url": "https://logo.clearbit.com/x.ai",
+            "model_family": "Grok",
+            "model_name": "Grok 4.5",
+            "model_version": "4.5",
+            "model_type": "Multimodal LLM (Reasoning / Agentic)",
+            "architecture": "Transformer",
+            "modalities": [
+                "text",
+                "vision"
+            ],
+            "parameters": null,
+            "parameter_unit": null,
+            "training_tokens": null,
+            "open_source": false,
+            "license": "Proprietary",
+            "api_available": true,
+            "context_window_tokens": 500000,
+            "training_data_cutoff": "2026-02",
+            "release_date": "2026-07-08",
+            "country": "USA",
+            "description": "SpaceXAI/xAI's most intelligent model as of July 8, 2026, trained alongside Cursor for coding, agentic tasks, and knowledge work. Emphasizes token efficiency and speed versus prior frontier models. Available in Grok Build, Cursor (all plans), and the SpaceXAI API (`grok-4.5`); EU availability delayed at launch.",
+            "use_cases": [
+                "agentic coding",
+                "terminal automation",
+                "knowledge work",
+                "tool-heavy agents"
+            ],
+            "notable_features": [
+                "Trained with Cursor",
+                "500K context window",
+                "Configurable reasoning effort (low/medium/high)",
+                "High token efficiency",
+                "Pricing $2/$6 per 1M tokens (<200K prompts)",
+                "API ID: grok-4.5"
+            ],
+            "benchmark_scores": {},
+            "pricing_per_1m_tokens": {
+                "input": 2,
+                "output": 6
+            },
+            "official_model_link": "https://x.ai/news/grok-4-5",
+            "huggingface_url": null,
+            "paper_url": "https://media.x.ai/v1/website/card-7f81d41b.pdf",
+            "predecessor": "Grok 4.3",
+            "successor": null,
+            "id": 267
+        },
+        {
+            "company": "Mistral AI",
+            "company_website": "https://mistral.ai",
+            "company_logo_url": "https://logo.clearbit.com/mistral.ai",
+            "model_family": "Robostral",
+            "model_name": "Robostral Navigate",
+            "model_version": "1.0",
+            "model_type": "Embodied Navigation VLM",
+            "architecture": "Vision-Language Model (8B, in-house grounding VLM)",
+            "modalities": [
+                "text",
+                "vision"
+            ],
+            "parameters": 8,
+            "parameter_unit": "billion",
+            "training_tokens": null,
+            "open_source": false,
+            "license": "Proprietary",
+            "api_available": false,
+            "context_window_tokens": null,
+            "training_data_cutoff": null,
+            "release_date": "2026-07-08",
+            "country": "France",
+            "description": "Mistral AI's first embodied navigation model (July 8, 2026): an 8B VLM that steers robots from a single RGB camera and plain-language instructions. Achieves 76.6% success on R2R-CE validation unseen, beating prior single-camera and multi-sensor baselines. Trained in simulation with prefix-caching and CISPO online RL.",
+            "use_cases": [
+                "robot navigation",
+                "embodied AI",
+                "warehouse/logistics robots",
+                "office/home navigation"
+            ],
+            "notable_features": [
+                "Single RGB camera (no LiDAR/depth)",
+                "76.6% R2R-CE val-unseen success",
+                "Works on wheeled, legged, flying robots",
+                "Pointing-based navigation + local displacement fallback",
+                "Prefix-caching training (22× fewer tokens)"
+            ],
+            "benchmark_scores": {
+                "R2R-CE val-seen success": 79.4,
+                "R2R-CE val-unseen success": 76.6
+            },
+            "pricing_per_1m_tokens": {
+                "input": null,
+                "output": null
+            },
+            "official_model_link": "https://mistral.ai/news/robostral-navigate/",
+            "huggingface_url": null,
+            "paper_url": "https://mistral.ai/news/robostral-navigate/",
+            "predecessor": null,
+            "successor": null,
+            "id": 268
+        },
+        {
+            "company": "OpenAI",
+            "company_website": "https://openai.com",
+            "company_logo_url": "https://logo.clearbit.com/openai.com",
+            "model_family": "GPT",
+            "model_name": "GPT-5.6 Sol",
+            "model_version": "5.6-sol",
+            "model_type": "Multimodal LLM (Frontier / Reasoning)",
+            "architecture": "Transformer",
+            "modalities": [
+                "text",
+                "vision",
+                "audio"
+            ],
+            "parameters": null,
+            "parameter_unit": null,
+            "training_tokens": null,
+            "open_source": false,
+            "license": "Proprietary",
+            "api_available": true,
+            "context_window_tokens": 1050000,
+            "training_data_cutoff": "2026-02",
+            "release_date": "2026-07-09",
+            "country": "USA",
+            "description": "Flagship tier of OpenAI's GPT-5.6 family (GA July 9, 2026 after a June 26 limited preview). Optimized for agentic coding, knowledge work, cybersecurity defense, and science with new `max` and multi-agent `ultra` reasoning modes, programmatic tool calling, and stronger computer-use/design judgment. The `gpt-5.6` alias routes to Sol.",
+            "use_cases": [
+                "agentic coding",
+                "enterprise knowledge work",
+                "cybersecurity defense",
+                "scientific research",
+                "computer use"
+            ],
+            "notable_features": [
+                "Frontier GPT-5.6 tier (Sol)",
+                "~1.05M context / 128K max output",
+                "max and ultra (multi-agent) reasoning modes",
+                "Programmatic Tool Calling",
+                "SOTA Coding Agent Index ~80",
+                "Pricing $5/$30 per 1M tokens"
+            ],
+            "benchmark_scores": {
+                "Agents' Last Exam": 52.7,
+                "Artificial Analysis Coding Agent Index": 80,
+                "SWE-Bench Pro": 64.6,
+                "Terminal-Bench 2.1": 88.8,
+                "BrowseComp": 90.4,
+                "OSWorld 2.0": 62.6
+            },
+            "pricing_per_1m_tokens": {
+                "input": 5,
+                "output": 30
+            },
+            "official_model_link": "https://openai.com/index/gpt-5-6",
+            "huggingface_url": null,
+            "paper_url": "https://openai.com/index/gpt-5-6",
+            "predecessor": "GPT-5.5",
+            "successor": null,
+            "id": 269
+        },
+        {
+            "company": "OpenAI",
+            "company_website": "https://openai.com",
+            "company_logo_url": "https://logo.clearbit.com/openai.com",
+            "model_family": "GPT",
+            "model_name": "GPT-5.6 Terra",
+            "model_version": "5.6-terra",
+            "model_type": "Multimodal LLM (Balanced)",
+            "architecture": "Transformer",
+            "modalities": [
+                "text",
+                "vision",
+                "audio"
+            ],
+            "parameters": null,
+            "parameter_unit": null,
+            "training_tokens": null,
+            "open_source": false,
+            "license": "Proprietary",
+            "api_available": true,
+            "context_window_tokens": 1050000,
+            "training_data_cutoff": "2026-02",
+            "release_date": "2026-07-09",
+            "country": "USA",
+            "description": "Balanced GPT-5.6 tier for everyday production work. Competitive with GPT-5.5 performance at roughly half the cost. Default GPT-5.6 access for Free/Go users in ChatGPT Work and Codex.",
+            "use_cases": [
+                "everyday production workloads",
+                "coding agents",
+                "knowledge work",
+                "cost-efficient reasoning"
+            ],
+            "notable_features": [
+                "Balanced GPT-5.6 tier",
+                "~1.05M context / 128K max output",
+                "Performance competitive with GPT-5.5 at ~2× cheaper",
+                "Pricing $2.50/$15 per 1M tokens",
+                "API ID: gpt-5.6-terra"
+            ],
+            "benchmark_scores": {
+                "Agents' Last Exam": 50.4,
+                "Artificial Analysis Coding Agent Index": 77.4,
+                "SWE-Bench Pro": 63.4
+            },
+            "pricing_per_1m_tokens": {
+                "input": 2.5,
+                "output": 15
+            },
+            "official_model_link": "https://developers.openai.com/api/docs/models/gpt-5.6-terra",
+            "huggingface_url": null,
+            "paper_url": null,
+            "predecessor": "GPT-5.5",
+            "successor": null,
+            "id": 270
+        },
+        {
+            "company": "OpenAI",
+            "company_website": "https://openai.com",
+            "company_logo_url": "https://logo.clearbit.com/openai.com",
+            "model_family": "GPT",
+            "model_name": "GPT-5.6 Luna",
+            "model_version": "5.6-luna",
+            "model_type": "Multimodal LLM (Cost-efficient)",
+            "architecture": "Transformer",
+            "modalities": [
+                "text",
+                "vision",
+                "audio"
+            ],
+            "parameters": null,
+            "parameter_unit": null,
+            "training_tokens": null,
+            "open_source": false,
+            "license": "Proprietary",
+            "api_available": true,
+            "context_window_tokens": 1050000,
+            "training_data_cutoff": "2026-02",
+            "release_date": "2026-07-09",
+            "country": "USA",
+            "description": "Fastest and most affordable GPT-5.6 tier for high-volume workloads. Outperforms Claude Opus 4.8 on several efficiency-adjusted coding comparisons while remaining the cheapest GPT-5.6 option.",
+            "use_cases": [
+                "high-volume inference",
+                "routing / cheap agent steps",
+                "latency-sensitive apps",
+                "budget coding agents"
+            ],
+            "notable_features": [
+                "Cost-efficient GPT-5.6 tier",
+                "~1.05M context / 128K max output",
+                "Pricing $1/$6 per 1M tokens",
+                "API ID: gpt-5.6-luna"
+            ],
+            "benchmark_scores": {
+                "Agents' Last Exam": 50.3,
+                "Artificial Analysis Coding Agent Index": 74.6,
+                "SWE-Bench Pro": 62.7
+            },
+            "pricing_per_1m_tokens": {
+                "input": 1,
+                "output": 6
+            },
+            "official_model_link": "https://developers.openai.com/api/docs/models/gpt-5.6-luna",
+            "huggingface_url": null,
+            "paper_url": null,
+            "predecessor": "GPT-5.5 Instant",
+            "successor": null,
+            "id": 271
+        },
+        {
+            "company": "Meta",
+            "company_website": "https://meta.com",
+            "company_logo_url": "https://logo.clearbit.com/meta.com",
+            "model_family": "Muse",
+            "model_name": "Muse Spark 1.1",
+            "model_version": "1.1",
+            "model_type": "Multimodal Reasoning Model",
+            "architecture": "Natively Multimodal Transformer",
+            "modalities": [
+                "text",
+                "vision",
+                "audio",
+                "tool use"
+            ],
+            "parameters": null,
+            "parameter_unit": null,
+            "training_tokens": null,
+            "open_source": false,
+            "license": "Proprietary",
+            "api_available": true,
+            "context_window_tokens": 1000000,
+            "training_data_cutoff": null,
+            "release_date": "2026-07-09",
+            "country": "USA",
+            "description": "Significant upgrade to Muse Spark from Meta Superintelligence Labs (July 9, 2026). Multimodal reasoning model built for personal agentic tasks with major gains in tool/computer use, coding, and multimodal understanding. Launches with public preview of the Meta Model API; available in Thinking mode in Meta AI.",
+            "use_cases": [
+                "personal agents",
+                "computer use",
+                "coding",
+                "multimodal understanding",
+                "multi-agent orchestration"
+            ],
+            "notable_features": [
+                "1M token context with active compaction",
+                "Zero-shot MCP / tool generalization",
+                "Multi-agent orchestration",
+                "Meta Model API public preview",
+                "Strong computer-use and coding gains vs Muse Spark"
+            ],
+            "benchmark_scores": {},
+            "pricing_per_1m_tokens": {
+                "input": null,
+                "output": null
+            },
+            "official_model_link": "https://ai.meta.com/blog/introducing-muse-spark-meta-model-api/",
+            "huggingface_url": null,
+            "paper_url": null,
+            "predecessor": "Muse Spark",
+            "successor": null,
+            "id": 272
+        },
+        {
+            "company": "Thinking Machines Lab",
+            "company_website": "https://thinkingmachines.ai",
+            "company_logo_url": "https://logo.clearbit.com/thinkingmachines.ai",
+            "model_family": "Inkling",
+            "model_name": "Inkling",
+            "model_version": "1.0",
+            "model_type": "Open Multimodal LLM (MoE)",
+            "architecture": "Mixture-of-Experts Transformer (decoder-only)",
+            "modalities": [
+                "text",
+                "vision",
+                "audio"
+            ],
+            "parameters": 975,
+            "parameter_unit": "billion",
+            "training_tokens": "45 trillion",
+            "open_source": true,
+            "license": "Open weights (Thinking Machines Lab license)",
+            "api_available": true,
+            "context_window_tokens": 1000000,
+            "training_data_cutoff": null,
+            "release_date": "2026-07-15",
+            "country": "USA",
+            "description": "Thinking Machines Lab's first from-scratch open-weights multimodal model (July 15, 2026): 975B total / 41B active MoE, natively accepting text, image, and audio with up to 1M context. Pretrained on 45T tokens; designed for customization/fine-tuning via Tinker. Inkling-Small (276B/12B active) previewed for later weight release.",
+            "use_cases": [
+                "open multimodal reasoning",
+                "fine-tuning / domain adaptation",
+                "agentic tool use",
+                "coding",
+                "speech and vision understanding"
+            ],
+            "notable_features": [
+                "975B total / 41B active MoE",
+                "1M context window",
+                "Native text/image/audio inputs",
+                "Controllable thinking effort",
+                "Open weights on Hugging Face (BF16 + NVFP4)",
+                "Day-0 transformers / SGLang / vLLM support"
+            ],
+            "benchmark_scores": {},
+            "pricing_per_1m_tokens": {
+                "input": null,
+                "output": null
+            },
+            "official_model_link": "https://thinkingmachines.ai/news/introducing-inkling/",
+            "huggingface_url": "https://huggingface.co/thinkingmachines/Inkling",
+            "paper_url": "https://thinkingmachines.ai/model-card/inkling/",
+            "predecessor": null,
+            "successor": null,
+            "id": 273
         }
     ]
 }

@@ -2,8 +2,8 @@
     "metadata": {
         "title": "Foundational AI Research Papers Timeline",
         "description": "A curated list of the most influential AI research papers that drove the technological revolution.",
-        "last_updated": "2026-06-17",
-        "total_papers": 111,
+        "last_updated": "2026-07-16",
+        "total_papers": 119,
         "fields": [
             "id",
             "title",
@@ -2125,6 +2125,27 @@
             "id": 82
         },
         {
+            "title": "Seedance 2.0: Advancing Video Generation for World Complexity",
+            "authors": [
+                "ByteDance Seed Team"
+            ],
+            "institution": "ByteDance",
+            "publication_date": "2026-04-01",
+            "published_in": "arXiv",
+            "topic": "Video Generation",
+            "description": "Technical report for Seedance 2.0, ByteDance's unified multimodal audio-video generation model supporting text, image, audio, and video references with native joint audio-video output.",
+            "key_contributions": [
+                "Unified multimodal audio-video architecture",
+                "Multi-reference editing (video/image/audio)",
+                "Native audio-video joint generation",
+                "Seedance 2.0 Fast latency variant"
+            ],
+            "paper_url": "https://arxiv.org/pdf/2604.14148",
+            "code_url": null,
+            "citations": 0,
+            "id": 83
+        },
+        {
             "title": "AI Agent Traps: Vulnerabilities in Autonomous AI Navigation",
             "authors": [
                 "Google DeepMind Research Team"
@@ -2142,7 +2163,7 @@
             "paper_url": "https://deepmind.google/security",
             "code_url": null,
             "citations": 0,
-            "id": 83
+            "id": 84
         },
         {
             "title": "Industrial Policy for the Intelligence Age",
@@ -2162,7 +2183,7 @@
             "paper_url": "https://openai.com/research/industrial-policy-for-the-intelligence-age",
             "code_url": null,
             "citations": 0,
-            "id": 84
+            "id": 85
         },
         {
             "title": "Muse Spark: A Technical Overview of Meta Superintelligence Labs' First Frontier Model",
@@ -2184,7 +2205,7 @@
             "paper_url": "https://ai.meta.com/research/muse-spark-technical-report",
             "code_url": null,
             "citations": 0,
-            "id": 85
+            "id": 86
         },
         {
             "title": "Dynamic Reflections: Probing Video Representations with Text Alignment",
@@ -2204,10 +2225,10 @@
             "paper_url": null,
             "code_url": null,
             "citations": 0,
-            "id": 86
+            "id": 87
         },
         {
-            "id": 87,
+            "id": 88,
             "title": "Claude Opus 4.7 Model Card",
             "authors": [
                 "Anthropic"
@@ -2228,7 +2249,7 @@
             "citations": 0
         },
         {
-            "id": 88,
+            "id": 89,
             "title": "Kimi K2.6: Native Multimodal Agentic Intelligence",
             "authors": [
                 "Moonshot AI Research Team"
@@ -2249,7 +2270,7 @@
             "citations": 0
         },
         {
-            "id": 89,
+            "id": 90,
             "title": "Qwen3.6 Technical Report",
             "authors": [
                 "Alibaba Qwen Team"
@@ -2270,7 +2291,7 @@
             "citations": 0
         },
         {
-            "id": 90,
+            "id": 91,
             "title": "GPT-5.5 System Card",
             "authors": [
                 "OpenAI"
@@ -2291,7 +2312,7 @@
             "citations": 0
         },
         {
-            "id": 91,
+            "id": 92,
             "title": "DeepSeek-V4 Technical Report",
             "authors": [
                 "DeepSeek-AI"
@@ -2312,7 +2333,7 @@
             "citations": 0
         },
         {
-            "id": 92,
+            "id": 93,
             "title": "Hunyuan Hy3 Technical Report",
             "authors": [
                 "Tencent Hunyuan Team"
@@ -2351,7 +2372,7 @@
             "paper_url": "https://arxiv.org/abs/2604.03215",
             "code_url": null,
             "citations": 0,
-            "id": 93
+            "id": 94
         },
         {
             "title": "The Reasoning Trap: How RL-Trained LLMs Amplify Tool Hallucinations",
@@ -2372,7 +2393,7 @@
             "paper_url": "https://openreview.net/forum?id=reasoning-trap-2026",
             "code_url": null,
             "citations": 0,
-            "id": 94
+            "id": 95
         },
         {
             "title": "Evolvable Artificial Intelligence: Evolutionary Transitions in Digital Systems",
@@ -2394,7 +2415,7 @@
             "paper_url": "https://www.pnas.org/doi/10.1073/pnas.2026",
             "code_url": null,
             "citations": 0,
-            "id": 95
+            "id": 96
         },
         {
             "title": "Reducing Sycophancy in Language Models through Deliberate Question Framing",
@@ -2415,10 +2436,10 @@
             "paper_url": "https://www.aisi.gov.uk/research/sycophancy-reduction",
             "code_url": null,
             "citations": 0,
-            "id": 96
+            "id": 97
         },
         {
-            "id": 97,
+            "id": 98,
             "title": "Scaling Trusted Access for Cyber with GPT-5.5 and GPT-5.5-Cyber",
             "authors": [
                 "OpenAI"
@@ -2457,7 +2478,7 @@
             "paper_url": "https://www.anthropic.com/research/2028-scenarios",
             "code_url": null,
             "citations": 0,
-            "id": 98
+            "id": 99
         },
         {
             "title": "Accelerating Empirical Science through Multi-Agent Idea Tournaments",
@@ -2477,7 +2498,7 @@
             "paper_url": "https://www.nature.com/articles/s41586-026-04218-1",
             "code_url": null,
             "citations": 0,
-            "id": 99
+            "id": 100
         },
         {
             "title": "Gemma 3n Technical Report",
@@ -2498,7 +2519,7 @@
             "paper_url": null,
             "code_url": "https://huggingface.co/google/gemma-3n-E4B",
             "citations": 0,
-            "id": 100
+            "id": 101
         },
         {
             "title": "Towards Conversational Diagnostic AI: AMIE's Multimodal Medical Evaluation",
@@ -2519,7 +2540,7 @@
             "paper_url": "https://www.nature.com/articles/nm.2026.XXXX",
             "code_url": null,
             "citations": 0,
-            "id": 101
+            "id": 102
         },
         {
             "title": "Qwen 3.7 Max: An Agent-First Frontier Mixture-of-Experts Language Model",
@@ -2542,7 +2563,7 @@
             "paper_url": "https://qwen.ai/qwen-3-7-max-technical-report",
             "code_url": null,
             "citations": 0,
-            "id": 102
+            "id": 103
         },
         {
             "title": "Calibrating Conservatism for Scalable Oversight of Autonomous Agents",
@@ -2562,7 +2583,7 @@
             "paper_url": "https://arxiv.org/abs/2605.11284",
             "code_url": null,
             "citations": 0,
-            "id": 103
+            "id": 104
         },
         {
             "title": "Claude Opus 4.8 Model Card",
@@ -2584,7 +2605,7 @@
             "paper_url": "https://www.anthropic.com/claude/opus",
             "code_url": null,
             "citations": 0,
-            "id": 104
+            "id": 105
         },
         {
             "title": "MiniMax M3: A Natively Multimodal Mixture-of-Experts Model for Autonomous Software Engineering",
@@ -2606,7 +2627,7 @@
             "paper_url": "https://minimax.io/research/m3-technical-report",
             "code_url": "https://huggingface.co/MiniMaxAI/MiniMax-M3",
             "citations": 0,
-            "id": 105
+            "id": 106
         },
         {
             "title": "MAI: Introducing Microsoft's In-House AI Model Family",
@@ -2628,7 +2649,7 @@
             "paper_url": "https://microsoft.ai/research/mai-model-family",
             "code_url": null,
             "citations": 0,
-            "id": 106
+            "id": 107
         },
         {
             "title": "MAI Model Family: Microsoft's In-House Multimodal AI Suite",
@@ -2650,7 +2671,7 @@
             "paper_url": "https://microsoft.ai/research/mai-full-model-family",
             "code_url": null,
             "citations": 0,
-            "id": 107
+            "id": 108
         },
         {
             "title": "Claude Fable 5 & Claude Mythos 5 System Card",
@@ -2670,10 +2691,10 @@
                 "30-day data retention for misuse prevention",
                 "Long-horizon self-verification via test writing and vision"
             ],
-            "paper_url": "https://www.anthropic.com/research/fable-5-system-card",
+            "paper_url": "https://www-cdn.anthropic.com/d00db56fa754a1b115b6dd7cb2e3c342ee809620.pdf",
             "code_url": null,
             "citations": 0,
-            "id": 108
+            "id": 109
         },
         {
             "title": "Kimi K2.7-Code: A 1-Trillion Parameter Open-Weight Model for Long-Horizon Software Engineering",
@@ -2695,7 +2716,7 @@
             "paper_url": "https://arxiv.org/abs/2606.02485",
             "code_url": "https://huggingface.co/moonshotai/Kimi-K2.7-Code",
             "citations": 0,
-            "id": 109
+            "id": 110
         },
         {
             "title": "Open Knowledge Format: A Standard for Agentic Context Assembly",
@@ -2716,7 +2737,7 @@
             "paper_url": "https://github.com/GoogleCloudPlatform/knowledge-catalog/blob/main/SPEC.md",
             "code_url": "https://github.com/GoogleCloudPlatform/knowledge-catalog",
             "citations": 0,
-            "id": 110
+            "id": 111
         },
         {
             "title": "GLM-5.2: Fully Open Agentic Coding at Trillion-Scale Mixture-of-Experts",
@@ -2738,7 +2759,164 @@
             "paper_url": "https://z.ai/research/glm-5-2",
             "code_url": "https://huggingface.co/THUDM/GLM-5.2",
             "citations": 0,
-            "id": 111
+            "id": 112
+        },
+        {
+            "title": "Claude Sonnet 5 System Card",
+            "authors": [
+                "Anthropic"
+            ],
+            "institution": "Anthropic",
+            "publication_date": "2026-06-30",
+            "published_in": "Anthropic System Card",
+            "topic": "Model Evaluation / Safety",
+            "description": "System card for Claude Sonnet 5 covering capability evaluations (coding, agentic search, computer use), safety audits, cyber capability assessments, and deployment decisions including default cyber safeguards.",
+            "key_contributions": [
+                "Sonnet 5 capability and safety evaluations",
+                "Agentic safety vs Sonnet 4.6 / Opus 4.8",
+                "Cyber capability assessment and safeguard policy",
+                "Tokenizer and adaptive-thinking behavior notes"
+            ],
+            "paper_url": "https://www.anthropic.com/claude-sonnet-5-system-card",
+            "code_url": null,
+            "citations": 0,
+            "id": 113
+        },
+        {
+            "title": "Unified Audio Intelligence Without Regressing on Text Intelligence",
+            "authors": [
+                "Wei Ping",
+                "NVIDIA Nemotron Labs"
+            ],
+            "institution": "NVIDIA",
+            "publication_date": "2026-07-06",
+            "published_in": "arXiv",
+            "topic": "Audio / Multimodal LLMs",
+            "description": "Introduces Nemotron-Labs-Audex-30B-A3B (Audex), a unified audio-text LLM that achieves strong ASR, TTS, audio understanding, and speech-to-speech generation while preserving the text reasoning of its MoE backbone with marginal or no regression. Releases open checkpoints.",
+            "key_contributions": [
+                "Unified single-decoder audio-text architecture",
+                "Multi-stage supervised training + Cascade RL + distillation",
+                "SOTA open audio understanding / ASR claims",
+                "Open model checkpoint release"
+            ],
+            "paper_url": "https://arxiv.org/abs/2607.05196",
+            "code_url": null,
+            "citations": 0,
+            "id": 114
+        },
+        {
+            "title": "Model Card: Grok 4.5",
+            "authors": [
+                "SpaceXAI",
+                "xAI"
+            ],
+            "institution": "SpaceXAI / xAI",
+            "publication_date": "2026-07-08",
+            "published_in": "SpaceXAI Model Card",
+            "topic": "Model Evaluation / Safety",
+            "description": "Official model card for Grok 4.5 describing capabilities in coding, agentic workflows, and knowledge work; training overview; safety evaluations across cyber, bio, jailbreaks, and mental health; and API/product availability.",
+            "key_contributions": [
+                "Grok 4.5 capability and safety documentation",
+                "Cursor co-training disclosure",
+                "500K context and pricing tiers",
+                "Deployment channels (API, Grok Build, Cursor)"
+            ],
+            "paper_url": "https://media.x.ai/v1/website/card-7f81d41b.pdf",
+            "code_url": null,
+            "citations": 0,
+            "id": 115
+        },
+        {
+            "title": "Robostral Navigate: Single-Camera Embodied Navigation",
+            "authors": [
+                "Théo Cachet",
+                "Arjun Majumdar",
+                "Srijan Mishra",
+                "Thomas Chabal",
+                "Chris Bamford",
+                "Elliot Chane-Sane",
+                "Benjamin Tibi",
+                "Ludovic Ho Fuh",
+                "Olivier Duchenne"
+            ],
+            "institution": "Mistral AI",
+            "publication_date": "2026-07-08",
+            "published_in": "Mistral AI Blog",
+            "topic": "Embodied AI / Robotics",
+            "description": "Technical announcement of Robostral Navigate, an 8B single-camera navigation model trained entirely in simulation with prefix-caching and CISPO online RL, achieving SOTA R2R-CE results without LiDAR or depth sensors.",
+            "key_contributions": [
+                "Single-RGB SOTA navigation without depth/LiDAR",
+                "Pointing-based action interface",
+                "22× token-efficient prefix-caching training",
+                "CISPO online RL +3.2% success"
+            ],
+            "paper_url": "https://mistral.ai/news/robostral-navigate/",
+            "code_url": null,
+            "citations": 0,
+            "id": 116
+        },
+        {
+            "title": "GPT-5.6 System Card",
+            "authors": [
+                "OpenAI"
+            ],
+            "institution": "OpenAI",
+            "publication_date": "2026-07-09",
+            "published_in": "OpenAI System Card",
+            "topic": "Model Evaluation / Safety",
+            "description": "System card and evaluation suite for the GPT-5.6 family (Sol, Terra, Luna), covering agentic coding, knowledge work, cybersecurity, biology, multi-agent ultra mode, and the layered safeguard stack used for general availability.",
+            "key_contributions": [
+                "GPT-5.6 Sol/Terra/Luna capability evaluations",
+                "max and ultra multi-agent reasoning modes",
+                "Cyber and biology risk assessments",
+                "Trusted Access for Cyber / Daybreak integration"
+            ],
+            "paper_url": "https://openai.com/index/gpt-5-6",
+            "code_url": null,
+            "citations": 0,
+            "id": 117
+        },
+        {
+            "title": "Muse Spark 1.1 Evaluation Report",
+            "authors": [
+                "Meta Superintelligence Labs"
+            ],
+            "institution": "Meta",
+            "publication_date": "2026-07-09",
+            "published_in": "Meta AI Blog / Evaluation Report",
+            "topic": "Model Evaluation / Agents",
+            "description": "Evaluation and safety report accompanying Muse Spark 1.1, covering agentic tool use, computer use, coding, multimodal understanding, and Advanced AI Scaling Framework risk categories (CBRN, cyber, loss of control).",
+            "key_contributions": [
+                "Muse Spark 1.1 capability evaluations",
+                "Agentic / computer-use benchmarks",
+                "Safety evaluations under Meta Advanced AI Scaling Framework",
+                "Meta Model API launch context"
+            ],
+            "paper_url": "https://ai.meta.com/blog/introducing-muse-spark-meta-model-api/",
+            "code_url": null,
+            "citations": 0,
+            "id": 118
+        },
+        {
+            "title": "Inkling Model Card",
+            "authors": [
+                "Thinking Machines Lab"
+            ],
+            "institution": "Thinking Machines Lab",
+            "publication_date": "2026-07-15",
+            "published_in": "Thinking Machines Lab Model Card",
+            "topic": "Open Multimodal LLMs",
+            "description": "Model card for Inkling, a 975B-total / 41B-active open-weights multimodal MoE with 1M context, native text/image/audio inputs, and controllable thinking effort. Documents intended use, numerics support (BF16/MXFP8/NVFP4), and customization via Tinker.",
+            "key_contributions": [
+                "Open-weights ~1T multimodal MoE documentation",
+                "Native multimodal input design",
+                "Controllable thinking effort",
+                "Fine-tuning / customization guidance"
+            ],
+            "paper_url": "https://thinkingmachines.ai/model-card/inkling/",
+            "code_url": "https://huggingface.co/thinkingmachines/Inkling",
+            "citations": 0,
+            "id": 119
         }
     ]
 }

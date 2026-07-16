@@ -2,8 +2,8 @@
     "metadata": {
         "title": "AI Coding Tools Timeline",
         "description": "A curated timeline of the most influential AI tools, IDEs, and agents that revolutionized software development.",
-        "last_updated": "2026-06-17",
-        "total_tools": 126,
+        "last_updated": "2026-07-16",
+        "total_tools": 129,
         "fields": [
             "id",
             "name",
@@ -2054,6 +2054,59 @@
             ],
             "url": "https://www.databricks.com/product/lakeflow",
             "id": 126
+        },
+        {
+            "name": "ChatGPT Work",
+            "company": "OpenAI",
+            "release_date": "2026-07-09",
+            "open_source": false,
+            "license": "Proprietary",
+            "category": "AI Agent Platform",
+            "description": "Agentic ChatGPT product that takes action across apps and files, stays with projects for hours, and turns goals into finished artifacts (docs, sheets, slides, web apps). Powered by GPT-5.6; ships with a unified ChatGPT desktop app that merges Chat, Work, and Codex views.",
+            "key_features": [
+                "Long-running autonomous work sessions",
+                "MCP / plugin integrations (Slack, Drive, GitHub, etc.)",
+                "Desktop file access and computer use",
+                "Powered by GPT-5.6 Sol/Terra/Luna",
+                "Unified desktop app with Codex view"
+            ],
+            "url": "https://openai.com/index/chatgpt-for-your-most-ambitious-work/",
+            "id": 127
+        },
+        {
+            "name": "Meta Model API",
+            "company": "Meta",
+            "release_date": "2026-07-09",
+            "open_source": false,
+            "license": "Proprietary",
+            "category": "AI Model API",
+            "description": "Public preview developer API for Muse Spark 1.1 from Meta Superintelligence Labs. OpenAI-compatible surface for long-context multimodal agentic workloads including coding, tool use, and computer use.",
+            "key_features": [
+                "Muse Spark 1.1 access",
+                "OpenAI-compatible API",
+                "Million-token context",
+                "Multimodal + tool calling",
+                "Public preview for developers"
+            ],
+            "url": "https://ai.meta.com/blog/introducing-muse-spark-meta-model-api/",
+            "id": 128
+        },
+        {
+            "name": "Tinker (Thinking Machines)",
+            "company": "Thinking Machines Lab",
+            "release_date": "2026-07-15",
+            "open_source": false,
+            "license": "Proprietary",
+            "category": "AI Fine-tuning Platform",
+            "description": "Thinking Machines Lab platform for customizing and fine-tuning open models, with day-one support for Inkling (64K and 256K context options). Positions open weights plus hosted post-training as the core workflow.",
+            "key_features": [
+                "Fine-tune Inkling open weights",
+                "Hosted training / customization",
+                "64K and 256K context options",
+                "Tool-call and multimodal post-training helpers"
+            ],
+            "url": "https://thinkingmachines.ai/",
+            "id": 129
         }
     ]
 }
