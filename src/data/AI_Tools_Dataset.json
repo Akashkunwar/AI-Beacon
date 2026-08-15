@@ -2,8 +2,8 @@
     "metadata": {
         "title": "AI Coding Tools Timeline",
         "description": "A curated timeline of the most influential AI tools, IDEs, and agents that revolutionized software development.",
-        "last_updated": "2026-07-16",
-        "total_tools": 129,
+        "last_updated": "2026-08-15",
+        "total_tools": 136,
         "fields": [
             "id",
             "name",
@@ -1290,7 +1290,7 @@
             "open_source": false,
             "license": "Proprietary",
             "category": "Autonomous AI Coding Agent",
-            "description": "Google’s asynchronous coding agent that plans, executes, and proposes pull requests on GitHub repositories.",
+            "description": "Google\u2019s asynchronous coding agent that plans, executes, and proposes pull requests on GitHub repositories.",
             "key_features": [
                 "Asynchronous coding sessions",
                 "GitHub repository task execution",
@@ -1823,7 +1823,7 @@
             "open_source": false,
             "license": "Proprietary",
             "category": "AI Interpretability Platform",
-            "description": "A mechanistic interpretability platform that enables researchers and engineers to inspect and adjust the internal behaviors of LLMs—such as specific neurons and pathways—during the training process, transitioning AI development from 'alchemy' to precision engineering.",
+            "description": "A mechanistic interpretability platform that enables researchers and engineers to inspect and adjust the internal behaviors of LLMs\u2014such as specific neurons and pathways\u2014during the training process, transitioning AI development from 'alchemy' to precision engineering.",
             "key_features": [
                 "Live neuron inspection at production scale",
                 "Targeted model behavior interventions",
@@ -2107,6 +2107,132 @@
             ],
             "url": "https://thinkingmachines.ai/",
             "id": 129
+        },
+        {
+            "id": 130,
+            "name": "OpenAI Presence",
+            "company": "OpenAI",
+            "release_date": "2026-07-22",
+            "open_source": false,
+            "license": "Proprietary",
+            "category": "Enterprise Agent Platform",
+            "description": "Managed enterprise platform for deploying and governing real-time voice and chat AI agents. Handles customer support, outbound sales, billing resolution, and insurance claims. Deployments led by OpenAI's Forward Deployed Engineers (FDEs). Features governance controls, guardrails, Codex-powered feedback loops, and simulation/validation tools. Launch partners include BBVA Mexico, SoftBank Corp., and IAG.",
+            "key_features": [
+                "Real-time voice and chat AI agents",
+                "Governance controls and guardrails",
+                "Codex-powered feedback loop",
+                "Simulation and validation tools",
+                "Forward Deployed Engineer (FDE) support"
+            ],
+            "url": "https://openai.com/index/openai-presence"
+        },
+        {
+            "id": 131,
+            "name": "Muse Code",
+            "company": "Meta",
+            "release_date": "2026-08-05",
+            "open_source": false,
+            "license": "Proprietary",
+            "category": "AI Coding Agent",
+            "description": "Terminal-based AI coding agent from Meta powered by Muse Spark 1.2. Automates complex, long-horizon software development by spawning parallel sub-agents, managing isolated git worktrees, and maintaining crash-safe event logs. Installed via single terminal command. Designed for planning, debugging, repo-scale generation, and validation.",
+            "key_features": [
+                "Terminal-based coding agent",
+                "Parallel sub-agent spawning",
+                "Isolated git worktree management",
+                "Crash-safe event logging",
+                "Powered by Muse Spark 1.2"
+            ],
+            "url": "https://ai.meta.com/blog/muse-code"
+        },
+        {
+            "id": 132,
+            "name": "Grok 4.6 API",
+            "company": "xAI / SpaceXAI",
+            "release_date": "2026-08-12",
+            "open_source": false,
+            "license": "Proprietary",
+            "category": "AI Model API",
+            "description": "API access to xAI's Grok 4.6 model with 500K context window, xhigh reasoning mode, and frontier coding capabilities. Available via xAI API (model ID: grok-4.6), integrated into Cursor and GitHub Copilot. Priced at $2/1M input, $6/1M output tokens.",
+            "key_features": [
+                "500K context window",
+                "xhigh reasoning mode",
+                "GitHub Copilot integration",
+                "Cursor integration",
+                "$2/$6 per 1M tokens pricing"
+            ],
+            "url": "https://docs.x.ai/docs/models"
+        },
+        {
+            "id": 133,
+            "name": "GPT-5.6 Sol Ultrafast",
+            "company": "OpenAI / Cerebras",
+            "release_date": "2026-08-13",
+            "open_source": false,
+            "license": "Proprietary",
+            "category": "AI Inference Service",
+            "description": "New API service tier for GPT-5.6 Sol powered by Cerebras wafer-scale engine. Delivers up to 750 output tokens/second (14\u00d7 faster than standard tier) with full model intelligence and no quality compromise. Uses 44 GB on-chip SRAM for continuous high-speed token generation. Limited preview for select API customers.",
+            "key_features": [
+                "750 tokens/second output speed",
+                "14\u00d7 faster than standard processing",
+                "Cerebras wafer-scale engine",
+                "Full GPT-5.6 Sol intelligence",
+                "Limited preview access"
+            ],
+            "url": "https://openai.com/index/ultrafast"
+        },
+        {
+            "id": 134,
+            "name": "Claude Code Auto Mode",
+            "company": "Anthropic",
+            "release_date": "2026-08-14",
+            "open_source": false,
+            "license": "Proprietary",
+            "category": "AI Coding Agent",
+            "description": "Major update to Claude Code making Auto Mode the default permission mode for new sessions on Pro, Max, and Team plans. Enables agents to execute multi-step workflows with less manual intervention. Includes cross-session messaging (macOS/Linux), auto-continue for usage limit resets, and iOS Simulator pane (public beta).",
+            "key_features": [
+                "Auto Mode as default permission",
+                "Cross-session messaging",
+                "Auto-continue on usage limit reset",
+                "iOS Simulator pane (beta)",
+                "Powered by Claude Opus 5"
+            ],
+            "url": "https://docs.anthropic.com/en/docs/claude-code"
+        },
+        {
+            "id": 135,
+            "name": "Cursor Builds",
+            "company": "Cursor / SpaceXAI",
+            "release_date": "2026-08-14",
+            "open_source": false,
+            "license": "Proprietary",
+            "category": "AI IDE",
+            "description": "New Cloud Agent feature in Cursor IDE providing ready-to-use copies of development environments created in background. Cloud Agents start up to 3\u00d7 faster. Part of post-SpaceX acquisition updates including Grok 4.5/4.6 integration, Cursor for iOS with remote agent control, and expanded model support.",
+            "key_features": [
+                "Pre-built development environments",
+                "3\u00d7 faster Cloud Agent startup",
+                "Grok 4.5/4.6 model integration",
+                "iOS remote agent control",
+                "SpaceXAI GPU infrastructure"
+            ],
+            "url": "https://cursor.com/changelog"
+        },
+        {
+            "id": 136,
+            "name": "Qwen3.8 API",
+            "company": "Alibaba Cloud",
+            "release_date": "2026-08-14",
+            "open_source": false,
+            "license": "Proprietary",
+            "category": "AI Model API",
+            "description": "API access to Alibaba's Qwen3.8 model family including Qwen3.8-Max (2.4T MoE) and Qwen3.8-27B (dense). Supports 1M context for Max and 262K for 27B variant. Open weights available on Hugging Face for self-hosting. Enterprise-grade agentic workflow support.",
+            "key_features": [
+                "Qwen3.8-Max (2.4T MoE) access",
+                "Qwen3.8-27B (27.8B dense) access",
+                "Up to 1M context window",
+                "Open weights on Hugging Face",
+                "Enterprise agentic workflows"
+            ],
+            "url": "https://qwen.ai/"
         }
     ]
 }

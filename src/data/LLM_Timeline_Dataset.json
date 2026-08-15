@@ -2,9 +2,9 @@
     "metadata": {
         "title": "AI & LLM Models Timeline",
         "description": "Comprehensive list of AI and LLM models from 2017 to 2026, including text, vision, audio, multimodal and image generation models.",
-        "last_updated": "2026-07-16",
-        "total_models": 273,
-        "audit_status": "Verified audit 2026-07-16 (final confidence pass): Frontier June–July 2026 complete (GPT-5.6 family, Claude Sonnet/Mythos/Fable 5, Grok 4.5, Muse Spark 1.1/Image/Video, Inkling, Audex, Robostral, Seedream 5.0 Pro). Added Seedance 2.0/Fast. Corrected Gemini 3.5 Pro non-GA status, GPT-5.5 pricing, Claude/Nemotron links, recent predecessor chains. Cross-checked official lab announcements.",
+        "last_updated": "2026-08-15",
+        "total_models": 288,
+        "audit_status": "Verified audit 2026-08-15: Added Jul–Aug 2026 frontier models (Kimi K3, Claude Opus 5, Gemini 3.6/3.7 Flash, Grok 4.6, DeepSeek-V4-Pro, Qwen3.8 family, Muse Spark 1.2/Glimmer, LFM2.5, Seedance 2.5, GLM-5.3, Qwen-Image 3.0).",
         "logo_source": "Clearbit Logo API (https://logo.clearbit.com/{domain})",
         "fields": [
             "id",
@@ -12825,7 +12825,7 @@
             "huggingface_url": null,
             "paper_url": "https://media.x.ai/v1/website/card-7f81d41b.pdf",
             "predecessor": "Grok 4.3",
-            "successor": null,
+            "successor": "Grok 4.6",
             "id": 267
         },
         {
@@ -13095,7 +13095,7 @@
             "huggingface_url": null,
             "paper_url": null,
             "predecessor": "Muse Spark",
-            "successor": null,
+            "successor": "Muse Spark 1.2",
             "id": 272
         },
         {
@@ -13149,6 +13149,779 @@
             "predecessor": null,
             "successor": null,
             "id": 273
+        },
+        {
+            "company": "Moonshot AI",
+            "company_website": "https://moonshot.ai",
+            "company_logo_url": "https://logo.clearbit.com/moonshot.ai",
+            "model_family": "Kimi",
+            "model_name": "Kimi K3",
+            "model_version": "3.0",
+            "model_type": "Open Multimodal LLM (MoE)",
+            "architecture": "Sparse MoE (Stable LatentMoE, 896 experts, 16 active)",
+            "modalities": [
+                "text",
+                "vision"
+            ],
+            "parameters": 2800,
+            "parameter_unit": "billion",
+            "training_tokens": null,
+            "open_source": true,
+            "license": "Custom (Apache 2.0 compatible)",
+            "api_available": true,
+            "context_window_tokens": 1000000,
+            "training_data_cutoff": null,
+            "release_date": "2026-07-16",
+            "country": "China",
+            "description": "Moonshot AI's first 3T-class open-weight multimodal model. Features Kimi Delta Attention (KDA), Attention Residuals, and Stable LatentMoE (896 experts, 16 active per token, 104B active parameters). 2.5× scaling efficiency over K2. Weights released July 27 on Hugging Face.",
+            "use_cases": [
+                "agentic coding",
+                "long-horizon reasoning",
+                "multimodal understanding",
+                "knowledge work"
+            ],
+            "notable_features": [
+                "2.8T params / 104B active",
+                "1M context window",
+                "Kimi Delta Attention (KDA)",
+                "Stable LatentMoE (896 experts)",
+                "Native vision via MoonViT-V2",
+                "Pricing $3/$15 per 1M tokens"
+            ],
+            "benchmark_scores": {},
+            "pricing_per_1m_tokens": {
+                "input": 3,
+                "output": 15
+            },
+            "official_model_link": "https://kimi.ai/blog/kimi-k3",
+            "huggingface_url": "https://huggingface.co/MoonshotAI/Kimi-K3",
+            "paper_url": "https://arxiv.org/abs/2607.24653",
+            "predecessor": "Kimi K2",
+            "successor": null,
+            "id": 274
+        },
+        {
+            "company": "Alibaba Cloud",
+            "company_website": "https://alibabacloud.com",
+            "company_logo_url": "https://logo.clearbit.com/alibabacloud.com",
+            "model_family": "Qwen",
+            "model_name": "Qwen-Image 3.0",
+            "model_version": "3.0",
+            "model_type": "Image Generation Model",
+            "architecture": "Diffusion Transformer",
+            "modalities": [
+                "text-to-image"
+            ],
+            "parameters": null,
+            "parameter_unit": null,
+            "training_tokens": null,
+            "open_source": false,
+            "license": "Proprietary",
+            "api_available": true,
+            "context_window_tokens": 4500,
+            "training_data_cutoff": null,
+            "release_date": "2026-07-20",
+            "country": "China",
+            "description": "Alibaba's professional image generation model focused on 'Reality' (实). Supports 4,500-token ultra-long prompts, 10px legible text rendering, 12 languages. Optimized for structured layouts, UI mockups, scientific illustrations, and infographics.",
+            "use_cases": [
+                "image generation",
+                "UI/UX mockups",
+                "technical documentation",
+                "infographics",
+                "multi-panel layouts"
+            ],
+            "notable_features": [
+                "4,500 token prompt capacity",
+                "10px legible text rendering",
+                "12 language support",
+                "Complex layout generation",
+                "Closed-model (API only)"
+            ],
+            "benchmark_scores": {},
+            "pricing_per_1m_tokens": {
+                "input": null,
+                "output": null
+            },
+            "official_model_link": "https://qwen.ai/blog/qwen-image-3.0",
+            "huggingface_url": null,
+            "paper_url": null,
+            "predecessor": "Qwen-Image 2.5",
+            "successor": null,
+            "id": 275
+        },
+        {
+            "company": "Google",
+            "company_website": "https://google.com",
+            "company_logo_url": "https://logo.clearbit.com/google.com",
+            "model_family": "Gemini",
+            "model_name": "Gemini 3.6 Flash",
+            "model_version": "3.6-flash",
+            "model_type": "Multimodal LLM",
+            "architecture": "Transformer (Multimodal)",
+            "modalities": [
+                "text",
+                "vision",
+                "audio",
+                "video",
+                "PDF"
+            ],
+            "parameters": null,
+            "parameter_unit": null,
+            "training_tokens": null,
+            "open_source": false,
+            "license": "Proprietary",
+            "api_available": true,
+            "context_window_tokens": 1048576,
+            "training_data_cutoff": null,
+            "release_date": "2026-07-21",
+            "country": "USA",
+            "description": "High-efficiency workhorse model from Google DeepMind optimized for coding, multimodal reasoning, and agentic workflows. Supports function calling, code execution, and search grounding with 1M context window.",
+            "use_cases": [
+                "coding",
+                "agentic workflows",
+                "multimodal reasoning",
+                "document analysis",
+                "search grounding"
+            ],
+            "notable_features": [
+                "1M context / 65K max output",
+                "Function calling and code execution",
+                "Search grounding",
+                "Pricing $1.50/$7.50 per 1M tokens (intro $0.75/$3.75)",
+                "Batch/Flex modes at 50% discount"
+            ],
+            "benchmark_scores": {},
+            "pricing_per_1m_tokens": {
+                "input": 1.5,
+                "output": 7.5
+            },
+            "official_model_link": "https://deepmind.google/models/gemini-3-6-flash/",
+            "huggingface_url": null,
+            "paper_url": null,
+            "predecessor": "Gemini 3.5 Flash",
+            "successor": "Gemini 3.7 Flash",
+            "id": 276
+        },
+        {
+            "company": "Anthropic",
+            "company_website": "https://anthropic.com",
+            "company_logo_url": "https://logo.clearbit.com/anthropic.com",
+            "model_family": "Claude",
+            "model_name": "Claude Opus 5",
+            "model_version": "Opus 5",
+            "model_type": "Multimodal LLM (Flagship)",
+            "architecture": "Transformer",
+            "modalities": [
+                "text",
+                "vision"
+            ],
+            "parameters": null,
+            "parameter_unit": null,
+            "training_tokens": null,
+            "open_source": false,
+            "license": "Proprietary",
+            "api_available": true,
+            "context_window_tokens": 1000000,
+            "training_data_cutoff": null,
+            "release_date": "2026-07-24",
+            "country": "USA",
+            "description": "Anthropic's flagship Opus 5 model. Frontier-level intelligence approaching Claude Fable 5 at half the cost. Adaptive thinking enabled by default with five effort levels (low/medium/high/xhigh/max). 1M context with 128K max output. Available via Claude API, Bedrock, Vertex AI, and Azure AI Foundry.",
+            "use_cases": [
+                "agentic coding",
+                "deep reasoning",
+                "enterprise workflows",
+                "long-horizon tasks",
+                "software engineering"
+            ],
+            "notable_features": [
+                "1M context / 128K max output",
+                "Adaptive thinking (5 effort levels)",
+                "Frontier intelligence at ~50% Fable 5 cost",
+                "Mid-conversation tool changes (beta)",
+                "Fast mode (2.5× speed)",
+                "Pricing $5/$25 per 1M tokens",
+                "512-token prompt caching minimum"
+            ],
+            "benchmark_scores": {},
+            "pricing_per_1m_tokens": {
+                "input": 5,
+                "output": 25
+            },
+            "official_model_link": "https://anthropic.com/news/claude-opus-5",
+            "huggingface_url": null,
+            "paper_url": "https://anthropic.com/news/claude-opus-5",
+            "predecessor": "Claude Opus 4.8",
+            "successor": null,
+            "id": 277
+        },
+        {
+            "company": "ByteDance",
+            "company_website": "https://bytedance.com",
+            "company_logo_url": "https://logo.clearbit.com/bytedance.com",
+            "model_family": "Seedance",
+            "model_name": "Seedance 2.5",
+            "model_version": "2.5",
+            "model_type": "Video Generation Model",
+            "architecture": "Diffusion Transformer",
+            "modalities": [
+                "text-to-video",
+                "image-to-video",
+                "video editing"
+            ],
+            "parameters": null,
+            "parameter_unit": null,
+            "training_tokens": null,
+            "open_source": false,
+            "license": "Proprietary",
+            "api_available": true,
+            "context_window_tokens": null,
+            "training_data_cutoff": null,
+            "release_date": "2026-07-31",
+            "country": "China",
+            "description": "Major upgrade to ByteDance's video generation. Supports 30-second continuous video (2× Seedance 2.0), up to 50 reference items (30 images, 10 videos, 10 audio clips), timestamp-level editing, regional editing, and 3D whitebox pre-visualization. 20% improvement in prompt adherence over 2.0.",
+            "use_cases": [
+                "video generation",
+                "long-form content creation",
+                "video editing",
+                "commercial production"
+            ],
+            "notable_features": [
+                "30-second continuous generation",
+                "50 reference items per pass",
+                "Timestamp-level and regional editing",
+                "3D whitebox pre-visualization",
+                "20% prompt adherence improvement",
+                "10+ language support with lip-sync"
+            ],
+            "benchmark_scores": {},
+            "pricing_per_1m_tokens": {
+                "input": null,
+                "output": null
+            },
+            "official_model_link": "https://bytedance.com/en/news/seedance-2-5",
+            "huggingface_url": null,
+            "paper_url": null,
+            "predecessor": "Seedance 2.0",
+            "successor": null,
+            "id": 278
+        },
+        {
+            "company": "Alibaba Cloud",
+            "company_website": "https://alibabacloud.com",
+            "company_logo_url": "https://logo.clearbit.com/alibabacloud.com",
+            "model_family": "Qwen",
+            "model_name": "Qwen3.8-Max",
+            "model_version": "3.8-max",
+            "model_type": "Multimodal LLM (MoE)",
+            "architecture": "Mixture-of-Experts Transformer",
+            "modalities": [
+                "text"
+            ],
+            "parameters": 2400,
+            "parameter_unit": "billion",
+            "training_tokens": null,
+            "open_source": true,
+            "license": "Custom (commercial license required for large companies)",
+            "api_available": true,
+            "context_window_tokens": 1000000,
+            "training_data_cutoff": null,
+            "release_date": "2026-08-03",
+            "country": "China",
+            "description": "Alibaba's massive 2.4T MoE flagship with 95B active parameters. Designed for complex agentic workflows including autonomous software engineering, data analysis, and long-horizon reasoning. Initially API-only, open weights released later.",
+            "use_cases": [
+                "agentic coding",
+                "data analysis",
+                "long-horizon reasoning",
+                "enterprise workflows"
+            ],
+            "notable_features": [
+                "2.4T total / 95B active parameters",
+                "1M context window",
+                "Agentic workflow optimization",
+                "Open weights with commercial restrictions"
+            ],
+            "benchmark_scores": {},
+            "pricing_per_1m_tokens": {
+                "input": null,
+                "output": null
+            },
+            "official_model_link": "https://qwen.ai/blog/qwen3.8",
+            "huggingface_url": "https://huggingface.co/Qwen/Qwen3.8-2.4T-A95B",
+            "paper_url": null,
+            "predecessor": "Qwen3",
+            "successor": null,
+            "id": 279
+        },
+        {
+            "company": "Alibaba Cloud",
+            "company_website": "https://alibabacloud.com",
+            "company_logo_url": "https://logo.clearbit.com/alibabacloud.com",
+            "model_family": "Qwen",
+            "model_name": "Qwen3.8-27B",
+            "model_version": "3.8-27B",
+            "model_type": "Multimodal LLM (Dense)",
+            "architecture": "Transformer (Dense)",
+            "modalities": [
+                "text",
+                "vision",
+                "video"
+            ],
+            "parameters": 27.78,
+            "parameter_unit": "billion",
+            "training_tokens": null,
+            "open_source": true,
+            "license": "Apache 2.0",
+            "api_available": true,
+            "context_window_tokens": 262144,
+            "training_data_cutoff": null,
+            "release_date": "2026-08-03",
+            "country": "China",
+            "description": "Dense 27.8B multimodal model from Alibaba designed for local deployment. Native text, image, and video support with 262K context. Positioned for single-GPU workstations. Open weights released August 14.",
+            "use_cases": [
+                "local inference",
+                "multimodal understanding",
+                "coding",
+                "on-device deployment"
+            ],
+            "notable_features": [
+                "27.8B dense parameters",
+                "262K context window",
+                "Native multimodal (text/image/video)",
+                "Apache 2.0 license",
+                "Single-GPU deployment"
+            ],
+            "benchmark_scores": {},
+            "pricing_per_1m_tokens": {
+                "input": null,
+                "output": null
+            },
+            "official_model_link": "https://qwen.ai/blog/qwen3.8",
+            "huggingface_url": "https://huggingface.co/Qwen/Qwen3.8-27B",
+            "paper_url": null,
+            "predecessor": "Qwen3-27B",
+            "successor": null,
+            "id": 280
+        },
+        {
+            "company": "Liquid AI",
+            "company_website": "https://liquid.ai",
+            "company_logo_url": "https://logo.clearbit.com/liquid.ai",
+            "model_family": "LFM",
+            "model_name": "LFM2.5-2.6B",
+            "model_version": "2.5",
+            "model_type": "On-Device Agentic LLM",
+            "architecture": "Liquid Foundation Model (Hybrid)",
+            "modalities": [
+                "text"
+            ],
+            "parameters": 2.69,
+            "parameter_unit": "billion",
+            "training_tokens": 34000,
+            "open_source": true,
+            "license": "Apache 2.0",
+            "api_available": true,
+            "context_window_tokens": 131072,
+            "training_data_cutoff": null,
+            "release_date": "2026-08-04",
+            "country": "USA",
+            "description": "Liquid AI's flagship on-device agentic model. 2.69B parameters trained on 34T tokens with 128K context. Designed for fully on-device planning and tool use. Under 2.5 GB quantized, runs at 220 tok/s on Apple M5 Max, 113 tok/s on Ryzen CPU, 30 tok/s on mobile.",
+            "use_cases": [
+                "on-device inference",
+                "agentic workflows",
+                "tool calling",
+                "mobile AI"
+            ],
+            "notable_features": [
+                "2.69B params / 34T training tokens",
+                "128K context",
+                "Under 2.5 GB quantized",
+                "220 tok/s on Apple M5 Max",
+                "On-device planning and tool use",
+                "Apache 2.0"
+            ],
+            "benchmark_scores": {},
+            "pricing_per_1m_tokens": {
+                "input": null,
+                "output": null
+            },
+            "official_model_link": "https://liquid.ai/blog/lfm-2-5",
+            "huggingface_url": "https://huggingface.co/LiquidAI/LFM2.5-2.6B",
+            "paper_url": null,
+            "predecessor": "LFM2.5-1.2B",
+            "successor": "LFM2.5-VL-3B",
+            "id": 281
+        },
+        {
+            "company": "Meta",
+            "company_website": "https://meta.com",
+            "company_logo_url": "https://logo.clearbit.com/meta.com",
+            "model_family": "Muse",
+            "model_name": "Muse Spark 1.2",
+            "model_version": "1.2",
+            "model_type": "Multimodal Coding Model",
+            "architecture": "Natively Multimodal Transformer",
+            "modalities": [
+                "text",
+                "vision",
+                "audio",
+                "video",
+                "PDF"
+            ],
+            "parameters": null,
+            "parameter_unit": null,
+            "training_tokens": null,
+            "open_source": false,
+            "license": "Proprietary",
+            "api_available": true,
+            "context_window_tokens": 1000000,
+            "training_data_cutoff": null,
+            "release_date": "2026-08-05",
+            "country": "USA",
+            "description": "Coding-focused release from Meta Superintelligence Labs. Powers the Muse Code terminal agent. 1M context with multimodal inputs (text, images, video, audio, PDFs). Designed for agentic software engineering: planning, debugging, repo-scale generation, and validation.",
+            "use_cases": [
+                "agentic coding",
+                "software engineering",
+                "debugging",
+                "code generation",
+                "repository-scale tasks"
+            ],
+            "notable_features": [
+                "1M context window",
+                "Powers Muse Code agent",
+                "Multimodal inputs (text/image/video/audio/PDF)",
+                "Parallel sub-agent spawning",
+                "Crash-safe event logging"
+            ],
+            "benchmark_scores": {},
+            "pricing_per_1m_tokens": {
+                "input": null,
+                "output": null
+            },
+            "official_model_link": "https://ai.meta.com/blog/muse-code",
+            "huggingface_url": null,
+            "paper_url": null,
+            "predecessor": "Muse Spark 1.1",
+            "successor": null,
+            "id": 282
+        },
+        {
+            "company": "Meta",
+            "company_website": "https://meta.com",
+            "company_logo_url": "https://logo.clearbit.com/meta.com",
+            "model_family": "Muse",
+            "model_name": "Muse Glimmer",
+            "model_version": "30B",
+            "model_type": "Open Multimodal LLM (Dense)",
+            "architecture": "Dense Causal Transformer + ViT-G/14 perception encoder",
+            "modalities": [
+                "text",
+                "vision"
+            ],
+            "parameters": 29.6,
+            "parameter_unit": "billion",
+            "training_tokens": null,
+            "open_source": true,
+            "license": "Apache 2.0",
+            "api_available": true,
+            "context_window_tokens": 131072,
+            "training_data_cutoff": null,
+            "release_date": "2026-08-10",
+            "country": "USA",
+            "description": "Meta's open-weight 30B multimodal model designed for local/on-device agentic tasks. Dense transformer with 1.8B ViT-G/14 perception encoder. Trained on 100+ languages. Supports configurable reasoning strengths (low/medium/high/xhigh). 4-bit quantized under 20 GB. Ships with DFlash speculative decoding for fast generation.",
+            "use_cases": [
+                "on-device agents",
+                "coding",
+                "file organization",
+                "multimodal reasoning",
+                "local deployment"
+            ],
+            "notable_features": [
+                "29.6B dense + 1.8B ViT-G/14",
+                "131K context",
+                "Apache 2.0 open weights",
+                "4-bit quantized under 20 GB",
+                "DFlash speculative decoding",
+                "100+ language support",
+                "Configurable reasoning strengths"
+            ],
+            "benchmark_scores": {},
+            "pricing_per_1m_tokens": {
+                "input": null,
+                "output": null
+            },
+            "official_model_link": "https://ai.meta.com/blog/muse-glimmer",
+            "huggingface_url": "https://huggingface.co/meta-llama/Muse-Glimmer-30B",
+            "paper_url": "https://ai.meta.com/research/publications/muse-glimmer/",
+            "predecessor": null,
+            "successor": null,
+            "id": 283
+        },
+        {
+            "company": "xAI",
+            "company_website": "https://x.ai",
+            "company_logo_url": "https://logo.clearbit.com/x.ai",
+            "model_family": "Grok",
+            "model_name": "Grok 4.6",
+            "model_version": "4.6",
+            "model_type": "Multimodal LLM",
+            "architecture": "Transformer",
+            "modalities": [
+                "text",
+                "vision"
+            ],
+            "parameters": null,
+            "parameter_unit": null,
+            "training_tokens": null,
+            "open_source": false,
+            "license": "Proprietary",
+            "api_available": true,
+            "context_window_tokens": 500000,
+            "training_data_cutoff": "2026-02",
+            "release_date": "2026-08-12",
+            "country": "USA",
+            "description": "xAI's post-training upgrade to Grok 4.5 with enhanced coding, agentic workflows, and multi-step reasoning. New xhigh reasoning level. Available on xAI API, Cursor, Grok Build, and GitHub Copilot. Achieved score of 61 on Artificial Analysis Intelligence Index.",
+            "use_cases": [
+                "agentic coding",
+                "multi-step reasoning",
+                "software engineering",
+                "STEM",
+                "knowledge work"
+            ],
+            "notable_features": [
+                "500K context window",
+                "xhigh reasoning level",
+                "Post-training upgrade from Grok 4.5",
+                "Pricing $2/$6 per 1M tokens",
+                "GitHub Copilot integration",
+                "AI Intelligence Index: 61"
+            ],
+            "benchmark_scores": {
+                "Artificial Analysis Intelligence Index": 61
+            },
+            "pricing_per_1m_tokens": {
+                "input": 2,
+                "output": 6
+            },
+            "official_model_link": "https://x.ai/blog/grok-4-6",
+            "huggingface_url": null,
+            "paper_url": null,
+            "predecessor": "Grok 4.5",
+            "successor": null,
+            "id": 284
+        },
+        {
+            "company": "Liquid AI",
+            "company_website": "https://liquid.ai",
+            "company_logo_url": "https://logo.clearbit.com/liquid.ai",
+            "model_family": "LFM",
+            "model_name": "LFM2.5-VL-3B",
+            "model_version": "2.5-VL",
+            "model_type": "Vision-Language Model (Edge)",
+            "architecture": "Liquid Foundation Model (Hybrid + Vision)",
+            "modalities": [
+                "text",
+                "vision"
+            ],
+            "parameters": 3.1,
+            "parameter_unit": "billion",
+            "training_tokens": null,
+            "open_source": true,
+            "license": "Apache 2.0",
+            "api_available": false,
+            "context_window_tokens": 32768,
+            "training_data_cutoff": null,
+            "release_date": "2026-08-12",
+            "country": "USA",
+            "description": "Liquid AI's vision-language edge model for screen understanding, grounding, and function calling. 3.1B params, 32K context, ~3 GB memory footprint. Strong ScreenSpot-v2 (80.7) and RefCOCO precision. Multi-image input support.",
+            "use_cases": [
+                "screen understanding",
+                "UI grounding",
+                "function calling",
+                "edge inference",
+                "multi-image reasoning"
+            ],
+            "notable_features": [
+                "3.1B parameters",
+                "32K context",
+                "~3 GB memory",
+                "ScreenSpot-v2: 80.7",
+                "Multi-image input",
+                "Apache 2.0"
+            ],
+            "benchmark_scores": {
+                "ScreenSpot-v2": 80.7
+            },
+            "pricing_per_1m_tokens": {
+                "input": null,
+                "output": null
+            },
+            "official_model_link": "https://liquid.ai/blog/lfm-2-5-vl",
+            "huggingface_url": "https://huggingface.co/LiquidAI/LFM2.5-VL-3B",
+            "paper_url": null,
+            "predecessor": "LFM2.5-2.6B",
+            "successor": null,
+            "id": 285
+        },
+        {
+            "company": "DeepSeek",
+            "company_website": "https://deepseek.com",
+            "company_logo_url": "https://logo.clearbit.com/deepseek.com",
+            "model_family": "DeepSeek",
+            "model_name": "DeepSeek-V4-Pro",
+            "model_version": "V4-Pro-0813",
+            "model_type": "Multimodal LLM (MoE)",
+            "architecture": "Mixture-of-Experts Transformer",
+            "modalities": [
+                "text"
+            ],
+            "parameters": 1600,
+            "parameter_unit": "billion",
+            "training_tokens": null,
+            "open_source": false,
+            "license": "Proprietary",
+            "api_available": true,
+            "context_window_tokens": 1000000,
+            "training_data_cutoff": null,
+            "release_date": "2026-08-13",
+            "country": "China",
+            "description": "DeepSeek's GA release of V4-Pro (build 0813) after April 2026 preview. 1.6T MoE with ~49B active per token. 1M context, 384K max output. Three thinking effort levels (Low/High/Max). Optimized for agentic workflows, tool use, and code execution. OpenAI Responses API compatible.",
+            "use_cases": [
+                "agentic coding",
+                "tool use",
+                "code execution",
+                "multi-step reasoning",
+                "enterprise workflows"
+            ],
+            "notable_features": [
+                "1.6T total / 49B active MoE",
+                "1M context / 384K max output",
+                "Three thinking effort levels",
+                "SWE-bench Verified: 80.6%",
+                "GPQA Diamond: 90.1%",
+                "OpenAI Responses API compatible",
+                "Peak/off-peak pricing"
+            ],
+            "benchmark_scores": {
+                "SWE-bench Verified": 80.6,
+                "GPQA Diamond": 90.1,
+                "LiveCodeBench": 93.5
+            },
+            "pricing_per_1m_tokens": {
+                "input": null,
+                "output": null
+            },
+            "official_model_link": "https://deepseek.com/blog/deepseek-v4-pro",
+            "huggingface_url": null,
+            "paper_url": null,
+            "predecessor": "DeepSeek-V3",
+            "successor": null,
+            "id": 286
+        },
+        {
+            "company": "Google",
+            "company_website": "https://google.com",
+            "company_logo_url": "https://logo.clearbit.com/google.com",
+            "model_family": "Gemini",
+            "model_name": "Gemini 3.7 Flash",
+            "model_version": "3.7-flash",
+            "model_type": "Multimodal LLM",
+            "architecture": "Transformer (Multimodal)",
+            "modalities": [
+                "text",
+                "vision",
+                "audio",
+                "video"
+            ],
+            "parameters": null,
+            "parameter_unit": null,
+            "training_tokens": null,
+            "open_source": false,
+            "license": "Proprietary",
+            "api_available": true,
+            "context_window_tokens": 1048576,
+            "training_data_cutoff": null,
+            "release_date": "2026-08-13",
+            "country": "USA",
+            "description": "Google DeepMind's most intelligent workhorse model, released 3 weeks after 3.6 Flash. Algorithmic refinements to core reasoning for higher first-pass code accuracy, better debugging, and improved multi-step planning. Tunable thinking configurations (low/medium/high).",
+            "use_cases": [
+                "coding",
+                "agentic workflows",
+                "web development",
+                "software engineering",
+                "document analysis"
+            ],
+            "notable_features": [
+                "1M context / 64K max output",
+                "Tunable thinking (low/medium/high)",
+                "DeepSWE v1.1: 65.3%",
+                "FrontierCode 1.1: 43.6%",
+                "WebDev Arena Elo: 1588",
+                "Intro pricing $0.75/$3.75 per 1M tokens"
+            ],
+            "benchmark_scores": {
+                "DeepSWE v1.1": 65.3,
+                "FrontierCode 1.1": 43.6,
+                "WebDev Arena Elo": 1588
+            },
+            "pricing_per_1m_tokens": {
+                "input": 0.75,
+                "output": 3.75
+            },
+            "official_model_link": "https://deepmind.google/models/gemini-3-7-flash/",
+            "huggingface_url": null,
+            "paper_url": null,
+            "predecessor": "Gemini 3.6 Flash",
+            "successor": null,
+            "id": 287
+        },
+        {
+            "company": "Zhipu AI (Z.ai)",
+            "company_website": "https://z.ai",
+            "company_logo_url": "https://logo.clearbit.com/zhipuai.cn",
+            "model_family": "GLM",
+            "model_name": "GLM-5.3",
+            "model_version": "5.3",
+            "model_type": "Open LLM (MoE)",
+            "architecture": "Mixture-of-Experts Transformer",
+            "modalities": [
+                "text"
+            ],
+            "parameters": 745,
+            "parameter_unit": "billion",
+            "training_tokens": null,
+            "open_source": true,
+            "license": "Open weights (Zhipu license)",
+            "api_available": true,
+            "context_window_tokens": null,
+            "training_data_cutoff": null,
+            "release_date": "2026-08-14",
+            "country": "China",
+            "description": "Zhipu AI post-training upgrade to GLM-5.2 (same base model, ~745B MoE). 50% coding improvement via scaled RL and diverse task environments. Emergent cybersecurity capability with 2,400+ vulnerabilities discovered. SOTA among open-weights on Terminal Bench 3.0. Weights release planned ~2 weeks after launch.",
+            "use_cases": [
+                "coding",
+                "cybersecurity",
+                "vulnerability discovery",
+                "agentic workflows"
+            ],
+            "notable_features": [
+                "~745B MoE parameters",
+                "50% coding improvement over GLM-5.2",
+                "Emergent cybersecurity capability",
+                "2,400+ vulnerabilities found",
+                "SOTA open-weights Terminal Bench 3.0",
+                "Weights planned ~2 weeks post-launch"
+            ],
+            "benchmark_scores": {},
+            "pricing_per_1m_tokens": {
+                "input": null,
+                "output": null
+            },
+            "official_model_link": "https://z.ai/blog/glm-5-3",
+            "huggingface_url": null,
+            "paper_url": null,
+            "predecessor": "GLM-5.2",
+            "successor": null,
+            "id": 288
         }
     ]
 }

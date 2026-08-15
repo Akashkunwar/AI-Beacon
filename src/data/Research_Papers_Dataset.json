@@ -2,8 +2,8 @@
     "metadata": {
         "title": "Foundational AI Research Papers Timeline",
         "description": "A curated list of the most influential AI research papers that drove the technological revolution.",
-        "last_updated": "2026-07-16",
-        "total_papers": 119,
+        "last_updated": "2026-08-15",
+        "total_papers": 126,
         "fields": [
             "id",
             "title",
@@ -2917,6 +2917,157 @@
             "code_url": "https://huggingface.co/thinkingmachines/Inkling",
             "citations": 0,
             "id": 119
+        },
+        {
+            "id": 120,
+            "title": "Claude Opus 5 System Card",
+            "authors": [
+                "Anthropic"
+            ],
+            "institution": "Anthropic",
+            "publication_date": "2026-07-24",
+            "published_in": "Anthropic System Card",
+            "topic": "Model Evaluation / Safety",
+            "description": "System card for Claude Opus 5 covering adaptive thinking, five effort levels (low/medium/high/xhigh/max), safety positioning, cybersecurity evaluations, and behavioral audits. Opus 5 scored 2.3 on overall misaligned behavior (lowest among recent Anthropic models). Notes it does not advance the frontier in dual-use capabilities.",
+            "key_contributions": [
+                "Adaptive thinking with 5 effort levels",
+                "Behavioral audit (2.3 misalignment score)",
+                "Cybersecurity and biology risk assessments",
+                "Comparison with Claude Fable 5 and Mythos 5"
+            ],
+            "paper_url": "https://anthropic.com/news/claude-opus-5",
+            "code_url": null,
+            "citations": 0
+        },
+        {
+            "id": 121,
+            "title": "Kimi K3: A 2.8-Trillion Parameter Open-Weight Multimodal Model",
+            "authors": [
+                "Moonshot AI"
+            ],
+            "institution": "Moonshot AI",
+            "publication_date": "2026-07-27",
+            "published_in": "arXiv (2607.24653)",
+            "topic": "LLM Architecture / Scaling",
+            "description": "Technical report for Kimi K3, the first open 3T-class multimodal model. Details Kimi Delta Attention (KDA), Attention Residuals (AttnRes), Stable LatentMoE (896 experts, 16 active), MoonViT-V2 vision encoder, and Per-Head Muon Optimizer. Reports 2.5× scaling efficiency over K2.",
+            "key_contributions": [
+                "Kimi Delta Attention (KDA) hybrid linear attention",
+                "Stable LatentMoE with 896 experts",
+                "MoonViT-V2 vision encoder (0.4B params)",
+                "Per-Head Muon Optimizer",
+                "2.5× scaling efficiency improvement"
+            ],
+            "paper_url": "https://arxiv.org/abs/2607.24653",
+            "code_url": "https://huggingface.co/MoonshotAI/Kimi-K3",
+            "citations": 0
+        },
+        {
+            "id": 122,
+            "title": "A Moral Turing Test: How Belief and Source Shape Detection of and Agreement with LLM Judgments",
+            "authors": [
+                "Google DeepMind"
+            ],
+            "institution": "Google DeepMind",
+            "publication_date": "2026-08-05",
+            "published_in": "Google DeepMind Publications",
+            "topic": "AI Ethics / Human-AI Interaction",
+            "description": "Explores the intersection of human psychology, LLM outputs, and ethical judgment. Investigates how people's beliefs about whether a moral judgment comes from a human or AI affects their detection accuracy and agreement levels.",
+            "key_contributions": [
+                "Moral Turing test framework for LLM judgments",
+                "Human detection accuracy analysis",
+                "Source attribution effects on agreement",
+                "Implications for AI ethics and trust"
+            ],
+            "paper_url": "https://deepmind.google/research/publications/moral-turing-test/",
+            "code_url": null,
+            "citations": 0
+        },
+        {
+            "id": 123,
+            "title": "Muse Glimmer: Open-Weight On-Device Agentic Model",
+            "authors": [
+                "Meta Superintelligence Labs"
+            ],
+            "institution": "Meta",
+            "publication_date": "2026-08-10",
+            "published_in": "Meta AI Research",
+            "topic": "On-Device LLMs / Open Models",
+            "description": "Technical documentation for Muse Glimmer, a 29.6B dense causal transformer with 1.8B ViT-G/14 perception encoder. Designed for consumer hardware deployment. Details DFlash speculative decoding, 4-bit quantization (under 20 GB), configurable reasoning strengths, failure recovery training, and multilingual support (100+ languages).",
+            "key_contributions": [
+                "Dense 30B on-device agentic architecture",
+                "DFlash speculative decoding for fast generation",
+                "4-bit quantization under 20 GB",
+                "Failure recovery training methodology",
+                "Apache 2.0 open weights"
+            ],
+            "paper_url": "https://ai.meta.com/research/publications/muse-glimmer/",
+            "code_url": "https://huggingface.co/meta-llama/Muse-Glimmer-30B",
+            "citations": 0
+        },
+        {
+            "id": 124,
+            "title": "Model Card: Grok 4.6",
+            "authors": [
+                "xAI / SpaceXAI"
+            ],
+            "institution": "xAI / SpaceXAI",
+            "publication_date": "2026-08-12",
+            "published_in": "xAI Blog",
+            "topic": "Model Cards",
+            "description": "Model card for Grok 4.6 covering post-training methodology, xhigh reasoning level, 500K context window, and benchmark results. Documents enhanced supervised fine-tuning for long-running agentic workflows. Reports Artificial Analysis Intelligence Index score of 61.",
+            "key_contributions": [
+                "xhigh reasoning level documentation",
+                "Post-training methodology for agentic tasks",
+                "Benchmark: AI Intelligence Index 61",
+                "Integration with Cursor and GitHub Copilot"
+            ],
+            "paper_url": "https://x.ai/blog/grok-4-6",
+            "code_url": null,
+            "citations": 0
+        },
+        {
+            "id": 125,
+            "title": "DeepSeek-V4-Pro: Agentic Scaling with 1.6T Mixture-of-Experts",
+            "authors": [
+                "DeepSeek"
+            ],
+            "institution": "DeepSeek",
+            "publication_date": "2026-08-13",
+            "published_in": "DeepSeek Technical Report",
+            "topic": "LLM Architecture / Agents",
+            "description": "Technical report for DeepSeek-V4-Pro (build 0813). Documents 1.6T MoE architecture with 49B active parameters, 1M context with 384K max output, three thinking effort levels, and agentic optimization. Reports SWE-bench Verified 80.6%, GPQA Diamond 90.1%, LiveCodeBench 93.5%.",
+            "key_contributions": [
+                "1.6T MoE / 49B active architecture",
+                "384K max output tokens",
+                "Three thinking effort levels (Low/High/Max)",
+                "SWE-bench Verified: 80.6%",
+                "OpenAI Responses API compatibility"
+            ],
+            "paper_url": "https://deepseek.com/blog/deepseek-v4-pro",
+            "code_url": null,
+            "citations": 0
+        },
+        {
+            "id": 126,
+            "title": "GLM-5.3: Emergent Cybersecurity via Scaled Post-Training",
+            "authors": [
+                "Zhipu AI"
+            ],
+            "institution": "Zhipu AI (Z.ai)",
+            "publication_date": "2026-08-14",
+            "published_in": "Z.ai Blog / Technical Announcement",
+            "topic": "Post-Training / Cybersecurity",
+            "description": "Announcement and technical details for GLM-5.3, documenting 50% coding improvement over GLM-5.2 through scaled RL and diverse task environments. Reports emergent cybersecurity capabilities with 2,400+ vulnerabilities discovered across hundreds of projects. SOTA among open-weights on Terminal Bench 3.0 and Agents' Last Exam.",
+            "key_contributions": [
+                "50% coding improvement via scaled RL",
+                "Emergent cybersecurity capability",
+                "2,400+ vulnerabilities discovered",
+                "SOTA open-weights Terminal Bench 3.0",
+                "Post-training without new pretraining"
+            ],
+            "paper_url": "https://z.ai/blog/glm-5-3",
+            "code_url": null,
+            "citations": 0
         }
     ]
 }
