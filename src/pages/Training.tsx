@@ -66,7 +66,7 @@ function StepPlaceholder({ stepNumber }: StepPlaceholderProps) {
                     textAlign: 'center',
                 }}
             >
-                Step {step.num} — {step.label} — content coming soon
+                Step {step.num} — {step.label} — unavailable in this walkthrough
             </p>
         </div>
     );

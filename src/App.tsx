@@ -35,6 +35,9 @@ const NotFound = lazy(() =>
 function LoadingFallback() {
     return (
         <div
+            role="status"
+            aria-live="polite"
+            aria-label="Loading AI Beacon"
             style={{
                 minHeight: '100vh',
                 background: 'var(--bg)',
@@ -53,6 +56,7 @@ function LoadingFallback() {
                     animation: 'spin 0.8s linear infinite',
                 }}
             />
+            <span className="sr-only">Loading AI Beacon…</span>
         </div>
     );
 }

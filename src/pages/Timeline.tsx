@@ -109,6 +109,7 @@ const processToolsData = (rawData: any) => {
     }));
 };
 
+const DATASET_LAST_UPDATED = timelineDataRaw.metadata.last_updated;
 const timelineData: LLMModel[] = processData(timelineDataRaw);
 const papersData: LLMModel[] = processPapersData(papersDataRaw);
 const toolsData: LLMModel[] = processToolsData(toolsDataRaw);
@@ -118,7 +119,7 @@ export function Timeline() {
         '@context': 'https://schema.org',
         '@type': 'Dataset',
         'name': 'LLM History & AI Models Dataset',
-        'description': 'A comprehensive timeline of Large Language Models, AI research papers, and industrial AI tools from 2017 to present.',
+        'description': `A comprehensive timeline of Large Language Models, AI research papers, and industrial AI tools, updated ${DATASET_LAST_UPDATED}.`,
         'keywords': ['LLM', 'AI Models', 'Transformer', 'Research Papers', 'AI Timeline'],
         'creator': {
             '@type': 'Organization',
@@ -216,7 +217,7 @@ export function Timeline() {
         <div style={{ minHeight: '100vh', background: 'var(--bg)', display: 'flex', flexDirection: 'column' }}>
             <SEO
                 title="AI Timeline"
-                description="Interactive history of AI models, research papers, and tools. From the Transformer paper to GPT-4o."
+                description={`Interactive history of ${timelineData.length} AI models, ${papersData.length} research papers, and ${toolsData.length} tools. Dataset updated ${DATASET_LAST_UPDATED}.`}
                 canonical={`${SITE_CONFIG.baseUrl}/timeline`}
                 structuredData={timelineStructuredData}
             />

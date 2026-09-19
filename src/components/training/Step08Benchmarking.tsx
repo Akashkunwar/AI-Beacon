@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import { ErrorBoundary } from '@/components/shared/ErrorBoundary';
 
 interface Step08BenchmarkingProps {
@@ -51,12 +52,6 @@ export function Step08Benchmarking({ stepNumber, totalSteps }: Step08Benchmarkin
     const shouldReduceMotion = useReducedMotion();
     const prefersReducedMotion = shouldReduceMotion ?? false;
     const [activeTab, setActiveTab] = useState<BenchmarkTab>('MMLU');
-    const [toastVisible, setToastVisible] = useState(false);
-
-    const handleNextModuleClick = () => {
-        setToastVisible(true);
-        setTimeout(() => setToastVisible(false), 3000);
-    };
 
     return (
         <ErrorBoundary>
@@ -312,33 +307,14 @@ export function Step08Benchmarking({ stepNumber, totalSteps }: Step08Benchmarkin
                     </div>
                 </section>
 
-                {/* NEXT STEPS / MODULE 03 LINK */}
-                <div style={{ marginTop: 'var(--s4)', display: 'flex', alignItems: 'center', gap: 'var(--s4)' }}>
-                    <button
-                        onClick={handleNextModuleClick}
-                        className="btn btn-primary"
-                    >
-                        Module 03
-                    </button>
-                    <AnimatePresence>
-                        {toastVisible && (
-                            <motion.span
-                                initial={{ opacity: 0, x: -10 }}
-                                animate={{ opacity: 1, x: 0 }}
-                                exit={{ opacity: 0, x: -10 }}
-                                style={{
-                                    fontFamily: 'var(--font-mono)',
-                                    fontSize: 'var(--text-xs)',
-                                    color: 'var(--secondary)',
-                                    padding: 'var(--s1) var(--s3)',
-                                    background: 'var(--stroke)',
-                                    borderRadius: 'var(--r-pill)',
-                                }}
-                            >
-                                Module 03 coming soon!
-                            </motion.span>
-                        )}
-                    </AnimatePresence>
+                {/* NEXT STEP */}
+                <div style={{ marginTop: 'var(--s4)', display: 'flex', alignItems: 'center', gap: 'var(--s4)', flexWrap: 'wrap' }}>
+                    <Link to="/benchmarks" className="btn btn-secondary" aria-label="Explore the live model benchmarks">
+                        Explore live benchmarks →
+                    </Link>
+                    <span style={{ fontFamily: 'var(--font-mono)', fontSize: 'var(--text-xs)', color: 'var(--muted)' }}>
+                        You’ve reached the end of this 10-step walkthrough.
+                    </span>
                 </div>
 
 

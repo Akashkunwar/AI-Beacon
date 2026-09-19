@@ -31,7 +31,7 @@ export function PipelineCanvas({
     );
 
     return (
-        <main
+        <section
             aria-label="Pipeline canvas"
             style={{
                 display: 'flex',
@@ -202,6 +202,6 @@ export function PipelineCanvas({
                     onSpeedChange={onSpeedChange}
                 />
             </div>
-        </main>
+        </section>
     );
 }

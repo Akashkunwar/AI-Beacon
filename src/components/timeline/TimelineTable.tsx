@@ -146,14 +146,33 @@ export function TimelineTable({ activeTab, models, filteredModelIds, selectedMod
                         </tr>
                     </thead>
                     <tbody>
-                        {sortedModels.map((model) => {
+                        {sortedModels.length === 0 ? (
+                            <tr>
+                                <td colSpan={activeTab === 'papers' ? 8 : 9} style={{ ...tdStyle, padding: 'var(--s6)', textAlign: 'center', color: 'var(--muted)' }}>
+                                    No entries match these filters.{' '}
+                                    {onClearFilters && (
+                                        <button type="button" onClick={onClearFilters} style={{ color: 'var(--ink)', textDecoration: 'underline', textUnderlineOffset: '3px' }}>
+                                            Clear filters
+                                        </button>
+                                    )}
+                                </td>
+                            </tr>
+                        ) : sortedModels.map((model) => {
                             const isActive = selectedModelId === model.id;
                             return (
                                 <tr
                                     key={model.id}
                                     onClick={() => onModelSelect(model.id)}
+                                    onKeyDown={(event) => {
+                                        if (event.key === 'Enter' || event.key === ' ') {
+                                            event.preventDefault();
+                                            onModelSelect(model.id);
+                                        }
+                                    }}
+                                    tabIndex={0}
                                     role="row"
                                     aria-selected={isActive}
+                                    aria-label={`Open details for ${model.model_name}`}
                                     className={`timeline-row ${isActive ? 'active' : ''}`}
                                 >
                                     <td style={{ ...tdStyle, width: '40px', color: 'var(--muted)', fontFamily: 'var(--font-mono)' }}>

@@ -170,7 +170,7 @@ export function OpenSourceVisual() {
                 ))}
 
                 {/* Floating Hexagons or Squares for variety */}
-                <g className="os-animate-spin-reverse" transform-origin="320 60">
+                <g className="os-animate-spin-reverse" style={{ transformOrigin: '320px 60px' }}>
                     <rect
                         x="316" y="56" width="8" height="8"
                         stroke="var(--stroke-dark)"
@@ -179,7 +179,7 @@ export function OpenSourceVisual() {
                         opacity="0.4"
                     />
                 </g>
-                <g className="os-animate-spin-slow" transform-origin="80 240">
+                <g className="os-animate-spin-slow" style={{ transformOrigin: '80px 240px' }}>
                     <rect
                         x="76" y="236" width="8" height="8"
                         stroke="var(--stroke-dark)"

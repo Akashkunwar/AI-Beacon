@@ -33,7 +33,11 @@ export function Nav({ activeRoute }: NavProps) {
         };
     }, [isMobileMenuOpen]);
 
-    const navHeight = '52px';
+    useEffect(() => {
+        setIsMobileMenuOpen(false);
+    }, [location.pathname]);
+
+    const navHeight = 'var(--nav-height)';
 
     return (
         <>
@@ -46,8 +50,7 @@ export function Nav({ activeRoute }: NavProps) {
                     left: 0,
                     right: 0,
                     zIndex: 'var(--z-nav)',
-                    background: 'rgba(249,249,249,0.92)',
-                    backdropFilter: 'blur(12px)',
+                    background: 'var(--bg)',
                     borderBottom: '1px solid var(--stroke)',
                     height: navHeight,
                     display: 'flex',
@@ -88,6 +91,7 @@ export function Nav({ activeRoute }: NavProps) {
                                 <Link
                                     key={link.label}
                                     to={link.to}
+                                    aria-current={isActive ? 'page' : undefined}
                                     style={{
                                         fontFamily: 'var(--font-sans)',
                                         fontSize: 'var(--text-sm)',
@@ -154,6 +158,8 @@ export function Nav({ activeRoute }: NavProps) {
                     className="mobile-toggle"
                     onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                     aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
+                    aria-expanded={isMobileMenuOpen}
+                    aria-controls="mobile-navigation"
                     style={{
                         display: 'none',
                         background: 'none',
@@ -188,7 +194,7 @@ export function Nav({ activeRoute }: NavProps) {
                         transition={{ duration: 0.2, ease: "easeOut" }}
                         style={{
                             position: 'absolute',
-                            top: '52px',
+                            top: 'var(--nav-height)',
                             left: 0,
                             right: 0,
                             background: 'var(--bg)',
@@ -198,8 +204,10 @@ export function Nav({ activeRoute }: NavProps) {
                             flexDirection: 'column',
                             gap: 'var(--s4)',
                             zIndex: 'var(--z-nav)',
-                            boxShadow: 'var(--shadow-lg)',
+                            boxShadow: 'var(--shadow-lift)',
                         }}
+                        id="mobile-navigation"
+                        aria-label="Mobile navigation links"
                     >
                         {NAV_LINKS.map((link) => {
                             const isActive = link.live && link.to === currentPath;
@@ -210,6 +218,7 @@ export function Nav({ activeRoute }: NavProps) {
                                         key={link.label}
                                         to={link.to}
                                         onClick={() => setIsMobileMenuOpen(false)}
+                                        aria-current={isActive ? 'page' : undefined}
                                         style={{
                                             fontFamily: 'var(--font-sans)',
                                             fontSize: 'var(--text-md)',

@@ -14,7 +14,11 @@ const fadeUp = {
 };
 
 export function About() {
-    const buildDate = new Date(__BUILD_TIME__).toLocaleString();
+    const buildDate = new Date(__BUILD_TIME__).toLocaleString('en-IN', {
+        timeZone: 'UTC',
+        dateStyle: 'medium',
+        timeStyle: 'short',
+    });
     const shortHash = __COMMIT_HASH__ === 'dev' ? 'Development' : __COMMIT_HASH__.substring(0, 7);
 
     const aboutStructuredData = {
@@ -82,7 +86,7 @@ export function About() {
                     }}>
                         Deployment Status
                     </h2>
-                    <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 'var(--s4)' }}>
+                    <div className="about-deployment-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 'var(--s4)' }}>
                         <div>
                             <p style={{ fontSize: 'var(--text-2xs)', fontFamily: 'var(--font-mono)', color: 'var(--muted)', marginBottom: 'var(--s1)' }}>LATEST COMMIT</p>
                             <p style={{ fontSize: 'var(--text-sm)', fontFamily: 'var(--font-mono)', color: 'var(--ink)' }}>{shortHash}</p>
@@ -92,8 +96,22 @@ export function About() {
                             <p style={{ fontSize: 'var(--text-sm)', fontFamily: 'var(--font-mono)', color: 'var(--ink)' }}>{buildDate}</p>
                         </div>
                     </div>
+                    <a
+                        href={SITE_CONFIG.baseUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        style={{ display: 'inline-flex', marginTop: 'var(--s5)', color: 'var(--ink)', fontFamily: 'var(--font-mono)', fontSize: 'var(--text-xs)', textDecoration: 'underline', textUnderlineOffset: '3px' }}
+                    >
+                        Open live site →
+                    </a>
                 </motion.section>
             </main>
+
+            <style>{`
+                @media (max-width: 479px) {
+                    .about-deployment-grid { grid-template-columns: 1fr !important; }
+                }
+            `}</style>
 
             <Footer />
         </div>

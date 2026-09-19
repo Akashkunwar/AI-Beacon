@@ -15,6 +15,8 @@ import { OpenSourceVisual } from '@/components/educational/OpenSourceVisual';
 import { AUTOMATION_DATA } from '@/data/automationData';
 import { useReducedMotion } from '@/hooks/useReducedMotion';
 import { SITE_CONFIG } from '@/config/site';
+import { BENCHMARK_MODELS } from '@/data/benchmarkData';
+import { DATASET_META } from '@/data/datasetMeta';
 
 // ─── Animation helpers ─────────────────────────────────────────────────────
 
@@ -740,9 +742,9 @@ function TrainingSection() {
 // ─── Timeline Section ──────────────────────────────────────────────────
 
 const TIMELINE_STATS = [
-    { label: 'Models tracked', value: '100+' },
+    { label: 'Models tracked', value: `${DATASET_META.models}` },
     { label: 'Time span', value: '2017–2026' },
-    { label: 'Data points', value: 'Parameters, open source, modalities' },
+    { label: 'Research + tools', value: `${DATASET_META.papers} papers · ${DATASET_META.tools} tools` },
 ];
 
 function TimelineSection() {
@@ -931,7 +933,7 @@ function AutomationClockTeaser() {
                                 maxWidth: '44ch',
                             }}>
                                 Track jobs at risk, automation by sector, and expert
-                                projections from 2022—when AI arrived—through 2030.
+                                projections from 2022 through 2030. Historical values and projections are clearly separated.
                                 McKinsey, Goldman Sachs, WEF, IMF, and more.
                             </p>
                         </Reveal>
@@ -1102,7 +1104,7 @@ const BENCHMARK_STATS = [
     { label: 'HumanEval (Code)', value: '84.1%' },
     { label: 'MATH (Reasoning)', value: '54.2%' },
 ];
-const BENCHMARK_STATS_CAPTION = 'Leading models (as of 2024)';
+const BENCHMARK_STATS_CAPTION = `Curated snapshot · ${BENCHMARK_MODELS.length} models`;
 
 function BenchmarkTeaser() {
     return (
@@ -1425,7 +1427,7 @@ function ScaleOfAISection() {
                                 color: 'var(--muted)',
                                 marginTop: 'var(--s6)',
                             }}>
-                                An interactive guide to the technological revolution, updated weekly.
+                                An interactive guide to the technological revolution, with source-linked dataset updates.
                             </p>
                         </Reveal>
                     </div>

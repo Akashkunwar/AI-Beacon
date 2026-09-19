@@ -19,6 +19,7 @@
 html {
   font-size: 16px;
   scroll-behavior: smooth;
+  scroll-padding-top: calc(var(--nav-height) + var(--s3));
   height: 100%;
 }
 
@@ -51,6 +52,18 @@ button {
   cursor: pointer;
   border: none;
   background: none;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }
 
 /* ─── Selection ──────────────────────────────────────────────────────────── */
@@ -347,6 +360,10 @@ pre,
   max-width: 1440px;
   margin: 0 auto;
   padding: 0 var(--s5);
+}
+
+main[id] {
+  scroll-margin-top: calc(var(--nav-height) + var(--s3));
 }
 
 @media (max-width: 479px) {

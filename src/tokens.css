@@ -167,6 +167,9 @@
     --z-nav: 200;
     --z-modal: 300;
 
+    /* ── Layout ─────────────────────────────────────────────── */
+    --nav-height: 52px;
+
     /* ── Timeline ── */
     --timeline-spine: var(--stroke-dark);
     --timeline-tick: var(--primary);

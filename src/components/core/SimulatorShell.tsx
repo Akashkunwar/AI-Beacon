@@ -47,7 +47,7 @@ export function SimulatorShell() {
             />
 
             {/* ── Main Layout ───────────────────────────────────────── */}
-            <div id="main" role="main" style={{ flex: 1, display: 'flex', overflow: 'hidden', position: 'relative' }}>
+            <main id="main" style={{ flex: 1, display: 'flex', overflow: 'hidden', position: 'relative' }}>
 
                 {/* LEFT: Control Panel */}
                 <div
@@ -96,7 +96,7 @@ export function SimulatorShell() {
                         />
                     )}
                 </AnimatePresence>
-            </div>
+            </main>
 
             {/* MOBILE: Bottom drawer for controls */}
             <MobileControlDrawer
@@ -140,6 +140,9 @@ function ActionToolbar({ mode, onModeToggle, onInspectorToggle, onControlsToggle
         >
             {/* Center: Mode toggle */}
             <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--s2)', marginRight: 'auto' }}>
+                <h1 style={{ fontSize: 'var(--text-sm)', fontWeight: 'var(--weight-medium)', color: 'var(--ink)', marginRight: 'var(--s3)' }}>
+                    Transformer simulator
+                </h1>
                 <ModeToggle mode={mode} onToggle={onModeToggle} />
             </div>
 

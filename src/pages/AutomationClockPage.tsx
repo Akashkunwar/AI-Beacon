@@ -159,7 +159,7 @@ export function AutomationClockPage() {
                   lineHeight: 'var(--lead-body)',
                 }}
               >
-                Track automation, jobs at risk, and sector-level impact from 2022—when AI arrived—through 2030. Data and projections from McKinsey, Goldman Sachs, WEF, IMF, and others.
+                Track automation, jobs at risk, and sector-level impact from 2022 through 2030. Historical values and projections are clearly separated, with data from McKinsey, Goldman Sachs, WEF, IMF, and others.
               </p>
             </div>
             <div
