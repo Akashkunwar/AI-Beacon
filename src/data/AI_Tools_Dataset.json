@@ -2,8 +2,8 @@
     "metadata": {
         "title": "AI Coding Tools Timeline",
         "description": "A curated timeline of the most influential AI tools, IDEs, and agents that revolutionized software development.",
-        "last_updated": "2026-08-15",
-        "total_tools": 136,
+        "last_updated": "2026-09-19",
+        "total_tools": 143,
         "fields": [
             "id",
             "name",
@@ -1290,7 +1290,7 @@
             "open_source": false,
             "license": "Proprietary",
             "category": "Autonomous AI Coding Agent",
-            "description": "Google\u2019s asynchronous coding agent that plans, executes, and proposes pull requests on GitHub repositories.",
+            "description": "Google’s asynchronous coding agent that plans, executes, and proposes pull requests on GitHub repositories.",
             "key_features": [
                 "Asynchronous coding sessions",
                 "GitHub repository task execution",
@@ -1823,7 +1823,7 @@
             "open_source": false,
             "license": "Proprietary",
             "category": "AI Interpretability Platform",
-            "description": "A mechanistic interpretability platform that enables researchers and engineers to inspect and adjust the internal behaviors of LLMs\u2014such as specific neurons and pathways\u2014during the training process, transitioning AI development from 'alchemy' to precision engineering.",
+            "description": "A mechanistic interpretability platform that enables researchers and engineers to inspect and adjust the internal behaviors of LLMs—such as specific neurons and pathways—during the training process, transitioning AI development from 'alchemy' to precision engineering.",
             "key_features": [
                 "Live neuron inspection at production scale",
                 "Targeted model behavior interventions",
@@ -2146,6 +2146,24 @@
         },
         {
             "id": 132,
+            "name": "Grok Bot",
+            "company": "SpaceXAI",
+            "release_date": "2026-08-11",
+            "open_source": false,
+            "license": "Proprietary",
+            "category": "Persistent AI Teammate",
+            "description": "A beta agent product from SpaceXAI that runs on a persistent cloud computer, works across connected apps, and completes delegated jobs with messaging, approvals, connectors, and routines.",
+            "key_features": [
+                "Persistent cloud computer",
+                "Cross-app work",
+                "Messaging and approvals",
+                "Connectors and routines",
+                "Always-on delegated tasks"
+            ],
+            "url": "https://x.ai/news/introducing-grok-bot"
+        },
+        {
+            "id": 133,
             "name": "Grok 4.6 API",
             "company": "xAI / SpaceXAI",
             "release_date": "2026-08-12",
@@ -2163,17 +2181,17 @@
             "url": "https://docs.x.ai/docs/models"
         },
         {
-            "id": 133,
+            "id": 134,
             "name": "GPT-5.6 Sol Ultrafast",
             "company": "OpenAI / Cerebras",
             "release_date": "2026-08-13",
             "open_source": false,
             "license": "Proprietary",
             "category": "AI Inference Service",
-            "description": "New API service tier for GPT-5.6 Sol powered by Cerebras wafer-scale engine. Delivers up to 750 output tokens/second (14\u00d7 faster than standard tier) with full model intelligence and no quality compromise. Uses 44 GB on-chip SRAM for continuous high-speed token generation. Limited preview for select API customers.",
+            "description": "New API service tier for GPT-5.6 Sol powered by Cerebras wafer-scale engine. Delivers up to 750 output tokens/second (14× faster than standard tier) with full model intelligence and no quality compromise. Uses 44 GB on-chip SRAM for continuous high-speed token generation. Limited preview for select API customers.",
             "key_features": [
                 "750 tokens/second output speed",
-                "14\u00d7 faster than standard processing",
+                "14× faster than standard processing",
                 "Cerebras wafer-scale engine",
                 "Full GPT-5.6 Sol intelligence",
                 "Limited preview access"
@@ -2181,7 +2199,7 @@
             "url": "https://openai.com/index/ultrafast"
         },
         {
-            "id": 134,
+            "id": 135,
             "name": "Claude Code Auto Mode",
             "company": "Anthropic",
             "release_date": "2026-08-14",
@@ -2199,17 +2217,17 @@
             "url": "https://docs.anthropic.com/en/docs/claude-code"
         },
         {
-            "id": 135,
+            "id": 136,
             "name": "Cursor Builds",
             "company": "Cursor / SpaceXAI",
             "release_date": "2026-08-14",
             "open_source": false,
             "license": "Proprietary",
             "category": "AI IDE",
-            "description": "New Cloud Agent feature in Cursor IDE providing ready-to-use copies of development environments created in background. Cloud Agents start up to 3\u00d7 faster. Part of post-SpaceX acquisition updates including Grok 4.5/4.6 integration, Cursor for iOS with remote agent control, and expanded model support.",
+            "description": "New Cloud Agent feature in Cursor IDE providing ready-to-use copies of development environments created in background. Cloud Agents start up to 3× faster. Part of post-SpaceX acquisition updates including Grok 4.5/4.6 integration, Cursor for iOS with remote agent control, and expanded model support.",
             "key_features": [
                 "Pre-built development environments",
-                "3\u00d7 faster Cloud Agent startup",
+                "3× faster Cloud Agent startup",
                 "Grok 4.5/4.6 model integration",
                 "iOS remote agent control",
                 "SpaceXAI GPU infrastructure"
@@ -2217,7 +2235,7 @@
             "url": "https://cursor.com/changelog"
         },
         {
-            "id": 136,
+            "id": 137,
             "name": "Qwen3.8 API",
             "company": "Alibaba Cloud",
             "release_date": "2026-08-14",
@@ -2233,6 +2251,114 @@
                 "Enterprise agentic workflows"
             ],
             "url": "https://qwen.ai/"
+        },
+        {
+            "id": 138,
+            "name": "Gemini 3.5 Transcribe API",
+            "company": "Google DeepMind",
+            "release_date": "2026-08-26",
+            "open_source": false,
+            "license": "Proprietary",
+            "category": "Speech-to-Text API",
+            "description": "Developer access to Gemini 3.5 Transcribe for precise streaming and prerecorded speech transcription, including cleanup of disfluencies, speaker attribution, timestamps, and custom vocabulary.",
+            "key_features": [
+                "Streaming transcription",
+                "Prerecorded audio transcription",
+                "Speaker attribution",
+                "Word-level timestamps",
+                "85+ languages"
+            ],
+            "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-5-transcribe/"
+        },
+        {
+            "id": 139,
+            "name": "Gemini Omni 1.1 Flash",
+            "company": "Google DeepMind",
+            "release_date": "2026-08-27",
+            "open_source": false,
+            "license": "Proprietary",
+            "category": "Generative Video Platform",
+            "description": "Production-ready Gemini Omni update available through Google AI Studio and the Gemini Enterprise Agent Platform for controllable video creation and editing.",
+            "key_features": [
+                "Scene extension",
+                "First and last frame control",
+                "360p draft generation",
+                "4K upscaling",
+                "Video reference workflows"
+            ],
+            "url": "https://blog.google/innovation-and-ai/technology/developers-tools/build-with-gemini-omni-1-1-flash/"
+        },
+        {
+            "id": 140,
+            "name": "Gemini 3.8 Flash API",
+            "company": "Google DeepMind",
+            "release_date": "2026-09-02",
+            "open_source": false,
+            "license": "Proprietary",
+            "category": "AI Model API",
+            "description": "API access to Gemini 3.8 Flash for long-horizon coding, agentic workflows, and multi-step reasoning, with configurable effort levels and a 1M-token context window.",
+            "key_features": [
+                "1M context window",
+                "Configurable effort",
+                "Long-running agent loops",
+                "Gemini API access",
+                "Google AI Studio integration"
+            ],
+            "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/3-8-flash-and-3-8-flash-cyber/"
+        },
+        {
+            "id": 141,
+            "name": "ChatGPT Images 2.5",
+            "company": "OpenAI",
+            "release_date": "2026-09-08",
+            "open_source": false,
+            "license": "Proprietary",
+            "category": "AI Image Creation Tool",
+            "description": "OpenAI's updated image creation experience in ChatGPT and Codex, with sharper detail, more reliable multi-turn editing, reference fidelity, sketch input, templates, and shareable prompts.",
+            "key_features": [
+                "Sketch-based generation",
+                "Reference-image fidelity",
+                "Multi-turn edit consistency",
+                "Templates",
+                "GPT-Image-2.5 Flare and Sunburst API models"
+            ],
+            "url": "https://openai.com/index/introducing-chatgpt-images-2-5/"
+        },
+        {
+            "id": 142,
+            "name": "AlphaGenome Atlas",
+            "company": "Google DeepMind",
+            "release_date": "2026-09-08",
+            "open_source": false,
+            "license": "Academic and non-commercial access",
+            "category": "AI for Science Platform",
+            "description": "A research portal and API built around precomputed AlphaGenome predictions for approximately 9 billion single-nucleotide variants across the human genome.",
+            "key_features": [
+                "9B variant predictions",
+                "AlphaGenome Variant Impact score",
+                "Feature attributions",
+                "Research portal",
+                "AlphaGenome API"
+            ],
+            "url": "https://deepmind.google/blog/alphagenome-atlas-a-predictive-map-of-every-possible-dna-letter-change-in-the-human-genome/"
+        },
+        {
+            "id": 143,
+            "name": "OpenAI Agents API",
+            "company": "OpenAI",
+            "release_date": "2026-09-10",
+            "open_source": false,
+            "license": "Proprietary",
+            "category": "Agent Development Platform",
+            "description": "OpenAI's developer platform for building, deploying, and operating production agents with model access, tools, tracing, evaluations, and orchestration primitives.",
+            "key_features": [
+                "Agent orchestration",
+                "Built-in tools",
+                "Tracing and observability",
+                "Evaluations",
+                "Production deployment support"
+            ],
+            "url": "https://openai.com/index/introducing-the-agents-api/"
         }
     ]
 }

@@ -1,10 +1,10 @@
 {
     "metadata": {
         "title": "AI & LLM Models Timeline",
-        "description": "Comprehensive list of AI and LLM models from 2017 to 2026, including text, vision, audio, multimodal and image generation models.",
-        "last_updated": "2026-08-15",
-        "total_models": 288,
-        "audit_status": "Verified audit 2026-08-15: Added Jul–Aug 2026 frontier models (Kimi K3, Claude Opus 5, Gemini 3.6/3.7 Flash, Grok 4.6, DeepSeek-V4-Pro, Qwen3.8 family, Muse Spark 1.2/Glimmer, LFM2.5, Seedance 2.5, GLM-5.3, Qwen-Image 3.0).",
+        "description": "Comprehensive list of AI and LLM models from 2017 to 2026, including text, vision, audio, multimodal, image generation, scientific and forecasting models.",
+        "last_updated": "2026-09-19",
+        "total_models": 299,
+        "audit_status": "Verified audit 2026-09-19: Added official Aug–Sep 2026 releases from Google DeepMind, OpenAI and SpaceXAI, including Gemini 3.5 Transcribe, Gemini Omni 1.1 Flash, Gemini 3.8 variants, WeatherNext 3, GPT-6 Astra, GPT-Image-2.5, Gemini Live variants, AlphaGenome Atlas and Grok Voice Transcribe 2.0.",
         "logo_source": "Clearbit Logo API (https://logo.clearbit.com/{domain})",
         "fields": [
             "id",
@@ -2462,7 +2462,7 @@
                 "text"
             ],
             "parameters": 204,
-            "parameter_unit": "B",
+            "parameter_unit": "billion",
             "context_window_tokens": 128000,
             "open_source": false,
             "license": "Proprietary",
@@ -2476,7 +2476,21 @@
             "notable_features": [
                 "Korean-specific optimization"
             ],
-            "id": 52
+            "id": 52,
+            "company_website": null,
+            "company_logo_url": null,
+            "training_tokens": null,
+            "training_data_cutoff": null,
+            "benchmark_scores": {},
+            "pricing_per_1m_tokens": {
+                "input": null,
+                "output": null
+            },
+            "official_model_link": null,
+            "huggingface_url": null,
+            "paper_url": null,
+            "predecessor": null,
+            "successor": null
         },
         {
             "id": 53,
@@ -4235,7 +4249,7 @@
                 "audio"
             ],
             "parameters": 40,
-            "parameter_unit": "B",
+            "parameter_unit": "billion",
             "context_window_tokens": 32000,
             "open_source": false,
             "license": "Proprietary",
@@ -4249,7 +4263,21 @@
             "notable_features": [
                 "98 global languages support"
             ],
-            "id": 89
+            "id": 89,
+            "company_website": null,
+            "company_logo_url": null,
+            "training_tokens": null,
+            "training_data_cutoff": null,
+            "benchmark_scores": {},
+            "pricing_per_1m_tokens": {
+                "input": null,
+                "output": null
+            },
+            "official_model_link": null,
+            "huggingface_url": null,
+            "paper_url": null,
+            "predecessor": null,
+            "successor": null
         },
         {
             "id": 90,
@@ -6402,7 +6430,7 @@
                 "text"
             ],
             "parameters": 12,
-            "parameter_unit": "B",
+            "parameter_unit": "billion",
             "context_window_tokens": 128000,
             "open_source": true,
             "license": "Krutrim Community",
@@ -6417,7 +6445,21 @@
             "notable_features": [
                 "Indian language native support"
             ],
-            "id": 134
+            "id": 134,
+            "company_website": null,
+            "company_logo_url": null,
+            "training_tokens": null,
+            "training_data_cutoff": null,
+            "benchmark_scores": {},
+            "pricing_per_1m_tokens": {
+                "input": null,
+                "output": null
+            },
+            "official_model_link": null,
+            "huggingface_url": null,
+            "paper_url": null,
+            "predecessor": null,
+            "successor": null
         },
         {
             "id": 135,
@@ -6629,14 +6671,42 @@
                 "text"
             ],
             "parameters": 3.8,
-            "parameter_unit": "B",
+            "parameter_unit": "billion",
             "open_source": true,
             "license": "MIT",
             "context_window_tokens": 128000,
             "release_date": "2025-02-05",
             "description": "State-of-the-art small language model optimized for reasoning-dense tasks on edge devices.",
             "official_model_link": "https://azure.microsoft.com/en-us/blog/introducing-phi-4-mini/",
-            "id": 139
+            "id": 139,
+            "company_website": null,
+            "company_logo_url": null,
+            "training_tokens": null,
+            "training_data_cutoff": null,
+            "benchmark_scores": {},
+            "pricing_per_1m_tokens": {
+                "input": null,
+                "output": null
+            },
+            "huggingface_url": null,
+            "paper_url": null,
+            "predecessor": null,
+            "successor": null,
+            "model_family": "Phi",
+            "model_version": "4-mini",
+            "api_available": false,
+            "country": "USA",
+            "use_cases": [
+                "edge inference",
+                "reasoning",
+                "small-model deployment"
+            ],
+            "notable_features": [
+                "3.8B parameters",
+                "MIT license",
+                "128K context window",
+                "edge optimization"
+            ]
         },
         {
             "id": 140,
@@ -8538,7 +8608,34 @@
             "release_date": "2025-11-18",
             "description": "Specialized model for breakthrough scientific research and complex logical deduction via parallel hypothesis exploration.",
             "official_model_link": "https://deepmind.google/gemini",
-            "id": 178
+            "id": 178,
+            "company_website": null,
+            "company_logo_url": null,
+            "training_tokens": null,
+            "training_data_cutoff": null,
+            "benchmark_scores": {},
+            "pricing_per_1m_tokens": {
+                "input": null,
+                "output": null
+            },
+            "huggingface_url": null,
+            "paper_url": null,
+            "predecessor": null,
+            "successor": null,
+            "model_family": "Gemini",
+            "model_version": "3-deep-think",
+            "api_available": false,
+            "country": "USA",
+            "use_cases": [
+                "scientific research",
+                "complex reasoning",
+                "mathematics"
+            ],
+            "notable_features": [
+                "parallel hypothesis exploration",
+                "specialized reasoning",
+                "2M context window"
+            ]
         },
         {
             "id": 179,
@@ -13922,6 +14019,539 @@
             "predecessor": "GLM-5.2",
             "successor": null,
             "id": 288
+        },
+        {
+            "company": "Google DeepMind",
+            "company_website": "https://deepmind.google",
+            "company_logo_url": "https://logo.clearbit.com/deepmind.google",
+            "model_family": "Gemini Audio",
+            "model_name": "Gemini 3.5 Transcribe",
+            "model_version": "3.5-transcribe",
+            "model_type": "Speech-to-Text Model",
+            "architecture": "Multimodal audio model",
+            "modalities": [
+                "audio",
+                "text"
+            ],
+            "parameters": null,
+            "parameter_unit": null,
+            "training_tokens": null,
+            "open_source": false,
+            "license": "Proprietary",
+            "api_available": true,
+            "context_window_tokens": null,
+            "training_data_cutoff": null,
+            "release_date": "2026-08-26",
+            "country": "USA",
+            "description": "Gemini speech-to-text model for real-time and prerecorded transcription with disfluency cleanup, speaker attribution, timestamps, custom vocabulary, and support for more than 85 languages.",
+            "use_cases": [
+                "transcription",
+                "voice agents",
+                "captioning",
+                "call analytics"
+            ],
+            "notable_features": [
+                "streaming and prerecorded APIs",
+                "speaker attribution",
+                "word-level timestamps",
+                "custom vocabulary"
+            ],
+            "benchmark_scores": {},
+            "pricing_per_1m_tokens": {
+                "input": null,
+                "output": null
+            },
+            "official_model_link": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-5-transcribe/",
+            "huggingface_url": null,
+            "paper_url": null,
+            "predecessor": "Chirp 3",
+            "successor": null,
+            "id": 289
+        },
+        {
+            "company": "Google DeepMind",
+            "company_website": "https://deepmind.google",
+            "company_logo_url": "https://logo.clearbit.com/deepmind.google",
+            "model_family": "Gemini Omni",
+            "model_name": "Gemini Omni 1.1 Flash",
+            "model_version": "1.1-flash",
+            "model_type": "Generative Video Model",
+            "architecture": "Multimodal generative model",
+            "modalities": [
+                "text",
+                "image",
+                "video"
+            ],
+            "parameters": null,
+            "parameter_unit": null,
+            "training_tokens": null,
+            "open_source": false,
+            "license": "Proprietary",
+            "api_available": true,
+            "context_window_tokens": null,
+            "training_data_cutoff": null,
+            "release_date": "2026-08-27",
+            "country": "USA",
+            "description": "Production-ready Gemini Omni update for controllable video creation and editing, including scene extension, first/last-frame interpolation, fast drafts, and high-resolution upscaling.",
+            "use_cases": [
+                "video generation",
+                "video editing",
+                "creative production"
+            ],
+            "notable_features": [
+                "scene extension",
+                "first and last frame control",
+                "360p drafts",
+                "4K upscaling"
+            ],
+            "benchmark_scores": {},
+            "pricing_per_1m_tokens": {
+                "input": null,
+                "output": null
+            },
+            "official_model_link": "https://blog.google/innovation-and-ai/technology/developers-tools/build-with-gemini-omni-1-1-flash/",
+            "huggingface_url": null,
+            "paper_url": null,
+            "predecessor": "Gemini Omni Flash",
+            "successor": null,
+            "id": 290
+        },
+        {
+            "company": "Google DeepMind",
+            "company_website": "https://deepmind.google",
+            "company_logo_url": "https://logo.clearbit.com/deepmind.google",
+            "model_family": "Gemini",
+            "model_name": "Gemini 3.8 Flash",
+            "model_version": "3.8-flash",
+            "model_type": "Multimodal LLM",
+            "architecture": "Transformer (multimodal)",
+            "modalities": [
+                "text",
+                "vision",
+                "audio",
+                "video"
+            ],
+            "parameters": null,
+            "parameter_unit": null,
+            "training_tokens": null,
+            "open_source": false,
+            "license": "Proprietary",
+            "api_available": true,
+            "context_window_tokens": null,
+            "training_data_cutoff": null,
+            "release_date": "2026-09-02",
+            "country": "USA",
+            "description": "Google DeepMind's workhorse Gemini model for long-horizon coding, agentic workflows, and multi-step reasoning, with configurable effort levels and a 1M-token context window.",
+            "use_cases": [
+                "coding",
+                "agentic workflows",
+                "professional knowledge work",
+                "reasoning"
+            ],
+            "notable_features": [
+                "1M context window",
+                "configurable effort",
+                "long-running agent loops",
+                "Gemini API availability"
+            ],
+            "benchmark_scores": {},
+            "pricing_per_1m_tokens": {
+                "input": 0.75,
+                "output": 3.75
+            },
+            "official_model_link": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/3-8-flash-and-3-8-flash-cyber/",
+            "huggingface_url": null,
+            "paper_url": "https://deepmind.google/models/model-cards/gemini-3-8-flash/",
+            "predecessor": "Gemini 3.7 Flash",
+            "successor": null,
+            "id": 291
+        },
+        {
+            "company": "Google DeepMind",
+            "company_website": "https://deepmind.google",
+            "company_logo_url": "https://logo.clearbit.com/deepmind.google",
+            "model_family": "Gemini",
+            "model_name": "Gemini 3.8 Flash Cyber",
+            "model_version": "3.8-flash-cyber",
+            "model_type": "Cybersecurity LLM",
+            "architecture": "Transformer (multimodal)",
+            "modalities": [
+                "text",
+                "vision",
+                "code"
+            ],
+            "parameters": null,
+            "parameter_unit": null,
+            "training_tokens": null,
+            "open_source": false,
+            "license": "Proprietary / trusted-defender access",
+            "api_available": false,
+            "context_window_tokens": null,
+            "training_data_cutoff": null,
+            "release_date": "2026-09-02",
+            "country": "USA",
+            "description": "Gemini 3.8 cybersecurity variant for trusted defenders, optimized for vulnerability discovery and automated patching with a more permissive defensive safety profile.",
+            "use_cases": [
+                "defensive cybersecurity",
+                "vulnerability discovery",
+                "automated patching"
+            ],
+            "notable_features": [
+                "Fairwind trusted-defender program",
+                "CyberGym evaluation",
+                "CWE-Bench patching",
+                "defensive safeguards"
+            ],
+            "benchmark_scores": {},
+            "pricing_per_1m_tokens": {
+                "input": null,
+                "output": null
+            },
+            "official_model_link": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/3-8-flash-and-3-8-flash-cyber/",
+            "huggingface_url": null,
+            "paper_url": null,
+            "predecessor": "Gemini 3.5 Flash Cyber",
+            "successor": null,
+            "id": 292
+        },
+        {
+            "company": "Google DeepMind",
+            "company_website": "https://deepmind.google",
+            "company_logo_url": "https://logo.clearbit.com/deepmind.google",
+            "model_family": "WeatherNext",
+            "model_name": "WeatherNext 3",
+            "model_version": "3.0",
+            "model_type": "Weather Forecasting Foundation Model",
+            "architecture": "AI weather forecasting model",
+            "modalities": [
+                "satellite data",
+                "weather observations"
+            ],
+            "parameters": null,
+            "parameter_unit": null,
+            "training_tokens": null,
+            "open_source": false,
+            "license": "Proprietary",
+            "api_available": true,
+            "context_window_tokens": null,
+            "training_data_cutoff": null,
+            "release_date": "2026-09-03",
+            "country": "USA",
+            "description": "Google DeepMind and Google Research's global weather model using real-time satellite observations for hourly, higher-resolution forecasts and precipitation prediction.",
+            "use_cases": [
+                "weather forecasting",
+                "climate risk",
+                "emergency response",
+                "clean energy planning"
+            ],
+            "notable_features": [
+                "hourly refreshes",
+                "real-time satellite data",
+                "5 km surface resolution",
+                "Google products and Cloud integration"
+            ],
+            "benchmark_scores": {},
+            "pricing_per_1m_tokens": {
+                "input": null,
+                "output": null
+            },
+            "official_model_link": "https://blog.google/innovation-and-ai/models-and-research/google-deepmind/introducing-weathernext-3/",
+            "huggingface_url": null,
+            "paper_url": null,
+            "predecessor": "WeatherNext 2",
+            "successor": null,
+            "id": 293
+        },
+        {
+            "company": "OpenAI",
+            "company_website": "https://openai.com",
+            "company_logo_url": "https://logo.clearbit.com/openai.com",
+            "model_family": "GPT",
+            "model_name": "GPT-6 Astra",
+            "model_version": "6.0-astra",
+            "model_type": "Frontier Multimodal Reasoning LLM",
+            "architecture": "Transformer",
+            "modalities": [
+                "text",
+                "vision",
+                "audio"
+            ],
+            "parameters": null,
+            "parameter_unit": null,
+            "training_tokens": null,
+            "open_source": false,
+            "license": "Proprietary",
+            "api_available": true,
+            "context_window_tokens": 1050000,
+            "training_data_cutoff": "2026-04",
+            "release_date": "2026-09-03",
+            "country": "USA",
+            "description": "OpenAI's broadly deployed GPT-6 frontier model for computer use, browsing, software engineering, cybersecurity, science, and professional work.",
+            "use_cases": [
+                "computer use",
+                "browsing",
+                "coding",
+                "cybersecurity",
+                "scientific research"
+            ],
+            "notable_features": [
+                "1.05M context window",
+                "128K maximum output",
+                "GPT-6 Astra system card",
+                "API, ChatGPT, Azure and Bedrock availability"
+            ],
+            "benchmark_scores": {},
+            "pricing_per_1m_tokens": {
+                "input": 10,
+                "output": 50
+            },
+            "official_model_link": "https://openai.com/index/gpt-6-astra/",
+            "huggingface_url": null,
+            "paper_url": "https://deploymentsafety.openai.com/gpt-6-astra/",
+            "predecessor": "GPT-5.6 Sol",
+            "successor": null,
+            "id": 294
+        },
+        {
+            "company": "OpenAI",
+            "company_website": "https://openai.com",
+            "company_logo_url": "https://logo.clearbit.com/openai.com",
+            "model_family": "GPT Image",
+            "model_name": "GPT-Image-2.5 Flare / Sunburst",
+            "model_version": "2.5",
+            "model_type": "Image Generation Model",
+            "architecture": "Diffusion-based image generation model",
+            "modalities": [
+                "text",
+                "image"
+            ],
+            "parameters": null,
+            "parameter_unit": null,
+            "training_tokens": null,
+            "open_source": false,
+            "license": "Proprietary",
+            "api_available": true,
+            "context_window_tokens": null,
+            "training_data_cutoff": null,
+            "release_date": "2026-09-08",
+            "country": "USA",
+            "description": "OpenAI's GPT-Image-2.5 API models: Flare for faster general image generation and editing, and Sunburst for higher-precision creative workflows. The same generation improvements power ChatGPT Images 2.5.",
+            "use_cases": [
+                "image generation",
+                "image editing",
+                "creative production",
+                "reference-image workflows"
+            ],
+            "notable_features": [
+                "improved reference fidelity",
+                "multi-turn editing consistency",
+                "transparent backgrounds",
+                "Flare and Sunburst variants"
+            ],
+            "benchmark_scores": {},
+            "pricing_per_1m_tokens": {
+                "input": null,
+                "output": null
+            },
+            "official_model_link": "https://openai.com/index/introducing-chatgpt-images-2-5/",
+            "huggingface_url": null,
+            "paper_url": "https://deploymentsafety.openai.com/chatgpt-images-2-5/safety-evaluations",
+            "predecessor": "GPT-Image-2",
+            "successor": null,
+            "id": 295
+        },
+        {
+            "company": "Google DeepMind",
+            "company_website": "https://deepmind.google",
+            "company_logo_url": "https://logo.clearbit.com/deepmind.google",
+            "model_family": "AlphaGenome",
+            "model_name": "AlphaGenome Atlas",
+            "model_version": "Atlas",
+            "model_type": "Genomics Foundation Model and Dataset",
+            "architecture": "Genomic sequence model with precomputed variant effects",
+            "modalities": [
+                "DNA sequence"
+            ],
+            "parameters": null,
+            "parameter_unit": null,
+            "training_tokens": null,
+            "open_source": false,
+            "license": "Academic and non-commercial access",
+            "api_available": true,
+            "context_window_tokens": null,
+            "training_data_cutoff": null,
+            "release_date": "2026-09-08",
+            "country": "USA",
+            "description": "AlphaGenome Atlas precomputes molecular-effect predictions for roughly 9 billion possible single-nucleotide variants across the human genome and exposes them through a research portal and API.",
+            "use_cases": [
+                "genomics research",
+                "rare disease research",
+                "variant prioritization",
+                "molecular biology"
+            ],
+            "notable_features": [
+                "9B single-nucleotide variants",
+                "AlphaGenome Variant Impact score",
+                "feature attributions",
+                "academic research portal"
+            ],
+            "benchmark_scores": {},
+            "pricing_per_1m_tokens": {
+                "input": null,
+                "output": null
+            },
+            "official_model_link": "https://deepmind.google/blog/alphagenome-atlas-a-predictive-map-of-every-possible-dna-letter-change-in-the-human-genome/",
+            "huggingface_url": null,
+            "paper_url": null,
+            "predecessor": "AlphaGenome",
+            "successor": null,
+            "id": 296
+        },
+        {
+            "company": "Google DeepMind",
+            "company_website": "https://deepmind.google",
+            "company_logo_url": "https://logo.clearbit.com/deepmind.google",
+            "model_family": "Gemini Audio",
+            "model_name": "Gemini 3.8 Live",
+            "model_version": "3.8-live",
+            "model_type": "Realtime Multimodal Voice Model",
+            "architecture": "Native audio-language model",
+            "modalities": [
+                "text",
+                "vision",
+                "audio"
+            ],
+            "parameters": null,
+            "parameter_unit": null,
+            "training_tokens": null,
+            "open_source": false,
+            "license": "Proprietary",
+            "api_available": true,
+            "context_window_tokens": null,
+            "training_data_cutoff": null,
+            "release_date": "2026-09-15",
+            "country": "USA",
+            "description": "Realtime dialogue model for fluid voice interaction, visual grounding, multilingual conversation, and background tool execution.",
+            "use_cases": [
+                "voice agents",
+                "realtime assistance",
+                "visual dialogue",
+                "multilingual interaction"
+            ],
+            "notable_features": [
+                "near-realtime dialogue",
+                "interruptible conversation",
+                "visual context",
+                "background tool use"
+            ],
+            "benchmark_scores": {},
+            "pricing_per_1m_tokens": {
+                "input": null,
+                "output": null
+            },
+            "official_model_link": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-8-live-gemini-3-8-live-extended-thinking/",
+            "huggingface_url": null,
+            "paper_url": null,
+            "predecessor": "Gemini 3.5 Live Translate",
+            "successor": null,
+            "id": 297
+        },
+        {
+            "company": "Google DeepMind",
+            "company_website": "https://deepmind.google",
+            "company_logo_url": "https://logo.clearbit.com/deepmind.google",
+            "model_family": "Gemini Audio",
+            "model_name": "Gemini 3.8 Live Extended Thinking",
+            "model_version": "3.8-live-extended-thinking",
+            "model_type": "Realtime Reasoning Voice Model",
+            "architecture": "Native audio-language model",
+            "modalities": [
+                "text",
+                "vision",
+                "audio"
+            ],
+            "parameters": null,
+            "parameter_unit": null,
+            "training_tokens": null,
+            "open_source": false,
+            "license": "Proprietary",
+            "api_available": true,
+            "context_window_tokens": null,
+            "training_data_cutoff": null,
+            "release_date": "2026-09-15",
+            "country": "USA",
+            "description": "Higher-complexity Gemini Live variant that performs extended multi-step reasoning while maintaining a natural voice conversation.",
+            "use_cases": [
+                "complex voice agents",
+                "multistep planning",
+                "realtime research",
+                "tool-using assistants"
+            ],
+            "notable_features": [
+                "extended thinking",
+                "parallel reasoning",
+                "background task execution",
+                "Gemini API availability"
+            ],
+            "benchmark_scores": {},
+            "pricing_per_1m_tokens": {
+                "input": null,
+                "output": null
+            },
+            "official_model_link": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-8-live-gemini-3-8-live-extended-thinking/",
+            "huggingface_url": null,
+            "paper_url": null,
+            "predecessor": "Gemini 3.8 Live",
+            "successor": null,
+            "id": 298
+        },
+        {
+            "company": "SpaceXAI",
+            "company_website": "https://x.ai",
+            "company_logo_url": "https://logo.clearbit.com/x.ai",
+            "model_family": "Grok Voice",
+            "model_name": "Grok Voice Transcribe 2.0",
+            "model_version": "2.0",
+            "model_type": "Speech-to-Text Model",
+            "architecture": "Audio foundation model",
+            "modalities": [
+                "audio",
+                "text"
+            ],
+            "parameters": null,
+            "parameter_unit": null,
+            "training_tokens": null,
+            "open_source": false,
+            "license": "Proprietary",
+            "api_available": true,
+            "context_window_tokens": null,
+            "training_data_cutoff": null,
+            "release_date": "2026-09-18",
+            "country": "USA",
+            "description": "xAI's speech-to-text model for noisy, multilingual, real-world audio, released as an API model with improved accuracy over Grok Voice Transcribe 1.0 at the same price.",
+            "use_cases": [
+                "speech transcription",
+                "video narration",
+                "customer support",
+                "voice agents"
+            ],
+            "notable_features": [
+                "multilingual audio",
+                "noisy-environment robustness",
+                "API availability",
+                "same-price upgrade"
+            ],
+            "benchmark_scores": {},
+            "pricing_per_1m_tokens": {
+                "input": null,
+                "output": null
+            },
+            "official_model_link": "https://x.ai/news/grok-voice-transcribe-2",
+            "huggingface_url": null,
+            "paper_url": null,
+            "predecessor": "Grok Voice Transcribe 1.0",
+            "successor": null,
+            "id": 299
         }
     ]
 }

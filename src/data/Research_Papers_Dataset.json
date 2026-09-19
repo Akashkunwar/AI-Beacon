@@ -2,8 +2,8 @@
     "metadata": {
         "title": "Foundational AI Research Papers Timeline",
         "description": "A curated list of the most influential AI research papers that drove the technological revolution.",
-        "last_updated": "2026-08-15",
-        "total_papers": 126,
+        "last_updated": "2026-09-19",
+        "total_papers": 141,
         "fields": [
             "id",
             "title",
@@ -3066,6 +3066,345 @@
                 "Post-training without new pretraining"
             ],
             "paper_url": "https://z.ai/blog/glm-5-3",
+            "code_url": null,
+            "citations": 0
+        },
+        {
+            "id": 127,
+            "title": "Visual General Intelligence: A White Paper",
+            "authors": [
+                "Hirokatsu Kataoka",
+                "Yoshihiro Fukuhara",
+                "Yonglong Tian",
+                "Shangzhe Wu",
+                "Oishi Deb",
+                "Ryousuke Yamada",
+                "Christian Rupprecht",
+                "Jianyuan Wang",
+                "Koichi Namekata",
+                "Robert Geirhos",
+                "Aditi Raghunathan",
+                "Deva Ramanan",
+                "Jiajun Wu",
+                "Zhuang Liu"
+            ],
+            "institution": "Google DeepMind and collaborators",
+            "publication_date": "2026-08-26",
+            "published_in": "arXiv",
+            "topic": "Computer Vision / AGI",
+            "description": "Reconsiders intelligence from a vision-centered perspective and surveys visual modalities, benchmarks, learning paradigms, and the relationship between visual intelligence and language.",
+            "key_contributions": [
+                "Visual general intelligence framing",
+                "Vision-centered AGI agenda",
+                "Benchmark and modality analysis",
+                "Cross-modal intelligence discussion"
+            ],
+            "paper_url": "https://deepmind.google/research/publications/270149/",
+            "code_url": null,
+            "citations": 0
+        },
+        {
+            "id": 128,
+            "title": "Gemini 3.5 Transcribe Model Card",
+            "authors": [
+                "Google DeepMind Gemini Audio Team"
+            ],
+            "institution": "Google DeepMind",
+            "publication_date": "2026-08-26",
+            "published_in": "Google DeepMind Technical Documentation",
+            "topic": "Speech Recognition / Multimodal AI",
+            "description": "Technical documentation for Gemini 3.5 Transcribe, a speech-to-text model supporting streaming and prerecorded audio, speaker attribution, timestamps, custom vocabulary, and multilingual transcription.",
+            "key_contributions": [
+                "Intelligent transcription",
+                "Streaming and prerecorded interfaces",
+                "Speaker attribution and timestamps",
+                "Context-aware voice workflows"
+            ],
+            "paper_url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-5-transcribe/",
+            "code_url": null,
+            "citations": 0
+        },
+        {
+            "id": 129,
+            "title": "TimesFM-3: A Zero-Shot Foundation Model for Multivariate Forecasting",
+            "authors": [
+                "Ayush Jain",
+                "Rajat Sen",
+                "Yichen Zhou",
+                "Petros Mol",
+                "Abhimanyu Das",
+                "Samet Oymak"
+            ],
+            "institution": "Google Research",
+            "publication_date": "2026-08-31",
+            "published_in": "Google Research",
+            "topic": "Time-Series Foundation Models",
+            "description": "Introduces TimesFM-3, a 330M-parameter decoder-only transformer pretrained on more than one trillion time points for zero-shot multivariate forecasting with covariates.",
+            "key_contributions": [
+                "Native multivariate forecasting",
+                "330M-parameter foundation model",
+                "One-pass non-autoregressive decoding",
+                "Zero-shot benchmark evaluation"
+            ],
+            "paper_url": "https://www.research.google/blog/timesfm-3-a-zero-shot-foundation-model-for-multivariate-forecasting/",
+            "code_url": "https://github.com/google-research/timesfm",
+            "citations": 0
+        },
+        {
+            "id": 130,
+            "title": "Claude Fable 5.1 and Claude Mythos 5.1 System Card",
+            "authors": [
+                "Anthropic"
+            ],
+            "institution": "Anthropic",
+            "publication_date": "2026-09-01",
+            "published_in": "Anthropic System Cards",
+            "topic": "AI Safety / Frontier Models",
+            "description": "Documents the capabilities, safeguards, evaluations, and deployment decisions for Claude Fable 5.1 and restricted-access Claude Mythos 5.1.",
+            "key_contributions": [
+                "Frontier capability evaluation",
+                "Cybersecurity and biology safeguards",
+                "Trusted access deployment",
+                "Alignment and reliability analysis"
+            ],
+            "paper_url": "https://www.anthropic.com/system-cards",
+            "code_url": null,
+            "citations": 0
+        },
+        {
+            "id": 131,
+            "title": "Designing Proactive Thought Partners for Writing",
+            "authors": [
+                "Chao Zhang",
+                "Abe Davis",
+                "Chih-Wei Chen",
+                "Chin-Chia Hsu"
+            ],
+            "institution": "Google DeepMind",
+            "publication_date": "2026-09-01",
+            "published_in": "arXiv",
+            "topic": "Human-AI Interaction / Writing Assistants",
+            "description": "Studies customizable AI agents that proactively provide higher-level cognitive support during writing, focusing on timing, context, engagement, and preservation of user control.",
+            "key_contributions": [
+                "Proactive writing partner design",
+                "Technology-probe deployment study",
+                "Context-aware assistance",
+                "User-control principles"
+            ],
+            "paper_url": "https://deepmind.google/research/publications/265605/",
+            "code_url": null,
+            "citations": 0
+        },
+        {
+            "id": 132,
+            "title": "Gemini 3.8 Flash Model Card",
+            "authors": [
+                "Google DeepMind"
+            ],
+            "institution": "Google DeepMind",
+            "publication_date": "2026-09-02",
+            "published_in": "Google DeepMind Model Cards",
+            "topic": "Multimodal LLMs / Agentic AI",
+            "description": "Model card for Gemini 3.8 Flash, documenting intended use, model data, distribution, evaluations, limitations, and safety performance for software engineering and agentic knowledge workflows.",
+            "key_contributions": [
+                "Frontier model documentation",
+                "Safety and limitation reporting",
+                "Agentic workflow evaluation",
+                "Software engineering evaluation"
+            ],
+            "paper_url": "https://deepmind.google/models/model-cards/gemini-3-8-flash/",
+            "code_url": null,
+            "citations": 0
+        },
+        {
+            "id": 133,
+            "title": "GPT-6 Astra System Card",
+            "authors": [
+                "OpenAI"
+            ],
+            "institution": "OpenAI",
+            "publication_date": "2026-09-03",
+            "published_in": "OpenAI Deployment Safety Hub",
+            "topic": "AI Safety / Frontier Models",
+            "description": "System card and safety overview for GPT-6 Astra, covering critical cybersecurity capability, robustness, alignment, monitoring, browsing, computer use, and deployment mitigations.",
+            "key_contributions": [
+                "Critical cyber capability evaluation",
+                "Misalignment monitoring",
+                "Jailbreak and prompt-injection evaluation",
+                "Agentic deployment safeguards"
+            ],
+            "paper_url": "https://deploymentsafety.openai.com/gpt-6-astra/",
+            "code_url": null,
+            "citations": 0
+        },
+        {
+            "id": 134,
+            "title": "From Language Models to World-Acting Systems: Progress and Limits of Agentic AI across Digital, Social, Virtual, and Physical Environments",
+            "authors": [
+                "Linsen Zhu",
+                "Mengqing Cai"
+            ],
+            "institution": "Independent research",
+            "publication_date": "2026-09-04",
+            "published_in": "arXiv",
+            "topic": "Agentic AI / AI Safety",
+            "description": "A critical review of agentic AI that separates model competence, harness integration, persistence, delegated authority, and environmental coupling, and proposes evidence-based principles for justified delegation.",
+            "key_contributions": [
+                "Model-harness-environment distinction",
+                "Delegated-authority analysis",
+                "Agent reliability and recovery agenda",
+                "Safety and governance framework"
+            ],
+            "paper_url": "https://arxiv.org/abs/2609.04894",
+            "code_url": null,
+            "citations": 0
+        },
+        {
+            "id": 135,
+            "title": "AlphaGenome Atlas: Predicting the Effects of Every Possible Single-Letter Change in the Human Genome",
+            "authors": [
+                "AlphaGenome Atlas Team"
+            ],
+            "institution": "Google DeepMind and collaborators",
+            "publication_date": "2026-09-08",
+            "published_in": "Google DeepMind Research",
+            "topic": "AI for Science / Genomics",
+            "description": "Introduces a genome-scale atlas of AlphaGenome predictions for roughly 9 billion single-nucleotide variants, with the AlphaGenome Variant Impact score and feature attributions.",
+            "key_contributions": [
+                "Genome-wide variant-effect atlas",
+                "AlphaGenome Variant Impact score",
+                "Feature-level explanations",
+                "Rare-disease applications"
+            ],
+            "paper_url": "https://deepmind.google/blog/alphagenome-atlas-a-predictive-map-of-every-possible-dna-letter-change-in-the-human-genome/",
+            "code_url": null,
+            "citations": 0
+        },
+        {
+            "id": 136,
+            "title": "ChatGPT Images 2.5 System Card",
+            "authors": [
+                "OpenAI"
+            ],
+            "institution": "OpenAI",
+            "publication_date": "2026-09-08",
+            "published_in": "OpenAI Deployment Safety Hub",
+            "topic": "Image Generation / AI Safety",
+            "description": "System card for GPT-Image-2.5 Flare and Sunburst, covering image-editing consistency, infographic accuracy, training data categories, and safety mitigations.",
+            "key_contributions": [
+                "Image-generation safety evaluation",
+                "Multi-turn editing analysis",
+                "Reference fidelity evaluation",
+                "C2PA and watermarking safeguards"
+            ],
+            "paper_url": "https://deploymentsafety.openai.com/chatgpt-images-2-5/safety-evaluations",
+            "code_url": null,
+            "citations": 0
+        },
+        {
+            "id": 137,
+            "title": "ToolGrad: Efficient Tool-Use Dataset Generation with Textual Gradients",
+            "authors": [
+                "Google Research"
+            ],
+            "institution": "Google Research",
+            "publication_date": "2026-09-10",
+            "published_in": "Google Research",
+            "topic": "Tool Use / Synthetic Data / LLM Agents",
+            "description": "Introduces a method for generating tool-use training data with textual gradients, improving the efficiency of dataset creation for language models that call tools.",
+            "key_contributions": [
+                "Textual-gradient supervision",
+                "Efficient tool-use data generation",
+                "Agent training methodology",
+                "Tool-call quality improvement"
+            ],
+            "paper_url": "https://www.research.google/blog/toolgrad-efficient-tool-use-dataset-generation-with-textual-gradients/",
+            "code_url": null,
+            "citations": 0
+        },
+        {
+            "id": 138,
+            "title": "Bypassing Inference Bottlenecks: Accelerating Complex AI Search with Retrieve-for-Train",
+            "authors": [
+                "Pengcheng Jiang",
+                "Judith Yue Li"
+            ],
+            "institution": "Google Research",
+            "publication_date": "2026-09-15",
+            "published_in": "ICML 2026 / Google Research",
+            "topic": "Information Retrieval / Diffusion Models / Reinforcement Learning",
+            "description": "Presents Retrieve-for-Train, which uses offline reinforcement learning to compile reward-aligned search fan-outs into supervision for a compact diffusion-based retriever, reducing inference-time reasoning cost.",
+            "key_contributions": [
+                "Reward-to-data compilation",
+                "Diffusion-based fan-out retriever",
+                "Complementarity-aware retrieval",
+                "Inference-cost reduction"
+            ],
+            "paper_url": "https://www.research.google/blog/bypassing-inference-bottlenecks-accelerating-complex-ai-search-with-retrieve-for-train/",
+            "code_url": null,
+            "citations": 0
+        },
+        {
+            "id": 139,
+            "title": "Our Framework for Reporting Model Misalignment",
+            "authors": [
+                "OpenAI"
+            ],
+            "institution": "OpenAI",
+            "publication_date": "2026-09-16",
+            "published_in": "OpenAI Research",
+            "topic": "AI Safety / Alignment",
+            "description": "Proposes a systematic framework for tracking, investigating, and disclosing model-misalignment examples, with six initial reports covering unauthorized actions, concealment, unsafe data handling, and agent coordination.",
+            "key_contributions": [
+                "Misalignment disclosure criteria",
+                "Incident investigation workflow",
+                "Public reporting framework",
+                "Six initial model-behavior reports"
+            ],
+            "paper_url": "https://openai.com/index/model-misalignment-reporting-framework/",
+            "code_url": null,
+            "citations": 0
+        },
+        {
+            "id": 140,
+            "title": "The Future of Practice: Enabling Teachers to Create Learning Interactives with Generative UI",
+            "authors": [
+                "Gal Elidan",
+                "Yael Haramaty"
+            ],
+            "institution": "Google Research",
+            "publication_date": "2026-09-17",
+            "published_in": "Google Research Technical Report",
+            "topic": "Generative UI / Education / Human-AI Interaction",
+            "description": "Explores generative interfaces with learning-design guardrails that help teachers create guided, interactive simulations tailored to different students and topics.",
+            "key_contributions": [
+                "Generative learning interactives",
+                "Learning-design guardrails",
+                "Teacher authoring workflows",
+                "Active-learning support"
+            ],
+            "paper_url": "https://www.research.google/blog/the-future-of-practice-enabling-teachers-to-create-learning-interactives-with-generative-ui/",
+            "code_url": null,
+            "citations": 0
+        },
+        {
+            "id": 141,
+            "title": "Measurements for Understanding the Pace of AI Development Inside Frontier Labs",
+            "authors": [
+                "Anthropic"
+            ],
+            "institution": "Anthropic",
+            "publication_date": "2026-09-17",
+            "published_in": "Anthropic Research",
+            "topic": "AI Governance / AI Safety / Frontier Development",
+            "description": "Proposes public measurements for AI-led AI R&D, oversight of agent actions, and compute allocation to improve external visibility into frontier-model development.",
+            "key_contributions": [
+                "AI R&D automation index",
+                "Agent oversight coverage and escalation metrics",
+                "Compute-allocation measurement",
+                "Third-party verification proposal"
+            ],
+            "paper_url": "https://www.anthropic.com/institute/measuring-pace-of-ai-development",
             "code_url": null,
             "citations": 0
         }
