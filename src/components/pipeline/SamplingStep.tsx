@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { useSimulatorStore } from '@/lib/store/simulatorStore';
 import { GlassCard } from '@/components/shared';
 import { ConceptCard } from '@/components/educational/ConceptCard';
+import { PipelineStep } from '@/lib/store/types';
 
 export function SamplingStep() {
     const { tensors, samplingMethod } = useSimulatorStore();
@@ -14,7 +15,7 @@ export function SamplingStep() {
 
     return (
         <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
-            <ConceptCard stepId={11} defaultExpanded={true} />
+            <ConceptCard stepId={PipelineStep.SAMPLING} defaultExpanded />
 
             <div style={{
                 display: 'grid',

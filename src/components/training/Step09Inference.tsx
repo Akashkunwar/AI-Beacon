@@ -352,7 +352,7 @@ export function Step09Inference({ stepNumber }: StepProps) {
                                 borderLeft: '2px solid var(--viz-2)'
                             }}
                         >
-                            <strong>Note:</strong> NormalFloat4 (NF4) is an information-theoretically optimal data type that yields better quality than standard INT4 by mapping weights to a normal distribution.
+                            <strong>Note:</strong> NF4 was designed for approximately normally distributed neural-network weights. In QLoRA-style setups it can preserve quality better than some uniform 4-bit formats, but results depend on the model, calibration, kernels, and task.
                         </motion.p>
                     )}
                 </section>

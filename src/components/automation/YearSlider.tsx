@@ -5,7 +5,7 @@ const TIMELINE_TICKS: { year: number; label: string; isProjection: boolean }[] =
   { year: 2023, label: 'GPT-4, Claude', isProjection: false },
   { year: 2024, label: 'Sora, Gemini', isProjection: false },
   { year: 2025, label: 'Agentic workflows', isProjection: false },
-  { year: 2026, label: 'Today', isProjection: false },
+  { year: 2026, label: 'Current estimate', isProjection: false },
   { year: 2027, label: 'Projected', isProjection: true },
   { year: 2028, label: 'Projected', isProjection: true },
   { year: 2029, label: 'Projected', isProjection: true },
@@ -111,6 +111,19 @@ export function YearSlider({
                 }}
               >
                 (projected)
+              </span>
+            )}
+            {!isProjection && (
+              <span
+                style={{
+                  marginLeft: 'var(--s2)',
+                  fontSize: 'var(--text-xs)',
+                  fontWeight: 'var(--weight-regular)',
+                  color: 'var(--muted)',
+                  textTransform: 'none',
+                }}
+              >
+                (estimated)
               </span>
             )}
           </div>

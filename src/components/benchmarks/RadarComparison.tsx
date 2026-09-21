@@ -12,7 +12,7 @@ const RADAR_CY = RADAR_SIZE / 2;
 const RADAR_R = RADAR_SIZE / 2 - 28;
 
 const AXES = [
-  { key: 'mmlu', label: 'Reasoning', get: (m: BenchmarkModel) => m.scores.mmlu },
+  { key: 'mmlu', label: 'Knowledge', get: (m: BenchmarkModel) => m.scores.mmlu },
   { key: 'humanEval', label: 'Coding', get: (m: BenchmarkModel) => m.scores.humanEval },
   { key: 'math', label: 'Math', get: (m: BenchmarkModel) => m.scores.math },
   { key: 'gpqa', label: 'Science', get: (m: BenchmarkModel) => m.scores.gpqa },

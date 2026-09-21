@@ -48,27 +48,27 @@ const OPT_TABS: {
 }[] = [
         {
             id: 'FlashAttention',
-            desc: 'FlashAttention fuses the softmax and attention matrix multiply into a single kernel, dramatically reducing memory reads/writes to HBM. It avoids materializing the full N×N attention matrix in memory — work is done tile by tile in fast on-chip SRAM. Same numerics as standard attention; strictly better in every metric.',
-            stat: '2–4×',
+            desc: 'FlashAttention tiles the attention computation to reduce high-bandwidth-memory traffic and avoid materializing the full N×N matrix. It computes exact attention up to normal floating-point differences; speedups depend on sequence length, hardware, and implementation.',
+            stat: 'Workload-dependent',
             statLabel: 'speedup',
         },
         {
             id: 'Mixed Precision',
-            desc: 'Training in BF16 (or FP16) cuts parameter and gradient storage in half versus FP32. A master copy of weights is kept in FP32 for the optimizer update to preserve numerical stability. Activations, forward pass, and backward pass all run in half precision — gradients are scaled to prevent underflow.',
-            stat: '2×',
-            statLabel: 'memory reduction',
+            desc: 'Mixed-precision training uses lower-precision formats such as BF16 or FP16 for selected tensors and operations while retaining higher precision where stability requires it. Exact storage, master-weight, and gradient-scaling choices vary by optimizer and framework.',
+            stat: 'Lower',
+            statLabel: 'tensor memory',
         },
         {
             id: 'ZeRO',
-            desc: 'ZeRO (Zero Redundancy Optimizer) shards optimizer states, gradients, and parameters across GPUs rather than replicating them. Stage 1 shards optimizer state; Stage 2 adds gradient sharding; Stage 3 shards parameters too. Each GPU only holds its slice, then communicates during the update step. Memory scales linearly with GPU count.',
-            stat: 'Linear',
-            statLabel: 'memory scaling',
+            desc: 'ZeRO (Zero Redundancy Optimizer) shards optimizer states, gradients, and parameters across data-parallel workers instead of replicating all of them. Later stages save more memory but require additional communication.',
+            stat: 'Sharded',
+            statLabel: 'model state',
         },
         {
             id: 'Grad Checkpoint',
-            desc: 'Gradient checkpointing trades compute for memory: instead of keeping every activation in memory for the backward pass, only selected "checkpoint" activations are saved. The rest are recomputed from the nearest checkpoint during backpropagation. This reduces activation memory by 60–70% at the cost of one extra forward pass.',
-            stat: '60–70%',
-            statLabel: 'memory reduction',
+            desc: 'Gradient checkpointing trades extra computation for lower activation memory: selected activations are saved and the rest are recomputed during backpropagation. The savings and slowdown depend on which layers are checkpointed.',
+            stat: 'Configurable',
+            statLabel: 'memory trade-off',
         },
     ];
 
@@ -198,8 +198,8 @@ function OverviewSection() {
                 every position using <strong style={{ color: 'var(--primary)' }}>Causal Language
                     Modelling (CLM)</strong>. Each prediction error produces a <strong style={{ color: 'var(--primary)' }}>cross-entropy
                         loss signal</strong>, and gradients flow back through all layers to update billions of
-                parameters. After trillions of such steps, the model has implicitly compressed vast
-                world knowledge into its weights.
+                parameters. Across many examples, the weights encode broad statistical patterns and
+                associations that can support language use and recall—without guaranteeing factual accuracy.
             </p>
             <p
                 style={{
@@ -212,10 +212,10 @@ function OverviewSection() {
                     margin: 0,
                 }}
             >
-                Scale is not incidental — it is the mechanism. Larger models trained on more tokens
-                consistently outperform smaller counterparts. The Chinchilla paper (Hoffmann et al. 2022)
-                formalized the compute-optimal frontier: given a fixed FLOP budget, split it equally
-                between model parameters and training tokens.
+                Scale is one important factor, alongside data quality, architecture, and optimization.
+                Chinchilla scaling-law experiments showed that, under their assumptions and compute
+                range, many models were undertrained and that compute should be balanced between model
+                size and training tokens. That is an empirical rule for a regime, not a universal law.
             </p>
         </section>
     );

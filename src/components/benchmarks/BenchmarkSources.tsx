@@ -5,6 +5,12 @@ const SOURCES = [
   { label: 'Hugging Face Open LLM Leaderboard', url: 'https://huggingface.co/spaces/open-llm-leaderboard/open_llm_leaderboard' },
   { label: 'LMSYS Chatbot Arena', url: 'https://lmarena.ai/' },
   { label: 'llm-prices.com', url: 'https://www.llm-prices.com/' },
+  { label: 'MMLU paper', url: 'https://arxiv.org/abs/2009.03300' },
+  { label: 'HumanEval paper', url: 'https://arxiv.org/abs/2107.03374' },
+  { label: 'MATH paper', url: 'https://arxiv.org/abs/2103.03874' },
+  { label: 'GPQA paper', url: 'https://arxiv.org/abs/2311.12022' },
+  { label: 'GSM8K paper', url: 'https://arxiv.org/abs/2110.14168' },
+  { label: 'Chatbot Arena paper', url: 'https://arxiv.org/abs/2403.04132' },
 ];
 
 export function BenchmarkSources() {
@@ -40,9 +46,10 @@ export function BenchmarkSources() {
           fontWeight: 'var(--weight-light)',
         }}
       >
-        Data from Artificial Analysis (artificialanalysis.ai), Hugging Face Open LLM Leaderboard,
-        LMSYS Chatbot Arena, and official provider announcements. Speed and pricing from Artificial
-        Analysis. Benchmark scores from provider reports and community evaluation.
+        Model figures are compiled from provider reports and community evaluations. Benchmark
+        definitions link to the original papers below; speed and pricing use third-party measurements
+        where available. Evaluation protocols can differ, so the table is a navigational snapshot—not
+        a controlled head-to-head experiment.
       </p>
       <ul style={{ margin: 0, padding: 0, listStyle: 'none' }}>
         {SOURCES.map((s) => (

@@ -7,6 +7,7 @@ import { ConceptCard } from '@/components/educational/ConceptCard';
 import { ShapeLabel } from '@/components/visualizers/ShapeLabel';
 import { idToToken, VOCAB_SIZE } from '@/lib/tokenizer/vocab';
 import { topK } from '@/lib/mathEngine/sampling';
+import { PipelineStep } from '@/lib/store/types';
 
 export function LMHeadStep() {
     const { tensors, mode } = useSimulatorStore();
@@ -36,7 +37,7 @@ export function LMHeadStep() {
 
     return (
         <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
-            <ConceptCard stepId={10} defaultExpanded={true} />
+            <ConceptCard stepId={PipelineStep.LM_HEAD} defaultExpanded />
 
             <div style={{
                 display: 'grid',

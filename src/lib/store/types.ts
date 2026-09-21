@@ -32,7 +32,7 @@ export const PIPELINE_STEP_LABELS: Record<PipelineStep, { label: string; shortLa
     [PipelineStep.TOKENIZE]: {
         label: 'Tokenization',
         shortLabel: 'Tokens',
-        description: 'Split text into tokens (words).',
+        description: 'Split text into tokens; this demo uses whole words.',
     },
     [PipelineStep.TOKEN_IDS]: {
         label: 'Token ID Mapping',
@@ -62,7 +62,7 @@ export const PIPELINE_STEP_LABELS: Record<PipelineStep, { label: string; shortLa
     [PipelineStep.LAYER_NORM]: {
         label: 'Layer Normalization',
         shortLabel: 'LayerNorm',
-        description: 'Normalize the vector to unit mean and variance.',
+        description: 'Normalize each token vector to zero mean and unit variance.',
     },
     [PipelineStep.FFN]: {
         label: 'Feed-Forward Network',

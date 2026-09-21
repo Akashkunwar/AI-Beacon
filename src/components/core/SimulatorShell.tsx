@@ -6,6 +6,7 @@ import { ControlPanel } from '@/components/controls/ControlPanel';
 import { ModeToggle } from '@/components/controls/ModeToggle';
 import { PipelineCanvas } from './PipelineCanvas';
 import { Nav } from '@/components/shared/Nav';
+import { ConceptCard } from '@/components/educational/ConceptCard';
 
 // ─── SimulatorShell ───────────────────────────────────────────────────────
 
@@ -141,8 +142,11 @@ function ActionToolbar({ mode, onModeToggle, onInspectorToggle, onControlsToggle
             {/* Center: Mode toggle */}
             <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--s2)', marginRight: 'auto' }}>
                 <h1 style={{ fontSize: 'var(--text-sm)', fontWeight: 'var(--weight-medium)', color: 'var(--ink)', marginRight: 'var(--s3)' }}>
-                    Transformer simulator
+                    How LLMs work
                 </h1>
+                <span className="simulator-toolbar-subtitle" style={{ fontSize: 'var(--text-xs)', color: 'var(--muted)' }}>
+                    A small, real-math decoder walkthrough
+                </span>
                 <ModeToggle mode={mode} onToggle={onModeToggle} />
             </div>
 
@@ -431,7 +435,7 @@ function InspectorContent({
                 </section>
             )}
 
-            {/* Concept card placeholder */}
+            {/* Step-specific mental model */}
             <section>
                 <p style={{
                     fontFamily: 'var(--font-mono)',
@@ -441,20 +445,9 @@ function InspectorContent({
                     textTransform: 'uppercase',
                     marginBottom: 'var(--s2)',
                 }}>
-                    Concept
+                    Mental model
                 </p>
-                <div style={{
-                    padding: 'var(--s3)',
-                    background: 'var(--bg-raised)',
-                    border: '1px dashed var(--stroke-dark)',
-                    borderRadius: 'var(--r-md)',
-                    fontSize: 'var(--text-xs)',
-                    color: 'var(--muted)',
-                    lineHeight: 'var(--lead-body)',
-                    fontStyle: 'italic',
-                }}>
-                    ConceptCard educational content available in Step 6+
-                </div>
+                <ConceptCard key={step} stepId={step} defaultExpanded />
             </section>
         </div>
     );
@@ -551,6 +544,7 @@ const SHELL_CSS = `
   .inspector-desktop { display: none !important; }
   .inspector-toggle-btn { display: none !important; }
   .controls-drawer-btn { display: flex !important; }
+  .simulator-toolbar-subtitle { display: none; }
   .header-subtitle { display: none; }
   .header-divider { display: none; }
 }

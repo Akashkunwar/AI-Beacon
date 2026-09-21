@@ -2,9 +2,11 @@ import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 
 function formatJobs(n: number): string {
-  if (n >= 1_000_000_000) return `${(n / 1_000_000_000).toFixed(1)}B`;
-  if (n >= 1_000_000) return `${(n / 1_000_000).toFixed(0)}M`;
-  if (n >= 1_000) return `${(n / 1_000).toFixed(1)}K`;
+  const sign = n < 0 ? '−' : '';
+  const absolute = Math.abs(n);
+  if (absolute >= 1_000_000_000) return `${sign}${(absolute / 1_000_000_000).toFixed(1)}B`;
+  if (absolute >= 1_000_000) return `${sign}${(absolute / 1_000_000).toFixed(0)}M`;
+  if (absolute >= 1_000) return `${sign}${(absolute / 1_000).toFixed(1)}K`;
   return String(n);
 }
 
@@ -41,7 +43,7 @@ export function JobImpactChart({ jobsDisplaced, newJobsCreated }: JobImpactChart
         borderRadius: 'var(--r-lg)',
         boxShadow: 'var(--shadow-soft)',
       }}
-      aria-label="Job impact: displaced vs created"
+      aria-label="Illustrative labor-market scenario: displaced roles compared with created roles"
     >
       <h3
         style={{
@@ -53,7 +55,7 @@ export function JobImpactChart({ jobsDisplaced, newJobsCreated }: JobImpactChart
           marginBottom: 'var(--s5)',
         }}
       >
-        Jobs displaced vs created
+        Illustrative scenario: displaced vs created
       </h3>
 
       <motion.div
@@ -77,7 +79,7 @@ export function JobImpactChart({ jobsDisplaced, newJobsCreated }: JobImpactChart
               marginBottom: 'var(--s2)',
             }}
           >
-            Displaced
+            Modelled displaced
           </div>
           <div
             style={{
@@ -138,7 +140,7 @@ export function JobImpactChart({ jobsDisplaced, newJobsCreated }: JobImpactChart
               marginBottom: 'var(--s2)',
             }}
           >
-            Created
+            Modelled created
           </div>
           <div
             style={{
@@ -189,9 +191,9 @@ export function JobImpactChart({ jobsDisplaced, newJobsCreated }: JobImpactChart
           paddingTop: 'var(--s4)',
         }}
       >
-        Net impact: {net >= 0 ? '+' : ''}{formatJobs(net)} jobs. For every job displaced, {ratio} new
-        roles are created in the model, but they often require different skills; reskilling and
-        policy will shape outcomes.
+        Within this illustrative scenario, the net difference is {net > 0 ? '+' : ''}{formatJobs(net)} roles,
+        or {ratio} created for each displaced. This is not a labor-market forecast: exposure,
+        adoption, worker transitions, policy, and the skills required for new roles all shape outcomes.
       </motion.p>
       <style>{`
         @media (max-width: 719px) {

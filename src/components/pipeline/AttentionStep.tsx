@@ -55,7 +55,7 @@ export function AttentionStep() {
                     <div style={stepNumberStyle}>06</div>
                     <div>
                         <TooltipEngine
-                            content="Self-attention lets every token query all other tokens. It computes Q, K, V matrices, then attention weights via softmax(QKᵀ/√d_k), and finally a weighted sum of V."
+                            content="Self-attention compares Query and Key vectors, then uses the resulting weights to combine Values. In this decoder, a causal mask prevents every position from reading future tokens."
                             placement="bottom"
                         >
                             <h2 style={stepTitleStyle}>
@@ -64,8 +64,8 @@ export function AttentionStep() {
                             </h2>
                         </TooltipEngine>
                         <p style={stepDescStyle}>
-                            Each token attends to every other token using Query, Key, and Value projections.
-                            Causal masking ensures tokens cannot look ahead.
+                            Each token uses Query, Key, and Value projections to attend to itself and
+                            earlier positions. Causal masking prevents it from looking ahead.
                         </p>
                     </div>
                 </div>

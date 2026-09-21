@@ -24,16 +24,66 @@ import { Step10Deployment } from '@/components/training/Step10Deployment';
 // ─── Step definitions ───────────────────────────────────────────────────────
 
 const STEPS = [
-    { num: '01', label: 'Data Collection' },
-    { num: '02', label: 'Tokenizer Training' },
-    { num: '03', label: 'Architecture Design' },
-    { num: '04', label: 'Pre-Training' },
-    { num: '05', label: 'Training Evaluation' },
-    { num: '06', label: 'Supervised Fine-Tuning' },
-    { num: '07', label: 'Alignment' },
-    { num: '08', label: 'Benchmarking' },
-    { num: '09', label: 'Inference Optimization' },
-    { num: '10', label: 'Deployment' },
+    {
+        num: '01', label: 'Data Collection',
+        goal: 'Build a useful, lawful, representative corpus.',
+        mechanism: 'Collect, filter, deduplicate, document, and split data before training.',
+        caution: 'More tokens do not automatically mean better data—or permission to use it.',
+    },
+    {
+        num: '02', label: 'Tokenizer Training',
+        goal: 'Turn text into a compact sequence of discrete IDs.',
+        mechanism: 'Learn a vocabulary of reusable text pieces, then encode and decode deterministically.',
+        caution: 'Tokens are not words; one word may become several tokens and spacing can matter.',
+    },
+    {
+        num: '03', label: 'Architecture Design',
+        goal: 'Choose the model structure and compute budget.',
+        mechanism: 'Set depth, width, attention layout, context length, and parameter count together.',
+        caution: 'Parameter count alone does not determine quality, cost, or usable context.',
+    },
+    {
+        num: '04', label: 'Pre-Training',
+        goal: 'Learn statistical structure by predicting tokens at scale.',
+        mechanism: 'Backpropagation updates weights to reduce next-token prediction loss.',
+        caution: 'Prediction skill can encode patterns and knowledge, but it does not guarantee truth.',
+    },
+    {
+        num: '05', label: 'Training Evaluation',
+        goal: 'Detect whether learning is stable and generalizes.',
+        mechanism: 'Track held-out loss, gradients, throughput, and targeted evaluations during training.',
+        caution: 'A falling training loss can coexist with overfitting, contamination, or capability gaps.',
+    },
+    {
+        num: '06', label: 'Supervised Fine-Tuning',
+        goal: 'Teach the base model to respond in a desired format and style.',
+        mechanism: 'Continue training on curated prompt-response demonstrations.',
+        caution: 'SFT imitates demonstrations; it does not by itself verify facts or align every behavior.',
+    },
+    {
+        num: '07', label: 'Alignment',
+        goal: 'Steer outputs toward human or specified preferences.',
+        mechanism: 'Use preference comparisons through RLHF, RLAIF, DPO, or related objectives.',
+        caution: 'Preference optimization is not a proof of safety and can inherit judge biases.',
+    },
+    {
+        num: '08', label: 'Benchmarking',
+        goal: 'Estimate specific capabilities under repeatable conditions.',
+        mechanism: 'Run fixed tasks with a declared prompt, scorer, model version, and sampling setup.',
+        caution: 'A benchmark score is a proxy—not a complete measure of intelligence or product quality.',
+    },
+    {
+        num: '09', label: 'Inference Optimization',
+        goal: 'Serve the trained model with less latency, memory, and cost.',
+        mechanism: 'Apply caching, batching, quantization, and decoding optimizations.',
+        caution: 'Optimizations trade off speed, memory, numerical precision, and sometimes quality.',
+    },
+    {
+        num: '10', label: 'Deployment',
+        goal: 'Operate the model reliably for real users.',
+        mechanism: 'Combine inference servers with routing, observability, safeguards, and rollback paths.',
+        caution: 'A model checkpoint is only one part of a secure, monitored production system.',
+    },
 ] as const;
 
 const TOTAL_STEPS = STEPS.length;
@@ -109,6 +159,7 @@ function StepContent({ activeStep, onNext, onPrev, shouldReduceMotion }: StepCon
 
     const isFirst = activeStep === 0;
     const isLast = activeStep === TOTAL_STEPS - 1;
+    const stepMeta = STEPS[activeStep];
 
     const btnBase: React.CSSProperties = {
         fontFamily: 'var(--font-sans)',
@@ -155,6 +206,59 @@ function StepContent({ activeStep, onNext, onPrev, shouldReduceMotion }: StepCon
                         }
                         style={{ flex: 1, display: 'flex', flexDirection: 'column' }}
                     >
+                        <aside
+                            aria-label={`Stage ${stepMeta.num} mental model`}
+                            style={{
+                                padding: 'var(--s4)',
+                                marginBottom: 'var(--s6)',
+                                background: 'var(--bg-panel)',
+                                border: '1px solid var(--stroke)',
+                                borderRadius: 'var(--r-lg)',
+                                boxShadow: 'var(--shadow-soft)',
+                            }}
+                        >
+                            <p style={{
+                                margin: '0 0 var(--s3)',
+                                color: 'var(--muted)',
+                                fontFamily: 'var(--font-mono)',
+                                fontSize: 'var(--text-2xs)',
+                                letterSpacing: 'var(--tracking-wider)',
+                                textTransform: 'uppercase',
+                            }}>
+                                Stage {stepMeta.num} mental model
+                            </p>
+                            <div className="training-mental-model-grid" style={{
+                                display: 'grid',
+                                gridTemplateColumns: 'repeat(3, minmax(0, 1fr))',
+                                gap: 'var(--s4)',
+                            }}>
+                                {[
+                                    ['Goal', stepMeta.goal],
+                                    ['Core mechanism', stepMeta.mechanism],
+                                    ['Do not confuse', stepMeta.caution],
+                                ].map(([label, text]) => (
+                                    <div key={label}>
+                                        <p style={{
+                                            margin: '0 0 var(--s1)',
+                                            color: 'var(--ink)',
+                                            fontSize: 'var(--text-xs)',
+                                            fontWeight: 'var(--weight-semibold)',
+                                        }}>
+                                            {label}
+                                        </p>
+                                        <p style={{
+                                            margin: 0,
+                                            color: 'var(--secondary)',
+                                            fontSize: 'var(--text-xs)',
+                                            lineHeight: 'var(--lead-body)',
+                                        }}>
+                                            {text}
+                                        </p>
+                                    </div>
+                                ))}
+                            </div>
+                        </aside>
+
                         {activeStep === 0 ? (
                             <Step01DataCollection
                                 stepNumber={activeStep + 1}
@@ -601,6 +705,7 @@ export function Training() {
                     @media (max-width: 719px) {
                         .training-sidebar { display: none !important; }
                         .training-mobile-header { display: block; }
+                        .training-mental-model-grid { grid-template-columns: 1fr !important; }
                     }
 
                     /* Focus outline for sidebar step buttons */

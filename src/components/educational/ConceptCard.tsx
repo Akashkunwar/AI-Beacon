@@ -19,7 +19,7 @@ const CONCEPT_CONTENT: Partial<Record<PipelineStep, ConceptContent>> = {
     [PipelineStep.INPUT]: {
         what: 'Raw text is the unprocessed string you type — letters, spaces, punctuation. The model cannot read text directly; it needs numbers.',
         why: 'Language models are fundamentally mathematical functions. Before any computation can happen, natural language must be converted into a structured numerical representation. This step is the starting point of that journey.',
-        realDimensions: 'GPT-2 accepts up to 1,024 tokens. LLaMA-3 supports 8,192 tokens (context length). AI Beacon uses max 8 tokens for clarity.',
+        realDimensions: 'GPT-2 accepts up to 1,024 tokens. The original Llama 3 models support 8,192; Llama 3.1 extends that to 128K. AI Beacon uses at most 8 for clarity.',
         gotcha: 'Punctuation, capitalization, and whitespace all affect tokenization. "cat" and "Cat" may map to different token IDs in real models.',
         pytorch: `# No computation here — just the raw string
 input_text = "The cat sat"`,
@@ -38,7 +38,7 @@ tokens = enc.encode("The cat sat")
         what: 'Each token string is looked up in the vocabulary to get an integer ID — its unique "address" in the model\'s dictionary.',
         why: 'The embedding layer is a lookup table: given an ID, it returns a dense vector. Integer IDs are indices into this table. Without IDs, we cannot do the lookup.',
         realDimensions: 'GPT-2: "the" → token 464. LLaMA-3: "the" → token 279. AI Beacon: "the" → token 1. Each tokenizer has its own mapping.',
-        gotcha: 'Unknown words not in the vocabulary get mapped to <unk> (ID 0). Proper BPE tokenizers virtually eliminate this — they decompose unknowns into subword pieces.',
+        gotcha: 'This demo maps unknown whole words to <unk> (ID 0). Real subword or byte-level tokenizers can usually decompose unfamiliar text, although exact behavior depends on the tokenizer.',
         pytorch: `# Vocabulary lookup
 vocab = {"the": 1, "cat": 485, "sat": 229}
 ids = [vocab.get(tok, 0) for tok in tokens]
@@ -46,7 +46,7 @@ ids = [vocab.get(tok, 0) for tok in tokens]
     },
     [PipelineStep.EMBEDDING]: {
         what: 'Each token ID is used to index into a learned embedding matrix W_e ∈ ℝ^(|V| × d_model), selecting a d_model-dimensional dense vector for each token.',
-        why: 'Similar words end up close together in embedding space — the model learns that "king" and "queen" are related, or that "cat" and "dog" are both animals. This geometric structure is what enables reasoning.',
+        why: 'Training shapes these vectors so useful linguistic and semantic features can be represented geometrically. Embeddings support later computation, but they are not reasoning by themselves.',
         realDimensions: 'GPT-2: d_model=768. LLaMA-3-8B: d_model=4096. AI Beacon: d_model=8 (adjustable 4–64).',
         gotcha: 'Embeddings are learned during training — they start random and gradually encode semantic meaning via backprop. AI Beacon uses random toy weights.',
         pytorch: `embedding = nn.Embedding(vocab_size, d_model)
@@ -56,14 +56,14 @@ X = embedding(token_ids)  # (n, d_model)`,
         what: 'Sinusoidal position vectors are added to token embeddings, injecting information about each token\'s position in the sequence.',
         why: 'Self-attention is permutation-invariant — "cat sat" and "sat cat" would produce identical outputs without positional info. PE encodes order so the model knows position 0 ≠ position 1.',
         realDimensions: 'GPT-2 uses learned positional embeddings (same shape as token embeddings). Modern models (LLaMA-3) use RoPE (Rotary Position Embeddings). AI Beacon uses original Vaswani sinusoidal PE.',
-        gotcha: 'Sinusoidal PE allows the model to generalize to sequence lengths longer than seen during training — unlike learned PEs, which cannot.',
+        gotcha: 'A formula can generate sinusoidal values beyond the training length, but that does not guarantee reliable long-context behavior. Learned position tables also need an explicit extension strategy past their trained range.',
         pytorch: `# PE(pos, 2i)   = sin(pos / 10000^(2i/d_model))
 # PE(pos, 2i+1) = cos(pos / 10000^(2i/d_model))
 X_pos = X + positional_encoding(n, d_model)`,
     },
     [PipelineStep.ATTENTION]: {
-        what: 'Each token creates Query, Key, and Value vectors. Queries are matched against Keys (dot product) to produce attention weights, which weight a sum of Values.',
-        why: 'Attention lets every token directly attend to every other token — "sat" can look at "cat" to understand the subject. This global context is what makes transformers so powerful.',
+        what: 'Each token creates Query, Key, and Value vectors. Queries are matched against Keys to produce weights, which combine the Value vectors. A causal mask hides future positions.',
+        why: 'In this decoder, each token can directly use earlier tokens and itself—so "sat" can look back at "cat"—without seeing words that have not been generated yet.',
         realDimensions: 'GPT-2: 12 attention heads, d_head=64, d_model=768. LLaMA-3-8B: 32 heads, d_head=128, d_model=4096. AI Beacon: 1 head (MVP).',
         gotcha: 'Queries and Keys must be divided by √d_k before softmax — without this scaling, dot products grow large and softmax saturates (gradients vanish).',
         pytorch: `Q = X @ W_Q  # (n, d_head)
@@ -75,21 +75,21 @@ output = weights @ V`,
     [PipelineStep.RESIDUAL]: {
         what: 'The original input X_pos is added to the attention output: X_res = X_pos + attn_output. This is called a residual or skip connection.',
         why: '"Gradient highway" — skip connections allow gradients to flow directly from output to input during backprop, enabling very deep networks to train effectively. Without them, deep networks suffer from vanishing gradients.',
-        realDimensions: 'Used identically at every layer in every transformer. GPT-2 has 12 layers, LLaMA-3-8B has 32 layers — each has a residual connection after attention and after FFN.',
+        realDimensions: 'Transformer blocks normally include separate residual paths around attention and the feed-forward sublayer. GPT-2 small has 12 blocks; Llama 3 8B has 32. This demo visualizes one simplified block.',
         gotcha: 'For residual addition to work, attention output must have the same shape as the input: (n, d_model). This is why the "output projection" W_O is necessary.',
         pytorch: `X_res = X_pos + attn_output  # elementwise add, same shape`,
     },
     [PipelineStep.LAYER_NORM]: {
         what: 'Each vector in the sequence is independently normalized to have zero mean and unit variance, then scaled by learned parameters γ and β.',
         why: 'Deep networks are sensitive to the scale of activations. LayerNorm stabilizes training by ensuring each layer receives similarly-scaled inputs, preventing exploding/vanishing activations.',
-        realDimensions: 'Applied after every attention and FFN block. GPT-2: before attention (Pre-LN). Original "Attention is All You Need": after (Post-LN). AI Beacon: Post-LN.',
+        realDimensions: 'Normalization placement varies. The original Transformer used post-norm, while GPT-2 and many later language models use pre-norm variants. AI Beacon visualizes post-norm.',
         gotcha: 'LayerNorm normalizes per-token (over d_model dimension). BatchNorm normalizes per-dimension (over batch) — confusingly different! Transformers use LayerNorm.',
         pytorch: `layer_norm = nn.LayerNorm(d_model)
 X_norm = layer_norm(X_res)  # mean≈0, std≈1 per token`,
     },
     [PipelineStep.FFN]: {
         what: 'Two linear layers with GELU activation in between: X_ff = W2 · GELU(W1 · X_norm). The hidden dimension is 4× larger than d_model.',
-        why: 'While attention captures relationships between tokens, FFN allows each token to process learned patterns independently. FFN layers are where "facts" are thought to be stored in LLMs.',
+        why: 'While attention mixes information across positions, the FFN transforms each position independently. Research links some factual associations to these layers, but knowledge is distributed across the network.',
         realDimensions: 'GPT-2: d_ff=3072 (4×768). LLaMA-3-8B: d_ff=14336 (~3.5×4096) using SwiGLU. AI Beacon: d_ff=4×d_model.',
         gotcha: 'GELU is preferred over ReLU in modern transformers — it\'s smoother and allows small negative values to pass through. LLaMA uses SwiGLU, an even more expressive variant.',
         pytorch: `W1 = nn.Linear(d_model, d_ff)
@@ -100,7 +100,7 @@ X_ff = W2(F.gelu(W1(X_norm)))`,
         what: 'A final linear layer projects the hidden state to logits (one per vocabulary token): logits = X_last @ W_lm. Only the last token\'s representation is used for next-token prediction.',
         why: 'The LM head converts the model\'s internal representation back into the vocabulary space — producing a score for every possible next token. Higher score = model thinks it\'s more likely.',
         realDimensions: 'GPT-2: W_lm ∈ ℝ^(768 × 50257). LLaMA-3-8B: ℝ^(4096 × 128000). Often tied (shared weights) with the embedding matrix.',
-        gotcha: 'Only the LAST token\'s hidden state predicts the next token. All other positions are "wasted" on autoregressive prediction of preceding tokens (used during training).',
+        gotcha: 'During generation, the last position supplies the next-token logits. During training, logits at many positions produce learning signals in parallel, so the earlier positions are not wasted.',
         pytorch: `lm_head = nn.Linear(d_model, vocab_size, bias=False)
 logits = lm_head(X_ff[-1])  # last token → (vocab_size,)`,
     },
@@ -108,7 +108,7 @@ logits = lm_head(X_ff[-1])  # last token → (vocab_size,)`,
         what: 'Logits are converted to a probability distribution via softmax: P(token) = exp(logit/T) / Σ exp(logit/T). Temperature T controls "sharpness".',
         why: 'Raw logits are unnormalized scores. Softmax converts them to probabilities that sum to 1, allowing interpretation as "probability of next token = X".',
         realDimensions: 'Same operation in all transformers. The probability distribution is over the full vocabulary: 50K+ entries for GPT, 128K for LLaMA.',
-        gotcha: 'Temperature T=1 = standard softmax. T<1 = sharper (greedy-like). T>1 = flatter (more random). T→0 = argmax. T→∞ = uniform distribution.',
+        gotcha: 'Temperature T=1 gives standard softmax. T<1 sharpens the distribution; T>1 flattens it. In the limit as T approaches zero, the highest logit dominates—T=0 itself is undefined in the formula.',
         pytorch: `probs = F.softmax(logits / temperature, dim=-1)
 # probs.sum() ≈ 1.0`,
     },
@@ -137,6 +137,7 @@ interface ConceptCardProps {
 export function ConceptCard({ stepId, defaultExpanded = false }: ConceptCardProps) {
     const [expanded, setExpanded] = useState(defaultExpanded);
     const content = CONCEPT_CONTENT[stepId];
+    const bodyId = `concept-card-body-${stepId}`;
 
     if (!content) return null;
 
@@ -153,7 +154,7 @@ export function ConceptCard({ stepId, defaultExpanded = false }: ConceptCardProp
             <button
                 onClick={() => setExpanded((v) => !v)}
                 aria-expanded={expanded}
-                aria-controls="concept-card-body"
+                aria-controls={bodyId}
                 style={{
                     width: '100%',
                     padding: '12px 16px',
@@ -198,7 +199,7 @@ export function ConceptCard({ stepId, defaultExpanded = false }: ConceptCardProp
             <AnimatePresence initial={false}>
                 {expanded && (
                     <motion.div
-                        id="concept-card-body"
+                        id={bodyId}
                         key="body"
                         initial={{ height: 0, opacity: 0 }}
                         animate={{ height: 'auto', opacity: 1 }}

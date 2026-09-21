@@ -5,7 +5,7 @@ import {
   blendedPrice,
 } from '@/data/benchmarkData';
 
-type SortKey = 'rank' | 'name' | 'provider' | 'mmlu' | 'humanEval' | 'math' | 'gpqa' | 'arenaElo' | 'price';
+type SortKey = 'composite' | 'name' | 'provider' | 'mmlu' | 'humanEval' | 'math' | 'gpqa' | 'arenaElo' | 'price';
 
 function ScoreCell({ value }: { value: number | null }) {
   if (value == null) return <span style={{ color: 'var(--muted)', fontFamily: 'var(--font-mono)' }}>—</span>;
@@ -90,8 +90,8 @@ function SortHeader({
 }
 
 export function BenchmarkLeaderboard() {
-  const [sortKey, setSortKey] = useState<SortKey>('rank');
-  const [direction, setDirection] = useState<'asc' | 'desc'>('asc');
+  const [sortKey, setSortKey] = useState<SortKey>('composite');
+  const [direction, setDirection] = useState<'asc' | 'desc'>('desc');
 
   const handleSort = useCallback((key: SortKey) => {
     setSortKey((prev) => {
@@ -99,22 +99,22 @@ export function BenchmarkLeaderboard() {
         setDirection((d) => (d === 'asc' ? 'desc' : 'asc'));
         return key;
       }
-      setDirection(key === 'rank' || key === 'mmlu' || key === 'humanEval' || key === 'math' || key === 'gpqa' || key === 'arenaElo' ? 'desc' : 'asc');
+      setDirection(key === 'composite' || key === 'mmlu' || key === 'humanEval' || key === 'math' || key === 'gpqa' || key === 'arenaElo' ? 'desc' : 'asc');
       return key;
     });
   }, []);
 
   const sorted = useMemo(() => {
-    const withRank = BENCHMARK_MODELS.map((m) => ({
+    const withComposite = BENCHMARK_MODELS.map((m) => ({
       ...m,
-      rank: compositeScore(m),
+      composite: compositeScore(m),
       price: blendedPrice(m),
     }));
-    const sortedList = [...withRank].sort((a, b) => {
+    const sortedList = [...withComposite].sort((a, b) => {
       let cmp = 0;
       switch (sortKey) {
-        case 'rank':
-          cmp = a.rank - b.rank;
+        case 'composite':
+          cmp = a.composite - b.composite;
           break;
         case 'name':
           cmp = a.name.localeCompare(b.name);
@@ -163,7 +163,22 @@ export function BenchmarkLeaderboard() {
       role="region"
       aria-label="Sortable benchmark leaderboard"
     >
+      <p
+        id="benchmark-composite-note"
+        style={{
+          margin: 0,
+          padding: 'var(--s3) var(--s4)',
+          borderBottom: '1px solid var(--stroke)',
+          color: 'var(--muted)',
+          fontSize: 'var(--text-xs)',
+          lineHeight: 'var(--lead-body)',
+        }}
+      >
+        Composite is the unweighted mean of each model’s available MMLU, HumanEval, MATH, GPQA,
+        and GSM8K percentages. Because coverage differs, use the individual columns for serious comparisons.
+      </p>
       <table
+        aria-describedby="benchmark-composite-note"
         className="benchmark-leaderboard-table"
         style={{
           width: '100%',
@@ -174,14 +189,14 @@ export function BenchmarkLeaderboard() {
       >
         <thead>
           <tr>
-            <SortHeader label="Rank" sortKey="rank" currentSort={sortKey} direction={direction} onSort={handleSort} />
+            <SortHeader label="Composite" sortKey="composite" currentSort={sortKey} direction={direction} onSort={handleSort} />
             <SortHeader label="Model" sortKey="name" currentSort={sortKey} direction={direction} onSort={handleSort} />
             <SortHeader label="Provider" sortKey="provider" currentSort={sortKey} direction={direction} onSort={handleSort} />
             <SortHeader label="MMLU" sortKey="mmlu" currentSort={sortKey} direction={direction} onSort={handleSort} />
             <SortHeader label="HumanEval" sortKey="humanEval" currentSort={sortKey} direction={direction} onSort={handleSort} />
             <SortHeader label="MATH" sortKey="math" currentSort={sortKey} direction={direction} onSort={handleSort} />
             <SortHeader label="GPQA" sortKey="gpqa" currentSort={sortKey} direction={direction} onSort={handleSort} />
-            <SortHeader label="Arena ELO" sortKey="arenaElo" currentSort={sortKey} direction={direction} onSort={handleSort} />
+            <SortHeader label="Arena rating" sortKey="arenaElo" currentSort={sortKey} direction={direction} onSort={handleSort} />
             <SortHeader label="$/1M (blended)" sortKey="price" currentSort={sortKey} direction={direction} onSort={handleSort} />
           </tr>
         </thead>
@@ -201,7 +216,7 @@ export function BenchmarkLeaderboard() {
               }}
             >
               <td style={{ padding: 'var(--s3) var(--s4)', fontFamily: 'var(--font-mono)', fontSize: 'var(--text-xs)', color: 'var(--ink)' }}>
-                {row.rank.toFixed(1)}
+                {row.composite.toFixed(1)}
               </td>
               <td style={{ padding: 'var(--s3) var(--s4)' }}>
                 <span style={{ display: 'inline-flex', alignItems: 'center', gap: 'var(--s2)' }}>
@@ -277,7 +292,9 @@ export function BenchmarkLeaderboard() {
             z-index: 2;
           }
           .benchmark-leaderboard-table thead tr th:first-child { left: 0; }
-          .benchmark-leaderboard-table thead tr th:nth-child(2) { left: 52px; box-shadow: 2px 0 4px rgba(0,0,0,0.04); }
+          .benchmark-leaderboard-table thead tr th:first-child,
+          .benchmark-leaderboard-table tbody tr td:first-child { min-width: 88px; }
+          .benchmark-leaderboard-table thead tr th:nth-child(2) { left: 88px; box-shadow: 2px 0 4px rgba(0,0,0,0.04); }
           .benchmark-leaderboard-table tbody tr td:first-child,
           .benchmark-leaderboard-table tbody tr td:nth-child(2) {
             position: sticky;
@@ -285,7 +302,7 @@ export function BenchmarkLeaderboard() {
             z-index: 1;
           }
           .benchmark-leaderboard-table tbody tr td:first-child { left: 0; }
-          .benchmark-leaderboard-table tbody tr td:nth-child(2) { left: 52px; box-shadow: 2px 0 4px rgba(0,0,0,0.04); }
+          .benchmark-leaderboard-table tbody tr td:nth-child(2) { left: 88px; box-shadow: 2px 0 4px rgba(0,0,0,0.04); }
           .benchmark-leaderboard-table tbody tr:hover td:first-child,
           .benchmark-leaderboard-table tbody tr:hover td:nth-child(2) {
             background: var(--table-row-hover);

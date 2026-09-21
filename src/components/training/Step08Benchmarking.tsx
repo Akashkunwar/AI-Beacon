@@ -11,7 +11,7 @@ interface Step08BenchmarkingProps {
 }
 
 const BENCHMARKS = [
-    { title: 'MMLU', desc: '57 subjects. Multiple choice.', type: 'Knowledge', qCount: '14,079' },
+    { title: 'MMLU', desc: '57 subjects. Multiple choice.', type: 'Knowledge', qCount: '15,908' },
     { title: 'HumanEval', desc: 'Python code completion.', type: 'Coding', qCount: '164' },
     { title: 'MATH', desc: 'Competition math.', type: 'Reasoning', qCount: '12,500' },
     { title: 'GPQA', desc: 'Graduate-level science.', type: 'Expert', qCount: '448' },
@@ -104,7 +104,7 @@ export function Step08Benchmarking({ stepNumber, totalSteps }: Step08Benchmarkin
                             margin: 0,
                         }}
                     >
-                        We evaluate LLMs across a wide range of carefully curated benchmarks to properly assess their knowledge, coding, reasoning, and conversational capabilities.
+                        Benchmarks estimate specific capabilities under fixed conditions. A trustworthy comparison also records the prompt, model version, sampling settings, scorer, and possible test-data contamination.
                     </p>
                 </section>
 

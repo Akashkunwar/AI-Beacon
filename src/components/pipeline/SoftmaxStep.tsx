@@ -6,6 +6,7 @@ import { GlassCard, Badge, NumberDisplay } from '@/components/shared';
 import { ConceptCard } from '@/components/educational/ConceptCard';
 import { idToToken, VOCAB_SIZE } from '@/lib/tokenizer/vocab';
 import { topK } from '@/lib/mathEngine/sampling';
+import { PipelineStep } from '@/lib/store/types';
 
 export function SoftmaxStep() {
     const { tensors, temperature, setTemperature } = useSimulatorStore();
@@ -21,7 +22,7 @@ export function SoftmaxStep() {
 
     return (
         <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
-            <ConceptCard stepId={10} defaultExpanded={true} />
+            <ConceptCard stepId={PipelineStep.SOFTMAX} defaultExpanded />
 
             <div style={{
                 display: 'grid',

@@ -253,10 +253,10 @@ function OverviewSection() {
                 }}
             >
                 Before any model weights exist, a tokenizer must be trained on the raw corpus to build
-                a vocabulary of subword units. The tokenizer is frozen before pre-training begins —
-                every token ID the model will ever see is fixed at this stage. Getting the vocabulary
+                a vocabulary of reusable text units. For a given training run, the tokenizer and ID
+                mapping are normally fixed before pre-training. Getting the vocabulary
                 right matters: too small and rare words become many fragmented pieces; too large and the
-                embedding table bloats memory. Modern LLMs use vocabularies of 32k–100k tokens,
+                embedding table bloats memory. Modern LLM vocabularies often span roughly 32K–200K+ tokens,
                 balancing coverage against parameter efficiency.
             </p>
         </section>

@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import { motion, useReducedMotion, AnimatePresence } from 'framer-motion';
+import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import { ErrorBoundary } from '@/components/shared/ErrorBoundary';
 
 interface StepProps {
@@ -21,16 +22,16 @@ const PIPELINE_NODES = [
 
 const KEY_CONCEPTS = [
     { title: 'KV Cache', stat: 'O(N) memory', desc: 'Saves recomputing past tokens by storing Key and Value states.' },
-    { title: 'Continuous Batching', stat: '2-4x throughput', desc: 'Dynamically inserts new requests instead of waiting for batches to finish.' },
-    { title: 'PagedAttention', stat: 'Near 0% waste', desc: 'Manages KV Cache like virtual memory with blocks, avoiding fragmentation.' },
-    { title: 'Streaming', stat: '< 50ms TTFT', desc: 'Yields tokens as soon as generated, improving perceived latency.' }
+    { title: 'Continuous Batching', stat: 'Higher throughput', desc: 'Dynamically inserts new requests instead of waiting for whole batches to finish.' },
+    { title: 'PagedAttention', stat: 'Less fragmentation', desc: 'Manages KV-cache memory in blocks so variable-length requests waste less space.' },
+    { title: 'Streaming', stat: 'Lower perceived delay', desc: 'Yields tokens as they are generated; actual time to first token depends on the full serving stack.' }
 ];
 
 const STAGES = [
     { num: 1, label: 'Data Collection', desc: 'Scrape and clean web data' },
     { num: 2, label: 'Tokenizer Training', desc: 'Build vocabulary via BPE' },
     { num: 3, label: 'Architecture', desc: 'Design model dimensions' },
-    { num: 4, label: 'Pre-Training', desc: 'Learn general world knowledge' },
+    { num: 4, label: 'Pre-Training', desc: 'Learn broad statistical patterns' },
     { num: 5, label: 'Evaluation', desc: 'Monitor loss curves' },
     { num: 6, label: 'SFT', desc: 'Supervised Fine-Tuning' },
     { num: 7, label: 'Alignment', desc: 'RLHF / DPO for safety' },
@@ -43,12 +44,6 @@ export function Step10Deployment({ stepNumber }: StepProps) {
     const shouldReduceMotion = useReducedMotion();
     const prefersReducedMotion = shouldReduceMotion ?? false;
     const [hoveredNode, setHoveredNode] = useState<string | null>(null);
-    const [showToast, setShowToast] = useState(false);
-
-    const handleBenchmarksClick = () => {
-        setShowToast(true);
-        setTimeout(() => setShowToast(false), 3000);
-    };
 
     return (
         <ErrorBoundary>
@@ -280,10 +275,11 @@ export function Step10Deployment({ stepNumber }: StepProps) {
                             </p>
                         </div>
 
-                        <div style={{ position: 'relative' }}>
-                            <button
-                                onClick={handleBenchmarksClick}
+                        <div>
+                            <Link
+                                to="/benchmarks"
                                 style={{
+                                    display: 'inline-flex',
                                     fontFamily: 'var(--font-sans)',
                                     fontSize: 'var(--text-sm)',
                                     fontWeight: 'var(--weight-medium)',
@@ -293,41 +289,14 @@ export function Step10Deployment({ stepNumber }: StepProps) {
                                     borderRadius: 'var(--r-md)',
                                     padding: 'var(--s2) var(--s4)',
                                     cursor: 'pointer',
+                                    textDecoration: 'none',
                                     transition: 'background var(--dur-fast) var(--ease-out)',
                                 }}
                                 onMouseEnter={e => e.currentTarget.style.background = 'var(--ink)'}
                                 onMouseLeave={e => e.currentTarget.style.background = 'var(--bg-inverse)'}
                             >
                                 Go to Benchmarks →
-                            </button>
-
-                            <AnimatePresence>
-                                {showToast && (
-                                    <motion.div
-                                        initial={prefersReducedMotion ? { opacity: 0 } : { opacity: 0, y: 10 }}
-                                        animate={{ opacity: 1, y: 0 }}
-                                        exit={{ opacity: 0 }}
-                                        transition={{ duration: prefersReducedMotion ? 0 : 0.3 }}
-                                        style={{
-                                            position: 'absolute',
-                                            top: '100%',
-                                            right: 0,
-                                            marginTop: 'var(--s2)',
-                                            background: 'var(--bg)',
-                                            border: '1px solid var(--stroke-dark)',
-                                            color: 'var(--ink)',
-                                            fontFamily: 'var(--font-sans)',
-                                            fontSize: 'var(--text-xs)',
-                                            padding: 'var(--s2) var(--s3)',
-                                            borderRadius: 'var(--r-sm)',
-                                            whiteSpace: 'nowrap',
-                                            boxShadow: 'var(--shadow-lift)'
-                                        }}
-                                    >
-                                        Coming soon.
-                                    </motion.div>
-                                )}
-                            </AnimatePresence>
+                            </Link>
                         </div>
                     </div>
 

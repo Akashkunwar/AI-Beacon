@@ -57,13 +57,13 @@ const QUALITY_CARDS: QualityCard[] = [
         title: 'Textbook Quality',
         usedBy: 'Phi-1, Phi-2 (Microsoft)',
         description:
-            'Synthetic "textbook-quality" data. 6B tokens outperform models trained on 300B+ noisy tokens.',
+            'Phi research showed that carefully curated and synthetic textbook-style data can let smaller models outperform larger ones on selected benchmarks.',
         tag: 'Alternative',
     },
     {
         title: 'Synthetic Data',
-        usedBy: 'Gemini, Yi, Mistral',
-        description: 'Generate training data using existing LLMs.',
+        usedBy: 'Many modern training pipelines',
+        description: 'Use model-generated examples for targeted skills, then filter them for quality and diversity.',
         tag: 'Modern',
     },
 ];
@@ -82,9 +82,9 @@ const RAW_LINES = [
 const DEDUPED_LINES = RAW_LINES.filter(l => !l.isDuplicate);
 
 const STAT_CHIPS = [
-    { label: 'CommonCrawl: 3.3T tokens raw' },
-    { label: 'After dedup: ~900B tokens' },
-    { label: '73% reduction' },
+    { label: 'Demo input: 8 lines' },
+    { label: 'After exact dedup: 5 lines' },
+    { label: '37.5% removed' },
 ];
 
 // ─── Section 1 — Overview ────────────────────────────────────────────────────
@@ -128,11 +128,10 @@ function OverviewSection() {
                     maxWidth: '68ch',
                 }}
             >
-                Modern LLMs are trained on trillions of tokens scraped from the public internet
-                (Common Crawl), digitised book corpora, open-source code repositories like GitHub,
-                and structured encyclopaedic sources such as Wikipedia. Each source brings distinct
-                vocabulary, style, and factual density — and the relative mix has an outsized effect
-                on what the model ultimately learns.
+                Modern LLM corpora may combine web snapshots, licensed or public-domain books,
+                source code, reference works, research text, and synthetic examples. Collection is
+                only the beginning: licensing, consent, privacy, provenance, quality filtering, and
+                representation all affect what can responsibly be used and what the model learns.
             </p>
         </section>
     );
@@ -192,7 +191,7 @@ const DataMixBar = memo(function DataMixBar() {
                     marginBottom: 'var(--s5)',
                 }}
             >
-                Typical LLM Training Data Mix
+                Illustrative Training Data Mix
             </h2>
 
             {/* Stacked bar */}
@@ -309,6 +308,15 @@ const DataMixBar = memo(function DataMixBar() {
                     </div>
                 ))}
             </div>
+            <p style={{
+                margin: 'var(--s3) 0 0',
+                color: 'var(--muted)',
+                fontSize: 'var(--text-xs)',
+                lineHeight: 'var(--lead-body)',
+            }}>
+                Example composition for teaching only. Real mixtures vary by model and are often only
+                partially disclosed; the percentages below are not an industry average.
+            </p>
         </section>
     );
 });

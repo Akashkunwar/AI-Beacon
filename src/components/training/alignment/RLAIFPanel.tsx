@@ -93,7 +93,7 @@ export function RLAIFPanel() {
                 padding: 'var(--s3) var(--s4)', borderLeft: '3px solid var(--ink)',
                 background: 'var(--bg-panel)', fontFamily: 'var(--font-sans)', fontSize: 'var(--text-sm)', color: 'var(--secondary)'
             }}>
-                <strong>Distillation Pipeline:</strong> By having LLaMA-3-8B prefer responses chosen by GPT-4, you are effectively distilling GPT-4's reasoning capabilities into the smaller, open-source model.
+                <strong>Preference transfer:</strong> Training Llama 3 8B on responses preferred by a stronger AI judge transfers some of that judge's preference signals. It does not copy the judge's weights or guarantee transfer of its full reasoning ability, and it may reproduce the judge's biases.
             </div>
 
         </motion.div>

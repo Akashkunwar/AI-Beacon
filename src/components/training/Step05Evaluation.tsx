@@ -590,7 +590,7 @@ const FAILURES: FailureData[] = [
     },
     {
         id: 'Gradient Explosion',
-        cause: 'Gradient norms grow uncontrollably — sometimes reaching thousands — and loss becomes NaN or Inf within a few steps. This is caused by poorly chosen initial weights, a learning rate that is orders of magnitude too large, or an accumulation of numerical error in very deep networks without residual connections. Gradient clipping (max_norm=1.0) is the standard defence; combined with weight decay and careful LR warm-up it is almost always sufficient.',
+        cause: 'Gradient norms grow uncontrollably — sometimes reaching thousands — and loss becomes NaN or Inf within a few steps. Causes can include unstable initialization, an excessive learning rate, numerical overflow, bad data batches, or implementation errors. Gradient clipping and learning-rate warm-up are common mitigations, but the root cause still needs diagnosis.',
         points: [
             [0, 0.88], [0.1, 0.78], [0.2, 0.68], [0.3, 0.60],
             [0.38, 0.54],

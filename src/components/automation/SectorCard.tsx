@@ -32,7 +32,7 @@ export function SectorCard({ sector, index = 0, reducedMotion = false }: SectorC
         transition: 'border-color var(--dur-fast) var(--ease-out), box-shadow var(--dur-fast) var(--ease-out)',
       }}
       className="sector-card"
-      aria-label={`${sector.label}: ${pct.toFixed(0)}% automation, ${formatJobs(sector.jobsAtRisk)} jobs at risk`}
+      aria-label={`${sector.label}: ${pct.toFixed(0)}% estimated task exposure, ${formatJobs(sector.jobsAtRisk)} roles exposed in this scenario`}
     >
       <div
         style={{
@@ -90,7 +90,7 @@ export function SectorCard({ sector, index = 0, reducedMotion = false }: SectorC
             fontFamily: 'var(--font-mono)',
           }}
         >
-          {formatJobs(sector.jobsAtRisk)} jobs at risk
+          {formatJobs(sector.jobsAtRisk)} roles exposed
         </span>
       </div>
 
@@ -117,6 +117,17 @@ export function SectorCard({ sector, index = 0, reducedMotion = false }: SectorC
 
       <p
         style={{
+          margin: 'calc(var(--s3) * -1) 0 var(--s3)',
+          color: 'var(--muted)',
+          fontFamily: 'var(--font-mono)',
+          fontSize: 'var(--text-2xs)',
+        }}
+      >
+        Estimated task exposure
+      </p>
+
+      <p
+        style={{
           fontSize: 'var(--text-sm)',
           color: 'var(--secondary)',
           lineHeight: 'var(--lead-snug)',
@@ -124,6 +135,7 @@ export function SectorCard({ sector, index = 0, reducedMotion = false }: SectorC
           fontWeight: 'var(--weight-light)',
         }}
       >
+        <strong style={{ color: 'var(--ink)', fontWeight: 'var(--weight-medium)' }}>Scenario note:</strong>{' '}
         {sector.description}
       </p>
 

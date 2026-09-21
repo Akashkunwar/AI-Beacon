@@ -77,7 +77,7 @@ export function Step06SFT({ stepNumber, totalSteps, onNext: _onNext, onPrev: _on
                 }}
             >
                 Pre-training objective is document continuation. To make an AI assistant, we curate
-                thousands of high-quality (prompt, response) pairs and fine-tune the model to understand the dialog format.
+                thousands of high-quality (prompt, response) pairs and fine-tune the model to follow the dialog format and imitate the demonstrated response behavior.
             </p>
         </section>
     );
@@ -176,7 +176,7 @@ export function Step06SFT({ stepNumber, totalSteps, onNext: _onNext, onPrev: _on
                 SFT vs Pre-Training Objective
             </h3>
             <p style={{ fontFamily: 'var(--font-sans)', fontSize: 'var(--text-sm)', color: 'var(--secondary)', marginBottom: 'var(--s5)' }}>
-                During pre-training, loss is calculated on every token. In SFT, gradients only flow through the assistant's response tokens. The user prompt is masked out of the loss calculation.
+                During pre-training, loss is usually calculated across the sequence. In chat SFT, a common setup masks the user prompt and calculates loss on assistant response tokens, although implementations vary.
             </p>
 
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: 'var(--s5)' }}>

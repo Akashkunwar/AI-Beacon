@@ -52,7 +52,7 @@ export function DPOPanel() {
                 {/* DPO Pipeline */}
                 <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--s4)', background: 'var(--bg-panel)', padding: 'var(--s5)', borderRadius: 'var(--r-lg)', border: '1px solid var(--ink)', position: 'relative' }}>
                     <div style={{ position: 'absolute', top: '-10px', right: 'var(--s4)', background: 'var(--bg-inverse)', color: 'var(--text-inverse)', fontFamily: 'var(--font-mono)', fontSize: 'var(--text-2xs)', padding: '2px 8px', borderRadius: 'var(--r-pill)', textTransform: 'uppercase', letterSpacing: 'var(--tracking-wider)' }}>
-                        Modern Standard
+                        Popular alternative
                     </div>
                     <h4 style={{ fontFamily: 'var(--font-mono)', fontSize: 'var(--text-sm)', color: 'var(--ink)', textTransform: 'uppercase', letterSpacing: 'var(--tracking-wider)', margin: 0 }}>
                         DPO Shortcut

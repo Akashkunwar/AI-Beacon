@@ -12,6 +12,7 @@ import { RadarComparison } from '@/components/benchmarks/RadarComparison';
 import { ProgressTimeline } from '@/components/benchmarks/ProgressTimeline';
 import { BenchmarkGlossary } from '@/components/benchmarks/BenchmarkGlossary';
 import { BenchmarkSources } from '@/components/benchmarks/BenchmarkSources';
+import { LearningGuide } from '@/components/educational/LearningGuide';
 
 const fadeUp = {
   hidden: { opacity: 0, y: 14 },
@@ -64,13 +65,13 @@ export function BenchmarksPage() {
     >
       <SEO
         title="Model Benchmarks | AI Beacon"
-        description="Every major AI model compared across MMLU, HumanEval, MATH, GPQA, GSM8K, and Arena ELO. No cherry-picked results. Just numbers."
+        description="A source-linked snapshot of AI model results across MMLU, HumanEval, MATH, GPQA, GSM8K, Arena preference, cost, and speed."
         canonical={`${SITE_CONFIG.baseUrl}/benchmarks`}
         structuredData={{
           '@context': 'https://schema.org',
           '@type': 'WebApplication',
           name: 'AI Beacon Benchmarks & Leaderboard',
-          description: 'Every major AI model compared across MMLU, HumanEval, MATH, GPQA, GSM8K, and Arena ELO.',
+          description: 'A source-linked comparison of selected AI models across six evaluations, cost, and speed.',
           applicationCategory: 'EducationalApplication',
           operatingSystem: 'Web',
         }}
@@ -136,7 +137,7 @@ export function BenchmarksPage() {
                   lineHeight: 'var(--lead-body)',
                 }}
               >
-                Every major model compared across the benchmarks that matter. No cherry-picked results. Just numbers.
+                Compare a curated set of models across capability tests, human preference, cost, and speed—and learn what each number can and cannot tell you.
               </p>
             </div>
             <div
@@ -221,6 +222,34 @@ export function BenchmarksPage() {
               </div>
             </div>
           </header>
+        </Reveal>
+
+        <Reveal delay={0.04} reduced={reduced}>
+          <div style={{ marginBottom: 'var(--s8)' }}>
+            <LearningGuide
+              title="How to read this dashboard"
+              intro="Benchmark results are measurements from particular tests and settings, not a universal intelligence score. Compare like with like and keep the evaluation date in view."
+              items={[
+                {
+                  label: 'Scores',
+                  text: 'Compare results only when the benchmark version, prompt, number of shots, scorer, and model version are compatible.',
+                },
+                {
+                  label: 'Coverage',
+                  text: 'Each test samples a narrow capability. MMLU emphasizes broad academic knowledge; HumanEval checks code against tests.',
+                },
+                {
+                  label: 'Arena preference',
+                  text: 'Blind votes capture user preference, which can reflect style and the current voter pool as well as correctness.',
+                },
+                {
+                  label: 'Cost and speed',
+                  text: 'Provider pricing and measured latency change by region, load, output length, endpoint, and model revision.',
+                },
+              ]}
+              note={`Snapshot refreshed ${LAST_UPDATED}. Missing values mean no comparable figure was available; they should not be treated as zero.`}
+            />
+          </div>
         </Reveal>
 
         {/* Leaderboard */}

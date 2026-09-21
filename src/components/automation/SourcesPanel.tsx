@@ -12,6 +12,7 @@ const CORE_SOURCES = [
   { label: 'Accenture', url: 'https://www.accenture.com/us-en/insights/artificial-intelligence' },
   { label: 'OECD Employment Outlook', url: 'https://www.oecd.org/employment/employment-outlook/' },
   { label: 'Bureau of Labor Statistics', url: 'https://www.bls.gov/' },
+  { label: 'ILO — Generative AI and Jobs: 2025 update', url: 'https://www.ilo.org/publications/generative-ai-and-jobs-2025-update' },
 ];
 
 const fadeUp = {
@@ -49,7 +50,7 @@ export function SourcesPanel() {
           marginBottom: 'var(--s4)',
         }}
       >
-        Expert projections
+        Selected report estimates
       </h3>
       <ul style={{ margin: 0, padding: 0, listStyle: 'none' }}>
         {EXPERT_PROJECTIONS.map((p, i) => (
@@ -160,10 +161,12 @@ export function SourcesPanel() {
           fontWeight: 'var(--weight-light)',
         }}
       >
-        Data for 2022–2026 is based on published reports and sector studies. Values between anchor
-        years are linearly interpolated. Years 2027–2030 are projections based on expert consensus
-        and trend extrapolation; they are illustrative, not forecasts. Job and GDP figures are
-        global estimates. Sector-level sources are linked on each card.
+        Values for 2022–2026 are evidence-informed estimates synthesized from published reports and
+        sector studies; they are not direct annual measurements. Values between anchor years are
+        linearly interpolated. Years 2027–2030 are illustrative scenarios based on cited projections
+        and trend extrapolation, not forecasts. “Exposure” means AI may affect tasks within a role—it
+        does not mean the whole job will be automated. Job and GDP figures are global scenario
+        estimates, and sector-level sources are linked on each card.
       </motion.p>
     </section>
   );

@@ -239,14 +239,14 @@ const MODULES = [
     {
         num: '04',
         title: 'Benchmarks & Leaderboard',
-        desc: 'Every major model ranked across MMLU, HumanEval, MATH, and more. No hype. Just numbers.',
+        desc: 'Compare a curated set of models across capability tests, preference, cost, and speed—with context for every metric.',
         status: 'live' as const,
         to: '/benchmarks',
     },
     {
         num: '05',
         title: 'The AI Impact Index',
-        desc: 'Track jobs at risk, automation across 18 sectors, and expert projections from 2022 to 2030. Cited sources.',
+        desc: 'Explore evidence-informed task exposure across 18 sectors from 2022 to 2030, with assumptions and cited sources.',
         status: 'live' as const,
         to: '/automation-clock',
     },
@@ -872,13 +872,13 @@ function AutomationClockTeaser() {
 
     const clockStats = [
         {
-            label: 'Jobs at risk',
+            label: 'Roles exposed (scenario)',
             value: yearData.globalJobsAtRisk >= 1_000_000
                 ? `${(yearData.globalJobsAtRisk / 1_000_000).toFixed(0)}M`
                 : `${(yearData.globalJobsAtRisk / 1_000).toFixed(0)}K`,
         },
-        { label: 'Tasks automatable', value: `${yearData.tasksAutomatable}%` },
-        { label: 'Sources cited', value: '9+' },
+        { label: 'Work-hour potential', value: `${yearData.tasksAutomatable}%` },
+        { label: 'Sources cited', value: '10+' },
     ];
 
     return (
@@ -932,9 +932,9 @@ function AutomationClockTeaser() {
                                 marginTop: 'var(--s4)',
                                 maxWidth: '44ch',
                             }}>
-                                Track jobs at risk, automation by sector, and expert
-                                projections from 2022 through 2030. Historical values and projections are clearly separated.
-                                McKinsey, Goldman Sachs, WEF, IMF, and more.
+                                Explore task exposure by sector and illustrative labor-market scenarios
+                                from 2022 through 2030. Estimates and projections are clearly labeled,
+                                with sources from the ILO, McKinsey, WEF, IMF, and more.
                             </p>
                         </Reveal>
 
@@ -980,7 +980,7 @@ function AutomationClockTeaser() {
                                 width="240"
                                 height="240"
                                 viewBox="0 0 240 240"
-                                aria-label={`AI Impact Index: ${yearData.tasksAutomatable}% tasks automatable across 18 sectors`}
+                                aria-label={`AI Impact Index: ${yearData.tasksAutomatable}% estimated work-hour automation potential across 18 sectors`}
                             >
                                 {/* Outer ring */}
                                 <circle
@@ -1158,9 +1158,9 @@ function BenchmarkTeaser() {
                                 marginTop: 'var(--s4)',
                                 maxWidth: '44ch',
                             }}>
-                                Every major model compared across the benchmarks that actually matter.
-                                No cherry-picked results. No technical marketing. Just the cold, hard numbers
-                                on reasoning, coding, and knowledge.
+                                Compare a curated set of models across knowledge, coding, math, science,
+                                human preference, cost, and speed. Every metric includes context because
+                                benchmark scores are useful proxies—not a universal intelligence ranking.
                             </p>
                         </Reveal>
 

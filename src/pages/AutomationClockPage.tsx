@@ -12,6 +12,7 @@ import { ImpactMetric } from '@/components/automation/ImpactMetric';
 import { MilestoneTimeline } from '@/components/automation/MilestoneTimeline';
 import { JobImpactChart } from '@/components/automation/JobImpactChart';
 import { SourcesPanel } from '@/components/automation/SourcesPanel';
+import { LearningGuide } from '@/components/educational/LearningGuide';
 
 const SECTOR_ORDER = [
   'softwareEngineering',
@@ -87,13 +88,13 @@ export function AutomationClockPage() {
     >
       <SEO
         title="The AI Impact Index | Automation Clock"
-        description="Track AI disruption across 18 sectors from 2022 to 2030: jobs at risk, automation rates, and expert projections. Cited sources."
+        description="Explore evidence-informed AI task-exposure scenarios across 18 sectors from 2022 to 2030, with assumptions, projections, and cited sources."
         canonical={`${SITE_CONFIG.baseUrl}/automation-clock`}
         structuredData={{
           '@context': 'https://schema.org',
           '@type': 'WebApplication',
           name: 'AI Beacon — The AI Impact Index',
-          description: 'Track AI disruption across 18 sectors: jobs at risk, automation rates, and expert projections.',
+          description: 'Explore AI task exposure and labor-market scenarios across 18 sectors with explicit assumptions and sources.',
           applicationCategory: 'EducationalApplication',
           operatingSystem: 'Web',
         }}
@@ -159,7 +160,7 @@ export function AutomationClockPage() {
                   lineHeight: 'var(--lead-body)',
                 }}
               >
-                Track automation, jobs at risk, and sector-level impact from 2022 through 2030. Historical values and projections are clearly separated, with data from McKinsey, Goldman Sachs, WEF, IMF, and others.
+                Explore how AI may change tasks across 18 sectors from 2022 through 2030. The index separates evidence-informed historical estimates from illustrative projections and links the underlying reports.
               </p>
             </div>
             <div
@@ -180,7 +181,7 @@ export function AutomationClockPage() {
                     letterSpacing: 'var(--tracking-wider)',
                   }}
                 >
-                  Jobs at risk
+                  Estimated roles exposed
                 </div>
                 <div
                   style={{
@@ -241,11 +242,39 @@ export function AutomationClockPage() {
                     lineHeight: 1,
                   }}
                 >
-                  9+
+                  10+
                 </div>
               </div>
             </div>
           </header>
+        </Reveal>
+
+        <Reveal delay={0.04} reduced={reduced}>
+          <div style={{ marginBottom: 'var(--s8)' }}>
+            <LearningGuide
+              title="Read this as exposure—not destiny"
+              intro="The clock is an educational scenario explorer. It combines published research with interpolated estimates so you can inspect direction and assumptions, not predict an exact employment count."
+              items={[
+                {
+                  label: 'Exposure ≠ replacement',
+                  text: 'A role is exposed when AI can affect some of its tasks. Many exposed jobs are more likely to change than disappear.',
+                },
+                {
+                  label: 'Tasks ≠ jobs',
+                  text: 'Jobs bundle technical, social, physical, legal, and accountable work. Automating one task rarely automates the whole occupation.',
+                },
+                {
+                  label: 'Estimate ≠ measurement',
+                  text: 'Historical-year values summarize studies; fractional years are interpolated. From 2027 onward, values are illustrative scenarios.',
+                },
+                {
+                  label: 'Adoption has friction',
+                  text: 'Cost, reliability, regulation, workflow redesign, skills, and social choices determine whether technical capability is actually deployed.',
+                },
+              ]}
+              note="Use the figures to compare assumptions and sectors—not as a forecast of a specific person losing or gaining a job."
+            />
+          </div>
         </Reveal>
 
         {/* Year slider */}
@@ -300,27 +329,27 @@ export function AutomationClockPage() {
             }}
           >
             <ImpactMetric
-              label="Jobs at risk"
+              label="Estimated roles exposed"
               value={data.globalJobsAtRisk}
-              sublabel="global estimate"
+              sublabel="scenario estimate"
               index={0}
             />
             <ImpactMetric
               label="GDP contribution"
               value={data.globalGDPContribution}
-              sublabel="AI-driven"
+              sublabel="scenario estimate"
               index={1}
             />
             <ImpactMetric
-              label="Tasks automatable"
+              label="Work-hour automation potential"
               value={`${data.tasksAutomatable}%`}
-              sublabel="of work hours"
+              sublabel="scenario estimate"
               index={2}
             />
             <ImpactMetric
-              label="New jobs created"
+              label="New roles in scenario"
               value={data.newJobsCreated}
-              sublabel="emerging roles"
+              sublabel="scenario estimate"
               index={3}
             />
           </section>
@@ -349,7 +378,7 @@ export function AutomationClockPage() {
                   margin: 0,
                 }}
               >
-                Sector impact
+                Sector task exposure
               </h2>
               <span
                 style={{
@@ -361,7 +390,7 @@ export function AutomationClockPage() {
                   fontFamily: 'var(--font-mono)',
                 }}
               >
-                Live interpolation
+                Interpolated estimate
               </span>
             </div>
             <div

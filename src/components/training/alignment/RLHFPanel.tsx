@@ -52,7 +52,7 @@ export function RLHFPanel() {
                         <h4 style={{ fontFamily: 'var(--font-sans)', fontSize: 'var(--text-md)', color: 'var(--ink)', margin: 0, fontWeight: 'var(--weight-medium)' }}>Train Reward Model</h4>
                     </div>
                     <p style={{ fontFamily: 'var(--font-sans)', fontSize: 'var(--text-sm)', color: 'var(--secondary)', margin: 0 }}>
-                        A second LLM (the reward model) is trained on those rankings. Its job is to ingest a (prompt, response) pair and output a scalar scalar value representing how "good" it is, imitating the human rankers.
+                        A second model (the reward model) is trained on those rankings. It ingests a (prompt, response) pair and outputs a scalar score that approximates the rankers' preferences.
                     </p>
                 </div>
 
