@@ -10,9 +10,12 @@ import { heat } from '@/utils/vizColor';
 
 const SENTENCE = 'The cat sat on the mat';
 const FOCUS_ROW = 2; // "sat"
+// The weights are random either way; this seed was picked because its pattern
+// shows more contrast than most, so the picture is easier to read.
+const SEED = 333;
 
 function computeAttention() {
-    const config = { ...DEFAULT_CONFIG, dModel: 16, nHeads: 1, seed: 42 };
+    const config = { ...DEFAULT_CONFIG, dModel: 16, dFF: 64, nHeads: 1, seed: SEED };
     let tensors: TensorRegistry = {};
     const steps = [
         PipelineStep.TOKENIZE,
@@ -80,7 +83,7 @@ export function HeroAttention() {
             <figcaption className="hero-attn-foot">
                 <code>softmax(QKᵀ/√d)·V</code>
                 <span>
-                    tiny random-weight model · d<sub>model</sub>={dModel} ·{' '}
+                    tiny random-weight model · d<sub>model</sub>={dModel} · seed {SEED} ·{' '}
                     <Link to="/transformer-simulator" className="text-link">try your own sentence →</Link>
                 </span>
             </figcaption>

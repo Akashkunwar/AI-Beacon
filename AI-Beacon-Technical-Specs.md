@@ -1,203 +1,146 @@
-# AI Beacon — Technical Specifications
+# AI Beacon — Technical Specification
 
-> Code-level specifications, data structures, component architecture, and implementation details for AI Beacon.  
-> Product vision and design intent: [AI-Beacon-PRD.md](./AI-Beacon-PRD.md).
+> Architecture, design system and data model. Product intent: [AI-Beacon-PRD.md](./AI-Beacon-PRD.md). Data rules: [docs/DATA-GUIDE.md](./docs/DATA-GUIDE.md).
 
----
+## 1. Overview
 
-## 1. Project Structure
+A static single-page app: Vite 6, React 19, TypeScript (strict), React Router 7. There is no backend. Pages are lazy-loaded routes; large datasets, the 12 simulator steps and the 10 training stages are further split into on-demand chunks.
 
-```
-AI-Beacon/
-├── index.html
-├── vite.config.ts
-├── tsconfig.json
-├── package.json
-├── AI-Beacon-PRD.md
-├── AI-Beacon-Technical-Specs.md
-│
-├── public/
-│   ├── favicon.svg
-│   ├── robots.txt
-│   └── sitemap.xml
-│
-├── src/
-│   ├── main.tsx
-│   ├── App.tsx
-│   ├── index.css              # Imports tokens.css, global reset
-│   ├── tokens.css             # Single source of truth: palette, type, spacing, motion
-│   │
-│   ├── pages/
-│   │   ├── Home.tsx
-│   │   ├── SimulatorPage.tsx
-│   │   ├── Training.tsx
-│   │   ├── Timeline.tsx
-│   │   ├── BenchmarksPage.tsx
-│   │   ├── AutomationClockPage.tsx
-│   │   ├── About.tsx
-│   │   └── NotFound.tsx
-│   │
-│   ├── components/
-│   │   ├── core/
-│   │   │   ├── SimulatorShell.tsx
-│   │   │   ├── PipelineCanvas.tsx
-│   │   │   └── StepRouter.tsx
-│   │   ├── controls/
-│   │   │   ├── ControlPanel.tsx
-│   │   │   ├── ModelConfigForm.tsx
-│   │   │   ├── PlaybackControls.tsx
-│   │   │   └── ModeToggle.tsx
-│   │   ├── pipeline/
-│   │   │   ├── RawInputStep.tsx … SamplingStep.tsx  (12 steps)
-│   │   ├── visualizers/
-│   │   │   ├── MatrixHeatmap.tsx, VectorBar.tsx, AttentionHeatmap.tsx
-│   │   │   ├── TokenBadge.tsx, ShapeLabel.tsx, FlowArrow.tsx
-│   │   ├── educational/
-│   │   │   ├── TooltipEngine.tsx, ConceptCard.tsx, OnboardingTour.tsx
-│   │   │   ├── HeroVisual.tsx, ScaleVisual.tsx, OpenSourceVisual.tsx
-│   │   ├── training/          # Step01DataCollection … Step10Deployment, alignment panels
-│   │   ├── timeline/          # TimelineHeader, TimelineCanvas, TimelineTable, TimelinePopup, TimelineNode
-│   │   ├── benchmarks/        # BenchmarkLeaderboard, ValueMap, SpeedChart, RadarComparison, etc.
-│   │   ├── automation/        # YearSlider, SectorCard, ImpactMetric, MilestoneTimeline, etc.
-│   │   ├── shared/
-│   │   │   ├── Nav.tsx, Footer.tsx, GlassCard.tsx, Badge.tsx
-│   │   │   ├── NumberDisplay.tsx, ErrorBoundary.tsx
-│   │   │   ├── PrimaryButton.tsx, SecondaryButton.tsx, index.ts
-│   │   └── common/
-│   │       ├── SEO.tsx, ScrollToTop.tsx, SkipToMain.tsx
-│   │
-│   ├── config/
-│   │   └── site.ts            # baseUrl, githubUrl, ogImageUrl
-│   ├── data/
-│   │   ├── benchmarkData.ts
-│   │   ├── automationData.ts
-│   │   ├── LLM_Timeline_Dataset.json
-│   │   ├── Research_Papers_Dataset.json
-│   │   └── AI_Tools_Dataset.json
-│   ├── hooks/
-│   │   └── useReducedMotion.ts
-│   ├── lib/
-│   │   ├── mathEngine/
-│   │   │   ├── tensor.ts, matmul.ts, attention.ts, softmax.ts
-│   │   │   ├── positional.ts, normalization.ts, activations.ts, sampling.ts
-│   │   │   └── index.ts
-│   │   ├── tokenizer/
-│   │   │   ├── wordSplit.ts, vocab.ts
-│   │   └── store/
-│   │       ├── simulatorStore.ts, stepMachine.ts, types.ts
-│   ├── utils/
-│   │   ├── timeline.ts, interpolationUtils.ts
-│   ├── types/
-│   │   └── vite-env.d.ts
-│   └── __tests__/
-│       ├── setup.ts
-│       ├── mathEngine/        # tensor, matmul, attention, softmax, normalization, embedding_pe_integration
-│       └── store/             # stepMachine
+```text
+src/
+├── App.tsx                    # Routes (lazy), error boundary, loading fallback
+├── main.tsx                   # Fonts, global CSS, router + helmet providers
+├── tokens.css                 # Design tokens, light + dark
+├── index.css                  # Reset and shared component classes
+├── pages/                     # Home, Timeline, SimulatorPage, Training, BenchmarksPage,
+│                              # AutomationClockPage, About, NotFound
+├── components/
+│   ├── shared/                # Nav, Footer, PageHeader/SectionHeader, ButtonLink, Icons,
+│   │                          # ThemeToggle, Reveal, ErrorBoundary
+│   ├── common/                # SEO (title/meta/OG/JSON-LD), ScrollToTop, SkipToMain
+│   ├── home/HeroAttention     # Live attention grid computed by the simulator engine
+│   ├── timeline/              # TimelineCanvas, TimelineFilters, TimelineTable, TimelineDetail
+│   ├── core/                  # SimulatorShell (layout, rail, inspector, drawers), StepRouter
+│   ├── controls/              # ModeToggle, ModelSettings, PlaybackControls
+│   ├── pipeline/              # 12 *Step components, StepKit primitives, stepUtils
+│   ├── educational/           # ConceptCard ("Go deeper"), LearningGuide
+│   ├── training/              # stages.ts (metadata), Stage* components, TrainingKit, format
+│   ├── benchmarks/            # Leaderboard, Progress, ScoreVsPrice, ModelCompare, Glossary, Sources
+│   ├── automation/            # ImpactExplorer
+│   └── charts/                # chartKit (tooltip + CSS), LineChart
+├── config/                    # modules.ts (module registry), site.ts (URLs)
+├── data/                      # Datasets and typed loaders (see §5)
+├── hooks/                     # useTheme, useReducedMotion, useWidth
+├── lib/
+│   ├── mathEngine/            # Tensor, matmul, attention, softmax, layer norm, GELU, sampling
+│   ├── store/                 # types, stepMachine (pure), simulatorStore (Zustand)
+│   └── tokenizer/             # 512-token vocabulary, word + punctuation tokenizer
+└── utils/                     # timeline.ts (dates, formatting, layout), vizColor.ts
 ```
 
----
+`src/config/modules.ts` is the single registry of module names, numbers, routes and summaries used by the nav, home page, footer, About and 404.
 
-## 2. Design System Tokens
+## 2. Design system
 
-All visual values come from **`src/tokens.css`** (imported by `src/index.css`). No hardcoded colors, spacing, or typography in components.
+### Tokens (`src/tokens.css`)
 
-### UI shell (greyscale only)
+| Group | Tokens |
+|---|---|
+| Surfaces | `--bg`, `--bg-panel`, `--bg-raised`, `--bg-sunken`, `--bg-inverse`, `--overlay` |
+| Text | `--ink` (strongest), `--primary`, `--secondary`, `--muted`, `--text-inverse` |
+| Lines | `--stroke`, `--stroke-dark`, `--focus-ring` |
+| Status | `--success`, `--warning`, `--danger`, `--link` |
+| Data | `--viz-1`…`--viz-5` (categorical, fixed order), `--viz-neg` (negative pole), `--viz-heat-lo/-hi` (sequential), `--viz-grid`, `--viz-on-fill`, plus derived mixes |
+| Type | `--font-sans` (Geist), `--font-mono` (Geist Mono), `--text-2xs`…`--text-3xl`, weights, tracking, leading |
+| Space & shape | `--s1`…`--s8`, `--r-xs`…`--r-xl`, `--r-pill`, shadows, `--nav-height`, container widths |
+| Motion | `--dur-fast/-base`, `--ease-out` |
 
-| Token | Purpose |
-|-------|--------|
-| `--bg`, `--bg-panel`, `--bg-raised` | Backgrounds |
-| `--stroke`, `--stroke-dark` | Borders, dividers |
-| `--muted`, `--secondary`, `--primary`, `--ink` | Text hierarchy |
-| `--bg-inverse`, `--text-inverse` | Dark buttons, chips |
-| `--font-sans`, `--font-mono` | Typography |
-| `--text-xs` … `--text-hero` | Type scale |
-| `--s1` … `--s8` | Spacing |
-| `--r-sm` … `--r-pill` | Border radius |
-| `--shadow-soft`, `--shadow-lift` | Shadows |
-| `--ease-out`, `--dur-fast/base/slow` | Motion |
+Dark mode is a second set of the same tokens under `:root[data-theme='dark']`. An inline script in `index.html` sets `data-theme` before first paint from `localStorage['ai-beacon-theme']`, falling back to `prefers-color-scheme`; `useTheme()` keeps it in sync. Components use tokens only — no raw colours.
 
-### Data visualizations only
+The categorical palette was validated for colour-vision deficiencies against both surfaces. Charts follow the same rules everywhere: thin marks, 2 px lines, legends for two or more series, direct labels only where useful, a tooltip layer, and no dual axes. `utils/vizColor.ts` provides `tint`, `heat` and `signed` (diverging) colour helpers built on `color-mix()`.
 
-Use **only** in charts, heatmaps, vector bars, and data UI — never on nav, cards, or body text:
+### Shared classes (`src/index.css`)
 
-- `--viz-1` … `--viz-5` (categorical series)
-- `--viz-neg`, `--viz-pos-lo/hi`, `--viz-neg-lo/hi`
-- `--viz-heat-lo/hi`, `--viz-accent`, `--viz-bar-top`, `--viz-bar-rest`
-- `--viz-residual-pos/neg`, `--viz-sampling-*`, etc.
+`.page`, `.container(-wide|-narrow)`, `.section`, `.eyebrow`, `.card(-pad|-interactive)`, `.btn(-primary|-secondary|-ghost|-sm)`, `.icon-btn`, `.segmented` (tabs/radios via `aria-selected|pressed|checked`), `.pill`, `.chip`, `.input`, `.select`, `.field-label`, `.table-wrap` + `.data-table`, `.skeleton`, `.sr-only`. Component-specific CSS is colocated in a `<style>` block per component with a short class prefix.
 
-### Rules
+## 3. Simulator (Module 02)
 
-- UI shell: greyscale tokens only.
-- Data viz: `--viz-*` (and grey scale extended where needed).
-- Respect `prefers-reduced-motion`; use token durations.
+### Engine
 
----
+- `lib/mathEngine/tensor.ts` — immutable `Tensor` (Float32Array + shape) with matmul, add, scale, softmax (with temperature), layer norm, transpose, row slicing, and a seeded LCG (`Tensor.randn(shape, seed)`).
+- `lib/mathEngine/attention.ts` — Q/K/V projections, scaled dot-product attention with causal mask, `splitHeads` / `concatHeads`.
+- `lib/mathEngine/sampling.ts` — `greedySample`, `topK`, seeded `topKSample`.
+- `lib/tokenizer` — lowercase words and single punctuation marks; 512 unique tokens, ID 0 = `<unk>`.
 
-## 3. Core Type Definitions
+### Step machine (`lib/store/stepMachine.ts`)
 
-See **`src/lib/store/types.ts`** for:
+`executeStep(step, state)` is a pure function that returns a new `TensorRegistry`. The model is one post-LN block with weights initialised as `N(0,1)/√fan_in` from fixed seed offsets:
 
-- **PipelineStep** enum (INPUT … SAMPLING)
-- **StepMeta** (label, shortLabel, requires, description, educationalNote)
-- **ModelConfig** (dModel, nHeads, nLayers, maxTokens, dFF, seed)
-- **SimulatorState** (config, mode, currentStep, stepHistory, tensors, actions)
-- **StepSnapshot** (for undo/redo)
-- **TensorRegistry** (embed, posenc, attention, residual, layernorm, ffn, lm_head, softmax, sampling, etc.)
-
-Tokenizer, PE, activation, and sampling types are constrained in MVP (e.g. `word_split`, `sinusoidal`, `gelu`, `greedy`).
-
----
-
-## 4. Tensor and Math Engine
-
-- **`src/lib/mathEngine/tensor.ts`:** `Tensor` class — `Float32Array`, immutable operations (matmul, add, scale, softmax, layerNorm, reshape, transpose, row). Factory: `zeros`, `randn`, `fromArray`. Deterministic RNG from `config.seed`.
-- **No `mathjs`.** All operations are custom; toy dimensions only (`d_model ≤ 64`, `n_tokens ≤ 12`).
-- **Key modules:** `matmul.ts`, `attention.ts`, `softmax.ts`, `positional.ts`, `normalization.ts`, `activations.ts`, `sampling.ts`.
-
-Step execution is implemented in **`src/lib/store/stepMachine.ts`**: each step computes the next tensor state; the Zustand store keeps history for step-back and reset.
-
----
-
-## 5. Routing
-
-| Path | Page |
-|------|------|
-| `/` | Home |
-| `/transformer-simulator` | SimulatorPage |
-| `/transformer-training-simulator` | Training |
-| `/timeline` | Timeline |
-| `/benchmarks` | BenchmarksPage |
-| `/automation-clock` | AutomationClockPage |
-| `/about` | About |
-| `/404`, `*` | NotFound |
-
----
-
-## 6. Error Handling and Accessibility
-
-- **ErrorBoundary** wraps pipeline step components; shows a friendly message and “Reset to previous step” where applicable.
-- Math guards: dimension checks in matmul; NaN checks; caps on dimensions with clear user messages.
-- **Accessibility:** Keyboard navigation, `aria-label` on visualizations, focus styles, `prefers-reduced-motion` support, semantic HTML.
-
----
-
-## 7. Build and Test
-
-```bash
-npm install
-npm run dev      # Vite dev server
-npm run build    # tsc -b && vite build
-npm run preview  # Serve dist locally
-npm run lint     # ESLint
-npm run test     # Vitest
+```text
+X      = W_e[ids] + PE                                   (n, d)
+A      = concat_h softmax(Q_h K_hᵀ/√d_h + mask) V_h · W_O  (n, d)
+H      = LayerNorm(X + A)
+out    = LayerNorm(H + GELU(H W₁) W₂)                    d_ff = 4d
+logits = out[n−1] · W_lm                                 (512)
+p      = softmax(logits / T)
+next   = argmax(p)  or  top-k draw (seeded)
 ```
 
-Deploy `dist/` to Cloudflare Pages (or any static host). Path alias `@/` → `src/`.
+`countParameters(config)` reports the model size shown in the UI.
 
----
+### Store (`lib/store/simulatorStore.ts`)
 
-## 8. References
+Zustand state: `config`, `mode` (`simple`/`advanced`), `inputText`, `currentStep`, `stepHistory` (snapshots for undo), `tensors`, `stepError`, `temperature`, `samplingMethod`, `topK`, play state. Actions: `stepForward`, `stepBackward`, `goToStep`, `playAll`/`pause`/`reset`, `updateConfig` and `setInput` (both reset the run), `setTemperature` and `setSampling` (recompute softmax/sampling in place, including history), `appendPrediction` (append the token and rerun to the end).
 
-- Product vision and modules: [AI-Beacon-PRD.md](./AI-Beacon-PRD.md)
-- Design tokens: `src/tokens.css`
-- Site config (base URL, GitHub, OG): `src/config/site.ts`
+### UI
+
+`SimulatorShell` lays out the step rail + settings, the scrollable step area (scroll reset per step), and the "data so far" inspector; below 1280 px the inspector and below 1024 px the settings move into drawers and the rail becomes a horizontal strip. ←/→ step through the pipeline. Each step uses `StepKit`: `StepFrame`, `Panel`, `Callout`, `Formula`, `Shapes` and `Advanced` (Advanced-only), `Facts`, `TokenPicker`, `MatrixGrid` (diverging or heat grid with hover readout and causal masking), `BarList`, `DimBars`.
+
+## 4. Training module (Module 03)
+
+`components/training/stages.ts` defines the ten stages (`id`, `title`, `phase`, `lede`, `goal`, `how`, `watch`). `pages/Training.tsx` reads `?stage=` from the URL, renders the sticky phase rail (strip on small screens), the stage header and "at a glance" box, the lazy stage component, and prev/next links. `TrainingKit` provides `Block`, `Note`, `Steps`, `StatGrid`, `Sources`, `Tabs`, `CardGrid`; `charts/LineChart` provides responsive line charts with crosshair tooltips, reference lines and shaded bands.
+
+Computations in stages are real where it matters: BPE merges on the Sennrich et al. corpus, parameter / KV-cache / 6·N·D compute formulas reproducing published model sizes, Chinchilla-optimal allocation (`N = √(C/120)`, `D = 20N`), weight-memory and KV-cache work counts. Simulated curves (loss, training run, failure modes) are labelled as illustrative.
+
+## 5. Data model
+
+| File | Shape | Notes |
+|---|---|---|
+| `LLM_Timeline_Dataset.json` | `{ metadata, models: ModelEntry[] }` | Types in `data/timeline.ts`; categories, modalities and field rules in the data guide |
+| `Research_Papers_Dataset.json` | `{ metadata, papers: PaperEntry[] }` | Every paper has a `paper_url` and `category` |
+| `AI_Tools_Dataset.json` | `{ metadata, tools: ToolEntry[] }` | `group`, optional `date_precision: 'month'` |
+| `datasetMeta.ts` | counts + `lastUpdated` | Home/About counters; tested against the JSON |
+| `benchmarkData.ts` | `METRICS`, `BENCHMARK_MODELS`, `NEWEST_MODELS`, `LIVE_LEADERBOARDS` | Per-model `source`; scores as published |
+| `impactData.ts` | `EVIDENCE`, `EXPOSURE_DEFINITIONS`, `SECTORS`, `MILESTONES` | Sector index is editorial and labelled as such |
+| `tokenizerSamples.ts` | real GPT-2 / GPT-4 / GPT-4o tokenizations | Generated with `gpt-tokenizer` |
+
+`data/timeline.ts` loads each timeline dataset with a cached dynamic import and normalises records into a common `TimelineItem` (`kind`, `slug`, `name`, `org`, `date`, `category`, `openSource`, `meta`, `haystack`). `utils/timeline.ts` parses dates as UTC (no off-by-one in western time zones) and computes a density-aware layout so cards never overlap.
+
+## 6. Routing, SEO and URL state
+
+| Route | Page | URL state |
+|---|---|---|
+| `/` | Home | — |
+| `/timeline` | Timeline | `tab`, `q`, `org`, `type`, `modality`, `license`, `from`, `to`, `item` |
+| `/transformer-simulator` | How LLMs Work | — (store) |
+| `/transformer-training-simulator` | How AI Is Trained | `stage` |
+| `/benchmarks` | Benchmarks | — |
+| `/automation-clock` | AI Impact Index | — |
+| `/about` | About | — |
+| `*` | NotFound (noindex) | — |
+
+`SEO` sets the title (`… | AI Beacon`), description, canonical URL, Open Graph/Twitter tags (image: `public/og-image.png`) and optional JSON-LD. `public/sitemap.xml` lists every route and training stage.
+
+## 7. Quality
+
+| Command | Covers |
+|---|---|
+| `npm run typecheck` | `tsc -b`, strict mode |
+| `npm run lint` | ESLint 9 flat config: `@eslint/js`, `typescript-eslint`, React Hooks, React Refresh |
+| `npm test` | Vitest (jsdom): tensor maths, attention, softmax, normalisation, the step machine and store, vocabulary, and dataset integrity |
+| `npm run check` | All three |
+| `npm run build` | Typecheck + production build |
+
+## 8. Accessibility
+
+Skip link, one `<h1>` per page, labelled landmarks, keyboard-operable tabs, sliders and dialogs (focus trap and Escape in the timeline detail dialog), visible focus rings, `aria-live` readouts for step changes and chart hovers, text alternatives on charts, and animations disabled under `prefers-reduced-motion`.
