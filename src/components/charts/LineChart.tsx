@@ -3,7 +3,8 @@
 // training module for loss curves and monitoring dashboards.
 
 import { useState } from 'react';
-import { CHART_CSS, ChartTooltip, useWidth, type TooltipState } from './chartKit';
+import { CHART_CSS, ChartTooltip, type TooltipState } from './chartKit';
+import { useWidth } from '@/hooks/useWidth';
 
 export interface LineSeries {
     id: string;

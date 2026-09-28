@@ -5,7 +5,8 @@ import { useMemo } from 'react';
 import { useSimulatorStore } from '@/lib/store/simulatorStore';
 import { PipelineStep } from '@/lib/store/types';
 import { VOCAB_SIZE } from '@/lib/tokenizer/vocab';
-import { Advanced, Callout, Facts, Formula, MatrixGrid, Panel, Shapes, StepFrame, tokenText } from './StepKit';
+import { Advanced, Callout, Facts, Formula, MatrixGrid, Panel, Shapes, StepFrame } from './StepKit';
+import { tokenText } from './stepUtils';
 
 export function EmbeddingStep() {
     const raw = useSimulatorStore((s) => s.tensors.tokens?.raw) ?? [];

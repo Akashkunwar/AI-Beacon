@@ -6,7 +6,8 @@ import { Link } from 'react-router-dom';
 import { useSimulatorStore } from '@/lib/store/simulatorStore';
 import { PipelineStep } from '@/lib/store/types';
 import { idToToken } from '@/lib/tokenizer/vocab';
-import { Advanced, BarList, Callout, Formula, Panel, StepFrame, tokenText } from './StepKit';
+import { Advanced, BarList, Callout, Formula, Panel, StepFrame } from './StepKit';
+import { tokenText } from './stepUtils';
 
 const K_OPTIONS = [3, 5, 10];
 

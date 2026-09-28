@@ -6,7 +6,8 @@ import { useSimulatorStore } from '@/lib/store/simulatorStore';
 import { PipelineStep } from '@/lib/store/types';
 import { idToToken, VOCAB_SIZE } from '@/lib/tokenizer/vocab';
 import { topK } from '@/lib/mathEngine/sampling';
-import { Advanced, BarList, Callout, Facts, Formula, Panel, StepFrame, tokenText } from './StepKit';
+import { Advanced, BarList, Callout, Facts, Formula, Panel, StepFrame } from './StepKit';
+import { tokenText } from './stepUtils';
 
 const PRESETS = [0.2, 0.7, 1, 1.5];
 const pct = (v: number) => (v >= 0.1 ? `${(v * 100).toFixed(1)}%` : `${(v * 100).toFixed(2)}%`);

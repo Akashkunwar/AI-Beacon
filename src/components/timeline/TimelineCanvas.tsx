@@ -54,14 +54,17 @@ export function TimelineCanvas({ kind, items, selectedId, onSelect }: Props) {
         setAtEnd(el.scrollLeft + el.clientWidth >= el.scrollWidth - 2);
     }, [layout]);
 
-    // Start at the most recent entries whenever the dataset or filter changes.
+    // Start at the most recent entries whenever the dataset or filter changes
+    // (but not when only the zoom level changes the layout).
     const itemsKey = `${kind}:${items.length}:${items[0]?.id ?? ''}:${items[items.length - 1]?.id ?? ''}`;
+    const updateRef = useRef(updateScrollState);
+    useLayoutEffect(() => { updateRef.current = updateScrollState; }, [updateScrollState]);
     useLayoutEffect(() => {
         const el = scrollRef.current;
         if (!el) return;
         el.scrollLeft = el.scrollWidth;
-        updateScrollState();
-    }, [itemsKey]); // eslint-disable-line react-hooks/exhaustive-deps
+        updateRef.current();
+    }, [itemsKey]);
 
     // Keep the selected card in view (e.g. when opened from the table).
     useEffect(() => {

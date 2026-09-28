@@ -3,7 +3,8 @@
 
 import { useMemo, useState } from 'react';
 import { BENCHMARK_MODELS, METRIC_BY_ID, type MetricId, type BenchmarkModel } from '@/data/benchmarkData';
-import { ChartTooltip, CHART_CSS, useWidth, type TooltipState } from '@/components/charts/chartKit';
+import { ChartTooltip, CHART_CSS, type TooltipState } from '@/components/charts/chartKit';
+import { useWidth } from '@/hooks/useWidth';
 import { formatDate } from '@/utils/timeline';
 
 interface Props {

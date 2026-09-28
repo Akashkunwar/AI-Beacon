@@ -4,7 +4,8 @@
 import { useMemo, useState } from 'react';
 import { useSimulatorStore } from '@/lib/store/simulatorStore';
 import { PipelineStep } from '@/lib/store/types';
-import { Advanced, Callout, Formula, MatrixGrid, Panel, Shapes, StepFrame, TokenPicker, tokenText } from './StepKit';
+import { Advanced, Callout, Formula, MatrixGrid, Panel, Shapes, StepFrame, TokenPicker } from './StepKit';
+import { tokenText } from './stepUtils';
 
 export function PositionalEncodingStep() {
     const raw = useSimulatorStore((s) => s.tensors.tokens?.raw) ?? [];

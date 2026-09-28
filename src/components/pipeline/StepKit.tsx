@@ -4,15 +4,10 @@
 // visualisation, optional maths (Advanced mode), and a "Go deeper" card.
 
 import { useState, type CSSProperties, type ReactNode } from 'react';
-import { useSimulatorStore } from '@/lib/store/simulatorStore';
+import { useIsAdvanced } from './stepUtils';
 import { PIPELINE_PHASES, PIPELINE_STEP_LABELS, PipelineStep } from '@/lib/store/types';
 import { ConceptCard } from '@/components/educational/ConceptCard';
 import { heat, signed } from '@/utils/vizColor';
-
-/** True when the user has switched the simulator to Advanced mode. */
-export function useIsAdvanced(): boolean {
-    return useSimulatorStore((s) => s.mode === 'advanced');
-}
 
 /** Renders its children only in Advanced mode. */
 export function Advanced({ children }: { children: ReactNode }) {
@@ -294,11 +289,6 @@ export function DimBars({ values, maxAbs, height = 80, ariaLabel }: { values: nu
             })}
         </div>
     );
-}
-
-/** Display form of a token (visible marker for punctuation-only strings). */
-export function tokenText(t: string): string {
-    return t.trim() === '' ? '␣' : t;
 }
 
 // ─── CSS ──────────────────────────────────────────────────────────────────

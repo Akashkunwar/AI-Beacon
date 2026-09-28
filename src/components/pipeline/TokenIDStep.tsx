@@ -4,7 +4,8 @@
 import { useSimulatorStore } from '@/lib/store/simulatorStore';
 import { PipelineStep } from '@/lib/store/types';
 import { UNK_ID, VOCAB_SIZE } from '@/lib/tokenizer/vocab';
-import { Callout, Panel, Shapes, StepFrame, tokenText } from './StepKit';
+import { Callout, Panel, Shapes, StepFrame } from './StepKit';
+import { tokenText } from './stepUtils';
 
 export function TokenIDStep() {
     const raw = useSimulatorStore((s) => s.tensors.tokens?.raw) ?? [];

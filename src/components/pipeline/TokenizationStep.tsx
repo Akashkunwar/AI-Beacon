@@ -4,7 +4,8 @@
 import { useSimulatorStore } from '@/lib/store/simulatorStore';
 import { PipelineStep } from '@/lib/store/types';
 import { VOCAB_SIZE } from '@/lib/tokenizer/vocab';
-import { Advanced, Callout, Facts, Formula, Panel, StepFrame, tokenText } from './StepKit';
+import { Advanced, Callout, Facts, Formula, Panel, StepFrame } from './StepKit';
+import { tokenText } from './stepUtils';
 
 export function TokenizationStep() {
     const inputText = useSimulatorStore((s) => s.inputText);

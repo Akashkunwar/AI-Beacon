@@ -44,7 +44,6 @@ export function applyPositionalEncoding(X: Tensor, dModel?: number): {
     const d = dModel ?? X.shape[1];
     const PE = sinusoidalPE(nTokens, d);
     const X_pos = X.add(PE);
-    X_pos.label; // label is kept from add(); we rename below
     return {
         PE,
         X_pos: new Tensor(X_pos.data, X_pos.shape as number[], 'X_pos'),

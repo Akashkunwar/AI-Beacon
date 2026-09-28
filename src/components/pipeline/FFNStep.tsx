@@ -5,7 +5,8 @@
 import { useMemo, useState } from 'react';
 import { useSimulatorStore } from '@/lib/store/simulatorStore';
 import { PipelineStep } from '@/lib/store/types';
-import { Advanced, Callout, DimBars, Formula, MatrixGrid, Panel, Shapes, StepFrame, TokenPicker, tokenText } from './StepKit';
+import { Advanced, Callout, DimBars, Formula, MatrixGrid, Panel, Shapes, StepFrame, TokenPicker } from './StepKit';
+import { tokenText } from './stepUtils';
 
 export function FFNStep() {
     const raw = useSimulatorStore((s) => s.tensors.tokens?.raw) ?? [];

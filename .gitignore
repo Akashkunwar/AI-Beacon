@@ -30,5 +30,4 @@ dist-ssr
 .vercel
 
 .agents
-.github
 .env

@@ -64,7 +64,7 @@ export function Timeline() {
     const [params, setParams] = useSearchParams();
     const tabParam = params.get('tab');
     const kind: TimelineKind = KINDS.includes(tabParam as TimelineKind) ? (tabParam as TimelineKind) : 'models';
-    const filters = readFilters(params);
+    const filters = useMemo(() => readFilters(params), [params]);
     const itemSlug = params.get('item');
 
     const [dataset, setDataset] = useState<TimelineDataset | null>(null);
@@ -81,9 +81,7 @@ export function Timeline() {
     }, [kind]);
 
     const items = useMemo(() => (dataset?.kind === kind ? dataset.items : []), [dataset, kind]);
-    const filterKey = params.toString();
-    // `filters` is rebuilt from the URL on every render; `filterKey` is its stable identity.
-    const filtered = useMemo(() => applyFilters(items, filters), [items, filterKey]);
+    const filtered = useMemo(() => applyFilters(items, filters), [items, filters]);
 
     const selected = useMemo(() => (itemSlug ? items.find((i) => i.slug === itemSlug) ?? null : null), [items, itemSlug]);
 

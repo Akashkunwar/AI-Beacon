@@ -6,7 +6,8 @@
 import { useMemo, useState } from 'react';
 import { useSimulatorStore } from '@/lib/store/simulatorStore';
 import { PipelineStep } from '@/lib/store/types';
-import { Advanced, BarList, Callout, Formula, MatrixGrid, Panel, Shapes, StepFrame, tokenText } from './StepKit';
+import { Advanced, BarList, Callout, Formula, MatrixGrid, Panel, Shapes, StepFrame } from './StepKit';
+import { tokenText } from './stepUtils';
 
 type Tab = 'qkv' | 'scores' | 'output';
 const TABS: { id: Tab; label: string }[] = [

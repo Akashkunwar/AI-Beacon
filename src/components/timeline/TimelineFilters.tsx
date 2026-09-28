@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo, useState, useRef } from 'react';
 import { categoriesFor, KIND_LABELS, MODALITY_LABELS, type Modality, type TimelineItem, type TimelineKind } from '@/data/timeline';
 import { SearchIcon } from '@/components/shared/Icons';
 
@@ -26,12 +26,14 @@ const MODALITY_FILTERS: Modality[] = ['text', 'image', 'audio', 'video', 'code']
 export function TimelineFilters({ kind, items, filters, resultCount, onChange, onClear }: Props) {
     // Debounce the search box so typing stays smooth.
     const [q, setQ] = useState(filters.q);
+    const onChangeRef = useRef(onChange);
+    useEffect(() => { onChangeRef.current = onChange; }, [onChange]);
     useEffect(() => setQ(filters.q), [filters.q]);
     useEffect(() => {
         if (q === filters.q) return;
-        const t = setTimeout(() => onChange({ q }), 180);
+        const t = setTimeout(() => onChangeRef.current({ q }), 180);
         return () => clearTimeout(t);
-    }, [q]); // eslint-disable-line react-hooks/exhaustive-deps
+    }, [q, filters.q]);
 
     const orgs = useMemo(() => {
         const counts = new Map<string, number>();

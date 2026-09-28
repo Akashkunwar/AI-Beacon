@@ -6,7 +6,8 @@ import { useSimulatorStore } from '@/lib/store/simulatorStore';
 import { PipelineStep } from '@/lib/store/types';
 import { idToToken, VOCAB_SIZE } from '@/lib/tokenizer/vocab';
 import { topK } from '@/lib/mathEngine/sampling';
-import { Advanced, BarList, Callout, Facts, Formula, MatrixGrid, Panel, Shapes, StepFrame, tokenText } from './StepKit';
+import { Advanced, BarList, Callout, Facts, Formula, MatrixGrid, Panel, Shapes, StepFrame } from './StepKit';
+import { tokenText } from './stepUtils';
 
 export function LMHeadStep() {
     const raw = useSimulatorStore((s) => s.tensors.tokens?.raw) ?? [];

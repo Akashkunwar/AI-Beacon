@@ -2,7 +2,8 @@
 
 import { useMemo, useState } from 'react';
 import { LineChart } from '@/components/charts/LineChart';
-import { Block, CardGrid, Note, Sources, StatGrid, Steps, fmtBig, sci } from './TrainingKit';
+import { Block, CardGrid, Note, Sources, StatGrid, Steps } from './TrainingKit';
+import { fmtBig, sci } from './format';
 
 // ── Illustrative loss curve ───────────────────────────────────────────────
 // A random model's loss starts at ln(vocabulary size): a uniform guess over

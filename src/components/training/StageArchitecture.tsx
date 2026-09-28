@@ -1,7 +1,8 @@
 // Stage 3 — Design the network.
 
 import { useMemo, useState } from 'react';
-import { Block, CardGrid, Note, Sources, StatGrid, fmtBig, sci } from './TrainingKit';
+import { Block, CardGrid, Note, Sources, StatGrid } from './TrainingKit';
+import { fmtBig, sci } from './format';
 
 interface Arch {
     layers: number;
