@@ -1,736 +1,254 @@
 // src/pages/Training.tsx
-// Module 02 — How LLMs Are Trained
-// 10-step interactive walkthrough with fixed sidebar, step transitions,
-// keyboard navigation, and mobile horizontal pill nav.
-// Monochrome only. No colour. All values from src/tokens.css.
+// Module 03 — How AI Is Trained. Ten stages from data to deployment.
+// The active stage lives in the URL (?stage=pretraining) so every stage can
+// be linked to directly; ← / → move between stages.
 
-import { useState, useEffect, useCallback, useReducer } from 'react';
-import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
-import { Nav } from '@/components/shared/Nav';
-import { ErrorBoundary } from '@/components/shared/ErrorBoundary';
+import { lazy, Suspense, useCallback, useEffect, useRef, type ComponentType } from 'react';
+import { Link, useSearchParams } from 'react-router-dom';
 import { SEO } from '@/components/common/SEO';
 import { SITE_CONFIG } from '@/config/site';
-import { Step01DataCollection } from '@/components/training/Step01DataCollection';
-import { Step02Tokenizer } from '@/components/training/Step02Tokenizer';
-import { Step03Architecture } from '@/components/training/Step03Architecture';
-import { Step04PreTraining } from '@/components/training/Step04PreTraining';
-import { Step05Evaluation } from '@/components/training/Step05Evaluation';
-import { Step06SFT } from '@/components/training/Step06SFT';
-import { Step07Alignment } from '@/components/training/Step07Alignment';
-import { Step08Benchmarking } from '@/components/training/Step08Benchmarking';
-import { Step09Inference } from '@/components/training/Step09Inference';
-import { Step10Deployment } from '@/components/training/Step10Deployment';
+import { getModule } from '@/config/modules';
+import { Nav } from '@/components/shared/Nav';
+import { Footer } from '@/components/shared/Footer';
+import { ErrorBoundary } from '@/components/shared/ErrorBoundary';
+import { PHASE_LABELS, STAGES, STAGE_INDEX, type StagePhase } from '@/components/training/stages';
+import { TRAINING_KIT_CSS } from '@/components/training/TrainingKit';
 
-// ─── Step definitions ───────────────────────────────────────────────────────
+const load = <K extends string>(factory: () => Promise<Record<K, ComponentType>>, name: K) =>
+    lazy(() => factory().then((m) => ({ default: m[name] })));
 
-const STEPS = [
-    {
-        num: '01', label: 'Data Collection',
-        goal: 'Build a useful, lawful, representative corpus.',
-        mechanism: 'Collect, filter, deduplicate, document, and split data before training.',
-        caution: 'More tokens do not automatically mean better data—or permission to use it.',
-    },
-    {
-        num: '02', label: 'Tokenizer Training',
-        goal: 'Turn text into a compact sequence of discrete IDs.',
-        mechanism: 'Learn a vocabulary of reusable text pieces, then encode and decode deterministically.',
-        caution: 'Tokens are not words; one word may become several tokens and spacing can matter.',
-    },
-    {
-        num: '03', label: 'Architecture Design',
-        goal: 'Choose the model structure and compute budget.',
-        mechanism: 'Set depth, width, attention layout, context length, and parameter count together.',
-        caution: 'Parameter count alone does not determine quality, cost, or usable context.',
-    },
-    {
-        num: '04', label: 'Pre-Training',
-        goal: 'Learn statistical structure by predicting tokens at scale.',
-        mechanism: 'Backpropagation updates weights to reduce next-token prediction loss.',
-        caution: 'Prediction skill can encode patterns and knowledge, but it does not guarantee truth.',
-    },
-    {
-        num: '05', label: 'Training Evaluation',
-        goal: 'Detect whether learning is stable and generalizes.',
-        mechanism: 'Track held-out loss, gradients, throughput, and targeted evaluations during training.',
-        caution: 'A falling training loss can coexist with overfitting, contamination, or capability gaps.',
-    },
-    {
-        num: '06', label: 'Supervised Fine-Tuning',
-        goal: 'Teach the base model to respond in a desired format and style.',
-        mechanism: 'Continue training on curated prompt-response demonstrations.',
-        caution: 'SFT imitates demonstrations; it does not by itself verify facts or align every behavior.',
-    },
-    {
-        num: '07', label: 'Alignment',
-        goal: 'Steer outputs toward human or specified preferences.',
-        mechanism: 'Use preference comparisons through RLHF, RLAIF, DPO, or related objectives.',
-        caution: 'Preference optimization is not a proof of safety and can inherit judge biases.',
-    },
-    {
-        num: '08', label: 'Benchmarking',
-        goal: 'Estimate specific capabilities under repeatable conditions.',
-        mechanism: 'Run fixed tasks with a declared prompt, scorer, model version, and sampling setup.',
-        caution: 'A benchmark score is a proxy—not a complete measure of intelligence or product quality.',
-    },
-    {
-        num: '09', label: 'Inference Optimization',
-        goal: 'Serve the trained model with less latency, memory, and cost.',
-        mechanism: 'Apply caching, batching, quantization, and decoding optimizations.',
-        caution: 'Optimizations trade off speed, memory, numerical precision, and sometimes quality.',
-    },
-    {
-        num: '10', label: 'Deployment',
-        goal: 'Operate the model reliably for real users.',
-        mechanism: 'Combine inference servers with routing, observability, safeguards, and rollback paths.',
-        caution: 'A model checkpoint is only one part of a secure, monitored production system.',
-    },
-] as const;
+const STAGE_VIEWS: Record<string, ComponentType> = {
+    data: load(() => import('@/components/training/StageData'), 'StageData'),
+    tokenizer: load(() => import('@/components/training/StageTokenizer'), 'StageTokenizer'),
+    architecture: load(() => import('@/components/training/StageArchitecture'), 'StageArchitecture'),
+    pretraining: load(() => import('@/components/training/StagePretraining'), 'StagePretraining'),
+    monitoring: load(() => import('@/components/training/StageMonitoring'), 'StageMonitoring'),
+    sft: load(() => import('@/components/training/StageSFT'), 'StageSFT'),
+    feedback: load(() => import('@/components/training/StageFeedback'), 'StageFeedback'),
+    evaluation: load(() => import('@/components/training/StageEvaluation'), 'StageEvaluation'),
+    inference: load(() => import('@/components/training/StageInference'), 'StageInference'),
+    deployment: load(() => import('@/components/training/StageDeployment'), 'StageDeployment'),
+};
 
-const TOTAL_STEPS = STEPS.length;
-
-// ─── Step placeholder component ─────────────────────────────────────────────
-
-interface StepPlaceholderProps {
-    stepNumber: number;
-    totalSteps: number;
-    onNext: () => void;
-    onPrev: () => void;
-}
-
-function StepPlaceholder({ stepNumber }: StepPlaceholderProps) {
-    const step = STEPS[stepNumber];
-    return (
-        <div
-            style={{
-                flex: 1,
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-            }}
-        >
-            <p
-                style={{
-                    fontFamily: 'var(--font-mono)',
-                    fontSize: 'var(--text-sm)',
-                    color: 'var(--muted)',
-                    textAlign: 'center',
-                }}
-            >
-                Step {step.num} — {step.label} — unavailable in this walkthrough
-            </p>
-        </div>
-    );
-}
-
-// ─── Step content with animated transition ──────────────────────────────────
-
-interface StepContentProps {
-    activeStep: number;
-    onNext: () => void;
-    onPrev: () => void;
-    shouldReduceMotion: boolean | null;
-}
-
-function StepContent({ activeStep, onNext, onPrev, shouldReduceMotion }: StepContentProps) {
-    // direction reducer: 1 = forward, -1 = backward
-    const [direction, setDirection] = useReducer(
-        (_: number, next: number) => next,
-        1,
-    );
-
-    const variants = {
-        enter: (dir: number) => ({
-            opacity: 0,
-            y: shouldReduceMotion ? 0 : dir * 10,
-        }),
-        center: { opacity: 1, y: 0 },
-        exit: { opacity: 0, y: 0 },
-    };
-
-    const handleNext = useCallback(() => {
-        setDirection(1);
-        onNext();
-    }, [onNext]);
-
-    const handlePrev = useCallback(() => {
-        setDirection(-1);
-        onPrev();
-    }, [onPrev]);
-
-    const isFirst = activeStep === 0;
-    const isLast = activeStep === TOTAL_STEPS - 1;
-    const stepMeta = STEPS[activeStep];
-
-    const btnBase: React.CSSProperties = {
-        fontFamily: 'var(--font-sans)',
-        fontSize: 'var(--text-sm)',
-        fontWeight: 'var(--weight-medium)',
-        color: 'var(--secondary)',
-        background: 'transparent',
-        border: '1px solid var(--stroke-dark)',
-        borderRadius: 'var(--r-md)',
-        padding: 'var(--s2) var(--s4)',
-        cursor: 'pointer',
-        transition: `all var(--dur-fast) var(--ease-out)`,
-    };
-
-    return (
-        <div
-            style={{
-                flex: 1,
-                display: 'flex',
-                flexDirection: 'column',
-                padding: 'var(--s7) var(--s6)',
-                background: 'var(--bg)',
-                minHeight: 0,
-                overflow: 'auto',
-            }}
-        >
-            {/* Animated step content */}
-            <div style={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
-                <AnimatePresence mode="wait" custom={direction}>
-                    <motion.div
-                        key={activeStep}
-                        custom={direction}
-                        variants={variants}
-                        initial="enter"
-                        animate="center"
-                        exit="exit"
-                        transition={
-                            shouldReduceMotion
-                                ? { duration: 0 }
-                                : {
-                                    exit: { duration: 0.08, ease: [0.2, 0, 0, 1] },
-                                    enter: { duration: 0.2, ease: [0.2, 0, 0, 1] },
-                                }
-                        }
-                        style={{ flex: 1, display: 'flex', flexDirection: 'column' }}
-                    >
-                        <aside
-                            aria-label={`Stage ${stepMeta.num} mental model`}
-                            style={{
-                                padding: 'var(--s4)',
-                                marginBottom: 'var(--s6)',
-                                background: 'var(--bg-panel)',
-                                border: '1px solid var(--stroke)',
-                                borderRadius: 'var(--r-lg)',
-                                boxShadow: 'var(--shadow-soft)',
-                            }}
-                        >
-                            <p style={{
-                                margin: '0 0 var(--s3)',
-                                color: 'var(--muted)',
-                                fontFamily: 'var(--font-mono)',
-                                fontSize: 'var(--text-2xs)',
-                                letterSpacing: 'var(--tracking-wider)',
-                                textTransform: 'uppercase',
-                            }}>
-                                Stage {stepMeta.num} mental model
-                            </p>
-                            <div className="training-mental-model-grid" style={{
-                                display: 'grid',
-                                gridTemplateColumns: 'repeat(3, minmax(0, 1fr))',
-                                gap: 'var(--s4)',
-                            }}>
-                                {[
-                                    ['Goal', stepMeta.goal],
-                                    ['Core mechanism', stepMeta.mechanism],
-                                    ['Do not confuse', stepMeta.caution],
-                                ].map(([label, text]) => (
-                                    <div key={label}>
-                                        <p style={{
-                                            margin: '0 0 var(--s1)',
-                                            color: 'var(--ink)',
-                                            fontSize: 'var(--text-xs)',
-                                            fontWeight: 'var(--weight-semibold)',
-                                        }}>
-                                            {label}
-                                        </p>
-                                        <p style={{
-                                            margin: 0,
-                                            color: 'var(--secondary)',
-                                            fontSize: 'var(--text-xs)',
-                                            lineHeight: 'var(--lead-body)',
-                                        }}>
-                                            {text}
-                                        </p>
-                                    </div>
-                                ))}
-                            </div>
-                        </aside>
-
-                        {activeStep === 0 ? (
-                            <Step01DataCollection
-                                stepNumber={activeStep + 1}
-                                totalSteps={TOTAL_STEPS}
-                                onNext={handleNext}
-                                onPrev={handlePrev}
-                            />
-                        ) : activeStep === 1 ? (
-                            <Step02Tokenizer
-                                stepNumber={activeStep + 1}
-                                totalSteps={TOTAL_STEPS}
-                                onNext={handleNext}
-                                onPrev={handlePrev}
-                            />
-                        ) : activeStep === 2 ? (
-                            <Step03Architecture
-                                stepNumber={activeStep + 1}
-                                totalSteps={TOTAL_STEPS}
-                                onNext={handleNext}
-                                onPrev={handlePrev}
-                            />
-                        ) : activeStep === 3 ? (
-                            <Step04PreTraining
-                                stepNumber={activeStep + 1}
-                                totalSteps={TOTAL_STEPS}
-                                onNext={handleNext}
-                                onPrev={handlePrev}
-                            />
-                        ) : activeStep === 4 ? (
-                            <Step05Evaluation
-                                stepNumber={activeStep + 1}
-                                totalSteps={TOTAL_STEPS}
-                                onNext={handleNext}
-                                onPrev={handlePrev}
-                            />
-                        ) : activeStep === 5 ? (
-                            <Step06SFT
-                                stepNumber={activeStep + 1}
-                                totalSteps={TOTAL_STEPS}
-                                onNext={handleNext}
-                                onPrev={handlePrev}
-                            />
-                        ) : activeStep === 6 ? (
-                            <Step07Alignment
-                                stepNumber={activeStep + 1}
-                                totalSteps={TOTAL_STEPS}
-                                onNext={handleNext}
-                                onPrev={handlePrev}
-                            />
-                        ) : activeStep === 7 ? (
-                            <Step08Benchmarking
-                                stepNumber={activeStep + 1}
-                                totalSteps={TOTAL_STEPS}
-                                onNext={handleNext}
-                                onPrev={handlePrev}
-                            />
-                        ) : activeStep === 8 ? (
-                            <Step09Inference
-                                stepNumber={activeStep + 1}
-                                totalSteps={TOTAL_STEPS}
-                                onNext={handleNext}
-                                onPrev={handlePrev}
-                            />
-                        ) : activeStep === 9 ? (
-                            <Step10Deployment
-                                stepNumber={activeStep + 1}
-                                totalSteps={TOTAL_STEPS}
-                                onNext={handleNext}
-                                onPrev={handlePrev}
-                            />
-                        ) : (
-                            <StepPlaceholder
-                                stepNumber={activeStep}
-                                totalSteps={TOTAL_STEPS}
-                                onNext={handleNext}
-                                onPrev={handlePrev}
-                            />
-                        )}
-                    </motion.div>
-                </AnimatePresence>
-            </div>
-
-            {/* Step footer */}
-            <footer
-                style={{
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'space-between',
-                    borderTop: '1px solid var(--stroke)',
-                    paddingTop: 'var(--s5)',
-                    marginTop: 'var(--s7)',
-                }}
-            >
-                {/* Previous */}
-                <div style={{ minWidth: '100px' }}>
-                    {!isFirst && (
-                        <button
-                            id="training-prev-btn"
-                            style={btnBase}
-                            onClick={handlePrev}
-                            onMouseEnter={(e) => {
-                                const el = e.currentTarget;
-                                el.style.background = 'var(--bg-panel)';
-                                el.style.color = 'var(--ink)';
-                                el.style.borderColor = 'var(--primary)';
-                            }}
-                            onMouseLeave={(e) => {
-                                const el = e.currentTarget;
-                                el.style.background = 'transparent';
-                                el.style.color = 'var(--secondary)';
-                                el.style.borderColor = 'var(--stroke-dark)';
-                            }}
-                            aria-label="Go to previous step"
-                        >
-                            ← Previous
-                        </button>
-                    )}
-                </div>
-
-                {/* Center step count */}
-                <p
-                    style={{
-                        fontFamily: 'var(--font-mono)',
-                        fontSize: 'var(--text-xs)',
-                        color: 'var(--muted)',
-                        margin: 0,
-                    }}
-                    aria-live="polite"
-                    aria-atomic="true"
-                >
-                    Step {activeStep + 1} of {TOTAL_STEPS}
-                </p>
-
-                {/* Next */}
-                <div style={{ minWidth: '100px', textAlign: 'right' }}>
-                    {!isLast && (
-                        <button
-                            id="training-next-btn"
-                            style={btnBase}
-                            onClick={handleNext}
-                            onMouseEnter={(e) => {
-                                const el = e.currentTarget;
-                                el.style.background = 'var(--bg-panel)';
-                                el.style.color = 'var(--ink)';
-                                el.style.borderColor = 'var(--primary)';
-                            }}
-                            onMouseLeave={(e) => {
-                                const el = e.currentTarget;
-                                el.style.background = 'transparent';
-                                el.style.color = 'var(--secondary)';
-                                el.style.borderColor = 'var(--stroke-dark)';
-                            }}
-                            aria-label="Go to next step"
-                        >
-                            Next →
-                        </button>
-                    )}
-                </div>
-            </footer>
-        </div>
-    );
-}
-
-// ─── Sidebar ─────────────────────────────────────────────────────────────────
-
-interface SidebarProps {
-    activeStep: number;
-    onSelectStep: (index: number) => void;
-}
-
-function Sidebar({ activeStep, onSelectStep }: SidebarProps) {
-    return (
-        <aside
-            aria-label="Training module steps"
-            style={{
-                width: '240px',
-                flexShrink: 0,
-                background: 'var(--bg-panel)',
-                borderRight: '1px solid var(--stroke)',
-                display: 'flex',
-                flexDirection: 'column',
-                position: 'sticky',
-                top: '52px',
-                height: 'calc(100vh - 52px)',
-                overflowY: 'auto',
-            }}
-        >
-            {/* Module title */}
-            <div
-                style={{
-                    padding: 'var(--s5) var(--s4) var(--s3)',
-                    borderBottom: '1px solid var(--stroke)',
-                }}
-            >
-                <p
-                    style={{
-                        fontFamily: 'var(--font-mono)',
-                        fontSize: 'var(--text-xs)',
-                        color: 'var(--muted)',
-                        textTransform: 'uppercase',
-                        letterSpacing: 'var(--tracking-wider)',
-                        margin: 0,
-                    }}
-                >
-                    How LLMs Are Trained
-                </p>
-            </div>
-
-            {/* Step nav items */}
-            <nav aria-label="Steps in this module" style={{ flex: 1 }}>
-                {STEPS.map((step, index) => {
-                    const isActive = index === activeStep;
-                    return (
-                        <button
-                            key={step.num}
-                            id={`training-step-${step.num}`}
-                            onClick={() => onSelectStep(index)}
-                            aria-current={isActive ? 'step' : undefined}
-                            aria-label={`Step ${step.num}: ${step.label}`}
-                            style={{
-                                display: 'flex',
-                                alignItems: 'center',
-                                gap: 'var(--s3)',
-                                width: '100%',
-                                padding: 'var(--s3) var(--s4)',
-                                background: isActive ? 'var(--bg-raised)' : 'transparent',
-                                border: 'none',
-                                borderLeft: isActive
-                                    ? '2px solid var(--ink)'
-                                    : '2px solid transparent',
-                                cursor: 'pointer',
-                                textAlign: 'left',
-                                transition: `background var(--dur-fast) var(--ease-out), border-color var(--dur-fast) var(--ease-out)`,
-                            }}
-                            onMouseEnter={(e) => {
-                                if (!isActive) {
-                                    e.currentTarget.style.background = 'var(--bg-raised)';
-                                }
-                            }}
-                            onMouseLeave={(e) => {
-                                if (!isActive) {
-                                    e.currentTarget.style.background = 'transparent';
-                                }
-                            }}
-                        >
-                            <span
-                                style={{
-                                    fontFamily: 'var(--font-mono)',
-                                    fontSize: 'var(--text-xs)',
-                                    color: isActive ? 'var(--muted)' : 'var(--muted)',
-                                    flexShrink: 0,
-                                    width: '1.5em',
-                                }}
-                            >
-                                {step.num}
-                            </span>
-                            <span
-                                style={{
-                                    fontFamily: 'var(--font-mono)',
-                                    fontSize: 'var(--text-xs)',
-                                    color: isActive ? 'var(--ink)' : 'var(--secondary)',
-                                    fontWeight: isActive ? 'var(--weight-medium)' : 'var(--weight-regular)',
-                                }}
-                            >
-                                {step.label}
-                            </span>
-                        </button>
-                    );
-                })}
-            </nav>
-        </aside>
-    );
-}
-
-// ─── Mobile pill nav ─────────────────────────────────────────────────────────
-
-interface MobilePillNavProps {
-    activeStep: number;
-    onSelectStep: (index: number) => void;
-}
-
-function MobilePillNav({ activeStep, onSelectStep }: MobilePillNavProps) {
-    return (
-        <div
-            role="navigation"
-            aria-label="Training module steps"
-            style={{
-                display: 'flex',
-                gap: 'var(--s2)',
-                overflowX: 'auto',
-                scrollbarWidth: 'none',
-                padding: 'var(--s3) var(--s4)',
-                borderBottom: '1px solid var(--stroke)',
-                background: 'var(--bg-panel)',
-            }}
-        >
-            {STEPS.map((step, index) => {
-                const isActive = index === activeStep;
-                return (
-                    <button
-                        key={step.num}
-                        id={`training-mobile-step-${step.num}`}
-                        onClick={() => onSelectStep(index)}
-                        aria-current={isActive ? 'step' : undefined}
-                        aria-label={`Step ${step.num}: ${step.label}`}
-                        style={{
-                            fontFamily: 'var(--font-mono)',
-                            fontSize: 'var(--text-xs)',
-                            color: isActive ? 'var(--ink)' : 'var(--secondary)',
-                            fontWeight: isActive ? 'var(--weight-medium)' : 'var(--weight-regular)',
-                            background: isActive ? 'var(--bg-raised)' : 'transparent',
-                            border: isActive
-                                ? '1px solid var(--stroke-dark)'
-                                : '1px solid var(--stroke)',
-                            borderRadius: 'var(--r-pill)',
-                            padding: 'var(--s2) var(--s3)',
-                            cursor: 'pointer',
-                            whiteSpace: 'nowrap',
-                            flexShrink: 0,
-                            minHeight: '44px',
-                            transition: `all var(--dur-fast) var(--ease-out)`,
-                        }}
-                    >
-                        {step.num} {step.label}
-                    </button>
-                );
-            })}
-        </div>
-    );
-}
-
-// ─── Training page ────────────────────────────────────────────────────────────
+const PHASES = Object.keys(PHASE_LABELS) as StagePhase[];
 
 export function Training() {
-    const trainingStructuredData = {
-        '@context': 'https://schema.org',
-        '@type': 'HowTo',
-        'name': 'How LLMs are trained: A 10-step guide',
-        'description': 'Step-by-step interactive walkthrough explaining the lifecycle of training a large language model.',
-        'step': STEPS.map((s, i) => ({
-            '@type': 'HowToStep',
-            'position': i + 1,
-            'name': s.label,
-            'url': `${SITE_CONFIG.baseUrl}/transformer-training-simulator#step-${s.num}`,
-        })),
-    };
+    const mod = getModule('training');
+    const [params, setParams] = useSearchParams();
+    const idx = STAGE_INDEX[params.get('stage') ?? ''] ?? 0;
+    const stage = STAGES[idx];
+    const View = STAGE_VIEWS[stage.id];
+    const topRef = useRef<HTMLDivElement>(null);
+    const firstRender = useRef(true);
 
-    const [activeStep, setActiveStep] = useState(0);
-    const shouldReduceMotion = useReducedMotion();
+    const goTo = useCallback((i: number) => {
+        const next = STAGES[Math.max(0, Math.min(STAGES.length - 1, i))];
+        setParams(next.id === STAGES[0].id ? {} : { stage: next.id });
+    }, [setParams]);
 
-    const goNext = useCallback(() => {
-        setActiveStep((s) => Math.min(s + 1, TOTAL_STEPS - 1));
-    }, []);
-
-    const goPrev = useCallback(() => {
-        setActiveStep((s) => Math.max(s - 1, 0));
-    }, []);
-
-    const goToStep = useCallback((index: number) => {
-        setActiveStep(Math.max(0, Math.min(index, TOTAL_STEPS - 1)));
-    }, []);
-
-    // Keyboard navigation: arrow left/right
+    // Bring the new stage's header into view (not on first load).
     useEffect(() => {
-        const handleKey = (e: KeyboardEvent) => {
-            if (e.target instanceof HTMLInputElement || e.target instanceof HTMLTextAreaElement) return;
-            if (e.key === 'ArrowRight') { e.preventDefault(); goNext(); }
-            if (e.key === 'ArrowLeft') { e.preventDefault(); goPrev(); }
+        if (firstRender.current) { firstRender.current = false; return; }
+        const el = topRef.current;
+        if (!el) return;
+        const navH = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--nav-height')) || 60;
+        const y = el.getBoundingClientRect().top + window.scrollY - navH - 12;
+        if (window.scrollY > y) window.scrollTo({ top: y });
+    }, [idx]);
+
+    // ← / → between stages, unless the user is typing or using a control that owns the arrows.
+    useEffect(() => {
+        const onKey = (e: KeyboardEvent) => {
+            if (e.defaultPrevented || e.metaKey || e.ctrlKey || e.altKey) return;
+            const t = e.target as HTMLElement | null;
+            if (t && (t.isContentEditable || /^(INPUT|TEXTAREA|SELECT)$/.test(t.tagName) || t.getAttribute('role') === 'tab')) return;
+            if (e.key === 'ArrowRight' && idx < STAGES.length - 1) { e.preventDefault(); goTo(idx + 1); }
+            if (e.key === 'ArrowLeft' && idx > 0) { e.preventDefault(); goTo(idx - 1); }
         };
-        window.addEventListener('keydown', handleKey);
-        return () => window.removeEventListener('keydown', handleKey);
-    }, [goNext, goPrev]);
+        window.addEventListener('keydown', onKey);
+        return () => window.removeEventListener('keydown', onKey);
+    }, [idx, goTo]);
+
+    const prev = idx > 0 ? STAGES[idx - 1] : null;
+    const next = idx < STAGES.length - 1 ? STAGES[idx + 1] : null;
+    const href = (id: string) => (id === STAGES[0].id ? '?' : `?stage=${id}`);
 
     return (
-        <ErrorBoundary>
+        <div className="page">
             <SEO
-                title="LLM Training Pipeline"
-                description="Interactive 10-step walkthrough of how Large Language Models are trained. From data collection to deployment."
-                canonical={`${SITE_CONFIG.baseUrl}/transformer-training-simulator`}
-                structuredData={trainingStructuredData}
-            />
-            <div
-                style={{
-                    minHeight: '100vh',
-                    background: 'var(--bg)',
-                    display: 'flex',
-                    flexDirection: 'column',
+                title={idx === 0 ? 'How AI Is Trained — from data to deployment' : `${stage.title} — How AI Is Trained`}
+                description="How large language models are built, in ten stages: collecting data, building a tokenizer, designing the network, pre-training, fine-tuning, feedback and reinforcement learning, evaluation, efficient inference and deployment."
+                canonical={`${SITE_CONFIG.baseUrl}/transformer-training-simulator${idx === 0 ? '' : `?stage=${stage.id}`}`}
+                structuredData={{
+                    '@context': 'https://schema.org',
+                    '@type': 'HowTo',
+                    name: 'How large language models are trained',
+                    step: STAGES.map((s, i) => ({
+                        '@type': 'HowToStep',
+                        position: i + 1,
+                        name: s.title,
+                        text: s.goal,
+                        url: `${SITE_CONFIG.baseUrl}/transformer-training-simulator?stage=${s.id}`,
+                    })),
                 }}
-            >
-                {/* Global Header */}
-                <Nav activeRoute="/transformer-training-simulator" />
+            />
+            <Nav />
+            <header className="tr-hero">
+                <div className="container-wide tr-hero-inner">
+                    <p className="eyebrow">Module {mod.num} · {mod.title}</p>
+                    <h1 className="tr-hero-title">How is a model like ChatGPT made?</h1>
+                    <p className="tr-hero-lede">
+                        Ten stages, from a pile of text to an assistant millions of people use. Each stage explains what happens, why, and
+                        what can go wrong — with interactive examples and real numbers from published models.
+                    </p>
+                    <div className="tr-progress" aria-hidden="true">
+                        {STAGES.map((s, i) => <span key={s.id} className={i <= idx ? 'is-on' : ''} />)}
+                    </div>
+                </div>
+            </header>
 
-                {/*
-                 * Desktop layout: sidebar + content side-by-side.
-                 * Mobile (<720px): sidebar hidden; mobile pill nav shown above content.
-                 */}
-                <div
-                    className="training-layout"
-                    style={{
-                        flex: 1,
-                        display: 'flex',
-                        minHeight: 0,
-                    }}
-                >
-                    {/* Desktop sidebar (hidden on mobile via CSS) */}
-                    <div className="training-sidebar">
-                        <Sidebar activeStep={activeStep} onSelectStep={goToStep} />
+            <div className="container-wide tr-layout">
+                <aside className="tr-rail" aria-label="Training stages">
+                    <nav>
+                        {PHASES.map((phase) => (
+                            <div key={phase} className="tr-rail-group">
+                                <p className="tr-rail-phase">{PHASE_LABELS[phase]}</p>
+                                <ol>
+                                    {STAGES.map((s, i) => s.phase !== phase ? null : (
+                                        <li key={s.id}>
+                                            <Link
+                                                to={href(s.id)}
+                                                className={`tr-rail-link ${i === idx ? 'is-current' : i < idx ? 'is-done' : ''}`}
+                                                aria-current={i === idx ? 'step' : undefined}
+                                            >
+                                                <span className="tr-rail-num">{String(i + 1).padStart(2, '0')}</span>
+                                                {s.title}
+                                            </Link>
+                                        </li>
+                                    ))}
+                                </ol>
+                            </div>
+                        ))}
+                    </nav>
+                    <p className="tr-rail-tip">Tip: ← and → move between stages.</p>
+                </aside>
+
+                <main id="main" className="tr-main">
+                    <nav className="tr-strip" aria-label="Training stages">
+                        {STAGES.map((s, i) => (
+                            <Link key={s.id} to={href(s.id)} className={`tr-strip-link ${i < idx ? 'is-done' : ''}`} aria-current={i === idx ? 'step' : undefined}>
+                                <span>{i + 1}</span>{s.short}
+                            </Link>
+                        ))}
+                    </nav>
+
+                    <div ref={topRef} className="tr-stage-head">
+                        <p className="eyebrow">Stage {idx + 1} of {STAGES.length} · {PHASE_LABELS[stage.phase]}</p>
+                        <h2 className="tr-stage-title">{stage.title}</h2>
+                        <p className="tr-stage-lede">{stage.lede}</p>
+                        <dl className="tr-glance">
+                            <div><dt>Goal</dt><dd>{stage.goal}</dd></div>
+                            <div><dt>How</dt><dd>{stage.how}</dd></div>
+                            <div><dt>Watch out</dt><dd>{stage.watch}</dd></div>
+                        </dl>
                     </div>
 
-                    {/* Main content column */}
-                    <main
-                        id="main"
-                        aria-label="Training step content"
-                        style={{
-                            flex: 1,
-                            display: 'flex',
-                            flexDirection: 'column',
-                            minWidth: 0,
-                            minHeight: '100vh',
-                        }}
-                    >
-                        {/* Mobile-only: Pill row */}
-                        <div className="training-mobile-header">
-                            <MobilePillNav activeStep={activeStep} onSelectStep={goToStep} />
-                        </div>
+                    <div className="tr-stage-body">
+                        <ErrorBoundary key={stage.id}>
+                            <Suspense fallback={<div className="skeleton" style={{ height: 360, borderRadius: 'var(--r-lg)' }} />}>
+                                <View />
+                            </Suspense>
+                        </ErrorBoundary>
+                    </div>
 
-                        {/* Step content (animated) */}
-                        <StepContent
-                            activeStep={activeStep}
-                            onNext={goNext}
-                            onPrev={goPrev}
-                            shouldReduceMotion={shouldReduceMotion}
-                        />
-                    </main>
-                </div>
-
-                {/* Responsive styles */}
-                <style>{`
-                    /* Desktop: sidebar visible, no mobile header */
-                    .training-sidebar { display: flex; }
-                    .training-mobile-header { display: none; }
-
-                    /* Mobile: hide sidebar, show mobile header */
-                    @media (max-width: 719px) {
-                        .training-sidebar { display: none !important; }
-                        .training-mobile-header { display: block; }
-                        .training-mental-model-grid { grid-template-columns: 1fr !important; }
-                    }
-
-                    /* Focus outline for sidebar step buttons */
-                    #training-prev-btn:focus-visible,
-                    #training-next-btn:focus-visible {
-                        outline: 2px solid var(--stroke-dark);
-                        outline-offset: 2px;
-                    }
-
-                    /* Focus for sidebar nav items */
-                    [id^="training-step-"]:focus-visible,
-                    [id^="training-mobile-step-"]:focus-visible {
-                        outline: 2px solid var(--stroke-dark);
-                        outline-offset: 2px;
-                    }
-
-                    /* Hide scrollbar on mobile pill nav */
-                    .training-mobile-header nav::-webkit-scrollbar { display: none; }
-
-                    /* Respect prefers-reduced-motion */
-                    @media (prefers-reduced-motion: reduce) {
-                        * { transition-duration: 0ms !important; animation-duration: 0ms !important; }
-                    }
-                `}</style>
+                    <nav className="tr-pager" aria-label="Previous and next stage">
+                        {prev ? (
+                            <Link to={href(prev.id)} className="tr-pager-link" rel="prev">
+                                <span className="tr-pager-dir">← Stage {idx}</span>
+                                <span className="tr-pager-title">{prev.title}</span>
+                            </Link>
+                        ) : <span />}
+                        {next ? (
+                            <Link to={href(next.id)} className="tr-pager-link is-next" rel="next">
+                                <span className="tr-pager-dir">Stage {idx + 2} →</span>
+                                <span className="tr-pager-title">{next.title}</span>
+                            </Link>
+                        ) : (
+                            <Link to="/benchmarks" className="tr-pager-link is-next">
+                                <span className="tr-pager-dir">Next module →</span>
+                                <span className="tr-pager-title">Benchmarks: how good are models, really?</span>
+                            </Link>
+                        )}
+                    </nav>
+                </main>
             </div>
-        </ErrorBoundary>
+            <Footer />
+            <style>{TRAINING_CSS + TRAINING_KIT_CSS}</style>
+        </div>
     );
 }
+
+const TRAINING_CSS = `
+.tr-hero { border-bottom: 1px solid var(--stroke); background: var(--bg-panel); }
+.tr-hero-inner { padding-block: var(--s6) var(--s5); display: flex; flex-direction: column; gap: var(--s2); }
+.tr-hero-title { font-size: var(--text-2xl); letter-spacing: var(--tracking-tight); line-height: 1.1; }
+.tr-hero-lede { font-size: var(--text-base); color: var(--secondary); max-width: 70ch; line-height: var(--lead-body); }
+.tr-progress { display: grid; grid-template-columns: repeat(10, 1fr); gap: 4px; margin-top: var(--s3); max-width: 520px; }
+.tr-progress span { height: 4px; border-radius: 2px; background: var(--bg-raised); }
+.tr-progress span.is-on { background: var(--ink); }
+
+.tr-layout { display: grid; grid-template-columns: 250px minmax(0, 1fr); gap: var(--s7); align-items: start; padding-block: var(--s6) var(--s8); }
+.tr-rail { position: sticky; top: calc(var(--nav-height) + var(--s4)); max-height: calc(100vh - var(--nav-height) - var(--s6)); overflow-y: auto; display: flex; flex-direction: column; gap: var(--s4); }
+.tr-rail-group + .tr-rail-group { margin-top: var(--s3); }
+.tr-rail-phase { font-size: var(--text-2xs); font-family: var(--font-mono); text-transform: uppercase; letter-spacing: var(--tracking-wide); color: var(--muted); margin-bottom: 4px; }
+.tr-rail ol { list-style: none; display: flex; flex-direction: column; gap: 1px; }
+.tr-rail-link { display: flex; gap: var(--s2); padding: 6px 8px; border-radius: var(--r-sm); font-size: var(--text-sm); color: var(--secondary); line-height: 1.3; }
+.tr-rail-link:hover { background: var(--bg-raised); color: var(--ink); }
+.tr-rail-num { font-family: var(--font-mono); font-size: var(--text-2xs); color: var(--muted); padding-top: 2px; flex-shrink: 0; }
+.tr-rail-link.is-done { color: var(--primary); }
+.tr-rail-link.is-current { background: var(--bg-inverse); color: var(--text-inverse); }
+.tr-rail-link.is-current .tr-rail-num { color: inherit; opacity: 0.7; }
+.tr-rail-tip { font-size: var(--text-2xs); color: var(--muted); }
+
+.tr-main { min-width: 0; display: flex; flex-direction: column; gap: var(--s6); }
+.tr-strip { display: none; }
+.tr-stage-head { display: flex; flex-direction: column; gap: var(--s3); }
+.tr-stage-title { font-size: var(--text-xl); letter-spacing: var(--tracking-tight); line-height: 1.15; }
+.tr-stage-lede { font-size: var(--text-md); color: var(--secondary); line-height: 1.55; max-width: 70ch; }
+.tr-glance { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--s4); padding: var(--s4); border: 1px solid var(--stroke); border-radius: var(--r-lg); background: var(--bg-panel); margin-top: var(--s2); }
+.tr-glance dt { font-size: var(--text-2xs); font-family: var(--font-mono); text-transform: uppercase; letter-spacing: var(--tracking-wide); color: var(--muted); margin-bottom: 4px; }
+.tr-glance dd { font-size: var(--text-sm); color: var(--primary); line-height: var(--lead-body); }
+.tr-stage-body { display: flex; flex-direction: column; gap: var(--s6); }
+
+.tr-pager { display: grid; grid-template-columns: 1fr 1fr; gap: var(--s3); padding-top: var(--s5); border-top: 1px solid var(--stroke); }
+.tr-pager-link { display: flex; flex-direction: column; gap: 4px; padding: var(--s4); border: 1px solid var(--stroke); border-radius: var(--r-lg); background: var(--bg-panel); transition: border-color var(--dur-fast) var(--ease-out); }
+.tr-pager-link:hover { border-color: var(--ink); }
+.tr-pager-link.is-next { text-align: right; }
+.tr-pager-dir { font-size: var(--text-2xs); font-family: var(--font-mono); text-transform: uppercase; letter-spacing: var(--tracking-wide); color: var(--muted); }
+.tr-pager-title { font-size: var(--text-sm); font-weight: var(--weight-semibold); color: var(--ink); }
+
+@media (max-width: 1023px) {
+    .tr-layout { grid-template-columns: 1fr; gap: 0; padding-top: 0; }
+    .tr-rail { display: none; }
+    .tr-strip {
+        display: flex; gap: 4px; overflow-x: auto; scrollbar-width: none;
+        position: sticky; top: var(--nav-height); z-index: var(--z-raised);
+        padding-block: var(--s2);
+        background: color-mix(in srgb, var(--bg) 92%, transparent); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+        border-bottom: 1px solid var(--stroke);
+    }
+    .tr-strip::-webkit-scrollbar { display: none; }
+    .tr-strip-link { display: inline-flex; align-items: center; gap: 6px; white-space: nowrap; padding: 4px 10px 4px 4px; border-radius: var(--r-pill); font-size: var(--text-xs); color: var(--muted); border: 1px solid transparent; }
+    .tr-strip-link span { width: 20px; height: 20px; border-radius: 50%; display: grid; place-items: center; font-family: var(--font-mono); font-size: 10px; border: 1px solid var(--stroke-dark); }
+    .tr-strip-link.is-done { color: var(--secondary); }
+    .tr-strip-link[aria-current="step"] { color: var(--ink); border-color: var(--stroke-dark); font-weight: var(--weight-medium); }
+    .tr-strip-link[aria-current="step"] span { background: var(--bg-inverse); color: var(--text-inverse); border-color: var(--bg-inverse); }
+    .tr-main { padding-block: 0 var(--s7); }
+}
+@media (max-width: 767px) {
+    .tr-hero-title { font-size: var(--text-xl); }
+    .tr-glance { grid-template-columns: 1fr; gap: var(--s3); }
+    .tr-stage-lede { font-size: var(--text-base); }
+    .tr-pager { grid-template-columns: 1fr; }
+}
+`;
