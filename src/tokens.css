@@ -31,14 +31,15 @@
 
     /* ── Data-viz palette ────────────────────────────────────── */
     /* Used ONLY inside charts, heatmaps and vector bars.        */
-    --viz-1: #5b6fa8;           /* slate blue — primary series   */
-    --viz-2: #5f8f70;           /* sage green                    */
-    --viz-3: #a9764f;           /* terracotta                    */
-    --viz-4: #8d6697;           /* dusty plum                    */
-    --viz-5: #4b8f9c;           /* steel teal                    */
-    --viz-neg: #b86464;         /* muted rose — negative values  */
-    --viz-heat-lo: #e3ebf6;     /* heatmap cold end              */
-    --viz-heat-hi: #2d5a8e;     /* heatmap hot end               */
+    /* Categorical order is fixed and CVD-validated — never reorder or cycle. */
+    --viz-1: #2a78d6;           /* blue    — primary series / positive values */
+    --viz-2: #eb6834;           /* orange  — second series                    */
+    --viz-3: #1baf7a;           /* aqua                                       */
+    --viz-4: #eda100;           /* yellow                                     */
+    --viz-5: #e87ba4;           /* magenta                                    */
+    --viz-neg: #e34948;         /* red     — negative values (diverging pole) */
+    --viz-heat-lo: #e3eefc;     /* sequential blue ramp, low end              */
+    --viz-heat-hi: #1c5cab;     /* sequential blue ramp, high end             */
     --viz-heat-text: #fafafa;   /* label on hot cells            */
     --viz-grid: #e6e6e8;        /* chart gridlines               */
 
@@ -189,14 +190,14 @@
     --warning: #e2a553;
     --danger: #f08b82;
 
-    --viz-1: #8ea0d8;
-    --viz-2: #85bb96;
-    --viz-3: #d19f78;
-    --viz-4: #b893c2;
-    --viz-5: #74b8c4;
-    --viz-neg: #e08c8c;
-    --viz-heat-lo: #161d2a;
-    --viz-heat-hi: #8fb4ec;
+    --viz-1: #3987e5;
+    --viz-2: #d95926;
+    --viz-3: #199e70;
+    --viz-4: #c98500;
+    --viz-5: #d55181;
+    --viz-neg: #e66767;
+    --viz-heat-lo: #16202f;
+    --viz-heat-hi: #86b6ef;
     --viz-heat-text: #0b0b0c;
     --viz-grid: #242428;
 

@@ -1,403 +1,211 @@
-import { useRef } from 'react';
-import { motion, useInView } from 'framer-motion';
+// src/pages/BenchmarksPage.tsx
+// Module 04 — Benchmarks. A sourced snapshot of what labs report on the tests
+// that matter today, how fast those tests saturate, and what a score means.
+
+import { useState } from 'react';
 import { SEO } from '@/components/common/SEO';
 import { SITE_CONFIG } from '@/config/site';
+import { getModule } from '@/config/modules';
 import { Nav } from '@/components/shared/Nav';
-import { useReducedMotion } from '@/hooks/useReducedMotion';
-import { BENCHMARK_MODELS, LAST_UPDATED } from '@/data/benchmarkData';
+import { Footer } from '@/components/shared/Footer';
+import { PageHeader, SectionHeader } from '@/components/shared/PageHeader';
+import { Reveal } from '@/components/shared/Reveal';
+import { LearningGuide } from '@/components/educational/LearningGuide';
 import { BenchmarkLeaderboard } from '@/components/benchmarks/BenchmarkLeaderboard';
-import { ValueMap } from '@/components/benchmarks/ValueMap';
-import { SpeedChart } from '@/components/benchmarks/SpeedChart';
-import { RadarComparison } from '@/components/benchmarks/RadarComparison';
-import { ProgressTimeline } from '@/components/benchmarks/ProgressTimeline';
+import { BenchmarkProgress } from '@/components/benchmarks/BenchmarkProgress';
+import { ScoreVsPrice } from '@/components/benchmarks/ScoreVsPrice';
+import { ModelCompare } from '@/components/benchmarks/ModelCompare';
 import { BenchmarkGlossary } from '@/components/benchmarks/BenchmarkGlossary';
 import { BenchmarkSources } from '@/components/benchmarks/BenchmarkSources';
-import { LearningGuide } from '@/components/educational/LearningGuide';
-
-const fadeUp = {
-  hidden: { opacity: 0, y: 14 },
-  visible: (delay: number = 0) => ({
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.35, delay, ease: [0.2, 0, 0, 1] as [number, number, number, number] },
-  }),
-};
-
-function Reveal({
-  children,
-  delay = 0,
-  reduced = false,
-}: {
-  children: React.ReactNode;
-  delay?: number;
-  reduced?: boolean;
-}) {
-  const ref = useRef<HTMLDivElement>(null);
-  const inView = useInView(ref, { once: true, margin: '-60px' });
-  const variants = reduced
-    ? { hidden: { opacity: 1, y: 0 }, visible: { opacity: 1, y: 0 } }
-    : fadeUp;
-  return (
-    <motion.div
-      ref={ref}
-      initial="hidden"
-      animate={inView ? 'visible' : 'hidden'}
-      custom={reduced ? 0 : delay}
-      variants={variants}
-      transition={reduced ? { duration: 0 } : undefined}
-    >
-      {children}
-    </motion.div>
-  );
-}
+import { BENCHMARK_MODELS, LAST_UPDATED, METRICS, METRIC_BY_ID, NEWEST_MODELS, type MetricId } from '@/data/benchmarkData';
+import { formatContextWindow, formatDate } from '@/utils/timeline';
 
 export function BenchmarksPage() {
-  const reduced = useReducedMotion();
+    const mod = getModule('benchmarks');
+    const [metric, setMetric] = useState<MetricId>('gpqa');
+    const [openOnly, setOpenOnly] = useState(false);
+    const m = METRIC_BY_ID[metric];
 
-  return (
-    <div
-      style={{
-        minHeight: '100vh',
-        background: 'var(--bg)',
-        color: 'var(--primary)',
-        overflowX: 'hidden',
-      }}
-    >
-      <SEO
-        title="Model Benchmarks | AI Beacon"
-        description="A source-linked snapshot of AI model results across MMLU, HumanEval, MATH, GPQA, GSM8K, Arena preference, cost, and speed."
-        canonical={`${SITE_CONFIG.baseUrl}/benchmarks`}
-        structuredData={{
-          '@context': 'https://schema.org',
-          '@type': 'WebApplication',
-          name: 'AI Beacon Benchmarks & Leaderboard',
-          description: 'A source-linked comparison of selected AI models across six evaluations, cost, and speed.',
-          applicationCategory: 'EducationalApplication',
-          operatingSystem: 'Web',
-        }}
-      />
-      <Nav />
-
-      <main
-        id="main"
-        className="depth-container"
-        style={{
-          paddingTop: 'var(--s8)',
-          paddingBottom: 'var(--s8)',
-          maxWidth: 1440,
-          margin: '0 auto',
-          paddingLeft: 'var(--s5)',
-          paddingRight: 'var(--s5)',
-        }}
-      >
-        {/* Hero */}
-        <Reveal delay={0} reduced={reduced}>
-          <header
-            style={{
-              display: 'flex',
-              flexWrap: 'wrap',
-              justifyContent: 'space-between',
-              alignItems: 'flex-end',
-              gap: 'var(--s5)',
-              marginBottom: 'var(--s8)',
-              borderBottom: '1px solid var(--stroke)',
-              paddingBottom: 'var(--s6)',
-            }}
-          >
-            <div style={{ maxWidth: 600 }}>
-              <p
-                style={{
-                  fontSize: 'var(--text-2xs)',
-                  fontFamily: 'var(--font-mono)',
-                  color: 'var(--muted)',
-                  marginBottom: 'var(--s2)',
-                  textTransform: 'uppercase',
-                  letterSpacing: 'var(--tracking-wider)',
+    return (
+        <div className="page">
+            <SEO
+                title="AI Benchmarks — GPQA, SWE-bench, HLE and more"
+                description="Compare leading AI models on GPQA Diamond, SWE-bench Verified, Humanity's Last Exam, AIME and MMLU, with price and every score linked to the lab's own report. Learn what each benchmark can and cannot tell you."
+                canonical={`${SITE_CONFIG.baseUrl}/benchmarks`}
+                structuredData={{
+                    '@context': 'https://schema.org',
+                    '@type': 'Dataset',
+                    name: 'AI Beacon benchmark snapshot',
+                    description: 'Lab-reported benchmark scores and API prices for selected AI models, with source links.',
+                    dateModified: LAST_UPDATED,
+                    license: 'https://opensource.org/licenses/MIT',
                 }}
-              >
-                Instrument 04 — AI model benchmarks
-              </p>
-              <h1
-                style={{
-                  fontSize: 'var(--text-3xl)',
-                  fontWeight: 'var(--weight-semibold)',
-                  letterSpacing: 'var(--tracking-tight)',
-                  color: 'var(--ink)',
-                  margin: 0,
-                }}
-              >
-                Model Benchmarks
-              </h1>
-              <p
-                style={{
-                  color: 'var(--secondary)',
-                  fontWeight: 'var(--weight-light)',
-                  fontSize: 'var(--text-sm)',
-                  marginTop: 'var(--s2)',
-                  lineHeight: 'var(--lead-body)',
-                }}
-              >
-                Compare a curated set of models across capability tests, human preference, cost, and speed—and learn what each number can and cannot tell you.
-              </p>
-            </div>
-            <div
-              style={{
-                display: 'flex',
-                gap: 'var(--s6)',
-                flexWrap: 'wrap',
-                alignItems: 'flex-end',
-              }}
-            >
-              <div style={{ textAlign: 'right' }}>
-                <div
-                  style={{
-                    fontSize: 'var(--text-2xs)',
-                    fontFamily: 'var(--font-mono)',
-                    color: 'var(--muted)',
-                    textTransform: 'uppercase',
-                    letterSpacing: 'var(--tracking-wider)',
-                  }}
-                >
-                  Models
-                </div>
-                <div
-                  style={{
-                    fontFamily: 'var(--font-mono)',
-                    fontSize: 'var(--text-2xl)',
-                    fontWeight: 'var(--weight-semibold)',
-                    color: 'var(--ink)',
-                    lineHeight: 1,
-                  }}
-                >
-                  {BENCHMARK_MODELS.length}
-                </div>
-              </div>
-              <div style={{ textAlign: 'right' }}>
-                <div
-                  style={{
-                    fontSize: 'var(--text-2xs)',
-                    fontFamily: 'var(--font-mono)',
-                    color: 'var(--muted)',
-                    textTransform: 'uppercase',
-                    letterSpacing: 'var(--tracking-wider)',
-                  }}
-                >
-                  Benchmarks
-                </div>
-                <div
-                  style={{
-                    fontFamily: 'var(--font-mono)',
-                    fontSize: 'var(--text-2xl)',
-                    fontWeight: 'var(--weight-semibold)',
-                    color: 'var(--ink)',
-                    lineHeight: 1,
-                  }}
-                >
-                  6
-                </div>
-              </div>
-              <div style={{ textAlign: 'right' }}>
-                <div
-                  style={{
-                    fontSize: 'var(--text-2xs)',
-                    fontFamily: 'var(--font-mono)',
-                    color: 'var(--muted)',
-                    textTransform: 'uppercase',
-                    letterSpacing: 'var(--tracking-wider)',
-                  }}
-                >
-                  Last updated
-                </div>
-                <div
-                  style={{
-                    fontFamily: 'var(--font-mono)',
-                    fontSize: 'var(--text-2xl)',
-                    fontWeight: 'var(--weight-semibold)',
-                    color: 'var(--ink)',
-                    lineHeight: 1,
-                  }}
-                >
-                  {LAST_UPDATED.slice(0, 7)}
-                </div>
-              </div>
-            </div>
-          </header>
-        </Reveal>
-
-        <Reveal delay={0.04} reduced={reduced}>
-          <div style={{ marginBottom: 'var(--s8)' }}>
-            <LearningGuide
-              title="How to read this dashboard"
-              intro="Benchmark results are measurements from particular tests and settings, not a universal intelligence score. Compare like with like and keep the evaluation date in view."
-              items={[
-                {
-                  label: 'Scores',
-                  text: 'Compare results only when the benchmark version, prompt, number of shots, scorer, and model version are compatible.',
-                },
-                {
-                  label: 'Coverage',
-                  text: 'Each test samples a narrow capability. MMLU emphasizes broad academic knowledge; HumanEval checks code against tests.',
-                },
-                {
-                  label: 'Arena preference',
-                  text: 'Blind votes capture user preference, which can reflect style and the current voter pool as well as correctness.',
-                },
-                {
-                  label: 'Cost and speed',
-                  text: 'Provider pricing and measured latency change by region, load, output length, endpoint, and model revision.',
-                },
-              ]}
-              note={`Snapshot refreshed ${LAST_UPDATED}. Missing values mean no comparable figure was available; they should not be treated as zero.`}
             />
-          </div>
-        </Reveal>
+            <Nav />
+            <main id="main" className="page-main">
+                <PageHeader
+                    eyebrow={`Module ${mod.num} · ${mod.title}`}
+                    title="How good are AI models, really?"
+                    lede="Benchmarks are standardised tests. This page shows what labs actually reported on the tests that still matter, how quickly models have caught up with them, and what a score does — and does not — tell you."
+                    stats={[
+                        { label: 'Models scored', value: BENCHMARK_MODELS.length },
+                        { label: 'Benchmarks', value: METRICS.length },
+                        { label: 'Snapshot', value: formatDate(LAST_UPDATED, 'short') },
+                    ]}
+                />
 
-        {/* Leaderboard */}
-        <Reveal delay={0.05} reduced={reduced}>
-          <section style={{ marginBottom: 'var(--s8)' }} aria-labelledby="leaderboard-heading">
-            <h2
-              id="leaderboard-heading"
-              style={{
-                fontSize: 'var(--text-2xs)',
-                fontFamily: 'var(--font-mono)',
-                color: 'var(--muted)',
-                textTransform: 'uppercase',
-                letterSpacing: 'var(--tracking-wider)',
-                marginBottom: 'var(--s5)',
-              }}
-            >
-              Leaderboard
-            </h2>
-            <BenchmarkLeaderboard />
-          </section>
-        </Reveal>
+                <section className="section">
+                    <div className="container">
+                        <Reveal>
+                            <LearningGuide
+                                title="Read scores like a scientist"
+                                intro="A benchmark is a fixed set of tasks with an automatic grader. It is useful for comparing models under the same conditions — and easy to over-interpret."
+                                items={[
+                                    { label: 'Compare like with like', text: 'Scores depend on settings: tools or no tools, how long the model may “think”, and how many attempts it gets. Check the notes.' },
+                                    { label: 'Small gaps are noise', text: 'GPQA has 198 questions and AIME only 30. A 1–3 point difference is usually not meaningful.' },
+                                    { label: 'Tests wear out', text: 'Once top models score 90%+, a benchmark stops separating them — so labs move to harder tests. That is why newer models report different ones.' },
+                                    { label: 'Scores ≠ usefulness', text: 'Real work also depends on reliability, speed, cost, tool use and safety — none of which a single number captures.' },
+                                ]}
+                                note={`Snapshot as of ${formatDate(LAST_UPDATED, 'long')}. Only lab-reported numbers are shown; blank means not reported, never zero.`}
+                            />
+                        </Reveal>
+                    </div>
+                </section>
 
-        {/* Value Map */}
-        <Reveal delay={0.1} reduced={reduced}>
-          <section style={{ marginBottom: 'var(--s8)' }} aria-labelledby="value-map-heading">
-            <h2
-              id="value-map-heading"
-              style={{
-                fontSize: 'var(--text-2xs)',
-                fontFamily: 'var(--font-mono)',
-                color: 'var(--muted)',
-                textTransform: 'uppercase',
-                letterSpacing: 'var(--tracking-wider)',
-                marginBottom: 'var(--s5)',
-              }}
-            >
-              Quality vs. cost
-            </h2>
-            <ValueMap />
-          </section>
-        </Reveal>
+                {/* One filter row scopes the leaderboard and both charts below it. */}
+                <div className="bm-filter-bar">
+                    <div className="container bm-filter-inner">
+                        <div className="segmented" role="tablist" aria-label="Choose a benchmark">
+                            {METRICS.map((x) => (
+                                <button key={x.id} type="button" role="tab" aria-selected={metric === x.id} onClick={() => setMetric(x.id)}>
+                                    {x.name}
+                                </button>
+                            ))}
+                        </div>
+                        <label className="bm-toggle">
+                            <input type="checkbox" checked={openOnly} onChange={(e) => setOpenOnly(e.target.checked)} />
+                            Open-weights models only
+                        </label>
+                    </div>
+                </div>
 
-        {/* Speed */}
-        <Reveal delay={0.1} reduced={reduced}>
-          <section style={{ marginBottom: 'var(--s8)' }} aria-labelledby="speed-heading">
-            <h2
-              id="speed-heading"
-              style={{
-                fontSize: 'var(--text-2xs)',
-                fontFamily: 'var(--font-mono)',
-                color: 'var(--muted)',
-                textTransform: 'uppercase',
-                letterSpacing: 'var(--tracking-wider)',
-                marginBottom: 'var(--s5)',
-              }}
-            >
-              Speed comparison
-            </h2>
-            <SpeedChart />
-          </section>
-        </Reveal>
+                <section className="section" aria-labelledby="lb-heading">
+                    <div className="container">
+                        <SectionHeader
+                            id="lb-heading"
+                            eyebrow="Leaderboard"
+                            title={`${m.name}: who scores highest?`}
+                            description={<>{m.measures} <span className="muted">{m.baseline}.</span></>}
+                        />
+                        <BenchmarkLeaderboard metric={metric} openOnly={openOnly} />
+                    </div>
+                </section>
 
-        {/* Radar */}
-        <Reveal delay={0.15} reduced={reduced}>
-          <section style={{ marginBottom: 'var(--s8)' }} aria-labelledby="radar-heading">
-            <h2
-              id="radar-heading"
-              style={{
-                fontSize: 'var(--text-2xs)',
-                fontFamily: 'var(--font-mono)',
-                color: 'var(--muted)',
-                textTransform: 'uppercase',
-                letterSpacing: 'var(--tracking-wider)',
-                marginBottom: 'var(--s5)',
-              }}
-            >
-              Compare two models
-            </h2>
-            <RadarComparison />
-          </section>
-        </Reveal>
+                <section className="section" aria-labelledby="progress-heading">
+                    <div className="container">
+                        <SectionHeader
+                            id="progress-heading"
+                            eyebrow="Progress"
+                            title="How fast do benchmarks get “solved”?"
+                            description={`Each dot is a model’s reported ${m.name} score at its release date; the line tracks the best score so far. ${m.statusNote}`}
+                        />
+                        <div className="card card-pad"><BenchmarkProgress metric={metric} openOnly={openOnly} /></div>
+                    </div>
+                </section>
 
-        {/* Progress */}
-        <Reveal delay={0.15} reduced={reduced}>
-          <section style={{ marginBottom: 'var(--s8)' }} aria-labelledby="progress-heading">
-            <h2
-              id="progress-heading"
-              style={{
-                fontSize: 'var(--text-2xs)',
-                fontFamily: 'var(--font-mono)',
-                color: 'var(--muted)',
-                textTransform: 'uppercase',
-                letterSpacing: 'var(--tracking-wider)',
-                marginBottom: 'var(--s5)',
-              }}
-            >
-              MMLU progress over time
-            </h2>
-            <ProgressTimeline />
-          </section>
-        </Reveal>
+                <section className="section" aria-labelledby="value-heading">
+                    <div className="container">
+                        <SectionHeader
+                            id="value-heading"
+                            eyebrow="Value"
+                            title="Score versus price"
+                            description="Models on the line are the best value: no cheaper model in this snapshot scores higher. Open-weights models can also be self-hosted, which can be cheaper or more expensive than the official API."
+                        />
+                        <div className="card card-pad"><ScoreVsPrice metric={metric} openOnly={openOnly} /></div>
+                    </div>
+                </section>
 
-        {/* Glossary */}
-        <Reveal delay={0.2} reduced={reduced}>
-          <section style={{ marginBottom: 'var(--s8)' }} aria-labelledby="glossary-heading">
-            <h2
-              id="glossary-heading"
-              style={{
-                fontSize: 'var(--text-2xs)',
-                fontFamily: 'var(--font-mono)',
-                color: 'var(--muted)',
-                textTransform: 'uppercase',
-                letterSpacing: 'var(--tracking-wider)',
-                marginBottom: 'var(--s5)',
-              }}
-            >
-              What each benchmark measures
-            </h2>
-            <BenchmarkGlossary />
-          </section>
-        </Reveal>
+                <section className="section" aria-labelledby="compare-heading">
+                    <div className="container">
+                        <SectionHeader
+                            id="compare-heading"
+                            eyebrow="Head to head"
+                            title="Compare two models"
+                            description="Pick any two models to see every benchmark they reported, side by side."
+                        />
+                        <ModelCompare />
+                    </div>
+                </section>
 
-        {/* Sources */}
-        <Reveal delay={0.25} reduced={reduced}>
-          <BenchmarkSources />
-        </Reveal>
-      </main>
+                <section className="section" aria-labelledby="newest-heading">
+                    <div className="container">
+                        <SectionHeader
+                            id="newest-heading"
+                            eyebrow="The newest models"
+                            title="Why the latest releases are harder to rank"
+                            description="Most models released since mid-2026 report newer benchmark suites (SWE-bench Pro, Terminal-Bench 4.0, ARC-AGI-3…) instead of the ones above, so their numbers are not directly comparable. Here is what they cost and what they report."
+                        />
+                        <div className="table-wrap">
+                            <table className="data-table">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Model</th>
+                                        <th scope="col">Released</th>
+                                        <th scope="col" className="num">Price in / out</th>
+                                        <th scope="col" className="num">Context</th>
+                                        <th scope="col">Headline benchmarks reported</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {NEWEST_MODELS.map((x) => (
+                                        <tr key={x.name}>
+                                            <td>
+                                                <a className="text-link strong" href={x.url} target="_blank" rel="noopener noreferrer">{x.name}</a>
+                                                <div className="muted" style={{ fontSize: 'var(--text-2xs)' }}>{x.provider}{x.openWeights ? ' · open weights' : ''}</div>
+                                            </td>
+                                            <td style={{ whiteSpace: 'nowrap' }}>{formatDate(x.releaseDate, 'long')}</td>
+                                            <td className="num">{x.price ? `$${x.price.input} / $${x.price.output}` : '—'}</td>
+                                            <td className="num">{formatContextWindow(x.contextWindow)}</td>
+                                            <td>{x.reports}</td>
+                                        </tr>
+                                    ))}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </section>
 
-      <footer
-        style={{
-          paddingBlock: 'var(--s8)',
-          borderTop: '1px solid var(--stroke)',
-          textAlign: 'center',
-        }}
-      >
-        <p
-          style={{
-            color: 'var(--muted)',
-            fontSize: 'var(--text-2xs)',
-            fontFamily: 'var(--font-mono)',
-            textTransform: 'uppercase',
-            letterSpacing: 'var(--tracking-wider)',
-            margin: 0,
-          }}
-        >
-          AI Beacon · Model Benchmarks · Data and sources above
-        </p>
-      </footer>
-    </div>
-  );
+                <section className="section" aria-labelledby="glossary-heading">
+                    <div className="container">
+                        <SectionHeader
+                            id="glossary-heading"
+                            eyebrow="Glossary"
+                            title="What each benchmark measures"
+                        />
+                        <BenchmarkGlossary />
+                    </div>
+                </section>
+
+                <section className="section" aria-labelledby="sources-heading">
+                    <div className="container">
+                        <SectionHeader id="sources-heading" eyebrow="Sources" title="Methodology and sources" />
+                        <BenchmarkSources />
+                    </div>
+                </section>
+            </main>
+            <Footer />
+            <style>{`
+                .bm-filter-bar {
+                    position: sticky; top: var(--nav-height); z-index: var(--z-raised);
+                    background: color-mix(in srgb, var(--bg) 88%, transparent);
+                    backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+                    border-block: 1px solid var(--stroke);
+                    padding-block: var(--s3);
+                }
+                .bm-filter-inner { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: var(--s3); }
+                .bm-toggle { display: inline-flex; align-items: center; gap: var(--s2); font-size: var(--text-xs); color: var(--secondary); cursor: pointer; }
+                .bm-toggle input { width: 16px; height: 16px; accent-color: var(--ink); }
+            `}</style>
+        </div>
+    );
 }

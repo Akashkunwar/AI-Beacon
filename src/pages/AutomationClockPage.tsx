@@ -1,471 +1,176 @@
-import { useRef, useState, useMemo } from 'react';
-import { motion, useInView } from 'framer-motion';
+// src/pages/AutomationClockPage.tsx
+// Module 05 — AI Impact Index. What published research says about AI and
+// work, followed by a clearly-labelled illustrative sector scenario.
+
 import { SEO } from '@/components/common/SEO';
 import { SITE_CONFIG } from '@/config/site';
+import { getModule } from '@/config/modules';
 import { Nav } from '@/components/shared/Nav';
-import { useReducedMotion } from '@/hooks/useReducedMotion';
-import { getInterpolatedData } from '@/utils/interpolationUtils';
-import { FIRST_YEAR, LAST_YEAR } from '@/data/automationData';
-import { YearSlider } from '@/components/automation/YearSlider';
-import { SectorCard } from '@/components/automation/SectorCard';
-import { ImpactMetric } from '@/components/automation/ImpactMetric';
-import { MilestoneTimeline } from '@/components/automation/MilestoneTimeline';
-import { JobImpactChart } from '@/components/automation/JobImpactChart';
-import { SourcesPanel } from '@/components/automation/SourcesPanel';
+import { Footer } from '@/components/shared/Footer';
+import { PageHeader, SectionHeader } from '@/components/shared/PageHeader';
+import { Reveal } from '@/components/shared/Reveal';
 import { LearningGuide } from '@/components/educational/LearningGuide';
-
-const SECTOR_ORDER = [
-  'softwareEngineering',
-  'healthcare',
-  'finance',
-  'legal',
-  'customerService',
-  'manufacturing',
-  'education',
-  'transportation',
-  'creative',
-  'marketing',
-  'retail',
-  'agriculture',
-  'journalism',
-  'hr',
-  'accounting',
-  'cybersecurity',
-  'research',
-  'realEstate',
-] as const;
-
-const fadeUp = {
-  hidden: { opacity: 0, y: 14 },
-  visible: (delay: number = 0) => ({
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.35, delay, ease: [0.2, 0, 0, 1] as [number, number, number, number] },
-  }),
-};
-
-function Reveal({
-  children,
-  delay = 0,
-  reduced = false,
-}: {
-  children: React.ReactNode;
-  delay?: number;
-  reduced?: boolean;
-}) {
-  const ref = useRef<HTMLDivElement>(null);
-  const inView = useInView(ref, { once: true, margin: '-60px' });
-  const variants = reduced
-    ? { hidden: { opacity: 1, y: 0 }, visible: { opacity: 1, y: 0 } }
-    : fadeUp;
-  return (
-    <motion.div
-      ref={ref}
-      initial="hidden"
-      animate={inView ? 'visible' : 'hidden'}
-      custom={reduced ? 0 : delay}
-      variants={variants}
-      transition={reduced ? { duration: 0 } : undefined}
-    >
-      {children}
-    </motion.div>
-  );
-}
+import { ImpactExplorer } from '@/components/automation/ImpactExplorer';
+import { EVIDENCE, EVIDENCE_GROUPS, EXPOSURE_DEFINITIONS, IMPACT_LAST_UPDATED, MILESTONES } from '@/data/impactData';
+import { formatDate } from '@/utils/timeline';
 
 export function AutomationClockPage() {
-  const [yearFloat, setYearFloat] = useState(2026);
-  const reduced = useReducedMotion();
-  const data = useMemo(() => getInterpolatedData(yearFloat), [yearFloat]);
+    const mod = getModule('impact');
 
-  return (
-    <div
-      style={{
-        minHeight: '100vh',
-        background: 'var(--bg)',
-        color: 'var(--primary)',
-        overflowX: 'hidden',
-      }}
-    >
-      <SEO
-        title="The AI Impact Index | Automation Clock"
-        description="Explore evidence-informed AI task-exposure scenarios across 18 sectors from 2022 to 2030, with assumptions, projections, and cited sources."
-        canonical={`${SITE_CONFIG.baseUrl}/automation-clock`}
-        structuredData={{
-          '@context': 'https://schema.org',
-          '@type': 'WebApplication',
-          name: 'AI Beacon — The AI Impact Index',
-          description: 'Explore AI task exposure and labor-market scenarios across 18 sectors with explicit assumptions and sources.',
-          applicationCategory: 'EducationalApplication',
-          operatingSystem: 'Web',
-        }}
-      />
-      <Nav />
-
-      <main
-        id="main"
-        className="depth-container"
-        style={{
-          paddingTop: 'var(--s8)',
-          paddingBottom: 'var(--s8)',
-          maxWidth: 1440,
-          margin: '0 auto',
-          paddingLeft: 'var(--s5)',
-          paddingRight: 'var(--s5)',
-        }}
-      >
-        {/* Hero */}
-        <Reveal delay={0} reduced={reduced}>
-          <header
-            style={{
-              display: 'flex',
-              flexWrap: 'wrap',
-              justifyContent: 'space-between',
-              alignItems: 'flex-end',
-              gap: 'var(--s5)',
-              marginBottom: 'var(--s8)',
-              borderBottom: '1px solid var(--stroke)',
-              paddingBottom: 'var(--s6)',
-            }}
-          >
-            <div style={{ maxWidth: 600 }}>
-              <p
-                style={{
-                  fontSize: 'var(--text-2xs)',
-                  fontFamily: 'var(--font-mono)',
-                  color: 'var(--muted)',
-                  marginBottom: 'var(--s2)',
-                  textTransform: 'uppercase',
-                  letterSpacing: 'var(--tracking-wider)',
+    return (
+        <div className="page">
+            <SEO
+                title="AI & Jobs — what the evidence says"
+                description="How exposed is work to AI? Key findings from the ILO, IMF, WEF, Stanford and others, why estimates differ, and an illustrative sector-by-sector scenario from 2022 to 2030."
+                canonical={`${SITE_CONFIG.baseUrl}/automation-clock`}
+                structuredData={{
+                    '@context': 'https://schema.org',
+                    '@type': 'Article',
+                    headline: 'AI and jobs: what the evidence says',
+                    dateModified: IMPACT_LAST_UPDATED,
+                    author: { '@type': 'Organization', name: 'AI Beacon contributors' },
                 }}
-              >
-                Instrument 05 — AI disruption tracker
-              </p>
-              <h1
-                style={{
-                  fontSize: 'var(--text-3xl)',
-                  fontWeight: 'var(--weight-semibold)',
-                  letterSpacing: 'var(--tracking-tight)',
-                  color: 'var(--ink)',
-                  margin: 0,
-                }}
-              >
-                The AI Impact Index
-              </h1>
-              <p
-                style={{
-                  color: 'var(--secondary)',
-                  fontWeight: 'var(--weight-light)',
-                  fontSize: 'var(--text-sm)',
-                  marginTop: 'var(--s2)',
-                  lineHeight: 'var(--lead-body)',
-                }}
-              >
-                Explore how AI may change tasks across 18 sectors from 2022 through 2030. The index separates evidence-informed historical estimates from illustrative projections and links the underlying reports.
-              </p>
-            </div>
-            <div
-              style={{
-                display: 'flex',
-                gap: 'var(--s6)',
-                flexWrap: 'wrap',
-                alignItems: 'flex-end',
-              }}
-            >
-              <div style={{ textAlign: 'right' }}>
-                <div
-                  style={{
-                    fontSize: 'var(--text-2xs)',
-                    fontFamily: 'var(--font-mono)',
-                    color: 'var(--muted)',
-                    textTransform: 'uppercase',
-                    letterSpacing: 'var(--tracking-wider)',
-                  }}
-                >
-                  Estimated roles exposed
-                </div>
-                <div
-                  style={{
-                    fontFamily: 'var(--font-mono)',
-                    fontSize: 'var(--text-2xl)',
-                    fontWeight: 'var(--weight-semibold)',
-                    color: 'var(--ink)',
-                    lineHeight: 1,
-                  }}
-                >
-                  {data.globalJobsAtRisk >= 1_000_000
-                    ? `${(data.globalJobsAtRisk / 1_000_000).toFixed(0)}M`
-                    : `${(data.globalJobsAtRisk / 1_000).toFixed(0)}K`}
-                </div>
-              </div>
-              <div style={{ textAlign: 'right' }}>
-                <div
-                  style={{
-                    fontSize: 'var(--text-2xs)',
-                    fontFamily: 'var(--font-mono)',
-                    color: 'var(--muted)',
-                    textTransform: 'uppercase',
-                    letterSpacing: 'var(--tracking-wider)',
-                  }}
-                >
-                  Sectors
-                </div>
-                <div
-                  style={{
-                    fontFamily: 'var(--font-mono)',
-                    fontSize: 'var(--text-2xl)',
-                    fontWeight: 'var(--weight-semibold)',
-                    color: 'var(--ink)',
-                    lineHeight: 1,
-                  }}
-                >
-                  18
-                </div>
-              </div>
-              <div style={{ textAlign: 'right' }}>
-                <div
-                  style={{
-                    fontSize: 'var(--text-2xs)',
-                    fontFamily: 'var(--font-mono)',
-                    color: 'var(--muted)',
-                    textTransform: 'uppercase',
-                    letterSpacing: 'var(--tracking-wider)',
-                  }}
-                >
-                  Sources
-                </div>
-                <div
-                  style={{
-                    fontFamily: 'var(--font-mono)',
-                    fontSize: 'var(--text-2xl)',
-                    fontWeight: 'var(--weight-semibold)',
-                    color: 'var(--ink)',
-                    lineHeight: 1,
-                  }}
-                >
-                  10+
-                </div>
-              </div>
-            </div>
-          </header>
-        </Reveal>
-
-        <Reveal delay={0.04} reduced={reduced}>
-          <div style={{ marginBottom: 'var(--s8)' }}>
-            <LearningGuide
-              title="Read this as exposure—not destiny"
-              intro="The clock is an educational scenario explorer. It combines published research with interpolated estimates so you can inspect direction and assumptions, not predict an exact employment count."
-              items={[
-                {
-                  label: 'Exposure ≠ replacement',
-                  text: 'A role is exposed when AI can affect some of its tasks. Many exposed jobs are more likely to change than disappear.',
-                },
-                {
-                  label: 'Tasks ≠ jobs',
-                  text: 'Jobs bundle technical, social, physical, legal, and accountable work. Automating one task rarely automates the whole occupation.',
-                },
-                {
-                  label: 'Estimate ≠ measurement',
-                  text: 'Historical-year values summarize studies; fractional years are interpolated. From 2027 onward, values are illustrative scenarios.',
-                },
-                {
-                  label: 'Adoption has friction',
-                  text: 'Cost, reliability, regulation, workflow redesign, skills, and social choices determine whether technical capability is actually deployed.',
-                },
-              ]}
-              note="Use the figures to compare assumptions and sectors—not as a forecast of a specific person losing or gaining a job."
             />
-          </div>
-        </Reveal>
+            <Nav />
+            <main id="main" className="page-main">
+                <PageHeader
+                    eyebrow={`Module ${mod.num} · ${mod.title}`}
+                    title="How is AI changing work?"
+                    lede="Headlines swing between “AI will take every job” and “nothing is happening”. Here is what the major studies actually measured, why their numbers differ, and a scenario explorer to build intuition about which kinds of work are most affected."
+                    stats={[
+                        { label: 'Jobs exposed to GenAI', value: '25%', hint: 'ILO, 2025 — global' },
+                        { label: 'Employment exposed to AI', value: '≈40%', hint: 'IMF, 2024 — global' },
+                        { label: 'Net jobs by 2030', value: '+78M', hint: 'WEF, 2025 — employer survey' },
+                    ]}
+                />
 
-        {/* Year slider */}
-        <Reveal delay={0.05} reduced={reduced}>
-          <section style={{ marginBottom: 'var(--s8)' }}>
-            <YearSlider
-              value={yearFloat}
-              onChange={setYearFloat}
-              phase={data.phase}
-              isProjection={data.isProjection}
-              min={FIRST_YEAR}
-              max={LAST_YEAR}
-              step={0.1}
-            />
-          </section>
-        </Reveal>
+                <section className="section">
+                    <div className="container">
+                        <Reveal>
+                            <LearningGuide
+                                title="Four ideas that make the numbers make sense"
+                                intro="Most confusion about AI and jobs comes from mixing up different kinds of claims."
+                                items={[
+                                    { label: 'Exposure ≠ replacement', text: 'A job is “exposed” when AI can do or speed up some of its tasks. Many exposed jobs change rather than disappear.' },
+                                    { label: 'Tasks ≠ jobs', text: 'Jobs bundle many tasks — technical, social, physical and accountable. Automating one task rarely removes the whole job.' },
+                                    { label: 'Projection ≠ measurement', text: 'Forecasts rest on assumptions about adoption and new jobs. Measured effects so far are narrower than many forecasts.' },
+                                    { label: 'Capability ≠ adoption', text: 'Cost, reliability, regulation, training and redesigning workflows all slow real deployment.' },
+                                ]}
+                                note={`Evidence reviewed ${formatDate(IMPACT_LAST_UPDATED, 'long')}. Every figure links to its source.`}
+                            />
+                        </Reveal>
+                    </div>
+                </section>
 
-        {/* Context summary */}
-        <Reveal delay={0.1} reduced={reduced}>
-          <section
-            style={{
-              marginBottom: 'var(--s8)',
-              padding: 'var(--s5)',
-              background: 'var(--bg-panel)',
-              border: '1px solid var(--stroke)',
-              borderRadius: 'var(--r-md)',
-            }}
-          >
-            <p
-              style={{
-                fontSize: 'var(--text-sm)',
-                color: 'var(--secondary)',
-                lineHeight: 'var(--lead-body)',
-                margin: 0,
-                fontWeight: 'var(--weight-light)',
-              }}
-            >
-              {data.summary}
-            </p>
-          </section>
-        </Reveal>
+                {EVIDENCE_GROUPS.map((g) => {
+                    const items = EVIDENCE.filter((e) => e.kind === g.kind);
+                    return (
+                        <section key={g.kind} className="section" aria-labelledby={`ev-${g.kind}`}>
+                            <div className="container">
+                                <SectionHeader id={`ev-${g.kind}`} eyebrow="What the evidence says" title={g.title} description={g.intro} />
+                                <div className="ev-grid">
+                                    {items.map((e) => (
+                                        <article key={e.id} className="card ev-card">
+                                            <p className="ev-figure">{e.figure}</p>
+                                            <p className="ev-claim">{e.claim}</p>
+                                            <p className="ev-detail">{e.detail}</p>
+                                            <a className="ev-source" href={e.url} target="_blank" rel="noopener noreferrer">
+                                                <span className="ev-org">{e.source} · {e.year}</span>
+                                                <span className="ev-title">{e.title} ↗</span>
+                                            </a>
+                                        </article>
+                                    ))}
+                                </div>
+                                {g.kind === 'exposure' && (
+                                    <div style={{ marginTop: 'var(--s5)' }}>
+                                        <h3 className="ev-sub">Why do exposure estimates range from 25% to 80%?</h3>
+                                        <p className="section-desc" style={{ marginBottom: 'var(--s3)', maxWidth: '70ch' }}>
+                                            They count different things. None of them is “wrong” — always check what a headline number measures.
+                                        </p>
+                                        <div className="table-wrap">
+                                            <table className="data-table">
+                                                <thead><tr><th scope="col">Study</th><th scope="col">Headline</th><th scope="col">What was counted</th><th scope="col">Scope</th></tr></thead>
+                                                <tbody>
+                                                    {EXPOSURE_DEFINITIONS.map((d) => (
+                                                        <tr key={d.study}><td className="strong">{d.study}</td><td style={{ whiteSpace: 'nowrap' }}>{d.figure}</td><td>{d.counts}</td><td>{d.scope}</td></tr>
+                                                    ))}
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                )}
+                            </div>
+                        </section>
+                    );
+                })}
 
-        {/* Key metrics */}
-        <Reveal delay={0.1} reduced={reduced}>
-          <section
-            className="automation-metrics-grid"
-            style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
-              gap: 'var(--s4)',
-              marginBottom: 'var(--s8)',
-            }}
-          >
-            <ImpactMetric
-              label="Estimated roles exposed"
-              value={data.globalJobsAtRisk}
-              sublabel="scenario estimate"
-              index={0}
-            />
-            <ImpactMetric
-              label="GDP contribution"
-              value={data.globalGDPContribution}
-              sublabel="scenario estimate"
-              index={1}
-            />
-            <ImpactMetric
-              label="Work-hour automation potential"
-              value={`${data.tasksAutomatable}%`}
-              sublabel="scenario estimate"
-              index={2}
-            />
-            <ImpactMetric
-              label="New roles in scenario"
-              value={data.newJobsCreated}
-              sublabel="scenario estimate"
-              index={3}
-            />
-          </section>
-        </Reveal>
+                <section className="section" aria-labelledby="explorer-heading">
+                    <div className="container">
+                        <SectionHeader
+                            id="explorer-heading"
+                            eyebrow="Scenario explorer · illustrative"
+                            title="Which kinds of work are most exposed?"
+                            description="Drag through time to see an editorial estimate of how much of each sector’s typical work AI can assist with. Tap a sector to see what AI does there and what stays human. After 2026 the bars are hatched: those years are a scenario, not data."
+                        />
+                        <ImpactExplorer />
+                    </div>
+                </section>
 
-        {/* Sector grid */}
-        <Reveal delay={0.15} reduced={reduced}>
-          <section style={{ marginBottom: 'var(--s8)' }}>
-            <div
-              style={{
-                display: 'flex',
-                justifyContent: 'space-between',
-                alignItems: 'center',
-                marginBottom: 'var(--s5)',
-                flexWrap: 'wrap',
-                gap: 'var(--s3)',
-              }}
-            >
-              <h2
-                style={{
-                  fontSize: 'var(--text-2xs)',
-                  fontFamily: 'var(--font-mono)',
-                  color: 'var(--muted)',
-                  textTransform: 'uppercase',
-                  letterSpacing: 'var(--tracking-wider)',
-                  margin: 0,
-                }}
-              >
-                Sector task exposure
-              </h2>
-              <span
-                style={{
-                  fontSize: 'var(--text-2xs)',
-                  color: 'var(--muted)',
-                  background: 'var(--bg-raised)',
-                  padding: 'var(--s1) var(--s3)',
-                  borderRadius: 'var(--r-pill)',
-                  fontFamily: 'var(--font-mono)',
-                }}
-              >
-                Interpolated estimate
-              </span>
-            </div>
-            <div
-              className="automation-sector-grid"
-              style={{
-                display: 'grid',
-                gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))',
-                gap: 'var(--s4)',
-              }}
-            >
-              {SECTOR_ORDER.map((key, idx) => {
-                const sector = data.sectors[key];
-                if (!sector) return null;
-                return (
-                  <SectorCard
-                    key={key}
-                    sector={sector}
-                    index={idx}
-                    reducedMotion={reduced}
-                  />
-                );
-              })}
-            </div>
-          </section>
-        </Reveal>
+                <section className="section" aria-labelledby="milestones-heading">
+                    <div className="container">
+                        <SectionHeader id="milestones-heading" eyebrow="Context" title="Milestones that shaped the debate" />
+                        <ol className="ms-list">
+                            {MILESTONES.map((m) => (
+                                <li key={m.year} className={`ms-item ${m.projection ? 'is-proj' : ''}`}>
+                                    <span className="ms-year">{m.year}{m.projection && <span className="chip chip-outline" style={{ marginLeft: 8 }}>outlook</span>}</span>
+                                    <ul>{m.items.map((it) => <li key={it}>{it}</li>)}</ul>
+                                </li>
+                            ))}
+                        </ol>
+                    </div>
+                </section>
 
-        {/* Job impact */}
-        <Reveal delay={0.2} reduced={reduced}>
-          <section style={{ marginBottom: 'var(--s8)' }}>
-            <JobImpactChart
-              jobsDisplaced={data.jobsDisplaced}
-              newJobsCreated={data.newJobsCreated}
-            />
-          </section>
-        </Reveal>
-
-        {/* Milestones */}
-        <Reveal delay={0.2} reduced={reduced}>
-          <section style={{ marginBottom: 'var(--s8)' }}>
-            <MilestoneTimeline />
-          </section>
-        </Reveal>
-
-        {/* Sources & methodology */}
-        <Reveal delay={0.25} reduced={reduced}>
-          <SourcesPanel />
-        </Reveal>
-      </main>
-      <style>{`
-        @media (max-width: 479px) {
-          .automation-metrics-grid { grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); }
-          .automation-sector-grid { grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); }
-        }
-      `}</style>
-
-      <footer
-        style={{
-          paddingBlock: 'var(--s8)',
-          borderTop: '1px solid var(--stroke)',
-          textAlign: 'center',
-        }}
-      >
-        <p
-          style={{
-            color: 'var(--muted)',
-            fontSize: 'var(--text-2xs)',
-            fontFamily: 'var(--font-mono)',
-            textTransform: 'uppercase',
-            letterSpacing: 'var(--tracking-wider)',
-            margin: 0,
-          }}
-        >
-          AI Beacon · The AI Impact Index · Cited sources and methodology above
-        </p>
-      </footer>
-    </div>
-  );
+                <section className="section" aria-labelledby="method-heading">
+                    <div className="container">
+                        <SectionHeader id="method-heading" eyebrow="Methodology" title="How this page was built" />
+                        <div className="card card-pad prose" style={{ maxWidth: '80ch' }}>
+                            <p>
+                                <strong>Evidence cards</strong> quote figures exactly as published by each organisation, with a link to the report.
+                                Where a study was later updated, the card notes it.
+                            </p>
+                            <p>
+                                <strong>The scenario explorer</strong> is an editorial index maintained by AI Beacon contributors. It encodes the
+                                broad pattern the studies agree on — office, software and customer-facing text work are most exposed; hands-on
+                                physical work least — and how model capabilities improved between 2022 and 2026. Values after 2026 are a
+                                smooth continuation for illustration only. It should not be cited as a statistic.
+                            </p>
+                            <p>
+                                Something outdated or wrong? The data lives in <code>src/data/impactData.ts</code> — see the data guide on GitHub
+                                for how to propose a change with a source.
+                            </p>
+                        </div>
+                    </div>
+                </section>
+            </main>
+            <Footer />
+            <style>{`
+                .ev-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr)); gap: var(--s4); }
+                .ev-card { padding: var(--s5); display: flex; flex-direction: column; gap: var(--s2); }
+                .ev-figure { font-size: var(--text-2xl); font-weight: var(--weight-semibold); letter-spacing: var(--tracking-tight); color: var(--ink); line-height: 1.1; }
+                .ev-claim { font-size: var(--text-sm); color: var(--ink); font-weight: var(--weight-medium); }
+                .ev-detail { font-size: var(--text-xs); color: var(--secondary); line-height: var(--lead-body); flex: 1; }
+                .ev-source { display: flex; flex-direction: column; gap: 2px; padding-top: var(--s3); margin-top: var(--s2); border-top: 1px solid var(--stroke); }
+                .ev-org { font-family: var(--font-mono); font-size: var(--text-2xs); color: var(--muted); text-transform: uppercase; letter-spacing: var(--tracking-wide); }
+                .ev-title { font-size: var(--text-xs); color: var(--ink); text-decoration: underline; text-decoration-color: var(--stroke-dark); text-underline-offset: 3px; }
+                .ev-source:hover .ev-title { text-decoration-color: var(--ink); }
+                .ev-sub { font-size: var(--text-md); margin-bottom: var(--s2); }
+                .ms-list { list-style: none; display: flex; flex-direction: column; }
+                .ms-item { display: grid; grid-template-columns: 160px 1fr; gap: var(--s4); padding: var(--s4) 0; border-top: 1px solid var(--stroke); }
+                .ms-item.is-proj { opacity: 0.8; }
+                .ms-year { font-family: var(--font-mono); font-size: var(--text-md); color: var(--ink); font-weight: var(--weight-medium); display: flex; align-items: flex-start; }
+                .ms-item ul { padding-left: 1.1em; display: flex; flex-direction: column; gap: 4px; color: var(--secondary); font-size: var(--text-sm); }
+                @media (max-width: 639px) { .ms-item { grid-template-columns: 1fr; gap: var(--s2); } }
+            `}</style>
+        </div>
+    );
 }

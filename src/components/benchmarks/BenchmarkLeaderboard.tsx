@@ -1,314 +1,107 @@
-import { useMemo, useState, useCallback } from 'react';
-import {
-  BENCHMARK_MODELS,
-  compositeScore,
-  blendedPrice,
-} from '@/data/benchmarkData';
+import { useMemo } from 'react';
+import { BENCHMARK_MODELS, METRICS, METRIC_BY_ID, type MetricId } from '@/data/benchmarkData';
+import { formatContextWindow, formatDate } from '@/utils/timeline';
 
-type SortKey = 'composite' | 'name' | 'provider' | 'mmlu' | 'humanEval' | 'math' | 'gpqa' | 'arenaElo' | 'price';
-
-function ScoreCell({ value }: { value: number | null }) {
-  if (value == null) return <span style={{ color: 'var(--muted)', fontFamily: 'var(--font-mono)' }}>—</span>;
-  const pct = Math.min(100, Math.max(0, value));
-  return (
-    <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--s2)' }}>
-      <div
-        style={{
-          width: 48,
-          height: 6,
-          background: 'var(--stroke)',
-          borderRadius: 'var(--r-pill)',
-          overflow: 'hidden',
-        }}
-      >
-        <div
-          style={{
-            width: `${pct}%`,
-            height: '100%',
-            background: 'var(--viz-1)',
-            borderRadius: 'var(--r-pill)',
-          }}
-        />
-      </div>
-      <span style={{ fontFamily: 'var(--font-mono)', fontSize: 'var(--text-xs)', color: 'var(--ink)', minWidth: 36 }}>
-        {value.toFixed(1)}%
-      </span>
-    </div>
-  );
+interface Props {
+    metric: MetricId;
+    openOnly: boolean;
 }
 
-function EloCell({ value }: { value: number | null }) {
-  if (value == null) return <span style={{ color: 'var(--muted)', fontFamily: 'var(--font-mono)' }}>—</span>;
-  return (
-    <span style={{ fontFamily: 'var(--font-mono)', fontSize: 'var(--text-xs)', color: 'var(--ink)' }}>
-      {Math.round(value)}
-    </span>
-  );
+function price(p: { input: number; output: number } | null) {
+    if (!p) return '—';
+    const f = (n: number) => (n < 1 ? `$${n.toFixed(2)}` : `$${n % 1 ? n.toFixed(2) : n}`);
+    return `${f(p.input)} / ${f(p.output)}`;
 }
 
-function SortHeader({
-  label,
-  sortKey,
-  currentSort,
-  direction,
-  onSort,
-}: {
-  label: string;
-  sortKey: SortKey;
-  currentSort: SortKey;
-  direction: 'asc' | 'desc';
-  onSort: (key: SortKey) => void;
-}) {
-  const isActive = currentSort === sortKey;
-  return (
-    <th
-      scope="col"
-      style={{
-        padding: 'var(--s3) var(--s4)',
-        textAlign: 'left',
-        fontFamily: 'var(--font-mono)',
-        fontSize: 'var(--text-2xs)',
-        fontWeight: 'var(--weight-medium)',
-        color: isActive ? 'var(--ink)' : 'var(--muted)',
-        textTransform: 'uppercase',
-        letterSpacing: 'var(--tracking-wider)',
-        borderBottom: '1px solid var(--stroke)',
-        background: 'var(--table-header-bg)',
-        cursor: 'pointer',
-        userSelect: 'none',
-      }}
-      onClick={() => onSort(sortKey)}
-    >
-      <span style={{ display: 'inline-flex', alignItems: 'center', gap: 'var(--s1)' }}>
-        {label}
-        {isActive && (
-          <span style={{ fontSize: '0.65rem', color: 'var(--ink)' }}>{direction === 'asc' ? '↑' : '↓'}</span>
-        )}
-      </span>
-    </th>
-  );
-}
+export function BenchmarkLeaderboard({ metric, openOnly }: Props) {
+    const m = METRIC_BY_ID[metric];
+    const { ranked, missing } = useMemo(() => {
+        const pool = BENCHMARK_MODELS.filter((x) => !openOnly || x.openWeights);
+        const ranked = pool
+            .filter((x) => x.scores[metric] != null)
+            .sort((a, b) => (b.scores[metric]! - a.scores[metric]!) || b.releaseDate.localeCompare(a.releaseDate));
+        return { ranked, missing: pool.length - ranked.length };
+    }, [metric, openOnly]);
 
-export function BenchmarkLeaderboard() {
-  const [sortKey, setSortKey] = useState<SortKey>('composite');
-  const [direction, setDirection] = useState<'asc' | 'desc'>('desc');
-
-  const handleSort = useCallback((key: SortKey) => {
-    setSortKey((prev) => {
-      if (prev === key) {
-        setDirection((d) => (d === 'asc' ? 'desc' : 'asc'));
-        return key;
-      }
-      setDirection(key === 'composite' || key === 'mmlu' || key === 'humanEval' || key === 'math' || key === 'gpqa' || key === 'arenaElo' ? 'desc' : 'asc');
-      return key;
+    // Competition ranking: ties share a rank.
+    const ranks: number[] = [];
+    ranked.forEach((x, i) => {
+        ranks.push(i > 0 && x.scores[metric] === ranked[i - 1].scores[metric] ? ranks[i - 1] : i + 1);
     });
-  }, []);
+    const others = METRICS.filter((x) => x.id !== metric);
 
-  const sorted = useMemo(() => {
-    const withComposite = BENCHMARK_MODELS.map((m) => ({
-      ...m,
-      composite: compositeScore(m),
-      price: blendedPrice(m),
-    }));
-    const sortedList = [...withComposite].sort((a, b) => {
-      let cmp = 0;
-      switch (sortKey) {
-        case 'composite':
-          cmp = a.composite - b.composite;
-          break;
-        case 'name':
-          cmp = a.name.localeCompare(b.name);
-          break;
-        case 'provider':
-          cmp = a.provider.localeCompare(b.provider);
-          break;
-        case 'mmlu':
-          cmp = (a.scores.mmlu ?? 0) - (b.scores.mmlu ?? 0);
-          break;
-        case 'humanEval':
-          cmp = (a.scores.humanEval ?? 0) - (b.scores.humanEval ?? 0);
-          break;
-        case 'math':
-          cmp = (a.scores.math ?? 0) - (b.scores.math ?? 0);
-          break;
-        case 'gpqa':
-          cmp = (a.scores.gpqa ?? 0) - (b.scores.gpqa ?? 0);
-          break;
-        case 'arenaElo':
-          cmp = (a.scores.arenaElo ?? 0) - (b.scores.arenaElo ?? 0);
-          break;
-        case 'price': {
-          const pa = a.price ?? Infinity;
-          const pb = b.price ?? Infinity;
-          cmp = pa - pb;
-          break;
-        }
-        default:
-          break;
-      }
-      return direction === 'asc' ? cmp : -cmp;
-    });
-    return sortedList;
-  }, [sortKey, direction]);
-
-  return (
-    <div
-      style={{
-        background: 'var(--bg-panel)',
-        border: '1px solid var(--stroke)',
-        borderRadius: 'var(--r-lg)',
-        boxShadow: 'var(--shadow-soft)',
-        overflow: 'auto',
-      }}
-      role="region"
-      aria-label="Sortable benchmark leaderboard"
-    >
-      <p
-        id="benchmark-composite-note"
-        style={{
-          margin: 0,
-          padding: 'var(--s3) var(--s4)',
-          borderBottom: '1px solid var(--stroke)',
-          color: 'var(--muted)',
-          fontSize: 'var(--text-xs)',
-          lineHeight: 'var(--lead-body)',
-        }}
-      >
-        Composite is the unweighted mean of each model’s available MMLU, HumanEval, MATH, GPQA,
-        and GSM8K percentages. Because coverage differs, use the individual columns for serious comparisons.
-      </p>
-      <table
-        aria-describedby="benchmark-composite-note"
-        className="benchmark-leaderboard-table"
-        style={{
-          width: '100%',
-          borderCollapse: 'collapse',
-          fontFamily: 'var(--font-sans)',
-          fontSize: 'var(--text-sm)',
-        }}
-      >
-        <thead>
-          <tr>
-            <SortHeader label="Composite" sortKey="composite" currentSort={sortKey} direction={direction} onSort={handleSort} />
-            <SortHeader label="Model" sortKey="name" currentSort={sortKey} direction={direction} onSort={handleSort} />
-            <SortHeader label="Provider" sortKey="provider" currentSort={sortKey} direction={direction} onSort={handleSort} />
-            <SortHeader label="MMLU" sortKey="mmlu" currentSort={sortKey} direction={direction} onSort={handleSort} />
-            <SortHeader label="HumanEval" sortKey="humanEval" currentSort={sortKey} direction={direction} onSort={handleSort} />
-            <SortHeader label="MATH" sortKey="math" currentSort={sortKey} direction={direction} onSort={handleSort} />
-            <SortHeader label="GPQA" sortKey="gpqa" currentSort={sortKey} direction={direction} onSort={handleSort} />
-            <SortHeader label="Arena rating" sortKey="arenaElo" currentSort={sortKey} direction={direction} onSort={handleSort} />
-            <SortHeader label="$/1M (blended)" sortKey="price" currentSort={sortKey} direction={direction} onSort={handleSort} />
-          </tr>
-        </thead>
-        <tbody>
-          {sorted.map((row, idx) => (
-            <tr
-              key={row.id}
-              style={{
-                borderBottom: idx < sorted.length - 1 ? '1px solid var(--stroke)' : 'none',
-                background: 'transparent',
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.background = 'var(--table-row-hover)';
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.background = 'transparent';
-              }}
-            >
-              <td style={{ padding: 'var(--s3) var(--s4)', fontFamily: 'var(--font-mono)', fontSize: 'var(--text-xs)', color: 'var(--ink)' }}>
-                {row.composite.toFixed(1)}
-              </td>
-              <td style={{ padding: 'var(--s3) var(--s4)' }}>
-                <span style={{ display: 'inline-flex', alignItems: 'center', gap: 'var(--s2)' }}>
-                  {row.openSource && (
-                    <span
-                      style={{
-                        width: 6,
-                        height: 6,
-                        borderRadius: '50%',
-                        background: 'var(--viz-2)',
-                        flexShrink: 0,
-                      }}
-                      title="Open source"
-                      aria-hidden
-                    />
-                  )}
-                  <span style={{ fontWeight: 'var(--weight-medium)', color: 'var(--ink)' }}>{row.name}</span>
-                </span>
-              </td>
-              <td style={{ padding: 'var(--s3) var(--s4)' }}>
-                <span style={{ display: 'inline-flex', alignItems: 'center', gap: 'var(--s2)' }}>
-                  <span
-                    style={{
-                      width: 20,
-                      height: 20,
-                      borderRadius: 'var(--r-sm)',
-                      background: 'var(--bg-raised)',
-                      border: '1px solid var(--stroke)',
-                      display: 'inline-flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      fontFamily: 'var(--font-mono)',
-                      fontSize: '10px',
-                      fontWeight: 'var(--weight-medium)',
-                      color: 'var(--secondary)',
-                      flexShrink: 0,
-                    }}
-                    aria-hidden
-                  >
-                    {row.provider.charAt(0)}
-                  </span>
-                  <span style={{ color: 'var(--secondary)' }}>{row.provider}</span>
-                </span>
-              </td>
-              <td style={{ padding: 'var(--s3) var(--s4)' }}>
-                <ScoreCell value={row.scores.mmlu} />
-              </td>
-              <td style={{ padding: 'var(--s3) var(--s4)' }}>
-                <ScoreCell value={row.scores.humanEval} />
-              </td>
-              <td style={{ padding: 'var(--s3) var(--s4)' }}>
-                <ScoreCell value={row.scores.math} />
-              </td>
-              <td style={{ padding: 'var(--s3) var(--s4)' }}>
-                <ScoreCell value={row.scores.gpqa} />
-              </td>
-              <td style={{ padding: 'var(--s3) var(--s4)' }}>
-                <EloCell value={row.scores.arenaElo} />
-              </td>
-              <td style={{ padding: 'var(--s3) var(--s4)', fontFamily: 'var(--font-mono)', fontSize: 'var(--text-xs)', color: 'var(--secondary)' }}>
-                {row.price != null ? `$${row.price.toFixed(2)}` : '—'}
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-      <style>{`
-        @media (max-width: 719px) {
-          .benchmark-leaderboard-table thead tr th:first-child,
-          .benchmark-leaderboard-table thead tr th:nth-child(2) {
-            position: sticky;
-            background: var(--table-header-bg);
-            z-index: 2;
-          }
-          .benchmark-leaderboard-table thead tr th:first-child { left: 0; }
-          .benchmark-leaderboard-table thead tr th:first-child,
-          .benchmark-leaderboard-table tbody tr td:first-child { min-width: 88px; }
-          .benchmark-leaderboard-table thead tr th:nth-child(2) { left: 88px; box-shadow: 2px 0 4px rgba(0,0,0,0.04); }
-          .benchmark-leaderboard-table tbody tr td:first-child,
-          .benchmark-leaderboard-table tbody tr td:nth-child(2) {
-            position: sticky;
-            background: var(--bg);
-            z-index: 1;
-          }
-          .benchmark-leaderboard-table tbody tr td:first-child { left: 0; }
-          .benchmark-leaderboard-table tbody tr td:nth-child(2) { left: 88px; box-shadow: 2px 0 4px rgba(0,0,0,0.04); }
-          .benchmark-leaderboard-table tbody tr:hover td:first-child,
-          .benchmark-leaderboard-table tbody tr:hover td:nth-child(2) {
-            background: var(--table-row-hover);
-          }
-        }
-      `}</style>
-    </div>
-  );
+    return (
+        <div>
+            <div className="table-wrap">
+                <table className="data-table bl-table">
+                    <caption className="sr-only">{m.name} scores, highest first</caption>
+                    <thead>
+                        <tr>
+                            <th scope="col" className="num" style={{ width: 44 }}>#</th>
+                            <th scope="col">Model</th>
+                            <th scope="col" className="bl-hide-sm">Released</th>
+                            <th scope="col" style={{ minWidth: 200 }}>{m.name} (%)</th>
+                            {others.map((o) => <th key={o.id} scope="col" className="num bl-hide-md">{o.short}</th>)}
+                            <th scope="col" className="num bl-hide-sm" title="USD per 1M input / output tokens">Price in / out</th>
+                            <th scope="col" className="num bl-hide-md">Context</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {ranked.map((x, i) => {
+                            const v = x.scores[metric]!;
+                            return (
+                                <tr key={x.id}>
+                                    <td className="num muted">{ranks[i]}</td>
+                                    <td>
+                                        <a href={x.source.url} target="_blank" rel="noopener noreferrer" className="bl-name" title={`Source: ${x.source.label}`}>
+                                            {x.name}
+                                        </a>
+                                        <span className="bl-sub">
+                                            {x.provider}
+                                            {x.openWeights && <span className="chip chip-outline bl-open">open weights</span>}
+                                        </span>
+                                    </td>
+                                    <td className="bl-hide-sm mono-cell">{formatDate(x.releaseDate, 'short')}</td>
+                                    <td>
+                                        <div className="bl-bar-row">
+                                            <div className="bl-bar-track" aria-hidden="true">
+                                                <div className="bl-bar" style={{ width: `${v}%` }} />
+                                            </div>
+                                            <span className="bl-val">{v.toFixed(1)}</span>
+                                        </div>
+                                        {x.notes && <span className="bl-note">{x.notes}</span>}
+                                    </td>
+                                    {others.map((o) => (
+                                        <td key={o.id} className="num bl-hide-md">{x.scores[o.id] != null ? x.scores[o.id]!.toFixed(1) : <span className="muted" title="Not reported">—</span>}</td>
+                                    ))}
+                                    <td className="num bl-hide-sm">{price(x.price)}</td>
+                                    <td className="num bl-hide-md">{formatContextWindow(x.contextWindow)}</td>
+                                </tr>
+                            );
+                        })}
+                    </tbody>
+                </table>
+            </div>
+            <p className="bl-foot">
+                {ranked.length} models report {m.name}{missing > 0 ? `; ${missing} more in this snapshot do not (blank ≠ zero)` : ''}.
+                Click a model name to open the lab’s own report. “—” means the benchmark was not reported.
+            </p>
+            <style>{`
+                .bl-table td { vertical-align: top; }
+                .bl-name { color: var(--ink); font-weight: var(--weight-medium); text-decoration: underline; text-decoration-color: var(--stroke-dark); text-underline-offset: 3px; }
+                .bl-name:hover { text-decoration-color: var(--ink); }
+                .bl-sub { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; font-size: var(--text-2xs); color: var(--muted); margin-top: 2px; }
+                .bl-open { font-size: 10px; padding: 0 6px; }
+                .mono-cell { font-family: var(--font-mono); font-size: var(--text-2xs); white-space: nowrap; }
+                .bl-bar-row { display: flex; align-items: center; gap: var(--s2); }
+                .bl-bar-track { flex: 1; height: 8px; background: var(--bg-raised); border-radius: 0 4px 4px 0; overflow: hidden; min-width: 80px; }
+                .bl-bar { height: 100%; background: var(--viz-1); border-radius: 0 4px 4px 0; transition: width var(--dur-slow) var(--ease-out); }
+                .bl-val { font-family: var(--font-mono); font-size: var(--text-xs); color: var(--ink); font-weight: var(--weight-medium); min-width: 3.2em; text-align: right; font-variant-numeric: tabular-nums; }
+                .bl-note { display: block; font-size: 10.5px; color: var(--muted); margin-top: 3px; line-height: 1.4; }
+                .bl-foot { font-size: var(--text-xs); color: var(--muted); margin-top: var(--s3); }
+                @media (max-width: 1023px) { .bl-hide-md { display: none; } }
+                @media (max-width: 639px) { .bl-hide-sm { display: none; } }
+            `}</style>
+        </div>
+    );
 }

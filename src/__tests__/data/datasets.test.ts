@@ -128,7 +128,7 @@ describe('AI_Tools_Dataset.json', () => {
 
 describe('datasetMeta', () => {
     it('uses the most recent review date of the three datasets', () => {
-        const latest = [models.metadata.last_updated, papers.metadata.last_updated, tools.metadata.last_updated].sort().at(-1);
+        const latest = [models.metadata.last_updated, papers.metadata.last_updated, tools.metadata.last_updated].sort().reverse()[0];
         expect(DATASET_META.lastUpdated).toBe(latest);
     });
 });
