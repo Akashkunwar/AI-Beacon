@@ -1,107 +1,77 @@
 /* ─── AI Beacon Design Tokens ────────────────────────────────────────────────── */
 /* Single source of truth for every visual decision.                            */
-/* No other file may hardcode any value that exists here.                       */
+/* Components must use these variables instead of hard-coded values so that the */
+/* light and dark themes stay in sync. Theme is set on <html data-theme="…">.  */
 
 :root {
+    color-scheme: light;
 
-    /* ── Palette ─────────────────────────────────────────────── */
-    --bg: #f9f9f9;
-    /* page background        */
-    --bg-panel: #f2f2f2;
-    /* card / section surface */
-    --bg-raised: #ebebeb;
-    /* hover, active bg       */
-    --stroke: #e0e0e0;
-    /* dividers               */
-    --stroke-dark: #c8c8c8;
-    /* visible borders        */
-    --muted: #737373;
-    /* secondary metadata     */
-    --secondary: #4d4d4d;
-    /* descriptions, captions */
-    --primary: #1a1a1a;
-    /* body text              */
-    --ink: #0d0d0d;
-    /* headings, emphasis     */
-    --bg-inverse: #0d0d0d;
-    /* dark button bg         */
-    --hover-inverse: #333333;
-    /* dark button hover (slightly lighter than bg-inverse) */
-    --text-inverse: #f9f9f9;
-    /* text on dark bg        */
+    /* ── Surfaces & text (light) ─────────────────────────────── */
+    --bg: #fafafa;              /* page background                    */
+    --bg-panel: #ffffff;        /* cards, panels, inputs              */
+    --bg-raised: #f1f1f2;       /* hover, active, chips, subtle fills */
+    --bg-sunken: #f4f4f5;       /* wells, code blocks, table headers  */
+    --stroke: #e6e6e8;          /* hairline dividers                  */
+    --stroke-dark: #d2d2d6;     /* visible borders, inputs            */
+    --muted: #6e6e76;           /* metadata, labels (AA on --bg)      */
+    --secondary: #4f4f56;       /* descriptions, captions             */
+    --primary: #1b1b1f;         /* body text                          */
+    --ink: #0a0a0b;             /* headings, emphasis                 */
+    --bg-inverse: #0a0a0b;      /* primary buttons, selected chips    */
+    --hover-inverse: #2a2a2e;   /* primary button hover               */
+    --text-inverse: #fafafa;    /* text on inverse surfaces           */
+    --overlay: rgba(10, 10, 11, 0.36);
+    --focus-ring: #0a0a0b;
 
-    /* ── Data-Viz Palette ───────────────────────────────────────── */
-    /* Used ONLY inside charts, graphs, heatmaps, vector bars.      */
-    /* Never use on UI shell elements (text, borders, cards).       */
+    /* ── Semantic status (used sparingly, always with text/icon) ── */
+    --success: #237a4b;
+    --warning: #9a5b0b;
+    --danger: #b3261e;
+    --link: var(--ink);
 
-    /* — 5-color categorical series — */
-    --viz-1: #6b7fad;
-    /* slate blue   — primary series / positive bars  */
-    --viz-2: #7a9e87;
-    /* sage green   — secondary series                */
-    --viz-3: #b08a6e;
-    /* terracotta   — third series / warm tone        */
-    --viz-4: #a07ba8;
-    /* dusty plum   — fourth series                   */
-    --viz-5: #5f9eab;
-    /* steel teal   — fifth series / cool depth       */
+    /* ── Data-viz palette ────────────────────────────────────── */
+    /* Used ONLY inside charts, heatmaps and vector bars.        */
+    --viz-1: #5b6fa8;           /* slate blue — primary series   */
+    --viz-2: #5f8f70;           /* sage green                    */
+    --viz-3: #a9764f;           /* terracotta                    */
+    --viz-4: #8d6697;           /* dusty plum                    */
+    --viz-5: #4b8f9c;           /* steel teal                    */
+    --viz-neg: #b86464;         /* muted rose — negative values  */
+    --viz-heat-lo: #e3ebf6;     /* heatmap cold end              */
+    --viz-heat-hi: #2d5a8e;     /* heatmap hot end               */
+    --viz-heat-text: #fafafa;   /* label on hot cells            */
+    --viz-grid: #e6e6e8;        /* chart gridlines               */
 
-    /* — Directional / signed value colors — */
-    --viz-neg: #c07a7a;
-    /* muted rose   — negative values in vector bars  */
+    /* Derived viz tokens (kept for existing components) */
+    --viz-accent: var(--viz-1);
+    --viz-pos-lo: color-mix(in srgb, var(--viz-1) 22%, transparent);
+    --viz-pos-hi: color-mix(in srgb, var(--viz-1) 90%, transparent);
+    --viz-neg-lo: color-mix(in srgb, var(--viz-neg) 20%, transparent);
+    --viz-neg-hi: color-mix(in srgb, var(--viz-neg) 75%, transparent);
+    --viz-bar-top: var(--viz-1);
+    --viz-bar-rest: color-mix(in srgb, var(--viz-1) 38%, transparent);
+    --viz-residual-pos: color-mix(in srgb, var(--viz-1) 82%, transparent);
+    --viz-residual-neg: color-mix(in srgb, var(--viz-neg) 65%, transparent);
+    --viz-sampling-dot: var(--viz-1);
+    --viz-sampling-chip: var(--viz-heat-hi);
+    --viz-sampling-chip-border: var(--viz-1);
 
-    /* — Pre-mixed alpha variants (replaces hardcoded rgba) — */
-    /* VectorBar positive bars (slate blue at varying opacity) */
-    --viz-pos-lo: rgba(107, 127, 173, 0.22);
-    /* low magnitude positive  */
-    --viz-pos-hi: rgba(107, 127, 173, 0.90);
-    /* high magnitude positive */
-    /* VectorBar negative bars (muted rose at varying opacity) */
-    --viz-neg-lo: rgba(192, 122, 122, 0.20);
-    /* low magnitude negative  */
-    --viz-neg-hi: rgba(192, 122, 122, 0.75);
-    /* high magnitude negative */
+    /* ── Grey scale (multi-segment charts) ── */
+    --grey-900: #111113;
+    --grey-800: #1f1f22;
+    --grey-700: #44444a;
+    --grey-600: #55555c;
+    --grey-400: #a6a6ad;
+    --grey-300: #c9c9ce;
+    --grey-200: #dcdce0;
+    --grey-100: #ededf0;
 
-    /* — Heatmap scale endpoints — */
-    --viz-heat-lo: #dce8f5;
-    /* near-white slate — attention heatmap cold end  */
-    --viz-heat-hi: #2d5a8e;
-    /* deep navy        — attention heatmap hot end   */
+    /* ── Fonts (self-hosted via @fontsource, see main.tsx) ──── */
+    --font-sans: 'Geist Variable', 'Geist', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+    --font-mono: 'Geist Mono Variable', 'Geist Mono', ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace;
 
-    /* — Semantic single-purpose tokens — */
-    --viz-accent: #6b7fad;
-    /* = viz-1, accent arcs / single-series charts   */
-    --viz-bar-top: #6b7fad;
-    /* top-ranked bar (LMHead, Softmax)              */
-    --viz-bar-rest: rgba(107, 127, 173, 0.38);
-    /* lower-ranked bars                  */
-    --viz-residual-pos: rgba(107, 127, 173, 0.82);
-    /* ResidualStep positive cells    */
-    --viz-residual-neg: rgba(192, 122, 122, 0.65);
-    /* ResidualStep negative cells    */
-    --viz-sampling-dot: #6b7fad;
-    /* Sampling method indicator dot                */
-    --viz-sampling-chip: #2d5a8e;
-    /* Selected-token chip background              */
-    --viz-sampling-chip-border: #6b7fad;
-    /* Selected-token chip border           */
-
-    /* ── Grey Scale Extended (for multi-segment charts) ── */
-    --grey-900: #111111;
-    --grey-800: #1f1f1f;
-    --grey-700: #444444;
-    --grey-600: #555555;
-    --grey-400: #aaaaaa;
-    --grey-300: #cccccc;
-    --grey-200: #dddddd;
-    --grey-100: #eeeeee;
-
-    /* ── Fonts ───────────────────────────────────────────────── */
-    --font-sans: 'Geist', system-ui, sans-serif;
-    --font-mono: 'Geist Mono', 'Courier New', monospace;
-
-    /* ── Type Scale ──────────────────────────────────────────── */
-    --text-2xs: 0.7rem;
+    /* ── Type scale ──────────────────────────────────────────── */
+    --text-2xs: 0.72rem;
     --text-xs: 0.8125rem;
     --text-sm: 0.9375rem;
     --text-base: 1rem;
@@ -109,29 +79,30 @@
     --text-lg: 1.375rem;
     --text-xl: 1.75rem;
     --text-2xl: 2.25rem;
-    --text-3xl: 3.25rem;
+    --text-3xl: 3rem;
     --text-hero: 4.5rem;
 
-    /* ── Font Weights ────────────────────────────────────────── */
+    /* ── Font weights ────────────────────────────────────────── */
     --weight-light: 300;
     --weight-regular: 400;
     --weight-medium: 500;
     --weight-semibold: 600;
+    --weight-bold: 700;
 
-    /* ── Line Heights ────────────────────────────────────────── */
-    --lead-tight: 1.1;
-    --lead-snug: 1.4;
+    /* ── Line heights ────────────────────────────────────────── */
+    --lead-tight: 1.05;
+    --lead-snug: 1.35;
     --lead-body: 1.65;
     --lead-loose: 1.9;
 
-    /* ── Letter Spacing ──────────────────────────────────────── */
+    /* ── Letter spacing ──────────────────────────────────────── */
     --tracking-tight: -0.035em;
     --tracking-snug: -0.02em;
     --tracking-normal: 0em;
     --tracking-wide: 0.06em;
     --tracking-wider: 0.1em;
 
-    /* ── Spacing Scale ───────────────────────────────────────── */
+    /* ── Spacing ─────────────────────────────────────────────── */
     --s1: 0.25rem;
     --s2: 0.5rem;
     --s3: 0.75rem;
@@ -141,17 +112,17 @@
     --s7: 4rem;
     --s8: 6rem;
 
-    /* ── Border Radius ───────────────────────────────────────── */
+    /* ── Radius ──────────────────────────────────────────────── */
     --r-xs: 2px;
-    --r-sm: 4px;
-    --r-md: 8px;
-    --r-lg: 12px;
+    --r-sm: 6px;
+    --r-md: 10px;
+    --r-lg: 14px;
     --r-xl: 20px;
     --r-pill: 999px;
 
     /* ── Shadows ─────────────────────────────────────────────── */
-    --shadow-soft: 0 2px 16px rgba(0, 0, 0, 0.05);
-    --shadow-lift: 0 6px 28px rgba(0, 0, 0, 0.08);
+    --shadow-soft: 0 1px 2px rgba(10, 10, 11, 0.04), 0 4px 16px rgba(10, 10, 11, 0.04);
+    --shadow-lift: 0 2px 4px rgba(10, 10, 11, 0.04), 0 12px 32px rgba(10, 10, 11, 0.08);
 
     /* ── Motion ──────────────────────────────────────────────── */
     --ease-out: cubic-bezier(0.2, 0, 0, 1);
@@ -160,42 +131,94 @@
     --dur-base: 220ms;
     --dur-slow: 350ms;
 
-    /* ── Z-Index ─────────────────────────────────────────────── */
+    /* ── Z-index ─────────────────────────────────────────────── */
     --z-base: 1;
     --z-raised: 10;
     --z-overlay: 100;
     --z-nav: 200;
     --z-modal: 300;
 
-    /* ── Layout ─────────────────────────────────────────────── */
-    --nav-height: 52px;
+    /* ── Layout ──────────────────────────────────────────────── */
+    --nav-height: 60px;
+    --container: 1200px;
 
     /* ── Timeline ── */
     --timeline-spine: var(--stroke-dark);
     --timeline-tick: var(--primary);
     --timeline-tick-minor: var(--stroke-dark);
     --timeline-year-label: var(--muted);
-    --timeline-node-bg: var(--bg);
+    --timeline-node-bg: var(--bg-panel);
     --timeline-node-border: var(--stroke-dark);
     --timeline-node-active-bg: var(--ink);
     --timeline-connector: var(--stroke-dark);
     --timeline-milestone: var(--ink);
 
     /* ── Table ── */
-    --table-header-bg: var(--bg-raised);
-    --table-row-hover: var(--bg-panel);
+    --table-header-bg: var(--bg-sunken);
+    --table-row-hover: var(--bg-raised);
     --table-row-active: var(--bg-raised);
     --table-border: var(--stroke);
 
     /* ── Popup ── */
-    --popup-overlay: rgba(0, 0, 0, 0.3);
-    --popup-bg: var(--bg);
+    --popup-overlay: var(--overlay);
+    --popup-bg: var(--bg-panel);
     --popup-border: var(--stroke-dark);
 }
 
-/* ─── Responsive overrides (< 480px) ───────────────────────────────────────── */
-@media (max-width: 479px) {
+/* ─── Dark theme ──────────────────────────────────────────────────────────── */
+:root[data-theme='dark'] {
+    color-scheme: dark;
+
+    --bg: #0b0b0c;
+    --bg-panel: #131315;
+    --bg-raised: #1d1d20;
+    --bg-sunken: #0f0f11;
+    --stroke: #242428;
+    --stroke-dark: #36363c;
+    --muted: #8e8e97;
+    --secondary: #aaaab2;
+    --primary: #e4e4e7;
+    --ink: #fafafa;
+    --bg-inverse: #fafafa;
+    --hover-inverse: #dcdce0;
+    --text-inverse: #0b0b0c;
+    --overlay: rgba(0, 0, 0, 0.6);
+    --focus-ring: #fafafa;
+
+    --success: #5cc389;
+    --warning: #e2a553;
+    --danger: #f08b82;
+
+    --viz-1: #8ea0d8;
+    --viz-2: #85bb96;
+    --viz-3: #d19f78;
+    --viz-4: #b893c2;
+    --viz-5: #74b8c4;
+    --viz-neg: #e08c8c;
+    --viz-heat-lo: #161d2a;
+    --viz-heat-hi: #8fb4ec;
+    --viz-heat-text: #0b0b0c;
+    --viz-grid: #242428;
+
+    --grey-900: #f4f4f5;
+    --grey-800: #e4e4e7;
+    --grey-700: #c4c4ca;
+    --grey-600: #a1a1a8;
+    --grey-400: #5c5c64;
+    --grey-300: #45454c;
+    --grey-200: #303035;
+    --grey-100: #222226;
+
+    --shadow-soft: 0 1px 2px rgba(0, 0, 0, 0.4), 0 4px 16px rgba(0, 0, 0, 0.25);
+    --shadow-lift: 0 2px 6px rgba(0, 0, 0, 0.45), 0 16px 40px rgba(0, 0, 0, 0.45);
+}
+
+/* ─── Responsive overrides ────────────────────────────────────────────────── */
+@media (max-width: 719px) {
     :root {
-        --text-hero: 2.6rem;
+        --text-3xl: 2.25rem;
+        --text-2xl: 1.875rem;
+        --text-hero: 2.75rem;
+        --nav-height: 56px;
     }
 }

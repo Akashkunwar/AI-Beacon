@@ -124,7 +124,7 @@ export function SoftmaxStep() {
                                             transition={{ type: 'spring', damping: 20, stiffness: 100 }}
                                             style={{
                                                 height: '100%',
-                                                background: isTop1 ? 'var(--viz-1)' : 'rgba(107,127,173,0.38)',
+                                                background: isTop1 ? 'var(--viz-1)' : 'var(--viz-bar-rest)',
                                                 borderRadius: 'var(--r-sm)'
                                             }}
                                         />

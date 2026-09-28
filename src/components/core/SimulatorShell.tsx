@@ -245,7 +245,7 @@ function InspectorPanel({
                             style={{
                                 position: 'absolute',
                                 inset: 0,
-                                background: 'rgba(249,249,249,0.6)',
+                                background: 'var(--overlay)',
                                 zIndex: 'var(--z-overlay)',
                             }}
                         />
@@ -477,7 +477,7 @@ function MobileControlDrawer({
                         style={{
                             position: 'fixed',
                             inset: 0,
-                            background: 'rgba(249,249,249,0.7)',
+                            background: 'var(--overlay)',
                             zIndex: 'var(--z-overlay)',
                         }}
                     />

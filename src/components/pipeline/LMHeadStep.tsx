@@ -223,7 +223,7 @@ export function LMHeadStep() {
                                             style={{
                                                 width: '100%',
                                                 background: isTop1 ? 'var(--viz-bar-top)' : 'var(--viz-bar-rest)',
-                                                border: `1px solid ${isTop1 ? 'var(--viz-1)' : 'rgba(107,127,173,0.22)'}`,
+                                                border: `1px solid ${isTop1 ? 'var(--viz-1)' : 'var(--viz-pos-lo)'}`,
                                                 borderRadius: isPositive ? '4px 4px 0 0' : '0 0 4px 4px',
                                                 boxShadow: 'none',
                                             }}

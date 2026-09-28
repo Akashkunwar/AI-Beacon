@@ -45,9 +45,9 @@ export function TokenBadge({
         <TooltipEngine
             content={
                 <span style={{ fontFamily: 'var(--font-mono)' }}>
-                    token: <span style={{ color: 'var(--ink)' }}>&quot;{token}&quot;</span>
+                    token: <span style={{ fontWeight: 600 }}>&quot;{token}&quot;</span>
                     {id !== undefined && (
-                        <> · id: <span style={{ color: 'var(--ink)', fontWeight: 600 }}>{id}</span></>
+                        <> · id: <span style={{ fontWeight: 600 }}>{id}</span></>
                     )}
                 </span>
             }

@@ -4,47 +4,57 @@
 <head>
   <meta charset="UTF-8" />
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
 
-  <!-- Geist Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600&family=Geist+Mono:wght@400;500&display=swap"
-    rel="stylesheet" />
+  <!-- Apply the saved (or OS) colour theme before first paint to avoid a flash. -->
+  <script>
+    (function () {
+      try {
+        var saved = localStorage.getItem('ai-beacon-theme');
+        var theme = saved === 'light' || saved === 'dark'
+          ? saved
+          : (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        document.documentElement.setAttribute('data-theme', theme);
+      } catch (e) {
+        document.documentElement.setAttribute('data-theme', 'light');
+      }
+    })();
+  </script>
 
-  <!-- Primary Meta -->
-  <title>AI Beacon — LLM Visualizer | How Large Language Models Work</title>
+  <!-- Primary Meta (overridden per route by react-helmet-async) -->
+  <title>AI Beacon — See how AI actually works</title>
   <meta name="description"
-    content="Step through the internals of a transformer LLM — from tokenization to sampling. Interactive, precise, and open. No handwaving." />
-  <meta name="keywords"
-    content="LLM, transformer, visualizer, deep learning, AI, attention mechanism, neural network, interactive, education" />
-  <meta name="author" content="AI Beacon Project" />
+    content="A free, open-source, interactive guide to modern AI: a timeline of models, papers and tools, a live transformer simulator, a training walkthrough, sourced benchmarks, and an evidence-based look at AI's impact on work." />
+  <meta name="author" content="AI Beacon contributors" />
   <meta name="robots" content="index, follow" />
 
-  <!-- Open Graph / Facebook (overridden per-route by react-helmet; ensure og-image.png exists in public/) -->
+  <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://ai-beacon.pages.dev/" />
-  <meta property="og:title" content="AI Beacon — LLM Visualizer | How Large Language Models Work" />
+  <meta property="og:title" content="AI Beacon — See how AI actually works" />
   <meta property="og:description"
-    content="Step through every layer — from raw text to a response. Interactive, precise, and open. No handwaving." />
+    content="Timeline, transformer simulator, training walkthrough, benchmarks and AI-impact explorer. Free, open source, runs in your browser." />
   <meta property="og:image" content="https://ai-beacon.pages.dev/og-image.png" />
-  <meta property="og:site_name" content="AI Beacon LLM Visualizer" />
+  <meta property="og:site_name" content="AI Beacon" />
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:url" content="https://ai-beacon.pages.dev/" />
-  <meta name="twitter:title" content="AI Beacon — LLM Visualizer | How Large Language Models Work" />
+  <meta name="twitter:title" content="AI Beacon — See how AI actually works" />
   <meta name="twitter:description"
-    content="Step through every layer — from raw text to a response. Interactive, precise, and open." />
+    content="Timeline, transformer simulator, training walkthrough, benchmarks and AI-impact explorer. Free and open source." />
   <meta name="twitter:image" content="https://ai-beacon.pages.dev/og-image.png" />
 
-  <!-- Theme color for mobile browsers -->
-  <meta name="theme-color" content="#f9f9f9" />
-  <meta name="color-scheme" content="light" />
+  <meta name="theme-color" content="#fafafa" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#0b0b0c" media="(prefers-color-scheme: dark)" />
+  <meta name="color-scheme" content="light dark" />
 </head>
 
 <body>
+  <noscript>
+    <p style="font-family: system-ui, sans-serif; padding: 2rem; max-width: 40rem;">
+      AI Beacon is an interactive app and needs JavaScript enabled to run.
+    </p>
+  </noscript>
   <div id="root"></div>
   <script type="module" src="/src/main.tsx"></script>
 </body>

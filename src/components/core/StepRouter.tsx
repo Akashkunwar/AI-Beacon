@@ -80,7 +80,7 @@ function getStepComponent(step: PipelineStep): React.ReactNode {
         case PipelineStep.SAMPLING:
             return <SamplingStep />;
         default:
-            return <StepPlaceholder step={step} />;
+            return null;
     }
 }
 
@@ -130,156 +130,15 @@ export function StepRouter({ step }: StepRouterProps) {
 function StepLoadingSkeleton() {
     return (
         <GlassCard padding="lg" aria-label="Loading step visualization">
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
-                {/* Skeleton header */}
-                <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-                    <div style={{
-                        width: '36px',
-                        height: '36px',
-                        borderRadius: '9px',
-                        background: 'rgba(0,229,255,0.06)',
-                        animation: 'pulse 1.5s ease-in-out infinite',
-                    }} />
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
-                        <div style={{ width: '140px', height: '16px', borderRadius: '4px', background: 'rgba(0,229,255,0.06)', animation: 'pulse 1.5s ease-in-out infinite' }} />
-                        <div style={{ width: '200px', height: '12px', borderRadius: '4px', background: 'rgba(0,229,255,0.04)', animation: 'pulse 1.5s ease-in-out infinite' }} />
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--s5)' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--s3)' }}>
+                    <div className="skeleton" style={{ width: 36, height: 36, borderRadius: 'var(--r-md)' }} />
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
+                        <div className="skeleton" style={{ width: 140, height: 16 }} />
+                        <div className="skeleton" style={{ width: 220, height: 12 }} />
                     </div>
                 </div>
-                {/* Skeleton content */}
-                <div style={{
-                    height: '160px',
-                    borderRadius: '10px',
-                    background: 'rgba(0,229,255,0.03)',
-                    border: '1px dashed rgba(0,229,255,0.08)',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    gap: '8px',
-                }}>
-                    {[0, 1, 2].map((i) => (
-                        <motion.div
-                            key={i}
-                            animate={{ opacity: [0.2, 1, 0.2] }}
-                            transition={{ duration: 1.4, repeat: Infinity, delay: i * 0.18 }}
-                            style={{
-                                width: '7px',
-                                height: '7px',
-                                borderRadius: '50%',
-                                background: 'var(--color-primary)',
-                                boxShadow: '0 0 5px rgba(0,229,255,0.4)',
-                            }}
-                        />
-                    ))}
-                </div>
-            </div>
-        </GlassCard>
-    );
-}
-
-// ─── StepPlaceholder ──────────────────────────────────────────────────────
-// "Coming soon" card for any unimplemented pipeline steps.
-
-function StepPlaceholder({ step }: { step: PipelineStep }) {
-    const meta = PIPELINE_STEP_LABELS[step];
-
-    const buildStep =
-        step <= PipelineStep.TOKEN_IDS ? 6 :
-            step <= PipelineStep.POSITIONAL_ENCODING ? 7 :
-                step === PipelineStep.ATTENTION ? 8 :
-                    step <= PipelineStep.FFN ? 9 : 10;
-
-    return (
-        <GlassCard padding="lg" aria-label={`${meta.label} step — coming soon`}>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
-                {/* Header */}
-                <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-                    <div style={{
-                        width: '36px',
-                        height: '36px',
-                        borderRadius: '9px',
-                        background: 'rgba(0,229,255,0.08)',
-                        border: '1px solid rgba(0,229,255,0.2)',
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        fontFamily: 'var(--font-mono)',
-                        fontSize: '13px',
-                        color: 'var(--color-primary)',
-                        fontWeight: 700,
-                        flexShrink: 0,
-                    }}>
-                        {String(step + 1).padStart(2, '0')}
-                    </div>
-                    <div>
-                        <h2 style={{
-                            fontSize: '18px',
-                            fontWeight: 600,
-                            color: 'var(--color-text-primary)',
-                            marginBottom: '2px',
-                        }}>
-                            {meta.label}
-                        </h2>
-                        <p style={{ fontSize: '13px', color: 'var(--color-text-secondary)' }}>
-                            {meta.description}
-                        </p>
-                    </div>
-                </div>
-
-                {/* Placeholder visualization area */}
-                <div style={{
-                    minHeight: '160px',
-                    borderRadius: '10px',
-                    background: 'rgba(0,229,255,0.02)',
-                    border: '1px dashed rgba(0,229,255,0.1)',
-                    display: 'flex',
-                    flexDirection: 'column',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    gap: '10px',
-                    padding: '32px',
-                }}>
-                    {[0, 1, 2].map((i) => (
-                        <motion.div
-                            key={i}
-                            animate={{ opacity: [0.2, 1, 0.2], scale: [0.8, 1.1, 0.8] }}
-                            transition={{ duration: 1.4, repeat: Infinity, delay: i * 0.2 }}
-                            style={{
-                                width: '7px',
-                                height: '7px',
-                                borderRadius: '50%',
-                                background: 'var(--color-primary)',
-                                boxShadow: '0 0 5px rgba(0,229,255,0.4)',
-                                display: 'inline-block',
-                                marginTop: i === 0 ? 0 : -16,
-                            }}
-                        />
-                    ))}
-                    <p style={{
-                        fontFamily: 'var(--font-mono)',
-                        fontSize: '12px',
-                        color: 'var(--color-text-muted)',
-                        textAlign: 'center',
-                        marginTop: '8px',
-                    }}>
-                        Visualization implemented in build step {buildStep}
-                    </p>
-                </div>
-
-                {/* Step description hint */}
-                <div style={{
-                    padding: '10px 14px',
-                    background: 'rgba(0,184,169,0.04)',
-                    border: '1px solid rgba(0,184,169,0.12)',
-                    borderRadius: '8px',
-                    fontSize: '12px',
-                    color: 'var(--color-text-secondary)',
-                    lineHeight: 1.6,
-                }}>
-                    <span style={{ color: 'var(--color-secondary)', fontWeight: 600 }}>
-                        Step {step + 1}:{' '}
-                    </span>
-                    {meta.description}
-                </div>
+                <div className="skeleton" style={{ height: 160, borderRadius: 'var(--r-md)' }} />
             </div>
         </GlassCard>
     );

@@ -1,9 +1,8 @@
 import { defineConfig } from 'vitest/config';
 import react from '@vitejs/plugin-react';
-import tailwindcss from '@tailwindcss/vite';
 
 export default defineConfig({
-  plugins: [react(), tailwindcss()],
+  plugins: [react()],
   define: {
     __COMMIT_HASH__: JSON.stringify(process.env.CF_PAGES_COMMIT_SHA || 'dev'),
     __BUILD_TIME__: JSON.stringify(new Date().toISOString()),

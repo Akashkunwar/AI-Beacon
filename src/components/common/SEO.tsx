@@ -27,8 +27,8 @@ export function SEO({
     twitterImage,
     structuredData,
 }: ISEOProps) {
-    const fullTitle = title ? `${title} | AI Beacon — LLM Visualizer` : 'AI Beacon — LLM Visualizer | How Large Language Models Work';
-    const fullDescription = description || 'Step through the internals of a transformer LLM — from tokenization to sampling. Interactive, precise, and open. No handwaving.';
+    const fullTitle = title ? `${title} | AI Beacon` : 'AI Beacon — See how AI actually works';
+    const fullDescription = description || 'A free, open-source, interactive guide to modern AI: a timeline of models, papers and tools, a live transformer simulator, a training walkthrough, sourced benchmarks, and an evidence-based look at AI and jobs.';
     const canonicalUrl = canonical ?? `${SITE_CONFIG.baseUrl}/`;
 
     return (

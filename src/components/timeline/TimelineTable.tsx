@@ -1,313 +1,172 @@
-import { useState, useMemo } from 'react';
-import { LLMModel, formatParams, formatContextWindow, formatDate } from '@/utils/timeline';
-import { TabType } from '@/components/timeline/TimelineHeader';
+import { useEffect, useMemo, useState } from 'react';
+import { KIND_LABELS, MODALITY_LABELS, type TimelineItem, type TimelineKind } from '@/data/timeline';
+import { formatContextWindow, formatDate, formatParams } from '@/utils/timeline';
 
-interface TimelineTableProps {
-    activeTab: TabType;
-    models: LLMModel[];
-    filteredModelIds: Set<number>;
-    selectedModelId: number | null;
-    onModelSelect: (id: number) => void;
-    onClearFilters?: () => void;
+interface Props {
+    kind: TimelineKind;
+    items: TimelineItem[];
+    total: number;
+    selectedId: number | null;
+    onSelect: (item: TimelineItem) => void;
+    onClearFilters: () => void;
 }
 
-type SortOption = 'Release Date ↓' | 'Release Date ↑' | 'Parameters ↓' | 'Company A–Z' | 'Company Z–A';
+type SortKey = 'date' | 'name' | 'org' | 'category' | 'size' | 'context' | 'citations';
 
-export function TimelineTable({ activeTab, models, filteredModelIds, selectedModelId, onModelSelect, onClearFilters }: TimelineTableProps) {
-    const [sortOption, setSortOption] = useState<SortOption>('Release Date ↓');
+interface Column {
+    key: SortKey | null;
+    label: string;
+    numeric?: boolean;
+    hideOnMobile?: boolean;
+    render: (it: TimelineItem) => React.ReactNode;
+}
 
-    const filteredModels = useMemo(() => {
-        return models.filter(m => filteredModelIds.has(m.id));
-    }, [models, filteredModelIds]);
+const PAGE = 60;
 
-    const sortedModels = useMemo(() => {
-        const sorted = [...filteredModels];
-        switch (sortOption) {
-            case 'Release Date ↓':
-                sorted.sort((a, b) => b.release_date.localeCompare(a.release_date));
-                break;
-            case 'Release Date ↑':
-                sorted.sort((a, b) => a.release_date.localeCompare(b.release_date));
-                break;
-            case 'Parameters ↓':
-                sorted.sort((a, b) => {
-                    // Convert to absolute numbers for sorting. Assumes units are million/billion.
-                    const getVal = (m: LLMModel) => {
-                        if (m.parameters === null) return 0;
-                        if (m.parameter_unit === 'billion') return m.parameters * 1000;
-                        return m.parameters;
-                    };
-                    return getVal(b) - getVal(a);
-                });
-                break;
-            case 'Company A–Z':
-                sorted.sort((a, b) => a.company.localeCompare(b.company));
-                break;
-            case 'Company Z–A':
-                sorted.sort((a, b) => b.company.localeCompare(a.company));
-                break;
-        }
-        return sorted;
-    }, [filteredModels, sortOption]);
+function paramsValue(it: TimelineItem): number {
+    if (it.kind !== 'models' || it.raw.parameters == null) return -1;
+    return it.raw.parameter_unit === 'million' ? it.raw.parameters / 1000 : it.raw.parameters;
+}
 
-    const cycleSort = () => {
-        const cycle: SortOption[] = [
-            'Release Date ↓', 'Release Date ↑', 'Parameters ↓', 'Company A–Z', 'Company Z–A'
+function columnsFor(kind: TimelineKind): Column[] {
+    const date: Column = { key: 'date', label: 'Date', render: (it) => (it.datePrecision === 'month' ? formatDate(it.date, 'short') : formatDate(it.date, 'mono')) };
+    const name: Column = { key: 'name', label: kind === 'papers' ? 'Title' : 'Name', render: (it) => <span className="strong">{it.name}</span> };
+    const org: Column = { key: 'org', label: KIND_LABELS[kind].org, render: (it) => it.org };
+    const cat: Column = { key: 'category', label: kind === 'papers' ? 'Topic' : 'Type', hideOnMobile: true, render: (it) => it.category };
+
+    if (kind === 'models') {
+        return [
+            date, name, org, cat,
+            { key: 'size', label: 'Params', numeric: true, hideOnMobile: true, render: (it) => it.kind === 'models' ? formatParams(it.raw.parameters, it.raw.parameter_unit) : '—' },
+            { key: 'context', label: 'Context', numeric: true, hideOnMobile: true, render: (it) => it.kind === 'models' ? formatContextWindow(it.raw.context_window_tokens) : '—' },
+            { key: null, label: 'Works with', hideOnMobile: true, render: (it) => it.kind === 'models' ? it.raw.modalities.map((m) => MODALITY_LABELS[m]).join(', ') : '' },
+            { key: null, label: 'Weights', hideOnMobile: true, render: (it) => it.openSource ? 'Open' : 'Closed' },
         ];
-        const nextIdx = (cycle.indexOf(sortOption) + 1) % cycle.length;
-        setSortOption(cycle[nextIdx]);
+    }
+    if (kind === 'papers') {
+        return [
+            date, name, org, cat,
+            { key: null, label: 'Venue', hideOnMobile: true, render: (it) => it.kind === 'papers' ? it.raw.published_in : '' },
+            { key: 'citations', label: 'Citations ≈', numeric: true, hideOnMobile: true, render: (it) => it.kind === 'papers' && it.raw.citations ? it.raw.citations.toLocaleString('en-US') : '—' },
+        ];
+    }
+    return [
+        date, name, org, cat,
+        { key: null, label: 'Kind of tool', hideOnMobile: true, render: (it) => it.kind === 'tools' ? it.raw.category : '' },
+        { key: null, label: 'Source', hideOnMobile: true, render: (it) => it.openSource ? 'Open' : 'Closed' },
+    ];
+}
+
+export function TimelineTable({ kind, items, total, selectedId, onSelect, onClearFilters }: Props) {
+    const [sort, setSort] = useState<{ key: SortKey; dir: 1 | -1 }>({ key: 'date', dir: -1 });
+    const [limit, setLimit] = useState(PAGE);
+    const columns = columnsFor(kind);
+
+    // Collapse back to the first page whenever the result set changes.
+    useEffect(() => setLimit(PAGE), [items]);
+
+    const sorted = useMemo(() => {
+        const val = (it: TimelineItem): string | number => {
+            switch (sort.key) {
+                case 'date': return it.date;
+                case 'name': return it.name.toLowerCase();
+                case 'org': return it.org.toLowerCase();
+                case 'category': return it.category;
+                case 'size': return paramsValue(it);
+                case 'context': return it.kind === 'models' ? it.raw.context_window_tokens ?? -1 : -1;
+                case 'citations': return it.kind === 'papers' ? it.raw.citations ?? -1 : -1;
+            }
+        };
+        return [...items].sort((a, b) => {
+            const va = val(a), vb = val(b);
+            if (va < vb) return -1 * sort.dir;
+            if (va > vb) return 1 * sort.dir;
+            return b.date.localeCompare(a.date);
+        });
+    }, [items, sort]);
+
+    const visible = sorted.slice(0, limit);
+    const toggleSort = (key: SortKey) => {
+        setSort((s) => (s.key === key ? { key, dir: s.dir === 1 ? -1 : 1 } : { key, dir: key === 'date' || key === 'size' || key === 'context' || key === 'citations' ? -1 : 1 }));
     };
 
     return (
-        <section style={{ maxWidth: '1100px', margin: '0 auto', width: '100%', paddingBottom: 'var(--s8)' }}>
-
-            {/* Table Header Row */}
-            <div style={{
-                display: 'flex',
-                justifyContent: 'space-between',
-                alignItems: 'baseline',
-                marginBottom: 'var(--s4)'
-            }}>
-                <div>
-                    <div style={{
-                        fontFamily: 'var(--font-mono)',
-                        fontSize: 'var(--text-md)',
-                        color: 'var(--ink)'
-                    }}>
-                        {activeTab === 'papers' ? 'ALL PAPERS' : activeTab === 'tools' ? 'ALL TOOLS' : 'ALL MODELS'}
-                    </div>
-                    <div style={{
-                        fontFamily: 'var(--font-mono)',
-                        fontSize: 'var(--text-xs)',
-                        color: 'var(--muted)',
-                        marginTop: '2px'
-                    }}>
-                        {filteredModels.length} {activeTab === 'papers' ? 'papers' : activeTab === 'tools' ? 'tools' : 'models'}
-                    </div>
-                </div>
-
-                <button
-                    type="button"
-                    onClick={cycleSort}
-                    style={{
-                        background: 'none', border: 'none', cursor: 'pointer',
-                        fontFamily: 'var(--font-mono)',
-                        fontSize: 'var(--text-xs)',
-                        color: 'var(--secondary)',
-                        minHeight: 44,
-                        padding: 'var(--s2) var(--s3)',
-                    }}
-                >
-                    Sort by: <span style={{ color: 'var(--ink)' }}>{sortOption}</span>
-                </button>
+        <section aria-labelledby="tl-table-heading" style={{ marginTop: 'var(--s5)' }}>
+            <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between', alignItems: 'baseline', gap: 'var(--s2)', marginBottom: 'var(--s3)' }}>
+                <h2 id="tl-table-heading" className="section-title" style={{ fontSize: 'var(--text-lg)' }}>
+                    All {KIND_LABELS[kind].lower}
+                </h2>
+                <p className="muted" style={{ fontSize: 'var(--text-xs)' }}>Click a column to sort · click a row for details</p>
             </div>
 
-            {/* Table */}
-            <div style={{
-                width: '100%',
-                overflowX: 'auto',
-                border: '1px solid var(--table-border)',
-                borderRadius: 'var(--r-lg)',
-                background: 'var(--bg)'
-            }}>
-                <table style={{
-                    width: '100%',
-                    borderCollapse: 'collapse',
-                    textAlign: 'left',
-                    minWidth: '800px'
-                }}>
+            <div className="table-wrap">
+                <table className="data-table tl-table">
                     <thead>
-                        <tr style={{
-                            background: 'var(--table-header-bg)',
-                            borderBottom: '1px solid var(--table-border)'
-                        }}>
-                            <th style={thStyle}>#</th>
-                            {activeTab === 'papers' ? (
-                                <>
-                                    <th style={thStyle}>Title</th>
-                                    <th style={thStyle}>Authors</th>
-                                    <th style={thStyle}>Institution</th>
-                                    <th style={thStyle}>Topic</th>
-                                    <th style={thStyle} className="timeline-table-hide-mobile">Citations</th>
-                                    <th style={thStyle} className="timeline-table-hide-mobile">Published In</th>
-                                </>
-                            ) : (
-                                <>
-                                    <th style={thStyle}>Model</th>
-                                    <th style={thStyle}>Company</th>
-                                    <th style={thStyle}>Type</th>
-                                    <th style={thStyle}>Params</th>
-                                    <th style={thStyle} className="timeline-table-hide-mobile">Context</th>
-                                    <th style={thStyle} className="timeline-table-hide-mobile">Modalities</th>
-                                    <th style={thStyle} className="timeline-table-hide-mobile">Open</th>
-                                </>
-                            )}
-                            <th style={thStyle}>Date</th>
+                        <tr>
+                            {columns.map((c) => (
+                                <th
+                                    key={c.label}
+                                    scope="col"
+                                    className={`${c.numeric ? 'num' : ''} ${c.hideOnMobile ? 'hide-mobile' : ''}`}
+                                    aria-sort={c.key && sort.key === c.key ? (sort.dir === 1 ? 'ascending' : 'descending') : undefined}
+                                >
+                                    {c.key ? (
+                                        <button type="button" className="tl-sort" onClick={() => toggleSort(c.key!)}>
+                                            {c.label}
+                                            <span aria-hidden="true" className="tl-sort-ind">{sort.key === c.key ? (sort.dir === 1 ? '↑' : '↓') : '↕'}</span>
+                                        </button>
+                                    ) : c.label}
+                                </th>
+                            ))}
                         </tr>
                     </thead>
                     <tbody>
-                        {sortedModels.length === 0 ? (
+                        {visible.length === 0 ? (
                             <tr>
-                                <td colSpan={activeTab === 'papers' ? 8 : 9} style={{ ...tdStyle, padding: 'var(--s6)', textAlign: 'center', color: 'var(--muted)' }}>
+                                <td colSpan={columns.length} style={{ padding: 'var(--s6)', textAlign: 'center' }}>
                                     No entries match these filters.{' '}
-                                    {onClearFilters && (
-                                        <button type="button" onClick={onClearFilters} style={{ color: 'var(--ink)', textDecoration: 'underline', textUnderlineOffset: '3px' }}>
-                                            Clear filters
-                                        </button>
-                                    )}
+                                    <button type="button" className="text-link" onClick={onClearFilters}>Clear filters</button>
                                 </td>
                             </tr>
-                        ) : sortedModels.map((model) => {
-                            const isActive = selectedModelId === model.id;
-                            return (
-                                <tr
-                                    key={model.id}
-                                    onClick={() => onModelSelect(model.id)}
-                                    onKeyDown={(event) => {
-                                        if (event.key === 'Enter' || event.key === ' ') {
-                                            event.preventDefault();
-                                            onModelSelect(model.id);
-                                        }
-                                    }}
-                                    tabIndex={0}
-                                    role="row"
-                                    aria-selected={isActive}
-                                    aria-label={`Open details for ${model.model_name}`}
-                                    className={`timeline-row ${isActive ? 'active' : ''}`}
-                                >
-                                    <td style={{ ...tdStyle, width: '40px', color: 'var(--muted)', fontFamily: 'var(--font-mono)' }}>
-                                        {model.id}
+                        ) : visible.map((it) => (
+                            <tr
+                                key={it.id}
+                                className={`is-clickable ${selectedId === it.id ? 'is-active' : ''}`}
+                                onClick={() => onSelect(it)}
+                            >
+                                {columns.map((c, i) => (
+                                    <td key={c.label} className={`${c.numeric ? 'num' : ''} ${c.hideOnMobile ? 'hide-mobile' : ''} ${i === 0 ? 'mono nowrap' : ''}`}>
+                                        {i === 1 ? (
+                                            <button type="button" className="tl-row-btn" onClick={(e) => { e.stopPropagation(); onSelect(it); }}>
+                                                {c.render(it)}
+                                            </button>
+                                        ) : c.render(it)}
                                     </td>
-                                    {activeTab === 'papers' ? (
-                                        <>
-                                            <td style={{ ...tdStyle, fontFamily: 'var(--font-sans)', fontWeight: 'var(--weight-medium)', color: 'var(--ink)' }}>
-                                                {model.title || model.model_name}
-                                            </td>
-                                            <td style={{ ...tdStyle, fontFamily: 'var(--font-mono)', color: 'var(--secondary)' }}>
-                                                {model.authors && model.authors.length > 2 ? `${model.authors[0]} et al.` : (model.authors?.join(', ') || '—')}
-                                            </td>
-                                            <td style={{ ...tdStyle, fontFamily: 'var(--font-mono)', color: 'var(--muted)', maxWidth: '120px', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
-                                                {model.institution || '—'}
-                                            </td>
-                                            <td style={{ ...tdStyle, fontFamily: 'var(--font-mono)', color: 'var(--ink)' }}>
-                                                {model.topic || '—'}
-                                            </td>
-                                            <td style={{ ...tdStyle, fontFamily: 'var(--font-mono)', color: 'var(--secondary)' }} className="timeline-table-hide-mobile">
-                                                {model.citations?.toLocaleString() || '—'}
-                                            </td>
-                                            <td style={{ ...tdStyle }} className="timeline-table-hide-mobile">
-                                                <span style={{ fontFamily: 'var(--font-mono)', fontSize: 'calc(var(--text-2xs) - 1px)', color: 'var(--muted)' }}>{model.published_in || '—'}</span>
-                                            </td>
-                                        </>
-                                    ) : (
-                                        <>
-                                            <td style={{ ...tdStyle, fontFamily: 'var(--font-sans)', fontWeight: 'var(--weight-medium)', color: 'var(--ink)' }}>
-                                                {model.model_name}
-                                            </td>
-                                            <td style={{ ...tdStyle, fontFamily: 'var(--font-mono)', color: 'var(--secondary)' }}>
-                                                {model.company}
-                                            </td>
-                                            <td style={{ ...tdStyle, fontFamily: 'var(--font-mono)', color: 'var(--muted)', maxWidth: '120px', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
-                                                {model.model_type}
-                                            </td>
-                                            <td style={{ ...tdStyle, fontFamily: 'var(--font-mono)', color: 'var(--ink)' }}>
-                                                {formatParams(model.parameters, model.parameter_unit)}
-                                            </td>
-                                            <td style={{ ...tdStyle, fontFamily: 'var(--font-mono)', color: 'var(--secondary)' }} className="timeline-table-hide-mobile">
-                                                {formatContextWindow(model.context_window_tokens, 'short')}
-                                            </td>
-                                            <td style={{ ...tdStyle }} className="timeline-table-hide-mobile">
-                                                <div style={{ display: 'flex', gap: '4px', flexWrap: 'wrap' }}>
-                                                    {model.modalities.map(m => (
-                                                        <span key={m} style={miniPillStyle}>{m}</span>
-                                                    ))}
-                                                </div>
-                                            </td>
-                                            <td style={{ ...tdStyle, fontFamily: 'var(--font-mono)', color: 'var(--muted)' }} className="timeline-table-hide-mobile">
-                                                {model.open_source ? '●' : '○'}
-                                            </td>
-                                        </>
-                                    )}
-                                    <td style={{ ...tdStyle, fontFamily: 'var(--font-mono)', color: 'var(--muted)', whiteSpace: 'nowrap' }}>
-                                        {formatDate(model.release_date, 'short')}
-                                    </td>
-                                </tr>
-                            );
-                        })}
+                                ))}
+                            </tr>
+                        ))}
                     </tbody>
                 </table>
             </div>
 
-            {/* Table Footer */}
-            <div style={{
-                paddingTop: 'var(--s4)',
-                textAlign: 'center',
-                fontFamily: 'var(--font-mono)',
-                fontSize: 'var(--text-xs)',
-                color: 'var(--muted)',
-                display: 'flex',
-                justifyContent: 'center',
-                alignItems: 'center',
-                gap: 'var(--s3)'
-            }}>
-                Showing {sortedModels.length} of {models.length} {activeTab === 'papers' ? 'papers' : activeTab === 'tools' ? 'tools' : 'models'}
-                {filteredModels.length < models.length && (
-                    <button
-                        onClick={onClearFilters}
-                        style={{
-                            background: 'none', border: 'none', cursor: 'pointer',
-                            color: 'var(--ink)', textDecoration: 'underline',
-                            fontFamily: 'var(--font-mono)', fontSize: 'var(--text-xs)'
-                        }}
-                    >
-                        × Clear all filters
+            <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: 'var(--s3)', marginTop: 'var(--s4)', fontSize: 'var(--text-xs)', color: 'var(--muted)' }}>
+                <span>Showing {visible.length} of {sorted.length}{sorted.length < total ? ` (filtered from ${total})` : ''}</span>
+                {sorted.length > limit && (
+                    <button type="button" className="btn btn-secondary btn-sm" onClick={() => setLimit((l) => l + PAGE * 2)}>
+                        Show more
                     </button>
                 )}
             </div>
-
             <style>{`
-                .timeline-row {
-                    height: 48px;
-                    min-height: 44px;
-                    border-bottom: 1px solid var(--table-border);
-                    cursor: pointer;
-                    transition: background var(--dur-fast) var(--ease-out);
-                }
-                .timeline-row:hover {
-                    background: var(--table-row-hover);
-                }
-                .timeline-row.active {
-                    background: var(--table-row-active);
-                }
-                @media (max-width: 719px) {
-                    .timeline-table-hide-mobile { display: none !important; }
-                }
+                .tl-table td.nowrap { white-space: nowrap; }
+                .tl-table td.mono { font-family: var(--font-mono); font-size: var(--text-2xs); color: var(--muted); }
+                .tl-sort { display: inline-flex; align-items: center; gap: 4px; font: inherit; color: inherit; text-transform: inherit; letter-spacing: inherit; }
+                .tl-sort:hover { color: var(--ink); }
+                .tl-sort-ind { opacity: 0.6; }
+                .tl-row-btn { text-align: left; font: inherit; color: inherit; }
+                .tl-row-btn:hover .strong { text-decoration: underline; text-underline-offset: 3px; }
+                @media (max-width: 719px) { .tl-table .hide-mobile { display: none; } }
             `}</style>
         </section>
     );
 }
-
-const thStyle: React.CSSProperties = {
-    fontFamily: 'var(--font-mono)',
-    fontSize: 'var(--text-xs)',
-    color: 'var(--muted)',
-    textTransform: 'uppercase',
-    letterSpacing: 'var(--tracking-wider)',
-    padding: 'var(--s2) var(--s4)',
-    fontWeight: 'normal'
-};
-
-const tdStyle: React.CSSProperties = {
-    fontSize: 'var(--text-xs)',
-    padding: '0 var(--s4)',
-    verticalAlign: 'middle'
-};
-
-const miniPillStyle: React.CSSProperties = {
-    fontFamily: 'var(--font-mono)',
-    fontSize: 'calc(var(--text-2xs) - 1px)',
-    background: 'var(--bg-raised)',
-    borderRadius: 'var(--r-pill)',
-    padding: '1px 6px',
-    color: 'var(--secondary)',
-};

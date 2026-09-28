@@ -4,6 +4,7 @@
 // zero = muted, positive = cyan (primary).
 
 import { memo } from 'react';
+import { tint } from '@/utils/vizColor';
 import { motion } from 'framer-motion';
 
 // ─── Types ─────────────────────────────────────────────────────────────────
@@ -29,16 +30,15 @@ interface VectorBarProps {
 
 /**
  * Map a normalized value in [-1, 1] to a muted viz-palette fill.
- * Positive → slate blue (--viz-1: #6b7fad), alpha encodes magnitude.
- * Negative → muted rose (--viz-neg: #c07a7a), alpha encodes magnitude.
+ * Positive → --viz-1, negative → --viz-neg; opacity encodes magnitude.
  */
 function valueToColor(normValue: number): string {
     if (normValue >= 0) {
         const alpha = 0.18 + normValue * 0.72;  // 0.18 → 0.90
-        return `rgba(107,127,173,${alpha.toFixed(2)})`; // --viz-1
+        return tint('--viz-1', alpha);
     } else {
         const alpha = 0.15 + Math.abs(normValue) * 0.60;
-        return `rgba(192,122,122,${alpha.toFixed(2)})`; // --viz-neg
+        return tint('--viz-neg', alpha);
     }
 }
 

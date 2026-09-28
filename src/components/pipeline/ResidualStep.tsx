@@ -1,4 +1,5 @@
 import { memo } from 'react';
+import { tint } from '@/utils/vizColor';
 import { motion } from 'framer-motion';
 import { GlassCard } from '@/components/shared';
 import { ConceptCard } from '@/components/educational/ConceptCard';
@@ -129,9 +130,7 @@ function VectorBarPreview({ values, highlighted }: { values: number[], highlight
                 const alpha = highlighted
                     ? 0.25 + Math.abs(norm) * 0.75
                     : 0.12 + Math.abs(norm) * 0.70;
-                const color = norm >= 0
-                    ? `rgba(107,127,173,${alpha.toFixed(2)})`   /* --viz-1 slate blue */
-                    : `rgba(192,122,122,${alpha.toFixed(2)})`;  /* --viz-neg muted rose */
+                const color = tint(norm >= 0 ? '--viz-1' : '--viz-neg', alpha);
 
                 return (
                     <div

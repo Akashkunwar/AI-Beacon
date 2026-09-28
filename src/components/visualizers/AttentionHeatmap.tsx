@@ -5,6 +5,7 @@
 // Color scale: --viz-heat-lo (near-white slate) → --viz-heat-hi (deep navy).
 
 import { memo, useState, useMemo } from 'react';
+import { heat } from '@/utils/vizColor';
 import { motion } from 'framer-motion';
 
 // ─── Types ──────────────────────────────────────────────────────────────────
@@ -27,27 +28,19 @@ interface AttentionHeatmapProps {
 // ─── Color helpers (slate → navy heat scale) ─────────────────────────────────
 
 /**
- * Interpolate between --viz-heat-lo (#dce8f5) and --viz-heat-hi (#2d5a8e)
- * based on attention weight [0, 1]. Masked cells use --bg-raised.
+ * Interpolate between --viz-heat-lo and --viz-heat-hi based on attention
+ * weight [0, 1]. Masked cells use --bg-raised.
  */
-function lerpChannel(lo: number, hi: number, t: number): number {
-    return Math.round(lo + (hi - lo) * t);
-}
-
 function weightToBackground(weight: number, isMasked: boolean): string {
     if (isMasked) return 'var(--bg-raised)';
-    // heat-lo: rgb(220, 232, 245)  heat-hi: rgb(45, 90, 142)
-    const r = lerpChannel(220, 45, weight);
-    const g = lerpChannel(232, 90, weight);
-    const b = lerpChannel(245, 142, weight);
-    return `rgb(${r},${g},${b})`;
+    return heat(weight);
 }
 
 /** Text colour that contrasts with the interpolated heatmap background */
 function weightToTextColor(weight: number, isMasked: boolean): string {
     if (isMasked) return 'var(--muted)';
     // Switch to white text when background is dark enough
-    if (weight > 0.52) return 'rgba(249,249,249,0.92)';
+    if (weight > 0.52) return 'var(--viz-heat-text)';
     return 'var(--secondary)';
 }
 
@@ -232,7 +225,7 @@ export const AttentionHeatmap = memo(function AttentionHeatmap({
                     width: '80px',
                     height: '8px',
                     borderRadius: '4px',
-                    background: 'linear-gradient(to right, #dce8f5, #2d5a8e)',
+                    background: 'linear-gradient(to right, var(--viz-heat-lo), var(--viz-heat-hi))',
                     border: '1px solid var(--stroke)',
                 }} />
                 <span style={{ fontFamily: 'var(--font-mono)', fontSize: '9px', color: 'var(--muted)' }}>

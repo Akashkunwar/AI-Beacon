@@ -1,278 +1,207 @@
-import { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import { motion, AnimatePresence } from 'framer-motion';
+import { useEffect, useState } from 'react';
+import { Link, NavLink, useLocation } from 'react-router-dom';
 import { SkipToMain } from '@/components/common/SkipToMain';
-
-const NAV_LINKS = [
-    { label: 'AI Timeline', to: '/timeline', live: true },
-    { label: 'How LLMs Work', to: '/transformer-simulator', live: true },
-    { label: 'How AI is Trained', to: '/transformer-training-simulator', live: true },
-    { label: 'Benchmarks', to: '/benchmarks', live: true },
-    { label: 'Automation Clock', to: '/automation-clock', live: true },
-];
+import { MODULES } from '@/config/modules';
+import { SITE_CONFIG } from '@/config/site';
+import { BeaconMark, CloseIcon, GitHubIcon, MenuIcon } from './Icons';
+import { ThemeToggle } from './ThemeToggle';
 
 interface NavProps {
-    /** Override active‑route detection (e.g. pass '/transformer-training-simulator' from Training page) */
+    /** Force a route to be highlighted (defaults to the current path). */
     activeRoute?: string;
 }
 
 export function Nav({ activeRoute }: NavProps) {
     const location = useLocation();
     const currentPath = activeRoute ?? location.pathname;
-    const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+    const [open, setOpen] = useState(false);
 
-    // Lock scroll when mobile menu is open
+    // Close the mobile menu on navigation.
     useEffect(() => {
-        if (isMobileMenuOpen) {
-            document.body.style.overflow = 'hidden';
-        } else {
-            document.body.style.overflow = '';
-        }
-        return () => {
-            document.body.style.overflow = '';
-        };
-    }, [isMobileMenuOpen]);
-
-    useEffect(() => {
-        setIsMobileMenuOpen(false);
+        setOpen(false);
     }, [location.pathname]);
 
-    const navHeight = 'var(--nav-height)';
+    // Lock page scroll and allow Escape to close while the mobile menu is open.
+    useEffect(() => {
+        if (!open) return;
+        const prev = document.body.style.overflow;
+        document.body.style.overflow = 'hidden';
+        const onKey = (e: KeyboardEvent) => {
+            if (e.key === 'Escape') setOpen(false);
+        };
+        window.addEventListener('keydown', onKey);
+        return () => {
+            document.body.style.overflow = prev;
+            window.removeEventListener('keydown', onKey);
+        };
+    }, [open]);
 
     return (
         <>
             <SkipToMain />
-            <nav
-                aria-label="Main navigation"
-                style={{
-                    position: 'fixed',
-                    top: 0,
-                    left: 0,
-                    right: 0,
-                    zIndex: 'var(--z-nav)',
-                    background: 'var(--bg)',
-                    borderBottom: '1px solid var(--stroke)',
-                    height: navHeight,
-                    display: 'flex',
-                    alignItems: 'center',
-                }}
-            >
-            <div className="depth-container" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', width: '100%' }}>
-                {/* Logo */}
-                <Link to="/" style={{ display: 'flex', alignItems: 'center', gap: 'var(--s2)', textDecoration: 'none' }}>
-                    <span style={{
-                        fontFamily: 'var(--font-mono)',
-                        fontWeight: 'var(--weight-medium)',
-                        fontSize: 'var(--text-sm)',
-                        color: 'var(--ink)',
-                    }}>
-                        AI Beacon
-                    </span>
-                    <span style={{
-                        fontFamily: 'var(--font-mono)',
-                        fontSize: 'var(--text-2xs)',
-                        color: 'var(--muted)',
-                        background: 'var(--bg-raised)',
-                        borderRadius: 'var(--r-pill)',
-                        padding: '2px 7px',
-                        marginLeft: 'var(--s2)',
-                    }}>
-                        beta
-                    </span>
-                </Link>
+            <header className="site-nav" data-open={open || undefined}>
+                <div className="container-wide site-nav-inner">
+                    <Link to="/" className="site-logo" aria-label="AI Beacon home">
+                        <BeaconMark size={26} />
+                        <span className="site-logo-text">AI Beacon</span>
+                    </Link>
 
-                {/* Desktop Nav Links */}
-                <div className="nav-links-desktop" style={{ display: 'flex', alignItems: 'center', gap: 'var(--s1)' }}>
-                    {NAV_LINKS.map((link) => {
-                        const isActive = link.live && link.to === currentPath;
-
-                        if (link.live && link.to) {
-                            return (
-                                <Link
-                                    key={link.label}
-                                    to={link.to}
-                                    aria-current={isActive ? 'page' : undefined}
-                                    style={{
-                                        fontFamily: 'var(--font-sans)',
-                                        fontSize: 'var(--text-sm)',
-                                        fontWeight: isActive ? 'var(--weight-medium)' : 'var(--weight-regular)',
-                                        color: isActive ? 'var(--ink)' : 'var(--secondary)',
-                                        padding: 'var(--s2) var(--s3)',
-                                        borderRadius: 'var(--r-sm)',
-                                        textDecoration: 'none',
-                                        background: isActive ? 'var(--bg-raised)' : 'transparent',
-                                        transition: `all var(--dur-fast) var(--ease-out)`,
-                                    }}
-                                    onMouseEnter={(e) => {
-                                        if (!isActive) {
-                                            (e.currentTarget as HTMLAnchorElement).style.background = 'var(--bg-panel)';
-                                            (e.currentTarget as HTMLAnchorElement).style.color = 'var(--ink)';
-                                        }
-                                    }}
-                                    onMouseLeave={(e) => {
-                                        if (!isActive) {
-                                            (e.currentTarget as HTMLAnchorElement).style.background = 'transparent';
-                                            (e.currentTarget as HTMLAnchorElement).style.color = 'var(--secondary)';
-                                        }
-                                    }}
-                                >
-                                    {link.label}
-                                </Link>
-                            );
-                        }
-
-                        return (
-                            <span
-                                key={link.label}
-                                style={{
-                                    fontFamily: 'var(--font-sans)',
-                                    fontSize: 'var(--text-sm)',
-                                    fontWeight: 'var(--weight-regular)',
-                                    color: 'var(--secondary)',
-                                    padding: 'var(--s2) var(--s3)',
-                                    display: 'inline-flex',
-                                    alignItems: 'center',
-                                    gap: 'var(--s1)',
-                                    opacity: 0.7,
-                                }}
+                    <nav aria-label="Main navigation" className="site-nav-links">
+                        {MODULES.map((m) => (
+                            <NavLink
+                                key={m.id}
+                                to={m.route}
+                                className="site-nav-link"
+                                aria-current={currentPath === m.route ? 'page' : undefined}
                             >
-                                {link.label}
-                                <span style={{
-                                    fontFamily: 'var(--font-mono)',
-                                    fontSize: 'var(--text-2xs)',
-                                    color: 'var(--muted)',
-                                    background: 'var(--bg-raised)',
-                                    borderRadius: 'var(--r-pill)',
-                                    padding: '2px 6px',
-                                    marginLeft: 'var(--s1)',
-                                }}>
-                                    soon
-                                </span>
-                            </span>
-                        );
-                    })}
+                                {m.navLabel}
+                            </NavLink>
+                        ))}
+                    </nav>
+
+                    <div className="site-nav-actions">
+                        <ThemeToggle />
+                        <a
+                            href={SITE_CONFIG.githubUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="icon-btn site-nav-github"
+                            aria-label="AI Beacon on GitHub (opens in a new tab)"
+                            title="View source on GitHub"
+                        >
+                            <GitHubIcon size={17} />
+                        </a>
+                        <button
+                            type="button"
+                            className="icon-btn site-nav-menu-btn"
+                            onClick={() => setOpen((v) => !v)}
+                            aria-label={open ? 'Close menu' : 'Open menu'}
+                            aria-expanded={open}
+                            aria-controls="mobile-navigation"
+                        >
+                            {open ? <CloseIcon /> : <MenuIcon />}
+                        </button>
+                    </div>
                 </div>
 
-                {/* Mobile Toggle Button */}
-                <button
-                    className="mobile-toggle"
-                    onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                    aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
-                    aria-expanded={isMobileMenuOpen}
-                    aria-controls="mobile-navigation"
-                    style={{
-                        display: 'none',
-                        background: 'none',
-                        border: 'none',
-                        padding: 'var(--s2)',
-                        cursor: 'pointer',
-                        color: 'var(--ink)',
-                    }}
-                >
-                    {isMobileMenuOpen ? (
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                            <line x1="18" y1="6" x2="6" y2="18"></line>
-                            <line x1="6" y1="6" x2="18" y2="18"></line>
-                        </svg>
-                    ) : (
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                            <line x1="3" y1="12" x2="21" y2="12"></line>
-                            <line x1="3" y1="6" x2="21" y2="6"></line>
-                            <line x1="3" y1="18" x2="21" y2="18"></line>
-                        </svg>
-                    )}
-                </button>
-            </div>
-
-            {/* Mobile Menu Overlay */}
-            <AnimatePresence>
-                {isMobileMenuOpen && (
-                    <motion.div
-                        initial={{ opacity: 0, y: -10 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: -10 }}
-                        transition={{ duration: 0.2, ease: "easeOut" }}
-                        style={{
-                            position: 'absolute',
-                            top: 'var(--nav-height)',
-                            left: 0,
-                            right: 0,
-                            background: 'var(--bg)',
-                            borderBottom: '1px solid var(--stroke)',
-                            padding: 'var(--s4) var(--s6)',
-                            display: 'flex',
-                            flexDirection: 'column',
-                            gap: 'var(--s4)',
-                            zIndex: 'var(--z-nav)',
-                            boxShadow: 'var(--shadow-lift)',
-                        }}
-                        id="mobile-navigation"
-                        aria-label="Mobile navigation links"
-                    >
-                        {NAV_LINKS.map((link) => {
-                            const isActive = link.live && link.to === currentPath;
-
-                            if (link.live && link.to) {
-                                return (
-                                    <Link
-                                        key={link.label}
-                                        to={link.to}
-                                        onClick={() => setIsMobileMenuOpen(false)}
-                                        aria-current={isActive ? 'page' : undefined}
-                                        style={{
-                                            fontFamily: 'var(--font-sans)',
-                                            fontSize: 'var(--text-md)',
-                                            fontWeight: isActive ? 'var(--weight-medium)' : 'var(--weight-regular)',
-                                            color: isActive ? 'var(--ink)' : 'var(--secondary)',
-                                            textDecoration: 'none',
-                                            padding: 'var(--s2) 0',
-                                        }}
-                                    >
-                                        {link.label}
-                                    </Link>
-                                );
-                            }
-
-                            return (
-                                <div
-                                    key={link.label}
-                                    style={{
-                                        fontFamily: 'var(--font-sans)',
-                                        fontSize: 'var(--text-md)',
-                                        fontWeight: 'var(--weight-regular)',
-                                        color: 'var(--muted)',
-                                        display: 'flex',
-                                        alignItems: 'center',
-                                        justifyContent: 'space-between',
-                                        padding: 'var(--s2) 0',
-                                    }}
+                {open && (
+                    <div id="mobile-navigation" className="site-mobile-menu">
+                        <nav aria-label="Mobile navigation" className="container-wide">
+                            <Link to="/" className="site-mobile-link" aria-current={currentPath === '/' ? 'page' : undefined}>
+                                <span className="site-mobile-num">00</span>
+                                <span>
+                                    <span className="site-mobile-title">Home</span>
+                                    <span className="site-mobile-desc">Start here — overview of all modules.</span>
+                                </span>
+                            </Link>
+                            {MODULES.map((m) => (
+                                <Link
+                                    key={m.id}
+                                    to={m.route}
+                                    className="site-mobile-link"
+                                    aria-current={currentPath === m.route ? 'page' : undefined}
                                 >
-                                    {link.label}
-                                    <span style={{
-                                        fontFamily: 'var(--font-mono)',
-                                        fontSize: 'var(--text-2xs)',
-                                        background: 'var(--bg-raised)',
-                                        borderRadius: 'var(--r-pill)',
-                                        padding: '2px 8px',
-                                    }}>
-                                        soon
+                                    <span className="site-mobile-num">{m.num}</span>
+                                    <span>
+                                        <span className="site-mobile-title">{m.title}</span>
+                                        <span className="site-mobile-desc">{m.summary}</span>
                                     </span>
-                                </div>
-                            );
-                        })}
-                    </motion.div>
+                                </Link>
+                            ))}
+                            <div className="site-mobile-footer">
+                                <Link to="/about" className="text-link">About &amp; methodology</Link>
+                                <a href={SITE_CONFIG.githubUrl} target="_blank" rel="noopener noreferrer" className="text-link">
+                                    GitHub ↗
+                                </a>
+                            </div>
+                        </nav>
+                    </div>
                 )}
-            </AnimatePresence>
-
-            <style>{`
-                @media (max-width: 719px) {
-                    .nav-links-desktop { display: none !important; }
-                    .mobile-toggle { display: block !important; }
-                }
-                .mobile-toggle { min-width: 44px; min-height: 44px; }
-            `}</style>
-        </nav>
-            <div aria-hidden="true" style={{ height: navHeight, flexShrink: 0 }} />
+            </header>
+            <style>{NAV_CSS}</style>
         </>
     );
 }
+
+const NAV_CSS = `
+.site-nav {
+    position: sticky;
+    top: 0;
+    z-index: var(--z-nav);
+    height: var(--nav-height);
+    background: color-mix(in srgb, var(--bg) 82%, transparent);
+    backdrop-filter: saturate(180%) blur(12px);
+    -webkit-backdrop-filter: saturate(180%) blur(12px);
+    border-bottom: 1px solid var(--stroke);
+}
+.site-nav-inner {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--s4);
+}
+.site-logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+    border-radius: var(--r-sm);
+}
+.site-logo-text {
+    font-weight: var(--weight-semibold);
+    font-size: var(--text-base);
+    letter-spacing: var(--tracking-snug);
+    color: var(--ink);
+}
+.site-nav-links {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+}
+.site-nav-link {
+    padding: 7px 12px;
+    border-radius: var(--r-sm);
+    font-size: var(--text-sm);
+    color: var(--secondary);
+    white-space: nowrap;
+    transition: background var(--dur-fast) var(--ease-out), color var(--dur-fast) var(--ease-out);
+}
+.site-nav-link:hover { color: var(--ink); background: var(--bg-raised); }
+.site-nav-link[aria-current='page'] {
+    color: var(--ink);
+    background: var(--bg-raised);
+    font-weight: var(--weight-medium);
+}
+.site-nav-actions { display: flex; align-items: center; gap: var(--s2); }
+.site-nav-menu-btn { display: none; }
+
+.site-mobile-menu {
+    position: fixed;
+    inset: var(--nav-height) 0 0 0;
+    background: var(--bg);
+    overflow-y: auto;
+    padding-block: var(--s3) var(--s6);
+    animation: fade-up var(--dur-base) var(--ease-out);
+}
+.site-mobile-link {
+    display: grid;
+    grid-template-columns: 2.25rem 1fr;
+    gap: var(--s2);
+    padding: var(--s4) 0;
+    border-bottom: 1px solid var(--stroke);
+}
+.site-mobile-num { font-family: var(--font-mono); font-size: var(--text-xs); color: var(--muted); padding-top: 3px; }
+.site-mobile-title { display: block; font-size: var(--text-md); font-weight: var(--weight-semibold); color: var(--ink); }
+.site-mobile-desc { display: block; font-size: var(--text-xs); color: var(--secondary); margin-top: 2px; line-height: var(--lead-snug); }
+.site-mobile-link[aria-current='page'] .site-mobile-title { text-decoration: underline; text-underline-offset: 4px; }
+.site-mobile-footer { display: flex; gap: var(--s5); padding-top: var(--s5); font-size: var(--text-sm); }
+
+@media (max-width: 1023px) {
+    .site-nav-links { display: none; }
+    .site-nav-menu-btn { display: inline-grid; }
+}
+@media (max-width: 479px) {
+    .site-nav-github { display: none; }
+}
+`;
