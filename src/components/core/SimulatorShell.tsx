@@ -1,77 +1,94 @@
-import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { PipelineStep, PIPELINE_STEP_LABELS, type ModelConfig, type AppMode } from '@/lib/store/types';
-import { useSimulatorStore } from '@/lib/store/simulatorStore';
-import { ControlPanel } from '@/components/controls/ControlPanel';
-import { ModeToggle } from '@/components/controls/ModeToggle';
-import { PipelineCanvas } from './PipelineCanvas';
-import { Nav } from '@/components/shared/Nav';
-import { ConceptCard } from '@/components/educational/ConceptCard';
+// src/components/core/SimulatorShell.tsx
+// Layout for Module 02. Desktop: step rail + settings | step content | inspector.
+// Narrower screens move the rail into a horizontal strip and the settings and
+// inspector into drawers. ← / → step through the pipeline.
 
-// ─── SimulatorShell ───────────────────────────────────────────────────────
+import { useEffect, useRef, useState, type ReactNode } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import {
+    PIPELINE_PHASES, PIPELINE_STEP_LABELS, PipelineStep,
+    type PipelinePhase, type TensorRegistry,
+} from '@/lib/store/types';
+import { useSimulatorStore } from '@/lib/store/simulatorStore';
+import { countParameters } from '@/lib/store/stepMachine';
+import { VOCAB_SIZE } from '@/lib/tokenizer/vocab';
+import { getModule } from '@/config/modules';
+import { Nav } from '@/components/shared/Nav';
+import { CloseIcon } from '@/components/shared/Icons';
+import { ModeToggle } from '@/components/controls/ModeToggle';
+import { ModelSettings } from '@/components/controls/ModelSettings';
+import { PlaybackControls } from '@/components/controls/PlaybackControls';
+import { StepRouter } from './StepRouter';
+
+type Drawer = 'settings' | 'inspector' | null;
 
 export function SimulatorShell() {
-    const {
-        mode, setMode,
-        currentStep,
-        isPlaying, playSpeed,
-        config, updateConfig,
-        inputText, setInput,
-        tensors,
-        stepForward, stepBackward,
-        playAll, pause, reset,
-        setPlaySpeed,
-    } = useSimulatorStore();
+    const mode = useSimulatorStore((s) => s.mode);
+    const setMode = useSimulatorStore((s) => s.setMode);
+    const currentStep = useSimulatorStore((s) => s.currentStep);
+    const isPlaying = useSimulatorStore((s) => s.isPlaying);
+    const playSpeed = useSimulatorStore((s) => s.playSpeed);
+    const stepForward = useSimulatorStore((s) => s.stepForward);
+    const stepBackward = useSimulatorStore((s) => s.stepBackward);
+    const playAll = useSimulatorStore((s) => s.playAll);
+    const pause = useSimulatorStore((s) => s.pause);
+    const reset = useSimulatorStore((s) => s.reset);
+    const setPlaySpeed = useSimulatorStore((s) => s.setPlaySpeed);
+    const [drawer, setDrawer] = useState<Drawer>(null);
+    const scrollRef = useRef<HTMLDivElement>(null);
+    const mod = getModule('simulator');
 
-    const [inspectorOpen, setInspectorOpen] = useState(false);
-    const [controlsOpen, setControlsOpen] = useState(false);
+    // Start each step at the top of its content.
+    useEffect(() => {
+        scrollRef.current?.scrollTo({ top: 0 });
+    }, [currentStep]);
+
+    // Stop the play timer when leaving the page.
+    useEffect(() => () => useSimulatorStore.getState().pause(), []);
+
+    // ← / → step through the pipeline (ignored while typing or with a drawer open).
+    useEffect(() => {
+        const onKey = (e: KeyboardEvent) => {
+            if (e.defaultPrevented || e.metaKey || e.ctrlKey || e.altKey) return;
+            const t = e.target as HTMLElement | null;
+            if (t && (t.isContentEditable || /^(INPUT|TEXTAREA|SELECT)$/.test(t.tagName))) return;
+            if (e.key === 'Escape') setDrawer(null);
+            if (drawer) return;
+            if (e.key === 'ArrowRight') { e.preventDefault(); stepForward(); }
+            if (e.key === 'ArrowLeft') { e.preventDefault(); stepBackward(); }
+        };
+        window.addEventListener('keydown', onKey);
+        return () => window.removeEventListener('keydown', onKey);
+    }, [drawer, stepForward, stepBackward]);
 
     return (
-        <div
-            style={{
-                height: '100vh',
-                display: 'flex',
-                flexDirection: 'column',
-                background: 'var(--bg)',
-                overflow: 'hidden',
-            }}
-        >
-            {/* ── Global Nav ────────────────────────────────────────── */}
-            <Nav activeRoute="/transformer-simulator" />
-
-            {/* ── Action Toolbar ────────────────────────────────────── */}
-            <ActionToolbar
-                mode={mode}
-                onModeToggle={setMode}
-                onInspectorToggle={() => setInspectorOpen((v) => !v)}
-                onControlsToggle={() => setControlsOpen((v) => !v)}
-            />
-
-            {/* ── Main Layout ───────────────────────────────────────── */}
-            <main id="main" style={{ flex: 1, display: 'flex', overflow: 'hidden', position: 'relative' }}>
-
-                {/* LEFT: Control Panel */}
-                <div
-                    aria-label="Left control panel"
-                    className="control-panel-desktop"
-                    style={{
-                        width: '280px',
-                        flexShrink: 0,
-                        height: '100%',
-                        overflow: 'hidden',
-                    }}
-                >
-                    <ControlPanel
-                        config={config}
-                        onConfigChange={updateConfig}
-                        inputText={inputText}
-                        onInputChange={setInput}
-                    />
+        <div className="sim">
+            <Nav />
+            <header className="sim-bar">
+                <div className="sim-bar-copy">
+                    <p className="eyebrow">Module {mod.num} · {mod.title}</p>
+                    <h1 className="sim-bar-title">Follow one sentence through a language model</h1>
                 </div>
+                <div className="sim-bar-actions">
+                    <ModeToggle mode={mode} onToggle={setMode} />
+                    <button type="button" className="btn btn-secondary btn-sm sim-show-lt-lg" onClick={() => setDrawer('settings')}>Settings</button>
+                    <button type="button" className="btn btn-secondary btn-sm sim-show-lt-xl" onClick={() => setDrawer('inspector')}>Data so far</button>
+                </div>
+            </header>
 
-                {/* CENTER: Pipeline Canvas */}
-                <div style={{ flex: 1, minWidth: 0, height: '100%', overflow: 'hidden' }}>
-                    <PipelineCanvas
+            <div className="sim-body">
+                <aside className="sim-rail" aria-label="Pipeline steps and settings">
+                    <StepRail />
+                    <div className="sim-rail-sep" />
+                    <ModelSettings />
+                </aside>
+
+                <main id="main" className="sim-main">
+                    <StepStrip />
+                    <div ref={scrollRef} className="sim-scroll">
+                        <StepRouter step={currentStep} />
+                    </div>
+                    <PlaybackControls
                         currentStep={currentStep}
                         isPlaying={isPlaying}
                         playSpeed={playSpeed}
@@ -82,435 +99,186 @@ export function SimulatorShell() {
                         onReset={reset}
                         onSpeedChange={setPlaySpeed}
                     />
-                </div>
+                </main>
 
-                {/* RIGHT: Inspector Panel */}
-                <AnimatePresence>
-                    {(inspectorOpen || true) && (
-                        <InspectorPanel
-                            step={currentStep}
-                            mode={mode}
-                            tensors={tensors}
-                            config={config}
-                            isOpen={inspectorOpen}
-                            onClose={() => setInspectorOpen(false)}
-                        />
-                    )}
-                </AnimatePresence>
-            </main>
+                <aside className="sim-inspector" aria-label="Data computed so far">
+                    <Inspector />
+                </aside>
+            </div>
 
-            {/* MOBILE: Bottom drawer for controls */}
-            <MobileControlDrawer
-                isOpen={controlsOpen}
-                onClose={() => setControlsOpen(false)}
-                config={config}
-                onConfigChange={updateConfig}
-                inputText={inputText}
-                onInputChange={setInput}
-            />
-
+            <DrawerPanel open={drawer === 'settings'} title="Model settings" side="left" onClose={() => setDrawer(null)}>
+                <ModelSettings />
+            </DrawerPanel>
+            <DrawerPanel open={drawer === 'inspector'} title="Data so far" side="right" onClose={() => setDrawer(null)}>
+                <Inspector />
+            </DrawerPanel>
             <style>{SHELL_CSS}</style>
         </div>
     );
 }
 
-// ─── Action Toolbar ───────────────────────────────────────────────────────
+// ─── Step rail (desktop) and strip (narrow screens) ───────────────────────
 
-interface ActionToolbarProps {
-    mode: AppMode;
-    onModeToggle: (m: AppMode) => void;
-    onInspectorToggle: () => void;
-    onControlsToggle: () => void;
-}
-
-function ActionToolbar({ mode, onModeToggle, onInspectorToggle, onControlsToggle }: ActionToolbarProps) {
+function StepRail() {
+    const currentStep = useSimulatorStore((s) => s.currentStep);
+    const goToStep = useSimulatorStore((s) => s.goToStep);
     return (
-        <div
-            aria-label="Simulator actions"
-            style={{
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'flex-end',
-                padding: 'var(--s2) var(--s4)',
-                borderBottom: '1px solid var(--stroke)',
-                background: 'var(--bg-panel)',
-                flexShrink: 0,
-                gap: 'var(--s2)',
-                zIndex: 'var(--z-nav)',
-            }}
-        >
-            {/* Center: Mode toggle */}
-            <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--s2)', marginRight: 'auto' }}>
-                <h1 style={{ fontSize: 'var(--text-sm)', fontWeight: 'var(--weight-medium)', color: 'var(--ink)', marginRight: 'var(--s3)' }}>
-                    How LLMs work
-                </h1>
-                <span className="simulator-toolbar-subtitle" style={{ fontSize: 'var(--text-xs)', color: 'var(--muted)' }}>
-                    A small, real-math decoder walkthrough
-                </span>
-                <ModeToggle mode={mode} onToggle={onModeToggle} />
-            </div>
-
-            {/* Right: Action buttons */}
-            <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--s2)' }}>
-                <button
-                    id="inspector-toggle"
-                    className="inspector-toggle-btn"
-                    aria-label="Toggle inspector panel"
-                    onClick={onInspectorToggle}
-                    style={{
-                        padding: 'var(--s1) var(--s3)',
-                        background: 'transparent',
-                        border: '1px solid var(--stroke)',
-                        borderRadius: 'var(--r-md)',
-                        color: 'var(--muted)',
-                        fontSize: 'var(--text-xs)',
-                        fontFamily: 'var(--font-mono)',
-                        cursor: 'pointer',
-                        minHeight: '34px',
-                        display: 'none',
-                    }}
-                >
-                    Inspector
-                </button>
-
-                <button
-                    id="controls-drawer-toggle"
-                    className="controls-drawer-btn"
-                    aria-label="Toggle controls drawer"
-                    onClick={onControlsToggle}
-                    style={{
-                        padding: 'var(--s1) var(--s3)',
-                        background: 'var(--bg-raised)',
-                        border: '1px solid var(--stroke-dark)',
-                        borderRadius: 'var(--r-md)',
-                        color: 'var(--ink)',
-                        fontSize: 'var(--text-xs)',
-                        fontFamily: 'var(--font-mono)',
-                        cursor: 'pointer',
-                        minHeight: '34px',
-                        display: 'none',
-                    }}
-                >
-                    ⚙ Config
-                </button>
-            </div>
-        </div>
+        <nav aria-label="Pipeline steps" className="rail">
+            {(Object.keys(PIPELINE_PHASES) as PipelinePhase[]).map((phase) => (
+                <div key={phase} className="rail-group">
+                    <p className="rail-phase">{PIPELINE_PHASES[phase].label}</p>
+                    <ol className="rail-list">
+                        {PIPELINE_PHASES[phase].steps.map((step) => {
+                            const state = step < currentStep ? 'done' : step === currentStep ? 'current' : 'todo';
+                            return (
+                                <li key={step}>
+                                    <button
+                                        type="button"
+                                        className={`rail-step is-${state}`}
+                                        aria-current={state === 'current' ? 'step' : undefined}
+                                        onClick={() => goToStep(step)}
+                                    >
+                                        <span className="rail-num">{state === 'done' ? '✓' : step + 1}</span>
+                                        <span className="rail-copy">
+                                            <span className="rail-label">{PIPELINE_STEP_LABELS[step].label}</span>
+                                            {state === 'current' && <span className="rail-desc">{PIPELINE_STEP_LABELS[step].description}</span>}
+                                        </span>
+                                    </button>
+                                </li>
+                            );
+                        })}
+                    </ol>
+                </div>
+            ))}
+        </nav>
     );
 }
 
-// ─── Inspector Panel ──────────────────────────────────────────────────────
-
-function InspectorPanel({
-    step, mode, tensors, config, isOpen, onClose,
-}: {
-    step: PipelineStep;
-    mode: AppMode;
-    tensors: import('@/lib/store/types').TensorRegistry;
-    config: ModelConfig;
-    isOpen: boolean;
-    onClose: () => void;
-}) {
-    const meta = PIPELINE_STEP_LABELS[step];
-
+function StepStrip() {
+    const currentStep = useSimulatorStore((s) => s.currentStep);
+    const goToStep = useSimulatorStore((s) => s.goToStep);
+    const listRef = useRef<HTMLOListElement>(null);
+    useEffect(() => {
+        const el = listRef.current?.querySelector<HTMLElement>('[aria-current="step"]');
+        el?.scrollIntoView({ block: 'nearest', inline: 'center', behavior: 'smooth' });
+    }, [currentStep]);
+    const steps = Object.keys(PIPELINE_STEP_LABELS).map(Number) as PipelineStep[];
     return (
-        <>
-            {/* Desktop: static right panel */}
-            <aside
-                aria-label="Inspector panel"
-                className="inspector-desktop"
-                style={{
-                    width: '300px',
-                    flexShrink: 0,
-                    height: '100%',
-                    borderLeft: '1px solid var(--stroke)',
-                    background: 'var(--bg-panel)',
-                    display: 'flex',
-                    flexDirection: 'column',
-                    overflowY: 'auto',
-                }}
-            >
-                <InspectorContent step={step} meta={meta} mode={mode} tensors={tensors} config={config} />
-            </aside>
-
-            {/* Tablet/Mobile: slide-in overlay */}
-            <AnimatePresence>
-                {isOpen && (
-                    <>
-                        <motion.div
-                            className="inspector-overlay"
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: 1 }}
-                            exit={{ opacity: 0 }}
-                            onClick={onClose}
-                            style={{
-                                position: 'absolute',
-                                inset: 0,
-                                background: 'var(--overlay)',
-                                zIndex: 'var(--z-overlay)',
-                            }}
-                        />
-                        <motion.aside
-                            className="inspector-mobile"
-                            initial={{ x: '100%' }}
-                            animate={{ x: 0 }}
-                            exit={{ x: '100%' }}
-                            transition={{ type: 'tween', duration: 0.22, ease: [0.2, 0, 0, 1] }}
-                            aria-label="Inspector panel"
-                            style={{
-                                position: 'absolute',
-                                right: 0,
-                                top: 0,
-                                bottom: 0,
-                                width: '300px',
-                                background: 'var(--bg-panel)',
-                                borderLeft: '1px solid var(--stroke)',
-                                zIndex: 'var(--z-raised)',
-                                overflowY: 'auto',
-                            }}
+        <nav aria-label="Pipeline steps" className="strip">
+            <ol ref={listRef}>
+                {steps.map((step) => (
+                    <li key={step}>
+                        <button
+                            type="button"
+                            className={`strip-step ${step < currentStep ? 'is-done' : ''}`}
+                            aria-current={step === currentStep ? 'step' : undefined}
+                            onClick={() => goToStep(step)}
                         >
-                            <div style={{ padding: 'var(--s3) var(--s4)', borderBottom: '1px solid var(--stroke)', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                                <span style={{ fontFamily: 'var(--font-mono)', fontSize: 'var(--text-xs)', color: 'var(--muted)', textTransform: 'uppercase', letterSpacing: 'var(--tracking-wider)' }}>Inspector</span>
-                                <button aria-label="Close inspector" onClick={onClose} style={{ background: 'none', border: 'none', color: 'var(--muted)', cursor: 'pointer', fontSize: 'var(--text-lg)', lineHeight: 1, padding: '0 var(--s1)' }}>×</button>
-                            </div>
-                            <InspectorContent step={step} meta={meta} mode={mode} tensors={tensors} config={config} />
-                        </motion.aside>
-                    </>
-                )}
-            </AnimatePresence>
-        </>
+                            <span className="strip-num">{step + 1}</span>
+                            {PIPELINE_STEP_LABELS[step].shortLabel}
+                        </button>
+                    </li>
+                ))}
+            </ol>
+        </nav>
     );
 }
 
-// ─── Inspector Content ────────────────────────────────────────────────────
+// ─── Inspector: every tensor computed so far ──────────────────────────────
 
-function InspectorContent({
-    step, meta, mode, tensors, config,
-}: {
-    step: PipelineStep;
-    meta: { label: string; shortLabel: string; description: string };
-    mode: AppMode;
-    tensors: import('@/lib/store/types').TensorRegistry;
-    config: ModelConfig;
-}) {
-    const n = tensors.tokens?.raw.length ?? '?';
-    const d = config.dModel;
-    const V = '512';
+const shape = (dims: readonly number[]) => dims.join(' × ');
 
-    const tensorRows = [
-        { key: 'Input', ready: step > PipelineStep.INPUT, shape: tensors.tokens ? `${tensors.tokens.raw.length} words` : '—' },
-        { key: 'Tokens', ready: tensors.tokens !== undefined, shape: tensors.tokens ? `(${n},) str` : '(n,)' },
-        { key: 'Token IDs', ready: tensors.token_ids !== undefined, shape: tensors.token_ids ? `(${tensors.token_ids.ids.length},) int` : `(n,) int` },
-        { key: 'X embed', ready: tensors.embed !== undefined, shape: tensors.embed ? tensors.embed.X.shapeStr() : `(n, ${d})` },
-        { key: 'X + PE', ready: tensors.posenc !== undefined, shape: tensors.posenc ? tensors.posenc.X_pos.shapeStr() : `(n, ${d})` },
-        { key: 'Attn Output', ready: tensors.attention !== undefined, shape: tensors.attention ? tensors.attention.multihead_out.shapeStr() : `(n, ${d})` },
-        { key: 'X Residual', ready: tensors.residual !== undefined, shape: tensors.residual ? tensors.residual.X_res.shapeStr() : `(n, ${d})` },
-        { key: 'X Normed', ready: tensors.layernorm !== undefined, shape: tensors.layernorm ? tensors.layernorm.X_norm.shapeStr() : `(n, ${d})` },
-        { key: 'FFN Output', ready: tensors.ffn !== undefined, shape: tensors.ffn ? tensors.ffn.output.shapeStr() : `(n, ${d})` },
-        { key: 'Logits', ready: tensors.lm_head !== undefined, shape: tensors.lm_head ? tensors.lm_head.logits.shapeStr() : `(${V},)` },
-        { key: 'Probs', ready: tensors.softmax !== undefined, shape: tensors.softmax ? tensors.softmax.probs.shapeStr() : `(${V},)` },
-        { key: 'Next Token', ready: tensors.sampling !== undefined, shape: tensors.sampling ? `"${tensors.sampling.selected_token}" (id ${tensors.sampling.selected_id})` : 'string' },
+function trackerRows(t: TensorRegistry): Array<{ step: PipelineStep; label: string; value: string | null }> {
+    return [
+        { step: PipelineStep.TOKENIZE, label: 'Tokens', value: t.tokens ? `${t.tokens.raw.length}` : null },
+        { step: PipelineStep.TOKEN_IDS, label: 'Token IDs', value: t.token_ids ? `${t.token_ids.ids.length}` : null },
+        { step: PipelineStep.EMBEDDING, label: 'Embeddings', value: t.embed ? shape(t.embed.X.shape) : null },
+        { step: PipelineStep.POSITIONAL_ENCODING, label: '+ positions', value: t.posenc ? shape(t.posenc.X_pos.shape) : null },
+        { step: PipelineStep.ATTENTION, label: 'Attention output', value: t.attention ? shape(t.attention.multihead_out.shape) : null },
+        { step: PipelineStep.RESIDUAL, label: 'After adding', value: t.residual ? shape(t.residual.X_res.shape) : null },
+        { step: PipelineStep.LAYER_NORM, label: 'After normalizing', value: t.layernorm ? shape(t.layernorm.X_norm.shape) : null },
+        { step: PipelineStep.FFN, label: 'Block output', value: t.ffn ? shape(t.ffn.output.shape) : null },
+        { step: PipelineStep.LM_HEAD, label: 'Scores (logits)', value: t.lm_head ? `${VOCAB_SIZE}` : null },
+        { step: PipelineStep.SOFTMAX, label: 'Probabilities', value: t.softmax ? `${VOCAB_SIZE}` : null },
+        { step: PipelineStep.SAMPLING, label: 'Next token', value: t.sampling ? `“${t.sampling.selected_token}”` : null },
     ];
+}
+
+function Inspector() {
+    const tensors = useSimulatorStore((s) => s.tensors);
+    const currentStep = useSimulatorStore((s) => s.currentStep);
+    const inputText = useSimulatorStore((s) => s.inputText);
+    const config = useSimulatorStore((s) => s.config);
+    const rows = trackerRows(tensors);
 
     return (
-        <div style={{ padding: 'var(--s4)', display: 'flex', flexDirection: 'column', gap: 'var(--s4)' }}>
-            {/* Current step info */}
-            <section aria-labelledby="inspector-step-label">
-                <div style={{
-                    padding: 'var(--s3)',
-                    background: 'var(--bg-raised)',
-                    border: '1px solid var(--stroke)',
-                    borderRadius: 'var(--r-md)',
-                }}>
-                    <p style={{ fontFamily: 'var(--font-mono)', fontSize: 'var(--text-2xs)', color: 'var(--muted)', letterSpacing: 'var(--tracking-wider)', textTransform: 'uppercase', marginBottom: 'var(--s1)' }}>
-                        Active Step
-                    </p>
-                    <p id="inspector-step-label" style={{ fontSize: 'var(--text-sm)', fontWeight: 'var(--weight-semibold)', color: 'var(--ink)', marginBottom: 'var(--s1)' }}>
-                        {String(step + 1).padStart(2, '0')}  {meta.label}
-                    </p>
-                    <p style={{ fontSize: 'var(--text-xs)', color: 'var(--secondary)', lineHeight: 'var(--lead-snug)' }}>
-                        {meta.description}
-                    </p>
-                </div>
-            </section>
-
-            {/* Mode indicator */}
+        <div className="insp">
             <section>
-                <p style={{ fontFamily: 'var(--font-mono)', fontSize: 'var(--text-2xs)', color: 'var(--muted)', letterSpacing: 'var(--tracking-wider)', textTransform: 'uppercase', marginBottom: 'var(--s2)' }}>
-                    Mode
-                </p>
-                <div style={{
-                    display: 'inline-flex',
-                    alignItems: 'center',
-                    gap: 'var(--s1)',
-                    padding: 'var(--s1) var(--s3)',
-                    background: 'var(--bg-inverse)',
-                    border: '1px solid var(--bg-inverse)',
-                    borderRadius: 'var(--r-sm)',
-                    fontSize: 'var(--text-xs)',
-                    color: 'var(--text-inverse)',
-                    fontFamily: 'var(--font-mono)',
-                }}>
-                    {mode === 'simple' ? 'Simple' : 'Advanced'}
-                </div>
+                <h2 className="insp-title">Your sentence</h2>
+                <p className="insp-sentence">“{inputText.trim() || '…'}”</p>
             </section>
-
-            {/* Tensor shape tracker */}
-            <section aria-labelledby="tensor-tracker-label">
-                <p id="tensor-tracker-label" style={{
-                    fontFamily: 'var(--font-mono)',
-                    fontSize: 'var(--text-2xs)',
-                    color: 'var(--muted)',
-                    letterSpacing: 'var(--tracking-wider)',
-                    textTransform: 'uppercase',
-                    marginBottom: 'var(--s2)',
-                }}>
-                    Tensor Shapes
-                </p>
-                <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--s1)' }}>
-                    {tensorRows.map(({ key, shape, ready }) => (
-                        <div
-                            key={key}
-                            aria-label={`${key}: ${ready ? shape : 'not yet computed'}`}
-                            style={{
-                                display: 'flex',
-                                justifyContent: 'space-between',
-                                alignItems: 'center',
-                                padding: 'var(--s1) var(--s2)',
-                                borderRadius: 'var(--r-sm)',
-                                background: ready ? 'var(--bg-raised)' : 'transparent',
-                                opacity: ready ? 1 : 0.35,
-                                transition: `all var(--dur-base) var(--ease-out)`,
-                            }}
-                        >
-                            <span style={{ fontSize: 'var(--text-xs)', color: 'var(--secondary)', fontFamily: 'var(--font-mono)' }}>
-                                {key}
-                            </span>
-                            <span style={{
-                                fontSize: 'var(--text-xs)',
-                                fontFamily: 'var(--font-mono)',
-                                color: ready ? 'var(--ink)' : 'var(--muted)',
-                            }}>
-                                {ready ? shape : '—'}
-                            </span>
-                        </div>
+            <section>
+                <h2 className="insp-title">Data so far</h2>
+                <p className="insp-sub">What each step has produced. “3 × 8” means 3 tokens with 8 numbers each.</p>
+                <ol className="insp-list">
+                    {rows.map((r) => (
+                        <li key={r.label} className={`${r.value ? 'is-ready' : ''} ${r.step === currentStep ? 'is-current' : ''}`}>
+                            <span className="insp-num">{r.step + 1}</span>
+                            <span className="insp-label">{r.label}</span>
+                            <span className="insp-val">{r.value ?? '—'}</span>
+                        </li>
                     ))}
-                </div>
+                </ol>
             </section>
-
-            {/* Sampling result */}
             {tensors.sampling && (
-                <section>
-                    <p style={{
-                        fontFamily: 'var(--font-mono)',
-                        fontSize: 'var(--text-2xs)',
-                        color: 'var(--muted)',
-                        letterSpacing: 'var(--tracking-wider)',
-                        textTransform: 'uppercase',
-                        marginBottom: 'var(--s2)',
-                    }}>
-                        Prediction
-                    </p>
-                    <div style={{
-                        padding: 'var(--s3)',
-                        background: 'var(--bg-inverse)',
-                        border: '1px solid var(--bg-inverse)',
-                        borderRadius: 'var(--r-md)',
-                        textAlign: 'center',
-                    }}>
-                        <p style={{ fontSize: 'var(--text-xs)', color: 'var(--text-inverse)', marginBottom: 'var(--s1)', fontFamily: 'var(--font-mono)', opacity: 0.7 }}>
-                            Next token
-                        </p>
-                        <p style={{
-                            fontSize: 'var(--text-2xl)',
-                            fontWeight: 'var(--weight-semibold)',
-                            color: 'var(--text-inverse)',
-                            fontFamily: 'var(--font-mono)',
-                        }}>
-                            "{tensors.sampling.selected_token}"
-                        </p>
-                        <p style={{ fontSize: 'var(--text-2xs)', color: 'var(--text-inverse)', marginTop: 'var(--s1)', fontFamily: 'var(--font-mono)', opacity: 0.7 }}>
-                            id: {tensors.sampling.selected_id}
-                        </p>
-                    </div>
+                <section className="insp-pred">
+                    <span className="insp-pred-lbl">Predicted next token</span>
+                    <span className="insp-pred-tok">“{tensors.sampling.selected_token}”</span>
+                    <span className="insp-pred-sub">{(tensors.sampling.prob * 100).toFixed(2)}% probability · random weights</span>
                 </section>
             )}
-
-            {/* Step-specific mental model */}
-            <section>
-                <p style={{
-                    fontFamily: 'var(--font-mono)',
-                    fontSize: 'var(--text-2xs)',
-                    color: 'var(--muted)',
-                    letterSpacing: 'var(--tracking-wider)',
-                    textTransform: 'uppercase',
-                    marginBottom: 'var(--s2)',
-                }}>
-                    Mental model
-                </p>
-                <ConceptCard key={step} stepId={step} defaultExpanded />
+            <section className="insp-model">
+                <h2 className="insp-title">This model</h2>
+                <dl>
+                    <div><dt>Parameters</dt><dd>{countParameters(config).toLocaleString()}</dd></div>
+                    <div><dt>Layers</dt><dd>1</dd></div>
+                    <div><dt>Heads</dt><dd>{config.nHeads}</dd></div>
+                    <div><dt>Vocabulary</dt><dd>{VOCAB_SIZE}</dd></div>
+                </dl>
             </section>
+            <p className="insp-tip">Tip: use the ← and → keys to move between steps.</p>
         </div>
     );
 }
 
-// ─── Mobile Control Drawer ────────────────────────────────────────────────
+// ─── Drawer ───────────────────────────────────────────────────────────────
 
-function MobileControlDrawer({
-    isOpen, onClose, config, onConfigChange, inputText, onInputChange,
-}: {
-    isOpen: boolean;
-    onClose: () => void;
-    config: ModelConfig;
-    onConfigChange: (patch: Partial<ModelConfig>) => void;
-    inputText: string;
-    onInputChange: (t: string) => void;
-}) {
+function DrawerPanel({ open, title, side, onClose, children }: { open: boolean; title: string; side: 'left' | 'right'; onClose: () => void; children: ReactNode }) {
+    const panelRef = useRef<HTMLDivElement>(null);
+    useEffect(() => {
+        if (open) panelRef.current?.querySelector<HTMLElement>('button, input')?.focus();
+    }, [open]);
     return (
         <AnimatePresence>
-            {isOpen && (
+            {open && (
                 <>
+                    <motion.div className="drawer-scrim" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} onClick={onClose} />
                     <motion.div
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        exit={{ opacity: 0 }}
-                        onClick={onClose}
-                        style={{
-                            position: 'fixed',
-                            inset: 0,
-                            background: 'var(--overlay)',
-                            zIndex: 'var(--z-overlay)',
-                        }}
-                    />
-                    <motion.div
-                        initial={{ y: '100%' }}
-                        animate={{ y: 0 }}
-                        exit={{ y: '100%' }}
-                        transition={{ type: 'tween', duration: 0.28, ease: [0.2, 0, 0, 1] }}
-                        style={{
-                            position: 'fixed',
-                            bottom: 0,
-                            left: 0,
-                            right: 0,
-                            maxHeight: '80vh',
-                            background: 'var(--bg-panel)',
-                            borderTop: '1px solid var(--stroke)',
-                            borderRadius: 'var(--r-xl) var(--r-xl) 0 0',
-                            zIndex: 'var(--z-modal)',
-                            overflowY: 'auto',
-                        }}
+                        ref={panelRef}
+                        role="dialog"
+                        aria-modal="true"
+                        aria-label={title}
+                        className={`drawer drawer-${side}`}
+                        initial={{ x: side === 'left' ? '-100%' : '100%' }}
+                        animate={{ x: 0 }}
+                        exit={{ x: side === 'left' ? '-100%' : '100%' }}
+                        transition={{ type: 'tween', duration: 0.22, ease: [0.2, 0, 0, 1] }}
                     >
-                        {/* Handle */}
-                        <div style={{ display: 'flex', justifyContent: 'center', padding: 'var(--s3) 0 var(--s1)' }}>
-                            <div style={{ width: '32px', height: '4px', borderRadius: 'var(--r-pill)', background: 'var(--stroke-dark)' }} />
+                        <div className="drawer-head">
+                            <span className="drawer-title">{title}</span>
+                            <button type="button" className="icon-btn" onClick={onClose} aria-label="Close"><CloseIcon /></button>
                         </div>
-                        <div style={{ padding: '0 0 env(safe-area-inset-bottom)' }}>
-                            <ControlPanel
-                                config={config}
-                                onConfigChange={onConfigChange}
-                                inputText={inputText}
-                                onInputChange={onInputChange}
-                            />
-                        </div>
+                        <div className="drawer-body">{children}</div>
                     </motion.div>
                 </>
             )}
@@ -518,34 +286,91 @@ function MobileControlDrawer({
     );
 }
 
-// ─── Responsive CSS ────────────────────────────────────────────────────────
+// ─── CSS ──────────────────────────────────────────────────────────────────
 
 const SHELL_CSS = `
-@media (min-width: 1280px) {
-  .control-panel-desktop { display: flex !important; flex-direction: column; }
-  .inspector-desktop { display: flex !important; }
-  .inspector-toggle-btn { display: none !important; }
-  .controls-drawer-btn { display: none !important; }
-  .inspector-overlay { display: none !important; }
-  .inspector-mobile { display: none !important; }
-}
+.sim { height: 100vh; height: 100dvh; display: flex; flex-direction: column; background: var(--bg); overflow: hidden; }
+.sim-bar { display: flex; align-items: center; justify-content: space-between; gap: var(--s4); padding: var(--s3) var(--s5); border-bottom: 1px solid var(--stroke); background: var(--bg-panel); flex-shrink: 0; }
+.sim-bar-copy { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.sim-bar-title { font-size: var(--text-md); letter-spacing: var(--tracking-tight); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.sim-bar-actions { display: flex; align-items: center; gap: var(--s2); flex-shrink: 0; }
+.sim-body { flex: 1; display: flex; min-height: 0; }
 
-@media (min-width: 768px) and (max-width: 1279px) {
-  .control-panel-desktop { display: none !important; }
-  .inspector-desktop { display: none !important; }
-  .inspector-toggle-btn { display: flex !important; }
-  .controls-drawer-btn { display: flex !important; }
-  .header-subtitle { display: none; }
-  .header-divider { display: none; }
-}
+.sim-rail { width: 264px; flex-shrink: 0; border-right: 1px solid var(--stroke); background: var(--bg-panel); overflow-y: auto; padding: var(--s4); display: flex; flex-direction: column; gap: var(--s4); }
+.sim-rail-sep { height: 1px; background: var(--stroke); }
+.sim-main { flex: 1; min-width: 0; display: flex; flex-direction: column; }
+.sim-scroll { flex: 1; overflow-y: auto; padding: var(--s6) var(--s5) var(--s7); scroll-behavior: auto; }
+.sim-inspector { width: 272px; flex-shrink: 0; border-left: 1px solid var(--stroke); background: var(--bg-panel); overflow-y: auto; padding: var(--s4); }
 
+.rail { display: flex; flex-direction: column; gap: var(--s3); }
+.rail-phase { font-size: var(--text-2xs); font-family: var(--font-mono); text-transform: uppercase; letter-spacing: var(--tracking-wide); color: var(--muted); margin-bottom: 4px; }
+.rail-list { list-style: none; display: flex; flex-direction: column; gap: 1px; }
+.rail-step { width: 100%; display: flex; gap: var(--s2); align-items: flex-start; padding: 6px 8px; border-radius: var(--r-sm); text-align: left; color: var(--secondary); }
+.rail-step:hover { background: var(--bg-raised); color: var(--ink); }
+.rail-num { flex-shrink: 0; width: 22px; height: 22px; border-radius: 50%; display: grid; place-items: center; font-family: var(--font-mono); font-size: 10px; border: 1px solid var(--stroke-dark); color: var(--muted); background: var(--bg-panel); }
+.rail-step.is-done .rail-num { background: var(--bg-raised); color: var(--ink); border-color: var(--stroke); }
+.rail-step.is-current { background: var(--bg-raised); color: var(--ink); }
+.rail-step.is-current .rail-num { background: var(--bg-inverse); color: var(--text-inverse); border-color: var(--bg-inverse); }
+.rail-copy { display: flex; flex-direction: column; gap: 2px; padding-top: 2px; min-width: 0; }
+.rail-label { font-size: var(--text-sm); line-height: 1.25; }
+.rail-step.is-current .rail-label { font-weight: var(--weight-semibold); }
+.rail-desc { font-size: var(--text-2xs); color: var(--secondary); line-height: 1.4; }
+
+.strip { display: none; border-bottom: 1px solid var(--stroke); background: var(--bg-panel); }
+.strip ol { list-style: none; display: flex; gap: 4px; overflow-x: auto; padding: var(--s2) var(--s3); scrollbar-width: none; }
+.strip ol::-webkit-scrollbar { display: none; }
+.strip-step { display: inline-flex; align-items: center; gap: 6px; white-space: nowrap; padding: 4px 10px 4px 4px; border-radius: var(--r-pill); font-size: var(--text-xs); color: var(--muted); border: 1px solid transparent; }
+.strip-num { width: 20px; height: 20px; border-radius: 50%; display: grid; place-items: center; font-family: var(--font-mono); font-size: 10px; border: 1px solid var(--stroke-dark); }
+.strip-step.is-done { color: var(--secondary); }
+.strip-step.is-done .strip-num { background: var(--bg-raised); border-color: var(--stroke); }
+.strip-step[aria-current="step"] { color: var(--ink); border-color: var(--stroke-dark); font-weight: var(--weight-medium); }
+.strip-step[aria-current="step"] .strip-num { background: var(--bg-inverse); color: var(--text-inverse); border-color: var(--bg-inverse); }
+
+.insp { display: flex; flex-direction: column; gap: var(--s5); }
+.insp-title { font-size: var(--text-2xs); font-family: var(--font-mono); text-transform: uppercase; letter-spacing: var(--tracking-wide); color: var(--muted); font-weight: var(--weight-medium); margin-bottom: 6px; }
+.insp-sentence { font-size: var(--text-sm); color: var(--ink); font-family: var(--font-mono); word-break: break-word; }
+.insp-sub { font-size: var(--text-2xs); color: var(--muted); margin-bottom: var(--s2); }
+.insp-list { list-style: none; display: flex; flex-direction: column; }
+.insp-list li { display: grid; grid-template-columns: 20px 1fr auto; gap: var(--s2); align-items: baseline; padding: 5px 6px; border-radius: var(--r-xs); font-size: var(--text-xs); color: var(--muted); opacity: 0.55; }
+.insp-list li.is-ready { opacity: 1; color: var(--secondary); }
+.insp-list li.is-current { background: var(--bg-raised); color: var(--ink); }
+.insp-num { font-family: var(--font-mono); font-size: 10px; color: var(--muted); }
+.insp-val { font-family: var(--font-mono); color: var(--ink); white-space: nowrap; }
+.insp-pred { display: flex; flex-direction: column; gap: 2px; padding: var(--s4); border-radius: var(--r-md); background: var(--bg-inverse); color: var(--text-inverse); }
+.insp-pred-lbl { font-size: var(--text-2xs); opacity: 0.7; text-transform: uppercase; letter-spacing: var(--tracking-wide); font-family: var(--font-mono); }
+.insp-pred-tok { font-size: var(--text-xl); font-weight: var(--weight-semibold); font-family: var(--font-mono); }
+.insp-pred-sub { font-size: var(--text-2xs); opacity: 0.7; }
+.insp-model dl { display: grid; grid-template-columns: 1fr 1fr; gap: var(--s2); }
+.insp-model dt { font-size: var(--text-2xs); color: var(--muted); }
+.insp-model dd { font-size: var(--text-sm); color: var(--ink); font-weight: var(--weight-medium); font-variant-numeric: tabular-nums; }
+.insp-tip { font-size: var(--text-2xs); color: var(--muted); }
+
+.drawer-scrim { position: fixed; inset: 0; background: var(--overlay); z-index: var(--z-overlay); }
+.drawer { position: fixed; top: 0; bottom: 0; width: min(340px, 88vw); background: var(--bg-panel); z-index: var(--z-modal); display: flex; flex-direction: column; box-shadow: var(--shadow-lift); }
+.drawer-left { left: 0; border-right: 1px solid var(--stroke); }
+.drawer-right { right: 0; border-left: 1px solid var(--stroke); }
+.drawer-head { display: flex; align-items: center; justify-content: space-between; padding: var(--s3) var(--s4); border-bottom: 1px solid var(--stroke); }
+.drawer-title { font-weight: var(--weight-semibold); color: var(--ink); }
+.drawer-body { flex: 1; overflow-y: auto; padding: var(--s4); padding-bottom: calc(var(--s4) + env(safe-area-inset-bottom)); }
+
+.sim-show-lt-lg, .sim-show-lt-xl { display: none; }
+@media (max-width: 1279px) {
+    .sim-inspector { display: none; }
+    .sim-show-lt-xl { display: inline-flex; }
+}
+@media (max-width: 1023px) {
+    .sim-rail { display: none; }
+    .strip { display: block; }
+    .sim-show-lt-lg { display: inline-flex; }
+    .sim-scroll { padding: var(--s5) var(--s4) var(--s6); }
+}
 @media (max-width: 767px) {
-  .control-panel-desktop { display: none !important; }
-  .inspector-desktop { display: none !important; }
-  .inspector-toggle-btn { display: none !important; }
-  .controls-drawer-btn { display: flex !important; }
-  .simulator-toolbar-subtitle { display: none; }
-  .header-subtitle { display: none; }
-  .header-divider { display: none; }
+    .sim-bar { padding: var(--s2) var(--s3); flex-wrap: wrap; gap: var(--s2); }
+    .sim-bar-copy .eyebrow { display: none; }
+    .sim-bar-title { font-size: var(--text-sm); white-space: normal; }
+    .sim-bar-actions { width: 100%; }
+    .sim-bar-actions .segmented { flex: 1; }
+    .sim-bar-actions .segmented > button { flex: 1; }
+    .sim-scroll { padding: var(--s4) var(--s3) var(--s6); }
 }
 `;

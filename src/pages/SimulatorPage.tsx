@@ -7,8 +7,8 @@ export function SimulatorPage() {
     const simulatorStructuredData = {
         '@context': 'https://schema.org',
         '@type': 'SoftwareApplication',
-        name: 'AI Beacon Transformer Simulator',
-        description: 'Interactive visualizer for transformer architecture. Explore self-attention, feed-forward networks, and layer normalization in real-time.',
+        name: 'AI Beacon — How LLMs Work',
+        description: 'Step through a tiny, real transformer in your browser: tokenization, embeddings, multi-head attention, feed-forward layers and next-token prediction.',
         applicationCategory: 'EducationalApplication',
         operatingSystem: 'Web',
     };
@@ -16,8 +16,8 @@ export function SimulatorPage() {
     return (
         <>
             <SEO
-                title="LLM Simulator"
-                description="Interactive transformer visualizer. See every matrix multiply, every attention score, and every layer in real-time."
+                title="How LLMs Work — interactive transformer walkthrough"
+                description="Type a sentence and follow it through a real (tiny) transformer, step by step: tokens, embeddings, multi-head attention, feed-forward layers, softmax and sampling. Every number is computed live in your browser."
                 canonical={`${SITE_CONFIG.baseUrl}/transformer-simulator`}
                 structuredData={simulatorStructuredData}
             />

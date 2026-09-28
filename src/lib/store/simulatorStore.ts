@@ -8,7 +8,7 @@
 
 import { create } from 'zustand';
 import { PipelineStep, PIPELINE_STEP_LAST, PLAY_SPEEDS, DEFAULT_CONFIG } from './types';
-import type { SimulatorState, TensorRegistry, StepSnapshot, ModelConfig, AppMode, PlaySpeed } from './types';
+import type { SimulatorState, TensorRegistry, StepSnapshot, ModelConfig, AppMode, PlaySpeed, SamplingMethod } from './types';
 import { executeStep, configHash } from './stepMachine';
 
 // Module-level interval ref — NOT in Zustand state (avoids render loops)
@@ -32,7 +32,8 @@ const INITIAL_STATE = {
     tokenizerType: 'word_split' as const,
     peType: 'sinusoidal' as const,
     activationFn: 'gelu' as const,
-    samplingMethod: 'greedy' as const,
+    samplingMethod: 'greedy' as SamplingMethod,
+    topK: 5,
     temperature: 1.0,
     inputText: 'The cat sat',
     currentStep: PipelineStep.INPUT,
@@ -40,6 +41,16 @@ const INITIAL_STATE = {
     isPlaying: false,
     playSpeed: 'normal' as PlaySpeed,
     tensors: EMPTY_TENSORS,
+    stepError: null as string | null,
+};
+
+/** State reset shared by every action that invalidates the pipeline. */
+const CLEARED = {
+    currentStep: PipelineStep.INPUT,
+    tensors: EMPTY_TENSORS,
+    stepHistory: [] as StepSnapshot[],
+    isPlaying: false,
+    stepError: null,
 };
 
 // ── Store ────────────────────────────────────────────────────────────────────
@@ -50,7 +61,7 @@ export const useSimulatorStore = create<SimulatorState>((set, get) => ({
     // ── stepForward ──────────────────────────────────────────────────────────
     stepForward: () => {
         const state = get();
-        const { currentStep, tensors, config, inputText, temperature } = state;
+        const { currentStep, tensors, config, inputText, temperature, samplingMethod, topK } = state;
 
         // Guard: cannot go past last step
         if (currentStep >= PIPELINE_STEP_LAST) return;
@@ -68,12 +79,11 @@ export const useSimulatorStore = create<SimulatorState>((set, get) => ({
         // 2. Execute the next step (may throw on bad input)
         let newTensors: TensorRegistry;
         try {
-            newTensors = executeStep(nextStep, { config, tensors, inputText, temperature });
+            newTensors = executeStep(nextStep, { config, tensors, inputText, temperature, samplingMethod, topK });
         } catch (err) {
-            console.error('[AI Beacon] Step execution failed:', err);
-            // Stop playing if an error occurs
+            // Stop playing and tell the user why the step could not run
             clearPlayInterval();
-            set({ isPlaying: false });
+            set({ isPlaying: false, stepError: err instanceof Error ? err.message : String(err) });
             return;
         }
 
@@ -82,6 +92,7 @@ export const useSimulatorStore = create<SimulatorState>((set, get) => ({
             currentStep: nextStep,
             tensors: newTensors,
             stepHistory: [...state.stepHistory, snapshot],
+            stepError: null,
         });
 
         // 4. Auto-stop play if we just reached the last step
@@ -111,6 +122,7 @@ export const useSimulatorStore = create<SimulatorState>((set, get) => ({
             tensors: last.tensors,
             stepHistory: history,
             isPlaying: false,
+            stepError: null,
         });
     },
 
@@ -151,12 +163,7 @@ export const useSimulatorStore = create<SimulatorState>((set, get) => ({
     // ── reset ─────────────────────────────────────────────────────────────────
     reset: () => {
         clearPlayInterval();
-        set({
-            currentStep: PipelineStep.INPUT,
-            tensors: EMPTY_TENSORS,
-            stepHistory: [],
-            isPlaying: false,
-        });
+        set(CLEARED);
     },
 
     // ── updateConfig ──────────────────────────────────────────────────────────
@@ -171,26 +178,14 @@ export const useSimulatorStore = create<SimulatorState>((set, get) => ({
             newConfig.dFF = patch.dModel * 4;
         }
 
-        set({
-            config: newConfig,
-            currentStep: PipelineStep.INPUT,
-            tensors: EMPTY_TENSORS,
-            stepHistory: [],
-            isPlaying: false,
-        });
+        set({ ...CLEARED, config: newConfig });
     },
 
     // ── setInput ──────────────────────────────────────────────────────────────
     // Input change invalidates the pipeline — reset to INPUT step.
     setInput: (text: string) => {
         clearPlayInterval();
-        set({
-            inputText: text,
-            currentStep: PipelineStep.INPUT,
-            tensors: EMPTY_TENSORS,
-            stepHistory: [],
-            isPlaying: false,
-        });
+        set({ ...CLEARED, inputText: text });
     },
 
     // ── setMode ───────────────────────────────────────────────────────────────
@@ -219,32 +214,75 @@ export const useSimulatorStore = create<SimulatorState>((set, get) => ({
         }
     },
 
-    // ── setTemperature ────────────────────────────────────────────────────────
-    // Changing temperature re-runs softmax/sampling if already past those steps.
+    // ── setTemperature / setSampling ─────────────────────────────────────────
+    // Re-run softmax and sampling in place (current tensors and undo history),
+    // so the user stays on the step they are looking at.
     setTemperature: (temp: number) => {
         set({ temperature: temp });
+        recomputePrediction(get, set);
+    },
 
-        // If softmax or sampling step was already run, rewind to SOFTMAX and re-execute
+    setSampling: (method: SamplingMethod, topK?: number) => {
+        set({ samplingMethod: method, ...(topK !== undefined ? { topK } : {}) });
+        recomputePrediction(get, set);
+    },
+
+    // ── goToStep ─────────────────────────────────────────────────────────────
+    goToStep: (target: PipelineStep) => {
+        clearPlayInterval();
+        set({ isPlaying: false });
         const { currentStep, stepHistory } = get();
-        if (currentStep >= PipelineStep.SOFTMAX) {
-            // Find the snapshot just before SOFTMAX step
-            const history = [...stepHistory];
-            while (history.length > 0) {
-                const last = history[history.length - 1];
-                if (last.step < PipelineStep.SOFTMAX) break;
-                history.pop();
-            }
-            if (history.length > 0 || stepHistory[0]?.step === PipelineStep.SOFTMAX) {
-                // Restore to pre-softmax state and let user re-advance
-                const preStep = history[history.length - 1];
-                if (preStep) {
-                    set({
-                        currentStep: PipelineStep.LM_HEAD,
-                        tensors: preStep.tensors,
-                        stepHistory: history,
-                    });
-                }
-            }
+        if (target === currentStep) return;
+
+        if (target < currentStep) {
+            // History holds one snapshot per completed step, in order.
+            const idx = stepHistory.findIndex((h) => h.step === target);
+            if (idx === -1) return;
+            set({
+                currentStep: target,
+                tensors: stepHistory[idx].tensors,
+                stepHistory: stepHistory.slice(0, idx),
+                stepError: null,
+            });
+            return;
+        }
+
+        while (get().currentStep < target) {
+            const before = get().currentStep;
+            get().stepForward();
+            if (get().currentStep === before) break; // step failed; stepError is set
         }
     },
+
+    // ── appendPrediction ─────────────────────────────────────────────────────
+    // Autoregressive generation in one click: add the chosen token to the text
+    // and run the pipeline again from the start.
+    appendPrediction: () => {
+        const { tensors, inputText } = get();
+        const token = tensors.sampling?.selected_token;
+        if (!token || token === '<unk>') return;
+        const glue = /^[.,!?;:']$/.test(token) ? '' : ' ';
+        get().setInput(`${inputText.trimEnd()}${glue}${token}`);
+        get().goToStep(PIPELINE_STEP_LAST);
+    },
 }));
+
+// ── Helpers ─────────────────────────────────────────────────────────────────
+
+type Get = () => SimulatorState;
+type Set = (partial: Partial<SimulatorState>) => void;
+
+function recomputePrediction(get: Get, set: Set) {
+    const s = get();
+    const redo = (t: TensorRegistry): TensorRegistry => {
+        if (!t.softmax || !t.lm_head) return t;
+        const ctx = { config: s.config, inputText: s.inputText, temperature: s.temperature, samplingMethod: s.samplingMethod, topK: s.topK };
+        let next = executeStep(PipelineStep.SOFTMAX, { ...ctx, tensors: t });
+        if (t.sampling) next = executeStep(PipelineStep.SAMPLING, { ...ctx, tensors: next });
+        return next;
+    };
+    set({
+        tensors: redo(s.tensors),
+        stepHistory: s.stepHistory.map((h) => ({ ...h, tensors: redo(h.tensors) })),
+    });
+}

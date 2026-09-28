@@ -30,6 +30,9 @@ export class LCG {
 
 // ── Tensor class ──────────────────────────────────────────────────────────────
 
+// Monotonic id source (crypto.randomUUID is unavailable outside secure contexts).
+let _nextTensorId = 0;
+
 export class Tensor {
     readonly id: string;
     readonly label: string;
@@ -42,7 +45,7 @@ export class Tensor {
                 `Tensor shape mismatch: data has ${data.length} elements but shape ${JSON.stringify(shape)} requires ${shape.reduce((a, b) => a * b, 1)}`
             );
         }
-        this.id = crypto.randomUUID();
+        this.id = `t${++_nextTensorId}`;
         this.data = data;
         this.shape = Object.freeze([...shape]);
         this.label = label;

@@ -41,6 +41,7 @@
     --viz-heat-lo: #e3eefc;     /* sequential blue ramp, low end              */
     --viz-heat-hi: #1c5cab;     /* sequential blue ramp, high end             */
     --viz-heat-text: #fafafa;   /* label on hot cells            */
+    --viz-on-fill: #ffffff;     /* label on strong blue/red fills (both themes) */
     --viz-grid: #e6e6e8;        /* chart gridlines               */
 
     /* Derived viz tokens (kept for existing components) */

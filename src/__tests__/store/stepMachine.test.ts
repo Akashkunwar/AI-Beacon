@@ -4,7 +4,8 @@
 import { describe, it, expect, beforeEach, vi, afterEach } from 'vitest';
 import { executeStep } from '@/lib/store/stepMachine';
 import { useSimulatorStore } from '@/lib/store/simulatorStore';
-import { PipelineStep, DEFAULT_CONFIG } from '@/lib/store/types';
+import { PipelineStep, DEFAULT_CONFIG, PLAY_SPEEDS } from '@/lib/store/types';
+import { VOCAB_LIST } from '@/lib/tokenizer/vocab';
 
 // ── Helpers ───────────────────────────────────────────────────────────────────
 
@@ -92,14 +93,15 @@ describe('executeStep — pure function', () => {
         const attn = result.attention!;
         const d = DEFAULT_CONFIG.dModel;
         const n = 3;
-        const dHead = d; // single head: dHead = dModel
 
-        expect(attn.Q.shape).toEqual([n, dHead]);
-        expect(attn.K.shape).toEqual([n, dHead]);
-        expect(attn.V.shape).toEqual([n, dHead]);
-        expect(attn.scores.shape).toEqual([n, n]);
-        expect(attn.weights.shape).toEqual([n, n]);
-        expect(attn.output.shape).toEqual([n, dHead]);
+        expect(attn.Q.shape).toEqual([n, d]);
+        expect(attn.K.shape).toEqual([n, d]);
+        expect(attn.V.shape).toEqual([n, d]);
+        expect(attn.heads).toHaveLength(DEFAULT_CONFIG.nHeads);
+        expect(attn.heads[0].scores.shape).toEqual([n, n]);
+        expect(attn.heads[0].weights.shape).toEqual([n, n]);
+        expect(attn.heads[0].output.shape).toEqual([n, d / DEFAULT_CONFIG.nHeads]);
+        expect(attn.concat.shape).toEqual([n, d]);
         expect(attn.multihead_out.shape).toEqual([n, d]);
     });
 
@@ -111,7 +113,7 @@ describe('executeStep — pure function', () => {
         s = { ...s, tensors: executeStep(PipelineStep.POSITIONAL_ENCODING, s) };
         const result = executeStep(PipelineStep.ATTENTION, s);
 
-        const weights = result.attention!.weights;
+        const weights = result.attention!.heads[0].weights;
         const [rows, cols] = weights.shape as number[];
         for (let r = 0; r < rows; r++) {
             let rowSum = 0;
@@ -233,6 +235,92 @@ describe('executeStep — pure function', () => {
         };
 
         expect(runAll()).toBe(runAll());
+    });
+
+    /** Run every step up to and including `last`. */
+    const runTo = (last: PipelineStep, overrides: Partial<Parameters<typeof executeStep>[1]> = {}) => {
+        let s = { ...makeState(overrides), tensors: {} as ReturnType<typeof executeStep> };
+        for (let step = PipelineStep.TOKENIZE; step <= last; step++) {
+            s = { ...s, tensors: executeStep(step, s) };
+        }
+        return s.tensors;
+    };
+
+    it('TOKENIZE: splits punctuation into its own tokens', () => {
+        const t = runTo(PipelineStep.TOKENIZE, { inputText: 'Hello, world!' });
+        expect(t.tokens!.raw).toEqual(['hello', ',', 'world', '!']);
+    });
+
+    it('TOKENIZE: truncates to the context window and reports dropped tokens', () => {
+        const t = runTo(PipelineStep.TOKENIZE, {
+            inputText: 'one two three four five six seven eight nine ten',
+            config: { ...DEFAULT_CONFIG, maxTokens: 8 },
+        });
+        expect(t.tokens!.raw).toHaveLength(8);
+        expect(t.tokens!.dropped).toBe(2);
+    });
+
+    it('ATTENTION: computes one weight matrix per head', () => {
+        const t = runTo(PipelineStep.ATTENTION, { config: { ...DEFAULT_CONFIG, nHeads: 4 } });
+        const attn = t.attention!;
+        expect(attn.heads).toHaveLength(4);
+        for (const h of attn.heads) {
+            expect(h.Q.shape).toEqual([3, DEFAULT_CONFIG.dModel / 4]);
+            expect(h.weights.shape).toEqual([3, 3]);
+        }
+        // Different heads use different projections, so their patterns differ
+        const w0 = Array.from(attn.heads[0].weights.data);
+        const w1 = Array.from(attn.heads[1].weights.data);
+        expect(w0.some((v, i) => Math.abs(v - w1[i]) > 1e-4)).toBe(true);
+    });
+
+    it('ATTENTION: causal mask gives zero weight to future tokens', () => {
+        const w = runTo(PipelineStep.ATTENTION).attention!.heads[0].weights.toMatrix();
+        expect(w[0][1]).toBeLessThan(1e-6);
+        expect(w[0][2]).toBeLessThan(1e-6);
+        expect(w[1][2]).toBeLessThan(1e-6);
+        expect(w[0][0]).toBeCloseTo(1, 5);
+    });
+
+    it('FFN: block output is layer-normalised (x + FFN(x))', () => {
+        const ffn = runTo(PipelineStep.FFN).ffn!;
+        expect(ffn.pre.shape).toEqual([3, DEFAULT_CONFIG.dFF]);
+        expect(ffn.delta.shape).toEqual([3, DEFAULT_CONFIG.dModel]);
+        const row = ffn.output.row(0).stats();
+        expect(Math.abs(row.mean)).toBeLessThan(1e-4);
+        expect(row.std).toBeCloseTo(1, 1);
+    });
+
+    it('SAMPLING: top-k picks one of the k most likely tokens, deterministically', () => {
+        const a = runTo(PipelineStep.SAMPLING, { samplingMethod: 'top-k', topK: 5 });
+        const b = runTo(PipelineStep.SAMPLING, { samplingMethod: 'top-k', topK: 5 });
+        const cands = a.sampling!.candidates!;
+        expect(cands).toHaveLength(5);
+        expect(cands.map((c) => c.id)).toContain(a.sampling!.selected_id);
+        expect(cands.reduce((acc, c) => acc + c.prob, 0)).toBeCloseTo(1, 5);
+        expect(a.sampling!.selected_id).toBe(b.sampling!.selected_id);
+    });
+
+    it('SAMPLING: lower temperature makes the top token more likely', () => {
+        const top = (temperature: number) => Math.max(...runTo(PipelineStep.SOFTMAX, { temperature }).softmax!.probs.data);
+        expect(top(0.2)).toBeGreaterThan(top(1));
+        expect(top(1)).toBeGreaterThan(top(2));
+    });
+});
+
+describe('vocabulary', () => {
+    it('has 512 unique entries', () => {
+        expect(VOCAB_LIST).toHaveLength(512);
+        expect(new Set(VOCAB_LIST).size).toBe(512);
+    });
+
+    it('covers every sample sentence without <unk>', () => {
+        for (const text of ['The cat sat on the mat.', 'Attention is all you need', 'Hello world', 'The quick brown fox', 'AI learns fast']) {
+            const s = { ...makeState({ inputText: text }), tensors: {} as ReturnType<typeof executeStep> };
+            const withTokens = executeStep(PipelineStep.TOKENIZE, s);
+            const ids = executeStep(PipelineStep.TOKEN_IDS, { ...s, tensors: withTokens }).token_ids!.ids;
+            expect(ids).not.toContain(0);
+        }
     });
 });
 
@@ -358,8 +446,8 @@ describe('simulatorStore', () => {
         playAll();
         expect(useSimulatorStore.getState().isPlaying).toBe(true);
 
-        // Advance time — 500ms per step (normal speed), 11 steps needed
-        vi.advanceTimersByTime(500 * 12);
+        // Advance time — one interval per step at normal speed, 11 steps needed
+        vi.advanceTimersByTime(PLAY_SPEEDS.normal * 12);
 
         const { currentStep, isPlaying } = useSimulatorStore.getState();
         expect(currentStep).toBe(PipelineStep.SAMPLING);
@@ -372,7 +460,7 @@ describe('simulatorStore', () => {
         playAll();
         expect(useSimulatorStore.getState().isPlaying).toBe(true);
 
-        vi.advanceTimersByTime(500 * 3); // advance 3 steps
+        vi.advanceTimersByTime(PLAY_SPEEDS.normal * 3); // advance 3 steps
         pause();
 
         const { isPlaying } = useSimulatorStore.getState();
@@ -384,7 +472,7 @@ describe('simulatorStore', () => {
         const { playAll } = useSimulatorStore.getState();
         playAll();
         playAll(); // should be no-op
-        vi.advanceTimersByTime(500 * 12);
+        vi.advanceTimersByTime(PLAY_SPEEDS.normal * 12);
         // Should still land at SAMPLING exactly once
         expect(useSimulatorStore.getState().currentStep).toBe(PipelineStep.SAMPLING);
     });
@@ -406,5 +494,54 @@ describe('simulatorStore', () => {
         stepForward(); // EMBEDDING
         const { tensors } = useSimulatorStore.getState();
         expect(tensors.embed?.X.shape[1]).toBe(16);
+    });
+
+    it('stepForward: records a readable error when the input is empty', () => {
+        useSimulatorStore.getState().setInput('   ');
+        useSimulatorStore.getState().stepForward();
+        const { currentStep, stepError } = useSimulatorStore.getState();
+        expect(currentStep).toBe(PipelineStep.INPUT);
+        expect(stepError).toMatch(/empty/i);
+    });
+
+    it('goToStep: jumps forward and back through history', () => {
+        const { goToStep } = useSimulatorStore.getState();
+        goToStep(PipelineStep.ATTENTION);
+        expect(useSimulatorStore.getState().currentStep).toBe(PipelineStep.ATTENTION);
+        expect(useSimulatorStore.getState().tensors.attention).toBeDefined();
+        goToStep(PipelineStep.TOKEN_IDS);
+        const s = useSimulatorStore.getState();
+        expect(s.currentStep).toBe(PipelineStep.TOKEN_IDS);
+        expect(s.tensors.embed).toBeUndefined();
+        expect(s.stepHistory).toHaveLength(2);
+    });
+
+    it('setTemperature: recomputes probabilities without leaving the step', () => {
+        const { goToStep, setTemperature } = useSimulatorStore.getState();
+        goToStep(PipelineStep.SAMPLING);
+        const before = Math.max(...useSimulatorStore.getState().tensors.softmax!.probs.data);
+        setTemperature(0.2);
+        const s = useSimulatorStore.getState();
+        expect(s.currentStep).toBe(PipelineStep.SAMPLING);
+        expect(Math.max(...s.tensors.softmax!.probs.data)).toBeGreaterThan(before);
+        setTemperature(1);
+    });
+
+    it('appendPrediction: adds the predicted token and reruns to the end', () => {
+        const { goToStep, appendPrediction } = useSimulatorStore.getState();
+        goToStep(PipelineStep.SAMPLING);
+        const token = useSimulatorStore.getState().tensors.sampling!.selected_token;
+        appendPrediction();
+        const s = useSimulatorStore.getState();
+        expect(s.inputText.endsWith(token)).toBe(true);
+        expect(s.currentStep).toBe(PipelineStep.SAMPLING);
+        expect(s.tensors.tokens!.raw).toHaveLength(4);
+    });
+});
+
+describe('countParameters', () => {
+    it('matches the default config by hand: 2·512·8 + 4·8² + 4·8 + 2·8·32', async () => {
+        const { countParameters } = await import('@/lib/store/stepMachine');
+        expect(countParameters(DEFAULT_CONFIG)).toBe(8192 + 256 + 32 + 512);
     });
 });

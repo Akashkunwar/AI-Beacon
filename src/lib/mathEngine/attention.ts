@@ -102,3 +102,36 @@ export function qkvProjections(
     const V = new Tensor(X_pos.matmul(WV).data, [X_pos.shape[0], WV.shape[1]], 'V');
     return { Q, K, V };
 }
+
+/**
+ * Split an (n, d_model) tensor into nHeads tensors of shape (n, d_model / nHeads),
+ * taking consecutive column blocks — head h owns columns [h·d_head, (h+1)·d_head).
+ */
+export function splitHeads(X: Tensor, nHeads: number, label = 'head'): Tensor[] {
+    const [n, d] = X.shape;
+    if (d % nHeads !== 0) {
+        throw new Error(`splitHeads: d_model=${d} is not divisible by n_heads=${nHeads}`);
+    }
+    const dHead = d / nHeads;
+    return Array.from({ length: nHeads }, (_, h) => {
+        const out = new Float32Array(n * dHead);
+        for (let i = 0; i < n; i++) {
+            for (let j = 0; j < dHead; j++) out[i * dHead + j] = X.data[i * d + h * dHead + j];
+        }
+        return new Tensor(out, [n, dHead], `${label}${h}`);
+    });
+}
+
+/** Inverse of splitHeads: concatenate (n, d_head) tensors side by side → (n, nHeads·d_head). */
+export function concatHeads(heads: Tensor[], label = 'concat'): Tensor {
+    const n = heads[0].shape[0];
+    const dHead = heads[0].shape[1];
+    const d = dHead * heads.length;
+    const out = new Float32Array(n * d);
+    heads.forEach((H, h) => {
+        for (let i = 0; i < n; i++) {
+            for (let j = 0; j < dHead; j++) out[i * d + h * dHead + j] = H.data[i * dHead + j];
+        }
+    });
+    return new Tensor(out, [n, d], label);
+}

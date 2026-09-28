@@ -25,7 +25,7 @@ function computeAttention() {
         tensors = executeStep(step, { config, tensors, inputText: SENTENCE, temperature: 1 });
     }
     const tokens = tensors.tokens?.raw ?? [];
-    const w = tensors.attention?.weights;
+    const w = tensors.attention?.heads[0]?.weights;
     const n = tokens.length;
     const rows: number[][] = [];
     for (let i = 0; i < n; i++) {

@@ -1,7 +1,7 @@
 // src/lib/mathEngine/sampling.ts
-// Greedy sampling (argmax) for MVP
+// Next-token selection: greedy (argmax) and seeded top-k sampling.
 
-import { Tensor } from './tensor';
+import { LCG, Tensor } from './tensor';
 
 /**
  * Greedy sampling: select the token with the highest probability.
@@ -46,4 +46,28 @@ export function topK(probs: Tensor, k: number): Array<{ id: number; prob: number
     const indices: number[] = Array.from({ length: n }, (_, i) => i);
     indices.sort((a, b) => probs.data[b] - probs.data[a]);
     return indices.slice(0, k).map(id => ({ id, prob: probs.data[id] }));
+}
+
+/**
+ * Top-k sampling: keep the k most likely tokens, renormalise their
+ * probabilities to sum to 1, then draw one at random. `seed` makes the draw
+ * reproducible; `k = 1` is equivalent to greedy decoding.
+ *
+ * @returns the chosen id plus the renormalised candidate list
+ */
+export function topKSample(
+    probs: Tensor,
+    k: number,
+    seed: number,
+): { id: number; candidates: Array<{ id: number; prob: number }> } {
+    const top = topK(probs, Math.max(1, Math.min(k, probs.data.length)));
+    const total = top.reduce((a, t) => a + t.prob, 0) || 1;
+    const candidates = top.map((t) => ({ id: t.id, prob: t.prob / total }));
+    const r = new LCG(seed).next();
+    let acc = 0;
+    for (const c of candidates) {
+        acc += c.prob;
+        if (r < acc) return { id: c.id, candidates };
+    }
+    return { id: candidates[candidates.length - 1].id, candidates };
 }
