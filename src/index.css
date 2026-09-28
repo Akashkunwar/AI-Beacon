@@ -281,6 +281,8 @@ main[id] {
 }
 
 .page-header-copy {
+  flex: 1 1 32rem;
+  min-width: 0; /* let wide children (e.g. tab bars) scroll instead of widening the page */
   max-width: 66ch;
   display: flex;
   flex-direction: column;
@@ -636,6 +638,12 @@ main[id] {
   color: var(--secondary);
   white-space: nowrap;
   transition: all var(--dur-fast) var(--ease-out);
+}
+
+@media (max-width: 479px) {
+  .segmented > button {
+    padding: 0 var(--s2);
+  }
 }
 
 .segmented > button:hover {
