@@ -1,149 +1,53 @@
-import { memo } from 'react';
-import { motion } from 'framer-motion';
-import { GlassCard } from '@/components/shared';
-import { ConceptCard } from '@/components/educational/ConceptCard';
-import { PipelineStep } from '@/lib/store/types';
+// src/components/pipeline/ResidualStep.tsx
+// Step 7: add attention's output back onto its input.
+
+import { useMemo } from 'react';
 import { useSimulatorStore } from '@/lib/store/simulatorStore';
+import { PipelineStep } from '@/lib/store/types';
+import { Advanced, Callout, Formula, MatrixGrid, Panel, Shapes, StepFrame } from './StepKit';
+import { tokenText } from './stepUtils';
 
-export const ResidualStep = memo(function ResidualStep() {
-    const tensors = useSimulatorStore((state) => state.tensors);
-    const X_pos = tensors.posenc?.X_pos;
-    const attn_out = tensors.attention?.multihead_out;
-    const X_res = tensors.residual?.X_res;
+export function ResidualStep() {
+    const raw = useSimulatorStore((s) => s.tensors.tokens?.raw) ?? [];
+    const X_pos = useSimulatorStore((s) => s.tensors.posenc?.X_pos);
+    const attnOut = useSimulatorStore((s) => s.tensors.attention?.multihead_out);
+    const X_res = useSimulatorStore((s) => s.tensors.residual?.X_res);
+    const m = useMemo(() => X_pos && attnOut && X_res
+        ? { a: X_pos.toMatrix(), b: attnOut.toMatrix(), c: X_res.toMatrix() }
+        : null, [X_pos, attnOut, X_res]);
+    if (!m || !X_res) return null;
 
-    // We need tensors to proceed (handled by ErrorBoundary higher up if missing, but we guard here too)
-    if (!X_pos || !attn_out || !X_res) return null;
-
-    const n = X_res.shape[0];
-    const dModel = X_res.shape[1];
-
-    // Take just the first 3 tokens to visualize clearly
-    const displayTokens = Math.min(n, 3);
-
-    return (
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '24px', width: '100%' }}>
-            {/* Header / Education */}
-            <ConceptCard stepId={PipelineStep.RESIDUAL} defaultExpanded />
-
-            <div style={{
-                display: 'grid',
-                gridTemplateColumns: 'minmax(0, 1fr) auto minmax(0, 1fr)',
-                gap: '16px',
-                alignItems: 'center'
-            }}>
-                {/* Left side: Parallel tracks for X_pos and attn_out */}
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
-                    {/* Track 1: Original Input (X_pos) */}
-                    <GlassCard padding="md">
-                        <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '12px' }}>
-                            <span style={{ fontSize: '13px', color: 'var(--secondary)', fontWeight: 600 }}>Original Input</span>
-                            <span style={{ fontFamily: 'var(--font-mono)', fontSize: '11px', color: 'var(--ink)' }}>X_pos ({n}, {dModel})</span>
-                        </div>
-                        <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
-                            {Array.from({ length: displayTokens }).map((_, i) => (
-                                <VectorBarPreview key={i} values={Array.from(X_pos.row(i).data.slice(0, Math.min(dModel, 8)))} />
-                            ))}
-                        </div>
-                    </GlassCard>
-
-                    {/* Track 2: Attention Output */}
-                    <GlassCard padding="md">
-                        <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '12px' }}>
-                            <span style={{ fontSize: '13px', color: 'var(--secondary)', fontWeight: 600 }}>Attention Output</span>
-                            <span style={{ fontFamily: 'var(--font-mono)', fontSize: '11px', color: 'var(--ink)' }}>attn_out ({n}, {dModel})</span>
-                        </div>
-                        <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
-                            {Array.from({ length: displayTokens }).map((_, i) => (
-                                <VectorBarPreview key={i} values={Array.from(attn_out.row(i).data.slice(0, Math.min(dModel, 8)))} />
-                            ))}
-                        </div>
-                    </GlassCard>
-                </div>
-
-                {/* Center: The Addition operation */}
-                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                    <motion.div
-                        initial={{ scale: 0, opacity: 0 }}
-                        animate={{ scale: 1, opacity: 1 }}
-                        transition={{ type: 'spring', stiffness: 300, damping: 20 }}
-                        style={{
-                            width: '48px',
-                            height: '48px',
-                            borderRadius: '50%',
-                            background: 'var(--bg-raised)',
-                            border: '2px solid var(--stroke-dark)',
-                            display: 'flex',
-                            alignItems: 'center',
-                            justifyContent: 'center',
-                            fontSize: '24px',
-                            color: 'var(--ink)',
-                            boxShadow: '0 0 16px var(--bg-raised)',
-                            zIndex: 2
-                        }}
-                    >
-                        +
-                    </motion.div>
-                </div>
-
-                {/* Right side: Residual Output */}
-                <div style={{ display: 'flex', alignItems: 'center' }}>
-                    <GlassCard padding="md" style={{ width: '100%', borderColor: 'var(--stroke-dark)', boxShadow: 'var(--shadow-lift)' }}>
-                        <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '12px' }}>
-                            <span style={{ fontSize: '13px', color: 'var(--ink)', fontWeight: 600 }}>Residual Output</span>
-                            <span style={{ fontFamily: 'var(--font-mono)', fontSize: '11px', color: 'var(--ink)' }}>X_res ({n}, {dModel})</span>
-                        </div>
-                        <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
-                            {Array.from({ length: displayTokens }).map((_, i) => (
-                                <motion.div
-                                    key={i}
-                                    initial={{ opacity: 0, x: -20 }}
-                                    animate={{ opacity: 1, x: 0 }}
-                                    transition={{ delay: 0.3 + i * 0.1 }}
-                                >
-                                    <VectorBarPreview values={Array.from(X_res.row(i).data.slice(0, Math.min(dModel, 8)))} highlighted />
-                                </motion.div>
-                            ))}
-                        </div>
-                    </GlassCard>
-                </div>
-            </div>
-
-            {n > displayTokens && (
-                <div style={{ textAlign: 'center', color: 'var(--muted)', fontSize: '12px', fontStyle: 'italic' }}>
-                    Showing first {displayTokens} of {n} tokens.
-                </div>
-            )}
-        </div>
-    );
-});
-
-// A simplified inline vector bar for dense views
-function VectorBarPreview({ values, highlighted }: { values: number[], highlighted?: boolean }) {
-    const maxVal = Math.max(...values.map(Math.abs), 0.1);
+    const labels = raw.map(tokenText);
+    const max = Math.max(1e-6, ...m.a.flat().map(Math.abs), ...m.b.flat().map(Math.abs), ...m.c.flat().map(Math.abs));
 
     return (
-        <div style={{ display: 'flex', gap: '4px', height: '16px', width: '100%' }}>
-            {values.map((v, idx) => {
-                const norm = Math.max(-1, Math.min(1, v / maxVal));
-                // Positive = slate blue, negative = muted rose — alpha encodes magnitude
-                const alpha = highlighted
-                    ? 0.25 + Math.abs(norm) * 0.75
-                    : 0.12 + Math.abs(norm) * 0.70;
-                const color = norm >= 0
-                    ? `rgba(107,127,173,${alpha.toFixed(2)})`   /* --viz-1 slate blue */
-                    : `rgba(192,122,122,${alpha.toFixed(2)})`;  /* --viz-neg muted rose */
-
-                return (
-                    <div
-                        key={idx}
-                        style={{
-                            flex: 1,
-                            backgroundColor: color,
-                            borderRadius: '2px',
-                        }}
-                    />
-                );
-            })}
-        </div>
+        <StepFrame
+            step={PipelineStep.RESIDUAL}
+            lede="Attention’s result is not used on its own. It is added, number by number, onto the vectors that went into attention. Each token keeps what it already knew and gains what it learned from the others."
+        >
+            <Panel title="Input + attention output = new vectors" meta="same colour scale for all three">
+                <div className="rs-stack">
+                    <div><p className="field-label">What went into attention (step 5)</p><MatrixGrid rows={m.a} rowLabels={labels} scale="signed" maxAbs={max} ariaLabel="Attention input" /></div>
+                    <p className="rs-op" aria-hidden="true">+</p>
+                    <div><p className="field-label">What attention produced (step 6)</p><MatrixGrid rows={m.b} rowLabels={labels} scale="signed" maxAbs={max} ariaLabel="Attention output" /></div>
+                    <p className="rs-op" aria-hidden="true">=</p>
+                    <div><p className="field-label">Result</p><MatrixGrid rows={m.c} rowLabels={labels} scale="signed" maxAbs={max} ariaLabel="Residual sum" /></div>
+                </div>
+                <Shapes items={[{ name: 'X_pos', shape: X_pos!.shape }, { name: 'attention', shape: attnOut!.shape }, { name: 'X_res', shape: X_res.shape }]} />
+            </Panel>
+            <Callout title="Why add instead of replace?">
+                The shortcut means each layer only has to learn a small <em>change</em> to the vectors, and the original information
+                is never lost. It also gives the training signal a direct path through the network, which is what makes it possible
+                to stack dozens of layers — without residual connections, very deep models barely train.
+            </Callout>
+            <Advanced>
+                <Formula>{`X_res = X_pos + Attention(X_pos)     # element-wise, shapes must match`}</Formula>
+            </Advanced>
+            <style>{`
+                .rs-stack { display: flex; flex-direction: column; gap: var(--s2); }
+                .rs-stack .field-label { display: block; margin-bottom: 4px; }
+                .rs-op { font-family: var(--font-mono); font-size: var(--text-lg); color: var(--muted); line-height: 1; padding-left: var(--s2); }
+            `}</style>
+        </StepFrame>
     );
 }

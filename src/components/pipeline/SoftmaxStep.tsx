@@ -1,162 +1,86 @@
 // src/components/pipeline/SoftmaxStep.tsx
+// Step 11: logits → probabilities, with an interactive temperature.
+
 import { useMemo } from 'react';
-import { motion } from 'framer-motion';
 import { useSimulatorStore } from '@/lib/store/simulatorStore';
-import { GlassCard, Badge, NumberDisplay } from '@/components/shared';
-import { ConceptCard } from '@/components/educational/ConceptCard';
+import { PipelineStep } from '@/lib/store/types';
 import { idToToken, VOCAB_SIZE } from '@/lib/tokenizer/vocab';
 import { topK } from '@/lib/mathEngine/sampling';
-import { PipelineStep } from '@/lib/store/types';
+import { Advanced, BarList, Callout, Facts, Formula, Panel, StepFrame } from './StepKit';
+import { tokenText } from './stepUtils';
+
+const PRESETS = [0.2, 0.7, 1, 1.5];
+const pct = (v: number) => (v >= 0.1 ? `${(v * 100).toFixed(1)}%` : `${(v * 100).toFixed(2)}%`);
 
 export function SoftmaxStep() {
-    const { tensors, temperature, setTemperature } = useSimulatorStore();
-
-    const { probs } = tensors.softmax || {};
-
-    const topProbs = useMemo(() => {
-        if (!probs) return [];
-        return topK(probs, 5);
-    }, [probs]);
-
+    const probs = useSimulatorStore((s) => s.tensors.softmax?.probs);
+    const temperature = useSimulatorStore((s) => s.temperature);
+    const setTemperature = useSimulatorStore((s) => s.setTemperature);
+    const top = useMemo(() => (probs ? topK(probs, 10) : []), [probs]);
     if (!probs) return null;
 
+    const top10 = top.reduce((a, t) => a + t.prob, 0);
+
     return (
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
-            <ConceptCard stepId={PipelineStep.SOFTMAX} defaultExpanded />
-
-            <div style={{
-                display: 'grid',
-                gridTemplateColumns: 'minmax(0, 1fr)',
-                gap: '24px',
-            }}>
-                <GlassCard padding="lg">
-                    <div style={{
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'space-between',
-                        marginBottom: '24px',
-                        flexWrap: 'wrap',
-                        gap: '16px'
-                    }}>
-                        <h3 style={{
-                            fontSize: '15px',
-                            fontWeight: 600,
-                            color: 'var(--ink)',
-                            display: 'flex',
-                            alignItems: 'center',
-                            gap: '12px'
-                        }}>
-                            Softmax Probabilities
-                            <Badge variant="success">Σ = 1.000</Badge>
-                        </h3>
-
-                        {/* Temperature Control */}
-                        <div style={{
-                            display: 'flex',
-                            alignItems: 'center',
-                            gap: '12px',
-                            background: 'var(--bg-panel)',
-                            padding: '8px 16px',
-                            borderRadius: 'var(--r-md)',
-                            border: '1px solid var(--stroke)'
-                        }}>
-                            <label style={{ fontSize: '13px', color: 'var(--secondary)', fontWeight: 500 }}>
-                                Temperature:
-                            </label>
-                            <input
-                                type="range"
-                                min="0.1"
-                                max="2.0"
-                                step="0.1"
-                                value={temperature}
-                                onChange={(e) => setTemperature(parseFloat(e.target.value))}
-                                style={{ width: '100px', cursor: 'pointer' }}
-                            />
-                            <span style={{
-                                fontSize: '13px',
-                                fontFamily: 'var(--font-mono)',
-                                color: 'var(--ink)',
-                                width: '32px',
-                                textAlign: 'right'
-                            }}>
-                                {temperature.toFixed(1)}
-                            </span>
-                        </div>
+        <StepFrame
+            step={PipelineStep.SOFTMAX}
+            lede="Scores can be any number, so softmax converts them into probabilities between 0% and 100% that add up to exactly 100%. Temperature controls how confident that distribution is."
+        >
+            <Panel title="Temperature">
+                <div className="sm-temp">
+                    <input
+                        type="range"
+                        min={0.1}
+                        max={2}
+                        step={0.1}
+                        value={temperature}
+                        onChange={(e) => setTemperature(parseFloat(e.target.value))}
+                        aria-label="Temperature"
+                        aria-valuetext={temperature.toFixed(1)}
+                    />
+                    <output className="sm-temp-val">{temperature.toFixed(1)}</output>
+                    <div className="sm-presets">
+                        {PRESETS.map((p) => (
+                            <button key={p} type="button" className="pill" aria-pressed={Math.abs(temperature - p) < 0.05} onClick={() => setTemperature(p)}>
+                                {p}
+                            </button>
+                        ))}
                     </div>
+                </div>
+                <p className="sm-hint">
+                    Below 1 sharpens the distribution (more predictable); above 1 flattens it (more varied). Drag it and watch the bars.
+                </p>
+            </Panel>
 
-                    {/* Top 5 Probabilities Horizontal Bars */}
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-                        {topProbs.map((item, index) => {
-                            const isTop1 = index === 0;
-                            const percent = item.prob * 100;
-                            const tokenStr = idToToken(item.id);
-                            const displayStr = tokenStr.trim() === '' ? '␣' : tokenStr;
+            <Panel title="Most likely next tokens" meta={`top 10 of ${VOCAB_SIZE}`}>
+                <BarList
+                    items={top.map((t, i) => ({ key: t.id, label: tokenText(idToToken(t.id)), value: t.prob, highlight: i === 0 }))}
+                    max={Math.max(top[0]?.prob ?? 1, 0.05)}
+                    format={pct}
+                    ariaLabel="Top 10 probabilities"
+                />
+                <Facts items={[
+                    { label: 'Top token', value: pct(top[0]?.prob ?? 0) },
+                    { label: 'Top 10 together', value: pct(top10) },
+                    { label: `Other ${VOCAB_SIZE - 10}`, value: pct(Math.max(0, 1 - top10)) },
+                ]} />
+            </Panel>
 
-                            return (
-                                <div key={item.id} style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
-                                    {/* Token Label */}
-                                    <div style={{
-                                        width: '80px',
-                                        fontSize: '14px',
-                                        fontFamily: 'var(--font-mono)',
-                                        color: isTop1 ? 'var(--ink)' : 'var(--secondary)',
-                                        textAlign: 'right',
-                                        whiteSpace: 'nowrap',
-                                        overflow: 'hidden',
-                                        textOverflow: 'ellipsis'
-                                    }} title={tokenStr}>
-                                        "{displayStr}"
-                                    </div>
-
-                                    {/* Progress Bar Track */}
-                                    <div style={{
-                                        flex: 1,
-                                        height: '24px',
-                                        background: 'var(--bg-raised)',
-                                        borderRadius: 'var(--r-sm)',
-                                        overflow: 'hidden',
-                                        position: 'relative'
-                                    }}>
-                                        {/* Animated Fill */}
-                                        <motion.div
-                                            initial={{ width: 0 }}
-                                            animate={{ width: `${Math.max(0.5, percent)}%` }}
-                                            transition={{ type: 'spring', damping: 20, stiffness: 100 }}
-                                            style={{
-                                                height: '100%',
-                                                background: isTop1 ? 'var(--viz-1)' : 'rgba(107,127,173,0.38)',
-                                                borderRadius: 'var(--r-sm)'
-                                            }}
-                                        />
-                                    </div>
-
-                                    {/* Percentage Display */}
-                                    <div style={{
-                                        width: '64px',
-                                        fontSize: '14px',
-                                        fontFamily: 'var(--font-mono)',
-                                        color: isTop1 ? 'var(--ink)' : 'var(--muted)',
-                                        textAlign: 'right'
-                                    }}>
-                                        <NumberDisplay value={item.prob} format="percent" precision={1} />
-                                    </div>
-                                </div>
-                            );
-                        })}
-                    </div>
-
-                    <div style={{
-                        marginTop: '24px',
-                        paddingTop: '16px',
-                        borderTop: '1px solid var(--stroke)',
-                        fontSize: '12px',
-                        color: 'var(--muted)',
-                        textAlign: 'center'
-                    }}>
-                        ... {VOCAB_SIZE - 5} other tokens sharing the remaining <NumberDisplay value={1 - topProbs.reduce((acc, curr) => acc + curr.prob, 0)} format="percent" precision={2} />
-                    </div>
-                </GlassCard>
-            </div>
-        </div>
+            <Callout tone="caveat" title="Why is the model so unsure?">
+                At temperature 1 an untrained model spreads its bets almost evenly over hundreds of tokens — it has no reason to
+                prefer any word. Training is what makes the right continuation stand out: a trained model typically puts most of its
+                probability on a handful of sensible words.
+            </Callout>
+            <Advanced>
+                <Formula>{`p_i = exp(z_i / T) / Σ_j exp(z_j / T)      # T = ${temperature.toFixed(1)}`}</Formula>
+            </Advanced>
+            <style>{`
+                .sm-temp { display: flex; align-items: center; gap: var(--s3); flex-wrap: wrap; }
+                .sm-temp input { flex: 1; min-width: 160px; accent-color: var(--ink); }
+                .sm-temp-val { font-family: var(--font-mono); font-size: var(--text-md); color: var(--ink); font-weight: var(--weight-semibold); width: 3ch; text-align: right; }
+                .sm-presets { display: flex; gap: 6px; }
+                .sm-hint { font-size: var(--text-xs); color: var(--muted); }
+            `}</style>
+        </StepFrame>
     );
 }

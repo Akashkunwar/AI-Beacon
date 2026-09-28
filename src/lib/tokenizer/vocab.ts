@@ -1,6 +1,6 @@
 // src/lib/tokenizer/vocab.ts
-// Demo vocabulary (~500 tokens) for the AI Beacon LLM Visualizer
-// Token IDs are 1-indexed (0 is reserved for <UNK>)
+// Demo vocabulary (512 tokens) for the AI Beacon LLM simulator.
+// ID 0 is reserved for <unk>; every other token has exactly one ID.
 
 export const VOCAB_SIZE = 512;
 export const UNK_ID = 0;
@@ -93,9 +93,25 @@ export const VOCAB: string[] = [
     'today', 'tomorrow', 'yesterday',                                           // 510-512
 ];
 
-// Trim to exactly VOCAB_SIZE entries
-const _trimmedVocab = VOCAB.slice(0, VOCAB_SIZE);
-// Fill up to VOCAB_SIZE if needed
+// Words removed to make room for punctuation and the sample sentences.
+const DROPPED = new Set(['dare', 'ought', 'whom', 'neither', 'therefore', 'towards']);
+
+// Punctuation and words used by the sample sentences, so the demo inputs
+// never fall back to <unk>.
+const EXTRA_TOKENS = [
+    '.', ',', '!', '?', "'",
+    'sat', 'mat', 'quick', 'brown', 'fox', 'jumps', 'over', 'lazy', 'all',
+    'ai', 'learns', 'machine', 'learning', 'text', 'computer', 'code',
+    'blue', 'red', 'green', 'king', 'queen', 'robot',
+];
+
+// De-duplicate (first occurrence wins) so every token has exactly one ID,
+// then append the extras and pad or trim to exactly VOCAB_SIZE entries.
+const _vocab: string[] = [];
+for (const t of [...VOCAB, ...EXTRA_TOKENS]) {
+    if (!DROPPED.has(t) && !_vocab.includes(t)) _vocab.push(t);
+}
+const _trimmedVocab = _vocab.slice(0, VOCAB_SIZE);
 while (_trimmedVocab.length < VOCAB_SIZE) {
     _trimmedVocab.push(`<tok${_trimmedVocab.length}>`);
 }

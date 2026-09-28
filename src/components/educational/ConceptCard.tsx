@@ -1,301 +1,164 @@
 // src/components/educational/ConceptCard.tsx
-// Collapsible educational card with step-specific explanations.
+// Collapsible "Go deeper" card for each simulator step: why the step exists,
+// how real models differ from this demo, a common misconception, and (in
+// Advanced mode) the equivalent PyTorch code.
 
-import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { useId, useState } from 'react';
 import { PipelineStep } from '@/lib/store/types';
-
-// ─── ConceptCard Content Database ─────────────────────────────────────────
+import { useSimulatorStore } from '@/lib/store/simulatorStore';
 
 interface ConceptContent {
-    what: string;
     why: string;
-    realDimensions: string;
+    realModels: string;
     gotcha: string;
     pytorch: string;
 }
 
-const CONCEPT_CONTENT: Partial<Record<PipelineStep, ConceptContent>> = {
+const CONCEPT_CONTENT: Record<PipelineStep, ConceptContent> = {
     [PipelineStep.INPUT]: {
-        what: 'Raw text is the unprocessed string you type — letters, spaces, punctuation. The model cannot read text directly; it needs numbers.',
-        why: 'Language models are fundamentally mathematical functions. Before any computation can happen, natural language must be converted into a structured numerical representation. This step is the starting point of that journey.',
-        realDimensions: 'GPT-2 accepts up to 1,024 tokens. The original Llama 3 models support 8,192; Llama 3.1 extends that to 128K. AI Beacon uses at most 8 for clarity.',
-        gotcha: 'Punctuation, capitalization, and whitespace all affect tokenization. "cat" and "Cat" may map to different token IDs in real models.',
-        pytorch: `# No computation here — just the raw string
-input_text = "The cat sat"`,
+        why: 'A language model is a mathematical function: it can only work with numbers. The next four steps turn your text into numbers the network can compute with.',
+        realModels: 'The amount of text a model can read at once is its context window. GPT-2 (2019) read 1,024 tokens; Llama 3.1 reads 128K; several 2026 frontier models read a million or more. This demo reads at most 8 tokens so every number stays visible.',
+        gotcha: 'Capitalisation, spacing and punctuation all change how real tokenizers split text, so “Cat”, “ cat” and “cat” can become different tokens.',
+        pytorch: `# No computation yet — just a string
+text = "The cat sat"`,
     },
     [PipelineStep.TOKENIZE]: {
-        what: 'Tokenization splits the input string into chunks called "tokens" — in this demo, simply words. Each token is a discrete unit the model processes.',
-        why: 'Computers process numbers, not text. Splitting text into tokens lets each piece be independently embedded into a vector space. The vocabulary defines the set of all possible tokens the model knows.',
-        realDimensions: 'GPT-2 vocabulary: 50,257 tokens (BPE). LLaMA-3: 128,000 tokens. AI Beacon uses a demo 512-token word vocabulary.',
-        gotcha: 'Real models use BPE (Byte-Pair Encoding) or SentencePiece — subword tokenization. "unhappiness" might split into ["un", "happiness"] or even ["▁un", "happiness"] depending on the tokenizer.',
+        why: 'The model has a fixed vocabulary of pieces it knows. Tokenization cuts any text into those pieces so each one can be looked up.',
+        realModels: 'Real models use subword tokenizers (BPE or SentencePiece): common words are one token, rare words are split into parts. GPT-2 has 50,257 tokens and Llama 3 has 128,256. In English, one token is roughly ¾ of a word on average.',
+        gotcha: 'Token counts, not word counts, decide cost and context limits. Code, numbers and non-English text often need many more tokens per word.',
         pytorch: `import tiktoken
 enc = tiktoken.get_encoding("gpt2")
-tokens = enc.encode("The cat sat")
-# → [464, 3797, 3332]  (GPT-2 token IDs)`,
+enc.encode("The cat sat")   # → [464, 3797, 3332]`,
     },
     [PipelineStep.TOKEN_IDS]: {
-        what: 'Each token string is looked up in the vocabulary to get an integer ID — its unique "address" in the model\'s dictionary.',
-        why: 'The embedding layer is a lookup table: given an ID, it returns a dense vector. Integer IDs are indices into this table. Without IDs, we cannot do the lookup.',
-        realDimensions: 'GPT-2: "the" → token 464. LLaMA-3: "the" → token 279. AI Beacon: "the" → token 1. Each tokenizer has its own mapping.',
-        gotcha: 'This demo maps unknown whole words to <unk> (ID 0). Real subword or byte-level tokenizers can usually decompose unfamiliar text, although exact behavior depends on the tokenizer.',
-        pytorch: `# Vocabulary lookup
-vocab = {"the": 1, "cat": 485, "sat": 229}
-ids = [vocab.get(tok, 0) for tok in tokens]
-# → [1, 485, 229]`,
+        why: 'The next step is a table lookup, and tables are indexed by numbers. Each token’s ID is simply its row number in the vocabulary.',
+        realModels: 'Every tokenizer has its own numbering. In GPT-2, “The” is 464 and “ cat” (with a leading space) is 3797. In this demo “the” is 1.',
+        gotcha: 'This demo maps unknown words to <unk> (ID 0). Byte-level tokenizers used by modern models can represent any text, so they never need an unknown token.',
+        pytorch: `vocab = {"the": 1, "cat": 459, "sat": 490}
+ids = [vocab.get(tok, 0) for tok in tokens]   # → [1, 459, 490]`,
     },
     [PipelineStep.EMBEDDING]: {
-        what: 'Each token ID is used to index into a learned embedding matrix W_e ∈ ℝ^(|V| × d_model), selecting a d_model-dimensional dense vector for each token.',
-        why: 'Training shapes these vectors so useful linguistic and semantic features can be represented geometrically. Embeddings support later computation, but they are not reasoning by themselves.',
-        realDimensions: 'GPT-2: d_model=768. LLaMA-3-8B: d_model=4096. AI Beacon: d_model=8 (adjustable 4–64).',
-        gotcha: 'Embeddings are learned during training — they start random and gradually encode semantic meaning via backprop. AI Beacon uses random toy weights.',
-        pytorch: `embedding = nn.Embedding(vocab_size, d_model)
-X = embedding(token_ids)  # (n, d_model)`,
+        why: 'An ID is just a label. An embedding is a list of numbers the network can compute with. During training these vectors are adjusted so tokens used in similar ways end up with similar vectors.',
+        realModels: 'GPT-2 small uses 768 numbers per token; Llama 3 8B uses 4,096. Its embedding table alone is 128,256 × 4,096 ≈ 525 million parameters. This demo uses 4–64 numbers per token.',
+        gotcha: 'The embedding table is learned, not designed by hand. Here it is random, so similar words do not have similar vectors yet.',
+        pytorch: `embed = nn.Embedding(vocab_size, d_model)
+X = embed(token_ids)          # (n, d_model)`,
     },
     [PipelineStep.POSITIONAL_ENCODING]: {
-        what: 'Sinusoidal position vectors are added to token embeddings, injecting information about each token\'s position in the sequence.',
-        why: 'Self-attention is permutation-invariant — "cat sat" and "sat cat" would produce identical outputs without positional info. PE encodes order so the model knows position 0 ≠ position 1.',
-        realDimensions: 'GPT-2 uses learned positional embeddings (same shape as token embeddings). Modern models (LLaMA-3) use RoPE (Rotary Position Embeddings). AI Beacon uses original Vaswani sinusoidal PE.',
-        gotcha: 'A formula can generate sinusoidal values beyond the training length, but that does not guarantee reliable long-context behavior. Learned position tables also need an explicit extension strategy past their trained range.',
+        why: 'Attention on its own ignores order — “dog bites man” and “man bites dog” would look identical. Adding a position signal lets the model tell them apart.',
+        realModels: 'The original Transformer (2017) used the sine/cosine pattern shown here. GPT-2 learned a position table instead. Most current open models (Llama, Qwen, Mistral) use rotary position embeddings (RoPE), which rotate the query and key vectors inside attention.',
+        gotcha: 'Being able to compute positions beyond the training length does not mean the model works well there. Long-context models need special training to use far-away positions reliably.',
         pytorch: `# PE(pos, 2i)   = sin(pos / 10000^(2i/d_model))
 # PE(pos, 2i+1) = cos(pos / 10000^(2i/d_model))
-X_pos = X + positional_encoding(n, d_model)`,
+X = X + positional_encoding(n, d_model)`,
     },
     [PipelineStep.ATTENTION]: {
-        what: 'Each token creates Query, Key, and Value vectors. Queries are matched against Keys to produce weights, which combine the Value vectors. A causal mask hides future positions.',
-        why: 'In this decoder, each token can directly use earlier tokens and itself—so "sat" can look back at "cat"—without seeing words that have not been generated yet.',
-        realDimensions: 'GPT-2: 12 attention heads, d_head=64, d_model=768. LLaMA-3-8B: 32 heads, d_head=128, d_model=4096. AI Beacon: 1 head (MVP).',
-        gotcha: 'Queries and Keys must be divided by √d_k before softmax — without this scaling, dot products grow large and softmax saturates (gradients vanish).',
-        pytorch: `Q = X @ W_Q  # (n, d_head)
-K = X @ W_K  # (n, d_head)
-scores = Q @ K.T / sqrt(d_k)
-weights = softmax(scores + mask)
-output = weights @ V`,
+        why: 'This is the only step where tokens exchange information. It lets “sat” pull in information from “cat”, which is how context shapes meaning.',
+        realModels: 'GPT-2 small has 12 heads of 64 dimensions per layer. Llama 3 8B has 32 query heads of 128 dimensions that share 8 key/value heads (grouped-query attention), repeated in each of its 32 layers. This demo has 1–4 heads in a single layer.',
+        gotcha: 'Attention weights show where information flows, not why the model made a decision. Reading them as explanations is a common over-interpretation.',
+        pytorch: `Q, K, V = X @ W_Q, X @ W_K, X @ W_V          # (n, d_model)
+Q, K, V = [t.view(n, n_heads, d_head).transpose(0, 1) for t in (Q, K, V)]
+scores  = Q @ K.transpose(-2, -1) / d_head ** 0.5
+scores  = scores.masked_fill(causal_mask, float("-inf"))
+weights = scores.softmax(dim=-1)              # (n_heads, n, n)
+out     = (weights @ V).transpose(0, 1).reshape(n, d_model) @ W_O`,
     },
     [PipelineStep.RESIDUAL]: {
-        what: 'The original input X_pos is added to the attention output: X_res = X_pos + attn_output. This is called a residual or skip connection.',
-        why: '"Gradient highway" — skip connections allow gradients to flow directly from output to input during backprop, enabling very deep networks to train effectively. Without them, deep networks suffer from vanishing gradients.',
-        realDimensions: 'Transformer blocks normally include separate residual paths around attention and the feed-forward sublayer. GPT-2 small has 12 blocks; Llama 3 8B has 32. This demo visualizes one simplified block.',
-        gotcha: 'For residual addition to work, attention output must have the same shape as the input: (n, d_model). This is why the "output projection" W_O is necessary.',
-        pytorch: `X_res = X_pos + attn_output  # elementwise add, same shape`,
+        why: 'Adding the input back means each layer only has to learn a small change, and the original information is never lost. This “shortcut” is what makes networks with dozens of layers trainable.',
+        realModels: 'Every attention and feed-forward sub-layer has one. GPT-2 small stacks 12 blocks, Llama 3 8B has 32 and GPT-3 has 96 — each with two residual connections.',
+        gotcha: 'Addition only works if both tensors have the same shape, which is why attention ends with the W_O projection back to d_model.',
+        pytorch: `X = X + attention(X)   # same shape in, same shape out`,
     },
     [PipelineStep.LAYER_NORM]: {
-        what: 'Each vector in the sequence is independently normalized to have zero mean and unit variance, then scaled by learned parameters γ and β.',
-        why: 'Deep networks are sensitive to the scale of activations. LayerNorm stabilizes training by ensuring each layer receives similarly-scaled inputs, preventing exploding/vanishing activations.',
-        realDimensions: 'Normalization placement varies. The original Transformer used post-norm, while GPT-2 and many later language models use pre-norm variants. AI Beacon visualizes post-norm.',
-        gotcha: 'LayerNorm normalizes per-token (over d_model dimension). BatchNorm normalizes per-dimension (over batch) — confusingly different! Transformers use LayerNorm.',
-        pytorch: `layer_norm = nn.LayerNorm(d_model)
-X_norm = layer_norm(X_res)  # mean≈0, std≈1 per token`,
+        why: 'Values can drift larger or smaller as they pass through layers. Normalising keeps every token’s vector in a predictable range, which keeps training stable.',
+        realModels: 'The original Transformer normalised after each sub-layer (post-norm, as here). GPT-2 and most later models normalise before it (pre-norm). Llama, Qwen and Mistral use RMSNorm, a cheaper variant that skips subtracting the mean.',
+        gotcha: 'Layer norm works per token, across that token’s numbers. Batch norm, common in image models, works across examples instead.',
+        pytorch: `norm = nn.LayerNorm(d_model)
+X = norm(X)   # each row: mean ≈ 0, std ≈ 1, then × γ + β`,
     },
     [PipelineStep.FFN]: {
-        what: 'Two linear layers with GELU activation in between: X_ff = W2 · GELU(W1 · X_norm). The hidden dimension is 4× larger than d_model.',
-        why: 'While attention mixes information across positions, the FFN transforms each position independently. Research links some factual associations to these layers, but knowledge is distributed across the network.',
-        realDimensions: 'GPT-2: d_ff=3072 (4×768). LLaMA-3-8B: d_ff=14336 (~3.5×4096) using SwiGLU. AI Beacon: d_ff=4×d_model.',
-        gotcha: 'GELU is preferred over ReLU in modern transformers — it\'s smoother and allows small negative values to pass through. LLaMA uses SwiGLU, an even more expressive variant.',
-        pytorch: `W1 = nn.Linear(d_model, d_ff)
-W2 = nn.Linear(d_ff, d_model)
-X_ff = W2(F.gelu(W1(X_norm)))`,
+        why: 'Attention moves information between tokens; the feed-forward network then transforms each token on its own. Most of a model’s parameters live here, and research links many stored facts and patterns to these layers.',
+        realModels: 'GPT-2 expands 768 → 3,072 → 768 with GELU. Llama 3 8B expands 4,096 → 14,336 using SwiGLU, a gated variant. Many 2025–2026 models use mixture-of-experts: many FFNs per layer, with only a few active for each token.',
+        gotcha: 'The activation function (GELU here) is what makes the network non-linear. Without it, the two matrices would collapse into one and the layer could only compute straight-line functions.',
+        pytorch: `ffn = nn.Sequential(nn.Linear(d_model, 4 * d_model), nn.GELU(),
+                    nn.Linear(4 * d_model, d_model))
+X = norm2(X + ffn(X))   # second residual + layer norm`,
     },
     [PipelineStep.LM_HEAD]: {
-        what: 'A final linear layer projects the hidden state to logits (one per vocabulary token): logits = X_last @ W_lm. Only the last token\'s representation is used for next-token prediction.',
-        why: 'The LM head converts the model\'s internal representation back into the vocabulary space — producing a score for every possible next token. Higher score = model thinks it\'s more likely.',
-        realDimensions: 'GPT-2: W_lm ∈ ℝ^(768 × 50257). LLaMA-3-8B: ℝ^(4096 × 128000). Often tied (shared weights) with the embedding matrix.',
-        gotcha: 'During generation, the last position supplies the next-token logits. During training, logits at many positions produce learning signals in parallel, so the earlier positions are not wasted.',
+        why: 'The final vector of the last token has to become a vote for every possible next token. One matrix multiplication produces a score (logit) for each word in the vocabulary.',
+        realModels: 'GPT-2’s output matrix is 768 × 50,257. Many models reuse the embedding table here (weight tying) to save parameters.',
+        gotcha: 'During generation only the last position’s scores are used. During training, every position predicts its own next token at the same time, so no work is wasted.',
         pytorch: `lm_head = nn.Linear(d_model, vocab_size, bias=False)
-logits = lm_head(X_ff[-1])  # last token → (vocab_size,)`,
+logits = lm_head(X[-1])      # (vocab_size,)`,
     },
     [PipelineStep.SOFTMAX]: {
-        what: 'Logits are converted to a probability distribution via softmax: P(token) = exp(logit/T) / Σ exp(logit/T). Temperature T controls "sharpness".',
-        why: 'Raw logits are unnormalized scores. Softmax converts them to probabilities that sum to 1, allowing interpretation as "probability of next token = X".',
-        realDimensions: 'Same operation in all transformers. The probability distribution is over the full vocabulary: 50K+ entries for GPT, 128K for LLaMA.',
-        gotcha: 'Temperature T=1 gives standard softmax. T<1 sharpens the distribution; T>1 flattens it. In the limit as T approaches zero, the highest logit dominates—T=0 itself is undefined in the formula.',
-        pytorch: `probs = F.softmax(logits / temperature, dim=-1)
-# probs.sum() ≈ 1.0`,
+        why: 'Scores can be any number. Softmax turns them into probabilities between 0 and 1 that add up to 1, so the model’s preferences can be compared and sampled.',
+        realModels: 'Identical in every model, just over a larger vocabulary. Chat products expose temperature as a setting; low values make answers more predictable, high values more varied.',
+        gotcha: 'Temperature does not change which token scores highest — it only sharpens (T < 1) or flattens (T > 1) the distribution. T = 0 is treated as “always pick the top token”.',
+        pytorch: `probs = torch.softmax(logits / temperature, dim=-1)
+probs.sum()   # → 1.0`,
     },
     [PipelineStep.SAMPLING]: {
-        what: 'Greedy sampling selects the token with the highest probability: next_token = argmax(probs). This is the simplest but not always the best strategy.',
-        why: 'This is the final output — the model\'s prediction of the next word. In real text generation, this token is appended to the input and the process repeats (auto-regressive generation).',
-        realDimensions: 'Real models use top-k (k=50), top-p (p=0.9), or temperature sampling for diversity. Beam search evaluates multiple sequences. AI Beacon uses greedy (MVP).',
-        gotcha: 'Greedy sampling can get stuck in repetitive loops. "I love love love love love..." This is why real inference uses top-k/p sampling or repetition penalties.',
-        pytorch: `# Greedy (MVP)
-next_token_id = probs.argmax().item()
-# Top-k (production)
-top_k = torch.topk(probs, k=50)
-next_token_id = top_k.indices[torch.multinomial(top_k.values, 1)]`,
+        why: 'Generation is a loop: pick a token, append it, run the whole model again. Every word of a chatbot’s reply comes from repeating these twelve steps.',
+        realModels: 'Most products sample instead of always taking the top token, usually with top-p (nucleus) sampling plus temperature. Reasoning models may generate thousands of hidden tokens before the visible answer.',
+        gotcha: 'Always picking the most likely token (greedy) tends to produce repetitive, bland text; a little randomness usually reads better.',
+        pytorch: `next_id = probs.argmax()                                 # greedy
+top = torch.topk(probs, k=5)                             # top-k
+next_id = top.indices[torch.multinomial(top.values, 1)]`,
     },
 };
 
-// ─── ConceptCard Props ────────────────────────────────────────────────────
-
-interface ConceptCardProps {
-    stepId: PipelineStep;
-    defaultExpanded?: boolean;
-}
-
-// ─── ConceptCard ──────────────────────────────────────────────────────────
-
-export function ConceptCard({ stepId, defaultExpanded = false }: ConceptCardProps) {
+export function ConceptCard({ stepId, defaultExpanded = false }: { stepId: PipelineStep; defaultExpanded?: boolean }) {
     const [expanded, setExpanded] = useState(defaultExpanded);
-    const content = CONCEPT_CONTENT[stepId];
-    const bodyId = `concept-card-body-${stepId}`;
-
-    if (!content) return null;
+    const advanced = useSimulatorStore((s) => s.mode === 'advanced');
+    const bodyId = useId();
+    const c = CONCEPT_CONTENT[stepId];
 
     return (
-        <div
-            style={{
-                background: 'var(--bg-panel)',
-                border: '1px solid var(--stroke)',
-                borderRadius: '10px',
-                overflow: 'hidden',
-            }}
-        >
-            {/* Header — always visible */}
-            <button
-                onClick={() => setExpanded((v) => !v)}
-                aria-expanded={expanded}
-                aria-controls={bodyId}
-                style={{
-                    width: '100%',
-                    padding: '12px 16px',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'space-between',
-                    background: 'transparent',
-                    border: 'none',
-                    cursor: 'pointer',
-                    gap: '8px',
-                    textAlign: 'left',
-                }}
-            >
-                <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                    <span style={{ fontSize: '14px' }}>📖</span>
-                    <span style={{
-                        fontFamily: 'var(--font-mono)',
-                        fontSize: '11px',
-                        color: 'var(--secondary)',
-                        letterSpacing: '0.06em',
-                        textTransform: 'uppercase',
-                        fontWeight: 600,
-                    }}>
-                        Concept
-                    </span>
-                </div>
-                <motion.span
-                    animate={{ rotate: expanded ? 180 : 0 }}
-                    transition={{ duration: 0.2 }}
-                    style={{
-                        display: 'inline-block',
-                        color: 'var(--muted)',
-                        fontSize: '14px',
-                        flexShrink: 0,
-                    }}
-                >
-                    ▼
-                </motion.span>
+        <section className="cc">
+            <button type="button" className="cc-toggle" onClick={() => setExpanded((v) => !v)} aria-expanded={expanded} aria-controls={bodyId}>
+                <span className="cc-title">Go deeper</span>
+                <span className="cc-sub">Why this step exists · real models · a common misconception</span>
+                <span className="cc-chev" aria-hidden="true">{expanded ? '−' : '+'}</span>
             </button>
-
-            {/* Body — collapsible */}
-            <AnimatePresence initial={false}>
-                {expanded && (
-                    <motion.div
-                        id={bodyId}
-                        key="body"
-                        initial={{ height: 0, opacity: 0 }}
-                        animate={{ height: 'auto', opacity: 1 }}
-                        exit={{ height: 0, opacity: 0 }}
-                        transition={{ duration: 0.25, ease: 'easeOut' }}
-                        style={{ overflow: 'hidden' }}
-                    >
-                        <div style={{
-                            padding: '0 16px 16px',
-                            display: 'flex',
-                            flexDirection: 'column',
-                            gap: '12px',
-                        }}>
-                            {/* What */}
-                            <div>
-                                <p style={sectionLabelStyle}>What it does</p>
-                                <p style={bodyTextStyle}>{content.what}</p>
-                            </div>
-
-                            {/* Why */}
-                            <div>
-                                <p style={sectionLabelStyle}>Why it matters</p>
-                                <p style={bodyTextStyle}>{content.why}</p>
-                            </div>
-
-                            {/* Real dimensions */}
-                            <div style={{
-                                padding: '8px 10px',
-                                background: 'var(--bg)',
-                                border: '1px solid var(--stroke-dark)',
-                                borderRadius: '6px',
-                            }}>
-                                <p style={{ ...sectionLabelStyle, color: 'var(--ink)' }}>
-                                    Real model dimensions
-                                </p>
-                                <p style={{ ...bodyTextStyle, color: 'var(--secondary)' }}>
-                                    {content.realDimensions}
-                                </p>
-                            </div>
-
-                            {/* Gotcha */}
-                            <div style={{
-                                padding: '8px 10px',
-                                background: 'var(--bg)',
-                                border: '1px solid var(--stroke-dark)',
-                                borderRadius: '6px',
-                            }}>
-                                <p style={{ ...sectionLabelStyle, color: 'var(--ink)' }}>
-                                    ⚠ Common gotcha
-                                </p>
-                                <p style={{ ...bodyTextStyle, color: 'var(--secondary)' }}>
-                                    {content.gotcha}
-                                </p>
-                            </div>
-
-                            {/* PyTorch */}
-                            <div>
-                                <p style={sectionLabelStyle}>PyTorch equivalent</p>
-                                <pre style={{
-                                    fontFamily: 'var(--font-mono)',
-                                    fontSize: '11px',
-                                    color: 'var(--ink)',
-                                    background: 'var(--bg-raised)',
-                                    border: '1px solid var(--bg-raised)',
-                                    borderRadius: '6px',
-                                    padding: '8px 10px',
-                                    whiteSpace: 'pre-wrap',
-                                    wordBreak: 'break-word',
-                                    margin: 0,
-                                    lineHeight: 1.6,
-                                }}>
-                                    {content.pytorch}
-                                </pre>
-                            </div>
+            {expanded && (
+                <div id={bodyId} className="cc-body">
+                    <div className="cc-item">
+                        <h4>Why it matters</h4>
+                        <p>{c.why}</p>
+                    </div>
+                    <div className="cc-item">
+                        <h4>In real models</h4>
+                        <p>{c.realModels}</p>
+                    </div>
+                    <div className="cc-item">
+                        <h4>Common misconception</h4>
+                        <p>{c.gotcha}</p>
+                    </div>
+                    {advanced ? (
+                        <div className="cc-item">
+                            <h4>In PyTorch</h4>
+                            <pre>{c.pytorch}</pre>
                         </div>
-                    </motion.div>
-                )}
-            </AnimatePresence>
-        </div>
+                    ) : (
+                        <p className="cc-hint">Switch to Advanced mode to see the equivalent PyTorch code.</p>
+                    )}
+                </div>
+            )}
+            <style>{`
+                .cc { border: 1px solid var(--stroke); border-radius: var(--r-lg); background: var(--bg-panel); }
+                .cc-toggle { width: 100%; display: grid; grid-template-columns: auto 1fr auto; align-items: baseline; gap: var(--s3); padding: var(--s3) var(--s4); text-align: left; }
+                .cc-title { font-size: var(--text-sm); font-weight: var(--weight-semibold); color: var(--ink); }
+                .cc-sub { font-size: var(--text-xs); color: var(--muted); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+                .cc-chev { font-family: var(--font-mono); color: var(--muted); font-size: var(--text-md); line-height: 1; }
+                .cc-toggle:hover .cc-chev { color: var(--ink); }
+                .cc-body { padding: 0 var(--s4) var(--s4); display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr)); gap: var(--s4); border-top: 1px solid var(--stroke); padding-top: var(--s4); }
+                .cc-item h4 { font-size: var(--text-2xs); font-family: var(--font-mono); text-transform: uppercase; letter-spacing: var(--tracking-wide); color: var(--muted); margin-bottom: 4px; font-weight: var(--weight-medium); }
+                .cc-item p { font-size: var(--text-sm); color: var(--secondary); line-height: var(--lead-body); }
+                .cc-item pre { font-family: var(--font-mono); font-size: var(--text-2xs); line-height: 1.7; background: var(--bg-sunken); border: 1px solid var(--stroke); border-radius: var(--r-sm); padding: var(--s2) var(--s3); white-space: pre-wrap; word-break: break-word; color: var(--ink); }
+                .cc-hint { font-size: var(--text-xs); color: var(--muted); align-self: end; }
+                @media (max-width: 639px) { .cc-sub { display: none; } }
+            `}</style>
+        </section>
     );
 }
-
-// ─── Local styles ──────────────────────────────────────────────────────────
-
-const sectionLabelStyle: React.CSSProperties = {
-    fontFamily: 'var(--font-mono)',
-    fontSize: '10px',
-    color: 'var(--secondary)',
-    letterSpacing: '0.06em',
-    textTransform: 'uppercase',
-    fontWeight: 600,
-    marginBottom: '4px',
-};
-
-const bodyTextStyle: React.CSSProperties = {
-    fontSize: '12px',
-    color: 'var(--secondary)',
-    lineHeight: 1.65,
-};

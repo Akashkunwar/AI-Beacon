@@ -1,1598 +1,462 @@
 // src/pages/Home.tsx
-// The AiViz homepage — Nav, Hero, Module Grid, Transformer Section,
-// Automation Clock Teaser, Pipeline Preview, Footer.
-// Monochrome only. No colour.
+// Landing page: what AI Beacon is, the five modules, a suggested learning
+// path, what's new in the data, and how the project works.
 
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { motion, useInView } from 'framer-motion';
 import { Nav } from '@/components/shared/Nav';
+import { Footer } from '@/components/shared/Footer';
 import { SEO } from '@/components/common/SEO';
-import { PrimaryButton, SecondaryButton, Footer } from '@/components/shared';
-import { HeroVisual } from '@/components/educational/HeroVisual';
-import { ScaleVisual } from '@/components/educational/ScaleVisual';
-import { OpenSourceVisual } from '@/components/educational/OpenSourceVisual';
-import { AUTOMATION_DATA } from '@/data/automationData';
-import { useReducedMotion } from '@/hooks/useReducedMotion';
+import { ButtonLink } from '@/components/shared/ButtonLink';
+import { Reveal } from '@/components/shared/Reveal';
+import { ArrowRightIcon, GitHubIcon } from '@/components/shared/Icons';
+import { HeroAttention } from '@/components/home/HeroAttention';
+import { MODULES } from '@/config/modules';
 import { SITE_CONFIG } from '@/config/site';
-import { BENCHMARK_MODELS } from '@/data/benchmarkData';
 import { DATASET_META } from '@/data/datasetMeta';
-
-// ─── Animation helpers ─────────────────────────────────────────────────────
-
-const fadeUp = {
-    hidden: { opacity: 0, y: 14 },
-    visible: (delay: number = 0) => ({
-        opacity: 1,
-        y: 0,
-        transition: { duration: 0.35, delay, ease: [0.2, 0, 0, 1] as [number, number, number, number] },
-    }),
-};
-
-function Reveal({ children, delay = 0, reduced: reducedProp }: { children: React.ReactNode; delay?: number; reduced?: boolean }) {
-    const reduced = useReducedMotion();
-    const noMotion = reducedProp ?? reduced;
-    const ref = useRef<HTMLDivElement>(null);
-    const inView = useInView(ref, { once: true, margin: '-60px' });
-    const variants = noMotion ? { hidden: { opacity: 1, y: 0 }, visible: { opacity: 1, y: 0 } } : fadeUp;
-    return (
-        <motion.div
-            ref={ref}
-            initial="hidden"
-            animate={inView ? 'visible' : 'hidden'}
-            custom={noMotion ? 0 : delay}
-            variants={variants}
-            transition={noMotion ? { duration: 0 } : undefined}
-        >
-            {children}
-        </motion.div>
-    );
-}
+import { formatDate, slugify } from '@/utils/timeline';
 
 // ─── Hero ──────────────────────────────────────────────────────────────────
 
 function Hero() {
-    const handleScrollToModules = (e: React.MouseEvent) => {
-        e.preventDefault();
-        document.getElementById('module-grid')?.scrollIntoView({ behavior: 'smooth' });
-    };
-
-    return (
-        <section
-            aria-labelledby="hero-heading"
-            style={{
-                paddingTop: 'var(--s8)',
-                paddingBottom: 'var(--s7)',
-                borderBottom: '1px solid var(--stroke)',
-            }}
-        >
-            <div className="depth-container">
-                <div style={{
-                    display: 'grid',
-                    gridTemplateColumns: '1fr 1fr',
-                    columnGap: 'var(--s8)',
-                    rowGap: 'var(--s4)',
-                    alignItems: 'center',
-                }} className="hero-grid">
-                    <div className="hero-text-content" style={{ display: 'contents' }}>
-                        <div className="hero-copy-group">
-                            {/* Eyebrow */}
-                            <motion.p
-                                custom={0.05}
-                                initial="hidden"
-                                animate="visible"
-                                variants={fadeUp}
-                                style={{
-                                    fontFamily: 'var(--font-mono)',
-                                    fontSize: 'var(--text-xs)',
-                                    color: 'var(--muted)',
-                                    textTransform: 'uppercase',
-                                    letterSpacing: 'var(--tracking-wider)',
-                                    display: 'flex',
-                                    alignItems: 'center',
-                                    gap: 'var(--s2)',
-                                    marginBottom: 'var(--s4)',
-                                }}
-                            >
-                                <span style={{
-                                    display: 'inline-block',
-                                    width: '6px',
-                                    height: '6px',
-                                    borderRadius: '50%',
-                                    background: 'var(--ink)',
-                                    flexShrink: 0,
-                                }} />
-                                interactive explainer · open source
-                            </motion.p>
-
-                            {/* Headline */}
-                            <motion.h1
-                                id="hero-heading"
-                                custom={0.1}
-                                initial="hidden"
-                                animate="visible"
-                                variants={fadeUp}
-                                style={{
-                                    fontSize: 'clamp(2.6rem, 6vw, var(--text-hero))',
-                                    fontWeight: 'var(--weight-semibold)',
-                                    color: 'var(--ink)',
-                                    lineHeight: 'var(--lead-tight)',
-                                    letterSpacing: 'var(--tracking-tight)',
-                                    maxWidth: '18ch',
-                                }}
-                            >
-                                The open-source guide to the entire AI universe.
-                            </motion.h1>
-
-                            {/* Subheading */}
-                            <motion.p
-                                custom={0.18}
-                                initial="hidden"
-                                animate="visible"
-                                variants={fadeUp}
-                                style={{
-                                    fontSize: 'var(--text-md)',
-                                    fontWeight: 'var(--weight-light)',
-                                    color: 'var(--secondary)',
-                                    maxWidth: '54ch',
-                                    lineHeight: 'var(--lead-body)',
-                                    marginTop: 'var(--s4)',
-                                }}
-                            >
-                                From landmark research and tool timelines to live LLM
-                                mechanics and training. No courses, no paywalls —
-                                just the actual science, interactive and open source.
-                            </motion.p>
-                        </div>
-
-                        {/* Visual Element - Positioned via grid order on mobile */}
-                        <div className="hero-visual-wrapper" style={{ 
-                            display: 'flex', 
-                            justifyContent: 'center',
-                            width: '100%',
-                            gridColumn: '2 / 3',
-                            gridRow: '1 / 3'
-                        }}>
-                            <HeroVisual />
-                        </div>
-
-                        {/* CTA row */}
-                        <motion.div
-                            custom={0.26}
-                            initial="hidden"
-                            animate="visible"
-                            variants={fadeUp}
-                            style={{
-                                display: 'flex',
-                                gap: 'var(--s3)',
-                                flexWrap: 'wrap',
-                                alignItems: 'center',
-                                marginTop: 'var(--s2)',
-                                gridColumn: '1 / 2',
-                            }}
-                            className="hero-cta-group"
-                        >
-                            <PrimaryButton to="/timeline" id="hero-cta-primary" aria-label="Explore the AI Timeline">
-                                Explore the AI Timeline →
-                            </PrimaryButton>
-                            <SecondaryButton id="hero-cta-secondary" onClick={handleScrollToModules} aria-label="See what we're building">
-                                See what's coming
-                            </SecondaryButton>
-                        </motion.div>
-                    </div>
-                </div>
-            </div>
-            <style>{`
-                @media (max-width: 1024px) {
-                    section[aria-labelledby="hero-heading"] {
-                        padding-top: var(--s8) !important;
-                    }
-                    .hero-grid {
-                        grid-template-columns: 1fr !important;
-                        gap: var(--s6) !important;
-                    }
-                    .hero-visual-wrapper {
-                        grid-column: 1 !important;
-                        grid-row: 2 !important;
-                        margin-top: calc(-1 * var(--s4));
-                        margin-bottom: calc(-1 * var(--s4));
-                        transform: scale(1.1);
-                        width: 100% !important;
-                    }
-                    .hero-copy-group {
-                        grid-row: 1 !important;
-                    }
-                    .hero-cta-group {
-                        grid-row: 3 !important;
-                        margin-top: var(--s4) !important;
-                    }
-                }
-            `}</style>
-        </section>
-    );
-}
-
-// ─── Module Grid ───────────────────────────────────────────────────────────
-
-const MODULES = [
-    {
-        num: '01',
-        title: 'AI Timeline',
-        desc: 'Every model, every paper, every inflection point — on one zoomable, annotated timeline.',
-        status: 'live' as const,
-        to: '/timeline',
-    },
-    {
-        num: '02',
-        title: 'How LLMs Work',
-        desc: 'The full transformer pipeline, interactive. Tokenization to sampling — every step, live. Type anything. Watch every number change.',
-        status: 'live' as const,
-        to: '/transformer-simulator',
-    },
-    {
-        num: '03',
-        title: 'How AI is Trained',
-        desc: 'Pre-training, SFT, RLHF, DPO. How a model goes from random weights to something that can actually reason.',
-        status: 'live' as const,
-        to: '/transformer-training-simulator',
-    },
-    {
-        num: '04',
-        title: 'Benchmarks & Leaderboard',
-        desc: 'Compare a curated set of models across capability tests, preference, cost, and speed—with context for every metric.',
-        status: 'live' as const,
-        to: '/benchmarks',
-    },
-    {
-        num: '05',
-        title: 'The AI Impact Index',
-        desc: 'Explore evidence-informed task exposure across 18 sectors from 2022 to 2030, with assumptions and cited sources.',
-        status: 'live' as const,
-        to: '/automation-clock',
-    },
-];
-
-function ModuleGrid() {
-    const [expandedCard, setExpandedCard] = useState<string | null>(null);
-
-    return (
-        <section
-            id="module-grid"
-            aria-labelledby="modules-heading"
-            style={{
-                paddingBlock: 'var(--s8)',
-                borderBottom: '1px solid var(--stroke)',
-                background: 'var(--bg)',
-            }}
-        >
-            <div className="depth-container" style={{ maxWidth: '1100px', margin: '0 auto' }}>
-                <Reveal>
-                    <p style={{
-                        fontFamily: 'var(--font-mono)',
-                        fontSize: 'var(--text-xs)',
-                        color: 'var(--muted)',
-                        textTransform: 'uppercase',
-                        letterSpacing: 'var(--tracking-wider)',
-                        marginBottom: 'var(--s3)',
-                    }}>
-                        WHAT WE'RE BUILDING
-                    </p>
-                    <h2 id="modules-heading" style={{
-                        fontSize: 'var(--text-2xl)',
-                        fontWeight: 'var(--weight-semibold)',
-                        letterSpacing: 'var(--tracking-snug)',
-                        marginBottom: 'var(--s6)',
-                        color: 'var(--ink)',
-                    }}>
-                        Five modules. One complete picture of AI.
-                    </h2>
-                </Reveal>
-
-                {/* 2×2 grid + full-width 5th card */}
-                <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--s3)' }}>
-                    <div className="module-grid-inner" style={{
-                        display: 'grid',
-                        gridTemplateColumns: 'repeat(2, 1fr)',
-                        gap: 'var(--s3)',
-                    }}>
-                        {MODULES.slice(0, 4).map((mod, i) => (
-                            <Reveal key={mod.num} delay={i * 0.06}>
-                                <ModuleCard
-                                    mod={mod}
-                                    expanded={expandedCard === mod.num}
-                                    onExpand={() => setExpandedCard(expandedCard === mod.num ? null : mod.num)}
-                                />
-                            </Reveal>
-                        ))}
-                    </div>
-                    <Reveal delay={0.24}>
-                        <ModuleCard
-                            mod={MODULES[4]}
-                            fullWidth
-                            expanded={expandedCard === MODULES[4].num}
-                            onExpand={() => setExpandedCard(expandedCard === MODULES[4].num ? null : MODULES[4].num)}
-                        />
-                    </Reveal>
-                </div>
-            </div>
-            <style>{`
-                @media (max-width: 720px) {
-                    .module-grid-inner { grid-template-columns: 1fr !important; }
-                }
-            `}</style>
-        </section>
-    );
-}
-
-function ModuleCard({
-    mod,
-    fullWidth: _fullWidth = false,
-    expanded,
-    onExpand,
-}: {
-    mod: typeof MODULES[0];
-    fullWidth?: boolean;
-    expanded: boolean;
-    onExpand: () => void;
-}) {
-    const isLive = mod.status === 'live';
-
-    const cardContent = (
-        <motion.div
-            whileHover={isLive ? { y: -2, boxShadow: 'var(--shadow-lift)' } : {}}
-            transition={{ duration: 0.15 }}
-            style={{
-                padding: 'var(--s6)',
-                background: 'var(--bg-panel)',
-                borderRadius: 'var(--r-lg)',
-                display: 'flex',
-                flexDirection: 'column',
-                gap: 'var(--s3)',
-                cursor: isLive ? 'pointer' : 'default',
-                height: '100%',
-            }}
-            onClick={!isLive ? onExpand : undefined}
-        >
-            {/* Top row */}
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                <span style={{ fontFamily: 'var(--font-mono)', fontSize: 'var(--text-xs)', color: 'var(--muted)' }}>
-                    {mod.num}
-                </span>
-                {isLive ? (
-                    <span style={{ fontFamily: 'var(--font-mono)', fontSize: 'var(--text-2xs)', color: 'var(--muted)', display: 'flex', alignItems: 'center', gap: '4px' }}>
-                        <span style={{ color: 'var(--ink)' }}>●</span> live
-                    </span>
-                ) : (
-                    <span style={{
-                        fontFamily: 'var(--font-mono)',
-                        fontSize: 'var(--text-2xs)',
-                        color: 'var(--muted)',
-                        background: 'var(--bg-raised)',
-                        borderRadius: 'var(--r-pill)',
-                        padding: '2px 8px',
-                    }}>
-                        building
-                    </span>
-                )}
-            </div>
-
-            {/* Module name */}
-            <h3 style={{
-                fontSize: 'var(--text-lg)',
-                fontWeight: 'var(--weight-semibold)',
-                letterSpacing: 'var(--tracking-snug)',
-                color: 'var(--ink)',
-                opacity: isLive ? 1 : 0.55,
-                margin: 0,
-            }}>
-                {mod.title}
-            </h3>
-
-            {/* Description */}
-            <p style={{
-                fontSize: 'var(--text-sm)',
-                fontWeight: 'var(--weight-light)',
-                color: 'var(--secondary)',
-                lineHeight: 'var(--lead-body)',
-                flex: 1,
-                margin: 0,
-            }}>
-                {mod.desc}
-            </p>
-
-            {/* Bottom row */}
-            <div style={{ marginTop: 'var(--s5)' }}>
-                {isLive ? (
-                    <span style={{
-                        fontFamily: 'var(--font-sans)',
-                        fontSize: 'var(--text-sm)',
-                        fontWeight: 'var(--weight-medium)',
-                        color: 'var(--ink)',
-                    }}>
-                        Open Explainer →
-                    </span>
-                ) : (
-                    <motion.p
-                        initial={{ opacity: 0, y: 4 }}
-                        animate={{ opacity: expanded ? 1 : 0, y: expanded ? 0 : 4 }}
-                        transition={{ duration: 0.22, ease: [0.2, 0, 0, 1] }}
-                        style={{
-                            fontFamily: 'var(--font-mono)',
-                            fontSize: 'var(--text-xs)',
-                            color: 'var(--muted)',
-                            margin: 0,
-                            height: expanded ? 'auto' : 0,
-                            overflow: 'hidden',
-                        }}
-                    >
-                        This module is being built. Coming soon.
-                    </motion.p>
-                )}
-            </div>
-        </motion.div>
-    );
-
-    if (isLive && mod.to) {
-        return (
-            <Link to={mod.to} style={{ textDecoration: 'none', display: 'block', height: '100%' }} aria-label={`Open ${mod.title} explainer`}>
-                {cardContent}
-            </Link>
-        );
-    }
-
-    return <div style={{ height: '100%' }}>{cardContent}</div>;
-}
-
-// ─── Transformer Visualizer Section ────────────────────────────────────────
-
-const PIPELINE_PILLS = [
-    '01 Input', '02 Tokenize', '03 Token IDs', '04 Embed',
-    '05 Pos Enc', '06 Attention', '07 Residual', '08 LayerNorm',
-    '09 FFN', '10 LM Head', '11 Softmax', '12 Sample',
-];
-
-function TransformerSection() {
-    return (
-        <section
-            aria-labelledby="transformer-heading"
-            style={{
-                paddingBlock: 'var(--s8)',
-                borderBottom: '1px solid var(--stroke)',
-                background: 'var(--bg)',
-            }}
-        >
-            <div className="depth-container" style={{ maxWidth: '900px', margin: '0 auto' }}>
-                <Reveal>
-                    <p style={{
-                        fontFamily: 'var(--font-mono)',
-                        fontSize: 'var(--text-xs)',
-                        color: 'var(--muted)',
-                        textTransform: 'uppercase',
-                        letterSpacing: 'var(--tracking-wider)',
-                    }}>
-                        MODULE 02 — LIVE
-                    </p>
-                </Reveal>
-
-                <Reveal delay={0.05}>
-                    <h2 id="transformer-heading" style={{
-                        fontSize: 'var(--text-3xl)',
-                        fontWeight: 'var(--weight-semibold)',
-                        letterSpacing: 'var(--tracking-tight)',
-                        lineHeight: 'var(--lead-tight)',
-                        color: 'var(--ink)',
-                        marginTop: 'var(--s3)',
-                    }}>
-                        How LLMs Work.
-                    </h2>
-                </Reveal>
-
-                <Reveal delay={0.1}>
-                    <p style={{
-                        fontSize: 'var(--text-md)',
-                        fontWeight: 'var(--weight-light)',
-                        color: 'var(--secondary)',
-                        maxWidth: '52ch',
-                        lineHeight: 'var(--lead-body)',
-                        marginTop: 'var(--s4)',
-                    }}>
-                        Step through every layer of a large language model —
-                        from raw text to sampled token. Interactive, precise,
-                        no handwaving. Every matrix multiply runs in your browser.
-                    </p>
-                </Reveal>
-
-                {/* Pipeline step pills */}
-                <Reveal delay={0.15}>
-                    <div
-                        className="marquee-container"
-                        style={{
-                            overflow: 'hidden',
-                            marginTop: 'var(--s6)',
-                            paddingBottom: '4px',
-                            maskImage: 'linear-gradient(to right, transparent, black 10%, black 90%, transparent)',
-                            WebkitMaskImage: 'linear-gradient(to right, transparent, black 10%, black 90%, transparent)',
-                        }}
-                    >
-                        <div
-                            className="animate-marquee-rtl"
-                            style={{
-                                display: 'flex',
-                                width: 'max-content',
-                            }}
-                        >
-                            {/* Duplicate array for seamless infinite looping */}
-                            {[1, 2].map((groupKey) => (
-                                <div
-                                    key={groupKey}
-                                    style={{
-                                        display: 'flex',
-                                        alignItems: 'center',
-                                        gap: 'var(--s2)',
-                                        paddingRight: 'var(--s6)', // Gap between loops
-                                    }}
-                                >
-                                    {PIPELINE_PILLS.map((step, i) => (
-                                        <div key={step} style={{ display: 'flex', alignItems: 'center', flexShrink: 0 }}>
-                                            <span style={{
-                                                fontFamily: 'var(--font-mono)',
-                                                fontSize: 'var(--text-xs)',
-                                                color: 'var(--primary)',
-                                                background: 'var(--bg-panel)',
-                                                border: '1px solid var(--stroke)',
-                                                borderRadius: 'var(--r-pill)',
-                                                padding: 'var(--s2) var(--s4)',
-                                                whiteSpace: 'nowrap',
-                                            }}>
-                                                {step}
-                                            </span>
-                                            {i < PIPELINE_PILLS.length - 1 && (
-                                                <span style={{
-                                                    color: 'var(--muted)',
-                                                    fontFamily: 'var(--font-sans)',
-                                                    fontSize: 'var(--text-sm)',
-                                                    margin: '0 var(--s2)',
-                                                }}>→</span>
-                                            )}
-                                        </div>
-                                    ))}
-                                    {/* Visual separator end of loop */}
-                                    <div style={{
-                                        width: '1px',
-                                        height: '24px',
-                                        background: 'var(--stroke)',
-                                        margin: '0 var(--s8)', // Large gap here
-                                    }} />
-                                    <span style={{
-                                        fontFamily: 'var(--font-mono)',
-                                        fontSize: 'var(--text-xs)',
-                                        color: 'var(--muted)',
-                                        letterSpacing: 'var(--tracking-wider)',
-                                        marginRight: 'var(--s8)', // Large gap before the loop restarts
-                                        whiteSpace: 'nowrap'
-                                    }}>
-                                        LOOP RESTART
-                                    </span>
-                                </div>
-                            ))}
-                        </div>
-                    </div>
-                </Reveal>
-
-                {/* CTA */}
-                <Reveal delay={0.2}>
-                    <div style={{ marginTop: 'var(--s6)' }}>
-                        <PrimaryButton to="/transformer-simulator" id="transformer-cta" aria-label="Open LLM Visualizer">
-                            Open Visualizer →
-                        </PrimaryButton>
-                    </div>
-                </Reveal>
-            </div>
-        </section>
-    );
-}
-
-// ─── Training Module Section ──────────────────────────────────────────────────
-
-const TRAINING_PILLS = [
-    '01 Dataset', '02 Tokenizer', '03 Architecture', '04 Pre-Train',
-    '05 Eval', '06 SFT', '07 Alignment', '08 Benchmark',
-    '09 Inference', '10 Deployment',
-];
-
-function TrainingSection() {
-    return (
-        <section
-            aria-labelledby="training-heading"
-            style={{
-                paddingBlock: 'var(--s8)',
-                borderBottom: '1px solid var(--stroke)',
-                background: 'var(--bg-panel)',
-            }}
-        >
-            <div className="depth-container" style={{ maxWidth: '900px', margin: '0 auto' }}>
-                <Reveal>
-                    <p style={{
-                        fontFamily: 'var(--font-mono)',
-                        fontSize: 'var(--text-xs)',
-                        color: 'var(--muted)',
-                        textTransform: 'uppercase',
-                        letterSpacing: 'var(--tracking-wider)',
-                    }}>
-                        MODULE 03 — LIVE
-                    </p>
-                </Reveal>
-
-                <Reveal delay={0.05}>
-                    <h2 id="training-heading" style={{
-                        fontSize: 'var(--text-3xl)',
-                        fontWeight: 'var(--weight-semibold)',
-                        letterSpacing: 'var(--tracking-tight)',
-                        lineHeight: 'var(--lead-tight)',
-                        color: 'var(--ink)',
-                        marginTop: 'var(--s3)',
-                    }}>
-                        How AI is Trained.
-                    </h2>
-                </Reveal>
-
-                <Reveal delay={0.1}>
-                    <p style={{
-                        fontSize: 'var(--text-md)',
-                        fontWeight: 'var(--weight-light)',
-                        color: 'var(--secondary)',
-                        maxWidth: '52ch',
-                        lineHeight: 'var(--lead-body)',
-                        marginTop: 'var(--s4)',
-                    }}>
-                        Pre-training, SFT, RLHF, DPO. How a model goes from random weights to something that can actually reason. 10 step interactive walkthrough.
-                    </p>
-                </Reveal>
-
-                {/* Pipeline step pills */}
-                <Reveal delay={0.15}>
-                    <div
-                        className="marquee-container"
-                        style={{
-                            overflow: 'hidden',
-                            marginTop: 'var(--s6)',
-                            paddingBottom: '4px',
-                            maskImage: 'linear-gradient(to right, transparent, black 10%, black 90%, transparent)',
-                            WebkitMaskImage: 'linear-gradient(to right, transparent, black 10%, black 90%, transparent)',
-                        }}
-                    >
-                        <div
-                            className="animate-marquee-rtl"
-                            style={{
-                                display: 'flex',
-                                width: 'max-content',
-                            }}
-                        >
-                            {/* Duplicate array for seamless infinite looping */}
-                            {[1, 2].map((groupKey) => (
-                                <div
-                                    key={groupKey}
-                                    style={{
-                                        display: 'flex',
-                                        alignItems: 'center',
-                                        gap: 'var(--s2)',
-                                        paddingRight: 'var(--s6)', // Gap between loops
-                                    }}
-                                >
-                                    {TRAINING_PILLS.map((step, i) => (
-                                        <div key={step} style={{ display: 'flex', alignItems: 'center', flexShrink: 0 }}>
-                                            <span style={{
-                                                fontFamily: 'var(--font-mono)',
-                                                fontSize: 'var(--text-xs)',
-                                                color: 'var(--primary)',
-                                                background: 'var(--bg)',
-                                                border: '1px solid var(--stroke)',
-                                                borderRadius: 'var(--r-pill)',
-                                                padding: 'var(--s2) var(--s4)',
-                                                whiteSpace: 'nowrap',
-                                            }}>
-                                                {step}
-                                            </span>
-                                            {i < TRAINING_PILLS.length - 1 && (
-                                                <span style={{
-                                                    color: 'var(--muted)',
-                                                    fontFamily: 'var(--font-sans)',
-                                                    fontSize: 'var(--text-sm)',
-                                                    margin: '0 var(--s2)',
-                                                }}>→</span>
-                                            )}
-                                        </div>
-                                    ))}
-                                    {/* Visual separator end of loop */}
-                                    <div style={{
-                                        width: '1px',
-                                        height: '24px',
-                                        background: 'var(--stroke)',
-                                        margin: '0 var(--s8)', // Large gap here
-                                    }} />
-                                    <span style={{
-                                        fontFamily: 'var(--font-mono)',
-                                        fontSize: 'var(--text-xs)',
-                                        color: 'var(--muted)',
-                                        letterSpacing: 'var(--tracking-wider)',
-                                        marginRight: 'var(--s8)', // Large gap before the loop restarts
-                                        whiteSpace: 'nowrap'
-                                    }}>
-                                        LOOP RESTART
-                                    </span>
-                                </div>
-                            ))}
-                        </div>
-                    </div>
-                </Reveal>
-
-                {/* CTA */}
-                <Reveal delay={0.2}>
-                    <div style={{ marginTop: 'var(--s6)' }}>
-                        <SecondaryButton to="/transformer-training-simulator" id="training-cta" aria-label="Open Training Walkthrough">
-                            Open Walkthrough →
-                        </SecondaryButton>
-                    </div>
-                </Reveal>
-            </div>
-        </section>
-    );
-}
-
-// ─── Timeline Section ──────────────────────────────────────────────────
-
-const TIMELINE_STATS = [
-    { label: 'Models tracked', value: `${DATASET_META.models}` },
-    { label: 'Time span', value: '2017–2026' },
-    { label: 'Research + tools', value: `${DATASET_META.papers} papers · ${DATASET_META.tools} tools` },
-];
-
-function TimelineSection() {
-    return (
-        <section
-            aria-labelledby="timeline-heading"
-            style={{
-                paddingBlock: 'var(--s8)',
-                borderBottom: '1px solid var(--stroke)',
-                background: 'var(--bg-panel)',
-            }}
-        >
-            <div className="depth-container" style={{ maxWidth: '900px', margin: '0 auto' }}>
-                <Reveal>
-                    <p style={{
-                        fontFamily: 'var(--font-mono)',
-                        fontSize: 'var(--text-xs)',
-                        color: 'var(--muted)',
-                        textTransform: 'uppercase',
-                        letterSpacing: 'var(--tracking-wider)',
-                    }}>
-                        MODULE 01 — LIVE
-                    </p>
-                </Reveal>
-
-                <Reveal delay={0.05}>
-                    <h2 id="timeline-heading" style={{
-                        fontSize: 'var(--text-3xl)',
-                        fontWeight: 'var(--weight-semibold)',
-                        letterSpacing: 'var(--tracking-tight)',
-                        lineHeight: 'var(--lead-tight)',
-                        color: 'var(--ink)',
-                        marginTop: 'var(--s3)',
-                    }}>
-                        AI Timeline.
-                    </h2>
-                </Reveal>
-
-                <Reveal delay={0.1}>
-                    <p style={{
-                        fontSize: 'var(--text-md)',
-                        fontWeight: 'var(--weight-light)',
-                        color: 'var(--secondary)',
-                        maxWidth: '52ch',
-                        lineHeight: 'var(--lead-body)',
-                        marginTop: 'var(--s4)',
-                    }}>
-                        Every model, every paper, every inflection point — on one zoomable, annotated timeline. Track the evolution of LLMs from the original transformer to today's multimodal giants.
-                    </p>
-                </Reveal>
-
-                {/* Stats */}
-                <Reveal delay={0.15}>
-                    <div style={{ marginTop: 'var(--s5)', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: 'var(--s4)' }}>
-                        {TIMELINE_STATS.map((stat) => (
-                            <div
-                                key={stat.label}
-                                style={{
-                                    display: 'flex',
-                                    flexDirection: 'column',
-                                    gap: 'var(--s2)',
-                                    padding: 'var(--s4)',
-                                    background: 'var(--bg)',
-                                    border: '1px solid var(--stroke)',
-                                    borderRadius: 'var(--r-md)',
-                                }}
-                            >
-                                <span style={{ fontFamily: 'var(--font-mono)', fontSize: 'var(--text-lg)', color: 'var(--ink)', fontWeight: 'var(--weight-medium)' }}>
-                                    {stat.value}
-                                </span>
-                                <span style={{ fontFamily: 'var(--font-mono)', fontSize: 'var(--text-xs)', color: 'var(--muted)' }}>
-                                    {stat.label}
-                                </span>
-                            </div>
-                        ))}
-                    </div>
-                </Reveal>
-
-                {/* CTA */}
-                <Reveal delay={0.2}>
-                    <div style={{ marginTop: 'var(--s6)' }}>
-                        <SecondaryButton to="/timeline" id="timeline-cta" aria-label="Open AI Timeline">
-                            Open Timeline →
-                        </SecondaryButton>
-                    </div>
-                </Reveal>
-            </div>
-        </section>
-    );
-}
-
-// ─── Automation Clock Teaser ────────────────────────────────────────────────
-
-const SECTOR_VIZ_COLORS = [
-    'var(--viz-1)', 'var(--viz-2)', 'var(--viz-3)',
-    'var(--viz-4)', 'var(--viz-5)', 'var(--viz-accent)',
-];
-
-function AutomationClockTeaser() {
-    const yearData = AUTOMATION_DATA[2026];
-    const topSectors = Object.entries(yearData.sectors)
-        .sort(([, a], [, b]) => b.automationPct - a.automationPct)
-        .slice(0, 6);
-
-    const R = 88;
-    const CIRC = 2 * Math.PI * R;
-    const GAP = 4;
-    const totalGap = topSectors.length * GAP;
-    const available = CIRC - totalGap;
-    const totalPct = topSectors.reduce((s, [, d]) => s + d.automationPct, 0);
-
-    let cumOffset = 0;
-    const segments = topSectors.map(([, sector], i) => {
-        const arcLen = (sector.automationPct / totalPct) * available;
-        const offset = cumOffset;
-        cumOffset += arcLen + GAP;
-        return {
-            label: sector.label,
-            pct: sector.automationPct,
-            arcLen,
-            dashOffset: -offset,
-            color: SECTOR_VIZ_COLORS[i],
-        };
-    });
-
-    const clockStats = [
-        {
-            label: 'Roles exposed (scenario)',
-            value: yearData.globalJobsAtRisk >= 1_000_000
-                ? `${(yearData.globalJobsAtRisk / 1_000_000).toFixed(0)}M`
-                : `${(yearData.globalJobsAtRisk / 1_000).toFixed(0)}K`,
-        },
-        { label: 'Work-hour potential', value: `${yearData.tasksAutomatable}%` },
-        { label: 'Sources cited', value: '10+' },
+    const stats = [
+        { label: 'AI models', value: DATASET_META.models },
+        { label: 'Research papers', value: DATASET_META.papers },
+        { label: 'Dev tools', value: DATASET_META.tools },
+        { label: 'Data reviewed', value: formatDate(DATASET_META.lastUpdated, 'short') },
     ];
 
     return (
-        <section
-            aria-labelledby="clock-heading"
-            style={{
-                paddingBlock: 'var(--s8)',
-                borderBottom: '1px solid var(--stroke)',
-                background: 'var(--bg-panel)',
-            }}
-        >
-            <div className="depth-container" style={{ maxWidth: '900px', margin: '0 auto' }}>
-                <div className="clock-layout" style={{
-                    display: 'grid',
-                    gridTemplateColumns: '1fr auto',
-                    gap: 'var(--s7)',
-                    alignItems: 'center',
-                }}>
-                    {/* Left — text */}
-                    <div>
-                        <Reveal>
-                            <p style={{
-                                fontFamily: 'var(--font-mono)',
-                                fontSize: 'var(--text-xs)',
-                                color: 'var(--muted)',
-                                textTransform: 'uppercase',
-                                letterSpacing: 'var(--tracking-wider)',
-                            }}>
-                                MODULE 05 — THE AI IMPACT INDEX
-                            </p>
-                        </Reveal>
-
-                        <Reveal delay={0.05}>
-                            <h2 id="clock-heading" style={{
-                                fontSize: 'var(--text-2xl)',
-                                fontWeight: 'var(--weight-semibold)',
-                                letterSpacing: 'var(--tracking-snug)',
-                                color: 'var(--ink)',
-                                marginTop: 'var(--s3)',
-                            }}>
-                                Jobs, sectors, and projections.
-                            </h2>
-                        </Reveal>
-
-                        <Reveal delay={0.1}>
-                            <p style={{
-                                fontSize: 'var(--text-sm)',
-                                fontWeight: 'var(--weight-light)',
-                                color: 'var(--secondary)',
-                                lineHeight: 'var(--lead-body)',
-                                marginTop: 'var(--s4)',
-                                maxWidth: '44ch',
-                            }}>
-                                Explore task exposure by sector and illustrative labor-market scenarios
-                                from 2022 through 2030. Estimates and projections are clearly labeled,
-                                with sources from the ILO, McKinsey, WEF, IMF, and more.
-                            </p>
-                        </Reveal>
-
-                        {/* Stats */}
-                        <Reveal delay={0.15}>
-                            <div style={{ marginTop: 'var(--s5)' }}>
-                                {clockStats.map((stat, i) => (
-                                    <div
-                                        key={stat.label}
-                                        style={{
-                                            display: 'flex',
-                                            justifyContent: 'space-between',
-                                            alignItems: 'center',
-                                            padding: 'var(--s3) 0',
-                                            borderBottom: i < clockStats.length - 1 ? '1px solid var(--stroke)' : 'none',
-                                            borderTop: i === 0 ? '1px solid var(--stroke)' : 'none',
-                                        }}
-                                    >
-                                        <span style={{ fontFamily: 'var(--font-mono)', fontSize: 'var(--text-xs)', color: 'var(--muted)' }}>
-                                            {stat.label}
-                                        </span>
-                                        <span style={{ fontFamily: 'var(--font-mono)', fontSize: 'var(--text-xs)', color: 'var(--ink)', fontWeight: 'var(--weight-medium)' }}>
-                                            {stat.value}
-                                        </span>
-                                    </div>
-                                ))}
-                            </div>
-                        </Reveal>
-
-                        <Reveal delay={0.2}>
-                            <div style={{ marginTop: 'var(--s6)' }}>
-                                <SecondaryButton to="/automation-clock" id="clock-cta" aria-label="Open AI Impact Dashboard">
-                                    Open Dashboard →
-                                </SecondaryButton>
-                            </div>
-                        </Reveal>
+        <section aria-labelledby="hero-heading" className="home-hero">
+            <div className="container home-hero-grid">
+                <div className="home-hero-copy">
+                    <p className="eyebrow">
+                        <span className="eyebrow-dot" aria-hidden="true" />
+                        Free · Open source · Runs in your browser
+                    </p>
+                    <h1 id="hero-heading" className="home-hero-title">
+                        See how AI <span className="home-hero-soft">actually</span> works.
+                    </h1>
+                    <p className="home-hero-lede">
+                        An interactive guide to modern AI for anyone curious. Watch a real (tiny) language model
+                        think step by step, learn how models are trained and tested, and explore every major model
+                        and paper on one timeline — no sign-up, no paywall, no maths degree required.
+                    </p>
+                    <div className="home-hero-ctas">
+                        <ButtonLink to="/transformer-simulator" id="hero-cta-primary">
+                            Start with How LLMs Work <ArrowRightIcon size={16} />
+                        </ButtonLink>
+                        <ButtonLink to="/timeline" variant="secondary" id="hero-cta-secondary">
+                            Browse the AI timeline
+                        </ButtonLink>
                     </div>
-
-                    {/* Right — data-driven sector visualization */}
-                    <Reveal delay={0.1}>
-                        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 'var(--s3)' }}>
-                            <svg
-                                width="240"
-                                height="240"
-                                viewBox="0 0 240 240"
-                                aria-label={`AI Impact Index: ${yearData.tasksAutomatable}% estimated work-hour automation potential across 18 sectors`}
-                            >
-                                {/* Outer ring */}
-                                <circle
-                                    cx="120"
-                                    cy="120"
-                                    r="108"
-                                    fill="var(--bg-panel)"
-                                    stroke="var(--stroke-dark)"
-                                    strokeWidth="1"
-                                />
-
-                                {/* Background track */}
-                                <circle
-                                    cx="120"
-                                    cy="120"
-                                    r={R}
-                                    fill="none"
-                                    stroke="var(--stroke)"
-                                    strokeWidth="14"
-                                    transform="rotate(-90 120 120)"
-                                />
-
-                                {/* Sector arc segments */}
-                                {segments.map((seg, i) => (
-                                    <motion.circle
-                                        key={i}
-                                        cx="120"
-                                        cy="120"
-                                        r={R}
-                                        fill="none"
-                                        stroke={seg.color}
-                                        strokeWidth="14"
-                                        strokeLinecap="butt"
-                                        strokeDasharray={`${seg.arcLen} ${CIRC - seg.arcLen}`}
-                                        strokeDashoffset={seg.dashOffset}
-                                        transform="rotate(-90 120 120)"
-                                        initial={{ strokeDasharray: `0 ${CIRC}` }}
-                                        animate={{ strokeDasharray: `${seg.arcLen} ${CIRC - seg.arcLen}` }}
-                                        transition={{ duration: 0.8, delay: 0.3 + i * 0.08, ease: [0.2, 0, 0, 1] }}
-                                    />
-                                ))}
-
-                                {/* Center text */}
-                                <text
-                                    x="120"
-                                    y="112"
-                                    textAnchor="middle"
-                                    fontSize="28"
-                                    fontWeight="600"
-                                    fontFamily="var(--font-sans)"
-                                    fill="var(--ink)"
-                                >
-                                    {yearData.tasksAutomatable}%
-                                </text>
-                                <text
-                                    x="120"
-                                    y="130"
-                                    textAnchor="middle"
-                                    fontSize="9"
-                                    fontFamily="var(--font-mono)"
-                                    fill="var(--muted)"
-                                >
-                                    tasks automatable
-                                </text>
-                                <text
-                                    x="120"
-                                    y="144"
-                                    textAnchor="middle"
-                                    fontSize="9"
-                                    fontFamily="var(--font-mono)"
-                                    fill="var(--muted)"
-                                >
-                                    across 18 sectors
-                                </text>
-                            </svg>
-
-                            {/* Mini sector legend */}
-                            <div style={{
-                                display: 'grid',
-                                gridTemplateColumns: '1fr 1fr',
-                                gap: '2px 12px',
-                                maxWidth: '260px',
-                            }}>
-                                {segments.map((seg, i) => (
-                                    <div key={i} style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
-                                        <span style={{
-                                            width: '6px',
-                                            height: '6px',
-                                            borderRadius: '50%',
-                                            background: seg.color,
-                                            flexShrink: 0,
-                                        }} />
-                                        <span style={{
-                                            fontFamily: 'var(--font-mono)',
-                                            fontSize: '9px',
-                                            color: 'var(--muted)',
-                                            whiteSpace: 'nowrap',
-                                        }}>
-                                            {seg.label.split('/')[0].trim()} {seg.pct}%
-                                        </span>
-                                    </div>
-                                ))}
+                    <dl className="home-hero-stats">
+                        {stats.map((s) => (
+                            <div key={s.label} className="stat">
+                                <dt className="stat-label">{s.label}</dt>
+                                <dd className="stat-value">{s.value}</dd>
                             </div>
-                        </div>
-                    </Reveal>
+                        ))}
+                    </dl>
+                </div>
+                <div className="home-hero-visual">
+                    <HeroAttention />
                 </div>
             </div>
-            <style>{`
-                @media (max-width: 720px) {
-                    .clock-layout { grid-template-columns: 1fr !important; }
-                }
-            `}</style>
         </section>
     );
 }
 
-// ─── Benchmark Module Teaser ────────────────────────────────────────────────
+// ─── Modules ───────────────────────────────────────────────────────────────
 
-const BENCHMARK_STATS = [
-    { label: 'MMLU (General)', value: '88.7%' },
-    { label: 'HumanEval (Code)', value: '84.1%' },
-    { label: 'MATH (Reasoning)', value: '54.2%' },
-];
-const BENCHMARK_STATS_CAPTION = `Curated snapshot · ${BENCHMARK_MODELS.length} models`;
+const LEARNING_PATH = ['simulator', 'training', 'benchmarks', 'timeline', 'impact'] as const;
 
-function BenchmarkTeaser() {
+function ModulesSection() {
+    const pathModules = LEARNING_PATH.map((id) => MODULES.find((m) => m.id === id)!);
+
     return (
-        <section
-            aria-labelledby="benchmark-heading"
-            style={{
-                paddingBlock: 'var(--s8)',
-                borderBottom: '1px solid var(--stroke)',
-                background: 'var(--bg)',
-            }}
-        >
-            <div className="depth-container" style={{ maxWidth: '900px', margin: '0 auto' }}>
-                <div className="benchmark-layout" style={{
-                    display: 'grid',
-                    gridTemplateColumns: '1fr auto',
-                    gap: 'var(--s7)',
-                    alignItems: 'center',
-                }}>
-                    {/* Left — text */}
-                    <div>
-                        <Reveal>
-                            <p style={{
-                                fontFamily: 'var(--font-mono)',
-                                fontSize: 'var(--text-xs)',
-                                color: 'var(--muted)',
-                                textTransform: 'uppercase',
-                                letterSpacing: 'var(--tracking-wider)',
-                            }}>
-                                MODULE 04 — BENCHMARKS & LEADERBOARD
-                            </p>
-                        </Reveal>
-
-                        <Reveal delay={0.05}>
-                            <h2 id="benchmark-heading" style={{
-                                fontSize: 'var(--text-2xl)',
-                                fontWeight: 'var(--weight-semibold)',
-                                letterSpacing: 'var(--tracking-snug)',
-                                color: 'var(--ink)',
-                                marginTop: 'var(--s3)',
-                            }}>
-                                Performance, verified.
-                            </h2>
-                        </Reveal>
-
-                        <Reveal delay={0.1}>
-                            <p style={{
-                                fontSize: 'var(--text-sm)',
-                                fontWeight: 'var(--weight-light)',
-                                color: 'var(--secondary)',
-                                lineHeight: 'var(--lead-body)',
-                                marginTop: 'var(--s4)',
-                                maxWidth: '44ch',
-                            }}>
-                                Compare a curated set of models across knowledge, coding, math, science,
-                                human preference, cost, and speed. Every metric includes context because
-                                benchmark scores are useful proxies—not a universal intelligence ranking.
-                            </p>
-                        </Reveal>
-
-                        {/* Stats */}
-                        <Reveal delay={0.15}>
-                            <p style={{ fontFamily: 'var(--font-mono)', fontSize: 'var(--text-2xs)', color: 'var(--muted)', marginTop: 'var(--s5)', marginBottom: 'var(--s2)' }}>
-                                {BENCHMARK_STATS_CAPTION}
-                            </p>
-                            <div style={{ marginTop: 'var(--s2)' }}>
-                                {BENCHMARK_STATS.map((stat, i) => (
-                                    <div
-                                        key={stat.label}
-                                        style={{
-                                            display: 'flex',
-                                            justifyContent: 'space-between',
-                                            alignItems: 'center',
-                                            padding: 'var(--s3) 0',
-                                            borderBottom: i < BENCHMARK_STATS.length - 1 ? '1px solid var(--stroke)' : 'none',
-                                            borderTop: i === 0 ? '1px solid var(--stroke)' : 'none',
-                                        }}
-                                    >
-                                        <span style={{ fontFamily: 'var(--font-mono)', fontSize: 'var(--text-xs)', color: 'var(--muted)' }}>
-                                            {stat.label}
-                                        </span>
-                                        <span style={{ fontFamily: 'var(--font-mono)', fontSize: 'var(--text-xs)', color: 'var(--ink)', fontWeight: 'var(--weight-medium)' }}>
-                                            {stat.value}
-                                        </span>
-                                    </div>
-                                ))}
-                            </div>
-                        </Reveal>
-
-                        <Reveal delay={0.2}>
-                            <div style={{ marginTop: 'var(--s4)' }}>
-                                <PrimaryButton to="/benchmarks" aria-label="View the full benchmarks leaderboard">
-                                    View the full leaderboard →
-                                </PrimaryButton>
-                            </div>
-                        </Reveal>
+        <section id="modules" aria-labelledby="modules-heading" className="section">
+            <div className="container">
+                <Reveal>
+                    <div className="section-head">
+                        <p className="eyebrow">Five modules</p>
+                        <h2 id="modules-heading" className="section-title home-section-title">Pick where to start</h2>
+                        <p className="section-desc">
+                            Each module stands on its own. If you are new to AI, the suggested path below builds up
+                            from how a model works to what it means for the real world.
+                        </p>
                     </div>
+                </Reveal>
 
-                    {/* Right — visual */}
-                    <Reveal delay={0.1}>
-                        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 'var(--s3)' }}>
-                            <svg
-                                width="240"
-                                height="240"
-                                viewBox="0 0 240 240"
-                                aria-label="Benchmark performance visualization"
-                            >
-                                {/* Base circles */}
-                                <circle cx="120" cy="120" r="100" fill="none" stroke="var(--stroke)" strokeWidth="0.5" strokeDasharray="4 4" />
-                                <circle cx="120" cy="120" r="70" fill="none" stroke="var(--stroke)" strokeWidth="0.5" strokeDasharray="4 4" />
-                                <circle cx="120" cy="120" r="40" fill="none" stroke="var(--stroke)" strokeWidth="0.5" strokeDasharray="4 4" />
+                <Reveal delay={0.05}>
+                    <ol className="home-path" aria-label="Suggested learning path for beginners">
+                        {pathModules.map((m, i) => (
+                            <li key={m.id}>
+                                <Link to={m.route} className="home-path-step">
+                                    <span className="home-path-idx">{i + 1}</span>
+                                    {m.title}
+                                </Link>
+                                {i < pathModules.length - 1 && <span className="home-path-arrow" aria-hidden="true">→</span>}
+                            </li>
+                        ))}
+                    </ol>
+                </Reveal>
 
-                                {/* Pulse Radar Visual */}
-                                <motion.circle
-                                    cx="120"
-                                    cy="120"
-                                    r="100"
-                                    fill="none"
-                                    stroke="var(--ink)"
-                                    strokeWidth="1"
-                                    initial={{ scale: 0, opacity: 0.5 }}
-                                    animate={{ scale: 1, opacity: 0 }}
-                                    transition={{ duration: 2, repeat: Infinity, ease: "easeOut" }}
-                                />
-                                <motion.circle
-                                    cx="120"
-                                    cy="120"
-                                    r="100"
-                                    fill="none"
-                                    stroke="var(--ink)"
-                                    strokeWidth="1"
-                                    initial={{ scale: 0, opacity: 0.5 }}
-                                    animate={{ scale: 1, opacity: 0 }}
-                                    transition={{ duration: 2, delay: 1, repeat: Infinity, ease: "easeOut" }}
-                                />
-
-                                {/* Metric Bars (Horizontal) */}
-                                {[40, 70, 100].map((r) => (
-                                    <motion.line
-                                        key={r}
-                                        x1="120"
-                                        y1={120 - r}
-                                        x2="120"
-                                        y2={120 + r}
-                                        stroke="var(--stroke-dark)"
-                                        strokeWidth="1"
-                                        initial={{ opacity: 0 }}
-                                        animate={{ opacity: 0.3 }}
-                                    />
-                                ))}
-
-                                {/* The "Data" pulse dots */}
-                                <motion.circle
-                                    cx="120"
-                                    cy="60"
-                                    r="4"
-                                    fill="var(--ink)"
-                                    animate={{ y: [0, -4, 0] }}
-                                    transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
-                                />
-                                <motion.circle
-                                    cx="180"
-                                    cy="120"
-                                    r="3"
-                                    fill="var(--muted)"
-                                    animate={{ x: [0, 4, 0] }}
-                                    transition={{ duration: 2, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
-                                />
-                                <motion.circle
-                                    cx="60"
-                                    cy="120"
-                                    r="3"
-                                    fill="var(--muted)"
-                                    animate={{ x: [0, -4, 0] }}
-                                    transition={{ duration: 2, repeat: Infinity, ease: "easeInOut", delay: 0.2 }}
-                                />
-
-                                {/* Center Label */}
-                                <text
-                                    x="120"
-                                    y="125"
-                                    textAnchor="middle"
-                                    fontSize="10"
-                                    fontFamily="var(--font-mono)"
-                                    fill="var(--ink)"
-                                    letterSpacing="1"
-                                >
-                                    VERIFIED
-                                </text>
-                            </svg>
-
-                            <p style={{
-                                fontFamily: 'var(--font-mono)',
-                                fontSize: 'var(--text-xs)',
-                                color: 'var(--secondary)',
-                                textAlign: 'center',
-                                maxWidth: '240px',
-                            }}>
-                                Benchmark validity check: Passed
-                            </p>
-                        </div>
-                    </Reveal>
+                <div className="home-modules">
+                    {MODULES.map((m, i) => (
+                        <Reveal key={m.id} delay={0.04 * i} style={{ height: '100%' }}>
+                            <Link to={m.route} className="card card-interactive home-module" aria-label={`${m.title}: ${m.summary}`}>
+                                <div className="home-module-top">
+                                    <span className="home-module-num">{m.num}</span>
+                                    <span className="chip chip-outline">{m.time}</span>
+                                </div>
+                                <h3 className="home-module-title">{m.title}</h3>
+                                <p className="home-module-summary">{m.summary}</p>
+                                <p className="home-module-learn">
+                                    <span className="eyebrow">You’ll learn</span>
+                                    {m.learn}
+                                </p>
+                                <span className="home-module-go">
+                                    Open <ArrowRightIcon size={15} />
+                                </span>
+                            </Link>
+                        </Reveal>
+                    ))}
                 </div>
             </div>
-            <style>{`
-                @media (max-width: 720px) {
-                    .benchmark-layout { grid-template-columns: 1fr !important; }
-                }
-            `}</style>
         </section>
     );
 }
 
-// ─── Pipeline Steps Preview ────────────────────────────────────────────────
+// ─── Latest in the timeline (dataset loaded only when scrolled into view) ──
 
-const SCALE_CHIPS = [
-    { value: '3,200+', label: 'days of progress' },
-    { value: '42', label: 'landmark papers' },
-    { value: '1', label: 'zoomable timeline' },
-    { value: '∞', label: 'potential to learn' },
+interface LatestItem {
+    name: string;
+    company: string;
+    type: string;
+    date: string;
+}
+
+function useLatestModels(ref: React.RefObject<HTMLElement | null>) {
+    const [items, setItems] = useState<LatestItem[] | null>(null);
+
+    useEffect(() => {
+        const el = ref.current;
+        if (!el) return;
+        let cancelled = false;
+        const load = () => {
+            import('@/data/LLM_Timeline_Dataset.json').then((mod) => {
+                if (cancelled) return;
+                const models = (mod.default as { models: Array<{ model_name: string; company: string; model_type: string; release_date: string }> }).models;
+                const latest = [...models]
+                    .sort((a, b) => b.release_date.localeCompare(a.release_date))
+                    .slice(0, 6)
+                    .map((m) => ({ name: m.model_name, company: m.company, type: m.model_type, date: m.release_date }));
+                setItems(latest);
+            });
+        };
+        const io = new IntersectionObserver((entries) => {
+            if (entries.some((e) => e.isIntersecting)) {
+                io.disconnect();
+                load();
+            }
+        }, { rootMargin: '300px' });
+        io.observe(el);
+        return () => {
+            cancelled = true;
+            io.disconnect();
+        };
+    }, [ref]);
+
+    return items;
+}
+
+function LatestSection() {
+    const ref = useRef<HTMLElement>(null);
+    const items = useLatestModels(ref);
+
+    return (
+        <section ref={ref} aria-labelledby="latest-heading" className="section home-latest">
+            <div className="container">
+                <Reveal>
+                    <div className="home-latest-head">
+                        <div className="section-head" style={{ marginBottom: 0 }}>
+                            <p className="eyebrow">What’s new</p>
+                            <h2 id="latest-heading" className="section-title home-section-title">Latest additions to the timeline</h2>
+                            <p className="section-desc">
+                                The newest model releases in our dataset, last reviewed {formatDate(DATASET_META.lastUpdated, 'long')}.
+                                Spotted something missing or wrong? The data is plain JSON — anyone can fix it.
+                            </p>
+                        </div>
+                        <ButtonLink to="/timeline" variant="secondary" size="sm">See all {DATASET_META.models} models</ButtonLink>
+                    </div>
+                </Reveal>
+
+                <ul className="home-latest-list">
+                    {(items ?? Array.from({ length: 6 }, () => null)).map((item, i) => (
+                        <li key={item ? item.name + item.date : i}>
+                            {item ? (
+                                <Link to={`/timeline?item=${slugify(item.name)}`} className="home-latest-item">
+                                    <span className="home-latest-date">{formatDate(item.date, 'long')}</span>
+                                    <span className="home-latest-name">{item.name}</span>
+                                    <span className="home-latest-meta">{item.company} · {item.type}</span>
+                                </Link>
+                            ) : (
+                                <div className="home-latest-item" aria-hidden="true">
+                                    <span className="skeleton" style={{ width: 90, height: 12 }} />
+                                    <span className="skeleton" style={{ width: '70%', height: 18, marginTop: 6 }} />
+                                    <span className="skeleton" style={{ width: '50%', height: 12, marginTop: 6 }} />
+                                </div>
+                            )}
+                        </li>
+                    ))}
+                </ul>
+            </div>
+        </section>
+    );
+}
+
+// ─── Principles ────────────────────────────────────────────────────────────
+
+const PRINCIPLES = [
+    {
+        title: 'Real math, tiny model',
+        text: 'The simulator runs an actual transformer forward pass in your browser. It is small and untrained, so the predictions are random — but every number and shape is computed, not faked.',
+    },
+    {
+        title: 'Sourced, dated data',
+        text: 'Benchmark scores and prices link to the lab or leaderboard that published them. Missing numbers stay blank instead of being guessed.',
+    },
+    {
+        title: 'Honest about uncertainty',
+        text: 'Projections are labelled as scenarios, exposure is not presented as job loss, and every benchmark comes with what it cannot tell you.',
+    },
+    {
+        title: 'Open and editable',
+        text: 'MIT-licensed code and plain-JSON datasets. Found an outdated entry? Edit one file, run the checks, and open a pull request.',
+    },
 ];
 
-function ScaleOfAISection() {
+function PrinciplesSection() {
     return (
-        <section
-            aria-label="The Scale of AI"
-            style={{
-                paddingBlock: 'var(--s8)',
-                borderBottom: '1px solid var(--stroke)',
-                background: 'var(--bg)',
-            }}
-        >
-            <div className="depth-container" style={{ maxWidth: '1100px', margin: '0 auto' }}>
-                <div style={{
-                    display: 'grid',
-                    gridTemplateColumns: '1.2fr 1fr',
-                    gap: 'var(--s8)',
-                    alignItems: 'center',
-                }} className="scale-grid">
-                    <div>
-                        <Reveal>
-                            <p style={{
-                                fontFamily: 'var(--font-mono)',
-                                fontSize: 'var(--text-xs)',
-                                color: 'var(--muted)',
-                                textTransform: 'uppercase',
-                                letterSpacing: 'var(--tracking-wider)',
-                            }}>
-                                THE SCALE OF AI
-                            </p>
-
-                            <h2 style={{
-                                fontSize: 'var(--text-3xl)',
-                                fontWeight: 'var(--weight-semibold)',
-                                letterSpacing: 'var(--tracking-tight)',
-                                color: 'var(--ink)',
-                                marginTop: 'var(--s3)',
-                                lineHeight: 'var(--lead-tight)',
-                            }}>
-                                History in high definition.
-                            </h2>
-                        </Reveal>
-
-                        <Reveal delay={0.1}>
-                            <p style={{
-                                fontSize: 'var(--text-md)',
-                                fontWeight: 'var(--weight-light)',
-                                color: 'var(--secondary)',
-                                maxWidth: '50ch',
-                                lineHeight: 'var(--lead-body)',
-                                marginTop: 'var(--s5)',
-                            }}>
-                                From the first perceptron to the multi-trillion parameter giants of today, the scale of AI shift is measured not just in compute, but in the exponential growth of human-readable knowledge.
-                            </p>
-                        </Reveal>
-
-                        <Reveal delay={0.15}>
-                            <div style={{
-                                display: 'grid',
-                                gridTemplateColumns: 'repeat(2, 1fr)',
-                                gap: 'var(--s3)',
-                                marginTop: 'var(--s6)',
-                            }}>
-                                {SCALE_CHIPS.map((chip) => (
-                                    <div
-                                        key={chip.label}
-                                        style={{
-                                            display: 'flex',
-                                            flexDirection: 'column',
-                                            padding: 'var(--s4)',
-                                            background: 'var(--bg-panel)',
-                                            border: '1px solid var(--stroke)',
-                                            borderRadius: 'var(--r-md)',
-                                        }}
-                                    >
-                                        <span style={{
-                                            fontFamily: 'var(--font-mono)',
-                                            fontSize: 'var(--text-xl)',
-                                            fontWeight: 'var(--weight-medium)',
-                                            color: 'var(--ink)',
-                                        }}>
-                                            {chip.value}
-                                        </span>
-                                        <span style={{
-                                            fontFamily: 'var(--font-mono)',
-                                            fontSize: 'var(--text-xs)',
-                                            color: 'var(--muted)',
-                                            marginTop: 'var(--s1)',
-                                        }}>
-                                            {chip.label}
-                                        </span>
-                                    </div>
-                                ))}
+        <section aria-labelledby="principles-heading" className="section">
+            <div className="container">
+                <Reveal>
+                    <div className="section-head">
+                        <p className="eyebrow">How AI Beacon works</p>
+                        <h2 id="principles-heading" className="section-title home-section-title">Built to be trusted, not just looked at</h2>
+                    </div>
+                </Reveal>
+                <div className="home-principles">
+                    {PRINCIPLES.map((p, i) => (
+                        <Reveal key={p.title} delay={0.04 * i}>
+                            <div className="home-principle">
+                                <span className="home-principle-num">0{i + 1}</span>
+                                <h3>{p.title}</h3>
+                                <p>{p.text}</p>
                             </div>
                         </Reveal>
-
-                        <Reveal delay={0.2}>
-                            <p style={{
-                                fontFamily: 'var(--font-mono)',
-                                fontSize: 'var(--text-xs)',
-                                color: 'var(--muted)',
-                                marginTop: 'var(--s6)',
-                            }}>
-                                An interactive guide to the technological revolution, with source-linked dataset updates.
-                            </p>
-                        </Reveal>
-                    </div>
-
-                    <div style={{ display: 'flex', justifyContent: 'center' }}>
-                        <ScaleVisual />
-                    </div>
+                    ))}
                 </div>
             </div>
-            <style>{`
-                @media (max-width: 1024px) {
-                    .scale-grid {
-                        grid-template-columns: 1fr !important;
-                        gap: var(--s6) !important;
-                    }
-                }
-            `}</style>
         </section>
     );
 }
 
-function PipelinePreview() {
+// ─── Contribute ────────────────────────────────────────────────────────────
+
+function ContributeSection() {
     return (
-        <section
-            aria-label="Community & Contributing"
-            style={{
-                paddingBlock: 'var(--s7)',
-                borderBottom: '1px solid var(--stroke)',
-                background: 'var(--bg-panel)',
-            }}
-        >
-            <div className="depth-container" style={{ maxWidth: '1100px', margin: '0 auto' }}>
-                <div style={{
-                    display: 'grid',
-                    gridTemplateColumns: 'minmax(0, 1fr) minmax(300px, 400px)',
-                    gap: 'var(--s8)',
-                    alignItems: 'center',
-                }} className="community-grid">
-                    <div className="community-text-content">
-                        <Reveal>
-                            <p style={{
-                                fontFamily: 'var(--font-mono)',
-                                fontSize: 'var(--text-xs)',
-                                color: 'var(--muted)',
-                                textTransform: 'uppercase',
-                                letterSpacing: 'var(--tracking-wider)',
-                            }}>
-                                OPEN SOURCE
+        <section aria-labelledby="contribute-heading" className="section">
+            <div className="container">
+                <Reveal>
+                    <div className="card home-contribute">
+                        <div>
+                            <p className="eyebrow">Open source</p>
+                            <h2 id="contribute-heading" className="section-title home-section-title">Help keep it accurate</h2>
+                            <p className="section-desc" style={{ maxWidth: '58ch' }}>
+                                AI moves fast. If a release is missing, a number is out of date, or an explanation could be
+                                clearer, open an issue or a pull request. The data guide explains exactly which file to edit.
                             </p>
-
-                            <h2 style={{
-                                fontSize: 'var(--text-xl)',
-                                fontWeight: 'var(--weight-semibold)',
-                                letterSpacing: 'var(--tracking-snug)',
-                                color: 'var(--ink)',
-                                marginTop: 'var(--s3)',
-                            }}>
-                                Build with us.
-                            </h2>
-                        </Reveal>
-
-                        <Reveal delay={0.1}>
-                            <p style={{
-                                fontSize: 'var(--text-sm)',
-                                fontWeight: 'var(--weight-light)',
-                                color: 'var(--secondary)',
-                                maxWidth: '54ch',
-                                lineHeight: 'var(--lead-body)',
-                                marginTop: 'var(--s4)',
-                            }}>
-                                This project is 100% open source and community-driven. From datasets to interactive visualizers, everything is legible by design. Contributions are warmly welcomed and encouraged — whether you're adding to the datasets or forking the engine!
-                            </p>
-                        </Reveal>
-
-                        <Reveal delay={0.2}>
-                            <div style={{ marginTop: 'var(--s6)' }}>
-                                <SecondaryButton href={SITE_CONFIG.githubUrl} aria-label="AI Beacon on GitHub">
-                                    Join us on GitHub
-                                </SecondaryButton>
-                            </div>
-                        </Reveal>
-                    </div>
-
-                    <Reveal delay={0.25}>
-                        <div className="community-visual-wrapper">
-                            <OpenSourceVisual />
                         </div>
-                    </Reveal>
-                </div>
+                        <div className="home-contribute-ctas">
+                            <ButtonLink href={SITE_CONFIG.githubUrl}>
+                                <GitHubIcon size={16} /> View on GitHub
+                            </ButtonLink>
+                            <ButtonLink href={`${SITE_CONFIG.githubUrl}/blob/main/docs/DATA-GUIDE.md`} variant="secondary">
+                                Read the data guide
+                            </ButtonLink>
+                        </div>
+                    </div>
+                </Reveal>
             </div>
-            <style>{`
-                @media (max-width: 900px) {
-                    .community-grid {
-                        grid-template-columns: 1fr !important;
-                        gap: var(--s6) !important;
-                    }
-                    .community-visual-wrapper {
-                        order: -1;
-                        margin-bottom: var(--s4);
-                    }
-                }
-            `}</style>
         </section>
     );
 }
 
-// ─── Home ──────────────────────────────────────────────────────────────────
+// ─── Page ──────────────────────────────────────────────────────────────────
 
 export function Home() {
-    const homeStructuredData = {
+    const structuredData = {
         '@context': 'https://schema.org',
-        '@type': 'SoftwareApplication',
-        'name': 'AI Beacon LLM Visualizer',
-        'operatingSystem': 'Web',
-        'applicationCategory': 'EducationalApplication',
-        'description': 'An interactive, step-by-step visualizer for Large Language Models (Transformers). Explore tokenization, attention, and sampling.',
-        'offers': {
-            '@type': 'Offer',
-            'price': '0',
-            'priceCurrency': 'USD',
-        },
-        'author': {
-            '@type': 'Organization',
-            'name': 'AI Beacon Project',
-        },
+        '@type': 'WebSite',
+        name: 'AI Beacon',
+        url: SITE_CONFIG.baseUrl,
+        description: 'A free, open-source, interactive guide to how modern AI works.',
+        inLanguage: 'en',
     };
 
     return (
-        <div style={{ minHeight: '100vh', background: 'var(--bg)' }}>
-            <SEO structuredData={homeStructuredData} />
+        <div className="page">
+            <SEO
+                canonical={`${SITE_CONFIG.baseUrl}/`}
+                structuredData={structuredData}
+            />
             <Nav />
-            <main id="main">
+            <main id="main" className="page-main">
                 <Hero />
-                <ModuleGrid />
-                <TimelineSection />
-                <TransformerSection />
-                <TrainingSection />
-                <BenchmarkTeaser />
-                <AutomationClockTeaser />
-                <ScaleOfAISection />
-                <PipelinePreview />
+                <ModulesSection />
+                <LatestSection />
+                <PrinciplesSection />
+                <ContributeSection />
             </main>
             <Footer />
-            <style>{`
-                @keyframes marquee-rtl {
-                    from { transform: translateX(0); }
-                    to { transform: translateX(-50%); }
-                }
-
-                .animate-marquee-rtl {
-                    animation: marquee-rtl 25s linear infinite;
-                }
-
-                .marquee-container:hover .animate-marquee-rtl {
-                    animation-play-state: paused;
-                }
-
-                /* Respect prefers-reduced-motion */
-                @media (prefers-reduced-motion: reduce) {
-                    .animate-marquee-rtl {
-                        animation: none !important;
-                        transform: translateX(0) !important;
-                    }
-                }
-            `}</style>
+            <style>{HOME_CSS}</style>
         </div>
     );
 }
+
+const HOME_CSS = `
+.home-hero { padding-block: var(--s8) var(--s7); border-bottom: 1px solid var(--stroke); }
+.home-hero-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+    gap: var(--s7);
+    align-items: center;
+}
+.home-hero-copy { display: flex; flex-direction: column; gap: var(--s5); }
+.home-hero-title {
+    font-size: clamp(2.75rem, 6vw, var(--text-hero));
+    line-height: var(--lead-tight);
+    letter-spacing: var(--tracking-tight);
+    font-weight: var(--weight-semibold);
+}
+.home-hero-soft { color: var(--muted); }
+.home-hero-lede { font-size: var(--text-md); color: var(--secondary); max-width: 56ch; }
+.home-hero-ctas { display: flex; flex-wrap: wrap; gap: var(--s3); }
+.home-hero-stats {
+    display: grid;
+    grid-template-columns: repeat(4, auto);
+    justify-content: start;
+    gap: var(--s6);
+    padding-top: var(--s5);
+    border-top: 1px solid var(--stroke);
+}
+.home-section-title { font-size: var(--text-2xl); letter-spacing: var(--tracking-tight); }
+
+.home-path {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--s2);
+    margin-bottom: var(--s5);
+    font-size: var(--text-xs);
+}
+.home-path li { display: inline-flex; align-items: center; gap: var(--s2); }
+.home-path-step {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--s2);
+    padding: 6px 12px 6px 6px;
+    border: 1px solid var(--stroke);
+    border-radius: var(--r-pill);
+    background: var(--bg-panel);
+    color: var(--primary);
+    font-weight: var(--weight-medium);
+    transition: border-color var(--dur-fast) var(--ease-out);
+}
+.home-path-step:hover { border-color: var(--ink); }
+.home-path-idx {
+    width: 22px; height: 22px;
+    display: grid; place-items: center;
+    border-radius: 50%;
+    background: var(--bg-inverse);
+    color: var(--text-inverse);
+    font-family: var(--font-mono);
+    font-size: 11px;
+}
+.home-path-arrow { color: var(--muted); }
+
+.home-modules { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: var(--s4); }
+.home-modules > * { grid-column: span 2; }
+.home-modules > :nth-child(1), .home-modules > :nth-child(2) { grid-column: span 3; }
+.home-module {
+    height: 100%;
+    padding: var(--s5);
+    display: flex;
+    flex-direction: column;
+    gap: var(--s3);
+}
+.home-module-top { display: flex; justify-content: space-between; align-items: center; }
+.home-module-num { font-family: var(--font-mono); font-size: var(--text-xs); color: var(--muted); }
+.home-module-title { font-size: var(--text-lg); letter-spacing: var(--tracking-snug); }
+.home-module-summary { font-size: var(--text-sm); color: var(--secondary); }
+.home-module-learn {
+    display: flex; flex-direction: column; gap: 4px;
+    font-size: var(--text-xs); color: var(--secondary);
+    padding-top: var(--s3); border-top: 1px dashed var(--stroke);
+    margin-top: auto;
+}
+.home-module-go { display: inline-flex; align-items: center; gap: 6px; font-size: var(--text-sm); font-weight: var(--weight-semibold); color: var(--ink); }
+.home-module:hover .home-module-go svg { transform: translateX(3px); }
+.home-module-go svg { transition: transform var(--dur-fast) var(--ease-out); }
+
+.home-latest { background: var(--bg-sunken); }
+.home-latest-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: var(--s4); margin-bottom: var(--s5); }
+.home-latest-list { list-style: none; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--s3); }
+.home-latest-item {
+    display: flex; flex-direction: column; gap: 2px;
+    height: 100%;
+    padding: var(--s4);
+    border: 1px solid var(--stroke);
+    border-radius: var(--r-md);
+    background: var(--bg-panel);
+    transition: border-color var(--dur-fast) var(--ease-out);
+}
+a.home-latest-item:hover { border-color: var(--stroke-dark); }
+.home-latest-date { font-family: var(--font-mono); font-size: var(--text-2xs); color: var(--muted); }
+.home-latest-name { font-weight: var(--weight-semibold); color: var(--ink); font-size: var(--text-base); }
+.home-latest-meta { font-size: var(--text-xs); color: var(--secondary); }
+
+.home-principles { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--s5); }
+.home-principle { display: flex; flex-direction: column; gap: var(--s2); padding-top: var(--s4); border-top: 1px solid var(--ink); }
+.home-principle-num { font-family: var(--font-mono); font-size: var(--text-2xs); color: var(--muted); }
+.home-principle h3 { font-size: var(--text-md); }
+.home-principle p { font-size: var(--text-sm); color: var(--secondary); }
+
+.home-contribute {
+    padding: var(--s6);
+    display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: var(--s5);
+}
+.home-contribute .section-title { margin: var(--s2) 0; }
+.home-contribute-ctas { display: flex; flex-wrap: wrap; gap: var(--s3); }
+
+@media (max-width: 1023px) {
+    .home-hero-grid { grid-template-columns: 1fr; gap: var(--s6); }
+    .home-hero-visual { max-width: 560px; }
+    .home-modules { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .home-modules > *, .home-modules > :nth-child(1), .home-modules > :nth-child(2) { grid-column: span 1; }
+    .home-modules > :nth-child(5) { grid-column: 1 / -1; }
+    .home-principles { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .home-latest-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 639px) {
+    .home-hero { padding-block: var(--s6); }
+    .home-hero-stats { grid-template-columns: repeat(2, auto); gap: var(--s4) var(--s6); }
+    .home-modules, .home-principles, .home-latest-list { grid-template-columns: 1fr; }
+    .home-modules > :nth-child(5) { grid-column: auto; }
+    .home-section-title { font-size: var(--text-xl); }
+    .home-contribute { padding: var(--s5); }
+}
+`;

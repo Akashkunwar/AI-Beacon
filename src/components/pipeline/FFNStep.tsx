@@ -1,100 +1,91 @@
-import { memo } from 'react';
-import { motion } from 'framer-motion';
-import { GlassCard } from '@/components/shared';
-import { ConceptCard } from '@/components/educational/ConceptCard';
-import { VectorBar } from '@/components/visualizers/VectorBar';
-import { PipelineStep } from '@/lib/store/types';
+// src/components/pipeline/FFNStep.tsx
+// Step 9: feed-forward network (expand → GELU → compress), then the block's
+// second residual connection and layer norm.
+
+import { useMemo, useState } from 'react';
 import { useSimulatorStore } from '@/lib/store/simulatorStore';
+import { PipelineStep } from '@/lib/store/types';
+import { Advanced, Callout, DimBars, Formula, MatrixGrid, Panel, Shapes, StepFrame, TokenPicker } from './StepKit';
+import { tokenText } from './stepUtils';
 
-export const FFNStep = memo(function FFNStep() {
-    const tensors = useSimulatorStore((state) => state.tensors);
-    const X_norm = tensors.layernorm?.X_norm;
-    const { hidden, output: ffnOutput } = tensors.ffn || {};
+export function FFNStep() {
+    const raw = useSimulatorStore((s) => s.tensors.tokens?.raw) ?? [];
+    const X_norm = useSimulatorStore((s) => s.tensors.layernorm?.X_norm);
+    const ffn = useSimulatorStore((s) => s.tensors.ffn);
+    const dModel = useSimulatorStore((s) => s.config.dModel);
+    const dFF = useSimulatorStore((s) => s.config.dFF);
+    const [pick, setPick] = useState(Math.max(0, raw.length - 1));
+    const m = useMemo(() => X_norm && ffn ? {
+        x: X_norm.toMatrix(), pre: ffn.pre.toMatrix(), hid: ffn.hidden.toMatrix(), delta: ffn.delta.toMatrix(), out: ffn.output.toMatrix(),
+    } : null, [X_norm, ffn]);
+    if (!m || !ffn) return null;
 
-    if (!X_norm || !hidden || !ffnOutput) return null;
-
-    const n = X_norm.shape[0];
-    const dModel = X_norm.shape[1];
-    const dFF = hidden.shape[1];
-
-    // For visualization we just show the first token row
-    const rowIdx = 0;
-    const inputValues = Array.from(X_norm.row(rowIdx).data.slice(0, Math.min(dModel, 8)));
-
-    // We sample a subset of the hidden layer (since it is 4x wider)
-    const displayHiddenDims = Math.min(dFF, 32);
-    const hiddenValues = Array.from(hidden.row(rowIdx).data.slice(0, displayHiddenDims));
-
-    const outputValues = Array.from(ffnOutput.row(rowIdx).data.slice(0, Math.min(dModel, 8)));
+    const labels = raw.map(tokenText);
+    const row = Math.min(pick, raw.length - 1);
+    const hMax = Math.max(1e-6, ...m.pre[row].map(Math.abs));
+    const negBefore = m.pre[row].filter((v) => v < 0).length;
 
     return (
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '24px', width: '100%' }}>
-            {/* Header / Education */}
-            <ConceptCard stepId={PipelineStep.FFN} defaultExpanded />
-
-            <GlassCard padding="lg" style={{ display: 'flex', flexDirection: 'column', gap: '32px', alignItems: 'center' }}>
-                <p style={{
-                    fontFamily: 'var(--font-mono)',
-                    fontSize: '12px',
-                    color: 'var(--secondary)',
-                    textAlign: 'center',
-                    fontStyle: 'italic',
-                }}>
-                    Displaying Flow for Token 0 (Row 0)
-                </p>
-
-                {/* Layer 1: Input */}
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', alignItems: 'center', width: '100%', maxWidth: '300px' }}>
-                    <div style={{ display: 'flex', justifyContent: 'space-between', width: '100%' }}>
-                        <span style={{ fontSize: '13px', color: 'var(--ink)' }}>1. Input (X_norm)</span>
-                        <span style={{ fontFamily: 'var(--font-mono)', fontSize: '11px', color: 'var(--ink)' }}>({n}, {dModel})</span>
+        <StepFrame
+            step={PipelineStep.FFN}
+            lede={`Now each token is processed on its own by a small two-layer neural network. It expands the ${dModel} numbers to ${dFF}, applies a non-linear “activation”, and compresses back to ${dModel}. Most of a language model’s parameters live in these layers.`}
+        >
+            <Panel title={`Inside the network, for “${labels[row]}”`}>
+                <TokenPicker tokens={labels} value={row} onChange={setPick} />
+                <div className="ff-flow">
+                    <div>
+                        <p className="field-label">1 · Input ({dModel} numbers)</p>
+                        <MatrixGrid rows={[m.x[row]]} rowLabels={['x']} scale="signed" ariaLabel="FFN input" />
                     </div>
-                    <VectorBar values={inputValues} maxAbs={2} barHeight={6} />
-                </div>
-
-                {/* Funnel Down Arrow */}
-                <motion.div
-                    initial={{ height: 0, opacity: 0 }}
-                    animate={{ height: 24, opacity: 1 }}
-                    style={{ width: '2px', height: '24px', background: 'var(--stroke-dark)', margin: '0 auto' }}
-                />
-
-                {/* Layer 2: Hidden (Expanded) */}
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', alignItems: 'center', width: '100%', maxWidth: '600px' }}>
-                    <div style={{ display: 'flex', justifyContent: 'space-between', width: '100%' }}>
-                        <span style={{ fontSize: '13px', color: 'var(--ink)' }}>2. Hidden State (GELU Activation)</span>
-                        <span style={{ fontFamily: 'var(--font-mono)', fontSize: '11px', color: 'var(--muted)' }}>({n}, {dFF})</span>
+                    <div>
+                        <p className="field-label">2 · Expand: multiply by W₁ → {dFF} numbers</p>
+                        <DimBars values={m.pre[row]} maxAbs={hMax} height={72} ariaLabel="Expanded hidden layer before activation" />
                     </div>
-                    <div style={{
-                        padding: '16px',
-                        background: 'var(--bg-panel)',
-                        border: '1px solid var(--stroke)',
-                        borderRadius: '8px',
-                        width: '100%',
-                    }}>
-                        <VectorBar values={hiddenValues} maxAbs={3} barHeight={10} />
-                        <div style={{ display: 'flex', justifyContent: 'center', marginTop: '12px' }}>
-                            <span style={{ fontSize: '10px', color: 'var(--muted)' }}>4× wider than input</span>
-                        </div>
+                    <div>
+                        <p className="field-label">3 · Activate: GELU squashes negative values toward zero</p>
+                        <DimBars values={m.hid[row]} maxAbs={hMax} height={72} ariaLabel="Hidden layer after GELU" />
+                        <p className="ff-note">{negBefore} of {dFF} values were negative before GELU; almost all of them are now near zero.</p>
+                    </div>
+                    <div>
+                        <p className="field-label">4 · Compress: multiply by W₂ → {dModel} numbers</p>
+                        <MatrixGrid rows={[m.delta[row]]} rowLabels={['FFN(x)']} scale="signed" ariaLabel="FFN output" />
+                    </div>
+                    <div>
+                        <p className="field-label">5 · Add back and normalize (as in steps 7–8)</p>
+                        <MatrixGrid rows={[m.out[row]]} rowLabels={['output']} scale="signed" ariaLabel="Block output" />
                     </div>
                 </div>
+            </Panel>
 
-                {/* Funnel Up Arrow */}
-                <motion.div
-                    initial={{ height: 0, opacity: 0 }}
-                    animate={{ height: 24, opacity: 1 }}
-                    style={{ width: '2px', height: '24px', background: 'var(--stroke-dark)', margin: '0 auto' }}
-                />
+            <Panel title="Output of the transformer block — all tokens">
+                <MatrixGrid rows={m.out} rowLabels={labels} scale="signed" highlightRow={row} ariaLabel="Block output for all tokens" />
+                <Shapes items={[
+                    { name: 'W₁', shape: ffn.W1.shape }, { name: 'hidden', shape: ffn.hidden.shape },
+                    { name: 'W₂', shape: ffn.W2.shape }, { name: 'output', shape: ffn.output.shape },
+                ]} />
+            </Panel>
 
-                {/* Layer 3: Output (Compressed) */}
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', alignItems: 'center', width: '100%', maxWidth: '300px' }}>
-                    <div style={{ display: 'flex', justifyContent: 'space-between', width: '100%' }}>
-                        <span style={{ fontSize: '13px', color: 'var(--ink)' }}>3. Output (FFN_out)</span>
-                        <span style={{ fontFamily: 'var(--font-mono)', fontSize: '11px', color: 'var(--ink)' }}>({n}, {dModel})</span>
-                    </div>
-                    <VectorBar values={outputValues} maxAbs={2} barHeight={6} />
-                </div>
-            </GlassCard>
-        </div>
+            <div className="sf-split">
+                <Callout title="Why the activation matters">
+                    Without GELU, the two multiplications would collapse into a single one, and stacking layers would add no power.
+                    The bend it introduces is what lets the network represent complicated patterns.
+                </Callout>
+                <Callout tone="caveat" title="One block of many">
+                    That completes one transformer block. Real models repeat steps 6–9 many times — 12 blocks in GPT-2 small,
+                    32 in Llama 3 8B, 96 in GPT-3 — each with its own weights. This demo has one.
+                </Callout>
+            </div>
+            <Advanced>
+                <Formula>
+{`FFN(x) = GELU(x · W₁) · W₂        # W₁: (${dModel}, ${dFF})  W₂: (${dFF}, ${dModel})
+out    = LayerNorm(x + FFN(x))`}
+                </Formula>
+            </Advanced>
+            <style>{`
+                .ff-flow { display: flex; flex-direction: column; gap: var(--s3); }
+                .ff-flow .field-label { display: block; margin-bottom: 4px; }
+                .ff-note { font-size: var(--text-xs); color: var(--muted); margin-top: 4px; }
+            `}</style>
+        </StepFrame>
     );
-});
+}

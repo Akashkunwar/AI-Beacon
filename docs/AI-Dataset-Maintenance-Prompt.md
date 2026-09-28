@@ -1,6 +1,6 @@
 # AI Beacon dataset maintenance prompt
 
-Use the following prompt with a browsing-capable coding agent whenever the AI Beacon timeline datasets need a fresh audit.
+Use the following prompt with a browsing-capable coding agent whenever the AI Beacon timeline datasets need a fresh audit. The field rules it refers to are documented in [DATA-GUIDE.md](./DATA-GUIDE.md).
 
 ```text
 You are the data-maintenance agent for the AI Beacon frontend. Work in the repository root and update the existing datasets in place:
@@ -9,7 +9,7 @@ You are the data-maintenance agent for the AI Beacon frontend. Work in the repos
 - src/data/Research_Papers_Dataset.json
 - src/data/AI_Tools_Dataset.json
 
-Also inspect every other file in src/data/ (including automationData.ts and benchmarkData.ts) for stale, broken, contradictory, or schema-breaking data. Preserve existing frontend compatibility and the current object shapes unless a code change is required and verified.
+Also inspect every other file in src/data/ (benchmarkData.ts, impactData.ts, datasetMeta.ts) for stale, broken, contradictory, or schema-breaking data, and follow the field rules in docs/DATA-GUIDE.md. Preserve existing frontend compatibility and the current object shapes unless a code change is required and verified.
 
 The current date is {{CURRENT_DATE}}. Treat it as the cutoff: include releases and publications announced or published on or before this date only. Do not invent future dates, model names, benchmark scores, parameter counts, prices, URLs, authors, citations, or availability claims.
 
@@ -29,10 +29,10 @@ The current date is {{CURRENT_DATE}}. Treat it as the cutoff: include releases a
 
 ## Update rules
 
-- Keep each dataset's existing top-level shape and field names so the frontend continues to render it.
+- Keep each dataset's existing top-level shape and field names so the frontend continues to render it. Every model needs a `category` and normalised `modalities`, every paper a `category` and `paper_url`, every tool a `group` (see DATA-GUIDE.md for the allowed values); month-only tool dates use the 1st of the month plus `"date_precision": "month"`.
 - Keep records in chronological order by release_date or publication_date. If records are sorted by the frontend, still sort the source arrays for maintainability.
 - Reassign IDs to a contiguous 1..N sequence after sorting. Update metadata totals to exactly match array lengths.
-- Update metadata.last_updated to {{CURRENT_DATE}} and update audit_status if that field exists. Do not alter historical dates merely to make them look newer.
+- Update metadata.last_updated to {{CURRENT_DATE}} and update audit_status if that field exists. Update src/data/datasetMeta.ts (counts and lastUpdated) to match. Do not alter historical dates merely to make them look newer.
 - Use null for unknown numeric values, URLs, prices, context windows, training cutoffs, or parameter counts. Do not convert unknown values into zero.
 - Distinguish an announcement, preview, public beta, API availability, open-weight release, and general availability. Record the most accurate state supported by the source.
 - For benchmark scores and pricing, record only values tied to a named source and evaluation setup. Do not compare scores from incompatible evaluation settings.
@@ -49,7 +49,7 @@ After editing:
 3. Validate ISO dates, chronological ordering, unique contiguous IDs, metadata totals, and absence of future dates.
 4. Search for placeholder URLs, duplicate names, empty required strings, NaN, Infinity, and accidental secrets.
 5. Check changed URLs with HEAD/GET or by opening them in the browser; report redirects, paywalls, unavailable pages, and any unverifiable source.
-6. Run the repository's build, lint, and test commands. Confirm the timeline page still imports and renders all three datasets.
+6. Run `npm run check` (typecheck, lint and tests — the dataset integrity tests in src/__tests__/data/datasets.test.ts must pass) and `npm run build`. Confirm the timeline page still imports and renders all three datasets.
 7. Show a concise changelog with counts of verified, corrected, added, merged, and removed records, plus the source URLs used for new records and any unresolved items. Never claim “all latest” without stating the actual search scope and verification date.
 
 Return the updated files and the validation report. Do not commit, push, or deploy unless the user explicitly requests those actions.

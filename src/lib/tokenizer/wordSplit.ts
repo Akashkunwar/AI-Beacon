@@ -1,17 +1,14 @@
 // src/lib/tokenizer/wordSplit.ts
-// Whitespace tokenizer (MVP) — splits on whitespace, lowercases
+// Word-level tokenizer for the simulator: lowercases, then splits into words
+// and single punctuation marks ("Hello, world!" → hello , world !).
+// Real models use subword tokenizers (BPE / SentencePiece) instead.
+
+const TOKEN_PATTERN = /[\p{L}\p{N}]+|[^\s\p{L}\p{N}]/gu;
 
 /**
- * Whitespace tokenizer.
- * Splits input on any whitespace, lowercases each token, filters empty strings.
- *
  * @param text - raw input string
- * @returns     array of lowercase word tokens
+ * @returns     lowercase word and punctuation tokens, in order
  */
 export function wordSplit(text: string): string[] {
-    return text
-        .trim()
-        .split(/\s+/)
-        .map(t => t.toLowerCase())
-        .filter(t => t.length > 0);
+    return text.toLowerCase().match(TOKEN_PATTERN) ?? [];
 }

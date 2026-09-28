@@ -11,102 +11,35 @@ interface LearningGuideProps {
   ariaLabel?: string;
 }
 
+/** "How to read this page" card: a short intro plus 3–4 key ideas. */
 export function LearningGuide({ title, intro, items, note, ariaLabel }: LearningGuideProps) {
   return (
-    <section
-      aria-label={ariaLabel ?? title}
-      style={{
-        padding: 'var(--s5)',
-        background: 'var(--bg-panel)',
-        border: '1px solid var(--stroke)',
-        borderRadius: 'var(--r-lg)',
-        boxShadow: 'var(--shadow-soft)',
-      }}
-    >
-      <div style={{ maxWidth: '72ch', marginBottom: 'var(--s4)' }}>
-        <h2
-          style={{
-            margin: '0 0 var(--s2)',
-            color: 'var(--ink)',
-            fontSize: 'var(--text-lg)',
-            fontWeight: 'var(--weight-semibold)',
-            letterSpacing: 'var(--tracking-snug)',
-          }}
-        >
-          {title}
-        </h2>
-        <p
-          style={{
-            margin: 0,
-            color: 'var(--secondary)',
-            fontSize: 'var(--text-sm)',
-            lineHeight: 'var(--lead-body)',
-            fontWeight: 'var(--weight-light)',
-          }}
-        >
-          {intro}
-        </p>
+    <section aria-label={ariaLabel ?? title} className="card lg-card">
+      <div className="lg-head">
+        <h2 className="section-title">{title}</h2>
+        <p className="section-desc">{intro}</p>
       </div>
-
-      <div
-        className="learning-guide-grid"
-        style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(190px, 1fr))',
-          gap: 'var(--s3)',
-        }}
-      >
-        {items.map((item) => (
-          <div
-            key={item.label}
-            style={{
-              padding: 'var(--s3)',
-              background: 'var(--bg)',
-              border: '1px solid var(--stroke)',
-              borderRadius: 'var(--r-md)',
-            }}
-          >
-            <p
-              style={{
-                margin: '0 0 var(--s1)',
-                color: 'var(--muted)',
-                fontFamily: 'var(--font-mono)',
-                fontSize: 'var(--text-2xs)',
-                letterSpacing: 'var(--tracking-wider)',
-                textTransform: 'uppercase',
-              }}
-            >
-              {item.label}
-            </p>
-            <p
-              style={{
-                margin: 0,
-                color: 'var(--secondary)',
-                fontSize: 'var(--text-xs)',
-                lineHeight: 'var(--lead-body)',
-              }}
-            >
-              {item.text}
-            </p>
+      <div className="lg-grid">
+        {items.map((item, i) => (
+          <div key={item.label} className="lg-item">
+            <span className="lg-num">{i + 1}</span>
+            <p className="lg-label">{item.label}</p>
+            <p className="lg-text">{item.text}</p>
           </div>
         ))}
       </div>
-
-      {note && (
-        <p
-          style={{
-            margin: 'var(--s4) 0 0',
-            paddingTop: 'var(--s3)',
-            borderTop: '1px solid var(--stroke)',
-            color: 'var(--muted)',
-            fontFamily: 'var(--font-mono)',
-            fontSize: 'var(--text-2xs)',
-            lineHeight: 'var(--lead-body)',
-          }}
-        >
-          {note}
-        </p>
-      )}
+      {note && <p className="lg-note">{note}</p>}
+      <style>{`
+        .lg-card { padding: var(--s5); }
+        .lg-head { max-width: 72ch; margin-bottom: var(--s4); display: flex; flex-direction: column; gap: var(--s2); }
+        .lg-head .section-title { font-size: var(--text-lg); }
+        .lg-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: var(--s3); }
+        .lg-item { position: relative; padding: var(--s4); background: var(--bg-sunken); border: 1px solid var(--stroke); border-radius: var(--r-md); }
+        .lg-num { position: absolute; top: var(--s3); right: var(--s3); font-family: var(--font-mono); font-size: var(--text-2xs); color: var(--muted); }
+        .lg-label { font-weight: var(--weight-semibold); color: var(--ink); font-size: var(--text-sm); margin-bottom: var(--s1); padding-right: var(--s4); }
+        .lg-text { color: var(--secondary); font-size: var(--text-xs); line-height: var(--lead-body); }
+        .lg-note { margin-top: var(--s4); padding-top: var(--s3); border-top: 1px solid var(--stroke); color: var(--muted); font-size: var(--text-xs); }
+      `}</style>
     </section>
   );
 }
