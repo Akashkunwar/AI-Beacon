@@ -2,8 +2,8 @@
   "metadata": {
     "title": "Research Papers That Shaped Modern AI",
     "description": "A curated list of influential AI research papers and technical reports, from AlexNet (2012) to today. Citation counts are rough Google Scholar snapshots and go stale quickly.",
-    "last_updated": "2026-09-28",
-    "total_papers": 98,
+    "last_updated": "2026-10-11",
+    "total_papers": 99,
     "fields": [
       "id",
       "title",
@@ -19,7 +19,7 @@
       "code_url",
       "citations"
     ],
-    "audit_status": "Audit 2026-09-28: removed system/model cards, policy briefs, product blog posts and entries with placeholder links; fixed publication dates; added landmark benchmark, interpretability and reasoning papers; added a category field."
+    "audit_status": "Focused 2026-10-11 update: added source-verified Diffusion Controller arXiv paper. Existing historical entries were not individually reverified in this pass."
   },
   "papers": [
     {
@@ -2383,6 +2383,33 @@
     },
     {
       "id": 90,
+      "title": "Diffusion Controller: Framework, Algorithms and Parameterization",
+      "authors": [
+        "Tong Yang",
+        "Moonkyung Ryu",
+        "Chih-Wei Hsu",
+        "Guy Tennenholtz",
+        "Yuejie Chi",
+        "Craig Boutilier",
+        "Bo Dai"
+      ],
+      "institution": "Google Research and collaborators",
+      "publication_date": "2026-03-07",
+      "published_in": "arXiv",
+      "topic": "Controllable image generation",
+      "category": "Generative media",
+      "description": "Presents a control-theoretic framework for steering diffusion generation and a lightweight control network; experiments report improved preference alignment and quality-efficiency trade-offs.",
+      "key_contributions": [
+        "Unified control view of reverse diffusion",
+        "Lightweight side-network for gray-box adaptation",
+        "Evaluation on Stable Diffusion v1.4"
+      ],
+      "paper_url": "https://arxiv.org/abs/2603.06981",
+      "code_url": null,
+      "citations": null
+    },
+    {
+      "id": 91,
       "title": "Seedance 2.0: Advancing Video Generation for World Complexity",
       "authors": [
         "ByteDance Seed Team"
@@ -2404,7 +2431,7 @@
       "citations": 0
     },
     {
-      "id": 91,
+      "id": 92,
       "title": "Muse Spark: A Technical Overview of Meta Superintelligence Labs' First Frontier Model",
       "authors": [
         "Meta Superintelligence Labs Team"
@@ -2427,7 +2454,7 @@
       "citations": 0
     },
     {
-      "id": 92,
+      "id": 93,
       "title": "Accelerating Empirical Science through Multi-Agent Idea Tournaments",
       "authors": [
         "Google DeepMind Science Team"
@@ -2448,7 +2475,7 @@
       "citations": 0
     },
     {
-      "id": 93,
+      "id": 94,
       "title": "MiniMax M3: A Natively Multimodal Mixture-of-Experts Model for Autonomous Software Engineering",
       "authors": [
         "MiniMax Research Team"
@@ -2471,7 +2498,7 @@
       "citations": 0
     },
     {
-      "id": 94,
+      "id": 95,
       "title": "Kimi K2.7-Code: A 1-Trillion Parameter Open-Weight Model for Long-Horizon Software Engineering",
       "authors": [
         "Moonshot AI Team"
@@ -2494,7 +2521,7 @@
       "citations": 0
     },
     {
-      "id": 95,
+      "id": 96,
       "title": "Unified Audio Intelligence Without Regressing on Text Intelligence",
       "authors": [
         "Wei Ping",
@@ -2517,7 +2544,7 @@
       "citations": 0
     },
     {
-      "id": 96,
+      "id": 97,
       "title": "Kimi K3: A 2.8-Trillion Parameter Open-Weight Multimodal Model",
       "authors": [
         "Moonshot AI"
@@ -2540,7 +2567,7 @@
       "citations": 0
     },
     {
-      "id": 97,
+      "id": 98,
       "title": "TimesFM-3: A Zero-Shot Foundation Model for Multivariate Forecasting",
       "authors": [
         "Ayush Jain",
@@ -2567,7 +2594,7 @@
       "citations": 0
     },
     {
-      "id": 98,
+      "id": 99,
       "title": "AlphaGenome Atlas: Predicting the Effects of Every Possible Single-Letter Change in the Human Genome",
       "authors": [
         "AlphaGenome Atlas Team"

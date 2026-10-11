@@ -1,14 +1,7 @@
-/**
- * Lightweight dataset summary for the homepage, kept separate from the large
- * timeline JSON files so the landing page stays fast.
- *
- * Keep these numbers in sync with the JSON files — `npm test` fails if they
- * drift (see src/__tests__/data/datasets.test.ts).
- */
+/** Lightweight homepage metadata kept separate from the full timeline payloads. */
 export const DATASET_META = {
-    models: 312,
-    papers: 98,
-    tools: 129,
-    /** Date the timeline datasets were last reviewed (YYYY-MM-DD). */
-    lastUpdated: '2026-09-28',
+    models: 316,
+    papers: 99,
+    tools: 130,
+    lastUpdated: '2026-10-11',
 } as const;

@@ -2,8 +2,8 @@
   "metadata": {
     "title": "AI Tools & Products Timeline",
     "description": "Influential AI products, developer tools, agents and frameworks — the software people use to build with and work alongside AI models. Models themselves are listed in the models dataset.",
-    "last_updated": "2026-09-28",
-    "total_tools": 129,
+    "last_updated": "2026-10-11",
+    "total_tools": 130,
     "fields": [
       "id",
       "name",
@@ -18,7 +18,7 @@
       "key_features",
       "url"
     ],
-    "audit_status": "Audit 2026-09-28: removed entries that are models or model APIs (covered in the models dataset); corrected launch dates (Claude Code, Codex CLI, CrewAI, Cursor, Jules, Tabnine); flagged month-precision dates; added a group field."
+    "audit_status": "Focused 2026-10-11 update: added source-verified ChatGPT Intelligent UI rollout. Existing historical entries were not individually reverified in this pass."
   },
   "tools": [
     {
@@ -2277,6 +2277,23 @@
         "Production deployment support"
       ],
       "url": "https://openai.com/index/introducing-the-agents-api/"
+    },
+    {
+      "id": 130,
+      "name": "ChatGPT Intelligent UI",
+      "company": "OpenAI",
+      "release_date": "2026-10-07",
+      "open_source": false,
+      "license": "Proprietary",
+      "category": "Interactive AI Assistant Interface",
+      "group": "Assistants & research",
+      "description": "ChatGPT capability that presents answers as interactive visual interfaces, including comparisons, diagrams, calculators, and other tools generated for the task. Initial rollout began for paid plans on October 7, 2026.",
+      "key_features": [
+        "Interactive answers",
+        "Generated task-specific tools",
+        "Visual explanations"
+      ],
+      "url": "https://openai.com/index/gpt-6-for-everyone/"
     }
   ]
 }
