@@ -2,9 +2,9 @@
   "metadata": {
     "title": "AI & LLM Models Timeline",
     "description": "Notable AI models from 2017 onward: language, reasoning, multimodal, image/video/audio generation, science and robotics models. Dates are first public availability (preview or GA).",
-    "last_updated": "2026-10-11",
-    "total_models": 316,
-    "audit_status": "Focused 2026-10-11 update: added four source-verified releases since the September review. Existing historical entries were not individually reverified in this pass.",
+    "last_updated": "2026-11-21",
+    "total_models": 358,
+    "audit_status": "Focused 2026-11-21 update: added 42 source-verified model releases from 2026-10-06 to 2026-11-18 and linked predecessor/successor entries. Existing historical entries were not individually reverified in this pass.",
     "fields": [
       "id",
       "company",
@@ -8779,7 +8779,7 @@
       "huggingface_url": null,
       "paper_url": null,
       "predecessor": "Mistral Large 2",
-      "successor": null
+      "successor": "Mistral Large 4"
     },
     {
       "id": 195,
@@ -9096,7 +9096,7 @@
       "huggingface_url": null,
       "paper_url": null,
       "predecessor": "Kling AI",
-      "successor": null
+      "successor": "Kling 4.0"
     },
     {
       "id": 202,
@@ -9510,7 +9510,7 @@
       "huggingface_url": null,
       "paper_url": null,
       "predecessor": "Gemini 3",
-      "successor": null
+      "successor": "Gemini 4 Argon"
     },
     {
       "id": 211,
@@ -10886,7 +10886,7 @@
       "huggingface_url": null,
       "paper_url": null,
       "predecessor": null,
-      "successor": null
+      "successor": "Hy4"
     },
     {
       "id": 241,
@@ -11211,7 +11211,7 @@
       "huggingface_url": null,
       "paper_url": null,
       "predecessor": "GPT-5.5",
-      "successor": null
+      "successor": "GPT-6 Cyber"
     },
     {
       "id": 248,
@@ -11639,7 +11639,7 @@
       "huggingface_url": "https://huggingface.co/MiniMaxAI/MiniMax-M3",
       "paper_url": null,
       "predecessor": "MiniMax-M2.7",
-      "successor": null
+      "successor": "MiniMax M3.1 Flash"
     },
     {
       "id": 257,
@@ -11686,7 +11686,7 @@
       "huggingface_url": null,
       "paper_url": null,
       "predecessor": null,
-      "successor": null
+      "successor": "MAI Code 2 Flash"
     },
     {
       "id": 258,
@@ -11735,7 +11735,7 @@
       "huggingface_url": null,
       "paper_url": null,
       "predecessor": null,
-      "successor": null
+      "successor": "MAI Image 2.7"
     },
     {
       "id": 259,
@@ -11977,7 +11977,7 @@
       "huggingface_url": null,
       "paper_url": "https://www-cdn.anthropic.com/d00db56fa754a1b115b6dd7cb2e3c342ee809620.pdf",
       "predecessor": "Claude Mythos",
-      "successor": null
+      "successor": "Claude Mythos 5.2"
     },
     {
       "id": 264,
@@ -12603,7 +12603,7 @@
       "huggingface_url": null,
       "paper_url": null,
       "predecessor": null,
-      "successor": null
+      "successor": "Seedream 5.5"
     },
     {
       "id": 277,
@@ -12751,7 +12751,7 @@
       "huggingface_url": null,
       "paper_url": null,
       "predecessor": "GPT-5.5",
-      "successor": null
+      "successor": "GPT-6.1 Terra"
     },
     {
       "id": 280,
@@ -12901,7 +12901,7 @@
       "huggingface_url": "https://huggingface.co/MoonshotAI/Kimi-K3",
       "paper_url": "https://arxiv.org/abs/2607.24653",
       "predecessor": "Kimi K2",
-      "successor": null
+      "successor": "Kimi K3.1 Pro"
     },
     {
       "id": 283,
@@ -13197,7 +13197,7 @@
       "huggingface_url": "https://huggingface.co/Qwen/Qwen3.8-2.4T-A95B",
       "paper_url": null,
       "predecessor": "Qwen3",
-      "successor": null
+      "successor": "Qwen4-Max"
     },
     {
       "id": 289,
@@ -13296,7 +13296,7 @@
       "huggingface_url": null,
       "paper_url": null,
       "predecessor": "Muse Spark 1.1",
-      "successor": null
+      "successor": "Muse Wonder"
     },
     {
       "id": 291,
@@ -13641,7 +13641,7 @@
       "huggingface_url": null,
       "paper_url": null,
       "predecessor": "Gemini Omni Flash",
-      "successor": null
+      "successor": "Gemini Omni 1.2 Flash"
     },
     {
       "id": 298,
@@ -13678,7 +13678,7 @@
       "huggingface_url": null,
       "paper_url": null,
       "predecessor": "Claude Fable 5",
-      "successor": null
+      "successor": "Claude Fable 5.2"
     },
     {
       "id": 299,
@@ -13727,7 +13727,7 @@
       "huggingface_url": null,
       "paper_url": "https://deepmind.google/models/model-cards/gemini-3-8-flash/",
       "predecessor": "Gemini 3.7 Flash",
-      "successor": null
+      "successor": "Gemini 4 Hydrogen"
     },
     {
       "id": 300,
@@ -13823,7 +13823,7 @@
       "huggingface_url": null,
       "paper_url": "https://deploymentsafety.openai.com/gpt-6-astra/",
       "predecessor": "GPT-5.6 Sol",
-      "successor": null
+      "successor": "GPT-6.2 Astra"
     },
     {
       "id": 302,
@@ -13962,7 +13962,7 @@
       "huggingface_url": null,
       "paper_url": "https://deploymentsafety.openai.com/chatgpt-images-2-5/safety-evaluations",
       "predecessor": "GPT Image 2",
-      "successor": null
+      "successor": "GPT-Image-2.6 Flare / Sunburst"
     },
     {
       "id": 305,
@@ -14368,7 +14368,7 @@
       "huggingface_url": null,
       "paper_url": null,
       "predecessor": "GPT-6 Sol",
-      "successor": null
+      "successor": "GPT-6.2 Sol"
     },
     {
       "id": 315,
@@ -14412,6 +14412,53 @@
     },
     {
       "id": 316,
+      "company": "Mistral AI",
+      "company_website": "https://mistral.ai",
+      "model_family": "Mistral",
+      "model_name": "Mistral Large 4",
+      "model_version": "",
+      "model_type": "Multimodal LLM (MoE)",
+      "category": "Multimodal",
+      "architecture": "Mixture-of-Experts Transformer",
+      "modalities": [
+        "text",
+        "image",
+        "code"
+      ],
+      "parameters": 1050,
+      "parameter_unit": "billion",
+      "training_tokens": null,
+      "open_source": true,
+      "license": "Mistral Ecosystem Open-Weight License (modified MIT)",
+      "api_available": true,
+      "context_window_tokens": 1000000,
+      "training_data_cutoff": null,
+      "release_date": "2026-10-06",
+      "country": "France",
+      "description": "Mistral's 1-trillion-class natively multimodal flagship (nicknamed 'Le Chonk'), with about 1.05T total and 52B active parameters, aimed at agentic coding and cybersecurity. It launched as a public API preview on October 6, 2026; improved open weights followed on October 29 under a modified-MIT licence that requires a separate commercial licence for Model-as-a-Service providers.",
+      "use_cases": [
+        "Agentic coding",
+        "Defensive cybersecurity",
+        "Self-hosted enterprise AI"
+      ],
+      "notable_features": [
+        "~1.05T total / 52B active parameters",
+        "Low/Medium/High reasoning modes",
+        "Open weights",
+        "1M-token context"
+      ],
+      "pricing_per_1m_tokens": {
+        "input": 0.7,
+        "output": 2.1
+      },
+      "official_model_link": "https://mistral.ai/news/mistral-large-4",
+      "huggingface_url": "https://huggingface.co/mistralai/Mistral-Large-4-1T-A52B",
+      "paper_url": null,
+      "predecessor": "Mistral Large 3",
+      "successor": null
+    },
+    {
+      "id": 317,
       "company": "Anthropic",
       "company_website": "https://www.anthropic.com",
       "model_family": "Claude",
@@ -14446,6 +14493,1877 @@
       "huggingface_url": null,
       "paper_url": null,
       "predecessor": "Claude Haiku 4.5",
+      "successor": null
+    },
+    {
+      "id": 318,
+      "company": "Meta",
+      "company_website": "https://meta.com",
+      "model_family": "Muse",
+      "model_name": "Muse Wonder",
+      "model_version": "Wonder",
+      "model_type": "Frontier Agentic LLM",
+      "category": "Reasoning",
+      "architecture": "Transformer",
+      "modalities": [
+        "text",
+        "image",
+        "code"
+      ],
+      "parameters": null,
+      "parameter_unit": null,
+      "training_tokens": null,
+      "open_source": false,
+      "license": "Proprietary",
+      "api_available": true,
+      "context_window_tokens": null,
+      "training_data_cutoff": null,
+      "release_date": "2026-10-12",
+      "country": "USA",
+      "description": "Meta Superintelligence Labs' most capable model at launch, built on Muse Spark for long-running personal and professional agentic tasks (law, finance, health, coding). Available to developers in the Meta Model API and Muse Code; a higher-compute Muse Wonder Full tier launched the same day for Muse Code subscribers only.",
+      "use_cases": [
+        "agentic workflows",
+        "coding",
+        "professional knowledge work"
+      ],
+      "notable_features": [
+        "Muse Wonder Full tier in Muse Code",
+        "Active Memory",
+        "Active Focus"
+      ],
+      "pricing_per_1m_tokens": {
+        "input": null,
+        "output": null
+      },
+      "official_model_link": "https://about.fb.com/news/2026/10/introducing-muse-wonder-models/",
+      "huggingface_url": null,
+      "paper_url": null,
+      "predecessor": "Muse Spark 1.2",
+      "successor": null
+    },
+    {
+      "id": 319,
+      "company": "Google DeepMind",
+      "company_website": "https://deepmind.google",
+      "model_family": "Gemini",
+      "model_name": "Gemini 4 Argon",
+      "model_version": "4-argon",
+      "model_type": "Frontier Multimodal Reasoning LLM",
+      "category": "Reasoning",
+      "architecture": "Sparse Mixture-of-Experts Transformer",
+      "modalities": [
+        "text",
+        "image",
+        "audio",
+        "video",
+        "code"
+      ],
+      "parameters": null,
+      "parameter_unit": null,
+      "training_tokens": null,
+      "open_source": false,
+      "license": "Proprietary",
+      "api_available": true,
+      "context_window_tokens": 1000000,
+      "training_data_cutoff": "2026-03",
+      "release_date": "2026-10-13",
+      "country": "USA",
+      "description": "First Gemini 4 model, built for long-horizon software engineering, enterprise knowledge work and cyber defense, with output raised to 1M tokens (from 64K). Announced September 30, 2026 for Fairwind cyber defenders only; broadly available October 13 on the paid Gemini API tier, AI Studio, Antigravity and the Gemini app. Introductory price $2/$10 per 1M input/output tokens through Nov 30, 2026, then $4/$20.",
+      "use_cases": [
+        "software engineering",
+        "code migration",
+        "legal and financial analysis",
+        "cybersecurity defense",
+        "robotics reasoning"
+      ],
+      "notable_features": [
+        "1M-token input+output context",
+        "Sparse MoE",
+        "Text output from text/image/audio/video input",
+        "Paid-tier API only"
+      ],
+      "pricing_per_1m_tokens": {
+        "input": 4,
+        "output": 20
+      },
+      "official_model_link": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-argon/",
+      "huggingface_url": null,
+      "paper_url": "https://deepmind.google/models/model-cards/gemini-4-argon/",
+      "predecessor": "Gemini 3.1 Pro",
+      "successor": null
+    },
+    {
+      "id": 320,
+      "company": "Liquid AI",
+      "company_website": "https://liquid.ai",
+      "model_family": "LFM",
+      "model_name": "LFM2.5-24B-A2B",
+      "model_version": "",
+      "model_type": "On-Device Reasoning LLM (MoE)",
+      "category": "Small & fast",
+      "architecture": "Hybrid (gated short convolutions + GQA) Mixture-of-Experts",
+      "modalities": [
+        "text",
+        "code"
+      ],
+      "parameters": 24,
+      "parameter_unit": "billion",
+      "training_tokens": null,
+      "open_source": true,
+      "license": "LFM Open License v1.0",
+      "api_available": false,
+      "context_window_tokens": 131072,
+      "training_data_cutoff": null,
+      "release_date": "2026-10-13",
+      "country": "USA",
+      "description": "The largest and final model in Liquid AI's LFM2.5 family: a 24B-parameter reasoning-only MoE with about 2B active parameters, built for fast, private agents on-device. Base and post-trained weights were released on Hugging Face.",
+      "use_cases": [
+        "On-device agents",
+        "Tool calling"
+      ],
+      "notable_features": [
+        "24B total / ~2B active parameters",
+        "131K context",
+        "Open weights"
+      ],
+      "pricing_per_1m_tokens": {
+        "input": null,
+        "output": null
+      },
+      "official_model_link": "https://www.liquid.ai/blog/lfm2-5-24b-a2b",
+      "huggingface_url": "https://huggingface.co/LiquidAI/LFM2.5-24B-A2B",
+      "paper_url": null,
+      "predecessor": null,
+      "successor": null
+    },
+    {
+      "id": 321,
+      "company": "xAI",
+      "company_website": "https://x.ai",
+      "model_family": "Grok Voice",
+      "model_name": "Grok Voice 3.0",
+      "model_version": "3.0",
+      "model_type": "Speech-to-Speech Model",
+      "category": "Audio & speech",
+      "architecture": "Audio foundation model",
+      "modalities": [
+        "audio",
+        "text"
+      ],
+      "parameters": null,
+      "parameter_unit": null,
+      "training_tokens": null,
+      "open_source": false,
+      "license": "Proprietary",
+      "api_available": true,
+      "context_window_tokens": null,
+      "training_data_cutoff": null,
+      "release_date": "2026-10-14",
+      "country": "USA",
+      "description": "xAI's speech-to-speech model for voice agents, available in the Voice Agent (Speech to Speech) API at $0.08 per minute and the default behind grok-voice-latest. xAI reports #1 on Artificial Analysis' Speech-to-Speech Index (86.9) with sub-second time to first audio; replaces the deprecated Grok Voice 2.0.",
+      "use_cases": [
+        "voice agents",
+        "customer support calls",
+        "in-car assistant"
+      ],
+      "notable_features": [
+        "Reasoning on by default",
+        "Sub-second time to first audio",
+        "$0.08 per minute"
+      ],
+      "pricing_per_1m_tokens": {
+        "input": null,
+        "output": null
+      },
+      "official_model_link": "https://x.ai/news/grok-voice-3",
+      "huggingface_url": null,
+      "paper_url": null,
+      "predecessor": null,
+      "successor": null
+    },
+    {
+      "id": 322,
+      "company": "Meta",
+      "company_website": "https://meta.com",
+      "model_family": "Muse",
+      "model_name": "Muse Spark Open",
+      "model_version": "816B-A42B",
+      "model_type": "Open-weight Multimodal MoE LLM",
+      "category": "Multimodal",
+      "architecture": "Mixture-of-Experts Transformer with Perception Encoder",
+      "modalities": [
+        "text",
+        "image",
+        "audio",
+        "video",
+        "code"
+      ],
+      "parameters": 816,
+      "parameter_unit": "billion",
+      "training_tokens": null,
+      "open_source": true,
+      "license": "Muse Model License",
+      "api_available": true,
+      "context_window_tokens": 1000000,
+      "training_data_cutoff": null,
+      "release_date": "2026-10-15",
+      "country": "USA",
+      "description": "Open-weights release of Muse Spark with additional safety post-training for standalone use: an 816B-total / 42B-active MoE with a 1M-token context, taking text, image, audio and video input and producing text. Weights on Hugging Face under the Muse Model License (limited commercial terms, 'Built with Muse Spark Open' attribution).",
+      "use_cases": [
+        "agentic coding",
+        "long-horizon tasks",
+        "self-hosted deployment"
+      ],
+      "notable_features": [
+        "816B total / 42B active parameters",
+        "256 experts, 8 active",
+        "1M context",
+        "Open weights"
+      ],
+      "pricing_per_1m_tokens": {
+        "input": null,
+        "output": null
+      },
+      "official_model_link": "https://research.meta.ai/blog/muse-spark-open",
+      "huggingface_url": "https://huggingface.co/meta-models/Muse-Spark-Open-816B-A42B",
+      "paper_url": null,
+      "predecessor": null,
+      "successor": null
+    },
+    {
+      "id": 323,
+      "company": "NVIDIA",
+      "company_website": "https://nvidia.com",
+      "model_family": "Nemotron",
+      "model_name": "Nemotron 3.5 Super VL",
+      "model_version": "3.5-super-vl-120b-a12b",
+      "model_type": "Open Vision-Language Model (Hybrid MoE)",
+      "category": "Multimodal",
+      "architecture": "Hybrid Mamba-2 / Transformer MoE with C-RADIO vision encoder",
+      "modalities": [
+        "text",
+        "image",
+        "video"
+      ],
+      "parameters": 120,
+      "parameter_unit": "billion",
+      "training_tokens": null,
+      "open_source": true,
+      "license": "OpenMDW-1.1",
+      "api_available": true,
+      "context_window_tokens": 1000000,
+      "training_data_cutoff": null,
+      "release_date": "2026-10-15",
+      "country": "USA",
+      "description": "Open 120B-total / 12B-active vision-language model for agents working over images, web pages, PDFs and short video, with a 1M-token context and a multi-token-prediction head. Weights, data and recipes released on Hugging Face; also on OpenRouter and as an NVIDIA NIM.",
+      "use_cases": [
+        "document and screen understanding",
+        "computer-use agents",
+        "visual reasoning"
+      ],
+      "notable_features": [
+        "120B total / 12B active",
+        "1M context",
+        "NVFP4 checkpoint",
+        "OpenMDW license"
+      ],
+      "pricing_per_1m_tokens": {
+        "input": null,
+        "output": null
+      },
+      "official_model_link": "https://blogs.nvidia.com/blog/nemotron",
+      "huggingface_url": "https://huggingface.co/nvidia/NVIDIA-Nemotron-3.5-Super-VL-120B-A12B-NVFP4",
+      "paper_url": null,
+      "predecessor": "Nemotron 3 Super",
+      "successor": null
+    },
+    {
+      "id": 324,
+      "company": "NVIDIA",
+      "company_website": "https://nvidia.com",
+      "model_family": "Nemotron",
+      "model_name": "Nemotron 3.5 Bolt 74B-A9B",
+      "model_version": "3.5-bolt-74b-a9b-24gb",
+      "model_type": "Open Edge Multimodal LLM (Hybrid MoE)",
+      "category": "Small & fast",
+      "architecture": "Hybrid Mamba-2 / Transformer LatentMoE",
+      "modalities": [
+        "text",
+        "image",
+        "video"
+      ],
+      "parameters": 74,
+      "parameter_unit": "billion",
+      "training_tokens": null,
+      "open_source": true,
+      "license": "OpenMDW-1.1",
+      "api_available": false,
+      "context_window_tokens": 256000,
+      "training_data_cutoff": null,
+      "release_date": "2026-10-15",
+      "country": "USA",
+      "description": "Open 74B-total / 9B-active model for local agents, natively quantized to 2-bit so it fits in 24GB of memory. Released on Hugging Face in GGUF and vLLM builds alongside Nemotron 3.5 Super VL.",
+      "use_cases": [
+        "local agents",
+        "on-device assistants"
+      ],
+      "notable_features": [
+        "74B total / 9B active",
+        "Native 2-bit quantization (24GB)",
+        "256K context"
+      ],
+      "pricing_per_1m_tokens": {
+        "input": null,
+        "output": null
+      },
+      "official_model_link": "https://blogs.nvidia.com/blog/nemotron",
+      "huggingface_url": "https://huggingface.co/nvidia/NVIDIA-Nemotron-3.5-Bolt-74B-A9B-24GB",
+      "paper_url": null,
+      "predecessor": null,
+      "successor": null
+    },
+    {
+      "id": 325,
+      "company": "Black Forest Labs",
+      "company_website": "https://bfl.ai",
+      "model_family": "FLUX",
+      "model_name": "FLUX 3 Image Klein",
+      "model_version": "",
+      "model_type": "Image Generation & Editing Model",
+      "category": "Image generation",
+      "architecture": "Transformer",
+      "modalities": [
+        "text",
+        "image"
+      ],
+      "parameters": 5.6,
+      "parameter_unit": "billion",
+      "training_tokens": null,
+      "open_source": true,
+      "license": "FLUX Kommunity License",
+      "api_available": true,
+      "context_window_tokens": null,
+      "training_data_cutoff": null,
+      "release_date": "2026-10-15",
+      "country": "Germany",
+      "description": "The first open-weight image model in the FLUX 3 family. It is a 5.6B text-to-image and editing model with native 4K output and up to 10 reference images, shipped as a step-distilled model plus a Base model for fine-tuning. It is also available on the BFL API.",
+      "use_cases": [
+        "Text-to-image",
+        "Image editing"
+      ],
+      "notable_features": [
+        "Native 4K output",
+        "Multi-reference editing",
+        "Open weights"
+      ],
+      "pricing_per_1m_tokens": {
+        "input": null,
+        "output": null
+      },
+      "official_model_link": "https://bfl.ai/blog/flux-3-image-klein",
+      "huggingface_url": "https://huggingface.co/black-forest-labs/flux-3-image-klein",
+      "paper_url": null,
+      "predecessor": null,
+      "successor": null
+    },
+    {
+      "id": 326,
+      "company": "Kuaishou",
+      "company_website": "https://klingai.com",
+      "model_family": "Kling",
+      "model_name": "Kling 4.0",
+      "model_version": "",
+      "model_type": "Video Generation",
+      "category": "Video generation",
+      "architecture": "Transformer",
+      "modalities": [
+        "text",
+        "image",
+        "video",
+        "audio"
+      ],
+      "parameters": null,
+      "parameter_unit": null,
+      "training_tokens": null,
+      "open_source": false,
+      "license": "Proprietary",
+      "api_available": null,
+      "context_window_tokens": null,
+      "training_data_cutoff": null,
+      "release_date": "2026-10-15",
+      "country": "China",
+      "description": "Kling's fourth-generation video model, with single-pass 3-30 second clips, native audio with improved lip-sync, Omni Reference of up to 15 assets and up to 10 keyframes. It officially launched on October 15, 2026, after a Kling 4.0 Flash early access for subscribers.",
+      "use_cases": [
+        "Video generation",
+        "Storytelling"
+      ],
+      "notable_features": [
+        "Native audio",
+        "3-30 s single-pass clips",
+        "Multi-asset reference"
+      ],
+      "pricing_per_1m_tokens": {
+        "input": null,
+        "output": null
+      },
+      "official_model_link": "https://kling.ai/blog/kling40-kling-visual-realism-creative-control-introducing-storytelling",
+      "huggingface_url": null,
+      "paper_url": null,
+      "predecessor": "Kling 3.0",
+      "successor": null
+    },
+    {
+      "id": 327,
+      "company": "MiniMax",
+      "company_website": "https://minimax.io",
+      "model_family": "MiniMax",
+      "model_name": "MiniMax M3.1 Flash",
+      "model_version": "",
+      "model_type": "Foundation LLM (MoE, Multimodal)",
+      "category": "Multimodal",
+      "architecture": "Mixture-of-Experts Transformer (MiniMax Sparse Attention)",
+      "modalities": [
+        "text",
+        "image",
+        "video",
+        "code"
+      ],
+      "parameters": 428,
+      "parameter_unit": "billion",
+      "training_tokens": null,
+      "open_source": true,
+      "license": "MiniMax Community License",
+      "api_available": true,
+      "context_window_tokens": 1000000,
+      "training_data_cutoff": null,
+      "release_date": "2026-10-19",
+      "country": "China",
+      "description": "MiniMax's next-generation Flash model for coding, agentic work, computer use and cybersecurity, with about 428B total and 23B active parameters and text, image and video input. MiniMax says inference is nearly three times faster than M3 and agentic usage costs 70% less. It launched on the MiniMax API, M Plan and MiniMax Code; weights were later published on Hugging Face.",
+      "use_cases": [
+        "Agentic coding",
+        "Computer use",
+        "Office automation"
+      ],
+      "notable_features": [
+        "~428B total / 23B active parameters",
+        "1M-token context",
+        "DSpark speculative decoding"
+      ],
+      "pricing_per_1m_tokens": {
+        "input": 0.15,
+        "output": 0.6
+      },
+      "official_model_link": "https://www.minimax.io/blog/minimax-m31f",
+      "huggingface_url": "https://huggingface.co/MiniMaxAI/MiniMax-M3.1-Flash",
+      "paper_url": null,
+      "predecessor": "MiniMax M3",
+      "successor": null
+    },
+    {
+      "id": 328,
+      "company": "Mistral AI",
+      "company_website": "https://mistral.ai",
+      "model_family": "Voxtral",
+      "model_name": "Voxtral 3",
+      "model_version": "",
+      "model_type": "Speech-to-Text and Text-to-Speech Models",
+      "category": "Audio & speech",
+      "architecture": "Transformer",
+      "modalities": [
+        "text",
+        "audio"
+      ],
+      "parameters": null,
+      "parameter_unit": null,
+      "training_tokens": null,
+      "open_source": false,
+      "license": "Proprietary",
+      "api_available": true,
+      "context_window_tokens": null,
+      "training_data_cutoff": null,
+      "release_date": "2026-10-20",
+      "country": "France",
+      "description": "A new family of Mistral speech models plus a voice-agent SDK. It includes the Voxtral Small Transcribe 3 and 4B Voxtral Mini Transcribe 3 speech-to-text models, which cover 50+ languages with diarization and context biasing, and the Voxtral Mini TTS 3.0 expressive text-to-speech model. It is available through Mistral's EU-hosted API or self-deployment. Mini transcription is priced at $0.0035/min and TTS at $13 per 1M characters.",
+      "use_cases": [
+        "Voice agents",
+        "Transcription",
+        "Contact centers"
+      ],
+      "notable_features": [
+        "50+ transcription languages",
+        "Expressive TTS in 35+ languages",
+        "Voice agent SDK"
+      ],
+      "pricing_per_1m_tokens": {
+        "input": null,
+        "output": null
+      },
+      "official_model_link": "https://mistral.ai/news/voxtral-3/",
+      "huggingface_url": null,
+      "paper_url": null,
+      "predecessor": null,
+      "successor": null
+    },
+    {
+      "id": 329,
+      "company": "Moonshot AI",
+      "company_website": "https://moonshot.ai",
+      "model_family": "Kimi",
+      "model_name": "Kimi K3.1 Pro",
+      "model_version": "",
+      "model_type": "Open Multimodal LLM (MoE)",
+      "category": "Multimodal",
+      "architecture": "Mixture-of-Experts Transformer (KDA + Gated DeepSeek Sparse Attention)",
+      "modalities": [
+        "text",
+        "image",
+        "code"
+      ],
+      "parameters": 2800,
+      "parameter_unit": "billion",
+      "training_tokens": null,
+      "open_source": true,
+      "license": "Kimi K3.1 Pro License (modified MIT; separate agreement for large Model-as-a-Service providers)",
+      "api_available": true,
+      "context_window_tokens": 1048576,
+      "training_data_cutoff": null,
+      "release_date": "2026-10-23",
+      "country": "China",
+      "description": "The first model in Moonshot's K3.1 series: Kimi K3 post-trained with much more compute and joint reinforcement learning across hundreds of domains. It has 2.8T total and 104B active parameters. Moonshot reports gains in coding, 3D creation, financial research and factual accuracy, and says it removed cyber-offense data from training before the open-weight release. It launched on Kimi apps and the API, alongside a 2-3x faster Highspeed variant priced at $4/$20; weights followed on Hugging Face in early November.",
+      "use_cases": [
+        "Agentic coding",
+        "Financial research",
+        "3D modeling"
+      ],
+      "notable_features": [
+        "2.8T total / 104B active parameters",
+        "1M-token context",
+        "Highspeed variant",
+        "Open weights"
+      ],
+      "pricing_per_1m_tokens": {
+        "input": 2.0,
+        "output": 10.0
+      },
+      "official_model_link": "https://www.kimi.ai/blog/kimi-k3-1-pro",
+      "huggingface_url": "https://huggingface.co/moonshotai/Kimi-K3.1-Pro",
+      "paper_url": null,
+      "predecessor": "Kimi K3",
+      "successor": null
+    },
+    {
+      "id": 330,
+      "company": "Tencent",
+      "company_website": "https://tencent.com",
+      "model_family": "Hunyuan",
+      "model_name": "Hy-Nomas",
+      "model_version": "",
+      "model_type": "Interactive Video World Model",
+      "category": "World & 3D",
+      "architecture": "Transformer",
+      "modalities": [
+        "text",
+        "video"
+      ],
+      "parameters": null,
+      "parameter_unit": null,
+      "training_tokens": null,
+      "open_source": true,
+      "license": "Apache 2.0",
+      "api_available": false,
+      "context_window_tokens": null,
+      "training_data_cutoff": null,
+      "release_date": "2026-10-23",
+      "country": "China",
+      "description": "Open interactive world-generation model that builds a video world segment by segment from text instructions and camera trajectories. It uses a segment-autoregressive MMDiT with a persistent KV cache, is distilled to 8 steps at 720p and 24 fps, and runs on a single RTX 4090 with INT8 weights.",
+      "use_cases": [
+        "Interactive world generation"
+      ],
+      "notable_features": [
+        "Camera-controlled generation",
+        "Runs on a single consumer GPU",
+        "Open weights"
+      ],
+      "pricing_per_1m_tokens": {
+        "input": null,
+        "output": null
+      },
+      "official_model_link": "https://hy-nomas.hy.tencent.com/",
+      "huggingface_url": "https://huggingface.co/tencent/Hy-Nomas",
+      "paper_url": "https://arxiv.org/abs/2610.36729",
+      "predecessor": null,
+      "successor": null
+    },
+    {
+      "id": 331,
+      "company": "OpenAI",
+      "company_website": "https://openai.com",
+      "model_family": "GPT-6",
+      "model_name": "GPT-6.1 Terra",
+      "model_version": "6.1-terra",
+      "model_type": "Multimodal LLM",
+      "category": "Multimodal",
+      "architecture": "Transformer",
+      "modalities": [
+        "text",
+        "image",
+        "code"
+      ],
+      "parameters": null,
+      "parameter_unit": null,
+      "training_tokens": null,
+      "open_source": false,
+      "license": "Proprietary",
+      "api_available": true,
+      "context_window_tokens": 1050000,
+      "training_data_cutoff": null,
+      "release_date": "2026-10-26",
+      "country": "USA",
+      "description": "OpenAI's fast mid-tier model for visual reasoning, computer use and writing, released in ChatGPT Work, Codex and the API. Priced 50% below GPT-5.6 Terra and GPT-6.1 Sol and completes tasks over 3x faster than GPT-6 Astra and GPT-6.1 Sol.",
+      "use_cases": [
+        "computer use",
+        "visual reasoning",
+        "writing",
+        "coding"
+      ],
+      "notable_features": [
+        "1.05M context / 128K output",
+        "Critical cyber-threshold safeguards"
+      ],
+      "pricing_per_1m_tokens": {
+        "input": 1,
+        "output": 5
+      },
+      "official_model_link": "https://openai.com/index/introducing-gpt-6-1-terra/",
+      "huggingface_url": null,
+      "paper_url": null,
+      "predecessor": "GPT-5.6 Terra",
+      "successor": null
+    },
+    {
+      "id": 332,
+      "company": "Liquid AI",
+      "company_website": "https://liquid.ai",
+      "model_family": "LFM",
+      "model_name": "LFM3-1.7B",
+      "model_version": "",
+      "model_type": "On-Device Agentic LLM",
+      "category": "Small & fast",
+      "architecture": "Tri-hybrid",
+      "modalities": [
+        "text",
+        "code"
+      ],
+      "parameters": 1.7,
+      "parameter_unit": "billion",
+      "training_tokens": 22000,
+      "open_source": true,
+      "license": "LFM Open License v1.0",
+      "api_available": true,
+      "context_window_tokens": 256000,
+      "training_data_cutoff": null,
+      "release_date": "2026-10-27",
+      "country": "USA",
+      "description": "The text model of Liquid AI's third-generation LFM3 family. It is built on a new tri-hybrid architecture, pre-trained on 22T tokens, and has a 256K-token context window. Liquid says it beats LFM2.5-2.6B with 35% fewer parameters. The same backbone powers 2B-class vision, audio, omni and decision models, all released with open weights.",
+      "use_cases": [
+        "Local agents",
+        "Tool calling",
+        "Domain fine-tuning"
+      ],
+      "notable_features": [
+        "New tri-hybrid architecture",
+        "Fits in ~1 GB at 4-bit",
+        "Shared backbone for vision, audio and omni variants"
+      ],
+      "pricing_per_1m_tokens": {
+        "input": null,
+        "output": null
+      },
+      "official_model_link": "https://www.liquid.ai/blog/lfm3",
+      "huggingface_url": "https://huggingface.co/LiquidAI/LFM3-1.7B",
+      "paper_url": null,
+      "predecessor": "LFM2.5-2.6B",
+      "successor": null
+    },
+    {
+      "id": 333,
+      "company": "OpenAI",
+      "company_website": "https://openai.com",
+      "model_family": "GPT-6",
+      "model_name": "GPT-6 Rosalind",
+      "model_version": "6-rosalind",
+      "model_type": "Life Sciences Reasoning LLM (Trusted Access)",
+      "category": "Science",
+      "architecture": "Transformer",
+      "modalities": [
+        "text",
+        "science"
+      ],
+      "parameters": null,
+      "parameter_unit": null,
+      "training_tokens": null,
+      "open_source": false,
+      "license": "Proprietary",
+      "api_available": true,
+      "context_window_tokens": null,
+      "training_data_cutoff": null,
+      "release_date": "2026-10-30",
+      "country": "USA",
+      "description": "GPT-6-generation version of OpenAI's GPT-Rosalind life-sciences model (gpt-6-rosalind), released in the API for biology and drug-discovery research. Access is limited to approved organizations through OpenAI's trusted-access program.",
+      "use_cases": [
+        "biology research",
+        "drug discovery",
+        "genomics"
+      ],
+      "notable_features": [
+        "Trusted-access only"
+      ],
+      "pricing_per_1m_tokens": {
+        "input": null,
+        "output": null
+      },
+      "official_model_link": "https://developers.openai.com/api/docs/changelog",
+      "huggingface_url": null,
+      "paper_url": null,
+      "predecessor": null,
+      "successor": null
+    },
+    {
+      "id": 334,
+      "company": "Meituan",
+      "company_website": "https://longcat.ai",
+      "model_family": "LongCat",
+      "model_name": "LongCat-2.5",
+      "model_version": "",
+      "model_type": "Multimodal LLM (MoE)",
+      "category": "Multimodal",
+      "architecture": "Mixture-of-Experts Transformer",
+      "modalities": [
+        "text",
+        "image",
+        "video",
+        "code"
+      ],
+      "parameters": 1600,
+      "parameter_unit": "billion",
+      "training_tokens": null,
+      "open_source": true,
+      "license": "MIT",
+      "api_available": true,
+      "context_window_tokens": null,
+      "training_data_cutoff": null,
+      "release_date": "2026-11-02",
+      "country": "China",
+      "description": "Meituan's native multimodal MoE model for long-horizon agentic work, visual coding, creative design and 3D tasks, with 1.6T total and about 48B active parameters. It became generally available on the LongCat API Platform on November 2, 2026, following a September 25 preview, and MIT-licensed weights were published on Hugging Face.",
+      "use_cases": [
+        "Agentic coding",
+        "Visual coding",
+        "Long-horizon agents"
+      ],
+      "notable_features": [
+        "1.6T total / ~48B active parameters",
+        "Native visual tokens",
+        "Open weights (MIT)"
+      ],
+      "pricing_per_1m_tokens": {
+        "input": null,
+        "output": null
+      },
+      "official_model_link": "https://longcat.ai/blog/longcat-2.5/",
+      "huggingface_url": "https://huggingface.co/meituan-longcat/LongCat-2.5",
+      "paper_url": null,
+      "predecessor": null,
+      "successor": null
+    },
+    {
+      "id": 335,
+      "company": "OpenAI",
+      "company_website": "https://openai.com",
+      "model_family": "GPT Image",
+      "model_name": "GPT-Image-2.6 Flare / Sunburst",
+      "model_version": "2.6",
+      "model_type": "Image Generation Model",
+      "category": "Image generation",
+      "architecture": null,
+      "modalities": [
+        "text",
+        "image"
+      ],
+      "parameters": null,
+      "parameter_unit": null,
+      "training_tokens": null,
+      "open_source": false,
+      "license": "Proprietary",
+      "api_available": true,
+      "context_window_tokens": null,
+      "training_data_cutoff": null,
+      "release_date": "2026-11-04",
+      "country": "USA",
+      "description": "OpenAI's GPT-Image-2.6 API models for image generation and editing: Flare for quick iteration and Sunburst for detailed work. Adds SVG and animated GIF output, markup-guided edits and a complexity setting. Sunburst lists $5 text / $8 image input and $30 image output per 1M tokens.",
+      "use_cases": [
+        "image generation",
+        "image editing",
+        "vector graphics",
+        "animated GIFs"
+      ],
+      "notable_features": [
+        "SVG output",
+        "Animated GIF output",
+        "Markup-guided edits",
+        "Flare and Sunburst variants"
+      ],
+      "pricing_per_1m_tokens": {
+        "input": null,
+        "output": null
+      },
+      "official_model_link": "https://developers.openai.com/api/docs/models/gpt-image-2.6-sunburst",
+      "huggingface_url": null,
+      "paper_url": null,
+      "predecessor": "GPT-Image-2.5 Flare / Sunburst",
+      "successor": null
+    },
+    {
+      "id": 336,
+      "company": "Tencent",
+      "company_website": "https://tencent.com",
+      "model_family": "Hunyuan",
+      "model_name": "Hy4",
+      "model_version": "",
+      "model_type": "Multimodal LLM (MoE)",
+      "category": "Multimodal",
+      "architecture": "Mixture-of-Experts Transformer (Gated DeepSeek Sparse Attention)",
+      "modalities": [
+        "text",
+        "image",
+        "video",
+        "code"
+      ],
+      "parameters": 770,
+      "parameter_unit": "billion",
+      "training_tokens": null,
+      "open_source": true,
+      "license": "Tencent Hy License",
+      "api_available": true,
+      "context_window_tokens": 1048576,
+      "training_data_cutoff": null,
+      "release_date": "2026-11-04",
+      "country": "China",
+      "description": "Tencent's new flagship Hy model. Its language backbone has 770B total and 49B active parameters, and it understands text, images and video. It scales pre- and post-training over Hy4 preview and adds visual understanding and computer use. It launched on Tencent Cloud TokenHub, Tencent apps and OpenRouter, and Hy4, Hy4-FP8 and Hy4 base weights were later released on Hugging Face.",
+      "use_cases": [
+        "Agentic work",
+        "Computer use",
+        "Deep research"
+      ],
+      "notable_features": [
+        "770B total / 49B active parameters",
+        "1M-token context",
+        "Computer use",
+        "Open weights"
+      ],
+      "pricing_per_1m_tokens": {
+        "input": 0.9,
+        "output": 2.7
+      },
+      "official_model_link": "https://huggingface.co/tencent/Hy4",
+      "huggingface_url": "https://huggingface.co/tencent/Hy4",
+      "paper_url": null,
+      "predecessor": "Hunyuan Hy3 (preview)",
+      "successor": null
+    },
+    {
+      "id": 337,
+      "company": "OpenAI",
+      "company_website": "https://openai.com",
+      "model_family": "GPT-6",
+      "model_name": "GPT-6 Cyber",
+      "model_version": "6-cyber",
+      "model_type": "LLM (Security-Focused, Trusted Access)",
+      "category": "Coding",
+      "architecture": "Transformer",
+      "modalities": [
+        "text",
+        "code"
+      ],
+      "parameters": null,
+      "parameter_unit": null,
+      "training_tokens": null,
+      "open_source": false,
+      "license": "Proprietary",
+      "api_available": true,
+      "context_window_tokens": null,
+      "training_data_cutoff": null,
+      "release_date": "2026-11-05",
+      "country": "USA",
+      "description": "Specialized GPT-6 model for vulnerability investigation, reproduction, exploit development and fix verification in authorized test environments. Initially available via the API and Codex to select approved Daybreak Red customers; scores 48.5% on ExploitGym vs 32.1% for GPT-5.6 Cyber.",
+      "use_cases": [
+        "vulnerability research",
+        "penetration testing",
+        "exploit validation",
+        "patch verification"
+      ],
+      "notable_features": [
+        "Daybreak Red trusted access",
+        "Trained to stay within researcher-defined scope"
+      ],
+      "pricing_per_1m_tokens": {
+        "input": null,
+        "output": null
+      },
+      "official_model_link": "https://openai.com/index/introducing-gpt-6-cyber/",
+      "huggingface_url": null,
+      "paper_url": null,
+      "predecessor": "GPT-5.5-Cyber",
+      "successor": null
+    },
+    {
+      "id": 338,
+      "company": "Google DeepMind",
+      "company_website": "https://deepmind.google",
+      "model_family": "Gemini Omni",
+      "model_name": "Gemini Omni 1.2 Flash",
+      "model_version": "1.2-flash",
+      "model_type": "Generative Video Model",
+      "category": "Video generation",
+      "architecture": "Multimodal generative model",
+      "modalities": [
+        "text",
+        "image",
+        "audio",
+        "video"
+      ],
+      "parameters": null,
+      "parameter_unit": null,
+      "training_tokens": null,
+      "open_source": false,
+      "license": "Proprietary",
+      "api_available": true,
+      "context_window_tokens": null,
+      "training_data_cutoff": null,
+      "release_date": "2026-11-05",
+      "country": "USA",
+      "description": "Update to Google's Gemini Omni Flash video model, generating high-resolution video with audio from text, image, audio and video inputs and editing clips through conversation. Generally available in the Gemini API and Google Cloud, and rolling out in the Gemini app, Flow, YouTube and Workspace.",
+      "use_cases": [
+        "video generation",
+        "conversational video editing"
+      ],
+      "notable_features": [
+        "Video with native audio",
+        "Conversational editing",
+        "SynthID watermarking"
+      ],
+      "pricing_per_1m_tokens": {
+        "input": null,
+        "output": null
+      },
+      "official_model_link": "https://deepmind.google/models/model-cards/gemini-omni-1-2-flash/",
+      "huggingface_url": null,
+      "paper_url": "https://deepmind.google/models/model-cards/gemini-omni-1-2-flash/",
+      "predecessor": "Gemini Omni 1.1 Flash",
+      "successor": null
+    },
+    {
+      "id": 339,
+      "company": "Baidu",
+      "company_website": "https://ernie.baidu.com",
+      "model_family": "ERNIE",
+      "model_name": "ERNIE 5.5 Flash Base",
+      "model_version": "",
+      "model_type": "Base LLM (MoE)",
+      "category": "Language",
+      "architecture": "Mixture-of-Experts Transformer (hybrid MLA + Heavily Compressed Attention)",
+      "modalities": [
+        "text",
+        "code"
+      ],
+      "parameters": 280,
+      "parameter_unit": "billion",
+      "training_tokens": 33500,
+      "open_source": true,
+      "license": "ERNIE 5.5 Flash Base Model License v1.0",
+      "api_available": false,
+      "context_window_tokens": null,
+      "training_data_cutoff": null,
+      "release_date": "2026-11-05",
+      "country": "China",
+      "description": "Pre-trained base checkpoint of ERNIE 5.5 Flash: a sparse MoE with 280B total and 14B active parameters, trained from scratch on 33.5T tokens with up to 128K training context. It supports 1M tokens for fine-tuning and inference. Baidu released it as open weights for domain adaptation and RL research, and a post-trained ERNIE 5.5 Flash Preview followed on Baidu's API.",
+      "use_cases": [
+        "Fine-tuning",
+        "RL research"
+      ],
+      "notable_features": [
+        "280B total / 14B active parameters",
+        "33.5T pre-training tokens",
+        "Open base weights"
+      ],
+      "pricing_per_1m_tokens": {
+        "input": null,
+        "output": null
+      },
+      "official_model_link": "https://ernie.baidu.com/release/ernie-5-5-flash-base/",
+      "huggingface_url": "https://huggingface.co/baidu/ERNIE-5.5-Flash-Base",
+      "paper_url": null,
+      "predecessor": null,
+      "successor": null
+    },
+    {
+      "id": 340,
+      "company": "Anthropic",
+      "company_website": "https://www.anthropic.com",
+      "model_family": "Claude",
+      "model_name": "Claude Fable 5.2",
+      "model_version": "5.2",
+      "model_type": "Foundation LLM (Mythos-class, Agentic)",
+      "category": "Multimodal",
+      "architecture": "Transformer",
+      "modalities": [
+        "text",
+        "image",
+        "code"
+      ],
+      "parameters": null,
+      "parameter_unit": null,
+      "training_tokens": null,
+      "open_source": false,
+      "license": "Proprietary",
+      "api_available": true,
+      "context_window_tokens": 1000000,
+      "training_data_cutoff": null,
+      "release_date": "2026-11-09",
+      "country": "USA",
+      "description": "Update to Claude Fable 5.1 with gains in agentic coding, finance, science and vision, up to 30% faster output, and lower prices ($8/$40 per 1M tokens, down from $10/$50). Available on the Claude API, apps and major clouds, with an optional fast mode (up to 2.5x output speed at $16/$80).",
+      "use_cases": [
+        "agentic coding",
+        "scientific research",
+        "finance",
+        "computer use"
+      ],
+      "notable_features": [
+        "1M context / 128K max output",
+        "Always-on adaptive thinking",
+        "Fast mode",
+        "Advisor and Orchestrator roles"
+      ],
+      "pricing_per_1m_tokens": {
+        "input": 8,
+        "output": 40
+      },
+      "official_model_link": "https://www.anthropic.com/claude-fable-and-mythos-5-2",
+      "huggingface_url": null,
+      "paper_url": null,
+      "predecessor": "Claude Fable 5.1",
+      "successor": null
+    },
+    {
+      "id": 341,
+      "company": "Anthropic",
+      "company_website": "https://www.anthropic.com",
+      "model_family": "Claude",
+      "model_name": "Claude Mythos 5.2",
+      "model_version": "Mythos 5.2",
+      "model_type": "Foundation LLM (Mythos-class, Trusted Access)",
+      "category": "Multimodal",
+      "architecture": "Transformer",
+      "modalities": [
+        "text",
+        "image",
+        "code"
+      ],
+      "parameters": null,
+      "parameter_unit": null,
+      "training_tokens": null,
+      "open_source": false,
+      "license": "Proprietary",
+      "api_available": true,
+      "context_window_tokens": 1000000,
+      "training_data_cutoff": null,
+      "release_date": "2026-11-09",
+      "country": "USA",
+      "description": "Same underlying model as Claude Fable 5.2 with fewer safeguards, restricted to organizations vetted through Anthropic's Cyber and Life Sciences Verification Programs. Anthropic reports 89.6% on its CVE Rediscovery evaluation, ahead of Claude Opus 5.5 and Mythos 5.1.",
+      "use_cases": [
+        "defensive cybersecurity",
+        "vulnerability research",
+        "life sciences research"
+      ],
+      "notable_features": [
+        "Same model as Claude Fable 5.2",
+        "Verified-organization access only",
+        "1M context / 128K max output"
+      ],
+      "pricing_per_1m_tokens": {
+        "input": 8,
+        "output": 40
+      },
+      "official_model_link": "https://www.anthropic.com/claude-fable-and-mythos-5-2",
+      "huggingface_url": null,
+      "paper_url": null,
+      "predecessor": "Claude Mythos 5",
+      "successor": null
+    },
+    {
+      "id": 342,
+      "company": "ByteDance",
+      "company_website": "https://seed.bytedance.com",
+      "model_family": "Seedream",
+      "model_name": "Seedream 5.5",
+      "model_version": "",
+      "model_type": "Image Generation Model",
+      "category": "Image generation",
+      "architecture": "Transformer",
+      "modalities": [
+        "text",
+        "image"
+      ],
+      "parameters": null,
+      "parameter_unit": null,
+      "training_tokens": null,
+      "open_source": false,
+      "license": "Proprietary",
+      "api_available": true,
+      "context_window_tokens": null,
+      "training_data_cutoff": null,
+      "release_date": "2026-11-09",
+      "country": "China",
+      "description": "ByteDance Seed image generation and editing model that keeps unedited regions stable across up to 100 rounds of edits. It outputs native RGBA images with transparency and improves realism and small-text rendering. A Pro version is planned.",
+      "use_cases": [
+        "Image generation",
+        "Iterative editing"
+      ],
+      "notable_features": [
+        "Stable multi-round editing",
+        "Native transparency (RGBA)"
+      ],
+      "pricing_per_1m_tokens": {
+        "input": null,
+        "output": null
+      },
+      "official_model_link": "https://seed.bytedance.com/en/blog/more-realistic-images-more-stable-editing-across-100-rounds-introducing-seedream-5-5",
+      "huggingface_url": null,
+      "paper_url": null,
+      "predecessor": "Seedream 5.0 Pro",
+      "successor": null
+    },
+    {
+      "id": 343,
+      "company": "Google DeepMind",
+      "company_website": "https://deepmind.google",
+      "model_family": "Gemini",
+      "model_name": "Gemini 4 Carbon",
+      "model_version": "4-carbon",
+      "model_type": "Frontier Multimodal Reasoning LLM",
+      "category": "Reasoning",
+      "architecture": "Sparse Mixture-of-Experts Transformer (based on Gemini 4 Argon)",
+      "modalities": [
+        "text",
+        "image",
+        "audio",
+        "video",
+        "code"
+      ],
+      "parameters": null,
+      "parameter_unit": null,
+      "training_tokens": null,
+      "open_source": false,
+      "license": "Proprietary",
+      "api_available": true,
+      "context_window_tokens": 1000000,
+      "training_data_cutoff": "2026-03",
+      "release_date": "2026-11-10",
+      "country": "USA",
+      "description": "Google's strongest Gemini 4 model, based on Gemini 4 Argon but spending more thinking tokens on reasoning and verification for the hardest long-horizon engineering, cybersecurity and scientific tasks. Given to Fairwind cyber defenders about two weeks earlier; generally available November 10 on the paid Gemini API, Gemini for business, and for AI Ultra subscribers in the Gemini app, Antigravity and AI Mode. Introductory $2/$10 per 1M tokens through Nov 30, then $4/$20.",
+      "use_cases": [
+        "long-horizon agentic engineering",
+        "cybersecurity",
+        "scientific and mathematical reasoning",
+        "3D and UI generation"
+      ],
+      "notable_features": [
+        "1M-token input+output context",
+        "Configurable thinking levels",
+        "/swarm multi-agent preview in Antigravity"
+      ],
+      "pricing_per_1m_tokens": {
+        "input": 4,
+        "output": 20
+      },
+      "official_model_link": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-carbon-now-available/",
+      "huggingface_url": null,
+      "paper_url": "https://deepmind.google/models/model-cards/gemini-4-carbon/",
+      "predecessor": null,
+      "successor": null
+    },
+    {
+      "id": 344,
+      "company": "ElevenLabs",
+      "company_website": "https://elevenlabs.io",
+      "model_family": "Scribe",
+      "model_name": "Scribe v3",
+      "model_version": "",
+      "model_type": "Speech-to-Text Model",
+      "category": "Audio & speech",
+      "architecture": "Transformer",
+      "modalities": [
+        "text",
+        "audio"
+      ],
+      "parameters": null,
+      "parameter_unit": null,
+      "training_tokens": null,
+      "open_source": false,
+      "license": "Proprietary",
+      "api_available": true,
+      "context_window_tokens": null,
+      "training_data_cutoff": null,
+      "release_date": "2026-11-10",
+      "country": "USA",
+      "description": "ElevenLabs' third-generation speech-to-text models: Scribe v3 for recorded audio (27% fewer word errors than Scribe v2) and Scribe v3 Live for realtime transcription with speaker diarization and context-aware turn detection, evaluated across 102 languages.",
+      "use_cases": [
+        "Transcription",
+        "Realtime voice agents"
+      ],
+      "notable_features": [
+        "Realtime variant",
+        "Speaker diarization",
+        "102 languages evaluated"
+      ],
+      "pricing_per_1m_tokens": {
+        "input": null,
+        "output": null
+      },
+      "official_model_link": "https://elevenlabs.io/blog/scribe-v3",
+      "huggingface_url": null,
+      "paper_url": null,
+      "predecessor": null,
+      "successor": null
+    },
+    {
+      "id": 345,
+      "company": "MiniMax",
+      "company_website": "https://minimax.io",
+      "model_family": "MiniMax H3",
+      "model_name": "MiniMax H3 Image",
+      "model_version": "",
+      "model_type": "Image Generation & Editing Model",
+      "category": "Image generation",
+      "architecture": "Diffusion Transformer",
+      "modalities": [
+        "text",
+        "image"
+      ],
+      "parameters": 33.1,
+      "parameter_unit": "billion",
+      "training_tokens": null,
+      "open_source": true,
+      "license": "MiniMax-H3-Image Community License",
+      "api_available": true,
+      "context_window_tokens": null,
+      "training_data_cutoff": null,
+      "release_date": "2026-11-10",
+      "country": "China",
+      "description": "Open-weight text-to-image and image-editing model from the MiniMax H3 family. It generates images of about 16 megapixels (up to 4096x4096) directly, is distilled to 6 steps without CFG, and accepts up to 16 reference images. The 33.1B count covers the DiT only.",
+      "use_cases": [
+        "Text-to-image",
+        "Image editing"
+      ],
+      "notable_features": [
+        "~16 MP native output",
+        "6-step distilled",
+        "Open weights"
+      ],
+      "pricing_per_1m_tokens": {
+        "input": null,
+        "output": null
+      },
+      "official_model_link": "https://www.minimax.io/blog/minimax-h3-image",
+      "huggingface_url": "https://huggingface.co/MiniMaxAI/MiniMax-H3-Image",
+      "paper_url": null,
+      "predecessor": null,
+      "successor": null
+    },
+    {
+      "id": 346,
+      "company": "Google DeepMind",
+      "company_website": "https://deepmind.google",
+      "model_family": "AlphaGenome",
+      "model_name": "AlphaGenome 2",
+      "model_version": "2",
+      "model_type": "Genomics Foundation Model",
+      "category": "Science",
+      "architecture": "Genomic sequence model",
+      "modalities": [
+        "science"
+      ],
+      "parameters": null,
+      "parameter_unit": null,
+      "training_tokens": null,
+      "open_source": false,
+      "license": "Non-commercial research access",
+      "api_available": true,
+      "context_window_tokens": null,
+      "training_data_cutoff": null,
+      "release_date": "2026-11-11",
+      "country": "USA",
+      "description": "Second-generation AlphaGenome that predicts how DNA variants affect specific cell types and states, trained on over 100 million single-cell and bulk profiles from human and mouse. Available for non-commercial research through the AlphaGenome API and in private preview for commercial use on Google Cloud.",
+      "use_cases": [
+        "variant effect prediction",
+        "disease genetics",
+        "single-cell genomics"
+      ],
+      "notable_features": [
+        "Cell-type-conditional predictions",
+        "Custom cell input from single-cell data",
+        "Generalizes to unseen single-cell experiments"
+      ],
+      "pricing_per_1m_tokens": {
+        "input": null,
+        "output": null
+      },
+      "official_model_link": "https://deepmind.google/blog/alphagenome-2-deciphering-how-cells-read-dna-to-better-understand-disease/",
+      "huggingface_url": null,
+      "paper_url": "https://www.biorxiv.org/content/10.64898/2026.11.11.765857",
+      "predecessor": null,
+      "successor": null
+    },
+    {
+      "id": 347,
+      "company": "Google DeepMind",
+      "company_website": "https://deepmind.google",
+      "model_family": "Gemini",
+      "model_name": "Gemini 4 Hydrogen",
+      "model_version": "4-hydrogen",
+      "model_type": "Multimodal LLM (Fast)",
+      "category": "Small & fast",
+      "architecture": "Transformer",
+      "modalities": [
+        "text",
+        "image",
+        "audio",
+        "video",
+        "code"
+      ],
+      "parameters": null,
+      "parameter_unit": null,
+      "training_tokens": null,
+      "open_source": false,
+      "license": "Proprietary",
+      "api_available": true,
+      "context_window_tokens": 1000000,
+      "training_data_cutoff": "2026-03",
+      "release_date": "2026-11-12",
+      "country": "USA",
+      "description": "Fast, cost-efficient Gemini 4 model for everyday coding and agentic work, adapted from Gemini 4 Carbon. Rolled out globally in the Gemini API (all tiers), AI Studio, Gemini app, Search and Antigravity; about 2.5x faster than Gemini 3.8 Flash and scores 51 on the Artificial Analysis Intelligence Index at default settings.",
+      "use_cases": [
+        "everyday coding",
+        "agentic workflows",
+        "reports and structured deliverables"
+      ],
+      "notable_features": [
+        "1M context",
+        "Four thinking levels incl. xhigh",
+        "Flat pricing across context"
+      ],
+      "pricing_per_1m_tokens": {
+        "input": 1.5,
+        "output": 7.5
+      },
+      "official_model_link": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-hydrogen/",
+      "huggingface_url": null,
+      "paper_url": "https://deepmind.google/models/model-cards/gemini-4-hydrogen/",
+      "predecessor": "Gemini 3.8 Flash",
+      "successor": null
+    },
+    {
+      "id": 348,
+      "company": "Alibaba",
+      "company_website": "https://alibabacloud.com",
+      "model_family": "Qwen",
+      "model_name": "Qwen4-Max",
+      "model_version": "",
+      "model_type": "Multimodal LLM (MoE)",
+      "category": "Multimodal",
+      "architecture": "Mixture-of-Experts Transformer",
+      "modalities": [
+        "text",
+        "image",
+        "code"
+      ],
+      "parameters": 2400,
+      "parameter_unit": "billion",
+      "training_tokens": null,
+      "open_source": false,
+      "license": "Proprietary",
+      "api_available": true,
+      "context_window_tokens": 1000000,
+      "training_data_cutoff": null,
+      "release_date": "2026-11-16",
+      "country": "China",
+      "description": "Alibaba's most capable Qwen model to date. It is a 2.4T-parameter MoE that activates 71B parameters per token, 25% fewer than Qwen3.8-Max, with native vision and a 1M-token context. It is API-only on QwenCloud and Model Studio; Alibaba says smaller open-weight Qwen4 models will follow. Listed price is $1.50/$4.50 per 1M tokens (international).",
+      "use_cases": [
+        "Agentic coding",
+        "Visual reasoning",
+        "Knowledge work"
+      ],
+      "notable_features": [
+        "2.4T total / 71B active parameters",
+        "Native vision",
+        "1M-token context"
+      ],
+      "pricing_per_1m_tokens": {
+        "input": 1.5,
+        "output": 4.5
+      },
+      "official_model_link": "https://www.alibabacloud.com/press-room/alibaba-unveils-qwen4-max",
+      "huggingface_url": null,
+      "paper_url": null,
+      "predecessor": "Qwen3.8-Max",
+      "successor": null
+    },
+    {
+      "id": 349,
+      "company": "OpenAI",
+      "company_website": "https://openai.com",
+      "model_family": "GPT-6",
+      "model_name": "GPT-6.2 Astra",
+      "model_version": "6.2-astra",
+      "model_type": "Frontier Multimodal Reasoning LLM",
+      "category": "Reasoning",
+      "architecture": "Transformer",
+      "modalities": [
+        "text",
+        "image",
+        "code"
+      ],
+      "parameters": null,
+      "parameter_unit": null,
+      "training_tokens": null,
+      "open_source": false,
+      "license": "Proprietary",
+      "api_available": true,
+      "context_window_tokens": 1050000,
+      "training_data_cutoff": null,
+      "release_date": "2026-11-17",
+      "country": "USA",
+      "description": "OpenAI's frontier model for the hardest professional projects, replacing GPT-6 Astra with stronger documents, spreadsheets, code, CAD and simulation computer use, at 20% lower input/output prices. Available in ChatGPT Work, Codex and the API; OpenAI says it is the first externally released model to meet its High threshold for AI self-improvement.",
+      "use_cases": [
+        "professional documents and spreadsheets",
+        "coding",
+        "computer use",
+        "3D and web design"
+      ],
+      "notable_features": [
+        "1.05M context / 128K output",
+        "Ultrafast mode",
+        "Critical cyber-threshold safeguards"
+      ],
+      "pricing_per_1m_tokens": {
+        "input": 8,
+        "output": 40
+      },
+      "official_model_link": "https://openai.com/index/introducing-gpt-6-2-astra-sol/",
+      "huggingface_url": null,
+      "paper_url": null,
+      "predecessor": "GPT-6 Astra",
+      "successor": null
+    },
+    {
+      "id": 350,
+      "company": "OpenAI",
+      "company_website": "https://openai.com",
+      "model_family": "GPT-6",
+      "model_name": "GPT-6.2 Sol",
+      "model_version": "6.2-sol",
+      "model_type": "Multimodal LLM",
+      "category": "Reasoning",
+      "architecture": "Transformer",
+      "modalities": [
+        "text",
+        "image",
+        "code"
+      ],
+      "parameters": null,
+      "parameter_unit": null,
+      "training_tokens": null,
+      "open_source": false,
+      "license": "Proprietary",
+      "api_available": true,
+      "context_window_tokens": 1050000,
+      "training_data_cutoff": null,
+      "release_date": "2026-11-17",
+      "country": "USA",
+      "description": "Everyday GPT-6.2 model for multistep agentic work and coding, replacing GPT-6.1 Sol at the same price. OpenAI reports it scores within 0.5 points of GPT-6.2 Astra on FrontierCode 2.0 at about one-fifth the cost.",
+      "use_cases": [
+        "agentic workflows",
+        "coding",
+        "writing"
+      ],
+      "notable_features": [
+        "1.05M context / 128K output",
+        "Ultrafast mode"
+      ],
+      "pricing_per_1m_tokens": {
+        "input": 2,
+        "output": 10
+      },
+      "official_model_link": "https://openai.com/index/introducing-gpt-6-2-astra-sol/",
+      "huggingface_url": null,
+      "paper_url": null,
+      "predecessor": "GPT-6.1 Sol",
+      "successor": null
+    },
+    {
+      "id": 351,
+      "company": "Microsoft",
+      "company_website": "https://microsoft.com",
+      "model_family": "MAI",
+      "model_name": "MAI Code 2",
+      "model_version": "2",
+      "model_type": "Foundation LLM (Coding)",
+      "category": "Coding",
+      "architecture": "Transformer",
+      "modalities": [
+        "text",
+        "code"
+      ],
+      "parameters": null,
+      "parameter_unit": null,
+      "training_tokens": null,
+      "open_source": false,
+      "license": "Proprietary",
+      "api_available": true,
+      "context_window_tokens": null,
+      "training_data_cutoff": null,
+      "release_date": "2026-11-17",
+      "country": "USA",
+      "description": "Microsoft AI's coding model for everyday enterprise software work, launched at Ignite 2026 and available in GitHub Copilot. Microsoft reports 98% of GPT-6.1 Sol's and 96% of Claude Opus 5.5's average coding-benchmark performance at a fraction of their price.",
+      "use_cases": [
+        "agentic coding",
+        "frontend and visual coding"
+      ],
+      "notable_features": [
+        "Available in GitHub Copilot",
+        "Launch promotional pricing"
+      ],
+      "pricing_per_1m_tokens": {
+        "input": null,
+        "output": null
+      },
+      "official_model_link": "https://microsoft.ai/news/introducing-mai-code-2-and-mai-code-2-flash/",
+      "huggingface_url": null,
+      "paper_url": null,
+      "predecessor": null,
+      "successor": null
+    },
+    {
+      "id": 352,
+      "company": "Microsoft",
+      "company_website": "https://microsoft.com",
+      "model_family": "MAI",
+      "model_name": "MAI Code 2 Flash",
+      "model_version": "2-Flash",
+      "model_type": "Foundation LLM (Coding, Efficient)",
+      "category": "Coding",
+      "architecture": "Transformer",
+      "modalities": [
+        "text",
+        "code"
+      ],
+      "parameters": null,
+      "parameter_unit": null,
+      "training_tokens": null,
+      "open_source": false,
+      "license": "Proprietary",
+      "api_available": true,
+      "context_window_tokens": null,
+      "training_data_cutoff": null,
+      "release_date": "2026-11-17",
+      "country": "USA",
+      "description": "Lightweight, high-volume coding model released with MAI Code 2, available in GitHub Copilot and in limited-access preview in Microsoft Foundry. Microsoft reports performance comparable to GPT-6 Luna and Claude Haiku 5.5 on DeepSWE 1.1, Terminal Bench 2.1 and SWE-Atlas.",
+      "use_cases": [
+        "high-volume coding",
+        "code completion"
+      ],
+      "notable_features": [
+        "GitHub Copilot",
+        "Foundry limited preview"
+      ],
+      "pricing_per_1m_tokens": {
+        "input": null,
+        "output": null
+      },
+      "official_model_link": "https://microsoft.ai/news/introducing-mai-code-2-and-mai-code-2-flash/",
+      "huggingface_url": null,
+      "paper_url": null,
+      "predecessor": "MAI-Code-1-Flash",
+      "successor": null
+    },
+    {
+      "id": 353,
+      "company": "Microsoft",
+      "company_website": "https://microsoft.com",
+      "model_family": "MAI",
+      "model_name": "MAI Image 2.7",
+      "model_version": "2.7",
+      "model_type": "Image Generation / Editing Model",
+      "category": "Image generation",
+      "architecture": null,
+      "modalities": [
+        "text",
+        "image"
+      ],
+      "parameters": null,
+      "parameter_unit": null,
+      "training_tokens": null,
+      "open_source": false,
+      "license": "Proprietary",
+      "api_available": true,
+      "context_window_tokens": null,
+      "training_data_cutoff": null,
+      "release_date": "2026-11-17",
+      "country": "USA",
+      "description": "Microsoft AI image generation and editing model announced at Ignite 2026 and offered through Microsoft Foundry and MAI Labs, with a cheaper MAI Image 2.7 Flash variant for high-volume generation. Microsoft reports #1 on the Artificial Analysis image-editing leaderboard at launch.",
+      "use_cases": [
+        "image generation",
+        "image editing"
+      ],
+      "notable_features": [
+        "Up to five reference images",
+        "MAI Image 2.7 Flash variant"
+      ],
+      "pricing_per_1m_tokens": {
+        "input": null,
+        "output": null
+      },
+      "official_model_link": "https://microsoft.ai/models/mai-image-2-7/",
+      "huggingface_url": null,
+      "paper_url": null,
+      "predecessor": "MAI-Image-2.5",
+      "successor": null
+    },
+    {
+      "id": 354,
+      "company": "Microsoft",
+      "company_website": "https://microsoft.com",
+      "model_family": "MAI",
+      "model_name": "MAI Realtime 1",
+      "model_version": "1",
+      "model_type": "Speech-to-Speech Model",
+      "category": "Audio & speech",
+      "architecture": "Audio foundation model",
+      "modalities": [
+        "audio",
+        "text"
+      ],
+      "parameters": null,
+      "parameter_unit": null,
+      "training_tokens": null,
+      "open_source": false,
+      "license": "Proprietary",
+      "api_available": true,
+      "context_window_tokens": null,
+      "training_data_cutoff": null,
+      "release_date": "2026-11-17",
+      "country": "USA",
+      "description": "Microsoft AI's first live speech-to-speech model for low-latency conversations, available to try in MAI Labs and in limited-access preview in Microsoft Foundry. Priced from $0.01 per audio minute (reasoning billed separately at $1/$5 per 1M tokens) and compatible with the OpenAI Realtime API.",
+      "use_cases": [
+        "voice agents",
+        "contact centers"
+      ],
+      "notable_features": [
+        "OpenAI Realtime API compatible",
+        "Escalates to a reasoning engine for hard turns",
+        "From $0.01 per audio minute"
+      ],
+      "pricing_per_1m_tokens": {
+        "input": null,
+        "output": null
+      },
+      "official_model_link": "https://microsoft.ai/news/introducing-mai-realtime-1/",
+      "huggingface_url": null,
+      "paper_url": null,
+      "predecessor": null,
+      "successor": null
+    },
+    {
+      "id": 355,
+      "company": "Tencent",
+      "company_website": "https://tencent.com",
+      "model_family": "Hunyuan",
+      "model_name": "Hy4 flash",
+      "model_version": "",
+      "model_type": "Multimodal LLM (MoE, Cost-efficient)",
+      "category": "Small & fast",
+      "architecture": "Mixture-of-Experts Transformer (Engram embeddings)",
+      "modalities": [
+        "text",
+        "image",
+        "code"
+      ],
+      "parameters": 220,
+      "parameter_unit": "billion",
+      "training_tokens": null,
+      "open_source": true,
+      "license": "Tencent Hy License",
+      "api_available": true,
+      "context_window_tokens": 1048576,
+      "training_data_cutoff": null,
+      "release_date": "2026-11-17",
+      "country": "China",
+      "description": "Tencent's most cost-effective Hy model. It has 220B total parameters, including 64B Engram parameters, and about 12B active, with text and image input and a 1M-token context. Tencent positions it for everyday work such as research, document processing and slides. It is available on Tencent Cloud TokenHub and Tencent apps, with open weights (standard, FP8 and base) on Hugging Face.",
+      "use_cases": [
+        "Deep research",
+        "Document processing",
+        "High-volume tasks"
+      ],
+      "notable_features": [
+        "220B total / ~12B active parameters",
+        "1M-token context",
+        "Open weights"
+      ],
+      "pricing_per_1m_tokens": {
+        "input": 0.07,
+        "output": 0.281
+      },
+      "official_model_link": "https://www.prnewswire.com/news-releases/tencent-launches-hy4-flash-to-power-high-speed-cost-efficient-ai-deployment-for-everyday-workflows-302941875.html",
+      "huggingface_url": "https://huggingface.co/tencent/Hy4-flash",
+      "paper_url": null,
+      "predecessor": null,
+      "successor": null
+    },
+    {
+      "id": 356,
+      "company": "Google DeepMind",
+      "company_website": "https://deepmind.google",
+      "model_family": "Gemini",
+      "model_name": "Gemini 4 Neon",
+      "model_version": "4-neon",
+      "model_type": "Multimodal Reasoning LLM",
+      "category": "Reasoning",
+      "architecture": "Transformer",
+      "modalities": [
+        "text",
+        "image",
+        "audio",
+        "video",
+        "code"
+      ],
+      "parameters": null,
+      "parameter_unit": null,
+      "training_tokens": null,
+      "open_source": false,
+      "license": "Proprietary",
+      "api_available": true,
+      "context_window_tokens": 1000000,
+      "training_data_cutoff": "2026-03",
+      "release_date": "2026-11-18",
+      "country": "USA",
+      "description": "Mid-tier Gemini 4 model adapted from Gemini 4 Carbon, balancing depth and efficiency for complex coding, analysis and enterprise workflows; costs 32% less per task than Carbon. Available in the paid Gemini API, Gemini for business, Antigravity and the Gemini app for Pro and Ultra subscribers.",
+      "use_cases": [
+        "complex coding",
+        "analytical reasoning",
+        "enterprise workflows"
+      ],
+      "notable_features": [
+        "1M context",
+        "Four thinking levels",
+        "#1 Artificial Analysis Coding Agent Index at launch"
+      ],
+      "pricing_per_1m_tokens": {
+        "input": 3,
+        "output": 15
+      },
+      "official_model_link": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-neon/",
+      "huggingface_url": null,
+      "paper_url": "https://deepmind.google/models/model-cards/gemini-4-neon/",
+      "predecessor": null,
+      "successor": null
+    },
+    {
+      "id": 357,
+      "company": "Google DeepMind",
+      "company_website": "https://deepmind.google",
+      "model_family": "Genie",
+      "model_name": "Genie 4",
+      "model_version": "4",
+      "model_type": "Interactive World Model",
+      "category": "World & 3D",
+      "architecture": null,
+      "modalities": [
+        "text",
+        "image",
+        "video",
+        "audio"
+      ],
+      "parameters": null,
+      "parameter_unit": null,
+      "training_tokens": null,
+      "open_source": false,
+      "license": "Proprietary",
+      "api_available": true,
+      "context_window_tokens": null,
+      "training_data_cutoff": null,
+      "release_date": "2026-11-18",
+      "country": "USA",
+      "description": "DeepMind world model for real-time interactive simulation that users can steer live with text prompts, with native audio. Announced October 27 for trusted testers; rolled out November 18 to Google AI Ultra subscribers in Project Genie, then to the Gemini API (genie-4) on November 19.",
+      "use_cases": [
+        "interactive world simulation",
+        "game and scene prototyping",
+        "agent training environments"
+      ],
+      "notable_features": [
+        "Live text steering",
+        "Native real-time audio",
+        "SynthID watermarking"
+      ],
+      "pricing_per_1m_tokens": {
+        "input": null,
+        "output": null
+      },
+      "official_model_link": "https://blog.google/innovation-and-ai/models-and-research/google-deepmind/genie-4-now-available-project-genie/",
+      "huggingface_url": null,
+      "paper_url": null,
+      "predecessor": null,
+      "successor": null
+    },
+    {
+      "id": 358,
+      "company": "Kuaishou",
+      "company_website": "https://klingai.com",
+      "model_family": "Kling",
+      "model_name": "Kling Image 4.0",
+      "model_version": "",
+      "model_type": "Image Generation Model",
+      "category": "Image generation",
+      "architecture": "Transformer",
+      "modalities": [
+        "text",
+        "image"
+      ],
+      "parameters": null,
+      "parameter_unit": null,
+      "training_tokens": null,
+      "open_source": false,
+      "license": "Proprietary",
+      "api_available": true,
+      "context_window_tokens": null,
+      "training_data_cutoff": null,
+      "release_date": "2026-11-18",
+      "country": "China",
+      "description": "Kling's next-generation image model on a unified autoregressive understanding-and-generation architecture. It offers native 8K output, up to 2,000 characters of in-image text in seven languages, and coordinated sets of up to 10 images.",
+      "use_cases": [
+        "Image generation",
+        "Design"
+      ],
+      "notable_features": [
+        "Native 8K output",
+        "Long in-image text rendering"
+      ],
+      "pricing_per_1m_tokens": {
+        "input": null,
+        "output": null
+      },
+      "official_model_link": "https://kling.ai/blog/kling-image-4-stunningly-realistic-sharp-precise",
+      "huggingface_url": null,
+      "paper_url": null,
+      "predecessor": null,
       "successor": null
     }
   ]

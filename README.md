@@ -15,7 +15,7 @@ Watch a real (tiny) language model process your sentence, follow a model from ra
 
 | # | Module | Route | What you can do |
 |---|---|---|---|
-| 01 | **AI Timeline** | `/timeline` | Scroll, zoom and search 312 models, 98 research papers and 129 developer tools. Filter by company, type, modality, licence and year; open any entry for specs and source links. Filters live in the URL, so every view can be shared. |
+| 01 | **AI Timeline** | `/timeline` | Scroll, zoom and search 358 models, 107 research papers and 140 developer tools. Filter by company, type, modality, licence and year; open any entry for specs and source links. Filters live in the URL, so every view can be shared. |
 | 02 | **How LLMs Work** | `/transformer-simulator` | Type a sentence and step through a real transformer forward pass in 12 steps — tokens, embeddings, positional encoding, multi-head causal attention, residuals, layer norm, feed-forward, logits, softmax with temperature, and greedy or top-k sampling — then append the prediction and run it again. *Simple* mode explains in plain language; *Advanced* mode adds tensor shapes, formulas and PyTorch code. |
 | 03 | **How AI Is Trained** | `/transformer-training-simulator` | Ten stages from data to deployment, each with an interactive demo: real published data mixes, a byte-pair-encoding run and genuine GPT tokenizations, a transformer sizing calculator, loss and scaling-law explorers, a training-run replay, LoRA, a preference-labelling exercise, a memory calculator, speculative decoding and a request's journey through a serving stack. |
 | 04 | **Benchmarks** | `/benchmarks` | Lab-reported scores on GPQA Diamond, SWE-bench Verified, Humanity's Last Exam, AIME and MMLU for 41 models, with price, progress over time, score-versus-price and head-to-head comparison. Every score links to its source; blank means not reported. |
@@ -36,7 +36,7 @@ Also: `/about` (methodology, data review dates, how to contribute) and a 404 pag
 - **Unknown stays blank.** Nothing is estimated to fill gaps.
 - **Checked automatically.** `npm test` runs dataset integrity tests (counts, ids, dates, categories, links, review dates) and tests of the maths engine.
 
-Data was last reviewed on **28 September 2026**. See [docs/DATA-GUIDE.md](docs/DATA-GUIDE.md) for the rules, or [open a data correction](https://github.com/Akashkunwar/AI-Beacon/issues/new?template=data_correction.md).
+Timeline data was last updated on **21 November 2026**; benchmark and impact data were last reviewed on **28 September 2026**. See [docs/DATA-GUIDE.md](docs/DATA-GUIDE.md) for the rules, or [open a data correction](https://github.com/Akashkunwar/AI-Beacon/issues/new?template=data_correction.md).
 
 ## Getting started
 

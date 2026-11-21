@@ -2,8 +2,8 @@
   "metadata": {
     "title": "AI Tools & Products Timeline",
     "description": "Influential AI products, developer tools, agents and frameworks — the software people use to build with and work alongside AI models. Models themselves are listed in the models dataset.",
-    "last_updated": "2026-10-11",
-    "total_tools": 130,
+    "last_updated": "2026-11-21",
+    "total_tools": 140,
     "fields": [
       "id",
       "name",
@@ -18,7 +18,7 @@
       "key_features",
       "url"
     ],
-    "audit_status": "Focused 2026-10-11 update: added source-verified ChatGPT Intelligent UI rollout. Existing historical entries were not individually reverified in this pass."
+    "audit_status": "Focused 2026-11-21 update: added 10 source-verified product and developer-tool launches from 2026-10-08 to 2026-11-19. Existing historical entries were not individually reverified in this pass."
   },
   "tools": [
     {
@@ -2294,6 +2294,176 @@
         "Visual explanations"
       ],
       "url": "https://openai.com/index/gpt-6-for-everyone/"
+    },
+    {
+      "id": 131,
+      "name": "Gemini agent",
+      "company": "Google Cloud",
+      "release_date": "2026-10-08",
+      "open_source": false,
+      "license": "Proprietary",
+      "category": "Enterprise Agent Platform",
+      "group": "Agents & automation",
+      "description": "Universal agent for work announced at Gemini at Work 2026 that handles knowledge work, Q&A, content creation and coding from a single prompt box, using an organization's business context and connected systems and returning finished work into existing documents, inboxes and developer tools.",
+      "key_features": [
+        "Single agent for chat, tasks and coding",
+        "Automatic model selection per job",
+        "Built-in cost controls and enterprise governance"
+      ],
+      "url": "https://blog.google/innovation-and-ai/infrastructure-and-cloud/google-cloud/gemini-at-work/"
+    },
+    {
+      "id": 132,
+      "name": "Cursor Agent SDK",
+      "company": "Anysphere (Cursor)",
+      "release_date": "2026-10-20",
+      "open_source": false,
+      "license": "Proprietary",
+      "category": "Agent Development Framework",
+      "group": "Developer platforms",
+      "description": "Framework for defining agents as folders of code (instructions, tools, skills, MCP connections, channels), testing them with evals and deploying them to Cursor's infrastructure or your own. Generally available at launch.",
+      "key_features": [
+        "Agents as code with local dev playground",
+        "Evals and GitHub PR replay testing",
+        "Triggers from GitHub, GitLab, Bitbucket, Slack, webhooks and cron"
+      ],
+      "url": "https://cursor.com/changelog/agent-sdk"
+    },
+    {
+      "id": 133,
+      "name": "Claude Duet",
+      "company": "Anthropic",
+      "release_date": "2026-10-21",
+      "open_source": false,
+      "license": "Proprietary",
+      "category": "Proactive Personal Agent",
+      "group": "Agents & automation",
+      "description": "Standalone app (iOS, Android and claude.ai) where Claude works as a proactive agent: it sends a daily brief, monitors connected apps, completes assigned tasks on its own virtual machine and asks for approval before sending, paying, signing or deleting. Research preview by waitlist for US Pro, Max and Ultra subscribers.",
+      "key_features": [
+        "Daily brief and background monitoring",
+        "Runs tasks on its own cloud VM",
+        "Approval before sensitive actions"
+      ],
+      "url": "https://claude.com/blog/claude-duet"
+    },
+    {
+      "id": 134,
+      "name": "Runway App Studio",
+      "company": "Runway",
+      "release_date": "2026-10-26",
+      "open_source": false,
+      "license": "Proprietary",
+      "category": "No-code Creative App Builder",
+      "group": "Creative",
+      "description": "No-code builder that turns plain-language descriptions, Workflows or Agent sessions into shareable custom creative apps that generate images, video and audio with a team's Brand Kits and assets. Included in all paid Runway plans.",
+      "key_features": [
+        "Apps built from natural-language descriptions",
+        "Built-in remixable apps",
+        "Private, workspace or public sharing"
+      ],
+      "url": "https://runway.com/news/introducing-runway-app-studio"
+    },
+    {
+      "id": 135,
+      "name": "GitHub Copilot projects",
+      "company": "GitHub",
+      "release_date": "2026-10-28",
+      "open_source": false,
+      "license": "Proprietary",
+      "category": "Multi-agent Coding Orchestration",
+      "group": "Coding",
+      "description": "Announced at GitHub Universe 2026, Copilot projects runs agent work toward a goal across multiple repositories in managed, parallel sessions, available in the GitHub Copilot app. Launched alongside Copilot Fusion model routing, session continuity and Copilot automations.",
+      "key_features": [
+        "Goal-driven work across multiple repos",
+        "Managed parallel agent sessions",
+        "Session continuity across app, VS Code, CLI and web"
+      ],
+      "url": "https://github.blog/news-insights/company-news/github-universe-2026-evolving-every-layer-of-the-stack/"
+    },
+    {
+      "id": 136,
+      "name": "Perplexity Teammates",
+      "company": "Perplexity AI",
+      "release_date": "2026-11-04",
+      "open_source": false,
+      "license": "Proprietary",
+      "category": "Persistent Work Agents",
+      "group": "Agents & automation",
+      "description": "Persistent agents built on Perplexity Computer that own long-running projects: they plan and coordinate work, monitor for changes, join Slack channels and hand work to other teammates, each in its own isolated environment. Launched on the web for Max subscribers.",
+      "key_features": [
+        "Ongoing project ownership with memory",
+        "Proactive monitoring",
+        "Slack collaboration and teammate hand-offs"
+      ],
+      "url": "https://www.perplexity.ai/hub/blog/teammates-are-agents-for-complex-ongoing-work"
+    },
+    {
+      "id": 137,
+      "name": "Adobe Firefly Builder",
+      "company": "Adobe",
+      "release_date": "2026-11-10",
+      "open_source": false,
+      "license": "Proprietary",
+      "category": "AI Prototyping Tool",
+      "group": "Creative",
+      "description": "Firefly tool announced at Adobe MAX 2026 that turns natural-language ideas into interactive prototypes of websites, apps and presentations. Private beta by waitlist; launched alongside the Firefly Design workspace (beta) and Firefly Graph workflows (beta).",
+      "key_features": [
+        "Prompt-to-interactive prototype",
+        "Websites, apps and presentations",
+        "Part of the Firefly creative studio"
+      ],
+      "url": "https://news.adobe.com/news/2026/11/adobe-firefly-expands"
+    },
+    {
+      "id": 138,
+      "name": "Claude Meetings",
+      "company": "Anthropic",
+      "release_date": "2026-11-12",
+      "open_source": false,
+      "license": "Proprietary",
+      "category": "AI Meeting Participant",
+      "group": "Assistants & research",
+      "description": "Lets Claude join video calls as a visible participant that answers questions, writes notes and action items, uses connected tools and builds docs or whiteboards during the meeting, with a meeting page in claude.ai. Beta for Team and Enterprise plans, starting with Google Meet.",
+      "key_features": [
+        "Live in-call answers and artifacts",
+        "Notes, transcript and action items",
+        "Meeting pages shared with attendees"
+      ],
+      "url": "https://claude.com/resources/articles/claude-meetings"
+    },
+    {
+      "id": 139,
+      "name": "Devin Bots",
+      "company": "Cognition",
+      "release_date": "2026-11-17",
+      "open_source": false,
+      "license": "Proprietary",
+      "category": "Autonomous Engineering Manager Agent",
+      "group": "Coding",
+      "description": "Persistent agents with their own memory and tools that own engineering goals and lead teams of parallel Devin sessions, delegating work, evaluating results and routing decisions to a Needs You inbox. Available in Slack, iMessage and the Devin app.",
+      "key_features": [
+        "Owns outcomes, not task lists",
+        "Runs multiple Devin sessions in parallel",
+        "Configurable permissions and approvals"
+      ],
+      "url": "https://devin.ai/blog/introducing-devin-bots"
+    },
+    {
+      "id": 140,
+      "name": "LangSmith Tool Gateway",
+      "company": "LangChain",
+      "release_date": "2026-11-19",
+      "open_source": false,
+      "license": "Proprietary",
+      "category": "Agent Tool Gateway",
+      "group": "Developer platforms",
+      "description": "Managed layer on the LangSmith Agent Platform that routes agent tool calls through one URL, handling credentials, caller identity and access, enforcing policies such as deny rules and human approval, and tracing every call. Public beta for Plus and Enterprise plans.",
+      "key_features": [
+        "Centralized tool credentials and identity",
+        "Policies and human approval",
+        "Traces and audit for every tool call"
+      ],
+      "url": "https://langchain.com/blog/langsmith-tool-gateway"
     }
   ]
 }

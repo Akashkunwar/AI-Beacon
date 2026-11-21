@@ -2,8 +2,8 @@
   "metadata": {
     "title": "Research Papers That Shaped Modern AI",
     "description": "A curated list of influential AI research papers and technical reports, from AlexNet (2012) to today. Citation counts are rough Google Scholar snapshots and go stale quickly.",
-    "last_updated": "2026-10-11",
-    "total_papers": 99,
+    "last_updated": "2026-11-21",
+    "total_papers": 107,
     "fields": [
       "id",
       "title",
@@ -19,7 +19,7 @@
       "code_url",
       "citations"
     ],
-    "audit_status": "Focused 2026-10-11 update: added source-verified Diffusion Controller arXiv paper. Existing historical entries were not individually reverified in this pass."
+    "audit_status": "Focused 2026-11-21 update: added 8 source-verified papers and technical reports published 2026-09-22 to 2026-11-20. Existing historical entries were not individually reverified in this pass."
   },
   "papers": [
     {
@@ -2614,6 +2614,213 @@
       "paper_url": "https://deepmind.google/blog/alphagenome-atlas-a-predictive-map-of-every-possible-dna-letter-change-in-the-human-genome/",
       "code_url": null,
       "citations": 0
+    },
+    {
+      "id": 100,
+      "title": "Qwen3.8-Omni: Towards Native Omni-Modal Agents",
+      "authors": [
+        "Qwen Team"
+      ],
+      "institution": "Alibaba (Qwen Team)",
+      "publication_date": "2026-09-22",
+      "published_in": "arXiv",
+      "topic": "Omni-modal agentic models",
+      "category": "Models & reports",
+      "description": "Technical report for Qwen3.8-Omni-Flash, a natively omni-modal sparse mixture-of-experts model with a 1M-token context, trained to carry text and agentic skills across audio and video for long-horizon multimodal productivity tasks.",
+      "key_contributions": [
+        "Natively omni-modal MoE agent model built on Qwen3.8-Next",
+        "1M-token context window",
+        "Co-training recipe that preserves text ability while transferring agentic skills to audio and video",
+        "Open-source Qwen-MM-Plugins and Qwen-Live-Harness frameworks"
+      ],
+      "paper_url": "https://arxiv.org/abs/2609.25611",
+      "code_url": null,
+      "citations": null
+    },
+    {
+      "id": 101,
+      "title": "MiMo-V2.6: Scaling Reinforcement Learning Towards Self-Improvement",
+      "authors": [
+        "Xiaomi LLM-Core Team",
+        "Zongming Qiao",
+        "Ziyue Hua",
+        "Zirui Ou",
+        "Zihao Yue"
+      ],
+      "institution": "Xiaomi",
+      "publication_date": "2026-10-08",
+      "published_in": "arXiv",
+      "topic": "Large-scale reinforcement learning for omni-modal models",
+      "category": "Models & reports",
+      "description": "Technical report for Xiaomi's MiMo-V2.6 omni-modal model family, including the 1.02T-parameter MiMo-V2.6-Pro MoE, which scales reinforcement learning through larger asynchronous batches, more diverse environments and more grading compute.",
+      "key_contributions": [
+        "RL scaled across batch size, environment diversity (code, general, visual, cyber) and grading compute",
+        "Group-based agentic grading for long-horizon tasks",
+        "Frozen MoE router and layered defences against reward hacking for stable RL",
+        "Infrastructure for mixed-task agentic RL"
+      ],
+      "paper_url": "https://arxiv.org/abs/2610.11959",
+      "code_url": null,
+      "citations": null
+    },
+    {
+      "id": 102,
+      "title": "Automating ML for Science: Can Frontier Agents Climb Scientific Hills in the Wild?",
+      "authors": [
+        "Ming Zhong",
+        "Stacy Li",
+        "Nicholas Carlini",
+        "Matthew Jagielski"
+      ],
+      "institution": "Anthropic (Anthropic Fellows Program)",
+      "publication_date": "2026-10-20",
+      "published_in": "arXiv",
+      "topic": "AI research agents / scientific ML benchmarks",
+      "category": "Agents",
+      "description": "Introduces Agent4Sci, a long-horizon testbed of 20 scientific ML benchmarks in 11 domains, and finds frontier coding agents beat every published best model but mostly through generic engineering tricks rather than research-level insight.",
+      "key_contributions": [
+        "Agent4Sci testbed across 20 benchmarks in 11 scientific domains",
+        "Frontier agents improved the published state of the art on every benchmark",
+        "Identifies novelty miscalibration, under-use of resources and collapse into local sweeps as key limitations",
+        "Lightweight skills for ideation and experiment management roughly doubled Claude Opus's mean gain"
+      ],
+      "paper_url": "https://arxiv.org/abs/2610.28763",
+      "code_url": "https://github.com/maszhongming/agent4sci",
+      "citations": null
+    },
+    {
+      "id": 103,
+      "title": "The Hawking-Page transition at weak coupling",
+      "authors": [
+        "Anthropic"
+      ],
+      "institution": "Anthropic",
+      "publication_date": "2026-11-07",
+      "published_in": "Hexagon preprint (math-ph)",
+      "topic": "AI-generated theoretical physics / quantum gravity",
+      "category": "Science",
+      "description": "A primarily AI-generated preprint in which a Claude research model completes a three-loop calculation, posed in 2003, showing that the Hawking-Page black-hole transition in N=4 super Yang-Mills stays first order at weak coupling; one of two open physics problems Anthropic reported Claude solving.",
+      "key_contributions": [
+        "Three-loop computation of the quartic Polyakov-loop coefficient in N=4 super Yang-Mills",
+        "Shows a first-order transition just below the Hagedorn temperature at weak coupling",
+        "Saddle-point structure matches the corresponding AdS black-hole phases",
+        "Result produced by an internal Claude research model and checked by a physicist"
+      ],
+      "paper_url": "https://hexagonmath.org/2611.00175v1",
+      "code_url": null,
+      "citations": null
+    },
+    {
+      "id": 104,
+      "title": "AlphaProof Code: Verifying Signal's Security at the Machine-Code Level",
+      "authors": [
+        "Swarat Chaudhuri",
+        "Andrew Ferraiuolo",
+        "Anton Kovsharov",
+        "Tej Chajed",
+        "Sam Schlesinger",
+        "Karn Seth",
+        "Jonathan Katz",
+        "Charles Sutton",
+        "Pushmeet Kohli"
+      ],
+      "institution": "Google DeepMind and Google",
+      "publication_date": "2026-11-10",
+      "published_in": "Google DeepMind Research",
+      "topic": "AI formal verification / Lean",
+      "category": "Agents",
+      "description": "Introduces AlphaProof Code, a multi-agent framework that writes Lean specifications and machine-checked proofs, and uses it to prove key security properties of Signal's libsignal at the AArch64 machine-code level with about 6.5 million lines of Lean proof.",
+      "key_contributions": [
+        "Human-guided specification agent plus autonomous Lean prover agents",
+        "Formal semantics of AArch64 machine code",
+        "Proofs of forward secrecy, authentication and post-compromise security for PQXDH and the Triple Ratchet",
+        "First proofs linking protocol-level guarantees to the unmodified code of a widely used cryptographic implementation"
+      ],
+      "paper_url": "https://deepmind.google/documents/36/Formal_Verification_of_Signal_4.pdf",
+      "code_url": "https://google-deepmind.github.io/code-verification",
+      "citations": null
+    },
+    {
+      "id": 105,
+      "title": "AlphaGenome 2 predicts regulatory activity and variant effects across cell states",
+      "authors": [
+        "Adam Gayoso",
+        "Anne Mottram",
+        "Alexander Karollus",
+        "Guido Novati",
+        "Pavol Drotár",
+        "John Reid",
+        "Laetitia Meng-Papaxanthos",
+        "Adam Kosiorek"
+      ],
+      "institution": "Google DeepMind",
+      "publication_date": "2026-11-11",
+      "published_in": "bioRxiv",
+      "topic": "AI for Science / Genomics",
+      "category": "Science",
+      "description": "Presents AlphaGenome 2, a DNA sequence model conditioned on a tissue, cell type or cell state that predicts regulatory activity and variant effects per condition, roughly doubling recall of causal single-cell eQTLs at 90% precision over AlphaGenome 1.",
+      "key_contributions": [
+        "Condition-specific predictions from 1-Mb DNA input",
+        "Trained on human and mouse single-cell atlases plus bulk functional genomics",
+        "Infers the condition from gene expression to apply to new datasets without fine-tuning",
+        "Atlas of enhancer-gene links across hundreds of human cell types"
+      ],
+      "paper_url": "https://www.biorxiv.org/content/10.64898/2026.11.11.765857",
+      "code_url": null,
+      "citations": null
+    },
+    {
+      "id": 106,
+      "title": "Beam Model Technical Report",
+      "authors": [
+        "Reflection Team",
+        "Adam Abdulhamid",
+        "Osama Abuelsorour",
+        "Yasmin Alameddine",
+        "Carlo Alfano"
+      ],
+      "institution": "Reflection AI",
+      "publication_date": "2026-11-19",
+      "published_in": "arXiv",
+      "topic": "Open-weight frontier language model",
+      "category": "Models & reports",
+      "description": "Technical report for Beam, Reflection's first open-weight model: a 501.3B-total / 23.4B-active sparse MoE pretrained on 23.8T tokens for coding, reasoning and agentic work, with a 1M-token context.",
+      "key_contributions": [
+        "Sparse MoE with 501.3B total and 23.4B active parameters, pretrained on 23.8T tokens",
+        "Two-stage midtraining to reach a 1M-token context",
+        "Large asynchronous RL run on 10.5K GB300 GPUs with over 100M rollouts",
+        "FP8/NVFP4 serving and a 1.93B-parameter speculative-decoding drafter"
+      ],
+      "paper_url": "https://arxiv.org/abs/2611.26358",
+      "code_url": null,
+      "citations": null
+    },
+    {
+      "id": 107,
+      "title": "MedChemBench: Evaluating complex multimodal reasoning in medicinal chemistry",
+      "authors": [
+        "Jeremy Li",
+        "Andrew Ho",
+        "Suyash Shringarpure",
+        "Amelia Liu",
+        "Paul Humphries",
+        "Joy Jiao"
+      ],
+      "institution": "OpenAI",
+      "publication_date": "2026-11-20",
+      "published_in": "OpenAI Research",
+      "topic": "Scientific reasoning benchmark / drug discovery",
+      "category": "Evaluation",
+      "description": "Introduces MedChemBench, a retrospective multimodal benchmark of 99 medicinal-chemistry problems drawn from recent papers and patents that tests structure reconstruction, evidence-based explanation, compound selection and property prediction.",
+      "key_contributions": [
+        "99 problems from 117 papers and patents involving 761 molecular structures",
+        "Mix of deterministic molecular-graph grading and rubric-based grading",
+        "Evaluation of eleven frontier models across reasoning-effort settings",
+        "Finds models strong at structure reconstruction but weaker at compound selection and numerical prediction"
+      ],
+      "paper_url": "https://cdn.openai.com/pdf/09c4ec60-a32e-4652-837b-1811368a3bb0/medchembench-paper.pdf",
+      "code_url": null,
+      "citations": null
     }
   ]
 }
